@@ -1,0 +1,113 @@
+THE GENTLE MUSE — PHOTO TRIAGE SOP, RUN 4 OF 28
+
+New. Extends the Downloads Maintenance SOP to photos. Created 08/19/2026.
+Run 3 routed footage. Run 4 routes stills. Same engine, different enemy.
+
+TOOL: GM-Photo-Triage.ps1
+Companion to asset_scanner.py and GM-Video-Triage.ps1. Not a replacement.
+
+WHY PHOTOS ARE NOT VIDEO
+Run 3's rules break on stills. 4 things change:
+1. Volume. A Takeout export holds thousands of photos, not dozens of clips.
+   Individual thumbnails don't scale. Contact sheets do.
+2. The enemy is the burst, not the copy. SHA-256 catches byte-identical files.
+   It does nothing about 8 nearly identical shots fired in 2 seconds, which is
+   where most of the waste actually lives.
+3. Takeout ships sidecars. Every photo can carry a .json holding the real
+   capture time and GPS. File dates lie after an export. The sidecar doesn't.
+4. Screenshots pretend to be content. They're the single largest junk category
+   in a Downloads folder and they're invisible to a size or duplicate check.
+
+THE CONSTRAINT
+Thousands of files, and Amanda isn't scrolling them. Every photo is read
+locally. Only survivors get pictured, tiled 36 to a sheet. The CUT pile never
+gets a thumbnail because it doesn't need eyes. A 3,000 photo library comes
+back as roughly 40 sheets and one CSV.
+
+THE LOOP
+1. Run propose-only. Nothing moves.
+   .\GM-Photo-Triage.ps1 -Root "D:\Takeout\Google Photos"
+2. Read SUMMARY.txt. Check the GPS count first, before anything else.
+3. Send the contact-sheets folder and the CSV to Claude.
+4. Claude returns the visual pass per row, KEEP or CUT or REVIEW.
+5. Amanda approves the CUT list. Nothing gets acted on without this step.
+6. Re-run with -Execute. Flagged files move to _QUARANTINE.
+7. Approved KEEP rows paste into the Master Asset Index. Columns already match.
+8. Log the run. Update the run counter to 4 of 28.
+
+VERDICT RULES
+CUT     exact SHA-256 duplicate, burst near-duplicate, screenshot,
+        under 30 KB, or under 1 megapixel.
+REVIEW  carries GPS, landscape, or anything the rules can't call.
+KEEP    vertical or square, over 1 MP, and a Takeout edited version.
+Machine verdicts are proposals. Amanda's approval is the gate.
+
+BURST LOGIC
+Photos sharing a capture minute and identical dimensions are one burst.
+The largest file in the group wins, because least compressed usually means
+sharpest. Everything else in that group is CUT and tagged with its group ID,
+so a wrong call is reversible by filtering one column.
+This is the rule that reclaims the most space. Watch it on the first run.
+
+TAKEOUT SPECIFICS
+Sidecar lookup tries 3 names, in order:
+  <file>.json, <file>.supplemental-metadata.json, <basename>.json
+photoTakenTime beats the filesystem date. geoData sets the privacy flag.
+Files ending -edited or (edited) are Google Photos edits. They're kept as
+deliberate work, and the original is left alone rather than auto-cut. Amanda
+decides whether the pair collapses.
+
+PRIVACY GATE
+Any photo whose sidecar carries a real latitude or longitude is flagged GPS
+and forced to REVIEW, never auto-KEEP. Location data survives a re-upload and
+publishes the house. Strip it before posting. This gate exists because the
+personal lanes, Personal and CGY and OF, are exactly the photos most likely
+to be geotagged and least intended for a public feed.
+Sensitive or personal photos are held, never auto-routed. Same as Run 1.
+
+LANE INFERENCE
+Same lanes as the Master Asset Index, read from path and filename.
+princesa, cesa, golden years -> CGY   |  kersh, vending -> KV
+fresh spin, laundry -> FS             |  of, onlyfans -> OF
+family, memories, personal -> Personal|  everything else -> GM
+Override with -Lane CGY on a known folder. Cesa photo batches should use it.
+
+OUTPUT
+photo-triage.csv     Master Asset Index columns, plus Verdict, Why,
+                     Resolution, Megapixels, TakenDate, BurstGroup,
+                     Privacy, SizeKB, FullPath, SHA256.
+contact-sheets\      6x6 grids, 240px cells, KEEP and REVIEW only.
+SUMMARY.txt          counts, GPS count, reclaimable MB.
+
+SAFETY
+Propose-only is the default, same house rule as asset_scanner.py.
+-Execute moves files to _QUARANTINE. It never deletes them.
+The only delete command in the script targets its own temp scratch folder,
+never a photo. Verified before release.
+
+LIMITS, STATED PLAINLY
+Dimensions need ffmpeg. Without it, size and burst rules still run, but the
+orientation and megapixel rules go quiet. winget install Gyan.FFmpeg
+Burst detection groups on capture minute plus dimensions. It's a strong proxy,
+not true visual similarity. 2 unrelated photos shot the same minute at the
+same size will group. That's why the group ID is in the CSV.
+HEIC depends on the local ffmpeg build. If HEIC dimensions come back blank,
+that's the build, not the file.
+The script is syntax-validated and confirmed to hold no delete command against
+user files. It hasn't been executed on a Windows machine yet. First run is the
+real test. Send the error if it throws.
+
+NOT INCLUDED
+Video. That's Run 3, already written.
+Blur and exposure scoring. Needs a real image library, and the burst rule
+already removes most of what blur scoring would catch. Revisit if the first
+run shows soft keepers surviving.
+Face grouping. Out of scope, and not something to automate on personal lanes.
+Editing of any kind. This run sorts. It doesn't touch pixels.
+
+THE REAL CEILING
+Run 3 asks whether the video bottleneck is sorting or filming. Run 4 answers
+a different question: how much usable brand imagery already exists. The Master
+Asset Index currently lists roughly 12 content photos for GM. If the local
+library holds 200 more, the carousel and Pinterest lanes stop being blocked on
+new shoots. If it doesn't, that's the shoot list, and knowing it is the win.

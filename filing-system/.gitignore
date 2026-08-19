@@ -1,0 +1,10 @@
+# Local sensitive-term list. Institution names never belong in a public repo.
+scripts/sensitive-extra.txt
+
+# Triage outputs, if anyone ever runs these from inside the repo
+GM-*-Triage/
+_QUARANTINE/
+*-triage*.csv
+SUMMARY.txt
+thumbs/
+contact-sheets/

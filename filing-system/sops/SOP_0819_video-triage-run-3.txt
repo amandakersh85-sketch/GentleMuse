@@ -1,0 +1,92 @@
+THE GENTLE MUSE — VIDEO TRIAGE SOP, RUN 3 OF 28
+
+New. Extends the Downloads Maintenance SOP to video. Created 08/19/2026.
+Runs 1 and 2 routed documents and statements. Run 3 routes footage.
+
+TOOL: GM-Video-Triage.ps1
+Lives with the filing engine. Companion to asset_scanner.py, not a replacement.
+
+WHY THIS RUN EXISTS
+asset_scanner.py already does SHA-256 duplicate detection and propose-only
+filing. It can't read a video. It can't tell you a clip is 0.8 seconds of
+floor, shot sideways, or 22 minutes that needs cutting. Run 3 adds the video
+layer and hands the filing decision back to the engine that already works.
+
+THE CONSTRAINT
+The footage library is too big to upload and too big to watch. Amanda is not
+reviewing 50 clips by hand. The machine reads every file locally, ships back a
+few MB of thumbnails and a CSV, and Claude makes the keep or cut call from
+that. Nothing large ever leaves the machine.
+
+THE LOOP
+1. Run propose-only. Nothing moves.
+   .\GM-Video-Triage.ps1 -Root "D:\Takeout"
+2. Read SUMMARY.txt. Confirm the counts look sane before anything else.
+3. Zip the output folder and send it to Claude. It's small, it's thumbnails
+   and a CSV, not video.
+4. Claude returns the visual pass, KEEP or CUT or REVIEW, per row.
+5. Amanda approves the CUT list. Nothing gets acted on without this step.
+6. Re-run with -Execute. Flagged files move to _QUARANTINE.
+   .\GM-Video-Triage.ps1 -Root "D:\Takeout" -Execute
+7. Approved KEEP rows paste into the Master Asset Index. Columns already match.
+8. Log the run. Update the run counter to 3 of 28.
+
+VERDICT RULES
+CUT     exact SHA-256 duplicate, under 200 KB, or under 1.5 seconds.
+REVIEW  over 15 minutes, landscape, or anything the rules can't call.
+KEEP    vertical, between 5 seconds and 3 minutes, reel native.
+Machine verdicts are proposals. Amanda's approval is the gate.
+
+LANE INFERENCE
+Reads the path and filename, same lanes as the Master Asset Index.
+princesa, cesa, golden years  -> CGY
+kersh, vending                -> KV
+fresh spin, laundry           -> FS
+of, onlyfans                  -> OF
+family, memories, personal    -> Personal
+everything else               -> GM
+Override with -Lane GM when a folder is known and mixed.
+
+STATUS INFERENCE
+VID_, PXL_, IMG_, MVI_, DSC_, GX, GOPR, or a date-style filename -> Raw.
+Everything else -> Review. Matches how the index already reads footage.
+
+OUTPUT
+video-triage.csv    Master Asset Index columns, plus Verdict, Why, Duration,
+                    Resolution, Orientation, SizeMB, Thumb, FullPath, SHA256.
+thumbs\             1 frame per file, 320px, pulled at 10 percent in.
+SUMMARY.txt         counts and reclaimable MB.
+
+SAFETY
+Propose-only is the default, same house rule as asset_scanner.py.
+-Execute moves files. It never deletes them. There's no delete command in the
+script at all. _QUARANTINE is a holding folder Amanda empties herself.
+Sensitive or personal footage is held, never auto-routed. Same as Run 1.
+
+ALREADY DONE, DRIVE SIDE, 08/19/2026
+15 duplicate videos trashed from Google Drive, about 151 MB.
+11 loose Avatar Video.mp4 copies, 1 Avatar IV Video.mp4, 1 Quick Avatar
+Video.mp4, 2 extra Maya Angelo copies. Every named keeper intact.
+Matched on exact byte size plus the 06/22 to 06/23 re-save pattern, not a
+content hash. Drive doesn't expose hashes. Recoverable in Trash for 30 days.
+Drive is done. Run 3 is the local side.
+
+LIMITS, STATED PLAINLY
+Durations and thumbnails need ffmpeg. Without it the run still works and says
+so. Install with: winget install Gyan.FFmpeg
+Byte-size matching on Drive is strong evidence, not proof. Local runs use real
+SHA-256, so the local pass is the stricter one.
+The script is validated for syntax and confirmed to hold no delete commands.
+It has not been executed on a Windows machine yet. First run is the real test.
+Send the error if it throws.
+
+NOT INCLUDED
+Photos. Run 4 territory, separate rules, different verdict logic.
+Re-encoding, trimming, or any edit. This run sorts. It doesn't touch pixels.
+Cloud footage. Drive was handled separately and is finished.
+
+THE REAL CEILING
+Only about 5 clips of real Amanda footage sit in Drive. The rest is avatar
+renders and finished pieces. If the local library is the same shape, the
+bottleneck isn't sorting, it's filming. Run 3 tells us which one it is.
+That answer is the actual deliverable.

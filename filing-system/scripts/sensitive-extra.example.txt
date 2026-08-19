@@ -1,0 +1,10 @@
+# Copy this file to sensitive-extra.txt and add YOUR institutions.
+# sensitive-extra.txt is gitignored, so these never reach the public repo.
+# 1 term per line. Matching is case-insensitive and literal.
+#
+# Examples of what belongs here:
+# your-bank-name
+# your-credit-union
+# your-insurance-carrier
+# your-payroll-provider
+# your-clinic-or-doctor

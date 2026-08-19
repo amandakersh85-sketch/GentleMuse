@@ -1,0 +1,132 @@
+THE GENTLE MUSE — DOCUMENT TRIAGE SOP, RUN 5 OF 28
+
+New. Extends the Downloads Maintenance SOP to documents. Created 08/19/2026.
+Run 3 routed footage. Run 4 routed stills. Run 5 routes paper.
+
+TOOL: GM-Doc-Triage.ps1
+Third module after GM-Video-Triage.ps1 and GM-Photo-Triage.ps1.
+Companion to asset_scanner.py. Not a replacement.
+
+WHY DOCUMENTS INVERT THE MODEL
+Runs 3 and 4 send Claude a picture and ask for a call. Run 5 can't.
+With a photo the image is the evidence and it's safe to share.
+With a document the CONTENT is the sensitive part. A bank statement can't be
+thumbnailed and sent for a second opinion. So Run 5 flips the flow: the
+machine classifies locally, and only a redacted, sensitive-free report ever
+leaves the desk.
+3 more things change:
+1. Versions, not duplicates. v1, v2, final, FINAL_v2, (1), copy. SHA-256 sees
+   4 different files. They're 1 document with 4 lives.
+2. Newest wins, not largest. Opposite of the Run 4 burst rule. A bigger file
+   is a sharper photo. A bigger document is usually just an older one with
+   more junk in it.
+3. Retention is real. A 2023 bank statement isn't clutter. It's a record with
+   a holding period. That's ARCHIVE, never CUT.
+
+THE ENTITY PROBLEM
+3 separate LLCs run through this Downloads folder. The Gentle Muse, Kersh
+Vending Services, Fresh Spin Laundry. Plus CGY and personal.
+Misfiling a photo is untidy. Misfiling a tax document between 2 LLCs is an
+accounting problem with a real cost. Every row carries an entity, and anything
+the rules can't place lands in UNSORTED rather than guessing GM.
+
+THE HOLD VERDICT
+New in Run 5, and it outranks every other rule. Any file matching bank, tax,
+EIN, SSN, payroll, insurance, medical, ID, mortgage, lease, or loan is HOLD.
+HOLD means: not moved, not renamed, not archived, not sent, not automated.
+It's excluded from the shareable report entirely. Amanda routes those by hand.
+This is Run 1's "held all sensitive files" rule, written down and enforced by
+the tool instead of remembered.
+
+LOCAL SENSITIVE TERMS
+The generic rules catch statement, bank, tax, insurance, medical and the rest.
+They can't catch a file named after a specific institution.
+Put those in sensitive-extra.txt next to the script, 1 term per line. Bank
+names, insurers, payroll providers, clinics. That file is gitignored and never
+reaches the repo, which is public. Copy sensitive-extra.example.txt to start.
+Without it the script still runs and says so on startup.
+
+THE LOOP
+1. Run propose-only. Nothing moves.
+   .\GM-Doc-Triage.ps1 -Root "$env:USERPROFILE\Downloads"
+2. Read SUMMARY.txt. Check the HOLD count first, before anything else.
+3. Send doc-triage-SHAREABLE.csv to Claude. Only that file.
+   Never send doc-triage-LOCAL-ONLY.csv. It holds full names and paths.
+4. Claude returns routing calls per row, and a Hub destination for FILE rows.
+5. Amanda approves. Nothing gets acted on without this step.
+6. Re-run with -Execute. CUT files move to _QUARANTINE.
+7. FILE and ARCHIVE rows route to the Hub by hand or by asset_scanner.py,
+   using the naming convention Run 1 established for statements.
+8. Log the run. Update the run counter to 5 of 28.
+
+VERDICT RULES
+HOLD     sensitive. Outranks everything. Never automated.
+CUT      installer, exact duplicate, older version in a family, under 5 KB.
+ARCHIVE  aged receipt or record past the current year. Kept, not deleted.
+FILE     entity document or current receipt. Belongs in the Hub.
+REVIEW   anything the rules can't call.
+Machine verdicts are proposals. Amanda's approval is the gate.
+
+VERSION FAMILY LOGIC
+Filenames are normalized before grouping. Stripped: (1), (2), copy, final,
+draft, rev, revised, updated, new, latest, v1, v2, v1.2, and trailing dates.
+Same normalized name plus same extension equals 1 family. Newest modified date
+wins. Everything older is CUT and tagged with its family name, so a wrong call
+is reversible by filtering one column.
+
+THE 2 REPORTS
+doc-triage-LOCAL-ONLY.csv   Full names, full paths, HOLD rows included.
+                            This file never leaves the machine. Not to Claude,
+                            not to Drive, not to email.
+doc-triage-SHAREABLE.csv    HOLD rows stripped out. Digit runs of 4 or more
+                            masked. Account, routing, EIN and SSN patterns
+                            masked. This is the only one that gets sent.
+Redaction is on by default. -NoRedact exists for local use and should stay off.
+
+INSTALLERS AND BUNDLES
+.exe, .msi, .dmg, .pkg, .appx and .deb are CUT on sight. They're
+re-downloadable and they're the heaviest junk in a Downloads folder.
+.zip, .rar, .7z and .tar are classified but not auto-cut. A zip can hold
+anything, including records.
+
+LANE INFERENCE
+gentle muse, gm, payhip, manychat, blotato -> GM
+kersh, vending, kv                         -> KV
+fresh spin, laundry, fs                    -> FS
+princesa, cesa, golden years               -> CGY
+family, memories, personal, resume         -> Personal
+no match                                   -> UNSORTED
+UNSORTED is deliberate. A wrong entity guess is worse than no guess.
+
+SAFETY
+Propose-only is the default, same house rule as asset_scanner.py.
+-Execute moves CUT files to _QUARANTINE. It never deletes them.
+There's no delete command anywhere in this script. Verified before release.
+HOLD files are never moved, even in -Execute mode.
+
+LIMITS, STATED PLAINLY
+Classification reads filenames and folder paths, not file contents. A bank
+statement named "scan_004.pdf" won't be caught. Review the UNSORTED and REVIEW
+piles by eye before running -Execute the first time.
+The redaction masks digits and labeled patterns. It isn't a guarantee that a
+filename holds nothing private. Read the shareable CSV once before sending it.
+Version normalization is a filename heuristic. 2 genuinely different documents
+with similar names will group. That's why the family name is in the CSV.
+The script is syntax-validated and confirmed to hold no delete command. It
+hasn't been executed on a Windows machine yet. First run is the real test.
+
+NOT INCLUDED
+Video and photos. Runs 3 and 4, already written.
+Content reading, OCR, or text extraction. Deliberate. Contents stay unread so
+nothing sensitive can leak into a report by accident.
+Automatic Hub routing. asset_scanner.py already owns filing. Run 5 decides
+what deserves filing. It doesn't do the filing.
+Shredding or secure delete. Nothing here deletes anything.
+
+THE REAL CEILING
+Run 1 halved the Downloads folder by hand and filed 43 statements. Run 2
+routed roughly 150 files. Run 5 is the version that doesn't need Amanda to
+look at any of it first, except the HOLD pile, which is exactly the pile that
+should always get her eyes. If the HOLD count comes back small, the folder was
+never the risk. If it comes back large, that's the finding, and it's worth
+more than the megabytes.
