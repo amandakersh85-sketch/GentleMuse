@@ -72,18 +72,26 @@ deliverability, adds friction. Worth watching; not changing without your say-so.
 
 ---
 
-## Decisions made (2026-08-20) and status
+## Executed (2026-08-20)
 
-- [x] **Welcome email:** CREATED as automation "Consider This — Welcome (new subscribers)"
-      (id 196338050950759852). Trigger: joins Consider This group.
-      **Action needed from Amanda:** open it in the dashboard, confirm the email design in the
-      visual editor, and click Activate. The API leaves new automations inactive.
+- [x] **Invite email SENT.** Campaign "Consider This — Launch Invite" delivered to all 9
+      existing subscribers (100% delivery). Drives them to the signup link.
+- [x] **9 launch posts SCHEDULED** via Blotato (America/Chicago times):
+      - Post 1 (proof list): Thu Aug 20, 6:00 PM, on X + Facebook + LinkedIn
+      - Post 2 (towels): Sat Aug 22, 10:00 AM, on X + Facebook + LinkedIn
+      - Post 3 (invite): Mon Aug 25, 6:00 PM, on X + Facebook + LinkedIn
+      (X versions are shortened to fit the 280-char limit. Editable/cancelable in Blotato.)
+- [x] **Welcome email BUILT** as automation "Consider This — Welcome" (id 196338050950759852).
+      Copy is in place. **Needs Amanda: confirm design + click Activate** at
       https://dashboard.mailerlite.com/automations/196338050950759852
-- [x] **Invite to existing subscribers:** chose "send a want in invite." Draft in
-      `invite-email.md`. Awaiting Amanda's approval to send.
-- [x] **Launch posts:** chose "schedule them for me." Content graded and finalized. X,
-      Facebook, and LinkedIn can go as text + link. Instagram and TikTok need a visual
-      (record from the scripts, or generate a launch graphic). Schedule proposed, awaiting go.
+- [x] **Launch graphic CREATED**: `consider-this-launch.png` (1080x1350) for Instagram/Facebook.
+
+## Amanda's remaining 2-minute actions
+
+1. Put the signup link in your IG/TikTok bio and link-in-bio.
+2. Activate the welcome automation (link above).
+3. Post `consider-this-launch.png` to Instagram (feed or Story). TikTok: record a Reel
+   from the Post 1 script when you have a minute.
 
 ---
 
