@@ -72,17 +72,24 @@ deliverability, adds friction. Worth watching; not changing without your say-so.
 
 ---
 
-## What needs your yes/no (I won't publish or email anyone without it)
+## Decisions made (2026-08-20) and status
 
-- [ ] Schedule the launch posts (I can queue them via Blotato/Metricool) or hand you drafts to post
-- [ ] Install the welcome email as an automation
-- [ ] Broaden who gets the newsletter (which option from finding 1)
-- [ ] Draft the "want in?" invite email to your existing 8 subscribers
+- [x] **Welcome email:** CREATED as automation "Consider This — Welcome (new subscribers)"
+      (id 196338050950759852). Trigger: joins Consider This group.
+      **Action needed from Amanda:** open it in the dashboard, confirm the email design in the
+      visual editor, and click Activate. The API leaves new automations inactive.
+      https://dashboard.mailerlite.com/automations/196338050950759852
+- [x] **Invite to existing subscribers:** chose "send a want in invite." Draft in
+      `invite-email.md`. Awaiting Amanda's approval to send.
+- [x] **Launch posts:** chose "schedule them for me." Content graded and finalized. X,
+      Facebook, and LinkedIn can go as text + link. Instagram and TikTok need a visual
+      (record from the scripts, or generate a launch graphic). Schedule proposed, awaiting go.
 
 ---
 
 ## Files in this kit
 
 - `STRATEGY.md` — this file
-- `launch-content.md` — ready-to-post launch batch (graded to Amanda's voice)
-- `welcome-email.md` — welcome email draft for new sign-ups
+- `launch-content.md` — launch batch, graded 8+/10 to Amanda's voice
+- `welcome-email.md` — welcome email (now built as an automation, pending activation)
+- `invite-email.md` — "want in?" invite to existing subscribers (pending send approval)

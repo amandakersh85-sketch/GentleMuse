@@ -33,7 +33,7 @@ Your pillow has an expiration date.
 
 I write 1 of these a week. It's called Consider This. 1 overlooked thing in your home, what's actually going on, and whether it's worth 2 minutes of your time. No 40-step routine. No pressure to buy anything.
 
-First issue goes out tomorrow. Link to get it is in my bio.
+The first issue is out this week. Link to get it is in my bio.
 
 **CTA on screen (end card):** Free. 1 email a week. Link in bio.
 
@@ -49,7 +49,7 @@ Most of what we blame on age is buildup. Softener on towels. Scale on the shower
 
 That's the whole idea behind my new newsletter, Consider This. Every week I pick 1 thing in your home you've stopped noticing and tell you what's really happening and the fix. Short. Specific. Free.
 
-Link's in my bio. First issue lands tomorrow.
+Link's in my bio. The first issue is out this week.
 
 **CTA on screen:** Consider This. Free, weekly. Link in bio.
 
@@ -65,7 +65,7 @@ It's called Consider This. 1 thing in your home per week (the washer gasket, the
 
 No hype. No upsell. You can leave any time and I won't take it personally.
 
-Link's in my bio to get it. First issue is tomorrow.
+Link's in my bio to get it. The first issue is out this week.
 
 **CTA on screen:** Free. Weekly. Link in bio.
 
@@ -74,7 +74,7 @@ Link's in my bio to get it. First issue is tomorrow.
 ## Story sequence (3 frames, post today)
 
 1. "New: a weekly email about the stuff in your home you've stopped noticing."
-2. "First issue goes out tomorrow. The microwave that earned its counter space."
+2. "The first issue is out this week: the microwave that earned its counter space."
 3. "Free. 1 a week. Tap to get it." + link sticker
 
 ---
