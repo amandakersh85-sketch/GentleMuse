@@ -69,18 +69,24 @@ read than the clip runs, so it loops. 8 concepts, each mapped to footage:
    Text: "You don't need a new life. You need 20 quiet minutes and a shorter
    list. Comment RESET and I'll send you mine."
 
-## 4. Voiceover candidates (script first, then HeyGen VO over b-roll)
+## 4. Voiceover candidates (Remotion b-roll + ElevenLabs voice clone via HeyGen)
+
+The VO pipeline, per Amanda 08/21: Remotion cuts the b-roll from her raw
+footage, Claude writes the script, the rendered b-roll uploads into HeyGen as
+the video input, and HeyGen lays her existing ElevenLabs voice clone over it.
+Her real footage, her own voice, zero recording time. Candidates:
 
 1. **"The slow build" VO** over walking/Cesa/kitchen b-roll montage (30s).
-   Script drafted on request; core line: "I build this after my shift, at the
-   kitchen table, with a 19 year old dog at my feet."
+   Core line: "I build this after my shift, at the kitchen table, with a 19
+   year old dog at my feet."
 2. **Target challenge VOs** over tomorrow's raw Target footage: one script
    per challenge submission, product named out loud AND linked in caption.
 3. **Reset Guide VO** over sink/list/skincare b-roll: the 3-step reset spoken
    calm and flat, CTA comment RESET.
-4. **Remixes of the HeyGen library**: strip the audio scripts from the June
-   talking heads, re-record as VO over real b-roll so the same 20 ideas ship
-   again without looking recycled.
+4. **Script salvage from the June HeyGen library**: the 20 scripts in those
+   old talking heads are still good ideas. Reuse the WORDS only, as voice
+   clone VO over fresh real b-roll. The old HeyGen avatar videos themselves
+   do not ship.
 
 ## 5. Blueprint reel clone concepts (viral format, honest content)
 

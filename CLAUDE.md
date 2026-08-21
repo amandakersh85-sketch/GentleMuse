@@ -49,8 +49,12 @@ storefront link. The heyday phone case TikTok from the same day did it right
   designed on-screen text). The retention trick: a 7 second clip whose text
   takes about 10 seconds to read earns rewatches and boosts views. Sprinkle
   these between talking pieces.
-- Use voiceovers deliberately. Some clips should ship as b-roll + scripted VO
-  (HeyGen or recorded). Every VO candidate needs a written script first.
+- Use voiceovers deliberately. The VO pipeline is: Remotion cuts the b-roll
+  from Amanda's raw footage, Claude writes the script, the rendered b-roll is
+  uploaded into HeyGen as the video input, and HeyGen applies Amanda's
+  existing ElevenLabs voice clone to read the script over that footage. Her
+  real footage, her own cloned voice, zero on-camera or recording time. Every
+  VO candidate needs a written script first, graded before render.
 - Strategic goal: keep short-form across platforms consistent and high quality
   with minimal Amanda time, so her hours go to long-form YouTube for watch
   time. The camera-roll/Remotion pipeline plus the reel-blueprint clone skill
