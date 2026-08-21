@@ -38,6 +38,24 @@ storefront link. The heyday phone case TikTok from the same day did it right
 - The Instagram 500-follower experiment (Aug 20-23, 2026) exists to unlock a
   Club Target opportunity on IG.
 
+## Video doctrine (locked in 08/21/2026, from Amanda directly)
+
+- NO fade-from-black openers. Ever. The first frame is the thumbnail and the
+  hook. Every cut opens on a visual hook: motion already happening, a face, a
+  product in hand, text already on screen. Amanda films visual hooks into her
+  raw footage on purpose; when cutting clips (Remotion or HyperFrames), scan
+  her raw clips and open on the strongest visual hook frame.
+- Mix in short b-roll pieces with text on screen (NOT captions/subtitles;
+  designed on-screen text). The retention trick: a 7 second clip whose text
+  takes about 10 seconds to read earns rewatches and boosts views. Sprinkle
+  these between talking pieces.
+- Use voiceovers deliberately. Some clips should ship as b-roll + scripted VO
+  (HeyGen or recorded). Every VO candidate needs a written script first.
+- Strategic goal: keep short-form across platforms consistent and high quality
+  with minimal Amanda time, so her hours go to long-form YouTube for watch
+  time. The camera-roll/Remotion pipeline plus the reel-blueprint clone skill
+  are the engines for that.
+
 ## Voice rules (enforced by post-grader)
 
 No em dashes. Digits, not spelled-out numbers. Contractions always. Warm,
