@@ -55,6 +55,20 @@ storefront link. The heyday phone case TikTok from the same day did it right
   existing ElevenLabs voice clone to read the script over that footage. Her
   real footage, her own cloned voice, zero on-camera or recording time. Every
   VO candidate needs a written script first, graded before render.
+- VO is a per-clip decision, never a default. Some clips take the voice clone
+  VO, some take trending audio from the Meta sound library, some are pure
+  text-on-screen. The portfolio ships as a balanced mix of formats, not 1
+  format repeated.
+- The data decides what gets reproduced. After each data scrub, read the
+  metrics (views, retention, saves, follows per post), make more of what
+  works, and cut or retool what doesn't. If the Remotion cuts aren't earning
+  views, switch routes. Nothing is precious; numbers outrank format.
+- The blueprint clone library is a standing production input: saved social
+  videos already broken down into hook type, structure, pacing, and text
+  placement. Production pulls a proven template from that library and pours
+  Amanda's footage, voice, and content into it. The reel-blueprint skill adds
+  new teardowns to the library. 2 feeds into every batch: her raw footage and
+  the template library. Metrics decide which templates get reused.
 - Strategic goal: keep short-form across platforms consistent and high quality
   with minimal Amanda time, so her hours go to long-form YouTube for watch
   time. The camera-roll/Remotion pipeline plus the reel-blueprint clone skill
