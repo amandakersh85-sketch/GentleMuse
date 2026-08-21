@@ -78,10 +78,20 @@ handled.
   invite she received.
 - JAT welcome automation BUILT (196381310295475426), needs Amanda's activation.
 
+**Loaded and scheduled (Amanda approved 2026-08-21):** all 5 v3 issues are in
+MailerLite, status ready, sending to the Just Another Tuesday group at 7:00 each Tuesday:
+- #001 He Couldn't Prove He Wrote It — Aug 25 (196381563274921031)
+- #002 My Robots Took 2 Mondays Off — Sep 1 (196381581785433178)
+- #003 The Wix Ceiling — Sep 8 (196381600378783573)
+- #004 Still My Best Post Ever — Sep 15 (196381630673192538)
+- #005 Be Bad On Purpose — Sep 22 (196381652112377183)
+Copy is verbatim from the v3 Drive doc, internal notes stripped, sabrina.dev linked in
+#003. One week earlier than the doc's September dates, which keeps the wrappers fresher.
+Pre-send verification reminders armed: Sep 7 (Sabrina subscriber phrasing for #003,
+wrapper glance for #004) and Sep 18 (Anthropic course count for #005). Each campaign
+stays editable in the dashboard until its send morning.
+
 **Still open:**
-- Load + schedule issues 1-5 from the v3 Drive doc. Amanda's call. Proposed: Issue 1
-  Tue Aug 25, weekly after. Re-verify before send: Anthropic course count (Issue 5),
-  Sabrina subscriber phrasing (Issue 3), whether to name AI & Becoming (Issue 2).
 - The dual popup (195832725497709843) is inactive AND feeds the wrong group (Gentle
   Muse Subscribers, not the 2 newsletter groups). Fix group assignment in the dashboard
   before ever activating it.
