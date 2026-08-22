@@ -50,3 +50,50 @@ TikTok app directly).
 - Weekend batch already leans Cesa + honesty + reset (matches the data).
 - Opener doctrine locked: no fade-from-black, visual hook first frame.
 - Next scrub: Friday 9:30 PM CT (automated).
+
+## Scrub 2 — Friday 08/21, 9:30 PM CT (automated)
+
+**Follower count: 80 at end of Thursday per Metricool sync (started Thursday
+at 62, so +18 on launch day; +38 vs Tuesday's 42).** Friday's count not yet
+synced; Amanda's live number pending at the Saturday 9 AM check-in. The
+pending Sat/Sun experiment captions still say "Right now: 66" and need the
+fresh number tomorrow morning (check-in already scheduled).
+
+### Per-post, last 48h (views / avg watch where available)
+
+| Post | Format | Views | Avg watch |
+|---|---|---|---|
+| Car reel "reading every comment" (FB, Thu) | honesty talking | 416 | n/a |
+| "Almost forgot to record" (FB, Thu night) | honesty talking | 201 | n/a |
+| Day 53 (FB) | Remotion/HeyGen cut | 171 | n/a |
+| "Almost forgot to record" (IG) | honesty talking | 89 | 4.3s |
+| heyday phone case (TikTok, Club Target) | product, SKU link | 78 | n/a |
+| Car reel (IG) | honesty talking | 49 | 3.5s |
+| FlavCity smoothie (TikTok, Club Target) | product, storefront link | 46 | n/a |
+| Day 53 (TikTok / IG) | Remotion/HeyGen cut | 45 / 38 | — / 2.8s |
+| Consider This promo (IG / TikTok / FB) | promo | 37 / 9 / 0 | 1.6s |
+| "5 things in your house" (FB text) | text post | 6 | n/a |
+
+Not tracked by Blotato: Friday's 2 experiment reels (Metricool-published;
+Metricool per-post sync still lagging).
+
+### What the numbers say (Day 2 read)
+
+1. **The campaign is working where it counts: followers.** +18 on day 1 is
+   the best day on record. The experiment framing converts.
+2. **Facebook is quietly outperforming IG on raw views** for the same
+   content (416 vs 49 on the identical car reel). IG distribution is the
+   bottleneck, which is exactly what the follower push addresses.
+3. **Product-link evidence:** heyday (specific SKU link, named out loud)
+   outperformed FlavCity (storefront link only) 78 to 46 views with more
+   engagement. The hard rule earns its keep in the data.
+4. **Remotion/HeyGen cuts and promo stay weak** (1.6-2.8s watch). Confirms
+   scrub 1: no more fade-in cuts; promo stays rare.
+
+### Action for Saturday
+
+- 9 AM check-in gets the live count and updates both pending experiment
+  captions (they still read 66).
+- Cesa reel confirm tap at 10:30 AM. Cesa remains the priority format.
+- Laptop session cut list should weight: Cesa, honesty talking pieces,
+  product reels with SKU links. Deprioritize promo entirely.
