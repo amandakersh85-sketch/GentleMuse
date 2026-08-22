@@ -48,9 +48,39 @@ Timing: sponsors buy November and December slots in early October. September
 is for growing the subscriber count, because sponsors ask for list size.
 Nothing to sell until there is a number worth quoting.
 
-Secondary Apollo uses, lower priority, same credit budget:
+Secondary Apollo uses, same credit budget:
 - Brand partnership contacts at Bissell, The Ordinary, FlavCity
-- Kersh Vending placement leads: office and facility managers, Iowa
+
+ON HOLD per Amanda 08/22: Kersh Vending placement outreach. Do not start it.
+
+## Job 1b — Laundromat acquisition research (owner financing)
+
+Amanda is rebuilding credit toward business loan approval, targeting a local
+laundromat purchase, ideally with creative or owner financing. Timeline is a
+few months out. A game plan reportedly already exists, find it before adding
+anything new.
+
+Apollo's role here is LIMITED and it must be said plainly. Apollo is a
+database of operating companies and their employees. It has no for-sale
+filter, no owner-financing filter, and no listing data. Small owner-operated
+laundromats often have no Apollo record at all because the database skews
+toward companies with employees and a digital footprint.
+
+Where Apollo genuinely helps: building an off-market owner contact list.
+Search organizations by industry and Des Moines metro geography, then find
+the owner or principal. Off-market direct approach is how a lot of seller
+financing actually gets negotiated, because there is no broker pushing for
+all cash at close. Expect thin coverage, verify every hit by hand.
+
+Better primary sources for the actual deal hunt, none of which are Apollo:
+BizBuySell (has a seller-financing filter), BizQuest, local business brokers,
+county records, and simply driving the routes she already drives.
+
+Free expert help, no budget impact: America's SBDC Iowa serves all 99
+counties through 15 regional centers, no cost, and explicitly covers
+financing, loan proposals, cash flow projections, and acquisition. Getting an
+SBDC advisor involved before she talks to a bank is worth more than any tool
+on this list. https://iowasbdc.org/
 
 ## Job 2 — Financial project connections (relay to Avery / Codex)
 
