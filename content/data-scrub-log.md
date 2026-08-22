@@ -97,3 +97,11 @@ Metricool per-post sync still lagging).
 - Cesa reel confirm tap at 10:30 AM. Cesa remains the priority format.
 - Laptop session cut list should weight: Cesa, honesty talking pieces,
   product reels with SKU links. Deprioritize promo entirely.
+
+## Mid-scrub note — Saturday 08/22, 9 AM CT check-in
+
+Amanda's live count: 108 (peaked at 113 overnight, 5 unfollows by morning).
+Started Thursday at 62, so +46 net in under 48 hours. Both pending 3:30 PM
+experiment captions updated with the honest number, dip included. The Cesa
+slow-Saturday reel published early (before its 10:30 slot). A separate edit
+at 6:10 AM had already set the captions to 107 (laptop session or Amanda).
