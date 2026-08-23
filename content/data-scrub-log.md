@@ -105,3 +105,76 @@ Started Thursday at 62, so +46 net in under 48 hours. Both pending 3:30 PM
 experiment captions updated with the honest number, dip included. The Cesa
 slow-Saturday reel published early (before its 10:30 slot). A separate edit
 at 6:10 AM had already set the captions to 107 (laptop session or Amanda).
+
+## Scrub 3 — Saturday 08/22, 9:30 PM CT (automated)
+
+**Follower count: pending.** Metricool's sync still lags, last confirmed day is
+Thursday at 80. Amanda's live count Saturday morning was 108, peaked 113
+overnight, settled after 5 unfollows. Sunday 9 AM check-in gets the final
+pre-finale number.
+
+### FLAG: factual error in 2 live Club Target posts
+
+The Freshpet post reads "Cesa is 13 and she has opinions." Cesa is 19. It is
+live on both TikTok and Instagram:
+- https://www.tiktok.com/@thegentlemuse2026/video/7676615071606344973
+- https://www.instagram.com/reel/DcUd68_DkyR/
+
+Same class of error as the blanket fort incident, which Amanda publicly
+corrected on 08/20. Her age is a load-bearing fact for the whole CGY lane.
+Needs an Amanda decision, see the action list.
+
+### New this window: 8 Club Target posts shipped Friday night
+
+Fall apparel (94430282), College MVPs (76612085), Cat and Jack (95191272),
+Freshpet (16940288), Good and Gather cookbook (54446566), lunch throwback
+(12924454), NYX fat oil (95033010), each on TikTok and most mirrored to IG.
+Every one carries a specific SKU link, disclosure, and a challenge hashtag.
+The product-link rule is holding.
+
+### Per-post, last 48h
+
+| Post | Format | Views | Avg watch |
+|---|---|---|---|
+| Cesa "she picked the blue rug" (IG) | Cesa organic | 350 | 7.8s |
+| Cesa "17 nicknames" (FB) | Cesa organic | 217 | n/a |
+| Haircut confession (FB) | humor, self aware | 216 | n/a |
+| Day 54 (FB) | Remotion cut | 192 | n/a |
+| Haircut confession (IG) | humor, self aware | 130 | 4.8s |
+| Cesa blue rug (TikTok) | Cesa organic | 129 | n/a |
+| Cesa 17 nicknames (IG) | Cesa organic | 120 | 3.9s |
+| Fall apparel (IG / TikTok) | Club Target | 106 / 92 | 4.7s |
+| College MVPs (TikTok / IG) | Club Target | 105 / 50 | — / 2.7s |
+| Cat and Jack (TikTok) | Club Target | 102 | n/a |
+| Freshpet (TikTok / IG) | Club Target | 101 / 66 | — / 4.8s |
+| Books list (TikTok photo) | list carousel | 100 | n/a |
+| Lunch throwback (TikTok) | Club Target | 98 | 4 comments |
+| Good and Gather (TikTok / IG) | Club Target | 96 / 56 | — / 2.6s |
+| NYX fat oil (TikTok) | Club Target | 81 | n/a |
+| Day 54 (IG) | Remotion cut | 45 | 2.2s |
+
+### Day 3 read
+
+1. **Cesa organic still wins outright.** The blue rug reel took 350 views and
+   7.8s watch, best in the window on both counts. It also describes only what
+   is actually in the frame, blue rug, teddy bear, tile, ears up. The frame
+   verification fix is working.
+2. **Remotion cuts are still dead: 2.2s on Day 54 IG.** Third straight scrub
+   confirming it. This is no longer a hypothesis. Stop shipping the current
+   template.
+3. **Club Target posts cluster tightly at 50 to 106 views.** For affiliate the
+   metric that matters is clicks, not views, so this is not a failure. But 8
+   #ad posts in one night against a handful of organic posts is a heavy ratio.
+   Per the balance doctrine, watch that the feed does not read as a storefront.
+4. **Humor works.** The haircut confession pulled 216 on FB with zero product
+   and zero polish. Cheap to make, on brand, worth repeating.
+5. **Facebook keeps overperforming IG on identical content.** Consistent across
+   all 3 scrubs now.
+
+### Action for Sunday, the final day
+
+- 9 AM check-in: final pre-finale follower count, update the 3:30 PM caption.
+- Amanda decides on the Cesa age error, see options in chat.
+- Confirm taps: reset reel 12:00 PM, kitchen table epilogue 8:30 PM.
+- Finale fires 6:15 PM automatically.
+- Monday morning: final full-campaign scrub, then this trigger disables itself.
