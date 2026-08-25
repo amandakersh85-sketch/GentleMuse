@@ -178,3 +178,68 @@ The product-link rule is holding.
 - Confirm taps: reset reel 12:00 PM, kitchen table epilogue 8:30 PM.
 - Finale fires 6:15 PM automatically.
 - Monday morning: final full-campaign scrub, then this trigger disables itself.
+
+## FINAL SCRUB — campaign wrap, logged Monday 08/24 night
+
+Campaign ran Thursday 08/20 through Sunday 08/23.
+
+**Started: 62 followers. Last live count Amanda reported: 134 (Sunday morning).
+Net: +72 in 4 days, more than doubling the account.** Goal was 500, so the
+target was missed by a wide margin, but the growth rate was the best in the
+account's history by a large multiple.
+
+Metricool's analytics sync never caught up. Its last complete day is still
+Aug 20 at 80 followers. Amanda's manual counts are the only reliable record of
+the back half of the campaign. **Do not rely on Metricool for follower
+tracking going forward. It lagged 3 to 5 days for the entire campaign.**
+
+### Top posts, Aug 22 through Aug 24 (Instagram)
+
+| Post | Format | Views | Reach | Watch | Comments |
+|---|---|---|---|---|---|
+| "Women over 40, inappropriate sound" | humor | 1,645 | 1,333 | 6.4s | 12 |
+| Cesa "main character, second banana" | Cesa | 225 | 188 | 6.0s | 1 |
+| "Staying in wins" soft life | reflective | 194 | 152 | 7.0s | 0 |
+| Cesa puzzle board | Cesa organic | 159 | 148 | 3.1s | 0 |
+| Cesa leash walk, dandelions | Cesa organic | 156 | 150 | 5.0s | 0 |
+| Day 55 of 60 | Remotion cut | 53 | 50 | 3.4s | 0 |
+| AI trivia cast reel | AI cast | 37 | 33 | 10.3s | 1 |
+| Day 56 of 60 | Remotion cut | 18 | 16 | 3.4s | 0 |
+| Books carousel (photo) | photo carousel | 11 to 13 | 4 to 7 | n/a | 1 |
+
+### Findings, and one correction to earlier scrubs
+
+1. **Humor is the top format, not Cesa.** The "women over 40" reel pulled
+   1,645 views and 12 comments, the most engaged post of the entire campaign.
+   The haircut confession did the same thing on Facebook 2 days earlier. Self
+   deprecating, no product, no polish, cheap to make.
+2. **CORRECTION to scrubs 1 through 3.** Those logs read "Cesa is doing 10x
+   everything else" off the blanket fort reel at 1,282 views. With more data,
+   that spike looks like the correction drama around the fort caption, not
+   baseline Cesa performance. Steady state Cesa lands at 150 to 225 views.
+   Cesa is a reliable mid performer and the follower driver, not the view
+   driver. Plan production accordingly.
+3. **Remotion build-in-public cuts have collapsed.** Day 56 got 18 views on
+   Instagram. Day 55 got 53. This is the floor, and it is the 4th consecutive
+   scrub confirming it. Stop shipping this template entirely.
+4. **Photo carousels are dead on Instagram: 7 to 13 views.** The same list
+   content did 100 views as a TikTok photo post. Route lists to TikTok, not IG.
+5. **The AI trivia reel is a real signal worth watching.** Only 37 views but
+   10.3 seconds average watch, the highest of any post measured all week. The
+   content holds people; distribution failed it. Worth a second test with a
+   stronger opening frame before judging.
+
+### What to reproduce next week
+
+Make more of: humor and self deprecating confessions, Cesa in the mix at
+steady cadence, reflective soft life pieces (7.0s watch is strong).
+Cut or rebuild: Remotion build-in-public cuts, Instagram photo carousels.
+Retest once: the AI cast trivia format with a real visual hook.
+
+### Process note
+
+The Sunday 3:30 PM experiment caption published saying "Right now: 123." The
+live number at the time was 134. The update was requested and did not get
+completed before the post fired. Minor, but logged for accuracy.
+
+Campaign closed. This trigger disables itself now.
