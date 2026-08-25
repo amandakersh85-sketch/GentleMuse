@@ -175,3 +175,11 @@ the first pin published, because a bad media URL would fail all 6 the same way.
 
 NOTE FOR AMANDA: the GentleMuse repo is public. That is what makes this work, but it also
 means everything committed here is world readable. Worth a deliberate decision.
+
+## Keyword CTAs applied 2026-08-25
+
+Per Amanda's standing rule (see KEYWORD-RULE.md), every Instagram and Facebook post in the
+rotation now leads with its comment-to-DM keyword, with the raw link moved to the first
+comment. Updated in place: Facebook AI Guide (Aug 26), Facebook Reset Guide (Aug 28),
+Facebook Consider This (Aug 31), Instagram Consider This (Aug 31, was link in bio, now
+CONSIDER). Instagram AI Guide and Reset Guide already carried GUIDE and RESET.
