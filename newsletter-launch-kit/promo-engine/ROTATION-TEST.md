@@ -116,3 +116,39 @@ Week 1 review fires Tue Sep 1 to fill in the log.
   a live landing page (Christine used it on Aug 19) but MailerLite's API does not expose
   landing pages, so the address is unknown in this workspace. Amanda pastes it once and both
   days unblock.
+
+---
+
+## Finding, 2026-08-25: the rotation is running on the weakest channels
+
+Pulled Blotato per-post analytics on the launch posts that already published:
+
+| Post | Platform | Result |
+|---|---|---|
+| Consider This proof list, Aug 20 | X | 0 impressions, 0 clicks |
+| Consider This towels, Aug 22 | X | 0 impressions, 0 clicks |
+| Consider This towels, Aug 22 | Facebook | 3 views |
+
+X measured zero reach on both posts, with analytics confirmed synced. Facebook returned 3
+views. Those are 2 of the 3 channels the week 1 rotation is scheduled on, which means the
+test as scheduled will produce almost no data no matter how good the copy is.
+
+TikTok and Instagram analytics have never synced into Blotato (metrics null, no fetch
+recorded), so they cannot be compared here. But Amanda's own records show a single TikTok
+post at 14,244 views, so the audience that exists lives on TikTok and Instagram, not on the
+text channels.
+
+**What this changes.** The bottleneck is not attribution and it is not copy. It is that the
+promos are going to channels with no audience. Getting the promo graphics onto Instagram, and
+video onto TikTok, matters more than any tracking upgrade. A shortener measuring 0 clicks
+across 3 dead channels answers nothing.
+
+**Attribution, revised.** Blotato returns `clicksCount` on X but Facebook returns only
+comments, likes and views, so per-channel click tracking is uneven across platforms. A
+shortener is still the way to get clean numbers, but it is worth doing after the promos are
+running where the audience is, not before.
+
+**Blocked from this session.** Uploading the promo graphics to Blotato's media host is denied
+by this session's egress policy (403 on CONNECT to database.blotato.io). Amanda drops the 4
+PNGs into the Blotato media library once, and Instagram and Pinterest scheduling unblocks
+immediately.

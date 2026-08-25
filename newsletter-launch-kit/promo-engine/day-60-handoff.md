@@ -14,16 +14,23 @@ platforms (TikTok, Instagram) work without it.
 
 ---
 
-## Hook options (pick 1, used in the first 1 to 2 seconds)
+## Locked hooks, 1 per platform (standard: 9/10 or rebuild)
 
-1. **"My own notes caught me lying to myself."** — strongest. Real tension, present tense.
-2. "Day 60. The receipts outlasted the series."
-3. "60 days of documenting. The best thing it did was prove me wrong."
-4. "I found 6 dead automations I'd been counting on for weeks."
+Each platform gets its own hook because each platform rewards a different opening move.
+Reusing 1 hook everywhere is what dragged X to 8.5 on the first pass.
 
-Recommended: 1, with "Day 60 of 60" as the second line on screen.
+| Platform | Hook | Type | Hook grade |
+|---|---|---|---|
+| TikTok | My own notes caught me lying to myself. | Confession | 5/5 |
+| Instagram | 60 days of documenting, and the best thing it did was prove me wrong. | Confession | 4.5/5 |
+| Facebook | For months I told myself a flattering story about my best post. My own notes proved it false. | Confession | 4.5/5 |
+| LinkedIn | I audited 24 automations I'd built. 6 had silently stopped running. Every one still showed enabled. | Specific number | 5/5 |
+| X | 6 automations I was counting on had quietly stopped running. Every one still said enabled. | Specific number | 5/5 |
+| YouTube | I Documented 60 Days of Building With AI. My Own Notes Caught Me Lying. | Confession, searchable | 4.5/5 |
 
----
+Why they differ: TikTok pays for visceral speed, LinkedIn pays for auditable specificity, X pays
+for a fact stated flat, Facebook pays for a story opening, YouTube needs search terms in the
+title. Same 60 days, 6 different doors in.
 
 ## TikTok (primary — her strongest channel)
 
@@ -54,9 +61,11 @@ The 60 days end here. The documenting doesn't. It moves to Tuesdays now.
 
 ## Instagram Reel
 
-Same script and hook. Caption:
+**Hook, 0 to 2 sec:** 60 days of documenting, and the best thing it did was prove me wrong.
 
-My own notes caught me lying to myself.
+Caption:
+
+60 days of documenting, and the best thing it did was prove me wrong.
 
 Day 60 of 60. 60 days ago I started documenting every day of running a real business with AI. After my shift. On 1 income. Not as an expert, because I wasn't one.
 
@@ -78,7 +87,7 @@ Comment TUESDAY and I'll send you the link.
 
 ## Facebook
 
-My own notes caught me lying to myself.
+For months I told myself a flattering story about my best post. My own notes proved it false.
 
 Day 60 of 60, the last one. 60 days ago I started documenting every day of running a real business with AI. After my shift. On 1 income. Not as an expert, because I wasn't one.
 
@@ -98,7 +107,7 @@ The 60 days end here. The documenting doesn't. It moves to Tuesdays now, 1 lesso
 
 ## LinkedIn
 
-My own notes caught me lying to myself.
+I audited 24 automations I'd built. 6 had silently stopped running. Every one still showed enabled.
 
 Day 60 of 60. 60 days ago I started documenting every day of running a real business with AI. After my shift. On 1 income. Not as an expert, because I wasn't one.
 
@@ -118,16 +127,12 @@ The 60 days end here. The documenting doesn't. It moves to Tuesdays, 1 lesson a 
 
 ## X
 
-My own notes caught me lying to myself.
+6 automations I was counting on had quietly stopped running. Every one still said enabled.
 
-12 days where my logging broke and I never noticed. 6 automations I counted on that had quietly stopped, every one still showing enabled.
+Day 60 of 60. The record caught that, not me. Same record caught me telling myself a flattering story about my own best post for months.
 
-Day 60 of 60. The record was right and I was wrong, and that's the whole reason to keep one.
-
-It moves to Tuesdays now:
+That's why it doesn't stop here. It moves to Tuesdays:
 [JAT LINK]
-
----
 
 ## YouTube Short
 
