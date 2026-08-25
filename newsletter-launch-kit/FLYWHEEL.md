@@ -102,6 +102,40 @@ stays editable in the dashboard until its send morning.
 
 ---
 
+---
+
+## Results check-in — 2026-08-25 (5 days after launch)
+
+| Metric | Aug 20 | Aug 25 |
+|---|---|---|
+| Total subscribers | 9 | 10 |
+| Consider This group | 1 | 2 |
+| Just Another Tuesday group | 2 | 2 active + 1 unconfirmed |
+| Signup form opens | 5 | 8 |
+| Signup form conversions | 0 | 1 (12.5%) |
+
+- **Invite campaign:** 9 delivered, 3 opens (33.3%), 1 click (11.1%) on the signup
+  button, 33.3% click-to-open. That click converted on Aug 21 at 19:32, which is the
+  Consider This group going 1 to 2. The invite is the only thing that has produced a
+  newsletter signup so far.
+- **All 6 launch posts published** (Post 1 Aug 20, Post 2 Aug 22, across X, Facebook,
+  LinkedIn). Post 3 is scheduled for Aug 25 6:00 PM CDT. Form opens went 5 to 8 in that
+  window, so social produced traffic but no conversion yet.
+- **JAT #001 sent on time** Aug 25 at 7:00 AM, 2 delivered, 100% delivery. Too early for
+  opens at the time of this check.
+- **Consider This #001** (Aug 20) went to 1 person and has 0 opens. It sent before the
+  invite grew the group, so it reached the smallest possible audience.
+- **All 3 new automations are still switched off.** The Aug 21 signup got no welcome
+  email, and the unconfirmed JAT subscriber is stuck at double opt-in with nothing
+  chasing them. This is the live cost of the pending activation clicks.
+
+**Highest-impact next action:** the 60 Day AI Journey series is at Day 58 and ends this
+week. Those posts run daily to the exact audience Just Another Tuesday serves, and none
+of them mention it. The finale is the natural handoff: the 60 days end, the Tuesdays
+continue. Nothing else in the funnel reaches that many of the right people for free.
+
+---
+
 ## Amanda's activation list
 1. Activate Consider This welcome: https://dashboard.mailerlite.com/automations/196338050950759852
 2. Activate cross-invite: https://dashboard.mailerlite.com/automations/196342476720571577
