@@ -16,7 +16,17 @@ leave, remember, and tap. The keyword converts, the bio link leaks.
 | RESET | Reset Guide | Instagram, Facebook |
 | PLAY | Press Play book list | Instagram, Facebook |
 | CESA | Cesa guide | Instagram, Facebook |
-| (none yet) | Just Another Tuesday | needs one set up |
+| (none yet) | Just Another Tuesday | now TUESDAY, live in Blotato |
+
+## Cesa's channel (@cesasgoldenyears)
+
+| Keyword | Offer | Status |
+|---|---|---|
+| CESA | Cesa guide | live |
+| CONSIDER | Consider This | live |
+
+Every post on Cesa's channel should carry 1 of these 2. It previously carried none, so every
+comment on that account was a lead that evaporated.
 
 ## How to write the CTA
 
