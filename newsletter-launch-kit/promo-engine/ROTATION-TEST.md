@@ -48,6 +48,70 @@ does not see the identical promo twice in 10 minutes.
 
 ---
 
+## Cesa's channels are part of the queue. They were missing from this SOP until 2026-08-26.
+
+**This was a gap.** The table above only covered Amanda's accounts. Cesa has her own
+Instagram and TikTok, they carry the CESA lead magnet, and every scheduling pass has to
+include them. Anyone loading the Blotato queue works BOTH account sets, every time.
+
+### Account map
+
+| Account | Blotato id | Platform | Whose |
+|---|---|---|---|
+| thegentlemuse2026 | 45886 | instagram | Amanda |
+| The Gentle Muse (page 1086399221215093) | 30840 | facebook | Amanda |
+| thegentlemuse2026 | 41488 | tiktok | Amanda |
+| GentleMuse2026 | 21430 | twitter | Amanda |
+| AMANDA KERSH | 20723 | linkedin | Amanda |
+| TheGentleMuse2026 | 6328 | pinterest | Amanda |
+| Amanda Kersh | 36129 | youtube | Amanda |
+| **cesasgoldenyears** | **65540** | **instagram** | **Cesa** |
+| **cesasgoldenyears** | **55761** | **tiktok** | **Cesa** |
+
+### Cadence per Amanda
+
+- **Cesa TikTok: daily.** 8:00 PM CDT (01:00 UTC next day).
+- **Cesa Instagram: twice daily.** 1 promo and 1 clip with a CTA. 6:30 PM CDT (23:30 UTC)
+  is the clip slot; the promo slot is the second.
+- **Cesa content also runs on Amanda's channels.** Same clips, different captions. Slots
+  that do not collide with the promo rotation above: Amanda IG 8:20 AM CDT (13:20 UTC),
+  Amanda FB 9:10 AM CDT (14:10 UTC).
+
+### Channel roles, which decides the CTA
+
+This is the part that changes the copy, so get it right before writing a caption.
+
+| Channel | Job | CTA |
+|---|---|---|
+| Cesa TikTok | Following and engagement | "Follow along for more of her." Link in bio once the Cesa landing page exists. |
+| Cesa Instagram | Conversion, in platform | Comment CESA (guide) or CONSIDER (newsletter). Keyword always. |
+| Amanda Instagram | Hard conversion | Comment CESA. Introduce Cesa first, the audience does not know her. |
+| Amanda Facebook | Hard conversion | Comment CESA. Longer form, this is the senior dog demographic. |
+
+### The bio-link rule (Amanda's, and I had missed it)
+
+"Link in bio" is only a valid CTA when that bio actually points at a page that converts.
+Writing it before the bio is set ships a dead end. So: never write "link in bio" into a
+caption until the destination is confirmed live, and when a bio changes, the captions that
+depend on it get re-checked. Cesa's TikTok bio is meant to hold **her own** Cesa landing
+page, not gentlemuse.co/tiktok and not Amanda's link tree.
+
+### Live keyword automations covering Cesa
+
+| Keyword | Account | Blotato automation | State |
+|---|---|---|---|
+| CESA | Amanda IG 45886 | 445 | ACTIVE, email gate + guide button |
+| CESA | Amanda FB 30840 | 432 | ACTIVE, email gate + guide button |
+| CESA | Cesa IG 65540 | 2952 | ACTIVE |
+| CONSIDER | Cesa IG 65540 | 2954 | ACTIVE |
+
+**Sept 11 conflict to avoid:** drafts 2781 (IG) and 2782 (FB) are inactive CESA duplicates
+built for the ManyChat cutover. 445 and 432 already do that job and are live. Activating the
+drafts without deactivating 445/432 double-DMs every person who comments CESA. Delete or
+skip 2781 and 2782 at cutover.
+
+---
+
 ## How the test produces an actual answer
 
 Two data sources, cross-referenced weekly:

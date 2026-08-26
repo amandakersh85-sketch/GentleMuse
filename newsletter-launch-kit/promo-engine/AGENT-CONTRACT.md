@@ -64,6 +64,13 @@ Both agents follow these. They come from Amanda directly.
    roughly 100 views.
 5. Nothing publishes without Amanda's approval on new formats. Recycling approved promos on
    the standing rotation is pre-approved.
+6. **NEVER GUESS WHEN AMANDA GIVES DIRECTION. CHECK THE SOURCE.** (Her rule, 2026-08-26,
+   verbatim emphasis hers.) If she says a thing exists, was set up, or was decided, go read
+   the actual source before acting or before telling her it isn't there: this repo's notes
+   first, then the live tool (MailerLite, Blotato, Wix, Drive). Do not infer, do not
+   reconstruct from memory, do not substitute a plausible alternative for the thing she
+   named. If the source says something different from what she remembers, quote the source
+   back to her in one line and stop. Guessing has cost her real time more than once.
 
 ## 5. What each of us should NOT touch
 
