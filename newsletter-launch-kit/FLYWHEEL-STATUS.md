@@ -48,6 +48,24 @@ without retiring the originals double DMs on every keyword. All 10 renamed to st
 
 Covered in FLYWHEEL.md. Laura recovered, welcome fired 18:08:42.
 
+### 6. Eleven scheduled posts carried dead links, first firing that night
+
+Purging the deprecated links from this repo did not touch the live Blotato queue. A full
+scan of all 147 scheduled posts found 11 still carrying them, the earliest due 2026-08-28
+00:20 UTC, which is 7:20 PM Central that evening.
+
+- 7 YouTube shorts, 2 X posts, 2 LinkedIn posts pointed at `gentlemuse.co/reset-guide`,
+  a dead Wix page on the DO NOT USE list. Repointed to `https://payhip.com/b/9FE2U`.
+- 1 X post and 1 LinkedIn post pointed at a `preview.mailerlite.io` share link, also on the
+  DO NOT USE list. Repointed to `https://consider-this.subscribepage.io`.
+
+**Verified after the fix:** all 147 scheduled posts rescanned. 0 DO NOT USE links remain,
+and 0 X posts still carry media that would fail.
+
+**Lesson recorded:** fixing a link in the repo is not the same as fixing it in the queue.
+Any link correction has to be applied to both, and the queue check is the one that matters
+because the queue is what actually publishes.
+
 ---
 
 ## Two records in this repo were wrong, now corrected
