@@ -71,7 +71,7 @@ And afterwards, the same vet who hadn't wanted to operate said this to me:
 
 > You just added years to this little dog's life.
 
-She's had 3 dentals as well, in 3 different years across her teens.
+She's had 3 dentals as well, in 2020, 2021 and 2024.
 
 ### The part the list leaves out
 
@@ -313,12 +313,11 @@ If I got a year 1 with her again.
 patterns, I know from about the last 3 years. The 7 before that are a blur and I
 have no baseline for any of it. It costs nothing and I'd have it forever.
 
-**2. I'd have written her medical history down as it happened.** I'm sitting here
-trying to remember which years she had her dentals and I can't. 3 of them, across
-her teens, and I could not tell you the dates without going digging. The
-pyometra, the surgery, the cancer they found during it, all of it lives in my
-head in the wrong order. One page, dated, added to each time something happened.
-I'd give a lot for that page now.
+**2. I'd have written her medical history down as it happened.** I had to go
+digging to put the years into this guide. 2020, 2021 and 2024 for the dentals,
+2022 for the surgery, and I could not have told you a single one of those from
+memory. It all lives in my head in the wrong order. One page, dated, added to
+each time something happened. I'd give a lot for that page now.
 
 **3. I'd have stopped asking her to hurry.** Around year 14 I finally quit
 rushing her out the door in the morning, and it turns out slow mornings were
