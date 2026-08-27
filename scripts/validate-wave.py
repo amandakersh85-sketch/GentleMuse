@@ -13,7 +13,20 @@ from datetime import datetime
 
 DEAD = ['reset-guide.subscribepage.io', 'preview.mailerlite.io', 'gentlemuse.co/reset-guide']
 FIELDS = ['id', 'ts', 'plat', 'media', 'yt', 'text']
-IG_SLOTS = ('15:00', '23:00')
+
+# US Central drops to CST (UTC-6) on 1 Nov 2026, so a fixed UTC slot silently
+# shifts an hour in local terms. Slots are defined to hold LOCAL time constant.
+DST_END = '2026-11-01'
+
+
+def ig_slots(day):
+    """Allowed Instagram UTC slots for a given ISO date. 10:00 and evening Central."""
+    return ('15:00', '23:00') if day < DST_END else ('16:00', '23:00')
+
+
+def retired_noon(day):
+    """The UTC value that equals noon Central, which is the retired slot."""
+    return '17:00' if day < DST_END else '18:00'
 
 
 def load(path):
@@ -67,15 +80,31 @@ def main(path):
     chk(not [d for d, v in ig.items()
              if datetime.fromisoformat(d).weekday() >= 5 and len(v) > 1],
         'weekends carry 1 Instagram post')
-    chk(not [t for v in ig.values() for t in v if t not in IG_SLOTS],
-        'Instagram only at 15:00 or 23:00 UTC')
-    chk(not [p for p in parsed if p['plat'] == 'instagram' and p['ts'][11:] == '17:00'],
-        'no Instagram at the retired 17:00 UTC noon slot')
+    chk(not [(d, t) for d, v in ig.items() for t in v if t not in ig_slots(d)],
+        'Instagram slots hold 10:00 Central across the DST change')
+    chk(not [p for p in parsed if p['plat'] == 'instagram'
+             and p['ts'][11:] == retired_noon(p['ts'][:10])],
+        'no Instagram at the retired noon Central slot')
 
     chk(not [p for p in parsed if any(x in p['text'] for x in DEAD)],
         'no dead or superseded links')
     chk(not [p for p in parsed if len(p['text'].strip()) < 20],
         'no empty or stub text')
+
+    # Seasonal campaign copy is newly written rather than recombined from posts
+    # Amanda already published, so it must never auto-load unreviewed.
+    SEASONAL = re.compile(
+        r'(black ?friday|cyber ?monday|small business saturday|thanksgiving|'
+        r'halloween|on sale|sale closes|sale is over|last call)', re.I)
+    unheld = [p['id'] for p in parsed
+              if SEASONAL.search(p['text']) and not p['id'].startswith('HOLD-')]
+    chk(not unheld,
+        f'all seasonal campaign rows are marked HOLD for review ({len(unheld)} loose)')
+
+    # The Payhip sale_price field is stuck at a default; a row must never quote a
+    # figure that could contradict the live listing.
+    chk(not [p for p in parsed if re.search(r'\d+\s*%\s*off', p['text'], re.I)],
+        'no row quotes a discount percentage')
 
     print()
     if fails:
