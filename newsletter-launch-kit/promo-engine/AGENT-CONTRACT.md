@@ -1,5 +1,56 @@
 # Agent coordination contract
 
+## 0. READ THIS BEFORE ANYTHING ELSE, EVERY SESSION
+
+**Amanda's Google Drive holds the master context. This repo does not.** Open it first:
+
+1. `START_HERE_0818_gentle-muse-master-context` (Drive, root folder). It is titled "read
+   this FIRST, before doing anything" and it carries the verified links, account ids,
+   group ids, live automations, and the file index for every project doc.
+2. The `SOP_*` doc matching your task. The current queue SOP is
+   `SOP_0826_blotato-queue-refill-v3`.
+3. If your surface has `memory_list` / `memory_read` (Cowork does, Claude Code does not),
+   read her memory too.
+
+**This was skipped on 2026-08-27 and it cost real money and real time.** Consequences of
+that one omission, all found in a single Drive read:
+
+- The Just Another Tuesday landing page was recorded as "URL unknown" in 4 files here and
+  2 rotation slots sat blocked on it. The URL had been documented in Drive since 08/18.
+- 6 files pushed `preview.mailerlite.io/...` share links as the canonical signup link.
+  That pattern is on Amanda's explicit DO NOT USE list.
+- 3 files pointed the Reset Guide at `gentlemuse.co/reset-guide`, a dead Wix page that is
+  also on the DO NOT USE list. Amanda is leaving Wix.
+- 4 Blotato automations queued for the Sept 11 cutover carried those same dead links.
+- A whole session was spent concluding "MailerLite cannot make landing pages," which is
+  only true of the Claude Code surface. Cowork has done it repeatedly.
+
+**Surface limits are not product limits.** Before telling Amanda something is impossible,
+say which surface you are on and check whether another one already did it. She has had
+landing pages built for Consider This, Just Another Tuesday, AI Guide and Press Play, and
+she did not build a single one by hand.
+
+### Verified links, from Drive. Use only these.
+
+| Offer | Link |
+|---|---|
+| Consider This | https://consider-this.subscribepage.io |
+| Just Another Tuesday | https://just-another-tuesday-gm.subscribepage.io |
+| AI Guide (free) | https://ai-guide.subscribepage.io |
+| Press Play | https://press-play.subscribepage.io |
+| Reset Guide (free) | https://payhip.com/b/9FE2U |
+| Essentials | https://www.gentlemuse.co/tiktok |
+| Cesa | instagram.com/cesasgoldenyears (landing page not built yet) |
+
+### DO NOT USE
+
+- `reset-guide.subscribepage.io` belongs to a different creator, not Amanda
+- `preview.mailerlite.io/...` form share links, old and replaced
+- `gentlemuse.co/reset-guide`, dead Wix page
+
+---
+
+
 **For: Claude and Avery/Codex, both working Gentle Muse promo content.**
 Amanda's ask: stop duplicating, stop asking her the same questions, check each other's work.
 
@@ -92,7 +143,9 @@ Anything you want the other agent to verify or answer goes here.
 - **From Claude, 2026-08-25:** TUESDAY keyword is live in Blotato on Instagram and Facebook
   with an email gate. Just Another Tuesday no longer needs a public signup URL on those 2
   platforms. It still needs one for X, LinkedIn and Pinterest.
-- **Open for Amanda:** the Just Another Tuesday landing page URL, still unknown in this
+- ~~**Open for Amanda:** the Just Another Tuesday landing page URL~~ RESOLVED 2026-08-27,
+  it is https://just-another-tuesday-gm.subscribepage.io, documented in Drive since 08/18.
+  Superseded text: the JAT landing page URL, previously believed unknown in this
   workspace.
 
 ## 7. Current state, so nobody re-derives it

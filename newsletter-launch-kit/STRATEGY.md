@@ -9,7 +9,7 @@ and plumbing, not the product.
 
 ## Your signup link (use this everywhere)
 
-**https://preview.mailerlite.io/forms/2465670/195835257531925894/share**
+**https://consider-this.subscribepage.io**
 
 This is the public "Consider This — Social Launch Signup" form. It's live and working.
 Put it in your bio, link-in-bio, stories, and every launch post.

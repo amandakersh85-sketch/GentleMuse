@@ -21,7 +21,7 @@ You're on my list because you grabbed one of my free guides a while back, so I w
 It's 1 short email a week. I pick 1 thing in your home you've probably stopped noticing (the washer gasket, the dryer duct, the shower head), tell you what's actually going on, and whether it's worth 2 minutes of your time. No 40-step routines. No pitch.
 
 If that sounds like your thing, you can get it here:
-👉 https://preview.mailerlite.io/forms/2465670/195835257531925894/share
+👉 https://consider-this.subscribepage.io
 
 If not, no worries at all. You'll keep getting exactly what you already signed up for, nothing changes.
 

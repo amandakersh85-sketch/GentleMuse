@@ -1,7 +1,7 @@
 # Consider This — Launch Content Batch
 
 **Goal:** Drive awareness + signups to the newsletter.
-**Signup link (use everywhere):** https://preview.mailerlite.io/forms/2465670/195835257531925894/share
+**Signup link (use everywhere):** https://consider-this.subscribepage.io
 **Status:** Graded 8+/10 to Amanda's voice. Drafts only. Nothing posts without Amanda's approval.
 **Platform CTA note:** TikTok = "link in bio" (no keyword CTAs). Instagram = "link in bio" or a link sticker in stories. YouTube Shorts = put the link in the description and give it a real title.
 

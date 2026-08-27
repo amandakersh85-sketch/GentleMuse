@@ -10,7 +10,7 @@
 ### 1. Social → newsletter signup — CLOSED (today)
 - 9 launch posts scheduled on X / Facebook / LinkedIn (Aug 20, 22, 25).
 - Launch graphic created for Instagram/Facebook.
-- Signup link: https://preview.mailerlite.io/forms/2465670/195835257531925894/share
+- Signup link: https://consider-this.subscribepage.io
 - **Amanda:** bio link + post the graphic + record TikTok Reel from Post 1 script.
 
 ### 2. Existing subscribers → newsletter — CLOSED (today)
@@ -95,8 +95,10 @@ stays editable in the dashboard until its send morning.
 - The dual popup (195832725497709843) is inactive AND feeds the wrong group (Gentle
   Muse Subscribers, not the 2 newsletter groups). Fix group assignment in the dashboard
   before ever activating it.
-- Exact JAT subscribepage.io URL unknown to this workspace. It's in Amanda's Skool
-  post and it works (Christine used it). Amanda to paste it here for the record.
+- ~~Exact JAT subscribepage.io URL unknown.~~ RESOLVED 2026-08-27. It is
+  **https://just-another-tuesday-gm.subscribepage.io** and it has been documented in
+  Drive since 08/18 in `START_HERE_0818_gentle-muse-master-context`. This workspace
+  called it unknown for 6 days because no session read that file.
 - Amanda's own blockers doc also flags the Paycheck Planner pricing decision ($22
   standing discount vs $37 anchor) before the November campaign.
 
@@ -141,4 +143,6 @@ continue. Nothing else in the funnel reaches that many of the right people for f
 2. Activate cross-invite: https://dashboard.mailerlite.com/automations/196342476720571577
 3. Activate JAT welcome: https://dashboard.mailerlite.com/automations/196381310295475426
 4. Open consider-this.subscribepage.io on your phone and confirm it loads.
-5. Paste the JAT signup URL (from your Skool post) into this doc.
+   (This is now the canonical link everywhere. The old preview.mailerlite.io share
+   links were on Amanda's DO NOT USE list and have been purged from this kit.)
+5. ~~Paste the JAT signup URL.~~ Done, it was already in Drive: just-another-tuesday-gm.subscribepage.io

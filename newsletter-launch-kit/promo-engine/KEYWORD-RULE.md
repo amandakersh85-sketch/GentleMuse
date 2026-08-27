@@ -42,4 +42,5 @@ comment on that account was a lead that evaporated.
 
 Just Another Tuesday has no keyword yet. TUESDAY is the obvious candidate. Once Amanda sets it
 up in ManyChat, every JAT post on Instagram and Facebook should use it, and that also removes
-the dependency on the unknown JAT signup URL for those 2 platforms.
+the dependency on the JAT signup URL for those 2 platforms. (That URL is no longer
+unknown: https://just-another-tuesday-gm.subscribepage.io, verified in Drive 08/18.)

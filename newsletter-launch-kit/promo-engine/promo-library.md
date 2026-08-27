@@ -34,7 +34,7 @@ I had 13 browser tabs open, a notebook of half-finished plans, and files on my p
 
 I wasn't disorganized. I was carrying too much at once.
 
-Free checklist: https://gentlemuse.co/reset-guide
+Free checklist: https://payhip.com/b/9FE2U
 
 **LinkedIn / Facebook**
 Not long ago I had somewhere between 11 and 13 browser tabs open at once, a notebook full of half-finished plans, and files on my phone with names I could no longer decode.
@@ -45,7 +45,7 @@ The Gentle Self-Reset Checklist came out of figuring out what actually helped, 1
 
 Here's the only instruction: don't do all of it. Pick 1 line and do that one.
 
-Free: https://gentlemuse.co/reset-guide
+Free: https://payhip.com/b/9FE2U
 
 ---
 
@@ -75,7 +75,7 @@ Your sponge isn't sanitized after microwaving.
 Your towels aren't old, they're coated.
 
 1 free email a week:
-https://preview.mailerlite.io/forms/2465670/195835257531925894/share
+https://consider-this.subscribepage.io
 
 **LinkedIn / Facebook**
 5 things in your house that aren't doing what you think.
@@ -89,7 +89,7 @@ Your pillow has an expiration date.
 I write 1 of these a week. It's called Consider This. 1 overlooked thing in your home, what's actually going on, and whether it's worth 2 minutes of your time. No 40-step routine. No pressure to buy anything.
 
 Free:
-https://preview.mailerlite.io/forms/2465670/195835257531925894/share
+https://consider-this.subscribepage.io
 
 ---
 

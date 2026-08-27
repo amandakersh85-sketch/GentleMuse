@@ -5,29 +5,24 @@ page as its link in bio. Not gentlemuse.co/tiktok. Not Amanda's link tree. Cesa'
 
 ---
 
-## The blocker, stated once
+## Corrected 2026-08-27: this is a surface limit, not a product limit
 
-**MailerLite's API does not expose landing pages.** This is not new and it is not a guess.
-It is already written in this repo in 3 places from earlier in the build:
+An earlier version of this file said MailerLite cannot make landing pages. **That was
+wrong and Amanda corrected it.** She has never built one of her landing pages by hand.
+Consider This, Just Another Tuesday, AI Guide and Press Play all have live
+subscribepage.io pages and all of them were built for her.
 
-- `promo-engine/day-60-handoff.md` line 11
-- `promo-engine/CONFERENCE-BRIEF-AVERY.md` lines 78-79
-- `promo-engine/ROTATION-TEST.md` line 116
+The accurate statement: **the MailerLite connector exposed to Claude Code has no landing
+page tool.** Verified here on 2026-08-27, `update_form` sets the name only, `create_form`
+takes name/type/groups only, and asking the server for a landing page tool returns the
+full tool list with nothing matching. **Cowork is the surface where these get built**, and
+it is where the other 4 came from. So the Cesa page gets built the same way the others
+did, from Cowork, not from here.
 
-Re-verified 2026-08-26 against the live tool, not from memory:
-
-| Tool | What it actually accepts | Verdict |
-|---|---|---|
-| `create_form` | name, type, groups. Nothing else. | Creates an empty shell |
-| `update_form` | **name only** | Cannot add content, cannot activate |
-| `get_more_tools` (asked for landing pages explicitly) | "we have shown you the full tool list" | No such tool exists |
-
-That is why `consider-this.subscribepage.io`, `ai-guide.subscribepage.io` and
-`press-play.subscribepage.io` all exist and a Cesa one does not: **Amanda built those 3 by
-hand in the MailerLite dashboard.** Cesa's has to be built the same way. It is the only
-piece of this funnel that cannot be done from code.
-
----
+The paste-ready copy already exists in Drive as `BUILD_0826_cesa-landing-page-paste-kit`,
+which specifies slug `cesa-guide` giving `https://cesa-guide.subscribepage.io`, points the
+signup at the existing Cesa group, and turns double opt-in OFF because cold TikTok traffic
+will not leave the app to confirm.
 
 ## Everything downstream is already wired and waiting
 

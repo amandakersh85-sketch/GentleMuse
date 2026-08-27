@@ -16,12 +16,12 @@ a day would produce noise and no answer.
 | Day | Offer | Audience | Destination |
 |---|---|---|---|
 | Mon | Consider This | Home / household | MailerLite signup form |
-| Tue | Just Another Tuesday | Builders / AI | LANDING PAGE URL NEEDED |
+| Tue | Just Another Tuesday | Builders / AI | just-another-tuesday-gm.subscribepage.io |
 | Wed | AI Beginner's Guide | Builders / AI | ai-guide.subscribepage.io |
 | Thu | Consider This (send day) | Home / household | MailerLite signup form |
-| Fri | Reset Guide | Calm / reset | gentlemuse.co/reset-guide |
+| Fri | Reset Guide | Calm / reset | payhip.com/b/9FE2U |
 | Sat | Press Play | Books / audio | comment PLAY |
-| Sun | Just Another Tuesday | Builders / AI | LANDING PAGE URL NEEDED |
+| Sun | Just Another Tuesday | Builders / AI | just-another-tuesday-gm.subscribepage.io |
 
 Both newsletters get 2 slots a week. The guides get 1 each. Tuesday and Thursday promos land
 on the days those newsletters actually send, so a new signup gets an issue almost immediately
