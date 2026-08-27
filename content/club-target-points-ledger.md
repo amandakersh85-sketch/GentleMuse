@@ -107,3 +107,71 @@ Instagram shortfall becomes visible.
 - No post used a comment keyword CTA, so the unwired HIBISCUS and SOAK traps were not tripped.
 - Keyword note carried forward: BUTTER in ManyChat maps to Tree Hut Moroccan Rose body butter, not the FlavCity butter coffee flavor. Do not use "comment BUTTER" on the coffee video.
 - Still to verify at Amanda's desk: `Verify-TargetClubSku.ps1 -Sku 89094549` for the HIBISCUS scrub DM link (two-signal rule).
+
+---
+
+## === AUDIT 26 Aug 2026 ===
+
+### Posts found since last audit
+
+**None.** Zero Club Target posts published 23 to 26 Aug on any platform.
+Checked Blotato (published, all platforms, 78 posts in window, 0 matching
+`#TargetPartner` / `#ClubTarget` / `club.target.com`) and cross-checked
+Metricool IG Reels analytics for the same window to catch native phone posts.
+Metricool shows 20 Reels published, none of them Club Target product posts.
+This is a confirmed zero, not a scheduler blind spot.
+
+Two 23 Aug Reels carry `#TargetPartner` but are follower-campaign posts with no
+challenge theme hashtag, so they are **not counted** toward any theme.
+
+**Expected points added this run: 0.**
+
+### Distribution cross-check
+
+The five TikToks from the 23 Aug audit remain **unmatched** — no Reel published,
+none scheduled. Still 150 points unclaimed:
+
+- #TargetEverydayEssentials · #HeyDayTechAugust · #TargetLunchThrowback
+- #TargetBudgetFinds · #TargetFave
+
+Only two Club Target Reels are queued: Cat and Jack (31 Aug) and Adornia
+necklace (3 Sep). Neither closes any of the five. Unchanged from last week.
+
+### Portal total — partial reading, and why it does not settle it
+
+Amanda reported on 25 Aug: **Trendsetter tier 4, 656 points to tier 5.**
+That confirms the total is at or above 500, but it does **not** isolate whether
+Instagram credited, because the TikToks alone clear the gate:
+
+| Scenario | Arithmetic | Total |
+| --- | --- | --- |
+| TikToks credit, Reels do **not** | 304 + 270 | **574** |
+| Both credit | 304 + 390 | **694** |
+
+Both present as tier 4 externally. The exact number is the discriminator and the
+gap is 120 points. **574 means Instagram does not credit below 500 followers.
+694 means it does.**
+
+Context that makes this a live test: Amanda is at roughly 162 followers as of
+24 Aug (62 → 139 → 162), did not reach 500 by the original deadline, and moved
+the deadline to 13 Sep. The 4 Reels published 21 Aug were therefore posted well
+under the supposed threshold.
+
+### Stories
+
+Unchanged and still unanswered. Up to 195 points (13 posts x 15) if any went up.
+Invisible to both schedulers.
+
+### Verdict
+
+**PENDING on credit** — needs the exact portal number, not the tier.
+**GAP FLAGGED on distribution** — 150 points, carried over, unchanged.
+
+### Notes
+
+- Posts added to the queue since 25 Aug are scheduling at 22:50, 23:30 and 13:20.
+  The 10:00 / 18:00 rebuild is not being applied by whatever writes new posts,
+  and 22:50 / 23:30 are the two weakest hours on the audience chart.
+- Carried forward, still open: BUTTER maps to Tree Hut body butter in ManyChat,
+  not the FlavCity coffee flavor. And `Verify-TargetClubSku.ps1 -Sku 89094549`
+  still needs a run at Amanda's desk for the HIBISCUS DM link.
