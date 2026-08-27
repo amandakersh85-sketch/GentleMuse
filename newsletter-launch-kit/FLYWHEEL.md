@@ -51,8 +51,8 @@
 ## Known leaks, deliberately left (small)
 - Embedded forms "Reset Guide Signup, GM" and "AI Beginner's Guide — signup" are empty,
   inactive shells (no content designed). The working Reset Guide entry is the site popup
-  (active, 15 opens, 1 conversion). Design the embedded forms in the dashboard only if a
-  page needs an inline form; otherwise ignore or delete them.
+  (active, 21 opens, 1 conversion, correctly routed). Design the embedded forms in the
+  dashboard only if a page needs an inline form; otherwise ignore or delete them.
 - The AI Beginner's Guide group has 0 subscribers; its delivery automation is ready but
   the guide has no live front door yet. Worth a social post + working form when Amanda
   wants to push it.
@@ -112,9 +112,12 @@ to read the existing HTML first. Editing it would have destroyed Amanda's work t
 link. A second automation on the same trigger gets the same result and risks nothing.
 
 **Still open:**
-- The dual popup (195832725497709843) is inactive AND feeds the wrong group (Gentle
-  Muse Subscribers, not the 2 newsletter groups). Fix group assignment in the dashboard
-  before ever activating it.
+- ~~The dual popup feeds the wrong group.~~ **CORRECTED 2026-08-27, verified live.** The
+  dual popup (195832725497709843) routes to **both** newsletter groups correctly, has
+  content, and is not broken. It is only **inactive**. Switching it on in the dashboard puts
+  a working signup popup back on the site. No group fix is needed. The same check cleared
+  the Reset popup: it feeds Gentle Muse Subscribers, which is exactly the group the Reset
+  nurture triggers on.
 - ~~Exact JAT subscribepage.io URL unknown.~~ RESOLVED 2026-08-27. It is
   **https://just-another-tuesday-gm.subscribepage.io** and it has been documented in
   Drive since 08/18 in `START_HERE_0818_gentle-muse-master-context`. This workspace
