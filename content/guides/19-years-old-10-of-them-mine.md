@@ -35,26 +35,48 @@ need different decisions, and the second one is almost entirely within reach.
 
 ## Her history, because it explains most of what follows
 
-She was a breeder dog before she was mine. 3 litters that I know of.
+I met her in 2015. She was 8, she was a breeder dog, and she was not mine yet.
 
-My adoption of her was actually delayed because she was having puppies. That's
-how I ended up with her. I was waiting, and she was somewhere else, pregnant
-again, at 9 years old. That last litter came in 2016.
+The adoption didn't finalize until 2016, because she was pregnant again. Her 3rd
+litter that I know of, at 9 years old.
 
-I've had her from that point. 10 years.
+Here's the part I want to say properly, because it's the whole reason any of this
+exists. I could have had one of her puppies. That was on the table. It's what
+most people would have taken, and nobody would have thought twice about it.
 
-Since then, and I'm listing this because I think it's more useful to see one
-dog's whole run than a tidied up version of it:
+I wanted her. The 9 year old with the litters behind her, not the puppy with
+everything still in front of it.
 
-- **Pyometra.** I won't try to explain it past what I was told, that it's an
-  infection of the uterus and it happens to females who were never spayed.
-  Whether the litters led to it, I don't know for certain. I know what I suspect.
-- **The surgery for that is how we found her cancer.** Nobody was looking for it.
-  They went in for one thing and found another.
-- **3 dentals**, in 3 different years across her teens.
+I have never regretted that for a second. I do sometimes wish we'd been able to
+keep one of them with her, so she'd have had one of her own in the house. That
+one still gets me a little.
 
-I want to say something about that list, because a list like that reads grim and
-her life has not been grim.
+So, 2016. And 10 years since.
+
+### What happened in 2022
+
+She had pyometra. It's an infection of the uterus, it happens to females who were
+never spayed, and it can turn serious quickly. I read everything I could find on
+it at the time, because I wanted to actually understand what was happening to her
+instead of nodding along in an exam room.
+
+The treatment is spaying. At 15, that was not an easy thing to agree to, and I
+want to be honest that her vet was openly hesitant about putting a dog her age
+under anesthesia at all.
+
+They found cancer during that surgery. Nobody was looking for it. It came out
+with everything else.
+
+And afterwards, the same vet who hadn't wanted to operate said this to me:
+
+> You just added years to this little dog's life.
+
+She's had 3 dentals as well, in 3 different years across her teens.
+
+### The part the list leaves out
+
+I want to say something about all that, because a history like this reads grim
+and her life has not been grim.
 
 This is a dog who chased rabbits. Who went after squirrels with total commitment
 and no plan whatsoever. Who tried, more than once, to fight the neighborhood
