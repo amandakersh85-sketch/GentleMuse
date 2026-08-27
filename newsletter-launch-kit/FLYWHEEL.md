@@ -91,6 +91,26 @@ Pre-send verification reminders armed: Sep 7 (Sabrina subscriber phrasing for #0
 wrapper glance for #004) and Sep 18 (Anthropic course count for #005). Each campaign
 stays editable in the dashboard until its send morning.
 
+**AI guide bonus restored for JAT (2026-08-27).** When the TUESDAY keyword buttons were
+repointed from `ai-guide.subscribepage.io` to the real JAT landing page, JAT signups lost
+the free guide that DM used to hand them. Rebuilt as its own automation rather than by
+editing the welcome email:
+
+- **"Just Another Tuesday — Free AI Guide bonus"** (196972920216486983)
+- Trigger: joins the Just Another Tuesday group (195832548837819660)
+- Steps: wait 1 day, then send "Here's the AI guide too" linking ai-guide.subscribepage.io
+- MailerLite's own checks pass: designed, eligible for sending, unsubscribe present,
+  no unlinked buttons, not broken
+- **Created inactive.** The API has no activate tool, so Amanda flips it on:
+  https://dashboard.mailerlite.com/automations/196972920216486983
+
+**Why a separate automation and not an edit to the welcome email.** The JAT welcome email
+(step of 196381310295475426) is designed content, last edited in the dashboard 2026-08-25.
+The only API tool that can write an automation email body is
+`update_automation_email_content`, which fully overwrites the design, and there is no tool
+to read the existing HTML first. Editing it would have destroyed Amanda's work to add one
+link. A second automation on the same trigger gets the same result and risks nothing.
+
 **Still open:**
 - The dual popup (195832725497709843) is inactive AND feeds the wrong group (Gentle
   Muse Subscribers, not the 2 newsletter groups). Fix group assignment in the dashboard
