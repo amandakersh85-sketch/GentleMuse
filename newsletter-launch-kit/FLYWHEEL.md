@@ -158,6 +158,75 @@ continue. Nothing else in the funnel reaches that many of the right people for f
 
 ---
 
+## Subscriber audit and double opt-in fix — 2026-08-27
+
+**Amanda's instruction:** turn off double opt-in, least friction available, and get
+everyone who signed up exactly where they need to be.
+
+### Where all 10 subscribers actually sit (verified live)
+
+| Group | Members | Real people |
+|---|---|---|
+| Consider This | amanda@gentlemuse.co, Mary | **1** (Mary) |
+| Just Another Tuesday | amanda@gentlemuse.co, Christine, Laura | **2** (Christine, Laura) |
+| Cesa | amanda@gentlemuse.co only | **0** |
+| Gentle Muse Subscribers | 7, incl. Amanda's 4 own accounts | 3 (Nadia, Melissa, Sirkendrick) |
+
+Amanda holds 4 records of her own: `amanda@gentlemuse.co`, `amandakersh85@gmail.com`,
+`amandakersh85+lptest@gmail.com`, and `princesamaryelizabeth@gmail.com`. Every headline
+count is inflated by those. The newsletters have 1 and 2 real readers, not 2 and 3.
+
+### The one person who was genuinely misfiled, now fixed
+
+**Laura (ljdanielson@gmail.com)** filled in the signup form for Just Another Tuesday on
+**2026-08-23** and then received nothing at all for 4 days. `sent: 0`. She never clicked
+the double opt-in confirmation, so she sat as `unconfirmed`, which meant she missed JAT
+issue #001 on Aug 25 and would have missed everything else.
+
+Fixed in 3 steps, each verified:
+1. `add_subscriber` with `status: "active"` → she is now active
+2. Removing and re-adding her to the group, because flipping status alone does **not**
+   re-fire a `subscriber_joins_group` trigger and she was still outside the welcome flow
+3. Confirmed: the JAT welcome automation logged a third completed run at
+   **2026-08-27 18:08:42**, which is her. She got "You're in. Tuesdays, then."
+
+She still missed JAT #001. Resending that one issue to her is Amanda's call.
+
+### Nobody else was misfiled
+
+Nadia, Melissa and Sirkendrick are in Gentle Muse Subscribers from an old import and the
+API. They never signed up for either newsletter, they were invited on Aug 20, and they did
+not take it. Adding them to a newsletter they did not ask for is not a wiring fix and is
+Amanda's decision, not an agent's.
+
+### Double opt-in: what actually changed
+
+**The form-level toggle cannot be flipped from here.** Verified a third time:
+`update_form` sets the name only, `create_form` accepts no double opt-in flag, and there is
+no account settings tool. Form 195835257531925894 still has `double_optin: true`. That
+toggle is in the dashboard.
+
+**What was done instead makes the toggle nearly irrelevant:**
+
+1. **The DM path is now zero friction.** `add_subscriber` accepts `status`, and the daily
+   lead sync now passes `status: "active"` explicitly rather than relying on a default.
+   Anyone who comments a keyword on Instagram or Facebook, hands over their email in the
+   DM, and gets synced is created active and receives their guide immediately. No
+   confirmation email, no gate. This is the path that matters, because Instagram and TikTok
+   carry the audience and X, Facebook and LinkedIn produced 0 form opens from Post 3.
+2. **A daily rescue sweep.** The routine now calls `list_subscribers` with status
+   `unconfirmed` every run, looks up which group each person chose, and re-adds them active
+   to that same group. Nobody can be stranded for more than 24 hours again. Laura sat for 4
+   days; that cannot repeat.
+
+### One caution before flipping the form toggle
+
+Christine (`chgaiotti@gmail.com`) signed up from an Italian IP and is the only subscriber
+with a recorded `opted_in_at` and `optin_ip`. Double opt-in is what produced that consent
+record. Turning it off globally is fine for US traffic and matches Amanda's own written
+conclusion in the Cesa paste kit, but EU signups will no longer carry proof of consent.
+Worth knowing, not a reason to keep it on.
+
 ## Amanda's activation list
 1. Activate Consider This welcome: https://dashboard.mailerlite.com/automations/196338050950759852
 2. Activate cross-invite: https://dashboard.mailerlite.com/automations/196342476720571577
