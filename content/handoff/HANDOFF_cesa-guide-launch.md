@@ -27,6 +27,29 @@ Settings that matter:
   confirm an email. This is where most signups die.
 - Publish.
 
+## STEP 2b. The hero photo. Amanda has picked it.
+
+The photo is the one of Cesa on her back in the cream sherpa blanket, blue
+paw print fleece on the left, tongue out, both front paws up, looking straight
+at the camera. Amanda sent it in chat on 27 Aug and said "I love this one".
+It is on her phone or in her camera roll, not yet in Drive.
+
+Ask her to drop it in Drive, or pull it from her camera roll, then:
+
+- **Landing page hero.** The original is portrait, roughly 3:4. Do NOT stretch
+  it into a wide banner, that decapitates her. Crop to a **square, 1:1**,
+  centered on her face and chest, so her ears stay inside the frame and the
+  blanket fills the corners. Export around 1200x1200. Place it above the
+  headline, not behind text, the photo is busy and text on top of it will not
+  read.
+- **PDF cover.** Keep it portrait, uncropped. Set the width to about 55% of
+  the page and center it under the title. Do not full bleed it.
+- Alt text: `Cesa, a 19 year old chihuahua, lying on her back in a blanket
+  with her tongue out.`
+
+Do not filter it, do not run it through an AI upscaler, do not "enhance" it.
+She picked this frame because it is really her.
+
 ## STEP 3. Host the PDF and get a public link.
 
 The finished PDF is in GitHub, repo `amandakersh85-sketch/GentleMuse`, branch
