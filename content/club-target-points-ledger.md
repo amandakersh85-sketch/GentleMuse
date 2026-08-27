@@ -169,9 +169,20 @@ Invisible to both schedulers.
 
 ### Notes
 
-- Posts added to the queue since 25 Aug are scheduling at 22:50, 23:30 and 13:20.
-  The 10:00 / 18:00 rebuild is not being applied by whatever writes new posts,
-  and 22:50 / 23:30 are the two weakest hours on the audience chart.
+- **CORRECTION, same day.** The note first filed here said new posts were landing
+  at 22:50, 23:30 and 13:20 and called those the weakest hours on the chart.
+  That was wrong. Those are UTC values straight off the Blotato API, and Central
+  is UTC minus 5 during CDT, so they are 5:50 PM, 6:30 PM and 8:20 AM Central.
+  All three are reasonable slots. No action was needed and none was taken.
+- The real scheduling defect, found while checking the above: the staging library
+  hardcodes `T17:00` for every Instagram row, which is **noon Central**, and stacks
+  4 and 5 rows on the identical timestamp (GM0002 to GM0005 all at
+  `2026-08-28T17:00`, GM0006 to GM0009 all at `2026-08-29T17:00`). That is the
+  source of the five-at-noon pileup cleaned up on 24 Aug, and SOP v2's slot table
+  said `instagram 17:00`, so the next wave load would have recreated it.
+  Fixed at source on 26 Aug: SOP v3 published with corrected slots (Instagram
+  15:00 UTC primary, 23:00 UTC secondary, one post per platform per timestamp),
+  and the daily top-up routine repointed at v3 with the slot rules inlined.
 - Carried forward, still open: BUTTER maps to Tree Hut body butter in ManyChat,
   not the FlavCity coffee flavor. And `Verify-TargetClubSku.ps1 -Sku 89094549`
   still needs a run at Amanda's desk for the HIBISCUS DM link.
