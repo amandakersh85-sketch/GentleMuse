@@ -42,6 +42,26 @@ she did not build a single one by hand.
 | Essentials | https://www.gentlemuse.co/tiktok |
 | Cesa | instagram.com/cesasgoldenyears (landing page not built yet) |
 
+### TUESDAY keyword destination, corrected 2026-08-27
+
+All 4 TUESDAY automations now point at `https://just-another-tuesday-gm.subscribepage.io`.
+Previously 447 and 427 sent people to `ai-guide.subscribepage.io`, which was deliberate
+back when JAT had no page of its own. It has one, so that workaround is retired.
+
+| id | Account | Was | Now |
+|---|---|---|---|
+| 447 | Amanda IG 45886 | ai-guide.subscribepage.io | JAT page |
+| 427 | Amanda FB 30840 | ai-guide.subscribepage.io | JAT page |
+| 2771 | Amanda IG 45886 | no button, email gate only | JAT page added |
+| 2772 | Amanda FB 30840 | no button, email gate only | JAT page added |
+
+Two stale claims were removed from the 447/427 DM copy at the same time, both verified
+live against MailerLite:
+
+- "starting September 1" was wrong. JAT #001 sent 2026-08-25. Next issue is #002 on Sep 1.
+- "The link below also hands you the 59 page beginner guide" was only true while the
+  button pointed at the AI guide page. It no longer does.
+
 ### DO NOT USE
 
 - `reset-guide.subscribepage.io` belongs to a different creator, not Amanda
