@@ -33,6 +33,39 @@ need different decisions, and the second one is almost entirely within reach.
 
 ---
 
+## Her history, because it explains most of what follows
+
+She was a breeder dog before she was mine. 3 litters that I know of.
+
+My adoption of her was actually delayed because she was having puppies. That's
+how I ended up with her. I was waiting, and she was somewhere else, pregnant
+again, at 9 years old. That last litter came in 2016.
+
+I've had her from that point. 10 years.
+
+Since then, and I'm listing this because I think it's more useful to see one
+dog's whole run than a tidied up version of it:
+
+- **Pyometra.** I won't try to explain it past what I was told, that it's an
+  infection of the uterus and it happens to females who were never spayed.
+  Whether the litters led to it, I don't know for certain. I know what I suspect.
+- **The surgery for that is how we found her cancer.** Nobody was looking for it.
+  They went in for one thing and found another.
+- **3 dentals**, in 3 different years across her teens.
+
+I want to say something about that list, because a list like that reads grim and
+her life has not been grim.
+
+This is a dog who chased rabbits. Who went after squirrels with total commitment
+and no plan whatsoever. Who tried, more than once, to fight the neighborhood
+cats, and who I had to physically intervene with for her own safety, because she
+genuinely believed she could take them and she absolutely could not.
+
+She's had a long, vibrant, ridiculous life. The medical history is part of it.
+It isn't the whole of it, and I'd rather you saw both.
+
+---
+
 ## 1. Walk the house at her height
 
 This is the one I'd give you if you only took one.
@@ -43,11 +76,22 @@ then spent the next hour changing things.
 
 Standing up, you cannot see what she deals with. Here's what I found down there.
 
-**The floor is a skating rink.** Old nails on hardwood or tile have almost no
-grip, and a dog who slips once starts bracing before she walks. That bracing is
-its own kind of tired. Runners, rubber-backed rugs, yoga mats end to end, cheap
-and immediate. I laid a path from her spot to the water to the door and it
-changed how willing she was to make the trip.
+**The floor, and here's where I disagree with most of what you'll read.** The
+standard advice is runners and rugs everywhere. For a lot of dogs that's exactly
+right: old nails on hardwood have very little grip, and a dog who slips once
+starts bracing before she walks, and that bracing is its own kind of tired.
+
+It didn't work for us. Cesa pees on rugs. We tried it, the accidents got worse,
+and the traction rugs that actually grip the floor are the same ones you can't
+easily pull up and wash. So we went backwards on purpose.
+
+What I do instead is simpler. I pick her up. If she's going somewhere and the
+floor is a factor, she gets carried. She walks slowly and she doesn't actually
+slip much, and between the carrying and the pace it stopped being the problem I
+expected it to be.
+
+I'm leaving the rug advice in here because it genuinely is right for a lot of
+houses. I just won't hand it to you as gospel when it failed in mine.
 
 **Every turn costs her something.** Count the steps from where she sleeps to
 where she drinks. Then count the turns. I took 2 turns out of that route by
@@ -247,9 +291,12 @@ If I got a year 1 with her again.
 patterns, I know from about the last 3 years. The 7 before that are a blur and I
 have no baseline for any of it. It costs nothing and I'd have it forever.
 
-**2. I'd have put traction down before she slipped, not after.** I waited for a
-problem to appear. The rugs were always going to be the answer. She spent months
-bracing on floors I could have fixed in an afternoon.
+**2. I'd have written her medical history down as it happened.** I'm sitting here
+trying to remember which years she had her dentals and I can't. 3 of them, across
+her teens, and I could not tell you the dates without going digging. The
+pyometra, the surgery, the cancer they found during it, all of it lives in my
+head in the wrong order. One page, dated, added to each time something happened.
+I'd give a lot for that page now.
 
 **3. I'd have stopped asking her to hurry.** Around year 14 I finally quit
 rushing her out the door in the morning, and it turns out slow mornings were
