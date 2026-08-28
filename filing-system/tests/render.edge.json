@@ -1,0 +1,14 @@
+{
+  "title": "Edge Case Reel",
+  "format": "9:16",
+  "duration": 20,
+  "clips": [
+    {"clip_id": "closet-undescribed-01", "start": 0, "duration": 4, "text": "Getting dressed with intention", "match_reason": "closet footage of getting ready"},
+    {"clip_id": "home-landscape-window-01", "start": 0, "duration": 4, "text": "Afternoon window light in the living room", "match_reason": "clip is the living room window in afternoon light"},
+    {"clip_id": "planner-week-open-01", "start": 0, "duration": 3, "text": "Opening the planner to a blank week", "match_reason": "hand opening the paper planner"},
+    {"clip_id": "planner-week-open-01", "start": 0, "duration": 3, "text": "Skincare before bed every night", "match_reason": "reused"},
+    {"clip_id": "kitchen/invented-clip-99", "start": 0, "duration": 3, "text": "Chopping herbs at the counter", "match_reason": "kitchen prep footage"},
+    {"clip_id": "coffee-morning-pour-01", "start": 0, "duration": 3, "text": "Coffee pour", "match_reason": "yes"}
+  ],
+  "end_text": "Follow"
+}

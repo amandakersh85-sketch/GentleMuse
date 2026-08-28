@@ -1,0 +1,115 @@
+THE GENTLE MUSE — CAPTION TO CLIP BINDING SOP, RUN 6 OF 28
+
+New. Created 08/28/2026. Written after the second shipped mismatch:
+a passenger princess caption bound to a three second sleeping position clip
+while the correct passenger princess clip sat in the library, unused.
+
+TOOLS: gm_clip_library.py, gm_bind_check.py
+Live with the filing engine. Companions to GM-Video-Triage.ps1, not
+replacements.
+
+WHY THIS RUN EXISTS
+Run 3 tells you a clip is 11.4 seconds, vertical, 22 MB, and hashes to AAA1.
+It does not tell you the clip is Amanda in a passenger seat. Nineteen columns
+and not one of them says what is on screen.
+
+So when a caption gets paired to a clip, there is nothing to pair on. The
+filenames are VID_20260714_193355.mp4. A passenger princess clip and a sleeping
+position clip are the same object to that step. The pairing was a guess every
+time, and a guess is wrong at random.
+
+That is why the first correction did not hold. A written rule cannot fix a
+missing column. Run 6 adds the column, then refuses to ship anything that
+cannot be checked against it.
+
+THE FIX, IN ONE LINE
+Every clip carries a sentence describing what is visible. Every caption must
+share a real word with that sentence, or it does not render.
+
+THE LOOP
+1. Run 3 as normal. Approve the KEEP list.
+2. Build the library skeleton from the approved triage.
+   python3 gm_clip_library.py --from-triage out\video-triage.csv \
+       --out clip-library.csv
+3. Describe the clips. Open out\thumbs\ and write one plain sentence per clip
+   in the Shot column. What is literally on screen. Not the mood, not the
+   caption it might carry one day. Set Described to yes.
+   Send the thumbs folder and the CSV to Claude and it drafts the Shot lines.
+   Amanda corrects them. Same shape as the Run 3 visual pass.
+4. Confirm the library is ready.
+   python3 gm_clip_library.py --audit clip-library.csv
+   Undescribed clips are reported. They cannot be bound until described.
+5. Generate reels. Every render JSON binds by ClipID and carries a
+   match_reason.
+6. Gate every render JSON before anything reaches Remotion or Buffer.
+   python3 gm_bind_check.py --render reels\ --library clip-library.csv
+7. FAIL means fix and re-run. HOLD means film the missing beat. Neither ships.
+8. Log the run. Update the run counter to 6 of 28.
+
+NEW FOOTAGE
+Re-run step 2 with --merge. Descriptions already written are carried forward,
+matched on SHA-256 first and path second. A re-triage never wipes the work.
+
+WHAT THE GATE BLOCKS
+E01  clip_id is not in the library. An invented clip breaks the render.
+E02  clip has no Shot line. Nothing to verify a caption against, so it is
+     not bindable. Undescribed is not the same as usable.
+E03  the JSON file path disagrees with the library.
+E04  the beat is longer than the clip. This is the three second clip carrying
+     an eleven second caption.
+E05  the clip durations do not sum to the stated duration.
+E06  landscape footage in a 9:16 reel.
+E07  the on-screen text shares no content word with the Shot line. This is
+     the mismatch itself.
+E08  no match_reason. If the pairing cannot be said in words it was not made.
+E09  one clip carrying two unrelated lines in the same reel.
+E10  a bound clip with no text, or a HOLD beat with no text.
+E11  a better clip existed. The gate names it. This is the one that catches
+     the failure Amanda actually reported: the right clip was in the library
+     and a different one got used.
+
+THE SUBSTITUTION BAN
+When no clip matches a line, the only legal move is:
+     "clip_id": "HOLD"
+The gate reports it as needing footage and exits 2. The reel does not ship.
+Reaching for the nearest available clip is what produces a mismatch. A missing
+clip is a filming task, not a rendering decision. Silence is not available.
+
+OVERRIDE, USED SPARINGLY
+A line can be visually true without sharing a word. Discipline over a slow
+coffee pour is a real pairing. Set "override": true and write a match_reason
+that says what the metaphor is. It logs as a NOTE and passes. If overrides
+start appearing on most beats, the library is underdescribed, not the gate
+being strict.
+
+VERDICTS
+PASS  exit 0   every binding verified
+FAIL  exit 1   blocking findings. Nothing ships.
+HOLD  exit 2   clean, but beats await footage. Those beats do not ship.
+
+Machine verdicts are proposals. Amanda's approval is still the gate.
+
+SAFETY
+Both scripts are read-only against footage. gm_clip_library.py writes exactly
+one CSV. gm_bind_check.py writes nothing unless --report is passed. Neither
+moves, renames, re-encodes or deletes a video. There is no delete command in
+either file.
+
+LIMITS, STATED PLAINLY
+The topic check is word overlap, not vision. It catches a caption pointed at
+the wrong subject, which is the failure that keeps happening. It cannot tell a
+good take from a bad one, and it cannot catch a mismatch between two clips
+described in similar words. The Shot line is the ceiling on the whole system:
+a lazy description gives a lazy check. One specific sentence per clip is the
+entire job.
+The gate is only as current as the library. Film without re-running step 2 and
+the new clips do not exist as far as the gate is concerned.
+Both scripts are Python, not PowerShell like Runs 3 to 5, so they run and were
+tested on any machine. The suite is filing-system/tests/run-tests.sh, ten cases
+including a reproduction of the reported mismatch. All ten pass.
+
+NOT INCLUDED
+Rendering. Run 6 verifies the plan. Remotion still does the render.
+Caption styling, timing within a beat, or font. Different problem.
+Any judgement about whether a clip is good footage. The gate checks whether it
+is the RIGHT footage. Amanda still decides if it is nice.
