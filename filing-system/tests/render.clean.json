@@ -1,0 +1,17 @@
+{
+  "title": "Passenger Princess Reel 01",
+  "format": "9:16",
+  "duration": 11,
+  "clips": [
+    {"clip_id": "driving-passenger-princess-01", "file": "driving/passenger-princess-01.mp4", "start": 0, "duration": 4,
+     "text": "Passenger princess era and completely unbothered",
+     "match_reason": "clip shows her in the passenger seat, feet up, window light on her face"},
+    {"clip_id": "coffee-morning-pour-01", "file": "coffee/morning-pour-01.mp4", "start": 0, "duration": 4,
+     "text": "The morning coffee she made before anyone asked",
+     "match_reason": "clip is the oat milk pour into black coffee on the counter"},
+    {"clip_id": "planner-week-open-01", "file": "planner/week-open-01.mp4", "start": 0, "duration": 3,
+     "text": "A week that opens on her terms",
+     "match_reason": "clip is a hand opening the planner to a blank week"}
+  ],
+  "end_text": "Follow for more Gentle Muse resets"
+}

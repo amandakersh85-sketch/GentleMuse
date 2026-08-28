@@ -1,0 +1,13 @@
+{
+  "title": "Soft Life Reel 04",
+  "format": "9:16",
+  "duration": 8,
+  "clips": [
+    {"clip_id": "coffee-morning-pour-01", "file": "coffee/morning-pour-01.mp4", "start": 0, "duration": 4,
+     "text": "Coffee poured slow on a morning with nowhere to be",
+     "match_reason": "clip is the slow oat milk pour into coffee"},
+    {"clip_id": "HOLD", "start": 0, "duration": 4,
+     "text": "Candles lit at four in the afternoon for no reason"}
+  ],
+  "end_text": "Save this for your next slow day"
+}
