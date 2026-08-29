@@ -88,13 +88,26 @@ This is the part that changes the copy, so get it right before writing a caption
 | Amanda Instagram | Hard conversion | Comment CESA. Introduce Cesa first, the audience does not know her. |
 | Amanda Facebook | Hard conversion | Comment CESA. Longer form, this is the senior dog demographic. |
 
-### The bio-link rule (Amanda's, and I had missed it)
+### The bio-link rule, resolved 2026-08-29
 
 "Link in bio" is only a valid CTA when that bio actually points at a page that converts.
-Writing it before the bio is set ships a dead end. So: never write "link in bio" into a
-caption until the destination is confirmed live, and when a bio changes, the captions that
-depend on it get re-checked. Cesa's TikTok bio is meant to hold **her own** Cesa landing
-page, not gentlemuse.co/tiktok and not Amanda's link tree.
+Writing it before the bio is set ships a dead end.
+
+**The bios now hold different things, and this is the part that is easy to get wrong.**
+Amanda confirmed on 2026-08-29:
+
+| Account | What its bio points at | So the guide CTA is |
+|---|---|---|
+| **@cesasgoldenyears TikTok** | Cesa's landing page, `cesa-guide.subscribepage.io` | **"in bio" is correct** |
+| **@cesasgoldenyears Instagram** | Cesa's landing page, same | **"in bio" is correct**, or comment CESA |
+| **@thegentlemuse2026 (all)** | **Amanda's website**, not the guide | **NEVER "in bio" for the guide.** Comment CESA only. |
+
+Writing "link in bio" on one of Amanda's own posts sends people to her website looking for
+a senior dog guide that is not there. On her channels the guide CTA is always the keyword.
+
+Audited 2026-08-29: of 137 scheduled posts, exactly 1 uses the word "bio" and it is on
+Cesa's TikTok, which is correct. Caption `3835358` had its bio line restored now that the
+destination is confirmed live.
 
 ### Live keyword automations covering Cesa
 
