@@ -1,0 +1,170 @@
+THE GENTLE MUSE — HOLIDAY CAPTION STRATEGY SOP, RUN 7 OF 28
+
+New. Created 08/29/2026. Written before the failure, not after it, because the
+failure this one prevents is one nobody notices until an audience does.
+
+TOOLS: gm_holiday_bank.py, gm_holiday_check.py
+DATA:  data/holiday-calendar.csv, data/holiday-fact-bank.csv
+Live with the filing engine. Companions to the content chain, not replacements.
+
+WHY THIS RUN EXISTS
+Amanda wants holiday content built on history. Real facts, spooky ones, the
+kind of daily trivia that carries a turn. She loves history, her audience will
+come to trust her on it, and she wants the content produced without her having
+to be in the room.
+
+Those two wants pull against each other in one specific way. Ask any assistant
+for a creepy historical Halloween fact and it will give you one. It will be
+specific, it will be dated, it will sound exactly right, and there is nothing
+in the pipeline that can tell whether it is true. The pairing step has nothing
+to pair on, which is the same shape as Run 6: a caption bound to a clip nobody
+had described. Here the caption is bound to a claim nobody sourced.
+
+Run 6 is the precedent and the warning. A written rule saying "only use real
+facts" cannot hold, because the step that would break the rule cannot tell that
+it is breaking it. A confident invention and a checked fact are the same object
+to a writing step. So Run 7 adds the missing data, then refuses to ship
+anything that cannot be traced back to it.
+
+The second half is the voice. Amanda described the holiday register precisely:
+nostalgic, a touch of Disney and whimsy, a millennial born in 1985 who watched
+the Disney Channel and Nickelodeon from about 1989 into the late 1990s. That is
+not a mood, it is a date range, and a date range is checkable. A reference to
+2008 is somebody else's childhood, and it breaks the field just as surely as a
+wrong date breaks the history.
+
+THE FIX, IN ONE LINE
+Every holiday post binds to a fact that already exists in the bank, with a
+source and a backbone. Every year it names is either in that row or inside the
+era window, or it does not go out.
+
+THE VOICE, AS DATA
+Era window     1989 to 1999. Amanda was 4 to 14. Anything outside it is a
+               different generation's nostalgia wearing hers.
+Register       carried on the holiday row: spooky-warm, nostalgic-warm, tender,
+               reflective, quiet, celebratory. It sets the temperature, not the
+               content.
+Backbone       every fact row carries the turn. The line that says why the fact
+               matters to a woman reading it at 11 at night.
+
+The backbone column is doing real work. The video factory bans whimsy without
+weight and post-grader auto-fails generic motivation. A holiday fact with no
+turn is exactly what both of those rules are pointed at, and it is the natural
+output of a trivia prompt. The whimsy Amanda asked for is allowed because the
+backbone is mandatory. That is what "with a backbone" means, made mechanical.
+
+THE LOOP
+1. See what is in season.
+   python3 gm_holiday_bank.py --season
+2. Confirm the bank is sound before planning against it.
+   python3 gm_holiday_bank.py --audit
+3. Build the plan for the range you are batching.
+   python3 gm_holiday_bank.py --plan --from 2026-10-01 --to 2026-10-31 \
+       --per-holiday 5 --out plan.csv
+   Every row comes out bound to a FactID, with the fact, the source and the
+   backbone attached. That is the brief. Nothing has to be remembered.
+4. Write the posts from that plan. One fact per post. Say the fact in her
+   words, then turn it. The backbone is the turn, rewritten, never pasted.
+5. Gate every post before anything reaches Buffer, Blotato or Metricool.
+   python3 gm_holiday_check.py --post posts/
+6. FAIL means fix and re-run. HOLD means write the missing fact into the bank
+   with its source. Neither ships.
+7. Run post-grader as normal. The gate is mechanical, post-grader reads.
+   Nothing below 8 out of 10.
+8. Amanda approves. Then it schedules. Not before.
+9. Record the date in the LastUsed column so the fact rests before it repeats.
+
+ADDING A FACT
+Append a row to data/holiday-fact-bank.csv. It needs all of:
+  FactID     lane prefix and a number. HAL, THX, XMS, NYR, VAL, STP, and so on.
+  HolidayID  must exist in holiday-calendar.csv.
+  Kind       history, spooky, origin, nostalgia, or myth-bust.
+  Fact       one plain sentence. What happened, and when.
+  Year       the year it happened, when there is one.
+  EraYear    the year of the thing being remembered. Required on nostalgia rows.
+  Source     where it came from. A named work, archive, or record. Not "known".
+  Backbone   the turn. Why it matters. This is the half that makes it hers.
+  Verified   yes, once the source has actually been checked.
+A row without a source is not a fact yet. Leave it out until it is one.
+
+ADDING A HOLIDAY
+Append to data/holiday-calendar.csv. The Rule column takes:
+  fixed:MM-DD        a fixed date
+  nth:MM:WD:N        the Nth weekday of a month, Monday 0 through Sunday 6
+  last:MM:WD         the last weekday of a month
+  easter             Easter Sunday, computed
+  offset:HOLIDAY:N   N days from another holiday in the same file
+LeadDays and TailDays set how long the content is in season around it.
+
+WHAT THE GATE BLOCKS
+E01  the fact_id is not in the bank. This is the invented history failure, and
+     it is the reason the run exists.
+E02  the bank row cannot carry a post. No source, no backbone, or not verified.
+E03  the holiday is not in the calendar.
+E04  the fact belongs to a different holiday. Borrowing a Christmas fact for a
+     Halloween post is substitution.
+E05  the post date is outside the holiday's season.
+E06  a nostalgia reference outside 1989 to 1999.
+E07  the caption names a year the bank does not source. Decades are allowed to
+     paraphrase: the 1690s is a fair way to say 1692.
+E08  the post cites a fact and never says it. A FactID that does not appear in
+     the writing is decoration, and the claim behind it was never checked.
+E09  the post reports the fact and stops. Trivia with no turn.
+E10  an em dash or en dash.
+E11  a spelled-out number.
+E12  more than 5 hashtags.
+E13  hype or generic motivation. The mechanical half of post-grader's auto-fails.
+E14  a platform rule. A keyword CTA on TikTok, a Short with no title.
+E15  the same fact twice in a batch, or inside the 365 day reuse window.
+
+THE SUBSTITUTION BAN
+When the bank has no fact for a beat, the only legal move is:
+     "fact_id": "HOLD"
+The gate reports it as needing a fact and exits 2. The post does not ship.
+Reaching for a fact from a neighbouring holiday, or writing one from memory
+because it sounds right, is the failure. A missing fact is a research task, not
+a writing decision. Silence is not available.
+
+OVERRIDE, USED SPARINGLY
+A post can name a date the bank does not carry and still be sound, if the
+writer has a second source in hand. Set "override": true and write an
+override_reason naming that source. It logs as a NOTE and passes. If overrides
+start appearing on most posts, the bank is too thin, not the gate too strict.
+
+VERDICTS
+PASS  exit 0   every claim traced to a sourced fact
+FAIL  exit 1   blocking findings. Nothing ships.
+HOLD  exit 2   clean, but a post is waiting on a fact nobody has written.
+
+Machine verdicts are proposals. Amanda's approval is still the gate.
+
+SAFETY
+Both scripts are read-only. gm_holiday_bank.py writes a CSV only when --out is
+passed. gm_holiday_check.py writes nothing unless --report is passed. Neither
+moves, renames or deletes anything. There is no delete command in either file.
+Neither posts, schedules or contacts a platform.
+
+LIMITS, STATED PLAINLY
+The gate checks sourcing, not truth. It knows a claim is traceable to a row
+somebody wrote and cited. It cannot tell whether that row is right. The bank is
+the ceiling on the whole system, exactly as the Shot line is for Run 6.
+It cannot catch a caption that contradicts the fact it cites while reusing its
+words. A post saying 19 women were burned at Salem, bound to the row saying
+nobody was burned, shares enough wording to pass E08. A human still reads
+every post. That is what post-grader and Amanda's approval are for.
+Year detection reads bare 3 and 4 digit numbers as dates. A caption about 1200
+dollars will trip E07. Use the override, or write the amount differently.
+"one" and "once" are left out of the spelled-number check on purpose. They are
+pronouns as often as counts.
+The 50 facts shipped with the bank were written from standard reference works
+and each row names where it came from. They have not been re-checked against
+those sources by a second reader. The sources are named so that check is
+possible, and it is worth doing before the Halloween batch goes out.
+
+NOT INCLUDED
+Writing. Run 7 supplies the fact, the register and the plan. The content chain
+still writes the post, and post-grader still scores it.
+Scheduling. Nothing here touches Buffer, Blotato or Metricool.
+Clip binding. That is Run 6, and a holiday reel needs both gates.
+Any judgement about whether a fact is interesting. The gate checks whether it
+is sourced and turned. Amanda still decides if it is good.

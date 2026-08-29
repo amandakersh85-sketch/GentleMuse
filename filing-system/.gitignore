@@ -8,3 +8,7 @@ _QUARANTINE/
 SUMMARY.txt
 thumbs/
 contact-sheets/
+
+# Python bytecode from running the Run 6 and Run 7 scripts
+__pycache__/
+scripts/__pycache__/
