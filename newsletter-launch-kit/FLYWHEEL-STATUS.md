@@ -146,3 +146,63 @@ It is now live on gentlemuse.co and visitors will see it. It carries `double_opt
 so signups there land unconfirmed and are picked up by the daily sweep within 24 hours
 rather than instantly. Switching it back off is one call if she does not want it:
 `POST api/forms/195832725497709843/activate` is what turned it on.
+
+---
+
+## Update 2026-08-29: first live keyword traffic, and a delivery bug it exposed
+
+### The Cesa landing page is LIVE
+
+`https://cesa-guide.subscribepage.io` exists, built outside this session on 2026-08-28,
+using exactly the `cesa-guide` slug from the Drive paste kit. **That closes the item this
+file listed as impossible from here.** It was always a Cowork job and Cowork did it.
+
+The CESA automations were rewired the same day: `2952` (Cesa IG) and `445` (Amanda IG) had
+their **emailGate removed** and now send a button straight to the landing page, which
+captures the email itself and feeds the Cesa group. Delivery copy also updated from 13 to
+15 pages.
+
+**Consequence for the daily sync:** CESA no longer needs syncing, because the landing page
+feeds MailerLite directly. The sync list dropped from 6 automations to 3: `2954` CONSIDER
+on Cesa's IG, `2771` and `2772` TUESDAY. The routine was rewritten to rebuild that list
+from `blotato_list_automations` every run rather than trusting a hardcoded list, because
+this is the second time the set has changed underneath it.
+
+### The keyword fired for real, and 2 of 3 attempts failed
+
+First live traffic through the funnel. Contact `1048429878116670` commented **CESA** on 3
+different posts on 2026-08-28:
+
+| Time UTC | Post | Result |
+|---|---|---|
+| 16:33:03 | `6536249` | **FAILED** error 20102 |
+| 18:58:16 | `6533423` | **FAILED** error 20102 |
+| 19:32:26 | `6503252` | Sent |
+
+Error 20102: *"The comment you are trying to reply to, already has a reply."*
+
+**Instagram allows exactly one private reply per comment.** If anyone replies to a keyword
+comment before the automation does, that slot is spent and the DM never sends. The lead is
+lost with no visible sign on the post itself.
+
+**Operating rule, now in the daily sync as step 3:** do not reply to a keyword comment
+before the automation has. Let the DM go out first, then reply publicly if you want to.
+Every automation run gets checked for failures each day, not just for captures.
+
+### What has not happened yet
+
+No real subscriber. The Cesa group holds 3 records and all 3 are Amanda's:
+`amanda@gentlemuse.co` plus `+cesatest` and `+cesatest2`. The person who commented did not
+complete the landing page.
+
+**The delivery chain itself is proven though.** `+cesatest` shows 1 sent, **1 open, 1 click,
+100% on both**. Comment to DM to landing page to group to guide works end to end. What is
+missing is volume, not plumbing.
+
+### Still open
+
+- The 3 Cesa TikTok captions still end on "Follow along for more of her" with no bio line,
+  because the bio-link rule says do not write it until the destination is confirmed live in
+  the bio. The page now exists, so the moment Amanda confirms it is in the
+  **@cesasgoldenyears** TikTok bio, the line goes back. Only `3835358` is still unpublished;
+  `3835340` and `3835351` already went out.
