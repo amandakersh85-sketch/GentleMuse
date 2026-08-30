@@ -107,3 +107,44 @@ both are live, every lead is a coin flip, and when ManyChat wins the person gets
 without the landing page.
 
 Keywords to switch off in ManyChat: CESA, CONSIDER, TUESDAY, GUIDE, PLAY, RESET.
+
+
+---
+
+## CONFIRMED 2026-08-30: the race was the cause, and it is fixed
+
+Amanda disconnected her accounts from ManyChat, then tested both automations by commenting
+CESA across her two Instagram accounts. Both passed clean on the first try.
+
+| Automation | Account | Before | After |
+|---|---|---|---|
+| `2952` | @cesasgoldenyears IG | never fired | **completed** 16:36:43 to 16:36:48 |
+| `445` | @thegentlemuse2026 IG | 2 FAILED 20102, 1 sent | **completed** 16:48:31 to 16:48:36 |
+
+`445` is the one that matters. It is the automation that failed twice on 08-28, and it
+succeeded on the first attempt once ManyChat was gone. That moves the two-tool race from a
+strong inference to a confirmed cause.
+
+**Record: 3 failures out of 4 before the fix. 2 clean out of 2 after.**
+
+Both DMs went out identical and correct: 15 pages, and a "Get the guide" button to
+`https://cesa-guide.subscribepage.io`. Comment to DM sent in 5 seconds on both.
+
+### The rule that comes out of this
+
+**One tool per keyword per account. Never two.** Instagram gives a comment exactly one DM
+slot. When two tools watch the same comment, one wins and the other fails silently with
+20102, and the lead is gone with nothing visible on the post. This is the failure mode to
+suspect first any time keyword conversion looks lower than the comment count.
+
+The corollary for the Sept 11 cutover: the `[Sept 11 cutover]` drafts renamed **DO NOT
+ACTIVATE** are all duplicates of a live automation. Activating one recreates exactly this
+race, in Blotato against itself.
+
+### How to test a keyword without waiting for real traffic
+
+Amanda has 2 Instagram accounts, so each can test the other. Comment the keyword from
+@cesasgoldenyears onto a @thegentlemuse2026 post to test `445`, and the reverse to test
+`2952`. The commenter must not be the account that owns the post: an automation ignores its
+own owner, which is also why this cannot be run from Blotato's API, whose comment tool posts
+only as the post's own account.
