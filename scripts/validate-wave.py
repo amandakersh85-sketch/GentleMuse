@@ -106,6 +106,24 @@ def main(path):
     chk(not [p for p in parsed if re.search(r'\d+\s*%\s*off', p['text'], re.I)],
         'no row quotes a discount percentage')
 
+    # Club Target pays points on TikTok only while Amanda is under 500 IG
+    # followers. A theme scheduled to Instagram or Facebook with no TikTok twin
+    # is a silent loss of the entire 30 points for that theme. This is exactly
+    # how #TargetLittleFinds was nearly missed on 30 Aug 2026: 2 Instagram rows
+    # and 1 Facebook row, zero TikTok.
+    THEME = re.compile(r'#(Target(?!Partner\b)\w+|HeyDay\w+)')
+    themes = {}
+    for row in parsed:
+        if 'ClubTarget' not in row['text'] and 'club.target.com' not in row['text']:
+            continue
+        for tag in THEME.findall(row['text']):
+            themes.setdefault(tag, set()).add(row['plat'])
+    orphans = sorted(t for t, plats in themes.items() if 'tiktok' not in plats)
+    chk(not orphans,
+        'every Club Target theme has a TikTok row, the only placement that '
+        f'earns points ({len(orphans)} theme(s) with no TikTok: '
+        f'{", ".join(orphans) if orphans else "none"})')
+
     print()
     if fails:
         print(f'RESULT: {len(fails)} FAILURES')
