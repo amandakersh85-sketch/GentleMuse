@@ -246,3 +246,76 @@ post in the account and the guide. Fixable by editing the caption in-app.
 **PARTIAL** on Everyday Pet Favorites, 60 of 75, Story outstanding.
 **PENDING PORTAL** on the 5 unmatched Reels, 150 points, blocked on theme
 windows only Amanda can see.
+
+---
+
+## === RESOLVED 30 Aug 2026: the Instagram credit question ===
+
+Amanda confirmed: **no credit on Instagram until 500 followers.**
+
+That settles the test that has been PENDING since 23 Aug. Of the two scenarios:
+
+| Scenario | Arithmetic | Total |
+| --- | --- | --- |
+| **TikToks credit, Reels do not** | 304 + 270 | **574** ← confirmed |
+| Both credit | 304 + 390 | 694 |
+
+**Portal total is 574.** The 21 Aug experiment is concluded and the answer is no.
+
+### What this changes
+
+The 75-point theme split is not available to her. Until she crosses 500 followers,
+every theme is worth **30 points, not 75**:
+
+| Placement | Points | Status below 500 followers |
+| --- | --- | --- |
+| TikTok | 30 | **the only one that pays** |
+| Instagram Reel | 30 | 0 |
+| Instagram Story | 15 | 0 |
+
+Consequences to carry into every future audit and game plan:
+
+- The "150 points unclaimed on 5 unmatched Reels" figure logged on 23 Aug,
+  26 Aug and earlier today is **void**. Those Reels were never worth anything.
+  Do not chase them.
+- The Instagram Story line item is worth 0. Stop putting it on the task list.
+- Today's three themes are worth **30 each, 90 total**, not 210.
+- Everyday Pet Favorites is **fully complete at 30 of 30**, not 60 of 75.
+  The TikTok published 21 Aug is the entire available value of that theme.
+- Instagram distribution of Club Target content still has value for follower
+  growth, which is the actual gate. It just has no points value yet.
+
+### TikTok execution status, 30 Aug
+
+Amanda asked for the TikTok uploads to be executed. Checked every Club Target
+asset in the account:
+
+| Theme | TikTok | Note |
+| --- | --- | --- |
+| #TargetEverydayEssentials | published 20 Aug | done |
+| #HeyDayTechAugust | published 20 Aug | done |
+| #TargetLunchThrowback | published 21 Aug | done |
+| #TargetBudgetFinds | published 21 Aug | done |
+| #TargetFave | published 21 Aug | done |
+| #TargetFallFirstLooks | published 21 Aug | done |
+| #TargetCollegeMVPs | published 21 Aug | done |
+| #TargetPetFaves | published 21 Aug | done |
+| #TargetGoodandGatherFaves | published 21 Aug | done |
+| #TargetCatandJackSummer | scheduled 2 Sep | footage exists |
+| #TargetLittleFinds | Adornia, in Wave 1 for 1 Oct | footage exists |
+| **Fresh Home Finds** | **none** | **no footage exists** |
+| **Game Day Throwback** | **none** | **no footage exists** |
+
+**Nothing was uploaded, because there is nothing to upload.** Every Club Target
+video asset in the library is already published or already scheduled. Fresh Home
+Finds and Game Day Throwback were never filmed. They cannot be posted without a
+store run.
+
+### Defect flagged, not actioned
+
+The Cat and Jack TikTok is scheduled **twice** with identical media and caption:
+post `3630587` on 2 Sep and post `3939647` on 24 Sep. Same asset
+`600306c6-0606-4d93-a38b-690b4320de1f.mp4`. The second is a Wave 1 row that
+duplicated a pre-existing queue entry. Only one can credit the theme, and TikTok
+may suppress the repeat. Deletion in Blotato is permanent, so this is flagged for
+Amanda's call rather than actioned.
