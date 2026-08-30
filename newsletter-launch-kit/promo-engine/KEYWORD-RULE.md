@@ -224,3 +224,95 @@ rather than a surprise.
 **One tool per keyword per account.** ManyChat is gone, so Blotato is the only thing holding
 these keywords. The only way to break that rule now is to activate one of the 10
 `DO NOT ACTIVATE` drafts, which would put Blotato in a race with itself. Do not.
+
+---
+
+## 2026-08-30: follow gate added to the 5 lead magnet keywords on @thegentlemuse2026
+
+Amanda's goal is 500 Instagram followers, which is the threshold that unlocks her Club Target
+affiliate account. `followGate` is now on every lead magnet keyword on her main account.
+
+| Automation | Keyword | Gated |
+|---|---|---|
+| `445` | CESA | yes |
+| `435` | RESET | yes |
+| `1393` | CONSIDER | yes |
+| `1019` | PLAY | yes |
+| `1424` | GUIDE | yes |
+| `2771` | TUESDAY | **no, deliberately** |
+
+TUESDAY already runs an `emailGate`. Stacking a follow gate on top means follow, then hand
+over an email, then finally get the thing. That is 2 hurdles in front of 1 offer and it will
+lose people. One word from Amanda and it goes on, but it should be a choice, not a side
+effect.
+
+Gate copy, same shape across all 5, offer-specific in the middle line:
+
+> One small thing first.
+>
+> Follow along, then tap below and [the thing] is yours. That's the only thing I ask for it.
+>
+> Amanda
+
+Button: "I'm following".
+
+**Facebook got nothing.** `followGate` is Instagram only and the API rejects it elsewhere.
+Cesa's account (`2952`, `2954`) was also left alone: gating there grows @cesasgoldenyears,
+and the 500 target is on @thegentlemuse2026.
+
+### It does not bomb existing followers
+
+This was Amanda's worry and it is the right worry. The gate holds the DM back **until the
+contact follows**. Someone who already follows has already satisfied that condition, so they
+skip the gate and get the guide immediately. The gate message only ever reaches someone who
+is not following yet.
+
+Read from the API contract, not tested live. To confirm in 1 comment: have an account that
+already follows @thegentlemuse2026 comment CESA. If the guide arrives with no follow prompt,
+confirmed.
+
+### Honest expectation
+
+**This will convert 0 people right now**, because 0 real people have ever commented a keyword.
+See the audit above. The gate is correct and costs nothing, and it is not the thing that gets
+her to 500. Reach is.
+
+---
+
+## Rejected: a "follow" keyword automation. Red teamed 2026-08-30 at Amanda's request.
+
+The idea was to fire a follow request on comments containing words like "follow", so
+follow-for-follow commenters get asked to follow. Amanda flagged the risk herself and asked
+for it to be attacked rather than built. It should not be built. Four reasons, worst first.
+
+**1. It would hit the exact people she wants to spare, almost every time.** Keyword matching
+is substring based and case sensitive, proven above. The word "follow" in a comment is
+overwhelmingly *past tense*: "Following you now", "I've been following for months",
+"followed!", "Love your stuff, followed". Every one of those fires the trigger, and every one
+of those is already a follower. The automation would ask loyal followers to follow, which
+reads as though she is not paying attention. Her instinct was backwards from what the data
+would actually produce, and it is worth saying so plainly: the word signals someone who
+already did it.
+
+**2. Follow-for-follow traffic is worth less than nothing.** F4F accounts follow, wait for the
+follow back, then unfollow. They do not open newsletters and do not buy. Worse, they crater
+engagement rate, which is what the algorithm uses to decide reach. Getting to 500 that way
+makes every future post reach fewer real people, and Instagram periodically purges those
+accounts anyway. The Club Target application is not helped by 500 followers that Instagram is
+about to delete.
+
+**3. It risks the entire keyword system.** Instagram's private reply exists to answer a
+comment. DMing "please follow me" to someone who commented an emoji is not answering
+anything, and it is the pattern the one-DM-per-comment limit was built to police. The
+downside is not a warning, it is losing private reply permission, which would kill CESA,
+GUIDE, RESET, PLAY, CONSIDER and TUESDAY in one stroke. Risking the whole funnel to chase
+followers she does not want is a bad trade at any odds.
+
+**4. It is off brand.** The voice is "I'd rather you finish 2 than bookmark 50." A DM that
+says follow me back is the opposite of that, and it is the first impression for anyone who
+gets it.
+
+**What does the same job safely:** `followGate`, now live on 5 automations. It only asks
+people who want something she made, only if they are not already following, and it asks as a
+trade rather than a favor. It cannot be read as spam because it is a genuine reply to a
+genuine request.
