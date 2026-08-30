@@ -1,0 +1,107 @@
+# Full leak sweep, 2026-08-30
+
+Every surface checked end to end: 151 scheduled posts, 15 MailerLite automations, 16
+campaigns, 12 groups, 11 forms, 13 subscribers, 14 DM automations.
+
+## Fixed in this sweep
+
+### Dead and wrong links in the queue
+
+| Post | Fires | Copy is about | Was pointing at | Now |
+|---|---|---|---|---|
+| `3797034` FB | Aug 31 | Consider This | **preview.mailerlite.io**, DO NOT USE list | consider-this |
+| `3939624` LI | Sep 22 | Consider This | ai-guide | consider-this |
+| `3939651` LI | Sep 24 | Consider This | ai-guide | consider-this |
+| `3939608` FB | Sep 22 | Consider This | payhip Reset | consider-this |
+| `3939603` X | Sep 21 | Press Play | payhip Reset | press-play |
+| `3939602` FB | Sep 21 | Press Play | payhip Reset | PLAY keyword + press-play |
+| `3939640` X | Sep 23 | AI guide | payhip Reset | ai-guide |
+| `3939641` YT | Sep 23 | Press Play | payhip Reset | press-play |
+| `3939593` IG | Sep 21 | AI guide | **nothing at all** | GUIDE keyword |
+
+The Reset payhip link had become a catch-all footer. On unrelated posts that reads as a
+deliberate default and was left. On posts whose copy is about a different offer it sends the
+reader somewhere they did not ask to go, and those are fixed.
+
+`3797034` was the urgent one. Firing Aug 31 with a `preview.mailerlite.io` link. **The August
+sweep missed it because that sweep read post text and this link lived in `firstComment`.**
+Any future link audit reads `text`, `firstComment` and `target.link`.
+
+### Keyword CTAs on platforms that cannot fire them
+
+`3939624` and `3939651` both said "Comment CONSIDER" on **LinkedIn**, which has no comment to
+DM mechanism at all. Per KEYWORD-RULE those channels carry the direct link. Both rewritten.
+
+### Same-minute self-cannibalization
+
+Reels, TikToks and Shorts were publishing to one account in the same minute. On Aug 23 two
+Instagram Reels went out 2 seconds apart and got 1,818 and 162 views. Fixed across Instagram,
+TikTok, YouTube and Facebook. **Zero posts now fall within 30 minutes of another on the same
+account.**
+
+### Captions
+
+6 Instagram captions cut from 616-699 characters to 290-390, one ask each. Detail and grades
+in promo-engine/REACH-ANALYSIS.md.
+
+## Checked and clean
+
+- **All 15 MailerLite automations enabled.** Reset, 5 Bottleneck branches, Press Play, AI
+  Guide, Cesa delivery, Cesa nurture, Cesa to Consider This, both newsletter welcomes, the
+  JAT AI guide bonus, and the cross-invite.
+- **All 11 scheduled campaigns correctly targeted.** JAT #002 on Sep 1 checks out:
+  `is_eligible_for_sending: true`, `needs_repair: false`, no warnings, audience "In any group:
+  Just Another Tuesday." The Sep 1 social post claiming "today's issue went out this morning"
+  is accurate.
+- **No stranded subscribers.** Nobody unconfirmed, nobody with `sent: 0`. Laura, who was
+  stuck 4 days, is active and receiving.
+- **Cesa delivery proven end to end.** `+cesatest` shows 1 sent, 1 open, 1 click.
+- **No DO NOT USE link anywhere in the queue** after the fixes above.
+
+## The real leak: Just Another Tuesday was never offered to the existing list
+
+Consider This got a launch invite on Aug 20. It went to 9 people across every existing group,
+pulled 3 opens and 1 click, and converted Mary.
+
+**Just Another Tuesday never got one.** Its 3 subscribers are Amanda's own address plus 2
+people who found it themselves. The 7 people on Gentle Muse Subscribers have never once been
+told the second newsletter exists.
+
+The cross-invite automation does not cover them. It triggers on joining a group, and all 7
+joined before it was built on Aug 20.
+
+**Prepared, not sent:** campaign `197253464357602578`, "DRAFT — Just Another Tuesday Launch
+Invite (existing subscribers)." Targeted at Gentle Muse Subscribers, `recipients_count: 7`,
+eligible to send, no schedule. It mirrors the Consider This invite that worked, uses the
+winning short shape, leads with the automations story, and says plainly that this is the only
+time she will ask.
+
+**It sends to real people, so it waits on Amanda.** One click in the dashboard, or say the
+word here.
+
+## Honest state of the list
+
+| Group | Real subscribers |
+|---|---|
+| Gentle Muse Subscribers | 7 |
+| Just Another Tuesday | 2 |
+| Consider This | 1 |
+| Cesa | 0, all 3 are Amanda's tests |
+| AI Beginner's Guide | **0** |
+| Press Play | **0** |
+
+Consider This #001 reached 1 person. #002 reached 2. JAT #001 reached 2.
+
+The AI Guide and Press Play groups have never had a single subscriber, despite live keywords
+on 2 platforms and live landing pages for both. That matches the keyword audit exactly: no
+real person has ever used a keyword. These are not broken pipes. Nothing has been poured in.
+
+## Flagged, needs a decision
+
+- **4 TikTok posts on @thegentlemuse2026 say "Full list is in my bio"** for the Press Play
+  list. Per the per-account bio rule her bio holds her website, not that list. Either the bio
+  changes or those 4 captions do.
+- **The AI Beginner's Guide embedded form** (`195976901405181520`) is `active: false` with
+  `has_content: false` and `double_optin: true`. It is an empty stub that has never been
+  opened, and the live front door is the landing page, so it leaks nothing today. Worth
+  deleting so it cannot be wired up by mistake later.
