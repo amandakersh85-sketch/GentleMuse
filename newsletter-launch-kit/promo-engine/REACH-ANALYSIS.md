@@ -141,3 +141,77 @@ Captions. Six queued Instagram posts run 600 to 700 characters and pitch a lead 
 the caption, which is the pattern that correlates with the collapse. Rewriting them is the
 highest-leverage move left, and per the standing rule nothing ships without Amanda's approval,
 so they are flagged rather than rewritten.
+
+---
+
+# Caption surgery, 2026-08-30
+
+Amanda approved cutting the 6 long Instagram captions to the winning shape. Graded through
+post-grader first. No voice violations in any of them: no em dashes, no hype, digits used
+throughout, 4 hashtags each. Every defect was structural.
+
+| Post | Before | Hook | Body+CTA | The actual defect |
+|---|---|---|---|---|
+| `3824812` TUESDAY | 6/10 | 2.5 | 3.5 | Opened on "today's issue went out," a warm-up about the newsletter instead of the story |
+| `3802715` CONSIDER | 6.5/10 | 4 | 2.5 | **2 competing asks.** Comment CONSIDER, and also send this to whoever owns the sponge |
+| `3824817` GUIDE | 6.5/10 | 3 | 3.5 | The line that lands, "It was 5 days old," sat in paragraph 3 |
+| `3824799` TUESDAY | 7/10 | 4.5 | 2.5 | Strong hook, then the payoff buried under an explainer |
+| `3836037` CONSIDER | 7.5/10 | 5 | 2.5 | Best hook in the queue, then DM copy pasted into the caption |
+| `3836046` CONSIDER | 7.5/10 | 4.5 | 3 | Same, and it holds the Wednesday peak slot |
+
+**The single pattern behind all 6:** every one explained the newsletter inside the caption.
+That is what the DM is for. The caption's only job is to earn the comment.
+
+Cut from 616 to 699 characters down to 290 to 390. One ask each. The share prompt on
+`3802715` was removed on purpose: `6279555` asked outright for shares and got 1, while the
+7,726 view post asked for nothing and got 54. The explicit ask does not produce shares and it
+does cost the keyword.
+
+## A caveat worth recording
+
+The 280 character finding comes from Reels. All 25 posts in the analytics pull were video.
+4 of these 6 are static or carousel posts, where the caption carries more of the load. The
+parts that transfer cleanly are one ask instead of 2, hook before the truncation point, and
+no lead magnet explainer. Pure length is the softest of the 3 claims.
+
+---
+
+# Wrong-destination sweep, 2026-08-30
+
+Reading the far end of the queue for the caption work turned up a separate problem: offer copy
+pointing at the wrong landing page. The Reset Guide payhip link had become a catch-all.
+
+| Post | When | Copy is about | Pointed at | Now points at |
+|---|---|---|---|---|
+| `3797034` FB | Aug 31 | Consider This | **preview.mailerlite.io** (DO NOT USE list) | consider-this |
+| `3939624` LI | Sep 22 | Consider This | ai-guide | consider-this |
+| `3939651` LI | Sep 24 | Consider This | ai-guide | consider-this |
+| `3939608` FB | Sep 22 | Consider This | payhip Reset | consider-this |
+| `3939603` X | Sep 21 | Press Play | payhip Reset | press-play |
+| `3939602` FB | Sep 21 | Press Play | payhip Reset | PLAY keyword + press-play |
+| `3939640` X | Sep 23 | AI guide | payhip Reset | ai-guide |
+| `3939641` YT | Sep 23 | Press Play | payhip Reset | press-play |
+| `3939593` IG | Sep 21 | AI guide | **nothing at all** | GUIDE keyword |
+
+`3797034` is the one that mattered most. It carried a `preview.mailerlite.io` link, which is
+explicitly on the DO NOT USE list in START_HERE, and it was set to fire Aug 31. The August
+sweep missed it because that sweep read post text and this link lived in `firstComment`.
+**Any future link audit has to read firstComment and the target link field, not just text.**
+
+Both LinkedIn posts also said "Comment CONSIDER," which cannot fire there. LinkedIn has no
+keyword mechanism, so per KEYWORD-RULE it carries the direct link instead. Fixed.
+
+`3939593` had no call to action of any kind. A guide promo with no keyword and no link.
+
+## Verified after
+
+All 151 scheduled posts were read, including every `firstComment` and target link.
+**Zero remaining posts carry a DO NOT USE link.** The Reset payhip link still appears on
+several unrelated Twitter, Facebook and YouTube posts as a generic footer CTA, which reads as
+deliberate and was left alone.
+
+## Still open, flagged not fixed
+
+4 TikTok posts on @thegentlemuse2026 say "Full list is in my bio" for the Press Play list.
+Per the per-account bio rule, Amanda's bio holds her website, not that list. Either the bio
+line changes or those captions do. Her call.
