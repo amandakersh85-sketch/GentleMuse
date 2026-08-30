@@ -38,12 +38,13 @@ comment on that account was a lead that evaporated.
 - Add a share prompt wherever it fits naturally. Shares are what made the Press Play
   carousels reach roughly 100 views each.
 
-## Open item
+## Closed item (was open until 08-25)
 
-Just Another Tuesday has no keyword yet. TUESDAY is the obvious candidate. Once Amanda sets it
-up in ManyChat, every JAT post on Instagram and Facebook should use it, and that also removes
-the dependency on the JAT signup URL for those 2 platforms. (That URL is no longer
-unknown: https://just-another-tuesday-gm.subscribepage.io, verified in Drive 08/18.)
+Just Another Tuesday now has TUESDAY, live in Blotato on both platforms: `2771` on Instagram,
+`2772` on Facebook. It was never built in ManyChat and never needed to be. Every JAT post on
+Instagram and Facebook should use it. The JAT signup URL is
+https://just-another-tuesday-gm.subscribepage.io, verified in Drive 08/18, and both DMs carry
+it on a "Get Tuesdays" button as well as gating for the email in thread.
 
 
 ---
@@ -148,3 +149,78 @@ Amanda has 2 Instagram accounts, so each can test the other. Comment the keyword
 `2952`. The commenter must not be the account that owns the post: an automation ignores its
 own owner, which is also why this cannot be run from Blotato's API, whose comment tool posts
 only as the post's own account.
+
+---
+
+## 2026-08-30: the wiring works. Nobody is using it.
+
+ManyChat is disconnected, so every keyword automation was audited against its own run log.
+A run is one execution. No run means the automation never fired, for anyone, ever.
+
+| ID | Keyword | Where | Live since | Runs | Who |
+|---|---|---|---|---|---|
+| 445 | CESA | IG main | Aug 8 | 4 | Amanda's other account, testing |
+| 435 | RESET | IG main | Aug 8 | 1 | Amanda, testing 08-30 |
+| 1424 | GUIDE | IG main | Aug 16 | 1 | Amanda, testing 08-17 |
+| 2952 | CESA | IG Cesa | Aug 26 | 1 | Amanda, testing 08-30 |
+| 1393 | CONSIDER | IG main | Aug 16 | **0** | — |
+| 1019 | PLAY | IG main | Aug 12 | **0** | — |
+| 2771 | TUESDAY | IG main | Aug 25 | **0** | — |
+| 2954 | CONSIDER | IG Cesa | Aug 26 | **0** | — |
+| 432 | CESA | FB | Aug 8 | **0** | — |
+| 1394 | CONSIDER | FB | Aug 16 | **0** | — |
+| 1422 | GUIDE | FB | Aug 16 | **0** | — |
+| 1020 | PLAY | FB | Aug 12 | **0** | — |
+| 2772 | TUESDAY | FB | Aug 25 | **0** | — |
+| 2778 | RESET | FB | Aug 25 | **0** | — |
+
+**Not one real audience member has ever commented a keyword. Not once, on either account, on
+either platform, in 22 days.** Every run in the system is Amanda testing.
+
+Facebook is the starkest read: 6 live automations, zero runs between them, going back to
+Aug 8.
+
+This changes what the 08-28 failure meant. The race was real and fixing it was right, but it
+cost 3 leads out of a lifetime total of 4, and all 4 were tests. The pipe was never the
+bottleneck. Nothing is being poured in.
+
+### The last 80 comments on the main IG account, sorted
+
+Emoji, compliments on the dog, condolences about someone else's dog, conversation, spam.
+Zero keyword attempts from anyone but Amanda. People are engaging warmly and never once
+being moved to type the word. That is a CTA and reach problem, not a wiring problem, and it
+is the thing worth attacking next.
+
+### Keyword matching is case sensitive. Proven, not assumed.
+
+On 08-29 at 15:26 a real follower commented "Keep playing I got somewhere you can strut too"
+on post 6564622, account 45886. Automation `1019` watches that account for `PLAY` on any
+post and was live. It did not fire. "playing" contains "play" in any case-insensitive
+reading, so the match must be case sensitive.
+
+Matching is also **substring, not whole word** — the schema says "fire when the comment
+contains one of these keywords."
+
+Those two facts together are a trap. The obvious fix for a case-sensitive matcher is to add
+lowercase variants, and that is the wrong move here:
+
+- add `play` and that same "Keep playing" comment DMs a stranger a book list
+- add `cesa` and every "Princesa", "@cesasgoldenyears" and "Cesa is beautiful" fires
+- add `consider` and "I'm considering it" fires
+- add `guide` and "guidelines" fires
+
+**So the single-casing automations were left alone.** `445`, `432`, `435`, `1393`, `1394`,
+`1019`, `1020`, `1422`, `1424` still match uppercase only. Given that the real-world miss
+rate is currently zero out of zero, closing a theoretical leak by opening a real misfire is
+a bad trade.
+
+Worth knowing, not yet worth acting on: `2771`, `2772`, `2778`, `2952` and `2954` already
+carry all three casings. On Cesa's account that means an ordinary "Cesa is adorable" would
+fire the guide DM. Arguably a feature on a dog account. Flagging it so it is a decision
+rather than a surprise.
+
+### The standing rule is unchanged and now unopposed
+
+**One tool per keyword per account.** ManyChat is gone, so Blotato is the only thing holding
+these keywords. The only way to break that rule now is to activate one of the 10
+`DO NOT ACTIVATE` drafts, which would put Blotato in a race with itself. Do not.

@@ -185,9 +185,18 @@ Error 20102: *"The comment you are trying to reply to, already has a reply."*
 comment before the automation does, that slot is spent and the DM never sends. The lead is
 lost with no visible sign on the post itself.
 
-**Operating rule, now in the daily sync as step 3:** do not reply to a keyword comment
-before the automation has. Let the DM go out first, then reply publicly if you want to.
-Every automation run gets checked for failures each day, not just for captures.
+**CORRECTED 2026-08-30. The rule above was wrong and is withdrawn.** A public comment reply
+does not consume the private-reply slot. They are different things: the DM slot is spent by
+another tool sending a *private reply*, not by anyone typing in the public thread.
+
+The 08-28 timestamps prove Amanda's replies were not the cause. Her "Nice! Check your DMs!"
+landed at 16:33:10 and 18:58:25. The automation had already failed at 16:33:03 and 18:58:17,
+7 and 8 seconds earlier. She was replying to a failure, not causing one. The actual cause was
+ManyChat holding the same keyword, now confirmed and removed.
+
+**Reply publicly to keyword comments. It is good for reach and it costs nothing.** What
+matters is that only one tool holds a keyword per account. Every automation run still gets
+checked for failures each day, not just for captures.
 
 ### What has not happened yet
 
@@ -206,3 +215,45 @@ missing is volume, not plumbing.
   the bio. The page now exists, so the moment Amanda confirms it is in the
   **@cesasgoldenyears** TikTok bio, the line goes back. Only `3835358` is still unpublished;
   `3835340` and `3835351` already went out.
+
+
+---
+
+## 2026-08-30 audit: the plumbing is done. The problem is now demand.
+
+ManyChat is disconnected. Every one of the 14 live keyword automations was checked against
+its own run log, which is the only record that cannot be argued with.
+
+**Real audience members who have ever used a keyword: zero.** Every run in the system, on
+both Instagram accounts and the Facebook page, going back to Aug 8, is Amanda testing from
+her own second account. All 6 Facebook automations have never fired once. Full table in
+promo-engine/KEYWORD-RULE.md.
+
+That reframes finding 4 above and everything else in this file. The race was real, the fix
+was right, and it recovered 3 leads that were all tests. **Nothing has ever been poured into
+these pipes.** The last 80 comments on the main Instagram account are emoji, compliments on
+the dog, condolences about someone else's dog, conversation and spam — warm engagement, and
+not one person moved to type a word.
+
+So the funnel has no leak left that is worth chasing. It has an intake problem. The next
+real work is reach and CTA, not wiring.
+
+### Two things found while auditing, both now handled
+
+- **Keyword matching is case sensitive and matches substrings.** Proven: a follower commented
+  "Keep playing I got somewhere you can strut too" on 08-29 and `1019` (PLAY, live, watching
+  that account) did not fire. The trap is that the obvious fix, adding lowercase variants,
+  would make that same comment DM a stranger a book list. Left alone deliberately. Reasoning
+  in KEYWORD-RULE.md.
+- **The Sept 10 reminder was a live hazard.** `trig_01YEvbd4zeQGioA47MopYkns` was set to tell
+  a future session to activate the 10 `DO NOT ACTIVATE` drafts on Sept 10. With ManyChat
+  already gone, that would have put Blotato in a race against itself on every keyword.
+  Rewritten to verify the drafts are still off and delete itself, rather than activate
+  anything.
+
+### Blotato has no message-to-new-follower trigger
+
+Checked against the API, not from memory. `blotato_create_automation` takes exactly two
+trigger types, `comment-received` and `message-received`. There is no follow event.
+`followGate` sounds like one and is not: it holds back a DM that a comment already triggered
+until the person follows. Nothing to build.

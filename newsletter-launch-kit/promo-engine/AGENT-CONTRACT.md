@@ -171,8 +171,10 @@ Anything you want the other agent to verify or answer goes here.
 ## 7. Current state, so nobody re-derives it
 
 - 28 posts scheduled Aug 26 through Sep 3. Full list in ROTATION-TEST.md.
-- 12 Blotato DM keyword automations built. TUESDAY live, 10 others inactive until the Sept 11
-  ManyChat cutover. See BLOTATO-KEYWORD-MIGRATION.md.
+- Blotato is the only DM keyword tool. ManyChat was disconnected 2026-08-30, ahead of its
+  Sept 11 end. 11 automations live across both IG accounts and the FB page. The 10 named
+  `DO NOT ACTIVATE` are duplicates of live ones: never activate them, it recreates the
+  one-DM-per-comment race. See BLOTATO-KEYWORD-MIGRATION.md and KEYWORD-RULE.md.
 - All MailerLite automations enabled. Both newsletters loaded and scheduled.
 - Aug 27 is the last day of the 60 Day AI Journey. From Aug 28 the cadence is 3 posts a day
   with 2 of the 3 being promos.

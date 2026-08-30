@@ -246,7 +246,8 @@ Base: `https://raw.githubusercontent.com/amandakersh85-sketch/GentleMuse/3ef2dd8
 | Fri Aug 28 | Reset Guide | scheduled | scheduled | Gentle Muse Reset Collection |
 | Mon Aug 31 | Consider This | scheduled | scheduled | Home & Kitchen Essentials |
 
-Instagram uses the live ManyChat keywords (GUIDE, RESET) and link in bio for the newsletter.
+Instagram uses the live Blotato keywords (GUIDE `1424`, RESET `435`) and link in bio for the
+newsletter. These were ManyChat's until 08-30; ManyChat is disconnected and holds nothing.
 Every Pinterest pin carries a destination link. A verification check fires Aug 26 to confirm
 the first pin published, because a bad media URL would fail all 6 the same way.
 

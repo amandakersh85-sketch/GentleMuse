@@ -17,7 +17,8 @@ Every number here was pulled live from the APIs today, not remembered.
 **What is working**
 - Both newsletters loaded and scheduled. Consider This 9 issues, Just Another Tuesday 5.
 - All 12 MailerLite automations enabled, including the 3 I built this week.
-- 15 Blotato DM keyword automations built. 4 live, 10 staged for the Sept 11 ManyChat cutover.
+- 15 Blotato DM keyword automations built. 11 live. ManyChat was disconnected 2026-08-30, so
+  Blotato holds every keyword outright; the 10 staged duplicates are dead weight, not pending.
 - 28 posts scheduled Aug 26 to Sep 3 across Instagram, Facebook, Pinterest, X, LinkedIn.
 - Daily 8:00 AM Central job syncs DM-captured emails into MailerLite groups.
 

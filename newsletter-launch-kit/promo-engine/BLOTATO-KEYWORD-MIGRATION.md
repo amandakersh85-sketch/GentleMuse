@@ -69,3 +69,59 @@ That is a real gap and it is Amanda's call whether to build it.
 **Deliberately not added to Cesa's channel:** GUIDE and TUESDAY. Both serve the builder
 audience and would read as spam on a dog account. PLAY and RESET are plausible later, but
 adding 4 keywords to a channel with 2 working ones dilutes rather than converts.
+
+---
+
+## 2026-08-30: ManyChat is dead. The cutover happened today, not Sept 11.
+
+**Amanda disconnected her Instagram and Facebook accounts from ManyChat on 2026-08-30.**
+Her words: "ManyChat is now a dead end. We're not utilizing it anymore. We're going strictly
+with Blotato."
+
+Everything above that describes a *pending* Sept 11 cutover is history. There is no cutover
+left to run. Blotato is the only tool holding these keywords, on both accounts, on both
+platforms. The Sept 11 deadline is moot and the Sept 10 reminder has nothing to fire on.
+
+### The 10 `DO NOT ACTIVATE` drafts are now pure liability
+
+They were built as the Sept 11 replacements for automations that were still live in ManyChat.
+Those originals never went anywhere, so every one of these 10 is a duplicate of a Blotato
+automation that is already live and already working.
+
+| Draft | Duplicate of | Keyword / platform |
+|---|---|---|
+| 2953 | 445 | CESA / IG |
+| 2781 | 445 | CESA / IG |
+| 2782 | 432 | CESA / FB |
+| 2773 | 1393 | CONSIDER / IG |
+| 2774 | 1394 | CONSIDER / FB |
+| 2775 | 1424 | GUIDE / IG |
+| 2776 | 1422 | GUIDE / FB |
+| 2777 | 435 | RESET / IG |
+| 2779 | 1019 | PLAY / IG |
+| 2780 | 1020 | PLAY / FB |
+
+All 10 are inactive. Activating any one of them recreates the exact race that cost 3 of 4
+leads on 08-28, except this time Blotato would be racing itself. They serve no purpose now.
+**Recommend deleting all 10.** Deletion is irreversible, so it waits on Amanda's word.
+
+### Does Blotato have a message-to-new-follower trigger?
+
+**No.** Asked and answered against the API, not from memory. `blotato_create_automation`
+accepts exactly two trigger types:
+
+```
+type: "comment-received"  = fire on a comment
+type: "message-received"  = fire on a DM
+```
+
+That enum is the whole list. There is no follow event, no new-follower event, nothing that
+fires on anything but a comment or a DM. All 55 automations on the account use one of those 2.
+
+`followGate` is the near miss and it is worth knowing what it actually does, because the name
+invites the wrong assumption. It is a **gate on a DM that is already firing**, Instagram only:
+someone comments the keyword, and instead of the guide they get "follow me first" plus a
+button. Once they follow, the real DM goes out. It converts a commenter into a follower. It
+does not notice a follower and message them.
+
+Nothing to wire. Per Amanda: "If not, don't worry about it."

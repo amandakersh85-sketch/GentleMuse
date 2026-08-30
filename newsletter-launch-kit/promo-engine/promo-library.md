@@ -51,9 +51,10 @@ Free: https://payhip.com/b/9FE2U
 
 ## Press Play (Saturdays)
 
-**Facebook only.** The CTA is "comment PLAY," which fires through her connected ManyChat on
-Facebook and Instagram. It does not fire on X or LinkedIn, and there is no public Press Play
-URL in this workspace, so those channels sit this day out until a link exists.
+**Facebook only.** The CTA is "comment PLAY," which fires through Blotato automations `1020`
+(Facebook) and `1019` (Instagram). ManyChat is gone as of 08-30. It does not fire on X or
+LinkedIn, which carry the direct link instead: https://press-play.subscribepage.io, verified
+in Drive 08/18.
 
 **Facebook**
 10 books you can listen to for free while you fold laundry.
@@ -118,7 +119,8 @@ I documented 60 days of it in public with the mistakes left in, so it's receipts
 
 # Instagram and Pinterest copy (media-backed channels)
 
-Instagram CTA uses her live ManyChat keywords where they exist, and link in bio otherwise.
+Instagram CTA uses her live Blotato keywords where they exist, and link in bio otherwise.
+ManyChat holds nothing as of 08-30.
 Pinterest needs a boardId plus a destination link on every pin.
 
 ## Pinterest board assignments
