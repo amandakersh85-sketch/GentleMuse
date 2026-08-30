@@ -186,3 +186,63 @@ Invisible to both schedulers.
 - Carried forward, still open: BUTTER maps to Tree Hut body butter in ManyChat,
   not the FlavCity coffee flavor. And `Verify-TargetClubSku.ps1 -Sku 89094549`
   still needs a run at Amanda's desk for the HIBISCUS DM link.
+
+---
+
+## === AUDIT 30 Aug 2026 (deadline-day check) ===
+
+Triggered by a deadline reminder naming three themes as unexecuted:
+Everyday Pet Favorites, Fresh Home Finds, Game Day Throwback.
+
+### The reminder is wrong on one of the three
+
+**Everyday Pet Favorites is NOT unexecuted.** `#TargetPetFaves` (Freshpet)
+published 21 Aug on both placements:
+
+| Placement | Status | Proof |
+| --- | --- | --- |
+| TikTok | published | `tiktok.com/@thegentlemuse2026/video/7676615071606344973` |
+| Instagram Reel | published | `instagram.com/reel/DcUd68_DkyR/` |
+| Instagram Story | **not found** | invisible to schedulers, phone only |
+
+60 of 75 already banked. Only the Story (15) is open. Do not reshoot this.
+
+**Fresh Home Finds: confirmed zero.** No post carrying a Fresh Home Finds
+hashtag exists, published or scheduled, on any platform.
+
+**Game Day Throwback: confirmed zero.** `#TargetLunchThrowback` (Cinnamon Toast
+Crunch, 21 Aug, TikTok only) is the back-to-school lunch theme, not Game Day.
+It does not count toward it.
+
+### Larger unclaimed balance found in the same sweep
+
+Five TikToks still have no Instagram Reel. **150 points, zero filming required**
+— the video files are already hosted and the captions already exist:
+
+| Theme | Product | Media asset |
+| --- | --- | --- |
+| #TargetFave | NYX fat oil body line | `a484faa6-3a3e-4338-9ac1-9bfbd0fd3d45.mp4` |
+| #TargetBudgetFinds | Cat and Jack | `19d97015-9c59-438d-9572-a9f82d5f53ed.mp4` |
+| #TargetLunchThrowback | Cinnamon Toast Crunch | `95acfd10-7bef-4fd9-b12d-e423d95d9d0a.mp4` |
+| #HeyDayTechAugust | heyday phone cases | `571b6622-af72-4588-ab35-fecde3c2bbc3.mp4` |
+| #TargetEverydayEssentials | FlavCity variety pack | `0d080199-8ee2-47c3-b740-4ac026c86486.mp4` |
+
+All on `database.blotato.io/storage/v1/object/public/public_media/5472a21c-0213-4305-8693-b19295e4d67e/`.
+
+**Caveat, not yet resolved:** these themes ran 20 to 21 Aug. Whether they are
+still open on 30 Aug cannot be checked from here, `club.target.com` is blocked
+by the egress proxy. Amanda has to read the portal. If they are closed, posting
+them now credits 0 and burns 5 Instagram slots.
+
+### Defect found, live on both platforms
+
+The Freshpet caption reads **"Cesa is 13 and she has opinions."** She is 19.
+Live on the 21 Aug TikTok and Instagram Reel, and it contradicts every other
+post in the account and the guide. Fixable by editing the caption in-app.
+
+### Verdict
+
+**GAP CONFIRMED** on Fresh Home Finds (75) and Game Day Throwback (60).
+**PARTIAL** on Everyday Pet Favorites, 60 of 75, Story outstanding.
+**PENDING PORTAL** on the 5 unmatched Reels, 150 points, blocked on theme
+windows only Amanda can see.
