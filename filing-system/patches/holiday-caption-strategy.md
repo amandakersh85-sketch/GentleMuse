@@ -46,6 +46,19 @@ a plausible invented date costs more than a weak hook. So:
   decoration, and the gate fails it as `E08_FACT_NOT_TOLD`.
 - Rewrite the backbone in her words. Do not paste it.
 
+**Delivery decides the shot, and it comes from the bank.** Every fact row carries
+a `Delivery` value saying what it needs on screen. Do not override it on instinct:
+
+- `text` — typography only, zero footage. These ship without anyone filming.
+- `broll` — atmosphere or the referenced media. No people on screen.
+- `cesa` — Cesa in frame. She is the proof of the turn, not decoration. Put her
+  on the hook and on the beat right before the metaphor, not as background.
+- `face` — Amanda to camera. The turn is confessional and wants a person saying it.
+
+On a hybrid build, the fact beats in the middle are where a HeyGen avatar earns
+its keep. The metaphor close and any `cesa` beat stay real. A synthetic delivery
+of a line about her own dog is a joke that turns on her.
+
 **Get the plan first, do not guess the calendar:**
 
 ```

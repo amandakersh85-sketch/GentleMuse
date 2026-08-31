@@ -195,6 +195,28 @@ head -1 "$BANK" > "$TMP/bank-empty.csv"
 expect_exit "plan holds on an empty bank" 2 python3 "$BANK_TOOL" --plan --from 2026-10-01 \
       --to 2026-10-31 --bank "$TMP/bank-empty.csv" --calendar "$CAL"
 
+
+python3 - "$TMP" "$BANK" <<'PY7'
+import csv, os, sys
+tmp, bank = sys.argv[1], sys.argv[2]
+rows = list(csv.DictReader(open(bank, encoding="utf-8-sig")))
+for row in rows:
+    if row["FactID"] == "HAL-003":
+        row["Delivery"] = "interpretive dance"
+h = open(os.path.join(tmp, "bank-baddelivery.csv"), "w", newline="", encoding="utf-8")
+w = csv.DictWriter(h, fieldnames=list(rows[0].keys())); w.writeheader(); w.writerows(rows)
+PY7
+
+expect_exit "audit rejects a bad Delivery" 1 python3 "$BANK_TOOL" --audit \
+      --bank "$TMP/bank-baddelivery.csv" --calendar "$CAL"
+
+out="$(python3 "$BANK_TOOL" --plan --from 2026-10-01 --to 2026-10-31 --per-holiday 8 \
+      --bank "$BANK" --calendar "$CAL" 2>&1)"
+if grep -q "What this plan needs filmed" <<<"$out" \
+   && grep -q "can be finished with no footage at all" <<<"$out"; then
+  echo "PASS  plan doubles as a shot list"; pass=$((pass+1))
+else echo "FAIL  plan doubles as a shot list"; echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
+
 echo
 echo "$pass passed, $fail failed"
 [ "$fail" = 0 ]

@@ -45,9 +45,19 @@ ERA_END = 1999
 
 CALENDAR_COLUMNS = ["HolidayID", "Holiday", "Rule", "LeadDays", "TailDays", "Slot", "Register"]
 BANK_COLUMNS = ["FactID", "HolidayID", "Kind", "Fact", "Year", "EraYear",
-                "Source", "Backbone", "Verified", "LastUsed"]
+                "Source", "Backbone", "Delivery", "Verified", "LastUsed"]
 
 KINDS = {"history", "spooky", "origin", "nostalgia", "myth-bust"}
+
+# What a fact needs on screen in order to land. This is the column that turns
+# a content plan into a shot list, so a batch can be costed before it is filmed.
+DELIVERY = {
+    "text":  "typography only. No footage of any kind.",
+    "broll": "atmosphere or the referenced media. No people.",
+    "cesa":  "Cesa in frame. She is the proof of the turn, not decoration.",
+    "face":  "Amanda to camera. The turn is confessional and wants a person.",
+}
+NO_FOOTAGE = {"text"}
 
 # A fact needs a real source. These are the ways a row says "trust me."
 EMPTY_SOURCE = {"", "-", "n/a", "na", "none", "unknown", "common knowledge", "tbd"}
@@ -243,6 +253,14 @@ def audit(calendar, bank, era):
             problems.append("%s cannot carry a post: %s. A row goes in the bank when it "
                             "has a source, not before." % (fact_id, "; ".join(reasons)))
 
+        delivery = (fact.get("Delivery") or "").strip()
+        if not delivery:
+            problems.append("%s has no Delivery. Without it the plan cannot say what the "
+                            "beat needs filmed." % fact_id)
+        elif delivery not in DELIVERY:
+            problems.append('%s has Delivery "%s". Use one of: %s'
+                            % (fact_id, delivery, ", ".join(sorted(DELIVERY))))
+
         era_year = parse_year(fact.get("EraYear"))
         if kind == "nostalgia" and era_year is None:
             problems.append("%s is a nostalgia row with no EraYear. Without the year "
@@ -349,6 +367,7 @@ def plan(calendar, bank, start, end, era, per_holiday):
             fact = pool[index]
             offset = 0 if wanted == 1 else round(index * (span - 1) / (wanted - 1))
             rows.append({
+                "Delivery": fact.get("Delivery", ""),
                 "PostDate": (opens + timedelta(days=offset)).isoformat(),
                 "HolidayID": holiday_id,
                 "Holiday": row["Holiday"],
@@ -375,13 +394,27 @@ def print_plan(rows, holds, start, end, era):
     print("")
     if rows:
         for row in rows:
-            print("%s  %-16s %-20s %-10s %s"
+            print("%s  %-16s %-20s %-10s %-6s %s"
                   % (row["PostDate"], row["HolidayID"], row["Slot"],
-                     row["Kind"], row["FactID"]))
+                     row["Kind"], row["Delivery"], row["FactID"]))
             print("    fact     : %s" % row["Fact"])
             print("    backbone : %s" % row["Backbone"])
             print("    source   : %s" % row["Source"])
             print("")
+    if rows:
+        counts = {}
+        for row in rows:
+            counts[row["Delivery"]] = counts.get(row["Delivery"], 0) + 1
+        print("What this plan needs filmed")
+        for key in sorted(counts, key=lambda k: -counts[k]):
+            note = DELIVERY.get(key, "")
+            print("  %-6s %2d post%s   %s"
+                  % (key, counts[key], " " if counts[key] == 1 else "s", note))
+        free = sum(counts.get(k, 0) for k in NO_FOOTAGE)
+        print("  %d of %d post%s can be finished with no footage at all."
+              % (free, len(rows), "" if len(rows) == 1 else "s"))
+        print("")
+
     if holds:
         print("HOLD (%d)" % len(holds))
         for holiday_id, name, landed, why in holds:

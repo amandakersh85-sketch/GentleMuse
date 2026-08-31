@@ -38,6 +38,16 @@ Every holiday post binds to a fact that already exists in the bank, with a
 source and a backbone. Every year it names is either in that row or inside the
 era window, or it does not go out.
 
+WHY DELIVERY IS A COLUMN AND NOT A JUDGEMENT CALL
+A fact bank that cannot say what a fact needs on screen produces a content plan
+that cannot be costed. Delivery makes the plan a shot list: 11 of the 50 seeded
+facts are text, which means they can be written, rendered and shipped without
+anyone filming anything. Knowing that in advance is what lets a batch move on a
+week where the only free time goes to a vet run.
+It is a production hint, not a truth claim, so a missing or wrong value is an
+audit finding rather than a ship blocker. The gate still only refuses posts over
+sourcing, era and the turn.
+
 THE VOICE, AS DATA
 Era window     1989 to 1999. Amanda was 4 to 14. Anything outside it is a
                different generation's nostalgia wearing hers.
@@ -63,6 +73,9 @@ THE LOOP
        --per-holiday 5 --out plan.csv
    Every row comes out bound to a FactID, with the fact, the source and the
    backbone attached. That is the brief. Nothing has to be remembered.
+   The plan closes with what the batch needs filmed, counted by Delivery, and
+   says how many posts can be finished with no footage at all. Read that before
+   booking a filming day. It is the difference between a shot list and a guess.
 4. Write the posts from that plan. One fact per post. Say the fact in her
    words, then turn it. The backbone is the turn, rewritten, never pasted.
 5. Gate every post before anything reaches Buffer, Blotato or Metricool.
@@ -84,6 +97,11 @@ Append a row to data/holiday-fact-bank.csv. It needs all of:
   EraYear    the year of the thing being remembered. Required on nostalgia rows.
   Source     where it came from. A named work, archive, or record. Not "known".
   Backbone   the turn. Why it matters. This is the half that makes it hers.
+  Delivery   what the fact needs on screen. One of:
+               text   typography only. No footage of any kind.
+               broll  atmosphere or the referenced media. No people.
+               cesa   Cesa in frame. She is the proof of the turn, not decoration.
+               face   Amanda to camera. The turn is confessional.
   Verified   yes, once the source has actually been checked.
 A row without a source is not a fact yet. Leave it out until it is one.
 

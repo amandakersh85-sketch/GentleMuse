@@ -20,7 +20,7 @@ video's duration, group a photo burst, or spot a sensitive document.
 | `scripts/gm_holiday_bank.py` | Run 7. Resolves the holiday calendar, audits the fact bank, and builds the content plan. |
 | `scripts/gm_holiday_check.py` | Run 7. The gate. Refuses any holiday caption whose history isn't in the bank. |
 | `data/holiday-calendar.csv` | Run 7. 14 holidays, their date rules, slots and season windows. |
-| `data/holiday-fact-bank.csv` | Run 7. 50 sourced facts, each with the turn that makes it hers. |
+| `data/holiday-fact-bank.csv` | Run 7. 50 sourced facts, each with the turn that makes it hers and what it needs on screen. |
 | `sops/SOP_0819_video-triage-run-3.txt` | Run 3 SOP |
 | `sops/SOP_0819_photo-triage-run-4.txt` | Run 4 SOP |
 | `sops/SOP_0819_document-triage-run-5.txt` | Run 5 SOP |
@@ -28,7 +28,7 @@ video's duration, group a photo burst, or spot a sensitive document.
 | `sops/SOP_0829_holiday-caption-strategy.txt` | Run 7 SOP |
 | `patches/video-factory-clip-binding.md` | Paste-in patch for the `gentle-muse-video-factory` skill |
 | `patches/holiday-caption-strategy.md` | Paste-in patch for the video factory, `content-coach` and `post-grader` |
-| `tests/run-tests.sh` | Regression suite for Runs 6 and 7, 27 cases |
+| `tests/run-tests.sh` | Regression suite for Runs 6 and 7, 29 cases |
 
 SOPs are `.txt` on purpose. GitHub renders plain text preformatted, which keeps
 the column alignment the house format uses.
@@ -97,7 +97,9 @@ python3 scripts/gm_holiday_check.py --post posts/
 
 The plan comes back with the fact, the source and the backbone already attached
 to each date, which is the part that lets a batch get written without Amanda in
-the room. The gate refuses anything whose history is not in the bank, whose
+the room. Each row also carries a `Delivery` value (`text`, `broll`, `cesa` or
+`face`), so the plan closes with what the batch needs filmed and how many posts
+can be finished with no footage at all. 11 of the 50 seeded facts are `text`. The gate refuses anything whose history is not in the bank, whose
 nostalgia lands outside the window, or which reports a fact without turning it.
 No fact means `HOLD`, never the nearest fact that fits. See the Run 7 SOP.
 
@@ -123,7 +125,7 @@ Amanda's real library — the Shot descriptions don't exist yet, and writing the
 is step 3 of the Run 6 SOP.
 
 Run 7 written 08/29/2026, before the failure rather than after it. Executed here:
-`bash tests/run-tests.sh` now runs 27 cases across Runs 6 and 7, all passing,
+`bash tests/run-tests.sh` now runs 29 cases across Runs 6 and 7, all passing,
 including a reproduction of the invented-fact failure. Both scripts are
 read-only and hold no delete command. The 50 seeded facts were written from
 standard reference works and each row names its source, but they have not been
