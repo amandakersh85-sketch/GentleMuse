@@ -76,8 +76,25 @@ eligible to send, no schedule. It mirrors the Consider This invite that worked, 
 winning short shape, leads with the automations story, and says plainly that this is the only
 time she will ask.
 
-**It sends to real people, so it waits on Amanda.** One click in the dashboard, or say the
-word here.
+**SENT 2026-08-31 15:03 UTC** on Amanda's word. 7 recipients, the full Gentle Muse
+Subscribers group.
+
+### It would have gone out broken
+
+The pre-send check caught it. `create_campaign` stored the HTML **escaped**, so the body was
+sitting in MailerLite as literal `&lt;div style="font-family..."&gt;` text. It would have
+arrived as visible markup instead of a formatted email, to the entire list, as the first
+thing most of them had heard from Amanda in weeks.
+
+**Rule: after creating or updating a campaign, re-read the stored `content` before sending.**
+A 200 response means the write landed, not that the write is correct. Same lesson as the
+MailerLite PUT endpoints that return success while ignoring fields.
+
+The fix needed `update_campaign` with raw markup, and that endpoint requires `name` even when
+only `content` is changing; without it the call fails with "The name field is required."
+
+Timing worked out. The invite landed Monday, JAT #002 goes out Tuesday 07:00, so anyone who
+signs up gets a real issue within 24 hours instead of waiting a week.
 
 ## Honest state of the list
 
@@ -105,3 +122,33 @@ real person has ever used a keyword. These are not broken pipes. Nothing has bee
   `has_content: false` and `double_optin: true`. It is an empty stub that has never been
   opened, and the live front door is the landing page, so it leaks nothing today. Worth
   deleting so it cannot be wired up by mistake later.
+
+
+---
+
+## Daily sync job rewritten, 2026-08-31
+
+`trig_0123dXXH4Gn978bHSD6gehCZ`, now "Daily: DM email sync + keyword failure sweep."
+
+It fired on 08-31 and did the right thing, but its prompt was a week stale: it described
+ManyChat as a live collision risk and told the reader to check the CESA automations for an
+emailGate they no longer have. Rewritten to match reality, and 3 things were added that the
+old version would have got wrong:
+
+- **followGate runs.** 5 Instagram automations gained one on 08-30. A run parked in "waiting"
+  means the person has not followed yet and is normal. A run that reaches **"expired"** is a
+  lost lead and now gets reported, because a string of those means the gate is costing more
+  conversions than it earns and should come off.
+- **`filter_status` on `list_subscribers` is unreliable.** Passing "unconfirmed" returned all
+  13 subscribers regardless. The job now filters the returned data itself. It also looks for
+  active subscribers with `sent: 0`, which is how Laura was found.
+- **A baseline, so silence reads correctly.** No real audience member has ever used a keyword,
+  so an empty result is the expected result right now rather than evidence the job broke. The
+  first genuine capture is called out loudly.
+
+### Today's run
+
+Zero captures, zero failures, nobody stranded. All 3 emailGate automations (`2771`, `2772`,
+`2954`) have never fired. 12 active subscribers, 1 unsubscribed, and that one is Amanda's own
+`+cesaloop` test she cancelled herself 3 minutes after making it. `445` still shows only the
+2 error 20102 failures from 08-28 and the 2 clean runs since.
