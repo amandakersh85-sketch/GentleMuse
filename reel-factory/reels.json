@@ -1,0 +1,186 @@
+[
+ {
+  "id": "HAL-003",
+  "seed": 11,
+  "slug": "salem-nobody-was-burned",
+  "duration": 18.0,
+  "label": "Gentle Muse \u00b7 Spooky Season",
+  "source": "Source: Salem Witch Museum; Encyclopaedia Britannica \u00b7 HAL-003",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 2.4,
+    "html": "Nobody was burned<br>at Salem.",
+    "cta": null
+   },
+   {
+    "in": 2.4,
+    "out": 5.2,
+    "html": "20 people were executed<br>in 1692. 19 were hanged.",
+    "cta": null
+   },
+   {
+    "in": 5.2,
+    "out": 8.0,
+    "html": "The last one, Giles Corey,<br>was pressed to death<br>under stones.",
+    "cta": null
+   },
+   {
+    "in": 8.0,
+    "out": 11.6,
+    "html": "The fire is the part<br>everyone remembers.<br><span class='em'>It never happened.</span>",
+    "cta": null
+   },
+   {
+    "in": 11.6,
+    "out": 15.0,
+    "html": "Ask what else you know<br>only because somebody<br>made it sound better.",
+    "cta": null
+   },
+   {
+    "in": 15.0,
+    "out": 18.0,
+    "html": "Send this to whoever<br>still says they<br>were burned.",
+    "cta": "Share it"
+   }
+  ]
+ },
+ {
+  "id": "HAL-005",
+  "seed": 23,
+  "slug": "victorian-safety-coffins",
+  "duration": 18.0,
+  "label": "Gentle Muse \u00b7 Spooky Season",
+  "source": "Source: US Patent 3335, life preserving coffin, 1843 \u00b7 HAL-005",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 2.6,
+    "html": "The Victorians were so<br>afraid of being buried<br>alive they patented<br>a way out.",
+    "cta": null
+   },
+   {
+    "in": 2.6,
+    "out": 5.6,
+    "html": "Bells. Ropes.<br>Breathing tubes.",
+    "cta": null
+   },
+   {
+    "in": 5.6,
+    "out": 8.2,
+    "html": "Christian Eisenbrandt<br>got a US patent<br>in 1843.",
+    "cta": null
+   },
+   {
+    "in": 8.2,
+    "out": 11.4,
+    "html": "Nobody would say the<br>fear out loud. So they<br>built it instead.",
+    "cta": null
+   },
+   {
+    "in": 11.4,
+    "out": 15.0,
+    "html": "Fear doesn't stay quiet.<br><span class='em'>It finds somewhere<br>else to go.</span>",
+    "cta": null
+   },
+   {
+    "in": 15.0,
+    "out": 18.0,
+    "html": "Send this to whoever<br>is building something<br>they won't name.",
+    "cta": "Share it"
+   }
+  ]
+ },
+ {
+  "id": "HAL-006",
+  "seed": 37,
+  "slug": "witch-trials-were-not-medieval",
+  "duration": 18.0,
+  "label": "Gentle Muse \u00b7 Spooky Season",
+  "source": "Source: Encyclopaedia Britannica, witchcraft \u00b7 HAL-006",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 2.4,
+    "html": "The witch trials<br>were not medieval.",
+    "cta": null
+   },
+   {
+    "in": 2.4,
+    "out": 5.3,
+    "html": "They peaked in the 16th<br>and 17th centuries.",
+    "cta": null
+   },
+   {
+    "in": 5.3,
+    "out": 8.4,
+    "html": "The worst of it ran<br>alongside the printing<br>press and the start of<br>modern science.",
+    "cta": null
+   },
+   {
+    "in": 8.4,
+    "out": 11.6,
+    "html": "Progress and panic<br>were happening in<br>the same rooms.",
+    "cta": null
+   },
+   {
+    "in": 11.6,
+    "out": 15.0,
+    "html": "<span class='em'>They usually are.</span>",
+    "cta": null
+   },
+   {
+    "in": 15.0,
+    "out": 18.0,
+    "html": "Send this to whoever<br>thinks we've moved<br>past it.",
+    "cta": "Share it"
+   }
+  ]
+ },
+ {
+  "id": "HAL-018",
+  "seed": 53,
+  "slug": "the-stone-in-the-mouth",
+  "duration": 18.0,
+  "label": "Gentle Muse \u00b7 Spooky Season",
+  "source": "Source: University of Arizona excavation at Lugnano in Teverina \u00b7 HAL-018",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 2.8,
+    "html": "Archaeologists found a<br>child's grave with a<br>stone placed in<br>the mouth.",
+    "cta": null
+   },
+   {
+    "in": 2.8,
+    "out": 5.8,
+    "html": "Roman era, in Italy.",
+    "cta": null
+   },
+   {
+    "in": 5.8,
+    "out": 8.8,
+    "html": "One of several burials<br>meant to keep the dead<br>from coming back.",
+    "cta": null
+   },
+   {
+    "in": 8.8,
+    "out": 12.0,
+    "html": "They couldn't argue<br>with the fear. So they<br>did something<br>physical about it.",
+    "cta": null
+   },
+   {
+    "in": 12.0,
+    "out": 15.0,
+    "html": "<span class='em'>We still do. Ours<br>is just quieter.</span>",
+    "cta": null
+   },
+   {
+    "in": 15.0,
+    "out": 18.0,
+    "html": "Send this to whoever<br>leaves a light on.",
+    "cta": "Share it"
+   }
+  ]
+ }
+]
