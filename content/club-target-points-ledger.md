@@ -319,3 +319,95 @@ post `3630587` on 2 Sep and post `3939647` on 24 Sep. Same asset
 duplicated a pre-existing queue entry. Only one can credit the theme, and TikTok
 may suppress the repeat. Deletion in Blotato is permanent, so this is flagged for
 Amanda's call rather than actioned.
+
+---
+
+## === AUDIT 31 Aug 2026, 00:08 UTC (Sun/Wed routine) ===
+
+Window checked: 25 Aug to 25 Sep, published and scheduled, all platforms, 250 rows
+plus a second page to 31 Oct. The queue holds nothing after 25 Sep, so the window
+is complete in practice.
+
+### 1. TikTok coverage: NO GAPS
+
+| Theme | TikTok | Also on |
+| --- | --- | --- |
+| #TargetCatandJackSummer | scheduled 2 Sep, post `3630587` | facebook, instagram |
+| #TargetLittleFinds | scheduled 3 Sep, post `3952005` | facebook, instagram |
+
+The Adornia TikTok scheduled earlier today is confirmed live in the queue. The
+gap found on 30 Aug is closed.
+
+### 2. Points added since last audit: 0
+
+No Club Target post published in the window. 18 posts published since 30 Aug
+00:00 UTC, all Cesa, newsletter and evergreen. **Running total unchanged at 574.**
+
+Fresh Home Finds and Game Day Throwback expired unfilmed. Amanda decided on
+30 Aug not to make a store run. 60 points forgone, recorded as a deliberate call.
+
+### 3. Duplicates: 4 pairs, 3 of them urgent
+
+Identical caption and media, scheduled twice:
+
+| Platform | Post | When | Paired with |
+| --- | --- | --- | --- |
+| instagram | Cesa, "Coming home to her after a long shift" | 1 Sep 15:00 | 1 Sep 16:30 |
+| instagram | Cesa, "She's 19. Every strange sleeping position" | 4 Sep 18:30 | 4 Sep 18:50 |
+| instagram | Cesa, "10 of her years have been mine" | 4 Sep 19:45 | 4 Sep 20:05 |
+| instagram | Adornia #TargetLittleFinds | 3 Sep 17:00 | 24 Sep 15:00 |
+
+The three Cesa pairs post the same words **20 to 25 minutes apart**. Blotato
+deletion is permanent, so nothing was deleted. Needs Amanda's call.
+
+The Adornia pair is not a points issue, Instagram pays 0, but it repeats a paid
+partnership post 3 weeks apart.
+
+### 4. NEW DEFECT: the retired noon slot is still in the live queue
+
+The 17:00 UTC slot is noon Central. It was retired at source on 26 Aug when SOP v3
+shipped, but **only for new waves**. Every pre-existing queue row from 31 Aug to
+20 Sep still carries it, so noon Central fires every single day for 3 weeks.
+
+Instagram is over its own cap on 8 consecutive days:
+
+| Date | IG posts | Cap | Times, UTC |
+| --- | --- | --- | --- |
+| 31 Aug Mon | 4 | 2 | 15:00, 17:00, 17:30, 23:00 |
+| 1 Sep Tue | **7** | 2 | 00:00, 15:00, 16:30, 17:30, 18:50, 20:00, 22:50 |
+| 2 Sep Wed | 4 | 2 | 15:00, 17:00, 20:00, 22:50 |
+| 3 Sep Thu | 3 | 2 | 17:00, 22:50, 23:00 |
+| 4 Sep Fri | **7** | 2 | 17:00, 17:00, 18:30, 18:50, 19:45, 20:05, 22:50 |
+| 5 Sep Sat | 2 | 1 | 17:00, 17:00 |
+| 6 Sep Sun | 3 | 1 | 17:00, 22:50, 23:00 |
+| 7 Sep Mon | 3 | 2 | 17:00, 22:50, 23:00 |
+
+Two exact-minute collisions: instagram 4 Sep 17:00 x2 and 5 Sep 17:00 x2.
+
+From 8 Sep the queue settles to 1 or 2 a day, and from 21 Sep the Wave 1 rows use
+the corrected 15:00 and 23:00 slots. So the damage is bounded to the next 8 days.
+
+Flagged, not actioned. Spreading these and removing the duplicates is one job and
+it needs Amanda's yes on the deletions.
+
+### 5. Queue runs dry after 25 Sep
+
+Nothing scheduled beyond 25 Sep 23:00. Wave 1 covers 21 Sep to 29 Oct in the
+staging file but was only loaded through 25 Sep, and Wave 2 is not loaded at all.
+**This is the same partial load that ate the Adornia TikTok.** 34 days of written,
+validated content is sitting in the repo unloaded.
+
+### 6. Theme board: still empty
+
+`content/club-target-theme-board.md` has never been filled from the portal. Two
+themes expired this week because nothing was written down. The ask stands:
+
+> Open the Club Target portal and paste the theme list. For each one:
+> theme name, exact hashtag, closing date.
+
+### Verdict
+
+**CLEAN** on TikTok coverage, the 30 Aug gap is closed.
+**NO CHANGE** on points, 574.
+**ACTION NEEDED** on 3 duplicate Instagram pairs and 8 days of noon-slot overload.
+**BLOCKED** on the theme board, which is the root cause of the 60 points forgone.
