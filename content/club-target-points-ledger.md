@@ -411,3 +411,26 @@ themes expired this week because nothing was written down. The ask stands:
 **NO CHANGE** on points, 574.
 **ACTION NEEDED** on 3 duplicate Instagram pairs and 8 days of noon-slot overload.
 **BLOCKED** on the theme board, which is the root cause of the 60 points forgone.
+
+### Queue repair executed 31 Aug, on Amanda's go
+
+- **Deleted 6 duplicate scheduled posts.** 3 Cesa Instagram pairs firing 20 to 25
+  minutes apart (`3926378`, `3926388`, `3927279`), the Adornia Instagram repeat
+  (`3939642`), and 2 rows the daily top-up regenerated mid-repair: another Adornia
+  Instagram on 30 Sep (`3970796`) and a Cat and Jack Instagram on 7 Oct
+  (`3970869`).
+- **Rescheduled 37 Instagram posts** onto the corrected slots, 15:00 and 23:00 UTC
+  (10 AM and 6 PM Central), 2 a weekday and 1 at the weekend. The 17:00 UTC noon
+  Central slot is now cleared from 31 Aug through 7 Sep. Overflow runs through
+  12 Oct, which also extends the Instagram queue past the 25 Sep dry date.
+- **Removed 4 Club Target rows from wave 1** (GW0019, GW0021, GW0055, GW0057).
+  Every one repeated content already scheduled. Leaving them in the library made
+  the daily top-up rebuild them after deletion, which is why 2 came back during
+  this repair. Removing them at source stops the loop.
+
+**Process note for future runs.** The first pass of this repair moved 9 posts onto
+26 Sep to 1 Oct using a queue snapshot taken the previous afternoon. The daily
+top-up had run at 06:40 UTC that morning and already filled those days, so the
+moves collided and had to be redone against a fresh read. **Re-read the live queue
+immediately before writing to it, never from a snapshot taken earlier in the
+session.**
