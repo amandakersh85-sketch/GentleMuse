@@ -227,7 +227,26 @@ these keywords. The only way to break that rule now is to activate one of the 10
 
 ---
 
-## 2026-08-30: follow gate added to the 5 lead magnet keywords on @thegentlemuse2026
+## REVERSED 2026-08-31: the follow gates came off after 1 day
+
+Amanda's call, and it is the right one. **Removed from all 5** (`445`, `435`, `1393`, `1019`,
+`1424`) on 08-31. Her reasoning: they cost more than they earn.
+
+The numbers back her. The gate can only ever act on someone who already wants something she
+made, and the audit below shows that is nobody yet. So the upside was 0 followers and the
+downside was friction on the single mechanism in the funnel that converts. When the first real
+person finally comments a keyword, the last thing that should happen is being asked to do a
+second thing before getting what they asked for.
+
+Nothing was lost. The gates were live for roughly 22 hours and no automation fired in that
+window, so no real person ever saw one.
+
+**Standing rule: no followGate on any automation.** The daily sync job checks for one and
+flags it rather than removing it, so a reappearance gets a decision instead of a silent fix.
+
+The original write-up follows for the record.
+
+## 2026-08-30 (SUPERSEDED): follow gate added to the 5 lead magnet keywords on @thegentlemuse2026
 
 Amanda's goal is 500 Instagram followers, which is the threshold that unlocks her Club Target
 affiliate account. `followGate` is now on every lead magnet keyword on her main account.
