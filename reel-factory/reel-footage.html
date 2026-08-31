@@ -7,8 +7,9 @@
     overflow:hidden;color:#FAF6F0}
   /* the clip itself, cover-fitted and slowly pushed in */
   #plate{position:absolute;inset:0;overflow:hidden}
-  #plate video{position:absolute;left:50%;top:50%;min-width:100%;min-height:100%;
-    transform-origin:center center;will-change:transform;object-fit:cover}
+  #plate video,#plate img{position:absolute;left:50%;top:50%;min-width:100%;min-height:100%;
+    width:100%;height:100%;transform-origin:center center;will-change:transform;object-fit:cover}
+  #plate img{display:none}
   #grade{position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;
     background:linear-gradient(180deg,#4a3040 0%,#2e2230 55%,#1e1620 100%);opacity:.26}
   #warm{position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;
@@ -38,7 +39,7 @@
 </style></head>
 <body>
 <div id="stage">
-  <div id="plate"><video id="clip" muted playsinline preload="auto"></video></div>
+  <div id="plate"><video id="clip" muted playsinline preload="auto"></video><img id="still" alt=""></div>
   <div id="grade"></div><div id="warm"></div><div id="scrim"></div>
   <div id="beats"></div>
   <div class="label" id="label"></div>
@@ -57,7 +58,15 @@ document.getElementById("src").textContent = P.source;
    frame it needs and waits for it to arrive, which is what keeps the output
    reproducible. Playing it and screenshotting would drift. */
 const video = document.getElementById("clip");
-video.src = P.clip.file;
+const still = document.getElementById("still");
+const IS_STILL = /\.(jpe?g|png|webp|avif)$/i.test(P.clip.file);
+const plate = IS_STILL ? still : video;
+if (IS_STILL){
+  video.style.display = "none"; still.style.display = "block"; still.src = P.clip.file;
+  if (P.clip.grade) document.getElementById("grade").style.opacity = P.clip.grade;
+} else {
+  video.src = P.clip.file;
+}
 const CLIP_IN = P.clip.start || 0;          // where in the source we enter
 const KEN = P.clip.push == null ? 0.06 : P.clip.push;  // slow push-in, fraction
 
@@ -65,6 +74,7 @@ let ready = false;
 video.addEventListener("loadeddata", () => { ready = true; });
 
 window.seekClip = t => new Promise(res => {
+  if (IS_STILL) return res();
   const dur = video.duration;
   if (!dur || !isFinite(dur)) return res();
   const want = Math.min(CLIP_IN + t, dur - 0.04);
@@ -90,8 +100,10 @@ const cl = v => v < 0 ? 0 : v > 1 ? 1 : v;
 
 function paint(t){
   const p = t / DUR;
-  video.style.transform =
-    "translate(-50%,-50%) scale(" + (1 + KEN * p).toFixed(4) + ")";
+  // a still gets a real Ken Burns move, since it has no motion of its own
+  const drift = IS_STILL ? (P.clip.drift || 0) * p : 0;
+  plate.style.transform = "translate(-50%,-50%) translateY(" + drift.toFixed(1) +
+    "px) scale(" + (1 + KEN * p).toFixed(4) + ")";
   P.beats.forEach((b, i) => {
     const n = nodes[i], IN = 0.62, OUT = 0.40;
     let o = 0, y = 26;
@@ -109,6 +121,7 @@ function paint(t){
 window.seek = async t => { await window.seekClip(t); paint(t); };
 paint(0);
 const metadata = new Promise(r => {
+  if (IS_STILL) return (still.complete ? r() : still.addEventListener("load", r, {once:true}));
   if (video.readyState >= 1) return r();
   video.addEventListener("loadedmetadata", r, { once: true });
 });
