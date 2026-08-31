@@ -1,6 +1,40 @@
 import { chromium } from '/opt/node22/lib/node_modules/playwright/index.mjs';
 import { readFileSync, mkdirSync, rmSync } from 'fs';
 import { execFileSync } from 'child_process';
+import { createServer } from 'http';
+import { extname, join } from 'path';
+import { createReadStream, statSync } from 'fs';
+
+/* Chromium refuses to load file:// media from a file:// page, so the <video>
+   never fires loadedmetadata and every frame renders with an empty plate.
+   Serving the project directory over loopback fixes it. */
+const MIME = { '.html':'text/html', '.mp4':'video/mp4', '.webm':'video/webm',
+               '.json':'application/json', '.wav':'audio/wav', '.jpg':'image/jpeg',
+               '.png':'image/png', '.m4v':'video/mp4', '.mov':'video/quicktime' };
+function serve(root){
+  return new Promise(resolve => {
+    const srv = createServer((req, res) => {
+      const rel = decodeURIComponent(req.url.split('?')[0]).replace(/^\/+/, '');
+      const file = join(root, rel);
+      let st; try { st = statSync(file); } catch { res.writeHead(404); return res.end(); }
+      const range = req.headers.range;                 // video needs byte ranges
+      const type = MIME[extname(file).toLowerCase()] || 'application/octet-stream';
+      if (range){
+        const m = /bytes=(\d*)-(\d*)/.exec(range);
+        const start = m[1] ? parseInt(m[1]) : 0;
+        const end = m[2] ? parseInt(m[2]) : st.size - 1;
+        res.writeHead(206, { 'Content-Type': type, 'Accept-Ranges': 'bytes',
+          'Content-Range': `bytes ${start}-${end}/${st.size}`,
+          'Content-Length': end - start + 1 });
+        return createReadStream(file, { start, end }).pipe(res);
+      }
+      res.writeHead(200, { 'Content-Type': type, 'Accept-Ranges': 'bytes',
+                           'Content-Length': st.size });
+      createReadStream(file).pipe(res);
+    });
+    srv.listen(0, '127.0.0.1', () => resolve(srv));
+  });
+}
 const DIR = process.argv[2];
 const ONLY = process.argv[3] || null;
 const FPS = Number(process.env.FPS || 30);
@@ -8,6 +42,8 @@ const FFMPEG = process.env.FFMPEG;
 const reels = JSON.parse(readFileSync(`${DIR}/${process.env.REELS || 'reels.json'}`, 'utf8'))
   .filter(r => !ONLY || r.id === ONLY);
 
+const server = await serve(DIR);
+const ORIGIN = `http://127.0.0.1:${server.address().port}`;
 const browser = await chromium.launch();
 for (const reel of reels){
   const t0 = Date.now();
@@ -15,7 +51,7 @@ for (const reel of reels){
   rmSync(frames, { recursive: true, force: true }); mkdirSync(frames, { recursive: true });
   const page = await browser.newPage({ viewport:{width:1080,height:1920}, deviceScaleFactor:1 });
   await page.addInitScript(p => { window.PAYLOAD = p; }, reel);
-  await page.goto('file://' + DIR + '/reel.html');
+  await page.goto(ORIGIN + '/' + (process.env.COMP || 'reel.html'));
   await page.waitForFunction(() => window.__ready === true, null, {timeout:25000})
             .catch(() => console.log('  WARN fonts not confirmed'));
   const N = Math.round(FPS * reel.duration);
@@ -34,3 +70,4 @@ for (const reel of reels){
   console.log(`${reel.id}  ${N} frames  ${((Date.now()-t0)/1000).toFixed(0)}s  -> GM-${reel.slug}.mp4`);
 }
 await browser.close();
+server.close();

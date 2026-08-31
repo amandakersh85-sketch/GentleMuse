@@ -1,0 +1,120 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  html,body{margin:0;padding:0;background:#0B0910;overflow:hidden}
+  #stage{position:relative;width:1080px;height:1920px;background:#0B0910;
+    overflow:hidden;color:#FAF6F0}
+  /* the clip itself, cover-fitted and slowly pushed in */
+  #plate{position:absolute;inset:0;overflow:hidden}
+  #plate video{position:absolute;left:50%;top:50%;min-width:100%;min-height:100%;
+    transform-origin:center center;will-change:transform;object-fit:cover}
+  #grade{position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;
+    background:linear-gradient(180deg,#4a3040 0%,#2e2230 55%,#1e1620 100%);opacity:.26}
+  #warm{position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;
+    background:radial-gradient(ellipse at 50% 44%,rgba(196,104,64,.22) 0%,rgba(196,104,64,0) 62%)}
+  #scrim{position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(180deg,rgba(11,9,16,.20) 0%,rgba(11,9,16,.46) 34%,
+      rgba(11,9,16,.52) 62%,rgba(11,9,16,.20) 82%,rgba(11,9,16,.46) 100%)}
+  #grain{position:absolute;inset:0;opacity:.045;pointer-events:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>")}
+  #vig{position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(ellipse at 50% 46%,rgba(0,0,0,0) 40%,rgba(0,0,0,.50) 100%)}
+  .label{position:absolute;left:88px;top:96px;font-family:"IBM Plex Mono",monospace;
+    font-size:23px;letter-spacing:.28em;text-transform:uppercase;color:#C8BAAE}
+  .src{position:absolute;left:88px;right:88px;bottom:152px;font-family:"IBM Plex Mono",monospace;
+    font-size:20px;letter-spacing:.08em;color:#9C8F84}
+  #beats{position:absolute;left:88px;right:88px;top:0;height:1920px}
+  .beat{position:absolute;left:0;right:0;font-family:"Instrument Serif",Georgia,serif;
+    font-weight:400;font-size:86px;line-height:1.18;letter-spacing:-.012em;
+    text-shadow:0 2px 28px rgba(0,0,0,.55);will-change:transform,opacity}
+  .beat .em{font-style:italic;color:#F5BEA0}
+  .beat.cta{font-size:78px;line-height:1.22}
+  .beat.cta .k{display:block;font-family:"IBM Plex Mono",monospace;font-size:24px;
+    letter-spacing:.26em;text-transform:uppercase;color:#F5BEA0;margin-bottom:30px}
+  #ruleTrack{position:absolute;left:88px;right:88px;bottom:104px;height:3px;
+    background:rgba(250,246,240,.16);border-radius:2px}
+  #rule{position:absolute;left:88px;bottom:104px;height:3px;background:#F5BEA0;border-radius:2px}
+</style></head>
+<body>
+<div id="stage">
+  <div id="plate"><video id="clip" muted playsinline preload="auto"></video></div>
+  <div id="grade"></div><div id="warm"></div><div id="scrim"></div>
+  <div id="beats"></div>
+  <div class="label" id="label"></div>
+  <div class="src" id="src"></div>
+  <div id="ruleTrack"></div><div id="rule"></div>
+  <div id="grain"></div><div id="vig"></div>
+</div>
+<script>
+const P = window.PAYLOAD;
+const DUR = P.duration;
+document.getElementById("label").textContent = P.label;
+document.getElementById("src").textContent = P.source;
+
+/* ---- the clip ----------------------------------------------------------
+   Seeked, never played. Frame N of the render asks the video for exactly the
+   frame it needs and waits for it to arrive, which is what keeps the output
+   reproducible. Playing it and screenshotting would drift. */
+const video = document.getElementById("clip");
+video.src = P.clip.file;
+const CLIP_IN = P.clip.start || 0;          // where in the source we enter
+const KEN = P.clip.push == null ? 0.06 : P.clip.push;  // slow push-in, fraction
+
+let ready = false;
+video.addEventListener("loadeddata", () => { ready = true; });
+
+window.seekClip = t => new Promise(res => {
+  const dur = video.duration;
+  if (!dur || !isFinite(dur)) return res();
+  const want = Math.min(CLIP_IN + t, dur - 0.04);
+  if (Math.abs(video.currentTime - want) < 0.001) return res();
+  const done = () => { video.removeEventListener("seeked", done); res(); };
+  video.addEventListener("seeked", done);
+  video.currentTime = want;
+});
+
+const host = document.getElementById("beats");
+const nodes = P.beats.map(b => {
+  const d = document.createElement("div");
+  d.className = "beat" + (b.cta ? " cta" : "");
+  d.innerHTML = (b.cta ? '<span class="k">' + b.cta + '</span>' : "") + b.html;
+  d.style.opacity = "0"; host.appendChild(d); return d;
+});
+function layout(){ nodes.forEach(n => {
+  const p = n.style.opacity; n.style.opacity = "0";
+  n.style.top = ((1920 - n.offsetHeight) / 2 - 30) + "px"; n.style.opacity = p; }); }
+
+const easeOut = t => 1 - Math.pow(1 - t, 3);
+const cl = v => v < 0 ? 0 : v > 1 ? 1 : v;
+
+function paint(t){
+  const p = t / DUR;
+  video.style.transform =
+    "translate(-50%,-50%) scale(" + (1 + KEN * p).toFixed(4) + ")";
+  P.beats.forEach((b, i) => {
+    const n = nodes[i], IN = 0.62, OUT = 0.40;
+    let o = 0, y = 26;
+    if (t >= b.in - 0.001 && t < b.out){
+      const ip = cl((t - b.in) / IN), op = cl((t - (b.out - OUT)) / OUT);
+      o = easeOut(ip) * (1 - op);
+      y = 26 * (1 - easeOut(ip)) - 14 * op;
+    }
+    n.style.opacity = o.toFixed(4);
+    n.style.transform = "translateY(" + y.toFixed(2) + "px)";
+  });
+  document.getElementById("rule").style.width = (904 * p).toFixed(1) + "px";
+}
+
+window.seek = async t => { await window.seekClip(t); paint(t); };
+paint(0);
+const metadata = new Promise(r => {
+  if (video.readyState >= 1) return r();
+  video.addEventListener("loadedmetadata", r, { once: true });
+});
+const withTimeout = (p, ms) => Promise.race([p, new Promise(r => setTimeout(r, ms))]);
+Promise.all([withTimeout(document.fonts.ready, 12000), metadata]).then(async () => {
+  layout(); await window.seek(0); window.__ready = true;
+});
+</script>
+</body></html>
