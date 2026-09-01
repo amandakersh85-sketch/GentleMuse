@@ -1,6 +1,10 @@
 <!doctype html>
 <html><head><meta charset="utf-8">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="fonts.css">
+<!-- The faces are embedded in fonts.css as data URIs and served off the
+     same loopback origin as the composition. Nothing about a render
+     touches the network, so the type cannot come out in a fallback face
+     because a proxy hiccuped. -->
 <style>
   html,body{margin:0;padding:0;background:#0B0910;overflow:hidden}
   #stage{position:relative;width:1080px;height:1920px;background:#0B0910;
@@ -140,19 +144,31 @@ function seek(t){
   document.getElementById("rule").style.width = (904 * (t / DUR)).toFixed(1) + "px";
 }
 const FACES = ['400 86px "Instrument Serif"', '500 24px "IBM Plex Mono"'];
+const NAMES = ["Instrument Serif", "IBM Plex Mono"];
 /* document.fonts.ready has hung behind the proxy before, and when it does the
    beats get measured in a fallback face and land at the top of the frame. So
    ask for the faces by name, then poll until the metrics are actually the ones
    we are going to draw with. A render in the wrong face is worse than no
    render, so this reports failure rather than carrying on quietly. */
+/* document.fonts.check returns true for a family that was never defined at
+   all, because there is nothing outstanding to load. That is how a render
+   went out in Georgia while reporting its fonts were fine. So ask the
+   registry for a face that actually exists and has actually loaded. */
+const faceLoaded = name => {
+  let ok = false;
+  document.fonts.forEach(ff => {
+    if (ff.family.replace(/["']/g, "") === name && ff.status === "loaded") ok = true;
+  });
+  return ok;
+};
 const fontsUsable = async () => {
   try { await Promise.all(FACES.map(f => document.fonts.load(f))); } catch (e) {}
   const deadline = Date.now() + 25000;
   while (Date.now() < deadline){
-    if (FACES.every(f => document.fonts.check(f))) return true;
-    await new Promise(r => setTimeout(r, 120));
+    if (NAMES.every(faceLoaded)) return true;
+    await new Promise(r => setTimeout(r, 100));
   }
-  return FACES.every(f => document.fonts.check(f));
+  return NAMES.every(faceLoaded);
 };
 window.seek = seek;
 layout(); seek(0);

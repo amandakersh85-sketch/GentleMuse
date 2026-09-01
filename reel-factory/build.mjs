@@ -8,9 +8,16 @@ import { createReadStream, statSync } from 'fs';
 /* Chromium refuses to load file:// media from a file:// page, so the <video>
    never fires loadedmetadata and every frame renders with an empty plate.
    Serving the project directory over loopback fixes it. */
-const MIME = { '.html':'text/html', '.mp4':'video/mp4', '.webm':'video/webm',
-               '.json':'application/json', '.wav':'audio/wav', '.jpg':'image/jpeg',
-               '.png':'image/png', '.m4v':'video/mp4', '.mov':'video/quicktime' };
+/* Chromium enforces strict MIME checking on stylesheets, so a fonts.css
+   served as application/octet-stream is silently ignored and the type comes
+   out in a fallback face. Every extension the compositions can reference
+   belongs in here. */
+const MIME = { '.html':'text/html', '.css':'text/css', '.mp4':'video/mp4',
+               '.webm':'video/webm', '.json':'application/json', '.wav':'audio/wav',
+               '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.png':'image/png',
+               '.webp':'image/webp', '.avif':'image/avif', '.svg':'image/svg+xml',
+               '.woff2':'font/woff2', '.woff':'font/woff',
+               '.m4v':'video/mp4', '.mov':'video/quicktime' };
 function serve(root){
   return new Promise(resolve => {
     const srv = createServer((req, res) => {
