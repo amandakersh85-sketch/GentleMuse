@@ -1,0 +1,54 @@
+[
+ {
+  "id": "HAL-004-AMANDA",
+  "slug": "mary-shelley-amanda",
+  "seed": 104,
+  "duration": 18.0,
+  "label": "Gentle Muse \u00b7 Spooky Season",
+  "source": "Source: Encyclopaedia Britannica, Mary Shelley \u00b7 HAL-004",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 2.4,
+    "html": "Mary Shelley<br>was 18.",
+    "cta": null
+   },
+   {
+    "in": 2.4,
+    "out": 5.4,
+    "html": "She started Frankenstein<br>in the summer of 1816.",
+    "cta": null
+   },
+   {
+    "in": 5.4,
+    "out": 8.6,
+    "html": "The year without a<br>summer. A volcano put<br>enough ash in the sky<br>that Europe stayed<br>under cloud.",
+    "cta": null
+   },
+   {
+    "in": 8.6,
+    "out": 11.8,
+    "html": "She was stuck indoors<br>with nothing<br>going right.",
+    "cta": null
+   },
+   {
+    "in": 11.8,
+    "out": 15.2,
+    "html": "<span class='em'>She invented a genre<br>anyway. The conditions<br>were never the<br>requirement.</span>",
+    "cta": null
+   },
+   {
+    "in": 15.2,
+    "out": 18.0,
+    "html": "Send this to whoever<br>is waiting for a<br>better year.",
+    "cta": "Share it"
+   }
+  ],
+  "clip": {
+   "file": "real/amanda-portrait.jpg",
+   "push": 0.1,
+   "drift": -40,
+   "grade": 0.58
+  }
+ }
+]

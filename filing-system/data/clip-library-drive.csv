@@ -1,4 +1,5 @@
 ClipID,File,DriveFileId,SizeMB,Created,Lane,DurationSec,Resolution,Orientation,Shot,Mood,Tags,Described,Source
+amanda-portrait,frame from Maya Angelo .mp4 at 6.45s,1cq7FkFi-j-Cekn5ZE34CSEhkgyajWksy,0.1,2026-06-23,GM,,1080x1920,Vertical,"Frozen frame of Amanda to camera in a bedroom doorway, mouth closed, looking at the lens","still, direct","amanda,portrait,still,derived",yes,GoogleDrive
 cesa-in-a-hoodie-1,Cesa in a Hoodie 1,1y1iGUrXNy9lHrC8L2OENQdc6nKIEof7OSw,0.6,2017,CGY,,1440x2560,Vertical,"Cesa sitting in bright green grass in a pink hoodie, looking off to the left","warm, unbothered","cesa,still,senior-dog",yes,GoogleDrive
 cesa-in-a-hoodie-2,Cesa in a Hoodie 2,1fM6EDRquuugNmhXZLDFQFkvCfvCS27TxGw,0.6,2017,CGY,,1440x2560,Vertical,"Cesa sitting in bright green grass in a pink hoodie, facing the camera","warm, unbothered","cesa,still,senior-dog",yes,GoogleDrive
 cesa-in-a-hoodie-3,Cesa in a Hoodie 3,1WeE3OwMmBa51Uh_sFpBu3y0Rjs11m50-vw,0.6,2017,CGY,,1440x2560,Vertical,"Cesa sitting in bright green grass in a pink hoodie, looking off to the side","warm, unbothered","cesa,still,senior-dog",yes,GoogleDrive
@@ -34,9 +35,9 @@ the-test-was-wrong,The Test Was Wrong.mp4,1AKZvJXZ3biFjvnwUo5hkMpN9HwQNghE4,13.1
 18-posts-ai-journey,18 Posts AI Journey .mp4,1XldP2KX7T3u_AH-JobWCXP96jyx7_YGh,9.6,2026-06-23,GM,,,,,,,no,GoogleDrive
 episode-1,Episode 1.mp4,13x-MrPSe0EIO2YlGvG4VRQ3QmF6R1Ubu,11.1,2026-06-23,GM,,,,,,,no,GoogleDrive
 ai-tools,AI Tools .mp4,1BpP3Skuapw0hdw7Y19YV0KgxfP_9JhQl,9.2,2026-06-23,GM,,,,,,,no,GoogleDrive
-reset,Reset.mp4,1IpLlA1yo7SReZcX7d-oCXIaQaBw-nZN9,5.1,2026-06-23,GM,,,,,,,no,GoogleDrive
+reset,Reset.mp4,1IpLlA1yo7SReZcX7d-oCXIaQaBw-nZN9,5.1,2026-06-23,GM,26.11,720x1280,Vertical,"Studio talking head at a microphone under a LIVE neon sign, speaking to camera throughout. Not Amanda.",presenter,"talking-head,pulled",yes,GoogleDrive
 budget,Budget .mp4,1SA1ARMtw5wpuCFBIiHq0yVgmanAIOts-,9.8,2026-06-23,GM,,,,,,,no,GoogleDrive
 paycheck-planner,Paycheck Planner .mp4,1vjWqIzQ4vAJKCqR3jNr7FIGSOdFGcBQ_,18.3,2026-06-23,GM,,,,,,,no,GoogleDrive
 plan-budget,Plan Budget .mp4,1eQIesmGIVqvX0AFfkBoQB5Qfl-yHmNhT,10.8,2026-06-23,GM,,,,,,,no,GoogleDrive
-maya-angelo,Maya Angelo .mp4,1cq7FkFi-j-Cekn5ZE34CSEhkgyajWksy,5.1,2026-06-23,GM,,,,,,,no,GoogleDrive
+maya-angelo,Maya Angelo .mp4,1cq7FkFi-j-Cekn5ZE34CSEhkgyajWksy,5.1,2026-06-23,GM,6.6,1080x1920,Vertical,"Amanda to camera in a bedroom doorway, black top and gold pendant, speaking throughout. Has audio.","direct, plain","talking-head,pulled",yes,GoogleDrive
 ugc-ad-video,UGC Ad Video.mp4,1O4RYTXkCLcwHB74CSmM0jXPnadF3h_xU,12.1,2026-06-15,GM,,,,,,,no,GoogleDrive
