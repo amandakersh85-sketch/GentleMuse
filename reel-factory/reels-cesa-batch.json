@@ -40,8 +40,8 @@
       {
         "in": 15.2,
         "out": 18.0,
-        "html": "Send this to whoever<br>thinks they missed<br>their window.",
-        "cta": "Share it"
+        "html": "19 years old, 10 of them mine.<br>15 pages of what actually<br>keeps her comfortable.<br><span class='em'>Free, and yours.</span>",
+        "cta": "CESA in the comments"
       }
     ],
     "clip": {
@@ -56,7 +56,9 @@
     "contract": "Cesa is old and I am keeping the record while she is still here.",
     "claims": [
       "SUB-001"
-    ]
+    ],
+    "keyword": "CESA",
+    "keyword_delivers": "19 Years Old, 10 of Them Mine (15pp) via IG and FB comment-to-DM"
   },
   {
     "id": "HAL-016-CESA",
@@ -99,8 +101,8 @@
       {
         "in": 14.4,
         "out": 18.0,
-        "html": "Send this to whoever<br>keeps explaining<br>themselves.",
-        "cta": "Share it"
+        "html": "19 years old, 10 of them mine.<br>15 pages of what actually<br>keeps her comfortable.<br><span class='em'>Free, and yours.</span>",
+        "cta": "CESA in the comments"
       }
     ],
     "clip": {
@@ -112,7 +114,9 @@
       "match_reason": "The caption opens on a refusal to explain. The plate is both of them looking straight out with Amanda deadpan. The deadpan is the line.",
       "override": true
     },
-    "contract": "Cesa is old and I am keeping the record while she is still here."
+    "contract": "Cesa is old and I am keeping the record while she is still here.",
+    "keyword": "CESA",
+    "keyword_delivers": "19 Years Old, 10 of Them Mine (15pp) via IG and FB comment-to-DM"
   },
   {
     "id": "XMS-001-CESA",
@@ -155,8 +159,8 @@
       {
         "in": 15.2,
         "out": 18.0,
-        "html": "Send this to whoever<br>is building something<br>in a hard year.",
-        "cta": "Share it"
+        "html": "19 years old, 10 of them mine.<br>15 pages of what actually<br>keeps her comfortable.<br><span class='em'>Free, and yours.</span>",
+        "cta": "CESA in the comments"
       }
     ],
     "clip": {
@@ -168,6 +172,8 @@
       "match_reason": "The turn is something warm made during the worst year of a life. The plate is the two of them cheek to cheek looking out, which is the warmth being claimed.",
       "override": true
     },
-    "contract": "Cesa is old and I am keeping the record while she is still here."
+    "contract": "Cesa is old and I am keeping the record while she is still here.",
+    "keyword": "CESA",
+    "keyword_delivers": "19 Years Old, 10 of Them Mine (15pp) via IG and FB comment-to-DM"
   }
 ]

@@ -284,9 +284,10 @@ echo "== the contract on a reel =="
 python3 - "$TMP" <<'PY9'
 import json, os, sys
 tmp = sys.argv[1]
-base = {"id": "T-1", "duration": 12.0, "delivery": "text",
+base = {"id": "T-1", "duration": 12.0, "delivery": "text", "keyword": "CESA",
         "beats": [{"in": 0, "out": 6, "html": "A line."},
-                  {"in": 6, "out": 12, "html": "Another.", "cta": "Share it"}]}
+                  {"in": 6, "out": 12, "cta": "The real one",
+                   "html": "Somebody you know needs this one."}]}
 
 def dump(name, doc):
     json.dump(doc, open(os.path.join(tmp, name), "w"))
@@ -307,6 +308,50 @@ expect_exit "follow for more is not a contract"   1 python3 "$TGATE" --render "$
 expect_exit "a two word contract is refused"      1 python3 "$TGATE" --render "$TMP/reel-thin.json"
 expect_exit "a real contract passes"              0 python3 "$TGATE" --render "$TMP/reel-good.json"
 expect_exit "an unconfirmed claim holds"          2 python3 "$TGATE" --render "$TMP/reel-held.json"
+
+python3 - "$TMP" <<'PY11'
+import json, os, sys
+tmp = sys.argv[1]
+C = ("Every holiday carries a fact somebody softened. I post the real one "
+     "before the day arrives.")
+def dump(name, cta, html):
+    json.dump({"id": "T-" + name, "duration": 12.0, "delivery": "text", "contract": C,
+               "keyword": "CESA",
+               "beats": [{"in": 0, "out": 6, "html": "Nobody was burned at Salem."},
+                         {"in": 6, "out": 12, "cta": cta, "html": html}]},
+              open(os.path.join(tmp, name + ".json"), "w"))
+dump("cta-ask-label", "Share it", "Somebody you know still says burned. You can fix that now.")
+dump("cta-ask-line",  "The real one", "Send this to whoever still says they were burned.")
+dump("cta-deliver",   "The real one", "Somebody you know still says burned. You can fix that now.")
+PY11
+
+expect_exit "a request label is refused"          1 python3 "$TGATE" --render "$TMP/cta-ask-label.json"
+expect_exit "a request line is refused"           1 python3 "$TGATE" --render "$TMP/cta-ask-line.json"
+expect_exit "a delivery close passes"             0 python3 "$TGATE" --render "$TMP/cta-deliver.json"
+
+python3 - "$TMP" <<'PY12'
+import json, os, sys
+tmp = sys.argv[1]
+C = ("Every holiday carries a fact somebody softened. I post the real one "
+     "before the day arrives.")
+def dump(name, **extra):
+    doc = {"id": "T-" + name, "duration": 12.0, "delivery": "text", "contract": C,
+           "beats": [{"in": 0, "out": 6, "html": "Nobody was burned at Salem."},
+                     {"in": 6, "out": 12, "cta": "The real one",
+                      "html": "Somebody you know still says burned."}]}
+    doc.update(extra)
+    json.dump(doc, open(os.path.join(tmp, name + ".json"), "w"))
+dump("kw-silent")
+dump("kw-thin", keyword=None, keyword_gap="none")
+dump("kw-named", keyword="CESA")
+dump("kw-declared", keyword=None,
+     keyword_gap="No live keyword matches this lane. The share close stands until one exists.")
+PY12
+
+expect_exit "silence about capture is refused"    1 python3 "$TGATE" --render "$TMP/kw-silent.json"
+expect_exit "an empty gap note is refused"        1 python3 "$TGATE" --render "$TMP/kw-thin.json"
+expect_exit "a named keyword passes"              0 python3 "$TGATE" --render "$TMP/kw-named.json"
+expect_exit "a declared gap passes with a note"   0 python3 "$TGATE" --render "$TMP/kw-declared.json"
 expect_exit "shipped reels declare a contract"    0 python3 "$TGATE" --render "$HERE/../../reel-factory/"
 
 echo

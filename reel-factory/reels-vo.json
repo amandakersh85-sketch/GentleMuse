@@ -45,12 +45,14 @@
       {
         "in": 16.36,
         "out": 19.33,
-        "html": "Send this to whoever<br>thinks we've moved<br>past it.",
-        "cta": "Share it",
+        "html": "Somebody you know thinks<br>we've moved past it.<br><span class='em'>This is the part they're missing.</span>",
+        "cta": "The real one",
         "spoken": 2.52
       }
     ],
     "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
-    "delivery": "text"
+    "delivery": "text",
+    "keyword": null,
+    "keyword_gap": "No live keyword matches this lane. GUIDE, CONSIDER, TUESDAY, PLAY and RESET are all about something else. The share close stands until a history magnet exists."
   }
 ]

@@ -40,8 +40,8 @@
       {
         "in": 15.2,
         "out": 18.0,
-        "html": "Send this to whoever<br>is waiting for a<br>better year.",
-        "cta": "Share it"
+        "html": "Somebody you know is waiting<br>for a better year.<br><span class='em'>They don't have to be.</span>",
+        "cta": "The real one"
       }
     ],
     "clip": {
@@ -53,6 +53,8 @@
       "match_reason": "The turn is a person who kept working while the conditions were against her. The plate is Amanda holding the lens with her mouth closed, the only frame in the library that puts her own face behind a claim about work.",
       "override": true
     },
-    "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives."
+    "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+    "keyword": null,
+    "keyword_gap": "No live keyword matches this lane. GUIDE, CONSIDER, TUESDAY, PLAY and RESET are all about something else. The share close stands until a history magnet exists."
   }
 ]

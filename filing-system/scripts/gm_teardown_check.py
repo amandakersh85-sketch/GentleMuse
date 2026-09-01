@@ -65,6 +65,37 @@ GENERIC_CONTRACT = [
     "comment below", "share this",
 ]
 
+# A closing beat that opens on one of these is giving the viewer an instruction.
+# Authority delivers. It does not ask permission first.
+REQUEST_OPENERS = {
+    "send", "share", "tag", "follow", "comment", "save", "drop", "like",
+    "subscribe", "click", "dm", "type", "hit", "smash", "repost", "duet",
+    "stitch", "join", "sign", "grab", "download", "check", "watch", "swipe",
+    "don't", "dont", "make", "let", "go", "tell", "reply", "leave",
+}
+
+SENTENCE = re.compile(r"[^.!?]+")
+WORD = re.compile(r"[A-Za-z']+")
+STRIP_TAGS = re.compile(r"<[^>]+>")
+
+
+def opening_word(text):
+    m = WORD.search(text or "")
+    return m.group(0).lower() if m else ""
+
+
+def request_openers(label, line):
+    """Every place this beat opens by telling the viewer what to do."""
+    hits = []
+    if opening_word(label) in REQUEST_OPENERS:
+        hits.append(norm(label))
+    plain = " ".join(STRIP_TAGS.sub(" ", line or "").split())
+    for sentence in SENTENCE.findall(plain):
+        if opening_word(sentence) in REQUEST_OPENERS:
+            hits.append(sentence.strip())
+    return hits
+
+
 BANK_COLS = ["TeardownID", "Handle", "Platform", "Lane", "Followers",
              "ArtifactURL", "Views", "Likes", "EngRate", "Hook", "Structure",
              "Contract", "MoneyPath", "StealThis", "Evidence", "Confidence",
@@ -199,8 +230,16 @@ def check_render(path):
             name = norm(reel.get("id")) or norm(reel.get("title")) \
                 or os.path.basename(f)
             beats = reel.get("beats") or []
-            has_cta = any(isinstance(b, dict) and norm(b.get("cta"))
-                          for b in beats)
+            cta_beats = [b for b in beats
+                         if isinstance(b, dict) and norm(b.get("cta"))]
+            has_cta = bool(cta_beats)
+
+            for b in cta_beats:
+                for hit in request_openers(b.get("cta"), b.get("html")):
+                    findings.append(("C04_REQUEST_NOT_DELIVERY", name,
+                                     "the closing beat instructs the viewer: "
+                                     "\"%s\". State who it is for and what they "
+                                     "now have. Do not ask." % hit))
             contract = norm(reel.get("contract"))
 
             if has_cta and not contract:
@@ -219,6 +258,26 @@ def check_render(path):
                     findings.append(("C02_THIN_CONTRACT", name,
                                      "contract is too short to promise "
                                      "anything: '%s'" % contract))
+            # A reel that asks for nothing still has to say where the viewer
+            # goes next. Amanda runs live comment-to-DM keywords; a reel that
+            # names none of them is spending reach with no way to catch it.
+            # Silence is not allowed. Either name the keyword, or say in the
+            # file why no live one fits.
+            if has_cta:
+                kw = norm(reel.get("keyword"))
+                gap = norm(reel.get("keyword_gap"))
+                if not kw and not gap:
+                    findings.append(("C05_NO_CAPTURE_PATH", name,
+                                     "no keyword and no stated gap. Name the "
+                                     "live comment-to-DM keyword this reel "
+                                     "feeds, or record why none of them fits."))
+                elif not kw and len(gap) < 20:
+                    findings.append(("C05_THIN_GAP", name,
+                                     "keyword_gap does not say anything: '%s'" % gap))
+                elif not kw:
+                    notes.append(("N04_NO_KEYWORD", name,
+                                  "reach with no capture path. %s" % gap))
+
             for h in (reel.get("holds") or []):
                 holds.append(("H01_UNVERIFIED_CLAIM", name, norm(h)))
 
