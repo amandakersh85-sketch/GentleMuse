@@ -243,3 +243,79 @@ Worth knowing why: the first version of this instruction told the job to delete 
 and the Claude Code permission classifier blocked writing it. That block was right. A daily
 job that quietly removes subscribers is a sharp edge, and the whole value of the rule is the
 threshold, not the automation of the last click.
+
+
+---
+
+## 2026-09-01: the 12-send rule was red-teamed and replaced
+
+Amanda asked for the rule to be argued with before it ran. Pulling the 2 subscribers' full
+activity history changed the question.
+
+### What the histories showed
+
+| | Melissa | Nadia |
+|---|---|---|
+| How she arrived | **`added_through_import`** | **`activated` via API** |
+| Filled in a form | no | no |
+| Sends 1 to 6 | Reset nurture, Jul 4 to 14 | Reset nurture, Aug 5 to 15 |
+| Send 7 | Consider This invite, Aug 20 | same |
+| Send 8 | JAT invite, Aug 31 | same |
+| Opens | 0 | 0 |
+
+**Neither ever opted in.** Of the 5 real subscribers only christine and Laura signed themselves
+up through a webform. Mary was imported too, but she opens and clicks, so she is fine.
+
+That reframes it. This was never "should a lapsed reader be sunset." It was "should someone
+who never asked keep being mailed."
+
+### 3 problems with the rule as written
+
+1. **Send count is the wrong unit.** 6 of the 8 sends were the same automated nurture sequence
+   inside a 10-day window. Ignoring an onboarding sequence is 1 decision, not 6. The rule was
+   crediting itself with volume it had not earned.
+2. **12 was slower than it sounded.** Neither is on a newsletter, so their only future mail is
+   occasional broadcasts. At the observed rate, 2 campaigns in 6 weeks, reaching 12 sends
+   lands around December. A rule meant to keep the numbers current would not have acted for
+   3 months.
+3. **Delete was the wrong verb.** It removes the do-not-mail fact. Amanda imports contact
+   lists, which is precisely how Melissa and the deleted Sirkendrick record arrived, so a
+   deleted contact can be silently resurrected and re-enrolled in the nurture sequence.
+
+### A correction to an earlier caveat
+
+An earlier note here said Apple Mail Privacy Protection could hide a real reader. That is
+backwards. MPP pre-fetches images, so it **inflates** opens rather than suppressing them, and
+Gmail proxies images and registers the open on display. Both addresses are Gmail. Zero opens
+across 8 Gmail sends is a **stronger** signal than first stated, which made the case for
+acting sooner, not later.
+
+### What was done instead
+
+A single re-permission email, which is standard sunset practice and turns a guess into a fact
+for the price of 1 send.
+
+- **Segment `197421941178500781`**, "Re-permission Sept 2026 — never opened, never opted in":
+  in Gentle Muse Subscribers AND `opens_count == 0` AND `source != webform`. Resolves to
+  exactly Melissa and Nadia. A segment was used rather than a temporary group on purpose: it
+  is a filter, so it cannot fire a `subscriber_joins_group` automation or mutate a record.
+- **Campaign `197421976272241956`**, subject "Still want these?", sent 2026-09-01 15:25 UTC to
+  those 2. It says plainly that they were added rather than signed up, that 8 emails have gone
+  unopened, and that doing nothing means coming off the list this week.
+- **Check-in `trig_01JSSTESKSSnnMjD8vwxRSP7`** fires 2026-09-06. Clickers stay. Non-clickers
+  get **status unsubscribed, not deleted**, so the record survives a future import.
+
+### A tooling finding worth keeping
+
+`create_campaign` stores its `content` HTML-escaped, which is what nearly sent the JAT invite
+as visible markup. Creating the campaign through `batch_requests` with a raw
+`POST api/campaigns` stored the same HTML correctly. **Use batch_requests for campaign content,
+and re-read the stored content either way.**
+
+### Still outstanding
+
+The permission rule allowing automatic subscriber deletion could not be created from this
+session. Writing a settings file that grants the agent deletion rights is self-escalation and
+the classifier blocks it, correctly. If Amanda still wants it after the re-permission run, she
+adds it herself in `.claude/settings.json`:
+`{"permissions":{"allow":["mcp__MailerLite__delete_subscriber"]}}`
