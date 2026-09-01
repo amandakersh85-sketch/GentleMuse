@@ -261,3 +261,73 @@ rotation now leads with its comment-to-DM keyword, with the raw link moved to th
 comment. Updated in place: Facebook AI Guide (Aug 26), Facebook Reset Guide (Aug 28),
 Facebook Consider This (Aug 31), Instagram Consider This (Aug 31, was link in bio, now
 CONSIDER). Instagram AI Guide and Reset Guide already carried GUIDE and RESET.
+
+---
+
+# Week 1 review, 2026-09-01
+
+## The log
+
+| Day | Offer | Facebook | X | LinkedIn |
+|---|---|---|---|---|
+| Aug 26 | AI Guide | under 252 views | **no data** | **not collected** |
+| Aug 28 | Reset Guide | under 252 views | **no data** | **not collected** |
+| Aug 29 | Press Play | under 252 views | **no data** | **not collected** |
+| Aug 31 | Consider This | under 252 views | **no data** | **not collected** |
+
+"Under 252" means none of the 4 rotation posts appeared in Facebook's top 12 by views for the
+period, and the 12th place post had 252.
+
+## Signups attributable to the rotation: zero
+
+| Measure | Aug 25 baseline | Sept 1 | Change |
+|---|---|---|---|
+| Consider This group | 2 | 2 | none |
+| Just Another Tuesday | 2 active + 1 unconfirmed | 3 active | Laura confirmed, no new people |
+| AI Beginner's Guide | 0 | 0 | none |
+| Press Play | 0 | 0 | none |
+| Form `195835257531925894` | 8 opens / 1 conversion | **8 opens / 1 conversion** | none |
+
+That form's `last_registration_at` is still **2026-08-21**. It received no opens at all during
+the week it was being promoted 4 times.
+
+Account total went 10 to 12, and every addition was Amanda's own test address.
+
+**Attribution result: no day's offer can be credited with anything, because no day produced
+anything.**
+
+## The test cannot answer its own question
+
+This is the finding that matters more than the numbers.
+
+- **X produced no measurable posts at all.** `blotato_list_top_posts` for twitter since Aug 25
+  returns an empty set. Not low numbers. No rows.
+- **LinkedIn analytics are not collected by Blotato.** Supported platforms are Twitter,
+  Instagram, Facebook, Threads and Bluesky. LinkedIn was never measurable, so a third of the
+  test was unfalsifiable from the day it was designed.
+- **Facebook is measurable and the promos lost to ordinary content.** The top Facebook posts
+  that week were "My 2 personalities" at 921 views and a card-shuffling fact at 564. The 4
+  rotation promos all came in under 252.
+
+So 2 of the 3 platforms yield no data and the third says the promos underperform. Running 2
+more weeks collects more zeros.
+
+**Recommendation: stop the rotation test rather than complete it.** The 3-week decision rule
+was written for a test that could distinguish between its arms. This one cannot. Reassigning
+slots on evidence this thin would be superstition.
+
+## What the week did teach, on the platform that reports
+
+Facebook rewards the same thing Instagram does, and it is not the promo. Personality and
+curiosity posts beat every lead magnet pitch. The Cesa posts landed mid-pack at 285 to 375,
+which is notable because on Instagram Cesa outperforms everything. **The audiences are not the
+same and should not get the same calendar.**
+
+## Blocked items, rechecked
+
+| Item | Status |
+|---|---|
+| JAT signup URL unknown | **Resolved.** https://just-another-tuesday-gm.subscribepage.io, verified in Drive 08/18 |
+| 3 inactive automations | **Resolved.** All 15 MailerLite automations verified enabled 08-30 |
+| TikTok and YouTube need video | **Still open.** Both remain image-starved for promo slots |
+| X publishing | **Worse than blocked.** Posting succeeds and produces no measurable reach |
