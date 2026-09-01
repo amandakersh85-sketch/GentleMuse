@@ -219,9 +219,27 @@ Before quoting any rate, subtract Amanda's own addresses and the junk records, t
 number of named humans. At this size a percentage is a way of not saying "1 person."
 
 
-### Melissa and Nadia were kept, deliberately
+### The 12-send rule, set by Amanda 2026-09-01
 
-Both are at 0 opens across 8 sends, so both are arguably dead weight too. They stay for now.
-At 3 working readers the rates are meaningless either way, and unlike the Sirkendrick record
-these 2 arrived as real signups rather than junk in an import. Revisit when the list is large
-enough for a percentage to mean something, or sooner if either address starts bouncing.
+Melissa and Nadia stay for now. Both sit at 0 opens across 8 sends, and unlike the Sirkendrick
+record they arrived as real signups rather than junk in an import.
+
+**Amanda's standing decision: if either is still at 0 opens once they have received 12 emails,
+they get dropped.** 4 more sends each from here.
+
+The condition is exact. `sent >= 12` AND `opens_count == 0`. Anyone with even 1 open does not
+qualify. Anyone under 12 sends does not qualify. It applies to whoever meets it, not only to
+these 2.
+
+Caveat worth stating once: an open is a tracking pixel, so Apple Mail Privacy Protection or
+plain image blocking can hide a genuine reader. At 12 sends with nothing registered that risk
+is small, but it is not zero, and the rule trades it away knowingly.
+
+**Wired into the daily sync job**, `trig_0123dXXH4Gn978bHSD6gehCZ`, step 4b. The job surfaces
+anyone who meets the condition by name with their final sent count. **It reports rather than
+deletes**, so the irreversible half stays a human decision made in the moment.
+
+Worth knowing why: the first version of this instruction told the job to delete automatically
+and the Claude Code permission classifier blocked writing it. That block was right. A daily
+job that quietly removes subscribers is a sharp edge, and the whole value of the rule is the
+threshold, not the automation of the last click.
