@@ -54,8 +54,8 @@
       "override": true
     },
     "contract": "Cesa is old and I am keeping the record while she is still here.",
-    "holds": [
-      "\"She's 19\" is a number I wrote, not one Amanda gave me. Confirm Cesa's age or cut the beat."
+    "claims": [
+      "SUB-001"
     ]
   },
   {

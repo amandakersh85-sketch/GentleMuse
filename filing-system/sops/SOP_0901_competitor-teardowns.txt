@@ -84,10 +84,20 @@ gate could not read it, so make-reels.sh would have refused to render on
 Amanda's machine and the five reels already built were bound by hand with
 nothing checking the hand. The gate now reads that shape. All ten reels pass.
 
-Two of them do not ship yet. HAL-009-CESA and HAL-013-CESA both assert that
-Cesa is 19. That number was written by an assistant and never given by Amanda,
-so both reels carry a hold and the gate returns HOLD until she confirms the age
-or the beat is cut.
+HAL-009-CESA and HAL-013-CESA both assert that Cesa is 19. That number was
+written by an assistant before anyone had asked, so both reels were held and
+the gate returned HOLD. Amanda confirmed the age on 09/01/2026 and both are
+released.
+
+The hold was the right call and the release is not the end of it. A number that
+happened to be correct is still a number nobody could check, and the next
+assistant writing a Cesa reel would have had to guess again. So the age now
+lives in data/subject-facts.csv with who confirmed it and when, and the two
+reels cite SUB-001 rather than asserting it on their own authority.
+
+The standing rule: a claim about Amanda or Cesa that is not in subject-facts.csv
+goes in the payload's holds array. Not deleted, not softened, not guessed at a
+second time. Held, in the file, where it blocks the render until she answers.
 
 Five bindings are declared metaphors. A still of Cesa under a caption about
 Hocus Pocus shares no word with the caption by design, and the gate now

@@ -307,7 +307,7 @@ expect_exit "follow for more is not a contract"   1 python3 "$TGATE" --render "$
 expect_exit "a two word contract is refused"      1 python3 "$TGATE" --render "$TMP/reel-thin.json"
 expect_exit "a real contract passes"              0 python3 "$TGATE" --render "$TMP/reel-good.json"
 expect_exit "an unconfirmed claim holds"          2 python3 "$TGATE" --render "$TMP/reel-held.json"
-expect_exit "shipped reels declare a contract"    2 python3 "$TGATE" --render "$HERE/../../reel-factory/"
+expect_exit "shipped reels declare a contract"    0 python3 "$TGATE" --render "$HERE/../../reel-factory/"
 
 echo
 echo "== the factory payloads reach the Run 6 gate =="
