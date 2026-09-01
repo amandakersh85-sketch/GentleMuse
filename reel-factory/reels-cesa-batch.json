@@ -168,11 +168,11 @@
       "clip_id": "cesa-on-my-lap",
       "push": 0.1,
       "drift": 0,
-      "offsetX": 120,
       "grade": 0.28,
       "override": true,
       "match_reason": "The turn is that the most cheerful thing of the season came out of the worst year of a life. So the plate has to actually be cheerful. This one is: Amanda genuinely smiling down at Cesa in a hat, indoors, warm light. The porch frame it replaces shows endurance, not warmth, which contradicted the line it was carrying.",
-      "framed": "2592x1944 horizontal, cover fitted to 1920 tall so the vertical is exact and no drift is possible. Shifted 120px right so Cesa's head clears the left edge and both faces sit above the caption block."
+      "framed": "2592x1944 horizontal. Cover fitted to 1920 tall, then panned to 37 percent so Cesa's head clears the left edge instead of being cut by it, with Amanda's face still inside the right edge.",
+      "panX": 37
     },
     "contract": "Cesa is old and I am keeping the record while she is still here.",
     "keyword": "CESA",

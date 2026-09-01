@@ -69,7 +69,8 @@ if (IS_STILL){
 }
 const CLIP_IN = P.clip.start || 0;          // where in the source we enter
 const KEN = P.clip.push == null ? 0.06 : P.clip.push;  // slow push-in, fraction
-const OFF_X = P.clip.offsetX || 0;   // frame a horizontal still by hand
+const PAN_X = P.clip.panX == null ? 50 : P.clip.panX;  // pan inside the crop, 0 to 100
+plate.style.objectPosition = PAN_X + "% 50%";
 
 let ready = false;
 video.addEventListener("loadeddata", () => { ready = true; });
@@ -103,8 +104,8 @@ function paint(t){
   const p = t / DUR;
   // a still gets a real Ken Burns move, since it has no motion of its own
   const drift = IS_STILL ? (P.clip.drift || 0) * p : 0;
-  plate.style.transform = "translate(-50%,-50%) translate(" + OFF_X.toFixed(1) +
-    "px," + drift.toFixed(1) + "px) scale(" + (1 + KEN * p).toFixed(4) + ")";
+  plate.style.transform = "translate(-50%,-50%) translateY(" + drift.toFixed(1) +
+    "px) scale(" + (1 + KEN * p).toFixed(4) + ")";
   P.beats.forEach((b, i) => {
     const n = nodes[i], IN = 0.62, OUT = 0.40;
     let o = 0, y = 26;
