@@ -98,14 +98,46 @@ signs up gets a real issue within 24 hours instead of waiting a week.
 
 ## Honest state of the list
 
-| Group | Real subscribers |
+**CORRECTED 2026-09-01 by Amanda.** The table below originally counted 7 in Gentle Muse
+Subscribers. That was wrong, and every percentage computed off it this session was inflated.
+
+There are **5 real subscribers on the whole account**: Mary, Melissa, Nadia, christine and
+Laura. Everything else is Amanda's own addresses or junk:
+
+| Record | What it is |
 |---|---|
-| Gentle Muse Subscribers | 7 |
-| Just Another Tuesday | 2 |
-| Consider This | 1 |
-| Cesa | 0, all 3 are Amanda's tests |
-| AI Beginner's Guide | **0** |
-| Press Play | **0** |
+| `amandakersh85@gmail.com` | Amanda |
+| `amanda@gentlemuse.co` | Amanda |
+| `+cesatest`, `+cesatest2`, `+cesaloop`, `+lptest` | Amanda's tests |
+| `princesamaryelizabeth@gmail.com` (field name "Cesa") | Amanda's own signup. Same IP, 72.58.115.46, as her main address and her +lptest |
+| `kendricklamar662@gmail.com` ("Sirkendrick") | junk from the July import, no IP, never opened |
+
+| Group | Records | **Real people** |
+|---|---|---|
+| Gentle Muse Subscribers | 7 | **3** (Mary, Melissa, Nadia) |
+| Just Another Tuesday | 3 | **2** (christine, Laura) |
+| Consider This | 2 | **1** (Mary) |
+| Cesa | 3 | **0**, all Amanda's tests |
+| AI Beginner's Guide | 0 | **0** |
+| Press Play | 0 | **0** |
+
+### Only 3 of the 5 are alive
+
+Lifetime opens per real subscriber:
+
+| Subscriber | Sent | Opens | Reading? |
+|---|---|---|---|
+| Mary | 3 | 1, plus 1 click | yes |
+| christine | 5 | 1 | yes |
+| Laura | 2 | 1 | yes |
+| Melissa | 8 | **0** | never once |
+| Nadia | 8 | **0** | never once |
+
+**Melissa and Nadia have never opened an email, across 8 sends each.** So the working
+audience is 3 people. Consider This reaches 1 of them. Just Another Tuesday reaches 2.
+
+Any open rate quoted against a group's record count is meaningless at this size. Count named
+humans instead.
 
 Consider This #001 reached 1 person. #002 reached 2. JAT #001 reached 2.
 
@@ -152,3 +184,36 @@ Zero captures, zero failures, nobody stranded. All 3 emailGate automations (`277
 `2954`) have never fired. 12 active subscribers, 1 unsubscribed, and that one is Amanda's own
 `+cesaloop` test she cancelled herself 3 minutes after making it. `445` still shows only the
 2 error 20102 failures from 08-28 and the 2 clean runs since.
+
+
+---
+
+## Correction 2026-09-01: the JAT invite reached 3 people, and 1 of them was a real reader
+
+Reported yesterday as "7 recipients, 0 opens, and the subject line is the likely cause."
+The delivery numbers were right. The conclusion was wrong.
+
+The 7 recipients were Mary, Melissa, Nadia, Amanda's own address, her `+lptest`, the
+`princesamaryelizabeth` signup and the `kendricklamar662` junk record. Of those, **3 are real
+people, and only Mary has ever opened anything.** Melissa and Nadia are at 0 opens across 8
+sends each.
+
+christine and Laura, the other 2 live readers, never got the invite. Correctly: they were
+already in the Just Another Tuesday group.
+
+**So the invite had exactly 1 plausible taker and she did not open it that day. That is a
+sample of 1.** The subject-line theory is withdrawn. Nothing can be concluded about copy from
+one person not opening one email, and saying otherwise was reading a story into noise.
+
+What does hold: 7 of 7 delivered, 0 bounces, 0 spam complaints, 0 unsubscribes. Sender
+reputation intact.
+
+The comparison drawn to the Consider This launch invite (9 sent, 3 opens, "33%") does not
+survive either. That campaign also went mostly to Amanda's own addresses, and hers open at
+75% and 62.5% while Melissa and Nadia sit at 0%. Those 3 opens were plausibly Amanda's own
+inboxes. **It was never a 33% benchmark against real readers and should not be used as one.**
+
+### The rule this produces
+
+Before quoting any rate, subtract Amanda's own addresses and the junk records, then say the
+number of named humans. At this size a percentage is a way of not saying "1 person."
