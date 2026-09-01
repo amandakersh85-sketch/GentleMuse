@@ -1,0 +1,310 @@
+[
+  {
+    "id": "LAB-004",
+    "slug": "labor-first-parade",
+    "seed": 41,
+    "duration": 17.0,
+    "label": "Gentle Muse · Fall",
+    "source": "Source: US Department of Labor · LAB-004",
+    "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+    "delivery": "text",
+    "keyword": null,
+    "keyword_gap": "No live keyword matches the history lane. GUIDE, CONSIDER, TUESDAY, PLAY and RESET are all about something else. The follow close stands until a history magnet exists.",
+    "beats": [
+      {
+        "in": 0.0,
+        "out": 2.8,
+        "html": "The first Labor Day parade<br>was September 5, 1882.",
+        "cta": null
+      },
+      {
+        "in": 2.8,
+        "out": 6.0,
+        "html": "10,000 workers marched<br>through New York.",
+        "cta": null
+      },
+      {
+        "in": 6.0,
+        "out": 9.4,
+        "html": "They were not given<br>the day off.<br>They took it.",
+        "cta": null
+      },
+      {
+        "in": 9.4,
+        "out": 12.6,
+        "html": "<span class='em'>Every one of them<br>lost a day's pay<br>to be there.</span>",
+        "cta": null
+      },
+      {
+        "in": 12.6,
+        "out": 17.0,
+        "html": "Somebody you know thinks<br>the weekend was a gift.<br><span class='em'>It was an invoice.</span>",
+        "cta": "The real one"
+      }
+    ]
+  },
+  {
+    "id": "HAL-001",
+    "slug": "samhain-the-turn",
+    "seed": 42,
+    "duration": 17.0,
+    "label": "Gentle Muse · Fall",
+    "source": "Source: Encyclopaedia Britannica; National Museum of Ireland · HAL-001",
+    "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+    "delivery": "text",
+    "keyword": null,
+    "keyword_gap": "No live keyword matches the history lane. GUIDE, CONSIDER, TUESDAY, PLAY and RESET are all about something else. The follow close stands until a history magnet exists.",
+    "beats": [
+      {
+        "in": 0.0,
+        "out": 2.8,
+        "html": "Halloween was never<br>about fear.",
+        "cta": null
+      },
+      {
+        "in": 2.8,
+        "out": 6.2,
+        "html": "It grew out of Samhain,<br>the Gaelic festival marking<br>the end of harvest.",
+        "cta": null
+      },
+      {
+        "in": 6.2,
+        "out": 9.6,
+        "html": "The night the year turned<br>and the boundary<br>went thin.",
+        "cta": null
+      },
+      {
+        "in": 9.6,
+        "out": 12.8,
+        "html": "<span class='em'>People needed a ritual<br>for the part of the year<br>that gets dark.</span>",
+        "cta": null
+      },
+      {
+        "in": 12.8,
+        "out": 17.0,
+        "html": "Somebody you know is<br>dreading the dark months.<br><span class='em'>This one is for them.</span>",
+        "cta": "The real one"
+      }
+    ]
+  },
+  {
+    "id": "LAB-002",
+    "slug": "labor-day-september",
+    "seed": 43,
+    "duration": 17.0,
+    "label": "Gentle Muse · Fall",
+    "source": "Source: US Department of Labor · LAB-002",
+    "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+    "delivery": "text",
+    "keyword": null,
+    "keyword_gap": "No live keyword matches the history lane. GUIDE, CONSIDER, TUESDAY, PLAY and RESET are all about something else. The follow close stands until a history magnet exists.",
+    "beats": [
+      {
+        "in": 0.0,
+        "out": 2.6,
+        "html": "Labor Day is in September<br>on purpose.",
+        "cta": null
+      },
+      {
+        "in": 2.6,
+        "out": 6.0,
+        "html": "The rest of the world<br>marks workers on May 1.",
+        "cta": null
+      },
+      {
+        "in": 6.0,
+        "out": 9.6,
+        "html": "May 1 is tied to Chicago's<br>Haymarket affair of 1886,<br>and the men hanged after it.",
+        "cta": null
+      },
+      {
+        "in": 9.6,
+        "out": 13.0,
+        "html": "<span class='em'>A September date<br>let the country celebrate<br>without remembering.</span>",
+        "cta": null
+      },
+      {
+        "in": 13.0,
+        "out": 17.0,
+        "html": "Somebody you know says<br>it's just a long weekend.<br><span class='em'>Now you know what it cost.</span>",
+        "cta": "The real one"
+      }
+    ]
+  },
+  {
+    "id": "HAL-011",
+    "slug": "afraid-of-the-dark",
+    "seed": 44,
+    "duration": 17.0,
+    "label": "Gentle Muse · Fall",
+    "source": "Source: Nickelodeon broadcast history · HAL-011",
+    "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+    "delivery": "text",
+    "keyword": null,
+    "keyword_gap": "No live keyword matches the history lane. GUIDE, CONSIDER, TUESDAY, PLAY and RESET are all about something else. The follow close stands until a history magnet exists.",
+    "beats": [
+      {
+        "in": 0.0,
+        "out": 2.6,
+        "html": "Are You Afraid of the Dark<br>started in 1992.",
+        "cta": null
+      },
+      {
+        "in": 2.6,
+        "out": 5.8,
+        "html": "The whole format was<br>children telling each other<br>stories in the woods.",
+        "cta": null
+      },
+      {
+        "in": 5.8,
+        "out": 9.2,
+        "html": "No adult ever explained it.<br>No adult ever arrived<br>to make it safe.",
+        "cta": null
+      },
+      {
+        "in": 9.2,
+        "out": 12.6,
+        "html": "<span class='em'>The scary part was never<br>the monster. It was being<br>trusted with the story.</span>",
+        "cta": null
+      },
+      {
+        "in": 12.6,
+        "out": 17.0,
+        "html": "Somebody you know watched<br>this at a sleepover.<br><span class='em'>They still remember which one.</span>",
+        "cta": "The real one"
+      }
+    ]
+  },
+  {
+    "id": "HAL-014",
+    "slug": "goosebumps-1992",
+    "seed": 45,
+    "duration": 17.0,
+    "label": "Gentle Muse · Fall",
+    "source": "Source: Scholastic publishing history · HAL-014",
+    "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+    "delivery": "text",
+    "keyword": null,
+    "keyword_gap": "No live keyword matches the history lane. GUIDE, CONSIDER, TUESDAY, PLAY and RESET are all about something else. The follow close stands until a history magnet exists.",
+    "beats": [
+      {
+        "in": 0.0,
+        "out": 2.6,
+        "html": "Goosebumps started<br>in 1992.",
+        "cta": null
+      },
+      {
+        "in": 2.6,
+        "out": 5.8,
+        "html": "R.L. Stine was writing them<br>at roughly one a month.",
+        "cta": null
+      },
+      {
+        "in": 5.8,
+        "out": 9.2,
+        "html": "Fast, cheap, for children,<br>and dismissed by<br>every serious critic.",
+        "cta": null
+      },
+      {
+        "in": 9.2,
+        "out": 12.8,
+        "html": "<span class='em'>It taught a generation<br>that a short chapter ending<br>on a hook is worth finishing.</span>",
+        "cta": null
+      },
+      {
+        "in": 12.8,
+        "out": 17.0,
+        "html": "Somebody you know learned<br>to read from these.<br><span class='em'>Not from the good books.</span>",
+        "cta": "The real one"
+      }
+    ]
+  },
+  {
+    "id": "HAL-010",
+    "slug": "nightmare-touchstone",
+    "seed": 46,
+    "duration": 17.0,
+    "label": "Gentle Muse · Fall",
+    "source": "Source: Disney corporate history; Touchstone Pictures · HAL-010",
+    "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+    "delivery": "text",
+    "keyword": null,
+    "keyword_gap": "No live keyword matches the history lane. GUIDE, CONSIDER, TUESDAY, PLAY and RESET are all about something else. The follow close stands until a history magnet exists.",
+    "beats": [
+      {
+        "in": 0.0,
+        "out": 2.8,
+        "html": "Disney would not put<br>its name on<br>The Nightmare Before Christmas.",
+        "cta": null
+      },
+      {
+        "in": 2.8,
+        "out": 6.0,
+        "html": "It came out in 1993<br>under Touchstone.",
+        "cta": null
+      },
+      {
+        "in": 6.0,
+        "out": 9.4,
+        "html": "They thought it was<br>too dark and too strange<br>for the Disney label.",
+        "cta": null
+      },
+      {
+        "in": 9.4,
+        "out": 12.8,
+        "html": "<span class='em'>It is now the thing<br>they sell you<br>every single October.</span>",
+        "cta": null
+      },
+      {
+        "in": 12.8,
+        "out": 17.0,
+        "html": "Somebody you know is<br>hiding the strange one.<br><span class='em'>That is usually the good one.</span>",
+        "cta": "The real one"
+      }
+    ]
+  },
+  {
+    "id": "HAL-017",
+    "slug": "the-mare",
+    "seed": 47,
+    "duration": 17.0,
+    "label": "Gentle Muse · Fall",
+    "source": "Source: Oxford English Dictionary; Encyclopaedia Britannica · HAL-017",
+    "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+    "delivery": "text",
+    "keyword": null,
+    "keyword_gap": "No live keyword matches the history lane. GUIDE, CONSIDER, TUESDAY, PLAY and RESET are all about something else. The follow close stands until a history magnet exists.",
+    "beats": [
+      {
+        "in": 0.0,
+        "out": 2.6,
+        "html": "Nightmare named<br>a specific thing.",
+        "cta": null
+      },
+      {
+        "in": 2.6,
+        "out": 5.8,
+        "html": "A mare was a spirit<br>believed to sit<br>on a sleeper's chest.",
+        "cta": null
+      },
+      {
+        "in": 5.8,
+        "out": 9.4,
+        "html": "The weight. The paralysis.<br>The certainty something<br>is in the room.",
+        "cta": null
+      },
+      {
+        "in": 9.4,
+        "out": 12.8,
+        "html": "<span class='em'>People had a word for it<br>centuries before<br>they had an explanation.</span>",
+        "cta": null
+      },
+      {
+        "in": 12.8,
+        "out": 17.0,
+        "html": "Somebody you know has<br>woken up unable to move.<br><span class='em'>It has always had a name.</span>",
+        "cta": "The real one"
+      }
+    ]
+  }
+]
