@@ -52,8 +52,21 @@ for (const reel of reels){
   const page = await browser.newPage({ viewport:{width:1080,height:1920}, deviceScaleFactor:1 });
   await page.addInitScript(p => { window.PAYLOAD = p; }, reel);
   await page.goto(ORIGIN + '/' + (process.env.COMP || 'reel.html'));
-  await page.waitForFunction(() => window.__ready === true, null, {timeout:25000})
-            .catch(() => console.log('  WARN fonts not confirmed'));
+  // Never encode a reel that is not confirmed good. A silently wrong video
+  // costs more than a failed build, because somebody has to notice it first.
+  await page.waitForFunction(() => window.__ready === true, null, {timeout:40000})
+            .catch(() => {});
+  const state = await page.evaluate(() => ({
+    ready: window.__ready === true, fonts: window.__fonts, plate: window.__plate }));
+  if (!state.ready){
+    const why = [];
+    if (!state.fonts) why.push('webfonts never loaded, type would render in a fallback face');
+    if (!state.plate) why.push('the plate never loaded, the frame would be empty');
+    if (!why.length) why.push('composition did not report ready');
+    await page.close(); await browser.close(); server.close();
+    console.error(`\n${reel.id} REFUSED: ${why.join('; ')}`);
+    process.exit(2);
+  }
   const N = Math.round(FPS * reel.duration);
   const stage = page.locator('#stage');
   for (let i = 0; i < N; i++){

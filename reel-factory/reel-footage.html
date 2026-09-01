@@ -126,9 +126,31 @@ const metadata = new Promise(r => {
   if (video.readyState >= 1) return r();
   video.addEventListener("loadedmetadata", r, { once: true });
 });
+const FACES = ['400 86px "Instrument Serif"', '500 24px "IBM Plex Mono"'];
+/* document.fonts.ready has hung behind the proxy before, and when it does the
+   beats get measured in a fallback face and land at the top of the frame. So
+   ask for the faces by name, then poll until the metrics are actually the ones
+   we are going to draw with. A render in the wrong face is worse than no
+   render, so this reports failure rather than carrying on quietly. */
+const fontsUsable = async () => {
+  try { await Promise.all(FACES.map(f => document.fonts.load(f))); } catch (e) {}
+  const deadline = Date.now() + 25000;
+  while (Date.now() < deadline){
+    if (FACES.every(f => document.fonts.check(f))) return true;
+    await new Promise(r => setTimeout(r, 120));
+  }
+  return FACES.every(f => document.fonts.check(f));
+};
 const withTimeout = (p, ms) => Promise.race([p, new Promise(r => setTimeout(r, ms))]);
-Promise.all([withTimeout(document.fonts.ready, 12000), metadata]).then(async () => {
-  layout(); await window.seek(0); window.__ready = true;
-});
+(async () => {
+  window.__fonts = await fontsUsable();
+  await withTimeout(metadata, 25000);
+  // An absent plate renders as a black frame that looks deliberate. It is not.
+  window.__plate = IS_STILL
+    ? (still.complete && still.naturalWidth > 0)
+    : (video.readyState >= 1 && video.videoWidth > 0);
+  layout(); await window.seek(0);
+  window.__ready = window.__fonts && window.__plate;
+})();
 </script>
 </body></html>
