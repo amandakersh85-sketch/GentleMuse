@@ -145,6 +145,37 @@ The real fix is a history lane lead magnet, and the material for it already
 exists. The fact bank is 50 sourced holiday facts with the turn on each one.
 That is the product. The contract already names it.
 
+THE BOTTLENECK AUTOMATION, AND THE CALLS MADE WITH IT
+Live on Instagram (3994) and Facebook (3995) as of 09/01/2026, keyword
+BOTTLENECK, authorised by Amanda. The DM promises and delivers. It does not
+ask, and the button is a noun rather than a command.
+
+The URL was verified rather than trusted. A page summariser offered
+/bottleneck-check and /2-minute-bottleneck-check, and both are 404s. The site's
+own hrefs give /business-bottleneck-check, which returns 200 with the right
+page title. The body is JS rendered so the quiz itself could not be read from
+here, which is a limit worth writing down rather than a reason to guess.
+
+Three decisions taken rather than handed over:
+
+  STUCK as a second keyword. No. It fires on somebody writing "I'm so stuck"
+  who was not asking for anything, and an unsolicited DM with a link in it
+  reads as spam. That costs exactly the trust this brand runs on, and
+  BOTTLENECK is unambiguous consent. Cheap to add later if the data says so.
+
+  A follow gate on Instagram. No. This is a first touch magnet and a gate is
+  friction on the one step that has to be frictionless. None of the other
+  magnets gate either, so gating this one would be inconsistent as well as
+  worse.
+
+  The driving b-roll. Out of reach, tested rather than assumed. Nothing in the
+  library is described as driving footage, the five unsorted candidates are all
+  above the 5.5MB connector ceiling, and a 7.5MB pull returns session expired
+  the same way a 6.37MB one did in Run 7. Making the files link readable to get
+  round it would mean changing permissions on Amanda's private media, which is
+  not a call to take on her behalf. This one opens when make-reels.sh is run
+  locally, and not before.
+
 HOW TO RUN IT
   python3 filing-system/scripts/gm_teardown_check.py --bank filing-system/data/competitor-teardowns.csv
   python3 filing-system/scripts/gm_teardown_check.py --render reel-factory/
