@@ -374,6 +374,27 @@ json.dump({"id": "T-3", "duration": 8.0,
 PY10
 
 check "factory plate needs a stated reason" 1 "$TMP/factory-bare.json" E08_NO_MATCH_REASON E07_TOPIC_MISMATCH
+
+python3 - "$TMP" <<'PY13'
+import json, os, sys
+tmp = sys.argv[1]
+# home-landscape-window-01 is the horizontal clip in the sample library
+base = {"id": "T-4", "duration": 8.0, "format": "9:16",
+        "beats": [{"in": 0, "out": 8, "html": "A window in a quiet home."}]}
+def dump(name, **clip):
+    doc = dict(base)
+    doc["clip"] = dict({"file": "clips/home-landscape-window-01.webm",
+                        "match_reason": "The line is about a window and the clip is a window.",
+                        }, **clip)
+    json.dump(doc, open(os.path.join(tmp, name + ".json"), "w"))
+dump("horiz-bare")
+dump("horiz-thin", framed="cropped")
+dump("horiz-framed", framed="Cover fitted to 1920 tall and shifted 120px right so the window clears the caption block.")
+PY13
+
+check "a horizontal plate is refused"      1 "$TMP/horiz-bare.json"  E06_ORIENTATION
+check "a vague framing note is refused"    1 "$TMP/horiz-thin.json"  E06_ORIENTATION
+check "a declared framing passes"          0 "$TMP/horiz-framed.json"
 check "a typography cut must say so"        1 "$TMP/factory-silent.json" E00_NO_CLIPS
 
 echo

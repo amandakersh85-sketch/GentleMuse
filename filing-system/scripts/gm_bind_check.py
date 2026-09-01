@@ -186,6 +186,7 @@ def adapt_reel_factory(reel):
         "clip_id": clip_id,
         "match_reason": (clip.get("match_reason") or "").strip(),
         "override": clip.get("override"),
+        "framed": clip.get("framed"),
         "duration": reel.get("duration"),
     }]
     return out
@@ -302,9 +303,19 @@ def check_video(video, library, index):
         orientation = (row.get("Orientation") or "").strip().lower()
         wants_vertical = str(video.get("format") or "9:16").strip() in ("9:16", "4:5")
         if wants_vertical and orientation and orientation not in ("vertical", "portrait"):
-            add("E06_ORIENTATION", "FAIL", position,
-                'clip "%s" is %s. A %s reel needs vertical footage.'
-                % (clip_id, orientation, video.get("format")))
+            # Still wrong by default. It stops being wrong when somebody has
+            # actually framed it and written down how, which the composition
+            # can now honour with a horizontal offset.
+            framed = (clip.get("framed") or "").strip()
+            if len(framed) >= 20:
+                add("N03_FRAMED", "NOTE", position,
+                    'clip "%s" is %s, deliberately framed: %s'
+                    % (clip_id, orientation, framed))
+            else:
+                add("E06_ORIENTATION", "FAIL", position,
+                    'clip "%s" is %s. A %s reel needs vertical footage, or a '
+                    '"framed" line saying how the crop was chosen.'
+                    % (clip_id, orientation, video.get("format")))
 
         # ---- the binding itself
         if len(reason) < 10:

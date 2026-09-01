@@ -164,13 +164,15 @@
       }
     ],
     "clip": {
-      "file": "real/cesa-and-me-2017-1.jpg",
-      "push": 0.12,
-      "drift": -55,
-      "grade": 0.55,
-      "clip_id": "cesa-and-me-2017-1",
-      "match_reason": "The turn is something warm made during the worst year of a life. The plate is the two of them cheek to cheek looking out, which is the warmth being claimed.",
-      "override": true
+      "file": "real/cesa-on-my-lap.jpg",
+      "clip_id": "cesa-on-my-lap",
+      "push": 0.1,
+      "drift": 0,
+      "offsetX": 120,
+      "grade": 0.5,
+      "override": true,
+      "match_reason": "The turn is that the most cheerful thing of the season came out of the worst year of a life. So the plate has to actually be cheerful. This one is: Amanda genuinely smiling down at Cesa in a hat, indoors, warm light. The porch frame it replaces shows endurance, not warmth, which contradicted the line it was carrying.",
+      "framed": "2592x1944 horizontal, cover fitted to 1920 tall so the vertical is exact and no drift is possible. Shifted 120px right so Cesa's head clears the left edge and both faces sit above the caption block."
     },
     "contract": "Cesa is old and I am keeping the record while she is still here.",
     "keyword": "CESA",
