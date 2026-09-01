@@ -110,11 +110,11 @@ Laura. Everything else is Amanda's own addresses or junk:
 | `amanda@gentlemuse.co` | Amanda |
 | `+cesatest`, `+cesatest2`, `+cesaloop`, `+lptest` | Amanda's tests |
 | `princesamaryelizabeth@gmail.com` (field name "Cesa") | Amanda's own signup. Same IP, 72.58.115.46, as her main address and her +lptest |
-| `kendricklamar662@gmail.com` ("Sirkendrick") | junk from the July import, no IP, never opened |
+| ~~`kendricklamar662@gmail.com`~~ ("Sirkendrick") | junk from the July import, no IP, never opened. **DELETED 2026-09-01** on Amanda's word. Account went 13 records to 12, verified |
 
 | Group | Records | **Real people** |
 |---|---|---|
-| Gentle Muse Subscribers | 7 | **3** (Mary, Melissa, Nadia) |
+| Gentle Muse Subscribers | 6 | **3** (Mary, Melissa, Nadia) |
 | Just Another Tuesday | 3 | **2** (christine, Laura) |
 | Consider This | 2 | **1** (Mary) |
 | Cesa | 3 | **0**, all Amanda's tests |
@@ -217,3 +217,11 @@ inboxes. **It was never a 33% benchmark against real readers and should not be u
 
 Before quoting any rate, subtract Amanda's own addresses and the junk records, then say the
 number of named humans. At this size a percentage is a way of not saying "1 person."
+
+
+### Melissa and Nadia were kept, deliberately
+
+Both are at 0 opens across 8 sends, so both are arguably dead weight too. They stay for now.
+At 3 working readers the rates are meaningless either way, and unlike the Sirkendrick record
+these 2 arrived as real signups rather than junk in an import. Revisit when the list is large
+enough for a percentage to mean something, or sooner if either address starts bouncing.
