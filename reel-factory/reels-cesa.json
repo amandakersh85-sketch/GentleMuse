@@ -1,54 +1,61 @@
 [
- {
-  "id": "HAL-013-CESA",
-  "slug": "halloweentown-cesa",
-  "seed": 71,
-  "duration": 18.0,
-  "label": "Gentle Muse \u00b7 Spooky Season",
-  "source": "Source: Disney Channel broadcast history \u00b7 HAL-013",
-  "beats": [
-   {
-    "in": 0.0,
-    "out": 2.6,
-    "html": "Halloweentown premiered<br>on the Disney Channel<br>in 1998.",
-    "cta": null
-   },
-   {
-    "in": 2.6,
-    "out": 5.6,
-    "html": "Debbie Reynolds was 66<br>when she played<br>Aggie Cromwell.",
-    "cta": null
-   },
-   {
-    "in": 5.6,
-    "out": 9.0,
-    "html": "The witch everybody<br>remembers as the<br>fearless one was a<br>woman in her 60s.",
-    "cta": null
-   },
-   {
-    "in": 9.0,
-    "out": 12.2,
-    "html": "<span class='em'>That was the whole<br>message. Nobody<br>noticed.</span>",
-    "cta": null
-   },
-   {
-    "in": 12.2,
-    "out": 15.2,
-    "html": "She's 19. She has never<br>once been worried<br>about it.",
-    "cta": null
-   },
-   {
-    "in": 15.2,
-    "out": 18.0,
-    "html": "Send this to whoever<br>thinks they left<br>it too late.",
-    "cta": "Share it"
-   }
-  ],
-  "clip": {
-   "file": "real/cesa-hoodie-3.jpg",
-   "push": 0.14,
-   "drift": -70,
-   "grade": 0.58
+  {
+    "id": "HAL-013-CESA",
+    "slug": "halloweentown-cesa",
+    "seed": 71,
+    "duration": 18.0,
+    "label": "Gentle Muse · Spooky Season",
+    "source": "Source: Disney Channel broadcast history · HAL-013",
+    "beats": [
+      {
+        "in": 0.0,
+        "out": 2.6,
+        "html": "Halloweentown premiered<br>on the Disney Channel<br>in 1998.",
+        "cta": null
+      },
+      {
+        "in": 2.6,
+        "out": 5.6,
+        "html": "Debbie Reynolds was 66<br>when she played<br>Aggie Cromwell.",
+        "cta": null
+      },
+      {
+        "in": 5.6,
+        "out": 9.0,
+        "html": "The witch everybody<br>remembers as the<br>fearless one was a<br>woman in her 60s.",
+        "cta": null
+      },
+      {
+        "in": 9.0,
+        "out": 12.2,
+        "html": "<span class='em'>That was the whole<br>message. Nobody<br>noticed.</span>",
+        "cta": null
+      },
+      {
+        "in": 12.2,
+        "out": 15.2,
+        "html": "She's 19. She has never<br>once been worried<br>about it.",
+        "cta": null
+      },
+      {
+        "in": 15.2,
+        "out": 18.0,
+        "html": "Send this to whoever<br>thinks they left<br>it too late.",
+        "cta": "Share it"
+      }
+    ],
+    "clip": {
+      "file": "real/cesa-hoodie-3.jpg",
+      "push": 0.14,
+      "drift": -70,
+      "grade": 0.58,
+      "clip_id": "cesa-in-a-hoodie-3",
+      "match_reason": "The turn is an old female being the unbothered one. The plate is Cesa, old and dressed and looking away from the lens entirely unconcerned. She is the proof of the turn, not decoration.",
+      "override": true
+    },
+    "contract": "Cesa is old and I am keeping the record while she is still here.",
+    "holds": [
+      "\"She's 19\" is a number I wrote, not one Amanda gave me. Confirm Cesa's age or cut the beat."
+    ]
   }
- }
 ]

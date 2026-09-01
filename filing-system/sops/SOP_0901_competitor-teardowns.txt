@@ -1,0 +1,112 @@
+THE GENTLE MUSE — COMPETITOR TEARDOWNS AND THE CONTRACT, RUN 8 OF 28
+
+New. Created 09/01/2026. Written after a measured failure, not a suspected one.
+
+TOOLS: gm_teardown_check.py, gm_bind_check.py (extended)
+DATA:  data/competitor-teardowns.csv
+Live with the filing engine. Companion to Run 6 and Run 7.
+
+WHY THIS RUN EXISTS
+The number is 30,671 views and 13 email subscribers. Views to followers works.
+Followers to email does not. That is not a taste problem and no amount of
+better writing fixes it, because the writing is already good.
+
+So the question became what the accounts that do convert are actually doing,
+and the answer had to come from their content rather than from anybody's
+opinion about their content. Eight accounts were torn down. Five are women in
+the senior dog and pet loss lane, one is the format leader, and two are pages
+currently paying to distribute senior dog material.
+
+WHAT THE TEARDOWNS FOUND
+Not one of them asks for the follow. Every one of them states a promise.
+
+  Jen at @thatgoodnewsgirl closes on "I'm Jen, and I post something positive
+  every day." That is a delivery and a frequency. The follow is the mechanism
+  for receiving it, so it does not have to be requested.
+
+  @jackiepajan opens on "You know how I feel about the seniors, guys." That
+  sentence is unavailable on video one. It is what a stance sounds like after
+  it has been repeated until the audience holds it for her.
+
+  @kristentbrown ran to 2.9 million views at a 22 percent like rate on a
+  caption that names her father and her dead dog before it names the dog she
+  adopted. The senior dog is the evidence. The grief is the subject. People
+  were not liking a dog, they were agreeing with a claim about their own
+  future.
+
+That is the finding. A call to action is a request. A contract is a promise
+with a frequency or a stance behind it, and it is the thing an audience can
+subscribe to. Amanda has been shipping requests.
+
+WHY THIS IS A COLUMN AND NOT A REMINDER
+Run 6 established the pattern. When the same failure lands twice, the fix is
+the missing field and a check that refuses to ship without it, because guidance
+governs judgment and judgment is what already failed. A note saying "state a
+promise" would be read by the same step that has been writing good calls to
+action and thinking the job was done.
+
+So a reel payload now carries a contract, and gm_teardown_check.py refuses any
+reel that carries a call to action without one. It also refuses a contract that
+is a request wearing a promise's clothes. Follow for more, link in bio, don't
+forget to, and the rest of that family are rejected by name.
+
+The two contracts in force:
+
+  History lane   Every holiday carries a fact somebody softened. I post the
+                 real one before the day arrives.
+  Cesa lane      Cesa is old and I am keeping the record while she is still
+                 here.
+
+Both are checkable. The first is checkable against the calendar, which already
+carries LeadDays, so the promise to post before the day is one the data keeps.
+The second is checkable against whether the footage keeps arriving.
+
+WHAT THE BANK REFUSES
+The teardown bank has a Confidence column with two states that matter. A row is
+either backed by an artifact somebody read, or it is a name in somebody else's
+roundup. The gate will not let the second be cited as the first.
+
+This exists because the research nearly failed in exactly that way. Asked to
+pick the accounts, the honest position was that mid-tier handles could not be
+enumerated without inventing them, and an invented handle is indistinguishable
+from a real one until somebody tries to open it. Three nostalgia names came
+back from a published list with no handle attached. They are in the bank as
+leads, marked unusable, and they will stay that way until an artifact is
+pulled. An AI research query returned one unconfirmed handle and was discarded.
+
+That is rule 5 made mechanical. No substitution. When the right input is
+missing, say so and stop.
+
+WHAT ELSE THIS RUN CLOSED
+The reel factory payloads had never passed the Run 6 binding gate. They use a
+different shape, one plate under a whole reel with timed beats over it, and the
+gate could not read it, so make-reels.sh would have refused to render on
+Amanda's machine and the five reels already built were bound by hand with
+nothing checking the hand. The gate now reads that shape. All ten reels pass.
+
+Two of them do not ship yet. HAL-009-CESA and HAL-013-CESA both assert that
+Cesa is 19. That number was written by an assistant and never given by Amanda,
+so both reels carry a hold and the gate returns HOLD until she confirms the age
+or the beat is cut.
+
+Five bindings are declared metaphors. A still of Cesa under a caption about
+Hocus Pocus shares no word with the caption by design, and the gate now
+requires that to be stated rather than allowing it to pass unnoticed.
+
+HOW TO RUN IT
+  python3 filing-system/scripts/gm_teardown_check.py --bank filing-system/data/competitor-teardowns.csv
+  python3 filing-system/scripts/gm_teardown_check.py --render reel-factory/
+  python3 filing-system/scripts/gm_bind_check.py --render reel-factory/ --library filing-system/data/clip-library-drive.csv
+  bash filing-system/tests/run-tests.sh
+
+Exit 0 passes. Exit 1 blocks. Exit 2 holds and waits on Amanda.
+
+WHAT THIS RUN DOES NOT DO
+It does not post, schedule, or publish anything. It does not add a competitor
+to Metricool. It does not decide the contracts are right, only that they exist
+and are not requests. Approval is still the gate.
+
+SAFETY
+Propose-only. Both scripts read and neither writes to anything outside a report
+file it was asked for. Nothing is deleted. Nothing is routed. A PASS is a
+proposal.

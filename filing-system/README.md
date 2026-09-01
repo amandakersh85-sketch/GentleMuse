@@ -21,11 +21,14 @@ video's duration, group a photo burst, or spot a sensitive document.
 | `scripts/gm_holiday_check.py` | Run 7. The gate. Refuses any holiday caption whose history isn't in the bank. |
 | `data/holiday-calendar.csv` | Run 7. 14 holidays, their date rules, slots and season windows. |
 | `data/holiday-fact-bank.csv` | Run 7. 50 sourced facts, each with the turn that makes it hers and what it needs on screen. |
+| `scripts/gm_teardown_check.py` | Run 8. The gate. Refuses a competitor nobody read, and a reel that asks without promising. |
+| `data/competitor-teardowns.csv` | Run 8. 8 accounts torn down from their own content, plus 3 leads held as unusable. |
 | `sops/SOP_0819_video-triage-run-3.txt` | Run 3 SOP |
 | `sops/SOP_0819_photo-triage-run-4.txt` | Run 4 SOP |
 | `sops/SOP_0819_document-triage-run-5.txt` | Run 5 SOP |
 | `sops/SOP_0828_reel-caption-clip-binding.txt` | Run 6 SOP |
 | `sops/SOP_0829_holiday-caption-strategy.txt` | Run 7 SOP |
+| `sops/SOP_0901_competitor-teardowns.txt` | Run 8 SOP |
 | `patches/video-factory-clip-binding.md` | Paste-in patch for the `gentle-muse-video-factory` skill |
 | `patches/holiday-caption-strategy.md` | Paste-in patch for the video factory, `content-coach` and `post-grader` |
 | `tests/run-tests.sh` | Regression suite for Runs 6 and 7, 29 cases |
@@ -132,3 +135,23 @@ standard reference works and each row names its source, but they have not been
 re-checked against those sources by a second reader. The sources are named so
 that pass is possible, and the Run 7 SOP says to do it before the Halloween
 batch ships.
+
+## Run 8 — competitor teardowns and the contract
+
+30,671 views produced 13 email subscribers. Views to followers works. Followers
+to email does not, and the writing was never the problem.
+
+Eight accounts were torn down from their own transcripts and captions rather
+than from anybody's opinion of them. None of them ask for the follow. Every one
+states a promise with a frequency or a stance behind it. So a reel payload now
+carries a `contract`, and the gate refuses a reel that carries a call to action
+without one, or a contract that is a request in disguise.
+
+    python3 scripts/gm_teardown_check.py --bank data/competitor-teardowns.csv
+    python3 scripts/gm_teardown_check.py --render ../reel-factory/
+
+Exit `0` pass, `1` fail, `2` hold. The bank separates an account somebody read
+from a name in somebody else's roundup, and will not let the second be cited as
+the first. Run 8 also taught the Run 6 binding gate to read the reel factory's
+payload shape, which it could not do before, so the ten built reels are checked
+for the first time.

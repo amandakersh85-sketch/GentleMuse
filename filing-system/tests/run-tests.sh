@@ -217,6 +217,120 @@ if grep -q "What this plan needs filmed" <<<"$out" \
   echo "PASS  plan doubles as a shot list"; pass=$((pass+1))
 else echo "FAIL  plan doubles as a shot list"; echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
 
+# ---------------------------------------------------------------- Run 8
+# Competitor teardowns, and the contract a reel has to declare before it is
+# allowed to ask the viewer for anything.
+
+echo
+echo "== teardown bank =="
+TGATE="$HERE/../scripts/gm_teardown_check.py"
+TBANK="$HERE/../data/competitor-teardowns.csv"
+
+expect_exit "shipped teardown bank passes" 0 python3 "$TGATE" --bank "$TBANK"
+
+python3 - "$TMP" "$TBANK" <<'PY8'
+import csv, os, sys
+tmp, bank = sys.argv[1], sys.argv[2]
+rows = list(csv.DictReader(open(bank, newline="", encoding="utf-8-sig")))
+cols = list(rows[0].keys())
+
+def dump(name, rs):
+    h = open(os.path.join(tmp, name), "w", newline="", encoding="utf-8")
+    w = csv.DictWriter(h, fieldnames=cols); w.writeheader(); w.writerows(rs)
+
+# a listicle mention promoted to a finding
+r = [dict(x) for x in rows]
+for x in r:
+    if x["Confidence"] == "listed":
+        x["Verified"] = "yes"
+dump("bank-listicle.csv", r)
+
+# verified, but nobody wrote down where it came from
+r = [dict(x) for x in rows]
+r[0]["Evidence"] = ""
+dump("bank-noevidence.csv", r)
+
+# verified with a handle nobody confirmed
+r = [dict(x) for x in rows]
+r[0]["Handle"] = "unconfirmed"
+dump("bank-placeholder.csv", r)
+
+# the arithmetic does not hold
+r = [dict(x) for x in rows]
+r[0]["EngRate"] = "0.900"
+dump("bank-engrate.csv", r)
+
+# verified, but the promise was never named
+r = [dict(x) for x in rows]
+r[0]["Contract"] = ""
+dump("bank-nocontract.csv", r)
+
+# nothing in the bank has been read by anyone
+r = [dict(x) for x in rows]
+for x in r:
+    x["Verified"] = "no"
+dump("bank-allleads.csv", r)
+PY8
+
+expect_exit "listicle mention cannot be a finding" 1 python3 "$TGATE" --bank "$TMP/bank-listicle.csv"
+expect_exit "verified row needs evidence"         1 python3 "$TGATE" --bank "$TMP/bank-noevidence.csv"
+expect_exit "verified row needs a real handle"    1 python3 "$TGATE" --bank "$TMP/bank-placeholder.csv"
+expect_exit "engagement rate must reconcile"      1 python3 "$TGATE" --bank "$TMP/bank-engrate.csv"
+expect_exit "verified row must name the promise"  1 python3 "$TGATE" --bank "$TMP/bank-nocontract.csv"
+expect_exit "a bank of leads only holds"          2 python3 "$TGATE" --bank "$TMP/bank-allleads.csv"
+
+echo
+echo "== the contract on a reel =="
+python3 - "$TMP" <<'PY9'
+import json, os, sys
+tmp = sys.argv[1]
+base = {"id": "T-1", "duration": 12.0, "delivery": "text",
+        "beats": [{"in": 0, "out": 6, "html": "A line."},
+                  {"in": 6, "out": 12, "html": "Another.", "cta": "Share it"}]}
+
+def dump(name, doc):
+    json.dump(doc, open(os.path.join(tmp, name), "w"))
+
+dump("reel-nocontract.json", dict(base))
+dump("reel-generic.json", dict(base, contract="Follow for more spooky facts."))
+dump("reel-thin.json", dict(base, contract="History stuff."))
+dump("reel-good.json", dict(base, contract=("Every holiday carries a fact somebody "
+                                            "softened. I post the real one before "
+                                            "the day arrives.")))
+dump("reel-held.json", dict(base, contract=("Cesa is old and I am keeping the record "
+                                            "while she is still here."),
+                            holds=["Her age is unconfirmed."]))
+PY9
+
+expect_exit "a CTA with no contract is refused"   1 python3 "$TGATE" --render "$TMP/reel-nocontract.json"
+expect_exit "follow for more is not a contract"   1 python3 "$TGATE" --render "$TMP/reel-generic.json"
+expect_exit "a two word contract is refused"      1 python3 "$TGATE" --render "$TMP/reel-thin.json"
+expect_exit "a real contract passes"              0 python3 "$TGATE" --render "$TMP/reel-good.json"
+expect_exit "an unconfirmed claim holds"          2 python3 "$TGATE" --render "$TMP/reel-held.json"
+expect_exit "shipped reels declare a contract"    2 python3 "$TGATE" --render "$HERE/../../reel-factory/"
+
+echo
+echo "== the factory payloads reach the Run 6 gate =="
+expect_exit "factory payloads bind and pass" 0 python3 "$GATE" \
+      --render "$HERE/../../reel-factory/" --library "$HERE/../data/clip-library-drive.csv"
+
+python3 - "$TMP" <<'PY10'
+import json, os, sys
+tmp = sys.argv[1]
+# a plate bound with no reason given, and no metaphor declared
+json.dump({"id": "T-2", "duration": 8.0,
+           "clip": {"file": "clips/coffee-morning-pour-01.webm"},
+           "beats": [{"in": 0, "out": 8, "html": "Hocus Pocus was a flop."}]},
+          open(os.path.join(tmp, "factory-bare.json"), "w"))
+# a typography cut that never says it is one
+json.dump({"id": "T-3", "duration": 8.0,
+           "beats": [{"in": 0, "out": 8, "html": "Nobody was burned at Salem."}]},
+          open(os.path.join(tmp, "factory-silent.json"), "w"))
+PY10
+
+check "factory plate needs a stated reason" 1 "$TMP/factory-bare.json" E08_NO_MATCH_REASON E07_TOPIC_MISMATCH
+check "a typography cut must say so"        1 "$TMP/factory-silent.json" E00_NO_CLIPS
+
 echo
 echo "$pass passed, $fail failed"
 [ "$fail" = 0 ]

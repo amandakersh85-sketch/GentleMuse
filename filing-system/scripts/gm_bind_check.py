@@ -136,6 +136,65 @@ def is_described(row):
     return len(shot) >= 12
 
 
+# ------------------------------------------------- the reel-factory dialect
+
+TAGS = re.compile(r"<[^>]+>")
+
+
+def _plain(html):
+    """Beat HTML down to the words a reader actually sees."""
+    return " ".join(TAGS.sub(" ", html or "").split())
+
+
+def adapt_reel_factory(reel):
+    """Translate a reel-factory payload into the shape this gate checks.
+
+    The factory writes one plate under a whole reel: a single still or clip,
+    with the captions arriving as timed beats over the top. That is a different
+    document from the beat-per-clip renders this gate was written for, and
+    until now it slipped past unchecked, which is precisely the hole Run 6 was
+    built to close. So it gets translated rather than exempted.
+
+    One plate carrying one caption stream becomes one binding: the clip, and
+    every word laid over it. A reel that declares no footage at all is a
+    typography cut and has nothing to bind, so it passes with nothing to say.
+    """
+    beats = reel.get("beats") or []
+    title = reel.get("id") or reel.get("slug") or reel.get("title")
+    out = {"title": title, "duration": reel.get("duration")}
+
+    clip = reel.get("clip")
+    if not clip:
+        # No plate. Legal only when the reel says so, matching the fact bank's
+        # text delivery lane. Silence is not a declaration.
+        if (reel.get("delivery") or "").strip().lower() == "text":
+            out["clips"] = []
+            out["_no_footage"] = True
+        else:
+            out["clips"] = []
+        return out
+
+    file_path = (clip.get("file") or "").strip()
+    clip_id = (clip.get("clip_id") or "").strip()
+    if not clip_id and file_path:
+        # make-reels.sh writes ClipID as the basename and File as clips/<name>,
+        # so the basename is the identity, not a guess at one.
+        clip_id = os.path.splitext(os.path.basename(file_path))[0]
+
+    out["clips"] = [{
+        "text": " ".join(_plain(b.get("html")) for b in beats if isinstance(b, dict)),
+        "clip_id": clip_id,
+        "match_reason": (clip.get("match_reason") or "").strip(),
+        "override": clip.get("override"),
+        "duration": reel.get("duration"),
+    }]
+    return out
+
+
+def is_reel_factory(doc):
+    return isinstance(doc, dict) and "beats" in doc and "clips" not in doc
+
+
 # ---------------------------------------------------------------- findings
 
 class Finding:
@@ -160,6 +219,8 @@ def check_video(video, library, index):
     add = lambda c, l, b, m: found.append(Finding(c, l, title, b, m))
 
     clips = video.get("clips")
+    if video.get("_no_footage") and not clips:
+        return found
     if not isinstance(clips, list) or not clips:
         add("E00_NO_CLIPS", "FAIL", None, "render JSON has no clips array.")
         return found
@@ -253,9 +314,10 @@ def check_video(video, library, index):
         caption_words = tokens(text)
         clip_words = clip_vocabulary(row)
         shared = caption_words & clip_words
+        overridden = str(clip.get("override") or "").strip().lower() in ("true", "yes", "1")
 
         if caption_words and not shared:
-            if str(clip.get("override") or "").strip().lower() in ("true", "yes", "1"):
+            if overridden:
                 add("N01_OVERRIDE", "NOTE", position,
                     'no shared content word between text and clip. Overridden: "%s"' % reason)
             else:
@@ -276,8 +338,9 @@ def check_video(video, library, index):
         if better:
             better.sort(key=lambda b: (-b[0], b[1]))
             top = better[0]
-            level = "FAIL" if not shared else "NOTE"
-            code = "E11_BETTER_CLIP_EXISTS" if not shared else "N02_CLOSER_CLIP"
+            level = "FAIL" if (not shared and not overridden) else "NOTE"
+            code = ("E11_BETTER_CLIP_EXISTS" if (not shared and not overridden)
+                    else "N02_CLOSER_CLIP")
             add(code, level, position,
                 'text "%s" matches "%s" (%s) on %s — a better fit than the bound clip "%s".'
                 % (text, top[1], top[2], sorted(top[3]), clip_id))
@@ -326,11 +389,13 @@ def load_renders(path):
         with open(file_path, encoding="utf-8") as handle:
             data = json.load(handle)
         if isinstance(data, list):
-            videos.extend(data)
+            batch = data
         elif isinstance(data, dict) and isinstance(data.get("videos"), list):
-            videos.extend(data["videos"])
+            batch = data["videos"]
         else:
-            videos.append(data)
+            batch = [data]
+        videos.extend(adapt_reel_factory(v) if is_reel_factory(v) else v
+                      for v in batch)
     return videos, paths
 
 
