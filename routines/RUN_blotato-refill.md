@@ -1,5 +1,24 @@
 # PART B. THE DAILY ROUTINE
 
+> ## STOOD DOWN 2026-09-02. DO NOT AUTO-LOAD.
+>
+> Amanda gave dominion of the Blotato queue to the Holiday caption strategy and
+> voice session. This side is now the **supplier and the safety gate**, not the
+> decider: the wave libraries, the load ledgers and `validate-wave.py` stay here,
+> but what enters the live queue, and when, is that session's call. One writer to
+> the queue.
+>
+> The `GM Blotato Daily Refill` task is **Disabled**. Do not re-enable it, and do
+> not run Step 5 (Load), without Amanda saying so. The two systems hold opposite
+> doctrines: this one fills to the 200 cap as far out as the library reaches, and
+> that one holds a short live window and pushes the rest to a backlog. Running
+> both means each undoes the other every morning.
+>
+> Steps 0 through 4 and Step 7 are still useful on demand: preflight, validate,
+> measure the runway, report. Step 5 is the part that is parked.
+>
+> Full contract: `content/handoff/HANDOFF_0902_queue-supplier-contract.md`
+
 You are running Amanda's daily Blotato queue top-up for The Gentle Muse. Fresh
 session, no prior context. Everything you need is in this file.
 
