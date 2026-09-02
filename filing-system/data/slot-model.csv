@@ -1,0 +1,5 @@
+SlotID,Slot,LocalTime,Timezone,AccountIds,Platforms,Source,MagnetRule,PerDay,Why
+1,FACT,10:00,America/Chicago,45886|41488,instagram|tiktok,holiday-fact-bank or daily-fact-bank,SEASONAL,1,"10:00 is the highest hour of the last 90 days. 1 fact reel, the same asset on both."
+1b,FACT,14:00,America/Chicago,30840,facebook,the same asset as slot 1,SEASONAL,1,"Facebook runs 4 hours behind so the 2 do not compete. Costs nothing, the automations are already there."
+2,ROTATION,17:00,America/Chicago,45886|41488,instagram|tiktok,the weekday rotation slot,by weekday,1,"The second daily reach post. Different lane from the fact so it does not cannibalise."
+3,PERSONAL,19:00,America/Chicago,45886|30840,instagram|facebook,Amanda or Cesa,CESA or CONSIDER,1,"Her or the dog. The lane that made the account, and the one that needs no filming day to refill."
