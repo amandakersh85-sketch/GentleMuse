@@ -1,0 +1,5 @@
+Zone,DaysOut,WhatLivesHere,WhoMovesIt,Rule,Why
+SPRINT,0-7,"whatever the running sprint needs",the sprint,"fully rearrangeable. A sprint may replace the ROTATION slot on any day in here.","The front of the queue has to absorb a short push without a rebuild. This is where the September reach work sits."
+MODEL,8-14,"the 3 slot model, filled from the draft bank",the daily refill,"filled to 3 Instagram, 2 TikTok, 2 Facebook. A sprint may reach in here but does not rearrange it casually.",The buffer that stops the second week collapsing the way it did on Sep 12.
+ANCHOR,15+,"date locked holiday content only",the holiday calendar,"nothing else gets scheduled out here. A holiday post lands on the date gm_anchors.py computes and does not move.","Scheduling non holiday work months out is what put the queue at 200 of 200 and blocked everything. Keeping the far end empty is what keeps the cap free."
+PAID,any,"anything carrying #ad or #TargetPartner",Amanda,"moves within its day, never across days",A brand deal carries a delivery window and the run date is not a scheduling variable.

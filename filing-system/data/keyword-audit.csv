@@ -1,0 +1,14 @@
+AutomationID,Keyword,Account,Triggered,Completed,Failed,Contacts,Reading
+1424,GUIDE,instagram thegentlemuse2026,1,1,0,1048429878116670,1 firing from the same contact as every other Instagram firing
+1422,GUIDE,facebook,0,0,0,,never fired
+1393,CONSIDER,instagram thegentlemuse2026,0,0,0,,never fired
+1394,CONSIDER,facebook,0,0,0,,never fired
+435,RESET,instagram thegentlemuse2026,1,1,0,1048429878116670,same contact
+2778,RESET,facebook,0,0,0,,not checked individually
+2771,TUESDAY,instagram thegentlemuse2026,0,0,0,,never fired
+445,CESA,instagram thegentlemuse2026,4,2,2,1048429878116670,"4 runs, 1 contact, Aug 28 and 30. The 2 failures both read the comment you are trying to reply to already has a reply, which is what happens when the same comment is used twice."
+432,CESA,facebook,0,0,0,,never fired
+2952,CESA,instagram cesasgoldenyears,1,1,0,955627417560872,the only firing from a second contact
+1019,PLAY,instagram thegentlemuse2026,0,0,0,,never fired
+443,BUTTER,instagram thegentlemuse2026,0,0,0,,never fired
+415,PR screening,instagram thegentlemuse2026,0,0,0,,never fired

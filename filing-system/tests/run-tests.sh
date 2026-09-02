@@ -444,6 +444,39 @@ qplan "drift in every direction is caught"  1 "$HERE/queue.drift.json" \
       "1 slots over" "2 slots under" "1 posts beyond" "1 on channels"
 
 
+ANCH="$HERE/../scripts/gm_anchors.py"
+DAILY="$HERE/../scripts/gm_queue_daily.py"
+
+echo
+echo "== holiday anchors =="
+out="$(python3 "$ANCH" --year 2026 2>&1)"
+anch_ok=1
+while read -r id want; do
+  [ -z "$id" ] && continue
+  got="$(grep -E "^$id " <<<"$out" | awk '{print $2}')"
+  if [ "$got" != "$want" ]; then anch_ok=0; echo "  $id resolved $got, wanted $want"; fi
+done < "$HERE/anchors.expected.txt"
+if [ $anch_ok = 1 ]; then echo "PASS  every rule form resolves to the right date"; pass=$((pass+1))
+else echo "FAIL  every rule form resolves to the right date"; fail=$((fail+1)); fi
+
+# an offset rule must land 1 day after the holiday it hangs off
+tg="$(python3 "$ANCH" --year 2026 | grep -E "^thanksgiving " | awk '{print $2}')"
+bf="$(python3 "$ANCH" --year 2026 | grep -E "^black-friday " | awk '{print $2}')"
+if [ "$(date -d "$tg +1 day" +%F 2>/dev/null)" = "$bf" ]; then
+  echo "PASS  an offset rule hangs off its base"; pass=$((pass+1))
+else echo "FAIL  an offset rule hangs off its base ($tg -> $bf)"; fail=$((fail+1)); fi
+
+echo
+echo "== daily routine =="
+if python3 "$DAILY" --queue "$HERE/cta.clean.json" --today 2026-09-02 >/dev/null 2>&1; [ $? -le 1 ]; then
+  echo "PASS  the daily pass runs end to end"; pass=$((pass+1))
+else echo "FAIL  the daily pass runs end to end"; fail=$((fail+1)); fi
+
+if python3 "$DAILY" --queue "$HERE/does-not-exist.json" --today 2026-09-02 >/dev/null 2>&1; [ $? = 2 ]; then
+  echo "PASS  an unreadable queue exits 2 instead of guessing"; pass=$((pass+1))
+else echo "FAIL  an unreadable queue exits 2 instead of guessing"; fail=$((fail+1)); fi
+
+
 echo
 echo "$pass passed, $fail failed"
 [ "$fail" = 0 ]
