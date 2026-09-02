@@ -4,3 +4,4 @@ caption-must-change,yes,"Both runs used the same caption. If the clip repeats, t
 repost-passes-if,">=80% of the original view count","A repost that clears 80 percent is still working. Below that, retire the clip rather than space it further.",hypothesis
 retire-after,2 consecutive failed reposts,"Two runs under 80 percent means the clip is spent, not badly timed.",rule
 never-duplicate-in-queue,yes,"37 exact duplicates were sitting in a 200 slot cap on 01 Sep 2026. Reposting is fine. Queueing the same caption 5 times is not.",rule
+enforcement,queue,45,"gm_queue_plan.py reports it, a human still has to act on it","Sep 2: the towels carousel was scheduled twice on Instagram 4 days apart, and a furnace filter post twice 2 days apart. The 45 day rule existed and neither was caught, because nothing was reading the queue for repeats."
