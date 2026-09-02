@@ -215,3 +215,45 @@ deliberate and was left alone.
 4 TikTok posts on @thegentlemuse2026 say "Full list is in my bio" for the Press Play list.
 Per the per-account bio rule, Amanda's bio holds her website, not that list. Either the bio
 line changes or those captions do. Her call.
+
+---
+
+# Format finding, 2026-09-02: carousels may be dead on this account
+
+First 24 hour numbers for everything published Aug 31:
+
+| Post | Format | Views | Reach |
+|---|---|---|---|
+| Cesa, "still checking" | Reel | 470 | 331 |
+| Target Cat & Jack ad | Reel | 51 | 37 |
+| Lint duct | **Carousel** | **9** | **4** |
+
+**A reach of 4.** Instagram did not distribute it. The Reel published the same day reached 331,
+which is 80 times more. Both had captions rewritten to the winning shape on 08-31, so the
+caption is not the variable here.
+
+**Not acted on yet, deliberately.** This is 1 carousel. Killing a format on a single post is
+the same mistake as blaming the JAT subject line for 1 person not opening. Amanda chose to let
+the 2 carousels already scheduled for 09-02 run, the furnace filter at 15:00 UTC and Press
+Play at 20:00 UTC, which costs 2 slots and close to nothing in reach they were unlikely to get.
+
+By 09-04 there will be 3 carousels at 24 hours instead of 1. If all 3 sit under roughly 50
+reach the format is finished on this account and the remaining queued carousels should be
+converted to Reels. If either of the new ones clears a few hundred, Aug 31 was an unlucky post.
+
+Check `trig_018wBgseaRyqJpLG2jUN8bRu` fires 2026-09-04 and reports either way. The breakout
+watcher will not cover this: it is silent unless something wins, and this needs an answer even
+when the answer is bad.
+
+## The Thursday A/B, resolving at the same time
+
+`000820c0`, "She hears the car before the door", publishes 09-03 at 15:00 UTC with a 291
+character caption in the winning shape.
+
+**The same footage ran 08-27 with a 400 character caption and did 215 views on 195 reach.**
+Same account, same video, same 10:00 CT slot. The only variable is the caption.
+
+This is the cleanest test available of the claim that caption shape caused the Aug 18
+breakout. Clearly above 215 supports it. At or near 215 refutes it, in which case the Aug 18
+result stays unexplained and the next variable to test is what the post is *about* rather than
+how long it is.
