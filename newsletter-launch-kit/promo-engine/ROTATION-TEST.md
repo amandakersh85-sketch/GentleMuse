@@ -331,3 +331,58 @@ same and should not get the same calendar.**
 | 3 inactive automations | **Resolved.** All 15 MailerLite automations verified enabled 08-30 |
 | TikTok and YouTube need video | **Still open.** Both remain image-starved for promo slots |
 | X publishing | **Worse than blocked.** Posting succeeds and produces no measurable reach |
+
+---
+
+# Full collision sweep, 2026-09-02
+
+**182 of 182 posts examined.** Paged to the end of the queue: 50 + 50 + 50 + 32, no cursor on
+the last page, total matching the count the API reports. The Aug 30 sweep did not do this and
+its conclusion was wrong as a result.
+
+## 10 collisions found, every one at the exact same minute
+
+| When (UTC) | Account | Colliding |
+|---|---|---|
+| Sep 3 15:00 | IG main | Target ad, **the A/B test**, Halloweentown |
+| Sep 3 13:30 | LinkedIn | glow up, audiobooks |
+| Sep 4 15:00 | IG main | glow up, Sarah Winchester |
+| Sep 5 15:00 | IG main | towels, Labor Day, **idea 5** |
+| Sep 6 15:00 | IG main | furnace filter, Halloween |
+| Sep 7 15:00 | IG main | Part 2, Labor Day |
+| Sep 9 15:00 | IG main | Goosebumps, **idea 1** |
+| Sep 11 15:00 | IG main | AI guide, Nightmare etymology |
+
+**All 3 posts queued today were in collisions.** The Thursday A/B would have published in the
+same instant as 2 other Reels, which both suppresses it and destroys the attribution the test
+exists to produce. Aug 23 is the precedent: 2 Reels 2 seconds apart, 1,818 views and 162.
+
+## What is causing it
+
+Something is scheduling into 15:00 UTC, the 10:00 CT peak, **every single day**. The posts are
+a holiday and history series that this session did not create: Halloweentown, Sarah Winchester,
+Labor Day twice, Samhain, Goosebumps, the etymology of nightmare, Rudolph. IDs cluster in the
+4021000 to 4055000 range.
+
+Whatever is producing them writes to a fixed daily slot without checking what is already there.
+**Until that changes, this will recur, and a sweep is needed after any batch is added.**
+
+## Fixed
+
+9 posts moved off the contested slot, keeping the 3 test posts at the 10:00 CT peak since they
+are the ones being measured. One move created a **new** collision, `3630603` landing on top of
+`4019104` at Sep 3 17:00, caught on re-verification and moved again to 22:30. Moving posts
+without re-checking is how the Aug 30 sweep produced a wrong answer.
+
+**Verified after: 182 of 182 examined, zero collisions, tightest remaining gap on any single
+account is 110 minutes.**
+
+## A confound worth stating about the A/B
+
+The Aug 27 control ran at **23:30 UTC**, roughly 6:30 PM CT, not at 10:00 AM. The Sept 3 test
+runs at 15:00 UTC. So the caption is not the only variable; time of day differs too.
+
+Keeping the 10:00 slot anyway, because reach matters more here than experimental purity and
+10:00 is the strongest hour Metricool reports for every day of the week. But if Thursday beats
+215 it will not be possible to say cleanly how much of that was the caption and how much was
+the hour, and the Friday report should say so rather than claim the caption won.
