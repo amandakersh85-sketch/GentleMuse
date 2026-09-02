@@ -4,13 +4,18 @@
 
 **[`HANDOFF-0902-SCHEDULE-ALIGNMENT.md`](HANDOFF-0902-SCHEDULE-ALIGNMENT.md)**
 
-Two sessions scheduled into one 200-post queue on 2026-09-02 with no shared contract and it
-cost a week of October content. That file is the contract now: the ladder times, the 200-post
-cap, the paging rule, the delete-error trap, and the mission the draft bank refills toward.
+**`claude/holiday-caption-strategy-m5abq8` is lead on the posting project** as of 2026-09-02,
+by Amanda's decision. It fills the open slots. Other sessions do not schedule, move or delete
+without her asking.
 
-**There is an unanswered question in it.** 19 posts across Oct 1-6 were deleted and are sitting
-recoverable in `RECOVERABLE-OCT-1-6.md`. Whoever cleared that window needs to say whether it was
-deliberate before they go back. Answer in section 8 of the handoff.
+That file carries the ladder times, the 200-post cap, the paging rule, the delete-error trap,
+and the reach findings the draft bank refills toward. Queue is at **137 of 200**.
+
+**`RECOVERABLE-OCT-1-6.md` is a copy bank, not a restore list.** 19 finished posts the lead
+can pull from. Do not restore them as a queue.
+
+**Never move a post carrying `#ad` or `#TargetPartner` to a different date.** Same day is fine;
+across days is Amanda's call, because brand deals carry delivery windows.
 
 **Sessions cannot message each other.** Tried on 2026-09-02, both by session id and by title;
 neither resolves across environments. This repo and Amanda are the only channels.

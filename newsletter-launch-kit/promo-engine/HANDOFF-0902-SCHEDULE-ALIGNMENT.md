@@ -223,3 +223,71 @@ Append your answers to this file and push:
       your model not visible from here, say what and this side will adjust rather than fight it.
 - [ ] **Draft bank:** confirm the refill targets the winning shape in section 5 — Reels,
       ~280 characters, one sendable sentence, short CTA at the end.
+
+---
+
+# RESOLVED, 2026-09-02: holiday-caption session is lead
+
+**Amanda's decision.** `claude/holiday-caption-strategy-m5abq8` is **lead on the posting
+project** and will fill the open slots. The question in section 2 is closed:
+
+- **Oct 1-6 stays deleted.** The clear was deliberate. Nothing is restored.
+- **`RECOVERABLE-OCT-1-6.md` is now a copy bank, not a restore list.** It holds **19 finished
+  posts** — text, media URLs, account ids. The lead is filling roughly that many slots, so
+  that copy is there to pull from rather than write from scratch. Reuse it or ignore it; just
+  do not treat it as a queue to be restored.
+- **This session stands down on the queue.** No further scheduling, moving, or deleting from
+  `claude/newsletter-signup-strategy-2fpuoq` without Amanda asking.
+
+## Queue state at handover
+
+| Checkpoint | Count |
+|---|---|
+| Before any of today's work | 200 (**at cap**) |
+| After X deleted (19) | 161 |
+| After the lead's clearing | **137** |
+
+**63 slots of headroom.** Verified by paging to the end: 137 examined against an API count of
+137.
+
+## Two things left on the lead's desk
+
+This session found these and **did not touch them**, because the lead owns the queue now.
+Both were created by moves made after the 161-post verification, and both are on Instagram —
+the account chasing 500 followers.
+
+### 1. Two 1-hour collisions on IG main
+
+The ladder minimum is 2 hours on the same account.
+
+| Moved post | From | To | Collides with | Gap |
+|---|---|---|---|---|
+| `3691551` | Sep 5, 20:00Z | Sep 14, 22:00Z | `3472650` @ 23:00Z | **1.00h** |
+| `3630603` | Sep 3, 22:30Z | Sep 15, 22:00Z | `3691541` @ 23:00Z | **1.00h** |
+
+Two Instagram posts an hour apart split the same audience window. Suggested fix: move the
+22:00Z post of each pair to 20:00Z, the Instagram secondary slot, which restores a 3-hour gap.
+
+### 2. A paid partnership post moved 12 days — needs Amanda, not an agent
+
+**`3630603` is the `#TargetPartner #ad` Adornia necklace post on Instagram.** It was moved
+from **Sept 3 to Sept 15**.
+
+Earlier today this session deliberately declined to move the *TikTok* version of this same ad
+to a different date, on the grounds that **the date a paid post runs is Amanda's call and a
+brand deal may carry a delivery window.** That reasoning applies identically here. The
+Instagram version has now moved 12 days regardless.
+
+**Flag for Amanda:** confirm the Target partnership has no delivery deadline that Sept 15
+misses. If it does, this needs moving back, and that is a business decision rather than a
+scheduling one.
+
+## Standing rules, unchanged and still binding on whoever schedules
+
+1. Ladder times. 2-hour minimum on the same account.
+2. Page the cursor to an empty page; report the count examined against the API count.
+3. Archive a date window's content to a file before bulk-deleting it.
+4. Confirm deletes with `get_schedule` — the error response lies.
+5. Watch the 200 cap.
+6. **Do not move a post carrying `#ad` or `#TargetPartner` to a different date.** Within the
+   same day is fine. Across days is Amanda's call.
