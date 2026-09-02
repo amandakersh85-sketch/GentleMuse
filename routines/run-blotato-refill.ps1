@@ -37,8 +37,11 @@ Set-Location $RepoRoot
 
 # Keep the local copy current. A failed pull is not fatal for a local run:
 # the working tree is authoritative here.
-$pull = & git pull --ff-only 2>&1 | Out-String
-Write-Log "git pull: $($pull.Trim())"
+# NOTE: no 2>&1 here on purpose. In PowerShell 5.1 redirecting a native exe's
+# stderr wraps every line in a NativeCommandError record, which buried the
+# actual result in noise on the first run.
+& git pull --ff-only --quiet
+Write-Log "git pull exit: $LASTEXITCODE (0 = up to date or fast-forwarded)"
 
 $prompt = Get-Content -Path $PromptFile -Raw -Encoding utf8
 
@@ -65,7 +68,11 @@ $started = Get-Date
     --permission-mode acceptEdits `
     --allowedTools $allowed `
     --add-dir $RepoRoot 2>&1 |
-  ForEach-Object { Add-Content -Path $LogFile -Value $_ -Encoding utf8 }
+  ForEach-Object {
+      # Flatten ErrorRecords to their message so the log stays readable.
+      $line = if ($_ -is [System.Management.Automation.ErrorRecord]) { $_.ToString() } else { $_ }
+      Add-Content -Path $LogFile -Value $line -Encoding utf8
+  }
 
 $code = $LASTEXITCODE
 $mins = [math]::Round(((Get-Date) - $started).TotalMinutes, 1)
