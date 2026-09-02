@@ -418,6 +418,7 @@ cta "broken calls to action are caught" 1 "$HERE/cta.broken.json" \
     P01_DEAD_KEYWORD P02_WRONG_LINK P03_LINK_WITHOUT_MENTION P06_DUPLICATE_LINK P07_PROMISE_MISMATCH
 cta "edge cases all fire"               1 "$HERE/cta.edge.json" \
     P00_UNKNOWN_ACCOUNT P01_DEAD_KEYWORD P04_NO_ACTION P05_NO_LINK
+cta "a tiktok follow is a real return" 0 "$HERE/cta.tiktok.json"
 cta "a reach only post holds"           2 "$HERE/cta.hold.json"   H01_NO_CAPTURE_PATH
 
 

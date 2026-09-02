@@ -20,6 +20,7 @@ DATA = os.path.join(HERE, "..", "data")
 
 ACTION = re.compile(r"\b(follow|share|save|like|subscribe|repost)\b", re.I)
 URL = re.compile(r"https?://[^\s<>\")]+")
+BIO = re.compile(r"\bin (?:my|the) bio\b|\blink in bio\b", re.I)
 
 
 def load_magnets(path):
@@ -101,16 +102,26 @@ def check(rows, magnets, platforms):
                 add("P03_LINK_WITHOUT_MENTION", row,
                     "carries the %s link but the caption never mentions %s" % (kw, m["Magnet"]))
 
-        # P04/P05 action platforms need an action ask and a working link
+        # P04/P05 action platforms need an action ask and a reachable destination.
+        # LinkClickable: yes = a caption URL works, bio = the link lives in the bio
+        # so the caption must point there, field = the destination is a post field.
+        clickable = (plat.get("LinkClickable") or "").strip().lower()
         if plat["_actions"]:
             if not ACTION.search(text):
                 add("P04_NO_ACTION", row,
                     "%s takes no keyword, so it needs an ask: %s"
                     % (plat["Platform"], " / ".join(sorted(plat["_actions"]))))
-            if (plat.get("LinkClickable") or "").strip().lower() == "yes" and not urls:
+            if clickable == "yes" and not urls:
                 add("P05_NO_LINK", row,
                     "%s captions are clickable and this one carries no link, so there is no path off the post"
                     % plat["Platform"])
+            if clickable == "bio" and not BIO.search(text) and not row.get("link"):
+                add("P05_NO_LINK", row,
+                    "a %s caption URL is not tappable, so the post has to send people to the bio"
+                    % plat["Platform"])
+            if clickable == "field" and not row.get("link"):
+                add("P05_NO_LINK", row,
+                    "%s carries its destination in a field and this post has none" % plat["Platform"])
 
         # P06 the same link pasted twice
         for u in set(urls):
@@ -126,9 +137,12 @@ def check(rows, magnets, platforms):
                     "promises %s pages, %s delivers %s"
                     % ("/".join(sorted(claims)), kw, "/".join(sorted(want))))
 
-        # H01 nothing to capture with
-        if not named and not urls:
-            add("H01_NO_CAPTURE_PATH", row, "no keyword and no link, so the post cannot return anything")
+        # H01 nothing to capture with. An action ask on an action platform counts,
+        # a follow is a real return even when no link is in the caption.
+        acted = bool(plat["_actions"]) and bool(ACTION.search(text))
+        if not named and not urls and not row.get("link") and not acted:
+            add("H01_NO_CAPTURE_PATH", row,
+                "no keyword, no link and no action ask, so the post cannot return anything")
 
     return findings
 
