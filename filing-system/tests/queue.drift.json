@@ -1,0 +1,8 @@
+[
+ {"id":"over1","platform":"instagram","accountId":"45886","at":"2026-09-02T15:00:00.000Z","text":"1"},
+ {"id":"over2","platform":"instagram","accountId":"45886","at":"2026-09-02T16:00:00.000Z","text":"2"},
+ {"id":"over3","platform":"instagram","accountId":"45886","at":"2026-09-02T17:00:00.000Z","text":"3"},
+ {"id":"over4","platform":"instagram","accountId":"45886","at":"2026-09-02T18:00:00.000Z","text":"4 too many"},
+ {"id":"far","platform":"instagram","accountId":"45886","at":"2026-12-01T16:00:00.000Z","text":"beyond the window"},
+ {"id":"offmodel","platform":"linkedin","accountId":"20723","at":"2026-09-02T15:00:00.000Z","text":"not a daily channel"}
+]

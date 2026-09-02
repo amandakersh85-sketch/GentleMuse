@@ -422,6 +422,28 @@ cta "a tiktok follow is a real return" 0 "$HERE/cta.tiktok.json"
 cta "a reach only post holds"           2 "$HERE/cta.hold.json"   H01_NO_CAPTURE_PATH
 
 
+PLAN="$HERE/../scripts/gm_queue_plan.py"
+
+qplan() { # name expected_exit queue_file [grep ...]
+  local name="$1" want="$2" q="$3"; shift 3
+  local out; out="$(python3 "$PLAN" --queue "$q" --start 2026-09-02 --days 1 2>&1)"; local got=$?
+  local ok=1
+  [ "$got" = "$want" ] || { ok=0; echo "  exit $got, wanted $want"; }
+  for pat in "$@"; do
+    grep -q "$pat" <<<"$out" || { ok=0; echo "  missing: $pat"; }
+  done
+  if [ $ok = 1 ]; then echo "PASS  $name"; pass=$((pass+1))
+  else echo "FAIL  $name"; echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
+}
+
+echo
+echo "== queue plan =="
+qplan "a day that matches the model passes" 0 "$HERE/queue.model.json" \
+      "0 slots over, 0 slots under, 0 posts beyond"
+qplan "drift in every direction is caught"  1 "$HERE/queue.drift.json" \
+      "1 slots over" "2 slots under" "1 posts beyond" "1 on channels"
+
+
 echo
 echo "$pass passed, $fail failed"
 [ "$fail" = 0 ]
