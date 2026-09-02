@@ -257,3 +257,34 @@ This is the cleanest test available of the claim that caption shape caused the A
 breakout. Clearly above 215 supports it. At or near 215 refutes it, in which case the Aug 18
 result stays unexplained and the next variable to test is what the post is *about* rather than
 how long it is.
+
+## Ideas 1 and 5 queued, 2026-09-02
+
+| Idea | Clip | Publishes | Slot |
+|---|---|---|---|
+| 5, "today nothing happened" | `be8faa39` | Sat 09-05 10:00 CT | Relaxed |
+| 1, "the part I'll miss" | `ab1122ee` | Wed 09-09 10:00 CT | Life Story |
+
+Both clips had only ever run on @cesasgoldenyears, so both are new to @thegentlemuse2026.
+Both at the 10:00 CT peak, both Reels, both ending on a follow rather than a keyword.
+
+The order is deliberate. Idea 5 lands the day after the Thursday A/B verdict, so it can still
+be pulled if the caption shape turns out not to be the mechanism. Idea 1 sits far enough out
+that a week of evidence exists before it runs.
+
+**Queue is capped at 200 scheduled posts.** Each of these cost an X post: the Sept 22
+Scooter's Coffee post and the Sept 21 Press Play post. X remains the only channel returning an
+empty analytics set, so it is the cheapest thing in the queue to spend.
+
+### Correction: the "zero collisions" claim on 08-30 was wrong
+
+That sweep reported no 2 posts within 30 minutes of each other on the same account. Checking
+the Sept 5 and Sept 9 slots today found **`3691547` and `3691551` both at 17:00 UTC on Sept 5,
+the same minute**, on @thegentlemuse2026.
+
+The sweep ran against the pages of the queue that had been pulled at that point, not the whole
+queue, and these 2 were in a page fetched afterwards. The conclusion was stated with more
+confidence than the data supported.
+
+`3691551` moved to 20:00 UTC. **Any future collision sweep must page to the end of the queue
+before claiming a result**, and should say how many posts it actually examined.
