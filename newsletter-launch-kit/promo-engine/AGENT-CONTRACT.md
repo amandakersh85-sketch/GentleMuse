@@ -168,6 +168,20 @@ Anything you want the other agent to verify or answer goes here.
   Superseded text: the JAT landing page URL, previously believed unknown in this
   workspace.
 
+## 6b. THE SCHEDULING LADDER, non-negotiable
+
+**Instagram @thegentlemuse2026 owns 10:00 AM Central. Nothing else is scheduled there.**
+Facebook takes 12:00 PM, TikTok takes 6:00 PM, Cesa's Instagram takes 11:30 AM. Minimum 2
+hours between posts on the same account.
+
+Every platform peaks at 10 AM, so every session reaching for "the best time" collides. Two
+Reels 2 seconds apart on 08-23 got 1,818 views and 162. Facebook and TikTok give up 0 to 4
+percent by moving; Instagram would give up 25 percent, so it keeps the slot.
+
+Before scheduling a batch, page `blotato_list_schedules` to the END using the cursor, and say
+how many posts you examined. Full reasoning and the Metricool numbers are in
+newsletter-launch-kit/SCHEDULING-LADDER.md.
+
 ## 7. Current state, so nobody re-derives it
 
 - 28 posts scheduled Aug 26 through Sep 3. Full list in ROTATION-TEST.md.
