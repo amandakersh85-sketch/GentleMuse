@@ -30,7 +30,7 @@ def retired_noon(day):
 
 
 def load(path):
-    raw = open(path).read()
+    raw = open(path, encoding='utf-8').read()
     body = raw.split('=== ROWS ===', 1)[-1]
     return [l for l in body.split('\n') if l.strip() and l.count('|') == 5]
 

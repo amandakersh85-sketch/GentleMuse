@@ -1,2 +1,157 @@
 # Wave 1 load ledger. One line per loaded row: <ROW ID> loaded <date>.
 # Appended by the daily Blotato top-up. Do not edit the library file to mark loads.
+#
+# ---------------------------------------------------------------
+# LEDGER REPAIR, 2026-09-02, by the first local run.
+# This log was EMPTY while 117 of its 196 rows were already scheduled
+# and live in Blotato. The 31 Aug cloud run loaded rows but could not
+# push its log: the proxy refused with
+#   "amandakersh85-sketch/GentleMuse is not in this session's
+#    authorized repository set"
+# so the ledger never recorded them. Left alone, the next run would
+# have re-loaded every one of them as a duplicate post.
+#
+# The ids below were reconciled against the LIVE Blotato queue on
+# 2026-09-02, matched on (platform + exact post text). Each one is
+# already scheduled on that same platform, so re-loading it would
+# repeat the post in the same feed. They are recorded as loaded.
+# Marked reconciled-2026-09-02 rather than given a load date, because
+# the true load date is not recoverable for all of them.
+# ---------------------------------------------------------------
+GW0002 loaded reconciled-2026-09-02
+GW0003 loaded reconciled-2026-09-02
+GW0006 loaded reconciled-2026-09-02
+GW0008 loaded reconciled-2026-09-02
+GW0009 loaded reconciled-2026-09-02
+GW0011 loaded reconciled-2026-09-02
+GW0013 loaded reconciled-2026-09-02
+GW0014 loaded reconciled-2026-09-02
+GW0015 loaded reconciled-2026-09-02
+GW0016 loaded reconciled-2026-09-02
+GW0018 loaded reconciled-2026-09-02
+GW0020 loaded reconciled-2026-09-02
+GW0022 loaded reconciled-2026-09-02
+GW0025 loaded reconciled-2026-09-02
+GW0026 loaded reconciled-2026-09-02
+GW0027 loaded reconciled-2026-09-02
+GW0028 loaded reconciled-2026-09-02
+GW0029 loaded reconciled-2026-09-02
+GW0030 loaded reconciled-2026-09-02
+GW0031 loaded reconciled-2026-09-02
+GW0032 loaded reconciled-2026-09-02
+GW0034 loaded reconciled-2026-09-02
+GW0035 loaded reconciled-2026-09-02
+GW0036 loaded reconciled-2026-09-02
+GW0037 loaded reconciled-2026-09-02
+GW0039 loaded reconciled-2026-09-02
+GW0040 loaded reconciled-2026-09-02
+GW0041 loaded reconciled-2026-09-02
+GW0042 loaded reconciled-2026-09-02
+GW0043 loaded reconciled-2026-09-02
+GW0045 loaded reconciled-2026-09-02
+GW0046 loaded reconciled-2026-09-02
+GW0047 loaded reconciled-2026-09-02
+GW0048 loaded reconciled-2026-09-02
+GW0049 loaded reconciled-2026-09-02
+GW0051 loaded reconciled-2026-09-02
+GW0052 loaded reconciled-2026-09-02
+GW0053 loaded reconciled-2026-09-02
+GW0054 loaded reconciled-2026-09-02
+GW0056 loaded reconciled-2026-09-02
+GW0058 loaded reconciled-2026-09-02
+GW0059 loaded reconciled-2026-09-02
+GW0060 loaded reconciled-2026-09-02
+GW0061 loaded reconciled-2026-09-02
+GW0062 loaded reconciled-2026-09-02
+GW0063 loaded reconciled-2026-09-02
+GW0064 loaded reconciled-2026-09-02
+GW0065 loaded reconciled-2026-09-02
+GW0066 loaded reconciled-2026-09-02
+GW0067 loaded reconciled-2026-09-02
+GW0068 loaded reconciled-2026-09-02
+GW0069 loaded reconciled-2026-09-02
+GW0070 loaded reconciled-2026-09-02
+GW0071 loaded reconciled-2026-09-02
+GW0072 loaded reconciled-2026-09-02
+GW0073 loaded reconciled-2026-09-02
+GW0074 loaded reconciled-2026-09-02
+GW0075 loaded reconciled-2026-09-02
+GW0076 loaded reconciled-2026-09-02
+GW0077 loaded reconciled-2026-09-02
+GW0078 loaded reconciled-2026-09-02
+GW0079 loaded reconciled-2026-09-02
+GW0080 loaded reconciled-2026-09-02
+GW0081 loaded reconciled-2026-09-02
+GW0082 loaded reconciled-2026-09-02
+GW0083 loaded reconciled-2026-09-02
+GW0084 loaded reconciled-2026-09-02
+GW0085 loaded reconciled-2026-09-02
+GW0087 loaded reconciled-2026-09-02
+GW0088 loaded reconciled-2026-09-02
+GW0089 loaded reconciled-2026-09-02
+GW0090 loaded reconciled-2026-09-02
+GW0091 loaded reconciled-2026-09-02
+GW0092 loaded reconciled-2026-09-02
+GW0093 loaded reconciled-2026-09-02
+GW0094 loaded reconciled-2026-09-02
+GW0095 loaded reconciled-2026-09-02
+GW0096 loaded reconciled-2026-09-02
+GW0098 loaded reconciled-2026-09-02
+GW0099 loaded reconciled-2026-09-02
+GW0100 loaded reconciled-2026-09-02
+GW0101 loaded reconciled-2026-09-02
+GW0107 loaded reconciled-2026-09-02
+GW0110 loaded reconciled-2026-09-02
+GW0116 loaded reconciled-2026-09-02
+GW0121 loaded reconciled-2026-09-02
+GW0122 loaded reconciled-2026-09-02
+GW0123 loaded reconciled-2026-09-02
+GW0127 loaded reconciled-2026-09-02
+GW0128 loaded reconciled-2026-09-02
+GW0133 loaded reconciled-2026-09-02
+GW0134 loaded reconciled-2026-09-02
+GW0135 loaded reconciled-2026-09-02
+GW0138 loaded reconciled-2026-09-02
+GW0146 loaded reconciled-2026-09-02
+GW0147 loaded reconciled-2026-09-02
+GW0149 loaded reconciled-2026-09-02
+GW0152 loaded reconciled-2026-09-02
+GW0155 loaded reconciled-2026-09-02
+GW0158 loaded reconciled-2026-09-02
+GW0159 loaded reconciled-2026-09-02
+GW0162 loaded reconciled-2026-09-02
+GW0164 loaded reconciled-2026-09-02
+GW0165 loaded reconciled-2026-09-02
+GW0168 loaded reconciled-2026-09-02
+GW0170 loaded reconciled-2026-09-02
+GW0172 loaded reconciled-2026-09-02
+GW0176 loaded reconciled-2026-09-02
+GW0182 loaded reconciled-2026-09-02
+GW0183 loaded reconciled-2026-09-02
+GW0187 loaded reconciled-2026-09-02
+GW0188 loaded reconciled-2026-09-02
+GW0190 loaded reconciled-2026-09-02
+GW0192 loaded reconciled-2026-09-02
+GW0194 loaded reconciled-2026-09-02
+GW0195 loaded reconciled-2026-09-02
+GW0200 loaded reconciled-2026-09-02
+#
+# --- Loaded by the first local run, 2026-09-02. Queue went 182 -> 200. ---
+GW0001 loaded 2026-09-02
+GW0004 loaded 2026-09-02
+GW0005 loaded 2026-09-02
+GW0007 loaded 2026-09-02
+GW0010 loaded 2026-09-02
+GW0012 loaded 2026-09-02
+GW0017 loaded 2026-09-02
+GW0023 loaded 2026-09-02
+GW0024 loaded 2026-09-02
+GW0033 loaded 2026-09-02
+GW0038 loaded 2026-09-02
+GW0044 loaded 2026-09-02
+GW0050 loaded 2026-09-02
+GW0086 loaded 2026-09-02
+GW0097 loaded 2026-09-02
+GW0102 loaded 2026-09-02
+GW0103 loaded 2026-09-02
+GW0104 loaded 2026-09-02
