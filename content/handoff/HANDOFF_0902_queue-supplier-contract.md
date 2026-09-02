@@ -104,6 +104,32 @@ GW2002.
    out this morning". If that issue does not exist, GW2003 is a false claim in
    Amanda's voice. Confirm the issue is written before releasing either row.
 
+## 3b. What the zone model does to these libraries
+
+Added 09/02 after reading the zone contract (SPRINT 0-7, MODEL 8-14, ANCHOR 15+
+date-locked holiday only, PAID within its day).
+
+**Wave 1's dates now conflict with it.** Wave 1 rows are written for 21 Sep to
+29 Oct, which is 19 to 57 days out, so every one of them lands in ANCHOR. They
+are evergreen rows, not holiday anchors, so under the zone contract none of them
+may load at its written time.
+
+The clean reading: **the wave libraries stop being a dated schedule and become a
+draft bank.** Rows get pulled forward into MODEL as it comes due, and each row's
+stored `scheduledTime` is advisory, kept only for slot shape (which platform,
+which hour) and ignored as a date. The ledger and the validator still apply
+unchanged, because both are keyed to row IDs and text, not to dates.
+
+That resolves cleanly against Wave 2's HOLD rows, which *are* date-locked
+holiday anchors and belong in ANCHOR exactly as written.
+
+**Open question: who fills MODEL.** The zone contract says the MODEL zone is fed
+"from the draft bank" and moved by "the daily refill", but that refill is the
+task Amanda disabled on 09/02 so it would stop competing for slots. Right now no
+job holds that. `gm_queue_daily.py` reports the MODEL shortfall; something still
+has to fill it. Either re-enable the daily task scoped to MODEL only, or take the
+job into the queue-planning side. It should not be left to whoever notices.
+
 ## 4. Slots, and the DST change
 
 The libraries and the Blotato API are UTC. Amanda reads Central. Label which one
