@@ -397,6 +397,30 @@ check "a vague framing note is refused"    1 "$TMP/horiz-thin.json"  E06_ORIENTA
 check "a declared framing passes"          0 "$TMP/horiz-framed.json"
 check "a typography cut must say so"        1 "$TMP/factory-silent.json" E00_NO_CLIPS
 
+CTA="$HERE/../scripts/gm_cta_check.py"
+
+cta() { # name expected_exit queue_file [expected_code ...]
+  local name="$1" want="$2" q="$3"; shift 3
+  local out; out="$(python3 "$CTA" --queue "$q" 2>&1)"; local got=$?
+  local ok=1
+  [ "$got" = "$want" ] || { ok=0; echo "  exit $got, wanted $want"; }
+  for code in "$@"; do
+    grep -q "$code" <<<"$out" || { ok=0; echo "  missing finding: $code"; }
+  done
+  if [ $ok = 1 ]; then echo "PASS  $name"; pass=$((pass+1))
+  else echo "FAIL  $name"; echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
+}
+
+echo
+echo "== cta gate =="
+cta "a working call to action passes"   0 "$HERE/cta.clean.json"
+cta "broken calls to action are caught" 1 "$HERE/cta.broken.json" \
+    P01_DEAD_KEYWORD P02_WRONG_LINK P03_LINK_WITHOUT_MENTION P06_DUPLICATE_LINK P07_PROMISE_MISMATCH
+cta "edge cases all fire"               1 "$HERE/cta.edge.json" \
+    P00_UNKNOWN_ACCOUNT P01_DEAD_KEYWORD P04_NO_ACTION P05_NO_LINK
+cta "a reach only post holds"           2 "$HERE/cta.hold.json"   H01_NO_CAPTURE_PATH
+
+
 echo
 echo "$pass passed, $fail failed"
 [ "$fail" = 0 ]
