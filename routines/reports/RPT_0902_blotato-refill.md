@@ -39,8 +39,9 @@ list_posts rather than post status, because post status lies about this.
 The queue now runs continuously through 15 October 2026 at 10:00 AM Central.
 After that there's a hole until a single Christmas post on 1 December at
 10:00 AM Central. That hole closes on its own as posts publish and the daily
-job refills behind them. There are still 61 unloaded rows in Wave 1 and all
-200 in Wave 2, so Wave 3 is nowhere near needed yet.
+job refills behind them. There are still 61 unloaded rows in Wave 1 and 200 in
+Wave 2, of which 192 load on their own and 8 are HOLD rows waiting on you, so
+Wave 3 is nowhere near needed yet. That's 253 rows of supply ready to go.
 
 Two of the 3 empty days are now filled. 26 and 27 September have content.
 12 September is still empty and there's no row that wants that date.
@@ -158,6 +159,9 @@ libraries carry every caption before it goes out.
 
 ## No HOLD rows are due
 
-Wave 1 has no HOLD rows at all. They're all in Wave 2, which covers 30 October
-to 8 December, so the Halloween and Black Friday beats are in there. Nothing
-needs your review in the next 14 days.
+Wave 1 has no HOLD rows at all. All 8 of them are in Wave 2, which covers
+30 October to 8 December, so the Halloween and Black Friday beats are in there.
+The earliest is HOLD-GW2001 and none of them land before 31 October. Nothing
+needs your review in the next 14 days, but those 8 are newly written sales copy
+rather than something you've already published, so they wait on you. You
+release one by dropping the HOLD- prefix yourself.
