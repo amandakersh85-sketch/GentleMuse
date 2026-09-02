@@ -131,3 +131,52 @@ TikTok off-ladder: NONE
 - **The queue grew 182 -> 200 while this work was in flight.** Another session is still
   scheduling and has not adopted the ladder. One of its new posts took the 10 AM TikTok slot
   (item 2 above). The queue is now **at the 200 plan cap** — the next new post will fail.
+
+---
+
+## 2026-09-02, later: X deleted, Cesa's Instagram brought onto the ladder
+
+**X is gone.** All 19 scheduled X posts deleted; the account's queue is now empty. Copy
+preserved in full in `promo-engine/DELETED-X-QUEUE.md`. Justification was re-confirmed live
+before deleting rather than taken from the earlier note: `blotato_list_top_posts` for twitter,
+`since` 2026-06-01, returns `{"items":[]}` — no rows across three months, on a platform Blotato
+does instrument. This freed 19 slots against the 200-post cap.
+
+**Cesa's Instagram (65540) is on the ladder.** All 7 posts moved to 16:30Z, 11:30 AM CT.
+Each stayed on its own **Central-time** day, which is the part worth getting right: four of
+them sat at `00:00Z`, which is 7 PM CT the *previous* day. Mapping those to 16:30Z on the UTC
+date would have shoved each post a day late. September is CDT (UTC-5), so 11:30 AM CT = 16:30Z
+on the local date.
+
+| id | was | now |
+|---|---|---|
+| 3953664 | 09-03 23:00Z | 09-03 16:30Z |
+| 3985167 | 09-05 00:00Z | **09-04** 16:30Z |
+| 3985186 | 09-06 00:00Z | **09-05** 16:30Z |
+| 3985199 | 09-08 00:00Z | **09-07** 16:30Z |
+| 3985217 | 09-10 00:00Z | **09-09** 16:30Z |
+| 3926385 | 09-17 23:00Z | 09-17 16:30Z |
+| 3927278 | 09-18 23:00Z | 09-18 16:30Z |
+
+Verified by paging to an empty page: **161 examined, API count 161. Zero 2-hour violations.
+X n=0. Cesa IG 7 of 7 at 16:30Z.**
+
+### A delete can return an error and still succeed
+
+`blotato_delete_schedule` on `3999116` returned `Blotato API error. Try again in a moment.`
+**three times.** `blotato_get_schedule` on the same id then returned `Not found` — the first
+delete had worked server-side and only the response failed. **Always confirm with
+`get_schedule` before retrying or concluding a delete failed.** Two earlier deletes this
+session (`3732573`, `3732539`) were abandoned on this same error and were probably also
+successful.
+
+### Unrelated: the Oct 1-6 window was wiped by something else
+
+While this ran, **19 future-dated posts across Oct 1-6 disappeared, none of them X.** They are
+not collateral from the X deletion — see `promo-engine/RECOVERABLE-OCT-1-6.md` for the full
+content and the evidence. Short version: the Oct 1-6 window went 24 posts to **zero survivors**,
+while Oct 7 kept 5 of 6 and Oct 8 kept 3 of 4. A cascade would have scattered along the same
+dates as the deleted X posts, Sept 3 through Oct 10. A clean contiguous block with a sharp
+boundary is a deliberate bulk clear. **Most likely someone hit the 200-post cap and freed a
+week to make room.** All 19 are recoverable from that file. Do not restore without checking
+whether the session that cleared them meant to.
