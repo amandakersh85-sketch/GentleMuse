@@ -219,7 +219,13 @@ that the local commit already protects the next local run.
 
 Write the report to `routines/reports/RPT_MMDD_blotato-refill.md`, and also
 save a copy to Google Drive under the same name if the Drive MCP is available
-locally. Amanda's standing rule is that nothing load-bearing lives only in a
+locally.
+
+**If that file already exists, do NOT overwrite it.** Write to
+`RPT_MMDD_blotato-refill-HHMM.md` instead, using the local 24 hour time, and
+say in the new report which file holds the earlier run. Two runs landed on the
+same date on 2026-09-02 and the second one nearly erased the first, which was
+the one carrying the action item. Same rule for the Drive copy. Amanda's standing rule is that nothing load-bearing lives only in a
 session. Drive is the only layer shared across Claude, Claude Code and Codex.
 
 In her voice: warm, grounded, plain. No em dashes. Digits, not spelled out
