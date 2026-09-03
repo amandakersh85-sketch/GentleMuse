@@ -103,6 +103,20 @@ def main():
     if bad:
         work += 1
 
+    # 4b carousel regressions: a caption that used to carry more images than
+    # it does now. A live post shipped this way once already; the daily pass
+    # is where it gets caught before the next one does.
+    carousel = subprocess.run([sys.executable, os.path.join(HERE, "gm_carousel_check.py"),
+                               "--queue", a.queue], capture_output=True, text=True)
+    regressions = [l for l in carousel.stdout.splitlines() if l.startswith("C0")]
+    print("\nCAROUSELS  %d post(s) carrying fewer images than a known version" % len(regressions))
+    for l in regressions[:6]:
+        print("  " + l)
+    if len(regressions) > 6:
+        print("  and %d more, run gm_carousel_check.py" % (len(regressions) - 6))
+    if regressions:
+        work += 1
+
     # 5 sprint presence
     print("\nSPRINT")
     live = [s for s in sprints

@@ -1,0 +1,19 @@
+CarouselID,Title,Frame,FrameText,Source
+JAT-01,The wall was never the model,1,"6 automations I was counting on had quietly stopped running.",verified: already-used JAT post
+JAT-01,The wall was never the model,2,Every one of them still said enabled.,verified: already-used JAT post
+JAT-01,The wall was never the model,3,"Enabled and running are not the same word, and the dashboard will not tell you that.",derived from the verified story
+JAT-01,The wall was never the model,4,I found out by checking each one by hand.,derived from the verified story
+JAT-01,The wall was never the model,5,"That is the actual job. Not the automation. Checking the automation.",derived from the verified story
+JAT-01,The wall was never the model,6,Comment TUESDAY and I will add you.,CTA
+JAT-02,The 1 question that saves a month,1,I lost most of a month to not asking 1 question.,verified: already-used JAT post
+JAT-02,The 1 question that saves a month,2,"Is the model failing, or is the thing I am pointing it at refusing to be driven?",verified: already-used JAT post
+JAT-02,The 1 question that saves a month,3,Those need completely different fixes.,verified: already-used JAT post
+JAT-02,The 1 question that saves a month,4,I searched all 383 interfaces on a platform to prove where the wall actually was.,verified: already-used JAT post
+JAT-02,The 1 question that saves a month,5,The wall was a text box that would not accept typed input. The model was never the problem.,verified: already-used JAT post
+JAT-02,The 1 question that saves a month,6,Comment TUESDAY and I will add you.,CTA
+JAT-03,About 10 hours is enough,1,You do not need to be 10 years ahead on AI.,verified: already-used JAT post
+JAT-03,About 10 hours is enough,2,About 10 hours is enough.,verified: already-used JAT post
+JAT-03,About 10 hours is enough,3,I am roughly 60 days in and I have documented every one of them in public.,verified: already-used JAT post
+JAT-03,About 10 hours is enough,4,"Badly, on purpose. The mistakes are the part worth reading.",derived from the verified premise
+JAT-03,About 10 hours is enough,5,1 email a week. 1 thing I learned the hard way. Nothing polished out of it.,verified: magnet-map.csv delivery description
+JAT-03,About 10 hours is enough,6,Comment TUESDAY and I will add you.,CTA
