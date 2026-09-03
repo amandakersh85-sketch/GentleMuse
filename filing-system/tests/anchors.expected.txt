@@ -1,0 +1,9 @@
+labor-day 2026-09-07
+halloween 2026-10-31
+thanksgiving 2026-11-26
+black-friday 2026-11-27
+christmas 2026-12-25
+easter 2026-04-05
+mothers-day 2026-05-10
+memorial-day 2026-05-25
+fathers-day 2026-06-21

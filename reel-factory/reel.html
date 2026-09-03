@@ -1,0 +1,182 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="fonts.css">
+<!-- The faces are embedded in fonts.css as data URIs and served off the
+     same loopback origin as the composition. Nothing about a render
+     touches the network, so the type cannot come out in a fallback face
+     because a proxy hiccuped. -->
+<style>
+  html,body{margin:0;padding:0;background:#0B0910;overflow:hidden}
+  #stage{position:relative;width:1080px;height:1920px;background:#0B0910;
+    overflow:hidden;color:#FAF6F0}
+  #atmo{position:absolute;inset:0}
+  #grain{position:absolute;inset:0;opacity:.05;pointer-events:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>")}
+  #scrim{position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(180deg,rgba(11,9,16,0) 26%,rgba(11,9,16,.62) 40%,
+      rgba(11,9,16,.68) 60%,rgba(11,9,16,0) 76%)}
+  #vig{position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(ellipse at 50% 46%,rgba(0,0,0,0) 34%,rgba(0,0,0,.70) 100%)}
+  .label{position:absolute;left:88px;top:96px;font-family:"IBM Plex Mono",monospace;
+    font-size:23px;letter-spacing:.28em;text-transform:uppercase;color:#A2958A}
+  .src{position:absolute;left:88px;right:88px;bottom:152px;font-family:"IBM Plex Mono",monospace;
+    font-size:20px;letter-spacing:.08em;color:#807469}
+  #beats{position:absolute;left:88px;right:88px;top:0;height:1920px}
+  .beat{position:absolute;left:0;right:0;font-family:"Instrument Serif",Georgia,serif;
+    font-weight:400;font-size:86px;line-height:1.18;letter-spacing:-.012em;will-change:transform,opacity}
+  .beat .em{font-style:italic;color:#F0B394}
+  .beat.cta{font-size:78px;line-height:1.22}
+  .beat.cta .k{display:block;font-family:"IBM Plex Mono",monospace;font-size:24px;
+    letter-spacing:.26em;text-transform:uppercase;color:#F0B394;margin-bottom:30px}
+  #ruleTrack{position:absolute;left:88px;right:88px;bottom:104px;height:3px;
+    background:rgba(244,239,231,.12);border-radius:2px}
+  #rule{position:absolute;left:88px;bottom:104px;height:3px;background:#F0B394;border-radius:2px}
+</style></head>
+<body>
+<div id="stage">
+  <canvas id="atmo" width="1080" height="1920"></canvas>
+  <div id="scrim"></div>
+  <div id="beats"></div>
+  <div class="label" id="label"></div>
+  <div class="src" id="src"></div>
+  <div id="ruleTrack"></div><div id="rule"></div>
+  <div id="grain"></div><div id="vig"></div>
+</div>
+<script>
+const P = window.PAYLOAD;
+const DUR = P.duration;
+document.getElementById("label").textContent = P.label;
+document.getElementById("src").textContent = P.source;
+
+/* ---------------- deterministic atmosphere ----------------
+   Everything below is a pure function of t. No rAF, no Math.random at
+   draw time, so frame N is identical on every run and the render is
+   reproducible. Seeded once, evaluated per frame. */
+const ctx = document.getElementById("atmo").getContext("2d");
+const W = 1080, H = 1920;
+
+function seeded(seed){ let s = seed >>> 0;
+  return () => { s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296; }; }
+const rnd = seeded(P.seed || 7);
+
+// rising embers: fixed birth params, position derived from t
+const EMBERS = Array.from({length: 38}, () => ({
+  x: rnd() * W, life: 6 + rnd() * 9, off: rnd() * 14,
+  drift: (rnd() - .5) * 150, r: 1.3 + rnd() * 2.9, warm: rnd(),
+}));
+// slow fog blooms, each on its own lissajous path
+const FOG = Array.from({length: 5}, () => ({
+  cx: rnd(), cy: rnd(), ax: 90 + rnd() * 190, ay: 70 + rnd() * 150,
+  sx: .05 + rnd() * .10, sy: .04 + rnd() * .09, r: 430 + rnd() * 400, a: .05 + rnd() * .07,
+}));
+
+function atmosphere(t){
+  ctx.clearRect(0, 0, W, H);
+  ctx.fillStyle = "#0B0910"; ctx.fillRect(0, 0, W, H);
+
+  // candle-warm core light, breathing across the film with a fine flicker
+  const breath = 0.62 + 0.38 * Math.sin((t / DUR) * Math.PI);
+  const flick = 1 + 0.05 * Math.sin(t * 9.1) + 0.03 * Math.sin(t * 21.7);
+  const cx = W * 0.5, cy = H * (0.50 - 0.05 * (t / DUR));
+  let g = ctx.createRadialGradient(cx, cy, 0, cx, cy, 760 * flick);
+  g.addColorStop(0,   "rgba(196,104,64," + (0.34 * breath).toFixed(3) + ")");
+  g.addColorStop(.42, "rgba(150,72,54,"  + (0.13 * breath).toFixed(3) + ")");
+  g.addColorStop(1,   "rgba(11,9,16,0)");
+  ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+
+  // drifting fog
+  ctx.globalCompositeOperation = "lighter";
+  for (const f of FOG){
+    const x = f.cx * W + Math.sin(t * f.sx * 2 * Math.PI + f.cx * 9) * f.ax;
+    const y = f.cy * H + Math.cos(t * f.sy * 2 * Math.PI + f.cy * 7) * f.ay - t * 12;
+    const fg = ctx.createRadialGradient(x, y, 0, x, y, f.r);
+    fg.addColorStop(0, "rgba(120,96,120," + (f.a * breath).toFixed(3) + ")");
+    fg.addColorStop(1, "rgba(120,96,120,0)");
+    ctx.fillStyle = fg; ctx.fillRect(0, 0, W, H);
+  }
+
+  // embers, looping on their own lifetimes so density stays constant
+  for (const e of EMBERS){
+    const age = ((t + e.off) % e.life) / e.life;
+    const y = H + 60 - age * (H + 140);
+    const x = e.x + Math.sin(age * Math.PI * 2.1 + e.x) * e.drift * 0.34;
+    const fade = Math.sin(age * Math.PI);
+    if (fade <= 0.01) continue;
+    const eg = ctx.createRadialGradient(x, y, 0, x, y, e.r * 5.5);
+    const c = e.warm > .55 ? "247,190,132" : "224,124,78";
+    eg.addColorStop(0, "rgba(" + c + "," + (0.58 * fade).toFixed(3) + ")");
+    eg.addColorStop(1, "rgba(" + c + ",0)");
+    ctx.fillStyle = eg;
+    ctx.beginPath(); ctx.arc(x, y, e.r * 5.5, 0, 6.2832); ctx.fill();
+  }
+  ctx.globalCompositeOperation = "source-over";
+}
+
+/* ---------------- type ---------------- */
+const host = document.getElementById("beats");
+const nodes = P.beats.map(b => {
+  const d = document.createElement("div");
+  d.className = "beat" + (b.cta ? " cta" : "");
+  d.innerHTML = (b.cta ? '<span class="k">' + b.cta + '</span>' : "") + b.html;
+  d.style.opacity = "0";
+  host.appendChild(d); return d;
+});
+function layout(){ nodes.forEach(n => {
+  const p = n.style.opacity; n.style.opacity = "0";
+  n.style.top = ((1920 - n.offsetHeight) / 2 - 30) + "px"; n.style.opacity = p; }); }
+
+const easeOut = t => 1 - Math.pow(1 - t, 3);
+const cl = v => v < 0 ? 0 : v > 1 ? 1 : v;
+
+function seek(t){
+  atmosphere(t);
+  P.beats.forEach((b, i) => {
+    const n = nodes[i], IN = 0.62, OUT = 0.40;
+    let o = 0, y = 26;
+    if (t >= b.in - 0.001 && t < b.out){
+      const ip = cl((t - b.in) / IN), op = cl((t - (b.out - OUT)) / OUT);
+      o = easeOut(ip) * (1 - op);
+      y = 26 * (1 - easeOut(ip)) - 14 * op;
+    }
+    n.style.opacity = o.toFixed(4);
+    n.style.transform = "translateY(" + y.toFixed(2) + "px)";
+  });
+  document.getElementById("rule").style.width = (904 * (t / DUR)).toFixed(1) + "px";
+}
+const FACES = ['400 86px "Instrument Serif"', '500 24px "IBM Plex Mono"'];
+const NAMES = ["Instrument Serif", "IBM Plex Mono"];
+/* document.fonts.ready has hung behind the proxy before, and when it does the
+   beats get measured in a fallback face and land at the top of the frame. So
+   ask for the faces by name, then poll until the metrics are actually the ones
+   we are going to draw with. A render in the wrong face is worse than no
+   render, so this reports failure rather than carrying on quietly. */
+/* document.fonts.check returns true for a family that was never defined at
+   all, because there is nothing outstanding to load. That is how a render
+   went out in Georgia while reporting its fonts were fine. So ask the
+   registry for a face that actually exists and has actually loaded. */
+const faceLoaded = name => {
+  let ok = false;
+  document.fonts.forEach(ff => {
+    if (ff.family.replace(/["']/g, "") === name && ff.status === "loaded") ok = true;
+  });
+  return ok;
+};
+const fontsUsable = async () => {
+  try { await Promise.all(FACES.map(f => document.fonts.load(f))); } catch (e) {}
+  const deadline = Date.now() + 25000;
+  while (Date.now() < deadline){
+    if (NAMES.every(faceLoaded)) return true;
+    await new Promise(r => setTimeout(r, 100));
+  }
+  return NAMES.every(faceLoaded);
+};
+window.seek = seek;
+layout(); seek(0);
+(async () => {
+  window.__fonts = await fontsUsable();
+  window.__plate = true;                 // typography cut, nothing to load
+  layout(); seek(0);
+  window.__ready = window.__fonts;
+})();
+</script>
+</body></html>

@@ -1,0 +1,181 @@
+[
+  {
+    "id": "HAL-009-CESA",
+    "slug": "hocus-pocus-cesa",
+    "seed": 90,
+    "duration": 18.0,
+    "label": "Gentle Muse · Spooky Season",
+    "source": "Source: Box Office Mojo; trade reporting, 1993 · HAL-009",
+    "beats": [
+      {
+        "in": 0.0,
+        "out": 2.4,
+        "html": "Hocus Pocus<br>was a flop.",
+        "cta": null
+      },
+      {
+        "in": 2.4,
+        "out": 5.3,
+        "html": "It opened in July 1993,<br>against summer<br>blockbusters, and<br>lost money.",
+        "cta": null
+      },
+      {
+        "in": 5.3,
+        "out": 8.6,
+        "html": "It only became a classic<br>because it ran on TV<br>every October until a<br>generation assumed<br>it always had.",
+        "cta": null
+      },
+      {
+        "in": 8.6,
+        "out": 11.8,
+        "html": "<span class='em'>It didn't get better.<br>It got found.</span>",
+        "cta": null
+      },
+      {
+        "in": 11.8,
+        "out": 15.2,
+        "html": "She's 19, and she only<br>just became the<br>main character.",
+        "cta": null
+      },
+      {
+        "in": 15.2,
+        "out": 18.0,
+        "html": "19 years old, 10 of them mine.<br>15 pages of what actually<br>keeps her comfortable.<br><span class='em'>Free, and yours.</span>",
+        "cta": "CESA in the comments"
+      }
+    ],
+    "clip": {
+      "file": "real/cesa-in-a-hoodie-2.jpg",
+      "push": 0.13,
+      "drift": -60,
+      "grade": 0.3,
+      "clip_id": "cesa-in-a-hoodie-2",
+      "match_reason": "The last beat makes an old dog the main character. The plate is Cesa facing the lens directly, dressed, centred in the grass. She is the one being found.",
+      "override": true
+    },
+    "contract": "Cesa is old and I am keeping the record while she is still here.",
+    "claims": [
+      "SUB-001"
+    ],
+    "keyword": "CESA",
+    "keyword_delivers": "19 Years Old, 10 of Them Mine (15pp) via IG and FB comment-to-DM"
+  },
+  {
+    "id": "HAL-016-CESA",
+    "slug": "winchester-cesa",
+    "seed": 91,
+    "duration": 18.0,
+    "label": "Gentle Muse · Spooky Season",
+    "source": "Source: Encyclopaedia Britannica; Winchester Mystery House records · HAL-016",
+    "beats": [
+      {
+        "in": 0.0,
+        "out": 2.2,
+        "html": "She is never going<br>to explain herself.",
+        "cta": null
+      },
+      {
+        "in": 2.2,
+        "out": 5.2,
+        "html": "Sarah Winchester built<br>a house for 35 years<br>and never once<br>said why.",
+        "cta": null
+      },
+      {
+        "in": 5.2,
+        "out": 7.8,
+        "html": "Bought it in 1886, kept<br>building until she<br>died in 1922.",
+        "cta": null
+      },
+      {
+        "in": 7.8,
+        "out": 11.2,
+        "html": "Every ghost story about<br>that house was written<br>after she was dead, by<br>people who couldn't<br>stand not knowing.",
+        "cta": null
+      },
+      {
+        "in": 11.2,
+        "out": 14.4,
+        "html": "<span class='em'>People will build you a<br>whole haunted house<br>rather than accept<br>the silence.</span>",
+        "cta": null
+      },
+      {
+        "in": 14.4,
+        "out": 18.0,
+        "html": "19 years old, 10 of them mine.<br>15 pages of what actually<br>keeps her comfortable.<br><span class='em'>Free, and yours.</span>",
+        "cta": "CESA in the comments"
+      }
+    ],
+    "clip": {
+      "file": "real/cesa-and-me-2017-2.jpg",
+      "push": 0.11,
+      "drift": -50,
+      "grade": 0.32,
+      "clip_id": "cesa-and-me-2017-2",
+      "match_reason": "The caption opens on a refusal to explain. The plate is both of them looking straight out with Amanda deadpan. The deadpan is the line.",
+      "override": true
+    },
+    "contract": "Cesa is old and I am keeping the record while she is still here.",
+    "keyword": "CESA",
+    "keyword_delivers": "19 Years Old, 10 of Them Mine (15pp) via IG and FB comment-to-DM"
+  },
+  {
+    "id": "XMS-001-CESA",
+    "slug": "rudolph-cesa",
+    "seed": 92,
+    "duration": 18.0,
+    "label": "Gentle Muse · December",
+    "source": "Source: Library of Congress; Montgomery Ward corporate history · XMS-001",
+    "beats": [
+      {
+        "in": 0.0,
+        "out": 2.6,
+        "html": "Rudolph was an ad.",
+        "cta": null
+      },
+      {
+        "in": 2.6,
+        "out": 5.6,
+        "html": "Robert L. May wrote him<br>in 1939 as a free<br>giveaway booklet for<br>Montgomery Ward.",
+        "cta": null
+      },
+      {
+        "in": 5.6,
+        "out": 8.8,
+        "html": "He was in debt. His wife<br>was dying. That was<br>the year he wrote it.",
+        "cta": null
+      },
+      {
+        "in": 8.8,
+        "out": 12.0,
+        "html": "The most cheerful<br>character of the season<br>came out of the worst<br>year of a man's life.",
+        "cta": null
+      },
+      {
+        "in": 12.0,
+        "out": 15.2,
+        "html": "<span class='em'>About being the one<br>who doesn't fit.</span>",
+        "cta": null
+      },
+      {
+        "in": 15.2,
+        "out": 18.0,
+        "html": "19 years old, 10 of them mine.<br>15 pages of what actually<br>keeps her comfortable.<br><span class='em'>Free, and yours.</span>",
+        "cta": "CESA in the comments"
+      }
+    ],
+    "clip": {
+      "file": "real/cesa-on-my-lap.jpg",
+      "clip_id": "cesa-on-my-lap",
+      "push": 0.1,
+      "drift": 0,
+      "grade": 0.28,
+      "override": true,
+      "match_reason": "The turn is that the most cheerful thing of the season came out of the worst year of a life. So the plate has to actually be cheerful. This one is: Amanda genuinely smiling down at Cesa in a hat, indoors, warm light. The porch frame it replaces shows endurance, not warmth, which contradicted the line it was carrying.",
+      "framed": "2592x1944 horizontal. Cover fitted to 1920 tall, then panned to 37 percent so Cesa's head clears the left edge instead of being cut by it, with Amanda's face still inside the right edge.",
+      "panX": 37
+    },
+    "contract": "Cesa is old and I am keeping the record while she is still here.",
+    "keyword": "CESA",
+    "keyword_delivers": "19 Years Old, 10 of Them Mine (15pp) via IG and FB comment-to-DM"
+  }
+]

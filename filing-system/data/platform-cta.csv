@@ -1,0 +1,10 @@
+Platform,AccountId,Handle,KeywordWorks,LinkClickable,RequiredActions,CTAShape,Why
+instagram,45886,thegentlemuse2026,yes,no,,keyword,"Comment to DM automations run here. Links in captions are not clickable, so the keyword is the only working path."
+instagram,65540,cesasgoldenyears,partial,no,,keyword,"Only CONSIDER CESA SEASONAL are live on this account. Any other keyword here is a dead end."
+facebook,30840,The Gentle Muse,yes,yes,,keyword,Automations run here and links are clickable. Keyword first because it capture the email.
+tiktok,41488,thegentlemuse2026,no,bio,follow|share|save|like,action,"No automation, and a URL in a TikTok caption is plain text, not tappable. The action is the ask and the link lives in the bio."
+tiktok,55761,cesasgoldenyears,no,bio,follow|share|save|like,action,Same as the main TikTok. No automation, and caption URLs are not tappable.
+youtube,36129,Amanda Kersh,no,yes,follow|share|save|like|subscribe,action,"No automation. Description links are clickable, so the link carries the magnet and the ask is for the action."
+linkedin,20723,AMANDA KERSH,no,yes,follow|share,action,No automation. A keyword here has no listener.
+twitter,21430,GentleMuse2026,no,yes,follow|share,action,No automation. A keyword here has no listener.
+pinterest,6328,TheGentleMuse2026,no,field,save,action,"No automation. The destination is a field on the pin, not caption text, so the caption does not need a URL."

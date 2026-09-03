@@ -1,0 +1,15 @@
+HolidayID,Holiday,Rule,LeadDays,TailDays,Slot,Register,Notes
+new-years,New Year,fixed:01-01,7,3,Mindset,reflective,"Reset season, her strongest lane. Lead with the history of the date, not resolutions."
+valentines,Valentine's Day,fixed:02-14,14,1,Flirtatious Feminine,tender,"Self-possessed, never lonely-coded. The 1477 letter is the anchor."
+st-patricks,St Patrick's Day,fixed:03-17,7,1,Relaxed,celebratory,Myth-bust lane. Almost everything popularly believed about it is wrong.
+easter,Easter,easter,10,1,Soft Life,quiet,"Spring reset and home ritual. Seasonal, not doctrinal."
+mothers-day,Mother's Day,nth:5:6:2,14,1,Life Story,tender,Anna Jarvis is the backbone. The founder who fought what it became.
+memorial-day,Memorial Day,last:5:0,7,1,Relaxed,reflective,"Restraint. No sale framing on this one, no product slot."
+fathers-day,Father's Day,nth:6:6:3,10,1,Life Story,tender,
+independence-day,Fourth of July,fixed:07-04,10,1,Relaxed,celebratory,July 2 against July 4 is the fact that carries the whole week.
+labor-day,Labor Day,nth:9:0:1,7,1,Mindset,reflective,"Rest as infrastructure, not as a reward for finishing."
+halloween,Halloween,fixed:10-31,31,1,Relaxed,spooky-warm,"The anchor of the strategy. Spooky season runs the whole month, so the bank runs deepest here."
+thanksgiving,Thanksgiving,nth:11:3:4,14,1,Life Story,nostalgic-warm,Parade and Sarah Josepha Hale. Gratitude without the generic gratitude post.
+black-friday,Black Friday,offset:thanksgiving:1,3,3,Product,reflective,"The real origin is a myth-bust, which is the only honest way she sells on this day."
+christmas,Christmas,fixed:12-25,25,1,Soft Life,nostalgic-warm,Peak nostalgia. December on the Disney Channel is the emotional field she named.
+new-years-eve,New Year's Eve,fixed:12-31,5,1,Relaxed,celebratory,Ball drop and Auld Lang Syne. Pairs straight into the New Year post.

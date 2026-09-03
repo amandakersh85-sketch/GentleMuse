@@ -1,0 +1,195 @@
+THE GENTLE MUSE — COMPETITOR TEARDOWNS AND THE CONTRACT, RUN 8 OF 28
+
+New. Created 09/01/2026. Written after a measured failure, not a suspected one.
+
+TOOLS: gm_teardown_check.py, gm_bind_check.py (extended)
+DATA:  data/competitor-teardowns.csv
+Live with the filing engine. Companion to Run 6 and Run 7.
+
+WHY THIS RUN EXISTS
+The number is 30,671 views and 13 email subscribers. Views to followers works.
+Followers to email does not. That is not a taste problem and no amount of
+better writing fixes it, because the writing is already good.
+
+So the question became what the accounts that do convert are actually doing,
+and the answer had to come from their content rather than from anybody's
+opinion about their content. Eight accounts were torn down. Five are women in
+the senior dog and pet loss lane, one is the format leader, and two are pages
+currently paying to distribute senior dog material.
+
+WHAT THE TEARDOWNS FOUND
+Not one of them asks for the follow. Every one of them states a promise.
+
+  Jen at @thatgoodnewsgirl closes on "I'm Jen, and I post something positive
+  every day." That is a delivery and a frequency. The follow is the mechanism
+  for receiving it, so it does not have to be requested.
+
+  @jackiepajan opens on "You know how I feel about the seniors, guys." That
+  sentence is unavailable on video one. It is what a stance sounds like after
+  it has been repeated until the audience holds it for her.
+
+  @kristentbrown ran to 2.9 million views at a 22 percent like rate on a
+  caption that names her father and her dead dog before it names the dog she
+  adopted. The senior dog is the evidence. The grief is the subject. People
+  were not liking a dog, they were agreeing with a claim about their own
+  future.
+
+That is the finding. A call to action is a request. A contract is a promise
+with a frequency or a stance behind it, and it is the thing an audience can
+subscribe to. Amanda has been shipping requests.
+
+WHY THIS IS A COLUMN AND NOT A REMINDER
+Run 6 established the pattern. When the same failure lands twice, the fix is
+the missing field and a check that refuses to ship without it, because guidance
+governs judgment and judgment is what already failed. A note saying "state a
+promise" would be read by the same step that has been writing good calls to
+action and thinking the job was done.
+
+So a reel payload now carries a contract, and gm_teardown_check.py refuses any
+reel that carries a call to action without one. It also refuses a contract that
+is a request wearing a promise's clothes. Follow for more, link in bio, don't
+forget to, and the rest of that family are rejected by name.
+
+The two contracts in force:
+
+  History lane   Every holiday carries a fact somebody softened. I post the
+                 real one before the day arrives.
+  Cesa lane      Cesa is old and I am keeping the record while she is still
+                 here.
+
+Both are checkable. The first is checkable against the calendar, which already
+carries LeadDays, so the promise to post before the day is one the data keeps.
+The second is checkable against whether the footage keeps arriving.
+
+WHAT THE BANK REFUSES
+The teardown bank has a Confidence column with two states that matter. A row is
+either backed by an artifact somebody read, or it is a name in somebody else's
+roundup. The gate will not let the second be cited as the first.
+
+This exists because the research nearly failed in exactly that way. Asked to
+pick the accounts, the honest position was that mid-tier handles could not be
+enumerated without inventing them, and an invented handle is indistinguishable
+from a real one until somebody tries to open it. Three nostalgia names came
+back from a published list with no handle attached. They are in the bank as
+leads, marked unusable, and they will stay that way until an artifact is
+pulled. An AI research query returned one unconfirmed handle and was discarded.
+
+That is rule 5 made mechanical. No substitution. When the right input is
+missing, say so and stop.
+
+WHAT ELSE THIS RUN CLOSED
+The reel factory payloads had never passed the Run 6 binding gate. They use a
+different shape, one plate under a whole reel with timed beats over it, and the
+gate could not read it, so make-reels.sh would have refused to render on
+Amanda's machine and the five reels already built were bound by hand with
+nothing checking the hand. The gate now reads that shape. All ten reels pass.
+
+HAL-009-CESA and HAL-013-CESA both assert that Cesa is 19. That number was
+written by an assistant before anyone had asked, so both reels were held and
+the gate returned HOLD. Amanda confirmed the age on 09/01/2026 and both are
+released.
+
+The hold was the right call and the release is not the end of it. A number that
+happened to be correct is still a number nobody could check, and the next
+assistant writing a Cesa reel would have had to guess again. So the age now
+lives in data/subject-facts.csv with who confirmed it and when, and the two
+reels cite SUB-001 rather than asserting it on their own authority.
+
+The standing rule: a claim about Amanda or Cesa that is not in subject-facts.csv
+goes in the payload's holds array. Not deleted, not softened, not guessed at a
+second time. Held, in the file, where it blocks the render until she answers.
+
+Five bindings are declared metaphors. A still of Cesa under a caption about
+Hocus Pocus shares no word with the caption by design, and the gate now
+requires that to be stated rather than allowing it to pass unnoticed.
+
+REQUEST TO DELIVERY, AND THE KEYWORD BEHIND IT
+Amanda's instruction, in her words: authority, promise, delivery. We are not
+asking anybody for anything. So the closing beat of every reel was rewritten.
+The mechanic did not change. Only the grammar did.
+
+  Was   Share it / Send this to whoever still says they were burned.
+  Now   The real one / Somebody you know still says burned. You can fix
+        that now.
+
+The share still happens. It is simply stated as a fact about a person the
+viewer knows rather than an instruction to the viewer. C04_REQUEST_NOT_DELIVERY
+enforces it by refusing any closing beat, label or line, that opens on an
+imperative: send, share, tag, follow, comment, save, drop, like, subscribe,
+click, grab, download, watch, swipe and the rest of that family.
+
+Then the bigger finding, which only surfaced because the automations were
+finally read rather than assumed about. Amanda runs twelve live comment-to-DM
+automations across Instagram and Facebook. GUIDE, CONSIDER, RESET, TUESDAY,
+CESA and PLAY are all armed, and TUESDAY and CONSIDER capture an email address
+before they deliver. Comment to DM converts three to five times better than a
+link in bio on ManyChat's own numbers across a million campaigns.
+
+Not one of the ten reels named a keyword. 30,671 views went out over a machine
+that was built, live, and never pointed at.
+
+The four Cesa reels now close on CESA, which delivers the guide called 19 Years
+Old, 10 of Them Mine. That match is exact, and it got better the day Amanda
+confirmed the age the reels already assert.
+
+The six history reels name no keyword, and that is recorded rather than fixed.
+GUIDE is about AI tools. CONSIDER is home curation. TUESDAY is building with
+AI. PLAY is audiobooks. RESET is overwhelm. None of them is what somebody who
+just watched a Salem fact wants next, and jamming the nearest one in would be
+the substitution this system exists to refuse. So each of those six carries a
+keyword_gap saying so, and C05_NO_CAPTURE_PATH refuses a reel that stays silent
+about where the viewer goes next. The gap is now a visible standing finding
+instead of an oversight nobody wrote down.
+
+The real fix is a history lane lead magnet, and the material for it already
+exists. The fact bank is 50 sourced holiday facts with the turn on each one.
+That is the product. The contract already names it.
+
+THE BOTTLENECK AUTOMATION, AND THE CALLS MADE WITH IT
+Live on Instagram (3994) and Facebook (3995) as of 09/01/2026, keyword
+BOTTLENECK, authorised by Amanda. The DM promises and delivers. It does not
+ask, and the button is a noun rather than a command.
+
+The URL was verified rather than trusted. A page summariser offered
+/bottleneck-check and /2-minute-bottleneck-check, and both are 404s. The site's
+own hrefs give /business-bottleneck-check, which returns 200 with the right
+page title. The body is JS rendered so the quiz itself could not be read from
+here, which is a limit worth writing down rather than a reason to guess.
+
+Three decisions taken rather than handed over:
+
+  STUCK as a second keyword. No. It fires on somebody writing "I'm so stuck"
+  who was not asking for anything, and an unsolicited DM with a link in it
+  reads as spam. That costs exactly the trust this brand runs on, and
+  BOTTLENECK is unambiguous consent. Cheap to add later if the data says so.
+
+  A follow gate on Instagram. No. This is a first touch magnet and a gate is
+  friction on the one step that has to be frictionless. None of the other
+  magnets gate either, so gating this one would be inconsistent as well as
+  worse.
+
+  The driving b-roll. Out of reach, tested rather than assumed. Nothing in the
+  library is described as driving footage, the five unsorted candidates are all
+  above the 5.5MB connector ceiling, and a 7.5MB pull returns session expired
+  the same way a 6.37MB one did in Run 7. Making the files link readable to get
+  round it would mean changing permissions on Amanda's private media, which is
+  not a call to take on her behalf. This one opens when make-reels.sh is run
+  locally, and not before.
+
+HOW TO RUN IT
+  python3 filing-system/scripts/gm_teardown_check.py --bank filing-system/data/competitor-teardowns.csv
+  python3 filing-system/scripts/gm_teardown_check.py --render reel-factory/
+  python3 filing-system/scripts/gm_bind_check.py --render reel-factory/ --library filing-system/data/clip-library-drive.csv
+  bash filing-system/tests/run-tests.sh
+
+Exit 0 passes. Exit 1 blocks. Exit 2 holds and waits on Amanda.
+
+WHAT THIS RUN DOES NOT DO
+It does not post, schedule, or publish anything. It does not add a competitor
+to Metricool. It does not decide the contracts are right, only that they exist
+and are not requests. Approval is still the gate.
+
+SAFETY
+Propose-only. Both scripts read and neither writes to anything outside a report
+file it was asked for. Nothing is deleted. Nothing is routed. A PASS is a
+proposal.

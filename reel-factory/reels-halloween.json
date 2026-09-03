@@ -1,0 +1,260 @@
+[
+ {
+  "id": "HAL-008",
+  "slug": "trick-or-treat-1927",
+  "seed": 71,
+  "duration": 17.0,
+  "label": "Gentle Muse \u00b7 Halloween",
+  "source": "Source: Merriam-Webster word history \u00b7 HAL-008",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.0,
+    "html": "Trick or treat<br>is younger than jazz.",
+    "cta": null
+   },
+   {
+    "in": 3.0,
+    "out": 6.4,
+    "html": "The phrase does not appear<br>in North American print<br>until the 1920s.",
+    "cta": null
+   },
+   {
+    "in": 6.4,
+    "out": 9.8,
+    "html": "One of the earliest<br>is a 1927 newspaper<br>in Blackie, Alberta.",
+    "cta": null
+   },
+   {
+    "in": 9.8,
+    "out": 13.2,
+    "html": "<span class='em'>Traditions get invented.<br>And recently.</span>",
+    "cta": null
+   },
+   {
+    "in": 13.2,
+    "out": 17.0,
+    "html": "The oldest looking part<br>of the night<br>is the newest thing about it.",
+    "cta": null
+   }
+  ]
+ },
+ {
+  "id": "HAL-002",
+  "slug": "turnips-before-pumpkins",
+  "seed": 72,
+  "duration": 17.0,
+  "label": "Gentle Muse \u00b7 Halloween",
+  "source": "Source: Library of Congress, American Folklife Center \u00b7 HAL-002",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.0,
+    "html": "Jack o lanterns<br>were turnips.",
+    "cta": null
+   },
+   {
+    "in": 3.0,
+    "out": 6.6,
+    "html": "Ireland and Scotland<br>carved turnips and beets<br>for centuries.",
+    "cta": null
+   },
+   {
+    "in": 6.6,
+    "out": 10.2,
+    "html": "Irish immigrants switched<br>in America because pumpkins<br>were bigger to hollow.",
+    "cta": null
+   },
+   {
+    "in": 10.2,
+    "out": 13.6,
+    "html": "<span class='em'>The ritual mattered.</span>",
+    "cta": null
+   },
+   {
+    "in": 13.6,
+    "out": 17.0,
+    "html": "The turnip did not.",
+    "cta": null
+   }
+  ]
+ },
+ {
+  "id": "HAL-015",
+  "slug": "snick-1992",
+  "seed": 73,
+  "duration": 17.0,
+  "label": "Gentle Muse \u00b7 Halloween",
+  "source": "Source: Nickelodeon broadcast history \u00b7 HAL-015",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.2,
+    "html": "Somebody decided children<br>deserved their own night.",
+    "cta": null
+   },
+   {
+    "in": 3.2,
+    "out": 6.6,
+    "html": "Nickelodeon launched SNICK<br>in August 1992.",
+    "cta": null
+   },
+   {
+    "in": 6.6,
+    "out": 10.0,
+    "html": "2 hours on a Saturday,<br>programmed entirely<br>for kids.",
+    "cta": null
+   },
+   {
+    "in": 10.0,
+    "out": 13.4,
+    "html": "<span class='em'>In the slot adults<br>had always owned.</span>",
+    "cta": null
+   },
+   {
+    "in": 13.4,
+    "out": 17.0,
+    "html": "It worked because it was theirs.<br>Not because it was gentle.",
+    "cta": null
+   }
+  ]
+ },
+ {
+  "id": "HAL-012",
+  "slug": "casper-1995-cgi",
+  "seed": 74,
+  "duration": 17.0,
+  "label": "Gentle Muse \u00b7 Halloween",
+  "source": "Source: Encyclopaedia Britannica; ILM production history \u00b7 HAL-012",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.2,
+    "html": "Casper built its lead<br>out of nothing at all.",
+    "cta": null
+   },
+   {
+    "in": 3.2,
+    "out": 6.8,
+    "html": "1995. The first feature film<br>to carry a fully computer<br>generated character in a lead.",
+    "cta": null
+   },
+   {
+    "in": 6.8,
+    "out": 10.2,
+    "html": "Every frame of him<br>was made rather than filmed.",
+    "cta": null
+   },
+   {
+    "in": 10.2,
+    "out": 13.6,
+    "html": "<span class='em'>A film about a ghost<br>nobody could touch.</span>",
+    "cta": null
+   },
+   {
+    "in": 13.6,
+    "out": 17.0,
+    "html": "They built him from air.",
+    "cta": null
+   }
+  ]
+ },
+ {
+  "id": "HAL-005",
+  "slug": "safety-coffin-1843",
+  "seed": 75,
+  "duration": 17.0,
+  "label": "Gentle Muse \u00b7 Halloween",
+  "source": "Source: US Patent 3335, life preserving coffin, 1843 \u00b7 HAL-005",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.4,
+    "html": "Victorians were frightened<br>enough of being buried alive<br>to patent a way out.",
+    "cta": null
+   },
+   {
+    "in": 3.4,
+    "out": 7.0,
+    "html": "Safety coffins came with<br>bells, ropes<br>and breathing tubes.",
+    "cta": null
+   },
+   {
+    "in": 7.0,
+    "out": 10.4,
+    "html": "Christian Eisenbrandt<br>patented one<br>in 1843.",
+    "cta": null
+   },
+   {
+    "in": 10.4,
+    "out": 13.8,
+    "html": "<span class='em'>A whole industry grew<br>around a fear nobody<br>would say out loud.</span>",
+    "cta": null
+   },
+   {
+    "in": 13.8,
+    "out": 17.0,
+    "html": "Fear does not stay quiet.<br>It builds things.",
+    "cta": null
+   }
+  ]
+ },
+ {
+  "id": "HAL-018",
+  "slug": "lugnano-stone",
+  "seed": 76,
+  "duration": 17.0,
+  "label": "Gentle Muse \u00b7 Halloween",
+  "source": "Source: University of Arizona excavation at Lugnano in Teverina, 2018 \u00b7 HAL-018",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.2,
+    "html": "They put a stone<br>in the child's mouth.",
+    "cta": null
+   },
+   {
+    "in": 3.2,
+    "out": 6.8,
+    "html": "A Roman era grave<br>excavated at Lugnano, Italy.",
+    "cta": null
+   },
+   {
+    "in": 6.8,
+    "out": 10.2,
+    "html": "One of a set of burials<br>archaeologists read as meant<br>to stop the dead returning.",
+    "cta": null
+   },
+   {
+    "in": 10.2,
+    "out": 13.6,
+    "html": "<span class='em'>Every generation does<br>something physical about<br>a fear it cannot argue with.</span>",
+    "cta": null
+   },
+   {
+    "in": 13.6,
+    "out": 17.0,
+    "html": "Ours is just quieter.",
+    "cta": null
+   }
+  ]
+ }
+]

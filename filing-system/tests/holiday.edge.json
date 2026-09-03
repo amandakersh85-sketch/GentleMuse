@@ -1,0 +1,55 @@
+[
+  {
+    "title": "Wrong holiday",
+    "holiday_id": "halloween",
+    "post_date": "2026-10-20",
+    "platform": "instagram",
+    "fact_id": "XMS-001",
+    "hook": "Rudolph was a Montgomery Ward giveaway.",
+    "caption": "Robert L. May wrote the booklet in 1939 while he was in debt and his wife was dying. The cheerful one was written by someone having the worst year of his life.",
+    "hashtags": [
+      "#gentlemuse"
+    ]
+  },
+  {
+    "title": "Out of season",
+    "holiday_id": "valentines",
+    "post_date": "2026-08-01",
+    "platform": "instagram",
+    "fact_id": "VAL-001",
+    "hook": "The oldest valentine in English was written by a woman in 1477.",
+    "caption": "Margery Brews wrote to John Paston calling him her right well beloved valentine, in the middle of a dowry dispute her father would not settle. Tenderness and logistics have always run together.",
+    "hashtags": [
+      "#gentlemuse"
+    ]
+  },
+  {
+    "title": "Cites a fact it never tells, and never turns",
+    "holiday_id": "thanksgiving",
+    "post_date": "2026-11-20",
+    "platform": "instagram",
+    "fact_id": "THX-002",
+    "hook": "Thanksgiving is my favorite.",
+    "caption": "Cozy kitchen, good light, everybody home.",
+    "hashtags": [
+      "#gentlemuse",
+      "#thanksgiving",
+      "#cozy",
+      "#fall",
+      "#autumn",
+      "#november"
+    ]
+  },
+  {
+    "title": "TikTok keyword CTA and a repeat",
+    "holiday_id": "thanksgiving",
+    "post_date": "2026-11-22",
+    "platform": "tiktok",
+    "fact_id": "THX-002",
+    "hook": "The first Macy's parade borrowed animals from the zoo.",
+    "caption": "In 1924 the balloons did not exist yet, so Macy's walked live animals from the Central Park Zoo down the route. The version everyone pictures took 3 years to arrive.\n\nComment PARADE and I will send you the photos.",
+    "hashtags": [
+      "#gentlemuse"
+    ]
+  }
+]

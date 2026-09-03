@@ -1,6 +1,6 @@
 # Gentle Muse Filing System — Media Triage Modules
 
-Runs 3, 4, 5 and 6 of the 28-run Downloads Maintenance system.
+Runs 3 through 7 of the 28-run Downloads Maintenance system.
 
 These extend the existing filing engine (`asset_scanner.py`) to media.
 They do not replace it. `asset_scanner.py` already handles SHA-256 duplicate
@@ -17,12 +17,21 @@ video's duration, group a photo burst, or spot a sensitive document.
 | `scripts/GM-Doc-Triage.ps1` | Run 5. Paper. Version families, entity routing, sensitive HOLD. |
 | `scripts/gm_clip_library.py` | Run 6. Builds and audits `clip-library.csv` — what is actually *in* each clip. |
 | `scripts/gm_bind_check.py` | Run 6. The gate. Refuses any caption bound to a clip that doesn't show it. |
+| `scripts/gm_holiday_bank.py` | Run 7. Resolves the holiday calendar, audits the fact bank, and builds the content plan. |
+| `scripts/gm_holiday_check.py` | Run 7. The gate. Refuses any holiday caption whose history isn't in the bank. |
+| `data/holiday-calendar.csv` | Run 7. 14 holidays, their date rules, slots and season windows. |
+| `data/holiday-fact-bank.csv` | Run 7. 50 sourced facts, each with the turn that makes it hers and what it needs on screen. |
+| `scripts/gm_teardown_check.py` | Run 8. The gate. Refuses a competitor nobody read, and a reel that asks without promising. |
+| `data/competitor-teardowns.csv` | Run 8. 8 accounts torn down from their own content, plus 3 leads held as unusable. |
 | `sops/SOP_0819_video-triage-run-3.txt` | Run 3 SOP |
 | `sops/SOP_0819_photo-triage-run-4.txt` | Run 4 SOP |
 | `sops/SOP_0819_document-triage-run-5.txt` | Run 5 SOP |
 | `sops/SOP_0828_reel-caption-clip-binding.txt` | Run 6 SOP |
+| `sops/SOP_0829_holiday-caption-strategy.txt` | Run 7 SOP |
+| `sops/SOP_0901_competitor-teardowns.txt` | Run 8 SOP |
 | `patches/video-factory-clip-binding.md` | Paste-in patch for the `gentle-muse-video-factory` skill |
-| `tests/run-tests.sh` | Run 6 regression suite, 10 cases |
+| `patches/holiday-caption-strategy.md` | Paste-in patch for the video factory, `content-coach` and `post-grader` |
+| `tests/run-tests.sh` | Regression suite for Runs 6 and 7, 29 cases |
 
 SOPs are `.txt` on purpose. GitHub renders plain text preformatted, which keeps
 the column alignment the house format uses.
@@ -66,6 +75,37 @@ Exit `0` pass, `1` fail, `2` hold. See the Run 6 SOP for the full check list.
 Run 6 is Python, not PowerShell, so it runs and is tested anywhere:
 `bash tests/run-tests.sh`.
 
+## Run 7 — holiday caption strategy
+
+Same shape as Run 6, one layer up. A holiday post makes claims about the past,
+and nothing in the chain could tell a checked fact from a confident invention.
+Ask any assistant for a creepy historical Halloween fact and it produces one,
+dated and specific, whether or not it happened. Amanda loves history and her
+audience will come to trust her on it, so a plausible wrong date costs more
+than a weak hook.
+
+Run 7 adds the two missing tables and enforces them. A **fact bank**, where
+every row carries a source and a `Backbone`, the line that says why the fact
+matters. A **holiday calendar**, so season windows and floating dates are
+computed rather than remembered. And an **era window**, 1989 to 1999, because
+Amanda described the holiday register as a millennial born in 1985 watching the
+Disney Channel and Nickelodeon, which is a date range and therefore checkable.
+
+```
+python3 scripts/gm_holiday_bank.py --season
+python3 scripts/gm_holiday_bank.py --audit
+python3 scripts/gm_holiday_bank.py --plan --from 2026-10-01 --to 2026-10-31 --per-holiday 5
+python3 scripts/gm_holiday_check.py --post posts/
+```
+
+The plan comes back with the fact, the source and the backbone already attached
+to each date, which is the part that lets a batch get written without Amanda in
+the room. Each row also carries a `Delivery` value (`text`, `broll`, `cesa` or
+`face`), so the plan closes with what the batch needs filmed and how many posts
+can be finished with no footage at all. 11 of the 50 seeded facts are `text`. The gate refuses anything whose history is not in the bank, whose
+nostalgia lands outside the window, or which reports a fact without turning it.
+No fact means `HOLD`, never the nearest fact that fits. See the Run 7 SOP.
+
 ## Requirements
 
 - Windows PowerShell 5.1 or PowerShell 7 (Runs 3–5)
@@ -86,3 +126,32 @@ reproduction of the reported mismatch, all passing. It reads footage metadata an
 writes one CSV; it holds no delete command either. What it has *not* seen is
 Amanda's real library — the Shot descriptions don't exist yet, and writing them
 is step 3 of the Run 6 SOP.
+
+Run 7 written 08/29/2026, before the failure rather than after it. Executed here:
+`bash tests/run-tests.sh` now runs 29 cases across Runs 6 and 7, all passing,
+including a reproduction of the invented-fact failure. Both scripts are
+read-only and hold no delete command. The 50 seeded facts were written from
+standard reference works and each row names its source, but they have not been
+re-checked against those sources by a second reader. The sources are named so
+that pass is possible, and the Run 7 SOP says to do it before the Halloween
+batch ships.
+
+## Run 8 — competitor teardowns and the contract
+
+30,671 views produced 13 email subscribers. Views to followers works. Followers
+to email does not, and the writing was never the problem.
+
+Eight accounts were torn down from their own transcripts and captions rather
+than from anybody's opinion of them. None of them ask for the follow. Every one
+states a promise with a frequency or a stance behind it. So a reel payload now
+carries a `contract`, and the gate refuses a reel that carries a call to action
+without one, or a contract that is a request in disguise.
+
+    python3 scripts/gm_teardown_check.py --bank data/competitor-teardowns.csv
+    python3 scripts/gm_teardown_check.py --render ../reel-factory/
+
+Exit `0` pass, `1` fail, `2` hold. The bank separates an account somebody read
+from a name in somebody else's roundup, and will not let the second be cited as
+the first. Run 8 also taught the Run 6 binding gate to read the reel factory's
+payload shape, which it could not do before, so the ten built reels are checked
+for the first time.

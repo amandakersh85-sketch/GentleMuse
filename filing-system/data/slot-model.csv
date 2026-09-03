@@ -1,0 +1,7 @@
+SlotID,Slot,LocalTime,UTC,Timezone,AccountIds,Platforms,Source,MagnetRule,PerDay,Why
+1,FACT,10:00,15:00,America/Chicago,45886,instagram,holiday-fact-bank or daily-fact-bank,SEASONAL,1,"Instagram owns 10:00 Central and nothing else goes there. Moving it costs 25 percent, which is the 1 account that cannot afford it."
+1b,FACT,12:00,17:00,America/Chicago,30840|41488,facebook|tiktok,the same asset as slot 1,SEASONAL or action,1,"Facebook at noon beats its own 10:00 peak, 15834 against 15528. TikTok noon is its second slot."
+2,ROTATION,15:00,20:00,America/Chicago,45886,instagram,the weekday rotation slot,by weekday,1,Instagram's second slot on the ladder. 5 hours clear of the fact post.
+2b,ROTATION,18:00,23:00,America/Chicago,41488,tiktok,the same asset as slot 2,action plus bio,1,"TikTok 18:00 beats its own peak, 1096 against 1089."
+3,PERSONAL,18:00,23:00,America/Chicago,45886,instagram,Amanda or Cesa,CESA or CONSIDER,1,"Third Instagram slot, added to the ladder. 18:00 not 19:00 because 19:00 Central lands at 00:00Z the next day and that trap already cost 4 Cesa posts a day."
+3b,PERSONAL,17:00,22:00,America/Chicago,30840,facebook,the same asset as slot 3,CESA or CONSIDER,1,Facebook's second ladder slot.

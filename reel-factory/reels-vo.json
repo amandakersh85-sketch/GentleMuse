@@ -1,0 +1,58 @@
+[
+  {
+    "id": "HAL-006-VO",
+    "seed": 37,
+    "slug": "witch-trials-not-medieval-vo",
+    "duration": 19.33,
+    "label": "Gentle Muse · Spooky Season",
+    "source": "Source: Encyclopaedia Britannica, witchcraft · HAL-006",
+    "beats": [
+      {
+        "in": 0.0,
+        "out": 2.73,
+        "html": "The witch trials<br>were not medieval.",
+        "cta": null,
+        "spoken": 2.28
+      },
+      {
+        "in": 2.73,
+        "out": 6.1,
+        "html": "They peaked in the 16th<br>and 17th centuries.",
+        "cta": null,
+        "spoken": 2.92
+      },
+      {
+        "in": 6.1,
+        "out": 11.26,
+        "html": "The worst of it ran<br>alongside the printing<br>press and the start of<br>modern science.",
+        "cta": null,
+        "spoken": 4.71
+      },
+      {
+        "in": 11.26,
+        "out": 14.72,
+        "html": "Progress and panic<br>were happening in<br>the same rooms.",
+        "cta": null,
+        "spoken": 3.01
+      },
+      {
+        "in": 14.72,
+        "out": 16.36,
+        "html": "<span class='em'>They usually are.</span>",
+        "cta": null,
+        "spoken": 1.19
+      },
+      {
+        "in": 16.36,
+        "out": 19.33,
+        "html": "Somebody you know thinks<br>we've moved past it.<br><span class='em'>This is the part they're missing.</span>",
+        "cta": "The real one",
+        "spoken": 2.52
+      }
+    ],
+    "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+    "delivery": "text",
+    "keyword": null,
+    "keyword_gap": "No live keyword matches this lane. GUIDE, CONSIDER, TUESDAY, PLAY and RESET are all about something else. The share close stands until a history magnet exists."
+  }
+]
