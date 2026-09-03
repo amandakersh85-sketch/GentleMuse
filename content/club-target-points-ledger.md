@@ -434,3 +434,91 @@ top-up had run at 06:40 UTC that morning and already filled those days, so the
 moves collided and had to be redone against a fresh read. **Re-read the live queue
 immediately before writing to it, never from a snapshot taken earlier in the
 session.**
+
+---
+
+## === AUDIT 3 Sep 2026, 00:09 UTC (Sun/Wed routine) ===
+
+Window 30 Aug to 2 Nov, published and scheduled, all platforms, 218 rows, no
+pagination cursor, so the window is complete.
+
+### Points added: +30. Running total 604.
+
+**#TargetCatandJackSummer TikTok published 2 Sep, 10 AM Central.** That is the
+first Club Target point earned since 21 Aug.
+
+| | |
+| --- | --- |
+| Baseline 17 Aug | 304 |
+| 9 TikToks, 20 to 21 Aug | 270 |
+| Cat and Jack TikTok, 2 Sep | 30 |
+| **Total** | **604** |
+
+`#TargetLittleFinds` (Adornia) TikTok is scheduled 3 Sep at 6 PM Central,
+post `3952005`. Something moved it off the 10 AM slot it was created on. It is
+still inside 3 Sep so the theme is not at risk. Worth 30 when it lands, taking
+her to 634.
+
+### 1. TikTok coverage: NO GAPS
+
+Both live themes carry a TikTok. Nothing is one-sided.
+
+### 2. A Club Target post FAILED
+
+Facebook, 1 Sep 00:59 UTC, the Cat and Jack `#ad` video:
+
+> Could not upload video to Facebook: the video could not be processed
+
+**Cost 0 points**, Facebook earns nothing in this program, and the TikTok and
+Instagram versions of the same theme both went out fine. Logged because the same
+failure on a TikTok row would cost the full 30 and must never pass unnoticed.
+The daily top-up now checks the failed queue every run.
+
+### 3. Duplicates: 3 new pairs, all Facebook, all regenerated
+
+| Text | Scheduled | And again |
+| --- | --- | --- |
+| Every weird sleeping position gets a 3 second stare | 11 Sep | 28 Sep |
+| Your sponge isn't sanitized after microwaving | 22 Sep | 27 Sep |
+| 5 books that are free forever | 21 Sep | 26 Sep |
+
+Same regeneration fault that produced the Adornia and Cat and Jack Instagram
+duplicates on 31 Aug, now on Facebook. Deletion is permanent so these are flagged
+for Amanda, not removed.
+
+### 4. REGRESSION: Instagram is over cap on 15 straight days again
+
+The 31 Aug respread put Instagram on 2 a weekday and 1 at the weekend. **Two daily
+top-up runs have undone it.** 68 Instagram rows are scheduled and 15 consecutive
+days from 3 Sep to 16 Sep exceed the cap, peaking at 5 on 3 Sep.
+
+Worse, the new rows are on times that are not slots at all: **16:30, 20:00, 22:00
+and 22:30 UTC**, alongside the retired 17:00 noon Central. The SOP allows only
+15:00 and 23:00.
+
+Hand-fixing this a second time is pointless while the generator keeps re-breaking
+it, so the fix went in at source instead. The daily top-up prompt now carries:
+
+- **Hard daily caps counted across the WHOLE DAY** as it will stand after its
+  writes, not just its own additions, for every platform.
+- **Only 15:00 and 23:00 UTC for Instagram.** Inventing a slot to fit an extra
+  post in is now explicitly banned, with 16:30, 20:00 and 22:30 named.
+- **Dedupe before creating**, on media filename or the first 120 characters of
+  text, anywhere in the queue, not just at the same timestamp.
+- **Re-read the live queue immediately before writing**, never from an earlier
+  snapshot.
+- **Check the failed queue every run** and report each failure with its error.
+
+The respread itself still needs doing once, after the next top-up runs clean.
+Holding for Amanda rather than fixing it a third time into the same fault.
+
+### 5. Queue health
+
+165 posts scheduled, running through 14 Oct. No longer at risk of running dry.
+
+### Verdict
+
+**+30 BANKED**, total 604, 634 once Adornia lands 3 Sep.
+**CLEAN** on TikTok coverage.
+**ACTION NEEDED** on 3 Facebook duplicates and the Instagram cap regression.
+**ROOT CAUSE FIXED** in the top-up routine, pending its next run.
