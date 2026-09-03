@@ -420,6 +420,7 @@ cta "edge cases all fire"               1 "$HERE/cta.edge.json" \
     P00_UNKNOWN_ACCOUNT P01_DEAD_KEYWORD P04_NO_ACTION P05_NO_LINK
 cta "a tiktok follow is a real return" 0 "$HERE/cta.tiktok.json"
 cta "a reach only post holds"           2 "$HERE/cta.hold.json"   H01_NO_CAPTURE_PATH
+cta "a swipe promise with 1 image is caught" 1 "$HERE/cta.swipe.json" P08_SWIPE_NO_CAROUSEL
 
 
 PLAN="$HERE/../scripts/gm_queue_plan.py"
