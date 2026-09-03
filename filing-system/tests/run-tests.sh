@@ -421,6 +421,27 @@ cta "edge cases all fire"               1 "$HERE/cta.edge.json" \
 cta "a tiktok follow is a real return" 0 "$HERE/cta.tiktok.json"
 cta "a reach only post holds"           2 "$HERE/cta.hold.json"   H01_NO_CAPTURE_PATH
 
+REPOST="$HERE/../scripts/gm_repost_media_check.py"
+
+repost() { # name expected_exit queue_file [expected_code ...]
+  local name="$1" want="$2" q="$3"; shift 3
+  local out; out="$(python3 "$REPOST" --queue "$q" --published "$HERE/repost-published.json" \
+                    --campaigns "$HERE/repost-campaigns.csv" 2>&1)"; local got=$?
+  local ok=1
+  [ "$got" = "$want" ] || { ok=0; echo "  exit $got, wanted $want"; }
+  for pat in "$@"; do
+    grep -q "$pat" <<<"$out" || { ok=0; echo "  missing: $pat"; }
+  done
+  if [ $ok = 1 ]; then echo "PASS  $name"; pass=$((pass+1))
+  else echo "FAIL  $name"; echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
+}
+
+echo
+echo "== repost media check =="
+repost "fresh media on a repeat and a campaign carousel both pass" 0 "$HERE/repost.clean.json"
+repost "a repeat wearing its worn media and a scheduled twin are caught" 1 "$HERE/repost.broken.json" \
+    R01_WORN_MEDIA_REPOST R02_TWIN_IN_SCHEDULE
+
 
 PLAN="$HERE/../scripts/gm_queue_plan.py"
 
