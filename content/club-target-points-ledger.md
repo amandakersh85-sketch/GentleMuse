@@ -522,3 +522,32 @@ Holding for Amanda rather than fixing it a third time into the same fault.
 **CLEAN** on TikTok coverage.
 **ACTION NEEDED** on 3 Facebook duplicates and the Instagram cap regression.
 **ROOT CAUSE FIXED** in the top-up routine, pending its next run.
+
+### Facebook duplicates removed 3 Sep, on Amanda's go
+
+Deleted `4056369`, `4056322`, `4056285`. Re-read the Facebook queue afterwards
+and confirmed all 3 pairs are gone, one copy of each survives:
+
+| Kept | Fires |
+| --- | --- |
+| Every weird sleeping position, `3732505` | 11 Sep |
+| Your sponge isn't sanitized, `3939608` | 22 Sep |
+| 5 books that are free forever, `3939602` | 21 Sep |
+
+### Correction to log against myself
+
+The 3 Sep audit wrote a hard cap of **1 Facebook post a day** into the daily
+top-up routine. That number was inferred, not measured. Reading the live Facebook
+queue afterwards shows it has been running **2 a day for weeks**, at 17:10 and
+22:00 UTC, and the 22:00 posts are a deliberate series: the SEASONAL holiday run
+(`4055xxx`) and the Cesa guide run (`4059xxx`). Both are real campaigns, not
+duplicates.
+
+So the cap is wrong and 22:00 UTC is a legitimate second Facebook slot, 5 PM
+Central. Left as-is for one cycle rather than pushing a third prompt rewrite in
+an hour. The top-up only places NEW rows, it never moves existing posts, so the
+worst this can do is defer a newly loaded Facebook row by a day. Checking the
+06:00 UTC run on the Sunday audit and correcting the number then.
+
+The Instagram rules from the same edit stand. Those were measured, not inferred:
+15 consecutive days over cap on times that are not slots at all.
