@@ -93,6 +93,18 @@ else
   echo "FAIL  audit worklist sorts undescribed clips oldest first"; echo "$out" | sed 's/^/      /'; fail=$((fail+1))
 fi
 
+python3 "$LIB_TOOL" --derive-dates "$HERE/clip-dates.sample.csv" --out "$TMP/dated.csv" >/dev/null 2>&1
+python3 - "$TMP/dated.csv" <<'PY'
+import csv, sys
+rows = {r["ClipID"]: r for r in csv.DictReader(open(sys.argv[1], encoding="utf-8-sig"))}
+assert rows["vid-20260409-115349002"]["Captured"] == "2026-04-09"
+assert rows["vid-20260409-115349002"]["DateSource"] == "filename"
+assert rows["reset"]["Captured"] == "2026-06-23"
+assert rows["reset"]["DateSource"] == "drive-upload"
+PY
+[ $? = 0 ] && { echo "PASS  derive-dates reads a phone filename's real capture date"; pass=$((pass+1)); } \
+           || { echo "FAIL  derive-dates reads a phone filename's real capture date"; fail=$((fail+1)); }
+
 hcheck() { # name expected_exit post_file [expected_code ...]   HARGS adds gate flags
   local name="$1" want="$2" post="$3"; shift 3
   local out; out="$(python3 "$HGATE" --post "$post" --bank "$BANK" --calendar "$CAL" $HARGS 2>&1)"; local got=$?

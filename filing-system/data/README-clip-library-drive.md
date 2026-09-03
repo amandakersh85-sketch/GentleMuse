@@ -6,21 +6,41 @@ hypothetical library.
 
 ## Why it stops here
 
-The footage exists and is fully identified, but it cannot reach the render
-environment. Both transports are closed:
+The footage exists and is fully identified, but the actual video cannot reach
+the render environment:
 
-- `drive.google.com` and `www.googleapis.com` are blocked by the egress proxy
-  (000 and 403 respectively).
 - The Drive connector returns file content as base64. The smallest Cesa clip is
   17 MB, which is 22.6 million characters, about 5.7 million tokens. Not viable
-  for a single file, let alone 34.
+  for a single file, let alone 34. This is arithmetic, not a permissions
+  question, and no connector fixes it.
 
 So the binding gate still correctly reports HOLD on every beat. Nothing here is
 a workaround for that, and nothing should be.
 
+What changed 2026-09-03: a `mcp__Google_Drive__search_files` /
+`get_file_metadata` connector works in-session and was used to run a full
+`owner = 'me'` sweep of every video file in the account, cross-checked against
+this CSV row by row. Nothing turned up that wasn't already here. So metadata
+(filenames, sizes, dates, folder ids) is reachable now, and re-running that
+sweep is the right move before assuming a clip is missing rather than just
+unsynced. Content is a different question from metadata and the size math
+above still holds regardless of transport — do not read that as "Drive is
+open" for the actual video bytes. Earlier notes here said the connector
+itself was blocked; that was true when written and is not the current state,
+so don't take a stale "egress-blocked" claim on faith without checking again.
+
 ## What unblocks it
 
-Two columns, in this order:
+After every new Drive sync (phone dumped to laptop, then uploaded), re-run the
+sweep above and re-derive dates before doing anything else — new rows land
+with only Drive's upload time, which is not when the footage was actually
+shot:
+
+```
+python3 ../scripts/gm_clip_library.py --derive-dates clip-library-drive.csv
+```
+
+Then two columns, in this order:
 
 1. `DurationSec`, `Resolution`, `Orientation` — run `ffprobe` over the local
    copies on the Windows machine, or re-run Run 3's `GM-Video-Triage.ps1` and
@@ -35,6 +55,9 @@ Set `Described` to `yes` per row as each is written, then:
 python3 ../scripts/gm_clip_library.py --audit clip-library-drive.csv
 python3 ../scripts/gm_bind_check.py --render reels/ --library clip-library-drive.csv
 ```
+
+`--audit` sorts the undescribed list by `Captured` (the derived date) oldest
+first, so it doubles as the work order: start at the top.
 
 ## Lanes
 
