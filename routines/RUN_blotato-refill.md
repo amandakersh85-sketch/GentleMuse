@@ -265,6 +265,46 @@ When both libraries are nearly exhausted, roughly 30 rows left unloaded across
 the two, say so and tell Amanda Wave 3 needs building. Never invent or improvise
 post content to fill a gap. Never claim something was scheduled that was not.
 
+## Club Target compliance gate (added 09/02/2026)
+
+Verified this day against the live Club Target portal, the Program Terms PDF and
+Blotato's automation list. The first two are now HARD GATES in
+`scripts/validate-wave.py`. The rest is judgement you have to carry.
+
+* **Never put a Club Target link or tag on the Cesa channel.** Program Terms 2.4:
+  "All domains used to post Links must be listed in your 'approved creator'
+  profile." `@cesasgoldenyears` is **not** listed, and the portal offers no way to
+  add it - Settings carries only profile picture, display name, email and
+  password. ENFORCED: the validator fails any row that combines a Cesa marker
+  (`cesasgoldenyears`, `cesa-guide.subscribepage.io`, `Comment CESA`) with a Club
+  Target marker (`club.target.com`, `#ClubTarget`, `#TargetPartner`).
+* **Every "Comment WORD" CTA must name a keyword that has a live automation.**
+  A CTA is a promise made in public; if nothing answers the word, the commenter
+  gets silence on the best-performing content there is. ENFORCED: the validator
+  holds the list of live keywords verified 09/02/2026 and fails the file on any
+  other word. The disabled ones - SESSION, PROMO, BUDGET, AI, HIBISCUS, NECKLACE,
+  BRACELET - are deliberately absent, because they are the trap.
+* **Cesa's keywords are CESA, CONSIDER and SEASONAL**, all on Blotato Instagram
+  account `65540`. SOOTHE is a Target body wash keyword on `45886` and is **not**
+  a Cesa keyword. Cesa's TikTok (`55761`) has **no automations at all**, so a
+  comment-keyword CTA there promises something nothing answers.
+* **Both Instagram accounts are under the 500-follower minimum.**
+  `@thegentlemuse2026` 184, `@cesasgoldenyears` 48, read from the profiles on
+  09/02/2026. Every challenge's rejection list reads verbatim: "Post from accounts
+  with less than 500 followers." **TikTok is the only account that clears it** -
+  that is why the TikTok-orphan check exists and why it is not negotiable. Of the
+  40 challenges open on 09/02, roughly 21 are IG Story or IG Reel/Post and are not
+  submittable today at all.
+* **A written ruling was requested from `clubtarget@target.com` on 09/02/2026**,
+  the channel Program Terms 15.9 prescribes. Three questions: may a second owned
+  account be added to the approved creator profile, is the 500 minimum applied
+  per-account or per-creator, and may distinct content from a second approved
+  account be entered into different challenges. **Do not relax the Cesa gate until
+  that reply lands and says yes.** If it says the minimum is per-creator, the whole
+  Instagram lane reopens and this section needs rewriting.
+
+---
+
 ## Standing rules that outrank convenience
 
 * Never declare something impossible or manual-only off one failed method. Try

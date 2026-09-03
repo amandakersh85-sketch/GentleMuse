@@ -124,6 +124,52 @@ def main(path):
         f'earns points ({len(orphans)} theme(s) with no TikTok: '
         f'{", ".join(orphans) if orphans else "none"})')
 
+    # ------------------------------------------------------------------
+    # CLUB TARGET COMPLIANCE GATES (added 09/02/2026)
+    # Verified this day against the live Club Target portal, the Program
+    # Terms PDF and Blotato's automation list. Re-verify before relaxing.
+    # ------------------------------------------------------------------
+
+    # Program Terms 2.4: "All domains used to post Links must be listed in
+    # your 'approved creator' profile." @cesasgoldenyears is NOT listed --
+    # the portal exposes no way to add a social account (Settings offers only
+    # picture, display name, email, password). It also sits at 48 followers
+    # against the 500 minimum quoted verbatim on every challenge's rejection
+    # list. So a Club Target link or tag on a Cesa-channel row is both a terms
+    # violation and an automatic challenge rejection.
+    # A written ruling was requested from clubtarget@target.com on 09/02/2026.
+    # Do not remove this gate until that reply arrives and says yes.
+    CESA_MARK = re.compile(
+        r'(cesasgoldenyears|cesa-guide\.subscribepage\.io|comment\s+CESA)', re.I)
+    TARGET_MARK = re.compile(r'(club\.target\.com|#ClubTarget|#TargetPartner)', re.I)
+    crossed = [p['id'] for p in parsed
+               if CESA_MARK.search(p['text']) and TARGET_MARK.search(p['text'])]
+    chk(not crossed,
+        'no row puts Club Target links or tags on the Cesa channel, which is '
+        f'not an approved creator domain ({len(crossed)} crossed: '
+        f'{", ".join(crossed) if crossed else "none"})')
+
+    # A "Comment WORD" CTA is a promise made in public. If no live automation
+    # answers that word, the commenter gets silence on the best-performing
+    # content. These are the keywords with isActive automations, verified
+    # 09/02/2026 via blotato_list_automations. The disabled ones that used to
+    # exist -- SESSION, PROMO, BUDGET, AI, HIBISCUS, NECKLACE, BRACELET -- are
+    # deliberately absent: they are the trap this check exists to catch.
+    LIVE_KEYWORDS = {
+        'CESA', 'CONSIDER', 'SEASONAL',              # @cesasgoldenyears (IG 65540)
+        'GUIDE', 'TUESDAY', 'PLAY', 'RESET', 'BOTTLENECK',
+        'BLOOM', 'FALLFIT', 'CURLTALK', 'SCRUB', 'SOAK', 'BUTTER',
+        'NATIVE', 'SOOTHE', 'BROW', 'LIPDRIP', 'GEL', 'MASK',
+    }
+    promised = set()
+    for row in parsed:
+        for word in re.findall(r'[Cc]omment\s+([A-Z]{3,12})\b', row['text']):
+            promised.add(word)
+    dead_kw = sorted(promised - LIVE_KEYWORDS)
+    chk(not dead_kw,
+        'every "Comment WORD" CTA names a keyword with a live automation '
+        f'({len(dead_kw)} unanswered: {", ".join(dead_kw) if dead_kw else "none"})')
+
     print()
     if fails:
         print(f'RESULT: {len(fails)} FAILURES')
