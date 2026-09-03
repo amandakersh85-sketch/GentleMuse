@@ -93,6 +93,12 @@ else
   echo "FAIL  audit worklist sorts undescribed clips oldest first"; echo "$out" | sed 's/^/      /'; fail=$((fail+1))
 fi
 
+if grep -q "ORIGIN  2 of 3 rows unconfirmed" <<<"$out"; then
+  echo "PASS  audit counts unconfirmed clip origins as proposals"; pass=$((pass+1))
+else
+  echo "FAIL  audit counts unconfirmed clip origins as proposals"; echo "$out" | sed 's/^/      /'; fail=$((fail+1))
+fi
+
 python3 "$LIB_TOOL" --derive-dates "$HERE/clip-dates.sample.csv" --out "$TMP/dated.csv" >/dev/null 2>&1
 python3 - "$TMP/dated.csv" <<'PY'
 import csv, sys

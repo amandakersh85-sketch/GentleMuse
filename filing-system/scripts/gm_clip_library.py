@@ -261,6 +261,21 @@ def audit(path):
         if len(undescribed) > 40:
             print("  ... and %d more" % (len(undescribed) - 40))
         print("")
+
+    # Origin: real footage, a HeyGen generation, or not yet known. A trailing
+    # "?" is a machine proposal from naming and timing evidence; house rule 4:
+    # Amanda confirms, the CSV records.
+    if "SourceKind" in header:
+        kinds = {}
+        for row in rows:
+            k = (row.get("SourceKind") or "unknown").strip() or "unknown"
+            kinds[k] = kinds.get(k, 0) + 1
+        unconfirmed = sum(v for k, v in kinds.items()
+                          if k == "unknown" or k.endswith("?"))
+        print("ORIGIN  %d of %d rows unconfirmed (a ? is a proposal, Amanda confirms)"
+              % (unconfirmed, len(rows)))
+        print("        " + "  ".join("%s %d" % (k, kinds[k]) for k in sorted(kinds)))
+        print("")
     if problems:
         print("PROBLEMS (%d)" % len(problems))
         for code, message in problems:

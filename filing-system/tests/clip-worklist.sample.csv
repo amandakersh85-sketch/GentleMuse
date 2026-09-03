@@ -1,4 +1,4 @@
-ClipID,File,DriveFileId,SizeMB,Created,Lane,DurationSec,Resolution,Orientation,Shot,Mood,Tags,Described,Source
-newer-clip,Newer Clip.mp4,id2,5.0,2026-07-01,GM,,,,,,,no,GoogleDrive
-older-clip,Older Clip.mp4,id1,5.0,2026-06-01,GM,,,,,,,no,GoogleDrive
-described-clip,Described Clip.mp4,id3,5.0,2026-06-15,GM,10.0,1080x1920,Vertical,"A clip that is already described in full sentence form",calm,tag,yes,GoogleDrive
+ClipID,File,DriveFileId,SizeMB,Created,Lane,DurationSec,Resolution,Orientation,Shot,Mood,Tags,Described,Source,SourceKind
+newer-clip,Newer Clip.mp4,id2,5.0,2026-07-01,GM,,,,,,,no,GoogleDrive,heygen?
+older-clip,Older Clip.mp4,id1,5.0,2026-06-01,GM,,,,,,,no,GoogleDrive,unknown
+described-clip,Described Clip.mp4,id3,5.0,2026-06-15,GM,10.0,1080x1920,Vertical,"A clip that is already described in full sentence form",calm,tag,yes,GoogleDrive,real
