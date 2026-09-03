@@ -166,7 +166,12 @@ def audit(path):
         shot = (row.get("Shot") or "").strip()
         flag = (row.get("Described") or "").strip().lower()
         if len(shot) < 12 or flag in ("no", "false", "0"):
-            undescribed.append(clip_id)
+            undescribed.append({
+                "id": clip_id,
+                "created": (row.get("Created") or "").strip(),
+                "lane": (row.get("Lane") or "").strip(),
+                "file": (row.get("File") or "").strip(),
+            })
         try:
             if float(row.get("DurationSec") or 0) <= 0:
                 problems.append(("NO_DURATION", 'clip "%s" has no duration' % clip_id))
@@ -174,15 +179,21 @@ def audit(path):
             problems.append(("BAD_DURATION",
                              'clip "%s" duration is not a number' % clip_id))
 
+    # Oldest first: a human works through these by hand, and the ones sitting
+    # longest unsorted are the ones most likely to get lost entirely.
+    undescribed.sort(key=lambda r: (r["created"], r["id"]))
+
     print("GM-Clip-Library audit")
     print("  file      : %s" % path)
     print("  clips     : %d" % len(rows))
     print("  described : %d" % (len(rows) - len(undescribed)))
     print("")
     if undescribed:
-        print("UNDESCRIBED — unusable until a Shot line is written (%d)" % len(undescribed))
-        for clip_id in undescribed[:40]:
-            print("  %s" % clip_id)
+        print("UNDESCRIBED — unusable until a Shot line is written (%d), oldest first"
+              % len(undescribed))
+        for u in undescribed[:40]:
+            print("  %-34s %-11s %-9s %s"
+                  % (u["id"], u["created"] or "?", u["lane"] or "?", u["file"]))
         if len(undescribed) > 40:
             print("  ... and %d more" % (len(undescribed) - 40))
         print("")

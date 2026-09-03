@@ -85,6 +85,14 @@ if grep -q "carried forward: 2" <<<"$out"; then
   echo "PASS  re-triage keeps descriptions"; pass=$((pass+1))
 else echo "FAIL  re-triage keeps descriptions"; echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
 
+out="$(python3 "$LIB_TOOL" --audit "$HERE/clip-worklist.sample.csv" 2>&1)"
+first="$(grep -E "older-clip|newer-clip" <<<"$out" | head -1)"
+if grep -q "older-clip" <<<"$first" && ! grep -q "described-clip" <<<"$out"; then
+  echo "PASS  audit worklist sorts undescribed clips oldest first"; pass=$((pass+1))
+else
+  echo "FAIL  audit worklist sorts undescribed clips oldest first"; echo "$out" | sed 's/^/      /'; fail=$((fail+1))
+fi
+
 hcheck() { # name expected_exit post_file [expected_code ...]   HARGS adds gate flags
   local name="$1" want="$2" post="$3"; shift 3
   local out; out="$(python3 "$HGATE" --post "$post" --bank "$BANK" --calendar "$CAL" $HARGS 2>&1)"; local got=$?
