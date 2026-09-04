@@ -1,0 +1,49 @@
+[
+ {
+  "id": "HAL-015",
+  "slug": "snick",
+  "seed": 73,
+  "duration": 22.31,
+  "label": "Gentle Muse \u00b7 Halloween",
+  "source": "Source: Nickelodeon broadcast history \u00b7 HAL-015",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.88,
+    "html": "Somebody decided children<br>deserved their own night.",
+    "cta": null
+   },
+   {
+    "in": 3.88,
+    "out": 8.69,
+    "html": "Nickelodeon launched SNICK<br>in August 1992.",
+    "cta": null
+   },
+   {
+    "in": 8.69,
+    "out": 13.82,
+    "html": "2 hours on a Saturday,<br>programmed entirely<br>for kids.",
+    "cta": null
+   },
+   {
+    "in": 13.82,
+    "out": 17.22,
+    "html": "<span class='em'>In the slot adults<br>had always owned.</span>",
+    "cta": null
+   },
+   {
+    "in": 17.22,
+    "out": 21.91,
+    "html": "It worked because it was theirs.<br>Not because it was gentle.",
+    "cta": null
+   }
+  ],
+  "clip": {
+   "file": "plates/snick-7c6dbfec.jpg",
+   "push": 0.07
+  }
+ }
+]

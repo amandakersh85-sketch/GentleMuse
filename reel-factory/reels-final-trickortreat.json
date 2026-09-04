@@ -1,0 +1,49 @@
+[
+ {
+  "id": "HAL-008",
+  "slug": "trickortreat",
+  "seed": 71,
+  "duration": 24.69,
+  "label": "Gentle Muse \u00b7 Halloween",
+  "source": "Source: Merriam-Webster word history \u00b7 HAL-008",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.22,
+    "html": "Trick or treat<br>is younger than jazz.",
+    "cta": null
+   },
+   {
+    "in": 3.22,
+    "out": 8.88,
+    "html": "The phrase does not appear<br>in North American print<br>until the 1920s.",
+    "cta": null
+   },
+   {
+    "in": 8.88,
+    "out": 15.03,
+    "html": "One of the earliest<br>is a 1927 newspaper<br>in Blackie, Alberta.",
+    "cta": null
+   },
+   {
+    "in": 15.03,
+    "out": 19.29,
+    "html": "<span class='em'>Traditions get invented.<br>And recently.</span>",
+    "cta": null
+   },
+   {
+    "in": 19.29,
+    "out": 24.29,
+    "html": "The oldest looking part<br>of the night<br>is the newest thing about it.",
+    "cta": null
+   }
+  ],
+  "clip": {
+   "file": "plates/trickortreat-326e2898.jpg",
+   "push": 0.07
+  }
+ }
+]

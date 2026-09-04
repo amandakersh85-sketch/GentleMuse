@@ -1,0 +1,49 @@
+[
+ {
+  "id": "HAL-012",
+  "slug": "casper",
+  "seed": 74,
+  "duration": 21.45,
+  "label": "Gentle Muse \u00b7 Halloween",
+  "source": "Source: Encyclopaedia Britannica; ILM production history \u00b7 HAL-012",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.43,
+    "html": "Casper built its lead<br>out of nothing at all.",
+    "cta": null
+   },
+   {
+    "in": 3.43,
+    "out": 10.7,
+    "html": "1995. The first feature film<br>to carry a fully computer<br>generated character in a lead.",
+    "cta": null
+   },
+   {
+    "in": 10.7,
+    "out": 14.22,
+    "html": "Every frame of him<br>was made rather than filmed.",
+    "cta": null
+   },
+   {
+    "in": 14.22,
+    "out": 17.65,
+    "html": "<span class='em'>A film about a ghost<br>nobody could touch.</span>",
+    "cta": null
+   },
+   {
+    "in": 17.65,
+    "out": 21.05,
+    "html": "They built him from air.",
+    "cta": null
+   }
+  ],
+  "clip": {
+   "file": "plates/casper-c4d2ca45.jpg",
+   "push": 0.07
+  }
+ }
+]
