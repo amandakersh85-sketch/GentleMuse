@@ -1,0 +1,50 @@
+[
+ {
+  "id": "HAL-014",
+  "slug": "gb-fort",
+  "seed": 45,
+  "duration": 26.89,
+  "label": "Gentle Muse \u00b7 Fall",
+  "source": "Source: Scholastic publishing history \u00b7 HAL-014",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.09,
+    "html": "Goosebumps started<br>in 1992.",
+    "cta": null
+   },
+   {
+    "in": 3.09,
+    "out": 8.33,
+    "html": "R.L. Stine was writing them<br>at roughly one a month.",
+    "cta": null
+   },
+   {
+    "in": 8.33,
+    "out": 14.22,
+    "html": "Fast, cheap, for children,<br>and dismissed by<br>every serious critic.",
+    "cta": null
+   },
+   {
+    "in": 14.22,
+    "out": 19.92,
+    "html": "<span class='em'>It taught a generation<br>that a short chapter ending<br>on a hook is worth finishing.</span>",
+    "cta": null
+   },
+   {
+    "in": 19.92,
+    "out": 26.49,
+    "html": "Somebody you know learned<br>to read from these.<br><span class='em'>Not from the good books.</span>",
+    "cta": "The real one"
+   }
+  ],
+  "keyword_delivers": "Consider This weekly note via SEASONAL comment-to-DM, live on IG 4009, FB 4010, cesasgoldenyears IG 4011, all with an email gate",
+  "clip": {
+   "file": "plates/goosebumps-4cc50334.jpg",
+   "push": 0.07
+  }
+ }
+]
