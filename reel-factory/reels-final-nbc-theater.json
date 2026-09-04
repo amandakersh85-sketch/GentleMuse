@@ -1,0 +1,50 @@
+[
+ {
+  "id": "HAL-010",
+  "slug": "nbc-theater",
+  "seed": 46,
+  "duration": 22.81,
+  "label": "Gentle Muse \u00b7 Fall",
+  "source": "Source: Disney corporate history; Touchstone Pictures \u00b7 HAL-010",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.88,
+    "html": "Disney would not put<br>its name on<br>The Nightmare Before Christmas.",
+    "cta": null
+   },
+   {
+    "in": 3.88,
+    "out": 7.86,
+    "html": "It came out in 1993<br>under Touchstone.",
+    "cta": null
+   },
+   {
+    "in": 7.86,
+    "out": 12.07,
+    "html": "They thought it was<br>too dark and too strange<br>for the Disney label.",
+    "cta": null
+   },
+   {
+    "in": 12.07,
+    "out": 16.11,
+    "html": "<span class='em'>It is now the thing<br>they sell you<br>every single October.</span>",
+    "cta": null
+   },
+   {
+    "in": 16.11,
+    "out": 22.41,
+    "html": "Somebody you know is<br>hiding the strange one.<br><span class='em'>That is usually the good one.</span>",
+    "cta": "The real one"
+   }
+  ],
+  "keyword_delivers": "Consider This weekly note via SEASONAL comment-to-DM, live on IG 4009, FB 4010, cesasgoldenyears IG 4011, all with an email gate",
+  "clip": {
+   "file": "plates/nightmare-be-c515317f.jpg",
+   "push": 0.07
+  }
+ }
+]
