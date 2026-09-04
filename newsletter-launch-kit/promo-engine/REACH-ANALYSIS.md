@@ -288,3 +288,137 @@ confidence than the data supported.
 
 `3691551` moved to 20:00 UTC. **Any future collision sweep must page to the end of the queue
 before claiming a result**, and should say how many posts it actually examined.
+
+---
+
+# Results in, 2026-09-04: the carousel verdict, the Reel A/B, and what actually moved
+
+## Followers, the only number that matters
+
+`getAnalyticsDataByMetrics`, brandId 6066935, metric IGEV01:
+
+| Aug 28 | Aug 29 | Aug 30 | Aug 31 | Sep 1 | Sep 2 | Sep 3 |
+|---|---|---|---|---|---|---|
+| 172 | 173 | 176 | **177** | 184 | 186 | **189** |
+
+**+17 in six days.** The six days *after* the Aug 18 breakout produced **+4**. This week ran
+**4.25x that velocity**, without a breakout post.
+
+Sept 4 has not reported yet, and both big Sept 3 Reels accrued most of their reach on Sept 4,
+so their follower effect is not in this table.
+
+To 500: **311 to go.** At the last six days' rate (+2.8/day) that is ~110 days. At the last
+three days' rate (+4/day), ~78 days.
+
+## 1. The carousel verdict: dead, and it is not only carousels
+
+**First, the test did not run as designed.** The check-in expected 2 carousels on 2026-09-02 at
+15:00 and 20:00 UTC. Neither exists. What published at 15:00 that day were **two Reels, two
+seconds apart** (`6678184` at 15:00:51 and `6678216` at 15:00:53). Nothing published at 20:00.
+So the planned carousel A/B never happened, and the verdict below rests on different evidence.
+
+**Every Instagram static-image post since Aug 30, carousel or single:**
+
+| id | published | format | views | reach |
+|---|---|---|---|---|
+| `6599912` | Aug 30 22:50 | single image | 3 | **3** |
+| `6629277` | Aug 31 23:00 | **6-image carousel** | 9 | **4** |
+| `6659651` | Sep 1 23:00 | single image | 10 | **4** |
+| `6713257` | Sep 3 17:00 | single image | 5 | **4** |
+
+**Reels in the same window:** 1,739 · 1,315 · 331 · 309 · 306 · 235 · 214 · 168 · 134 · 112 · 37.
+
+The bar was "under roughly 50 reach means dead." All four static posts came in **under 5** — a
+tenth of the threshold, four times running. **Static images are finished on this account.** The
+dead format is not "carousel," it is "still image on Instagram, in any count." The one true
+carousel and the three single images are indistinguishable.
+
+### Queue exposure: 15 posts
+
+Verified by paging to the end — **158 examined against an API count of 158.**
+
+| Format | Count |
+|---|---|
+| 6-image carousels | 4 |
+| Single images | 11 |
+| **Total** | **15** |
+
+Carousels: `4024186` Sep 5, `3836046` Sep 6, `3499931` Sep 7, `3835223` Sep 10.
+Single images: `4019127`, `3824827`, `4019152`, `3939598`, `4056284`, `3939606`, `3939628`,
+`4056400`, `4056423`, `4056426`, `4056482`, spanning Sep 11 to Oct 14.
+
+Those are 15 slots currently on track to reach about 4 people each. Converting them to Reels is
+the single highest-leverage change available in the queue.
+
+## 2. A second finding nobody was testing for: the 2-hour rule is now measured
+
+Two Reels also came in near zero, and the cause is timing, not content.
+
+**Sept 2:** `6678216` (Hocus Pocus) published **2 seconds** after `6678184` on the same account.
+It got **reach 2**. The other got 309.
+
+**Sept 3 stacked four posts on @thegentlemuse2026 in five hours:**
+
+| Time UTC | Post | Reach |
+|---|---|---|
+| 15:00 | `6709365` | **1,315** |
+| 16:30 | `6712462` | **1,739** |
+| 17:00 | `6713257` | **4** |
+| 20:01 | `6718416` | **6** |
+
+The first two are the best two posts since Aug 18. The next two, 30 minutes and 3 hours behind
+them, got 4 and 6. The 17:00 one is a static image so it is doubly explained, but `6718416` is a
+Reel and it still collapsed.
+
+The 2-hour minimum in `SCHEDULING-LADDER.md` was derived from best-time data. **It now has direct
+evidence: posting inside another post's window on the same account costs roughly all of the
+second post's reach.**
+
+## 3. The Reel A/B: the caption shape earns shares, not reach
+
+`6709365`, published 2026-09-03 15:00 UTC, media `000820c0-3083-4dcb-9470-484e3350b8c6.mp4`,
+291-character caption, 3 sentences, 1 ask, follow instead of a keyword. At ~24.6 hours:
+
+| Metric | Sep 3, 291 chars | Aug 27, same footage, 400 chars |
+|---|---|---|
+| Views | **1,498** | 219 |
+| Reach | **1,315** | 198 |
+| **Shares** | **18** | 1 |
+| Saves | 7 | 0 |
+| Comments | 10 | 0 |
+| Likes | 238 | 12 |
+
+**6.8x the views on identical footage. 18 shares against 1.** The stated bar was "clearly above
+215, especially with shares above 9." It cleared both.
+
+### The confound, stated rather than buried
+
+`6712462` published **90 minutes later the same day** with a **long ~590-character caption** and a
+CESA keyword CTA — the shape this analysis had argued against — and it beat the short one on reach:
+
+| | Caption | Views | Reach | Shares |
+|---|---|---|---|---|
+| `6709365` | 291 chars, follow CTA | 1,498 | 1,315 | **18** |
+| `6712462` | ~590 chars, keyword CTA | **2,085** | **1,739** | 10 |
+
+Both jumped 5 to 7x over the previous week's ceiling of 331 reach. **A lift both posts got, while
+differing that much in length, cannot be caused by length.** Something account-level moved on
+Sept 3.
+
+**So the earlier claim was too strong and is corrected here: caption length is not the reach
+mechanism.** What the short shape did track is **shares — 18 against 10, the highest since the
+Aug 18 breakout's 54** — and shares are what keeps a post being re-served past day one. That is a
+narrower claim than "280 characters causes reach," and it is the one the data supports.
+
+The Aug 18 result is still unexplained. With length ruled out, the next variable to test is the
+**subject** of the post, not its shape.
+
+## What this changes
+
+1. **Stop scheduling Instagram static images.** 15 queued posts need converting to Reels. Every
+   one is a Reel-shaped idea already; only the asset is wrong.
+2. **Hold the 2-hour minimum as hard.** It just cost two posts their entire reach in three days.
+3. **Keep the short shape for shares, not for reach.** Rebuild ideas 1 and 5 in the short shape
+   because they need shares to travel, not because 280 characters is magic.
+4. **Test subject next, not format or length.** That is the only variable the Aug 18 breakout
+   still has in common with the Sept 3 pair: Cesa, in motion, doing something ordinary.
