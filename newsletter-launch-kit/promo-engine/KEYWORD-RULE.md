@@ -335,3 +335,75 @@ gets it.
 people who want something she made, only if they are not already following, and it asks as a
 trade rather than a favor. It cannot be read as spam because it is a genuine reply to a
 genuine request.
+
+---
+
+# THE FIRST REAL ONE, 2026-09-05
+
+**Everything above that says "zero keyword attempts from anyone but Amanda" was true until
+today. It is not true any more.** The statements at lines 180, 190, 214 and 242 describe the
+period Aug 8 to Sept 4 and should be read as history, not current state.
+
+## What happened
+
+`2026-09-05T01:36:05Z` — 8:36 PM Central, Sept 4 — someone commented **"Cesa please"** on post
+`6743958` on **@cesasgoldenyears**. Automation **2952** fired, run `150551`.
+
+| Field | Value |
+|---|---|
+| Contact | `1774569036904343` |
+| Comment | `"Cesa please"` |
+| Automation | 2952, CESA, account 65540 |
+| Run status | **`waiting`** |
+| DM sent | Yes, `sent`, no error |
+| Reply | **None, 11.5 hours later** |
+
+## Why this is a real person and not another test
+
+- **The contact id has never appeared in any run.** Every prior run in the entire system used
+  `955627417560872` or `1048429878116670`, Amanda's own accounts.
+- **The phrasing is natural.** Amanda's tests comment the bare keyword — the Aug 30 run's comment
+  text is literally `"CESA"`. This one is `"Cesa please"`. Nobody types "please" to a test.
+- **The timing is wrong for testing.** Amanda's test runs all sit in the 16:00-19:30 UTC band,
+  mid-workday. This landed at 01:36 UTC, a Friday evening on the couch.
+
+Also worth noting for the case-sensitivity rule above: **`"Cesa please"` matched because 2952
+carries `Cesa` as well as `CESA` and `cesa`.** Had it only carried `CESA`, this comment would
+have silently missed and the first real lead in the funnel's history would have gone nowhere.
+Every keyword needs all three casings. 1019 PLAY, 1424 GUIDE, 1393/1394 CONSIDER, 445/432 CESA,
+435 RESET and the whole product set still carry **only the all-caps form**.
+
+## Two things went wrong at exactly the wrong moment
+
+### 1. The emailGate regression cost this lead the fast path
+
+`2952`'s emailGate was removed on 2026-08-28 precisely so that CESA comments would get the
+**button to `cesa-guide.subscribepage.io`**, which captures the address on the page and feeds the
+Cesa group instantly, with no daily job in the loop.
+
+**The gate came back on 2026-09-03** (flagged in that day's sync). So this person was asked to
+**reply with their email in a DM thread** instead of being handed the page. That path only
+completes when this daily job runs and pushes the address to MailerLite.
+
+Had the gate not been re-added, they would already have the guide.
+
+### 2. MailerLite is unavailable, so the delivery leg is down
+
+`mcp__MailerLite__add_subscriber` and `mcp__MailerLite__list_subscribers` are **not available
+this session** — the server requires re-authorization and this session cannot run the OAuth
+flow. Confirmed by search, not assumed.
+
+So **step 4 of the daily job did not run today**, and if this person replies with their address,
+**nothing can deliver it.** The first real capture in the funnel's history is sitting one reply
+away from a leg that is currently broken.
+
+## What has to happen
+
+1. **Amanda re-authorizes MailerLite** (claude.ai connector settings). Nothing in the email half
+   of the funnel works until she does.
+2. **Take the gate off 2952 again**, back to the Aug 28 design: button to
+   `cesa-guide.subscribepage.io`, no in-thread capture. The page does not depend on a daily job.
+3. **Add the lowercase and title-case variants to every remaining keyword.** This lead only
+   converted because 2952 happened to have them.
+4. **Watch run `150551`.** If they reply, the address needs adding by hand until MailerLite is
+   back. If they never reply, that is the argument for the button over the gate, in one datapoint.
