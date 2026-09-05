@@ -25,10 +25,10 @@ for (const slug of SLUGS) {
   for (let i = 0; i < beats.length; i++) {
     const em = /class='em'|class="em"/.test(beats[i].html);
     const opts = {
-      plate: reel.clip.file,
+      plate: beats[i].plate || reel.clip.file,
       push: 1 + i * 0.045,                    // each swipe leans in a little
       label: reel.label.replace('·', '·'),
-      page: `${i + 1} / ${beats.length}`,
+      page: reel.nopage ? '' : `${i + 1} / ${beats.length}`,
       text: strip(beats[i].html),
       em, hook: i === 0,
       src: i === beats.length - 1 ? reel.source : '',
