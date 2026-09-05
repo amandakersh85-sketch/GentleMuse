@@ -54,3 +54,10 @@ nothing outside the approved board schedules, no purchases or upgrades.
 **Guardrail notes:** nothing deleted, nothing purchased, no plan change,
 no content outside the approved board scheduled. The only spend was the
 pre-authorized countdown plates.
+
+**Amanda's return, Sep 6:** "beds in, let it run." Bed versions swapped
+onto all 6 scheduled Cesa posts (Hocus club Oct 10 and echo Oct 3,
+Winchester club Oct 30) with captions and times untouched; the
+Halloweentown staged rows released from their hold, already on the bed
+cut. Post 4019118 cleared to run Sep 6 6pm on its worn media, once,
+by her word.

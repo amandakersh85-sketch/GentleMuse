@@ -20,8 +20,8 @@ Date,TimeUTC,Lane,Platform,Account,FactID,Media,Status,SubmissionId
 2026-10-07,15:00,club,tiktok,41488,HAL-014,gb-paperbacks,scheduled,902c2de1-e6fb-43e4-9500-7fbba4d2773b
 2026-10-08,15:00,club,instagram,45886,HAL-010,nbc-cemetery,scheduled,fa8e2895-ba6b-4bc4-b429-c0244d26fe14
 2026-10-08,15:00,club,tiktok,41488,HAL-010,nbc-theater,scheduled,62790aca-82eb-4ddc-b7ae-983017796197
-2026-10-10,15:00,club,instagram,45886,HAL-009,hocus-cesa,scheduled,c39667bc-76f3-4804-9ccb-ce7bf3f60e97
-2026-10-10,15:00,club,tiktok,41488,HAL-009,hocus-cesa,scheduled,5e4c2584-3af9-40a9-bf7a-7d85b5dc9c5d
+2026-10-10,15:00,club,instagram,45886,HAL-009,hocus-bed,"scheduled, bed swapped in Sep 6 on Amanda call",c39667bc-76f3-4804-9ccb-ce7bf3f60e97
+2026-10-10,15:00,club,tiktok,41488,HAL-009,hocus-bed,"scheduled, bed swapped in Sep 6 on Amanda call",5e4c2584-3af9-40a9-bf7a-7d85b5dc9c5d
 2026-10-11,15:00,club,instagram,45886,HAL-010,nbc-theater,scheduled,0d733b6e-47f9-4154-a14b-ee1f4be4461e
 2026-10-11,15:00,club,tiktok,41488,HAL-010,nbc-cemetery,scheduled,00d7f6e6-3cba-4dd1-8928-fe661f12f9b6
 2026-10-15,15:00,club,instagram,45886,HAL-017,mare-nightstand,scheduled,c573ff65-86d9-44f0-acb3-902758df1c77
@@ -32,8 +32,8 @@ Date,TimeUTC,Lane,Platform,Account,FactID,Media,Status,SubmissionId
 2026-10-18,15:00,club,tiktok,41488,HAL-017,mare-nightstand,scheduled,bfe6f4f0-5bd0-4dee-8c1b-a9b134d503de
 2026-10-25,15:00,club,instagram,45886,HAL-018,lugnano,scheduled,133e2260-d65a-4293-a13a-d3adc249d4b1
 2026-10-25,15:00,club,tiktok,41488,HAL-018,lugnano,scheduled,00d26514-9efb-43b2-87c1-e5b2ce40f8d3
-2026-10-30,15:00,club,instagram,45886,HAL-016,winchester-cesa,scheduled,2b26b8f4-593f-489f-b6b4-fa7d9f2ef571
-2026-10-30,15:00,club,tiktok,41488,HAL-016,winchester-cesa,scheduled,5aaf3487-718c-4de9-92a7-223f8c7c4ef5
+2026-10-30,15:00,club,instagram,45886,HAL-016,winchester-bed,"scheduled, bed swapped in Sep 6 on Amanda call",2b26b8f4-593f-489f-b6b4-fa7d9f2ef571
+2026-10-30,15:00,club,tiktok,41488,HAL-016,winchester-bed,"scheduled, bed swapped in Sep 6 on Amanda call",5aaf3487-718c-4de9-92a7-223f8c7c4ef5
 2026-10-31,15:00,club,instagram,45886,HAL-001,samhain,scheduled,e3ebdac2-ae86-430d-b187-6951527b7258
 2026-10-31,15:00,club,tiktok,41488,HAL-001,samhain,scheduled,c8bdb409-2143-4f13-b1ae-51393fbd97b0
 2026-09-30,19:00,echo,youtube,36129,HAL-010,nbc-theater,scheduled,1c79adc5-06cc-4337-979c-fd2918a001ad
@@ -42,8 +42,8 @@ Date,TimeUTC,Lane,Platform,Account,FactID,Media,Status,SubmissionId
 2026-10-01,19:00,echo,facebook,30840,HAL-017,mare-nightstand,scheduled,b61658b1-c41c-4be0-8c95-65b9e6869108
 2026-10-02,19:00,echo,youtube,36129,HAL-014,gb-paperbacks,scheduled,9fea41cc-f818-40f8-9293-20240ea75f29
 2026-10-02,19:00,echo,facebook,30840,HAL-014,gb-fort,scheduled,d0b687d9-a518-438e-8f00-c015aa21c473
-2026-10-03,19:00,echo,youtube,36129,HAL-009,hocus-cesa,scheduled,ee49f2da-601a-4ca5-b087-a06740f891ea
-2026-10-03,19:00,echo,facebook,30840,HAL-009,hocus-cesa,scheduled,90a6ff0c-4e97-4696-af59-74f0682c9efe
+2026-10-03,19:00,echo,youtube,36129,HAL-009,hocus-bed,"scheduled, bed swapped in Sep 6 on Amanda call",ee49f2da-601a-4ca5-b087-a06740f891ea
+2026-10-03,19:00,echo,facebook,30840,HAL-009,hocus-bed,"scheduled, bed swapped in Sep 6 on Amanda call",90a6ff0c-4e97-4696-af59-74f0682c9efe
 2026-10-04,19:00,echo,youtube,36129,HAL-008,trickortreat,scheduled,0f5b9ced-3be9-417d-a593-022fae827eb4
 2026-10-04,19:00,echo,facebook,30840,HAL-008,trickortreat,scheduled,87fa59b1-af1d-4e9f-b268-fdf625f640ff
 2026-10-05,19:00,echo,youtube,36129,HAL-002,turnip,scheduled,81043fc7-10e4-41a7-a298-0a42eb238b36
@@ -76,8 +76,8 @@ Date,TimeUTC,Lane,Platform,Account,FactID,Media,Status,SubmissionId
 2026-10-09,19:00,echo,facebook,30840,HAL-002,carousel turnip slides 1-5,staged awaiting queue room,
 2026-10-12,15:00,club,instagram,45886,HAL-012,carousel casper slides 1-5,staged awaiting queue room,
 2026-10-12,15:00,club,tiktok,41488,HAL-012,carousel casper slides 1-5,staged awaiting queue room,
-2026-10-13,15:00,club,instagram,45886,HAL-013,halloweentown-v2 kitchen cut,staged awaiting queue room and bed decision,
-2026-10-13,15:00,club,tiktok,41488,HAL-013,halloweentown-v2 kitchen cut,staged awaiting queue room and bed decision,
+2026-10-13,15:00,club,instagram,45886,HAL-013,halloweentown-v2 kitchen cut,staged awaiting queue room,
+2026-10-13,15:00,club,tiktok,41488,HAL-013,halloweentown-v2 kitchen cut,staged awaiting queue room,
 2026-10-13,19:00,echo,youtube,36129,HAL-015,SLIDES-snick.mp4,staged awaiting queue room,
 2026-10-13,19:00,echo,facebook,30840,HAL-015,carousel snick slides 1-5,staged awaiting queue room,
 2026-10-14,15:00,club,instagram,45886,HAL-014,gb-bike,staged awaiting queue room,
@@ -86,8 +86,8 @@ Date,TimeUTC,Lane,Platform,Account,FactID,Media,Status,SubmissionId
 2026-10-16,15:00,club,tiktok,41488,HAL-010,nbc-crt,staged awaiting queue room,
 2026-10-16,19:00,echo,youtube,36129,HAL-012,SLIDES-casper.mp4,staged awaiting queue room,
 2026-10-16,19:00,echo,facebook,30840,HAL-012,carousel casper slides 1-5,staged awaiting queue room,
-2026-10-17,19:00,echo,youtube,36129,HAL-013,halloweentown-v2 kitchen cut,staged awaiting queue room and bed decision,
-2026-10-17,19:00,echo,facebook,30840,HAL-013,halloweentown-v2 kitchen cut,staged awaiting queue room and bed decision,
+2026-10-17,19:00,echo,youtube,36129,HAL-013,halloweentown-v2 kitchen cut,staged awaiting queue room,
+2026-10-17,19:00,echo,facebook,30840,HAL-013,halloweentown-v2 kitchen cut,staged awaiting queue room,
 2026-10-20,15:00,club,instagram,45886,HAL-005,carousel coffinbell slides 1-5,staged awaiting queue room,
 2026-10-20,15:00,club,tiktok,41488,HAL-005,carousel coffinbell slides 1-5,staged awaiting queue room,
 2026-10-22,15:00,club,instagram,45886,HAL-017,mare-weighted,staged awaiting queue room,
