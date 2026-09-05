@@ -1,0 +1,45 @@
+[
+ {
+  "id": "TRL",
+  "slug": "trailer",
+  "seed": 1,
+  "duration": 13.8,
+  "label": "Gentle Muse \u00b7 Spooky Season",
+  "source": "",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.0,
+    "html": "The season sells<br>you fear.",
+    "cta": null,
+    "plate": "plates/samhain-48be37e1.jpg"
+   },
+   {
+    "in": 3.0,
+    "out": 6.0,
+    "html": "The real stories<br>are stranger.",
+    "cta": null,
+    "plate": "plates/turnip-2fc8b92d.jpg"
+   },
+   {
+    "in": 6.0,
+    "out": 10.8,
+    "html": "33 nights.<br>1 true thing each.",
+    "cta": null,
+    "plate": "plates/coffinbell-49fef53a.jpg"
+   },
+   {
+    "in": 10.8,
+    "out": 13.4,
+    "html": "<span class='em'>It starts tomorrow.</span>",
+    "cta": null,
+    "plate": "plates/trickortreat-326e2898.jpg"
+   }
+  ],
+  "clip": {
+   "file": "plates/samhain-48be37e1.jpg",
+   "push": 0.07
+  },
+  "nopage": true
+ }
+]

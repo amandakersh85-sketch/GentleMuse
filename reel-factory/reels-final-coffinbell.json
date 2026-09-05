@@ -1,0 +1,49 @@
+[
+ {
+  "id": "HAL-005",
+  "slug": "coffinbell",
+  "seed": 75,
+  "duration": 22.66,
+  "label": "Gentle Muse \u00b7 Halloween",
+  "source": "Source: US Patent 3335, life preserving coffin, 1843 \u00b7 HAL-005",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 4.76,
+    "html": "Victorians were frightened<br>enough of being buried alive<br>to patent a way out.",
+    "cta": null
+   },
+   {
+    "in": 4.76,
+    "out": 9.53,
+    "html": "Safety coffins came with<br>bells, ropes<br>and breathing tubes.",
+    "cta": null
+   },
+   {
+    "in": 9.53,
+    "out": 13.88,
+    "html": "Christian Eisenbrandt<br>patented one<br>in 1843.",
+    "cta": null
+   },
+   {
+    "in": 13.88,
+    "out": 17.99,
+    "html": "<span class='em'>A whole industry grew<br>around a fear nobody<br>would say out loud.</span>",
+    "cta": null
+   },
+   {
+    "in": 17.99,
+    "out": 22.26,
+    "html": "Fear does not stay quiet.<br>It builds things.",
+    "cta": null
+   }
+  ],
+  "clip": {
+   "file": "plates/coffinbell-49fef53a.jpg",
+   "push": 0.07
+  }
+ }
+]

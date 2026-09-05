@@ -59,6 +59,21 @@ function seeded(seed){ let s = seed >>> 0;
   return () => { s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296; }; }
 const rnd = seeded(P.seed || 7);
 
+/* Named looks. Same atmosphere, different light, so a recycled caption can
+   go back out without wearing the image it already wore. Default is the
+   original candle grade; old payloads render exactly as before. */
+const LOOKS = {
+  candle:  { base:"#0B0910", baseRGB:"11,9,16",  g1:"196,104,64",  g2:"150,72,54",
+             fog:"120,96,120", warmA:"247,190,132", warmB:"224,124,78" },
+  moon:    { base:"#090C12", baseRGB:"9,12,18",  g1:"140,170,210", g2:"90,110,150",
+             fog:"110,125,150", warmA:"200,215,235", warmB:"150,170,200" },
+  harvest: { base:"#0E0A07", baseRGB:"14,10,7",  g1:"210,140,50",  g2:"160,95,40",
+             fog:"150,120,90",  warmA:"250,200,110", warmB:"230,150,70" },
+  veil:    { base:"#070C0A", baseRGB:"7,12,10",  g1:"110,190,140", g2:"70,130,100",
+             fog:"100,130,110", warmA:"180,230,190", warmB:"120,190,150" },
+};
+const LOOK = LOOKS[P.look] || LOOKS.candle;
+
 // rising embers: fixed birth params, position derived from t
 const EMBERS = Array.from({length: 38}, () => ({
   x: rnd() * W, life: 6 + rnd() * 9, off: rnd() * 14,
@@ -72,16 +87,16 @@ const FOG = Array.from({length: 5}, () => ({
 
 function atmosphere(t){
   ctx.clearRect(0, 0, W, H);
-  ctx.fillStyle = "#0B0910"; ctx.fillRect(0, 0, W, H);
+  ctx.fillStyle = LOOK.base; ctx.fillRect(0, 0, W, H);
 
   // candle-warm core light, breathing across the film with a fine flicker
   const breath = 0.62 + 0.38 * Math.sin((t / DUR) * Math.PI);
   const flick = 1 + 0.05 * Math.sin(t * 9.1) + 0.03 * Math.sin(t * 21.7);
   const cx = W * 0.5, cy = H * (0.50 - 0.05 * (t / DUR));
   let g = ctx.createRadialGradient(cx, cy, 0, cx, cy, 760 * flick);
-  g.addColorStop(0,   "rgba(196,104,64," + (0.34 * breath).toFixed(3) + ")");
-  g.addColorStop(.42, "rgba(150,72,54,"  + (0.13 * breath).toFixed(3) + ")");
-  g.addColorStop(1,   "rgba(11,9,16,0)");
+  g.addColorStop(0,   "rgba(" + LOOK.g1 + "," + (0.34 * breath).toFixed(3) + ")");
+  g.addColorStop(.42, "rgba(" + LOOK.g2 + "," + (0.13 * breath).toFixed(3) + ")");
+  g.addColorStop(1,   "rgba(" + LOOK.baseRGB + ",0)");
   ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
 
   // drifting fog
@@ -90,8 +105,8 @@ function atmosphere(t){
     const x = f.cx * W + Math.sin(t * f.sx * 2 * Math.PI + f.cx * 9) * f.ax;
     const y = f.cy * H + Math.cos(t * f.sy * 2 * Math.PI + f.cy * 7) * f.ay - t * 12;
     const fg = ctx.createRadialGradient(x, y, 0, x, y, f.r);
-    fg.addColorStop(0, "rgba(120,96,120," + (f.a * breath).toFixed(3) + ")");
-    fg.addColorStop(1, "rgba(120,96,120,0)");
+    fg.addColorStop(0, "rgba(" + LOOK.fog + "," + (f.a * breath).toFixed(3) + ")");
+    fg.addColorStop(1, "rgba(" + LOOK.fog + ",0)");
     ctx.fillStyle = fg; ctx.fillRect(0, 0, W, H);
   }
 
@@ -103,7 +118,7 @@ function atmosphere(t){
     const fade = Math.sin(age * Math.PI);
     if (fade <= 0.01) continue;
     const eg = ctx.createRadialGradient(x, y, 0, x, y, e.r * 5.5);
-    const c = e.warm > .55 ? "247,190,132" : "224,124,78";
+    const c = e.warm > .55 ? LOOK.warmA : LOOK.warmB;
     eg.addColorStop(0, "rgba(" + c + "," + (0.58 * fade).toFixed(3) + ")");
     eg.addColorStop(1, "rgba(" + c + ",0)");
     ctx.fillStyle = eg;

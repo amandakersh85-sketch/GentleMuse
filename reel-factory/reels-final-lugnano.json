@@ -1,0 +1,49 @@
+[
+ {
+  "id": "HAL-018",
+  "slug": "lugnano",
+  "seed": 76,
+  "duration": 22.7,
+  "label": "Gentle Muse \u00b7 Halloween",
+  "source": "Source: University of Arizona excavation at Lugnano in Teverina, 2018 \u00b7 HAL-018",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.2,
+    "html": "They put a stone<br>in the child's mouth.",
+    "cta": null
+   },
+   {
+    "in": 3.2,
+    "out": 7.42,
+    "html": "A Roman era grave<br>excavated at Lugnano, Italy.",
+    "cta": null
+   },
+   {
+    "in": 7.42,
+    "out": 13.3,
+    "html": "One of a set of burials<br>archaeologists read as meant<br>to stop the dead returning.",
+    "cta": null
+   },
+   {
+    "in": 13.3,
+    "out": 18.9,
+    "html": "<span class='em'>Every generation does<br>something physical about<br>a fear it cannot argue with.</span>",
+    "cta": null
+   },
+   {
+    "in": 18.9,
+    "out": 22.3,
+    "html": "Ours is just quieter.",
+    "cta": null
+   }
+  ],
+  "clip": {
+   "file": "plates/lugnano-v3-0a80d6ad.jpg",
+   "push": 0.07
+  }
+ }
+]

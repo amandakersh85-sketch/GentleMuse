@@ -1,0 +1,50 @@
+[
+ {
+  "id": "HAL-011",
+  "slug": "afraidark",
+  "seed": 44,
+  "duration": 27.83,
+  "label": "Gentle Muse \u00b7 Fall",
+  "source": "Source: Nickelodeon broadcast history \u00b7 HAL-011",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 4.06,
+    "html": "Are You Afraid of the Dark<br>started in 1992.",
+    "cta": null
+   },
+   {
+    "in": 4.06,
+    "out": 8.64,
+    "html": "The whole format was<br>children telling each other<br>stories in the woods.",
+    "cta": null
+   },
+   {
+    "in": 8.64,
+    "out": 15.21,
+    "html": "No adult ever explained it.<br>No adult ever arrived<br>to make it safe.",
+    "cta": null
+   },
+   {
+    "in": 15.21,
+    "out": 20.57,
+    "html": "<span class='em'>The scary part was never<br>the monster. It was being<br>trusted with the story.</span>",
+    "cta": null
+   },
+   {
+    "in": 20.57,
+    "out": 27.43,
+    "html": "Somebody you know watched<br>this at a sleepover.<br><span class='em'>They still remember which one.</span>",
+    "cta": "The real one"
+   }
+  ],
+  "keyword_delivers": "Consider This weekly note via SEASONAL comment-to-DM, live on IG 4009, FB 4010, cesasgoldenyears IG 4011, all with an email gate",
+  "clip": {
+   "file": "plates/afraidark-d2e115f7.jpg",
+   "push": 0.07
+  }
+ }
+]

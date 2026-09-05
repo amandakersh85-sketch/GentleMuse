@@ -1,0 +1,63 @@
+[
+ {
+  "id": "HAL-013-CESA",
+  "slug": "halloweentown-v2",
+  "seed": 71,
+  "duration": 18.0,
+  "label": "Gentle Muse \u00b7 Spooky Season",
+  "source": "Source: Disney Channel broadcast history \u00b7 HAL-013",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 2.6,
+    "html": "Halloweentown premiered<br>on the Disney Channel<br>in 1998.",
+    "cta": null
+   },
+   {
+    "in": 2.6,
+    "out": 5.6,
+    "html": "Debbie Reynolds was 66<br>when she played<br>Aggie Cromwell.",
+    "cta": null
+   },
+   {
+    "in": 5.6,
+    "out": 9.0,
+    "html": "The witch everybody<br>remembers as the<br>fearless one was a<br>woman in her 60s.",
+    "cta": null
+   },
+   {
+    "in": 9.0,
+    "out": 12.2,
+    "html": "<span class='em'>That was the whole<br>message. Nobody<br>noticed.</span>",
+    "cta": null
+   },
+   {
+    "in": 12.2,
+    "out": 15.2,
+    "html": "She's 19. She has never<br>once been worried<br>about it.",
+    "cta": null
+   },
+   {
+    "in": 15.2,
+    "out": 18.0,
+    "html": "19 years old, 10 of them mine.<br>15 pages of what actually<br>keeps her comfortable.<br><span class='em'>Free, and yours.</span>",
+    "cta": "CESA in the comments"
+   }
+  ],
+  "clip": {
+   "file": "plates/cesa-on-my-lap.jpg",
+   "push": 0.1,
+   "drift": -430,
+   "grade": 0.35,
+   "clip_id": "cesa-on-my-lap",
+   "override": true,
+   "match_reason": "The fearless one is a small old girl in a bow, entirely sure of her place, and the human smiling down at her is the audience of the fact."
+  },
+  "contract": "Cesa is old and I am keeping the record while she is still here.",
+  "claims": [
+   "SUB-001"
+  ],
+  "keyword": "CESA",
+  "keyword_delivers": "19 Years Old, 10 of Them Mine (15pp) via IG and FB comment-to-DM"
+ }
+]

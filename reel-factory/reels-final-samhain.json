@@ -1,0 +1,50 @@
+[
+ {
+  "id": "HAL-001",
+  "slug": "samhain",
+  "seed": 42,
+  "duration": 26.8,
+  "label": "Gentle Muse \u00b7 Fall",
+  "source": "Source: Encyclopaedia Britannica; National Museum of Ireland \u00b7 HAL-001",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 2.8,
+    "html": "Halloween was never<br>about fear.",
+    "cta": null
+   },
+   {
+    "in": 2.8,
+    "out": 8.22,
+    "html": "It grew out of Samhain,<br>the Gaelic festival marking<br>the end of harvest.",
+    "cta": null
+   },
+   {
+    "in": 8.22,
+    "out": 12.56,
+    "html": "The night the year turned<br>and the boundary<br>went thin.",
+    "cta": null
+   },
+   {
+    "in": 12.56,
+    "out": 17.04,
+    "html": "<span class='em'>People needed a ritual<br>for the part of the year<br>that gets dark.</span>",
+    "cta": null
+   },
+   {
+    "in": 17.04,
+    "out": 26.4,
+    "html": "Somebody you know is<br>dreading the dark months.<br><span class='em'>This one is for them.</span>",
+    "cta": "The real one"
+   }
+  ],
+  "keyword_delivers": "Consider This weekly note via SEASONAL comment-to-DM, live on IG 4009, FB 4010, cesasgoldenyears IG 4011, all with an email gate",
+  "clip": {
+   "file": "plates/samhain-48be37e1.jpg",
+   "push": 0.07
+  }
+ }
+]

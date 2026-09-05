@@ -1,0 +1,49 @@
+[
+ {
+  "id": "HAL-002",
+  "slug": "turnip",
+  "seed": 72,
+  "duration": 20.28,
+  "label": "Gentle Muse \u00b7 Halloween",
+  "source": "Source: Library of Congress, American Folklife Center \u00b7 HAL-002",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.0,
+    "html": "Jack o lanterns<br>were turnips.",
+    "cta": null
+   },
+   {
+    "in": 3.0,
+    "out": 7.76,
+    "html": "Ireland and Scotland<br>carved turnips and beets<br>for centuries.",
+    "cta": null
+   },
+   {
+    "in": 7.76,
+    "out": 13.08,
+    "html": "Irish immigrants switched<br>in America because pumpkins<br>were bigger to hollow.",
+    "cta": null
+   },
+   {
+    "in": 13.08,
+    "out": 16.48,
+    "html": "<span class='em'>The ritual mattered.</span>",
+    "cta": null
+   },
+   {
+    "in": 16.48,
+    "out": 19.88,
+    "html": "The turnip did not.",
+    "cta": null
+   }
+  ],
+  "clip": {
+   "file": "plates/turnip-2fc8b92d.jpg",
+   "push": 0.07
+  }
+ }
+]
