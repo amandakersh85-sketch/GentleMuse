@@ -1,0 +1,50 @@
+[
+ {
+  "id": "HAL-017",
+  "slug": "mare-rocking",
+  "seed": 47,
+  "duration": 24.09,
+  "label": "Gentle Muse \u00b7 Fall",
+  "source": "Source: Oxford English Dictionary; Encyclopaedia Britannica \u00b7 HAL-017",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.04,
+    "html": "Nightmare named<br>a specific thing.",
+    "cta": null
+   },
+   {
+    "in": 3.04,
+    "out": 7.2,
+    "html": "A mare was a spirit<br>believed to sit<br>on a sleeper's chest.",
+    "cta": null
+   },
+   {
+    "in": 7.2,
+    "out": 12.94,
+    "html": "The weight. The paralysis.<br>The certainty something<br>is in the room.",
+    "cta": null
+   },
+   {
+    "in": 12.94,
+    "out": 17.33,
+    "html": "<span class='em'>People had a word for it<br>centuries before<br>they had an explanation.</span>",
+    "cta": null
+   },
+   {
+    "in": 17.33,
+    "out": 23.69,
+    "html": "Somebody you know has<br>woken up unable to move.<br><span class='em'>It has always had a name.</span>",
+    "cta": "The real one"
+   }
+  ],
+  "keyword_delivers": "Consider This weekly note via SEASONAL comment-to-DM, live on IG 4009, FB 4010, cesasgoldenyears IG 4011, all with an email gate",
+  "clip": {
+   "file": "plates/mare-nightma-d0141171.jpg",
+   "push": 0.07
+  }
+ }
+]
