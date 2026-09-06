@@ -319,3 +319,71 @@ session. Writing a settings file that grants the agent deletion rights is self-e
 the classifier blocks it, correctly. If Amanda still wants it after the re-permission run, she
 adds it herself in `.claude/settings.json`:
 `{"permissions":{"allow":["mcp__MailerLite__delete_subscriber"]}}`
+
+---
+
+## 2026-09-06, the re-permission deadline: NOBODY WAS SUPPRESSED
+
+The deadline the "Still want these?" campaign set for itself arrived today at 15:00 UTC.
+**No action was taken. Both records are untouched.**
+
+### Why
+
+**MailerLite is unavailable to this session and has been since 2026-09-05.** The server requires
+re-authorization, and this session cannot run the OAuth flow. Confirmed by an explicit tool
+search on each of 09-05 and 09-06, not assumed:
+
+```
+select:get_campaign_link_recipients,get_campaign_subscribers,
+       update_subscriber,batch_requests,delete_segment
+  -> No matching deferred tools found
+```
+
+Every step this check needs is on that list. There is no partial version of it: the click data
+cannot be read, the status cannot be written, and the segment cannot be deleted.
+
+The check's own instruction covers this — *"if the click data looks incomplete, do not suppress
+anyone."* Not being able to read it at all is worse than incomplete, so that rule applies with
+more force, not less.
+
+### The last verified reading, and why it is not good enough to act on
+
+Read directly from the campaign on **2026-09-04 13:07 UTC**, 2 days before the deadline:
+
+| Source | Value |
+|---|---|
+| Campaign `197421976272241956` stats | `sent 2`, `deliveries 2`, **`opens 0`, `clicks 0`** |
+| Click map, link `197422077844653805` ("Keep me on the list") | `count 0`, `percentage 0` |
+| Melissa `192084178526799126` | `clicks_count 0`, `opens_count 0` |
+| Nadia `194979208527610890` | `clicks_count 0`, `opens_count 0` |
+
+So as of 09-04 neither had clicked. **That is a 2-day-old reading and the deadline decision
+belongs on current data.** Either of them could have clicked on the 4th, 5th or 6th. Suppressing
+a real person on a stale read is the wrong trade even when the stale read points the same way,
+and it could not have been executed today regardless.
+
+### The 12-send rule STAYS IN PLACE
+
+The instruction to retire it was conditional — *"retire the 12-send rule in that doc if both are
+gone."* **Neither is gone.** Both remain `active`. Retiring the rule now would leave no policy at
+all covering two subscribers who still receive mail. It stays until a suppression actually
+completes and is verified.
+
+### Re-armed
+
+`trig_01JSSTESKSSnnMjD8vwxRSP7` moved to **2026-09-08T15:00:00Z**, same trigger, history intact.
+
+**This unblocks on one action by Amanda: re-authorizing MailerLite in her claude.ai connector
+settings.** Until then this check will keep deferring, and it should — the alternative is
+unsubscribing people on numbers nobody can currently see.
+
+### What else MailerLite being down has stopped
+
+| Date | Job | What did not run |
+|---|---|---|
+| 09-05 | Daily DM sync | Step 4 entirely: subscriber sweep and the 12-send check |
+| 09-06 | Daily DM sync | Step 4 entirely, second day |
+| 09-06 | This re-permission deadline | All of it |
+
+Three scheduled runs in two days. The Blotato half of the funnel is healthy and fully swept each
+day; the email half has been dark since 09-05.
