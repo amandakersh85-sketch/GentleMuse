@@ -49,7 +49,7 @@ Date,TimeUTC,Lane,Platform,Account,FactID,Media,Status,SubmissionId
 2026-10-05,19:00,echo,youtube,36129,HAL-002,turnip,scheduled,81043fc7-10e4-41a7-a298-0a42eb238b36
 2026-10-05,19:00,echo,facebook,30840,HAL-002,turnip,scheduled,3706711e-4df4-411d-81b1-a04dd4b936cc
 2026-10-06,19:00,echo,youtube,36129,HAL-015,snick,scheduled,274b7812-ef93-4fec-ac57-470ee9a1930c
-2026-10-06,19:00,echo,facebook,30840,HAL-015,snick,blocked: plan cap 200 scheduled posts,
+2026-10-06,19:00,echo,facebook,30840,HAL-015,snick,scheduled,b32666f2-c8e3-44f9-9886-6521cab4f4c7
 2026-10-07,19:00,echo,youtube,36129,HAL-011,afraidark,blocked: plan cap 200 scheduled posts,
 2026-10-07,19:00,echo,facebook,30840,HAL-011,afraidark,blocked: plan cap 200 scheduled posts,
 2026-10-08,19:00,echo,youtube,36129,HAL-014,gb-fort,blocked: plan cap 200 scheduled posts,
@@ -64,12 +64,12 @@ Date,TimeUTC,Lane,Platform,Account,FactID,Media,Status,SubmissionId
 2026-10-21,19:00,echo,facebook,30840,HAL-005,coffinbell,blocked: plan cap 200 scheduled posts,
 2026-10-29,19:00,echo,youtube,36129,HAL-018,lugnano,blocked: plan cap 200 scheduled posts,
 2026-10-29,19:00,echo,facebook,30840,HAL-018,lugnano,blocked: plan cap 200 scheduled posts,
-2026-09-29,15:00,club,instagram,45886,TRL-001,trailer,staged awaiting queue room,
-2026-09-29,15:00,club,tiktok,41488,TRL-001,trailer,staged awaiting queue room,
-2026-09-29,19:00,echo,youtube,36129,TRL-001,trailer,staged awaiting queue room,
-2026-09-29,19:00,echo,facebook,30840,TRL-001,trailer,staged awaiting queue room,
-2026-10-05,15:00,club,instagram,45886,HAL-002,carousel turnip slides 1-5,staged awaiting queue room,
-2026-10-05,15:00,club,tiktok,41488,HAL-002,carousel turnip slides 1-5,staged awaiting queue room,
+2026-09-29,15:00,club,instagram,45886,TRL-001,trailer,scheduled,86849af0-9995-49b1-97ff-d9d6b70b397e
+2026-09-29,15:00,club,tiktok,41488,TRL-001,trailer,scheduled,89491cb6-7b82-4afc-98fe-e1df4b9a8ae7
+2026-09-29,19:00,echo,youtube,36129,TRL-001,trailer,scheduled,63e2d271-3d76-4cac-98f7-d1b3595a84e7
+2026-09-29,19:00,echo,facebook,30840,TRL-001,trailer,scheduled,e027c5ec-c50b-446c-be86-9a1377919a63
+2026-10-05,15:00,club,instagram,45886,HAL-002,carousel turnip slides 1-5,scheduled,63431131-a387-492b-af97-72959d1bdee1
+2026-10-05,15:00,club,tiktok,41488,HAL-002,carousel turnip slides 1-5,scheduled,ba470e6c-48b1-4710-a48a-1f1b5fd92759
 2026-10-09,15:00,club,instagram,45886,HAL-015,carousel snick slides 1-5,staged awaiting queue room,
 2026-10-09,15:00,club,tiktok,41488,HAL-015,carousel snick slides 1-5,staged awaiting queue room,
 2026-10-09,19:00,echo,youtube,36129,HAL-002,SLIDES-turnip.mp4,staged awaiting queue room,
