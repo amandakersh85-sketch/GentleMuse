@@ -1,5 +1,18 @@
 # Agent coordination contract
 
+## 0b. THIS ENVIRONMENT CANNOT FACT-CHECK THE JAT SOURCE DOMAINS
+
+`sabrina.dev`, `substack.com` and `reletter.com` are **blocked by the network egress proxy** in
+Claude Code sessions. Confirmed 2026-09-07: `WebFetch` on all three returns `EGRESS_BLOCKED`.
+
+The Just Another Tuesday pre-send check asks whether sabrina.dev is live and what its subscriber
+count is. **From here that can only be answered by `WebSearch` summaries, which are not a source
+read.** Two searches returning the same figure is one page summarized twice, not corroboration.
+
+So: report the search figure with that caveat attached, recommend wording that stays true across a
+range of values, and leave the number itself for Amanda to confirm in a browser. **Never write
+"verified" about a JAT source claim from this surface.**
+
 ## 0a. IF YOU TOUCH THE BLOTATO QUEUE, READ THE HANDOFF FIRST
 
 **[`HANDOFF-0902-SCHEDULE-ALIGNMENT.md`](HANDOFF-0902-SCHEDULE-ALIGNMENT.md)**
