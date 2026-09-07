@@ -28,7 +28,9 @@
   "slug": "countdown-tt",
   "clip": {
    "file": "plates/countdown-pyre-clean.jpg",
-   "push": 0.07
+   "push": 0.07,
+   "clip_id": "countdown-pyre-clean",
+   "match_reason": "The line counts down to the night the year turns. The plate is the fire built and not yet lit, which is exactly what waiting 5 nights looks like."
   }
  }
 ]

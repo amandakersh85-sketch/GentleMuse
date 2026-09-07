@@ -43,7 +43,9 @@
   ],
   "clip": {
    "file": "plates/lugnano-v3-0a80d6ad.jpg",
-   "push": 0.07
+   "push": 0.07,
+   "clip_id": "lugnano-v3-0a80d6ad",
+   "match_reason": "The fact is a Roman era burial meant to keep the dead down, and the plate is Roman stone at dusk with a dark archway standing open behind it."
   }
  }
 ]

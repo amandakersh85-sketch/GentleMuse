@@ -43,7 +43,9 @@
   ],
   "clip": {
    "file": "plates/trickortreat-326e2898.jpg",
-   "push": 0.07
+   "push": 0.07,
+   "clip_id": "trickortreat-326e2898",
+   "match_reason": "The fact dates the phrase to a 1920s porch, and the plate is a 1920s porch with one light and a dish already emptied. It shows the ritual at the age the fact gives it."
   }
  }
 ]

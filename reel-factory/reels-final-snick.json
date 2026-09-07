@@ -43,7 +43,9 @@
   ],
   "clip": {
    "file": "plates/snick-7c6dbfec.jpg",
-   "push": 0.07
+   "push": 0.07,
+   "clip_id": "snick-7c6dbfec",
+   "match_reason": "The fact is a Saturday night block built for kids, and the plate is the room it was watched in: the couch, the glowing set, the popcorn already on the floor."
   }
  }
 ]

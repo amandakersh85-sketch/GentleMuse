@@ -43,7 +43,9 @@
   ],
   "clip": {
    "file": "plates/casper-c4d2ca45.jpg",
-   "push": 0.07
+   "push": 0.07,
+   "clip_id": "casper-c4d2ca45",
+   "match_reason": "The turn is a lead character made rather than filmed, in a house nobody could touch. The plate is that house, empty and sheeted, holding the space where he would have been."
   }
  }
 ]

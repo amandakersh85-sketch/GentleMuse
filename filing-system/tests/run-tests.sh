@@ -499,5 +499,37 @@ else echo "FAIL  an unreadable queue exits 2 instead of guessing"; fail=$((fail+
 
 
 echo
+echo "== cadence gate, the 500 to 1000 rule =="
+CAD="$HERE/../scripts/gm_cadence_check.py"
+
+if python3 "$CAD" "$HERE/cadence.clean.csv" >/dev/null 2>&1; then
+  echo "PASS  1 post a day at the anchor passes clean"; pass=$((pass+1))
+else echo "FAIL  1 post a day at the anchor passes clean"; fail=$((fail+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.overloaded.csv" 2>/dev/null | grep -q C01_DAY_OVERLOAD; then
+  echo "PASS  a stacked day is refused"; pass=$((pass+1))
+else echo "FAIL  a stacked day is refused"; fail=$((fail+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.overloaded.csv" 2>/dev/null | grep -q C03_ANCHOR_MISSING; then
+  echo "PASS  a day that wastes the best hour is flagged"; pass=$((pass+1))
+else echo "FAIL  a day that wastes the best hour is flagged"; fail=$((fail+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.collision.csv" 2>/dev/null | grep -q C02_SLOT_COLLISION; then
+  echo "PASS  2 posts in the same minute are caught"; pass=$((pass+1))
+else echo "FAIL  2 posts in the same minute are caught"; fail=$((fail+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.countdown.csv" --target 2026-10-31 2>/dev/null | grep -q "D2"; then
+  echo "PASS  a countdown that drifted off its date is caught"; pass=$((pass+1))
+else echo "FAIL  a countdown that drifted off its date is caught"; fail=$((fail+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.countdown.csv" --target 2026-10-31 2>/dev/null | grep -q "C04_COUNTDOWN_DRIFT 2026-09-16"; then
+  echo "FAIL  a countdown sitting on its right date is left alone"; fail=$((fail+1))
+else echo "PASS  a countdown sitting on its right date is left alone"; pass=$((pass+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.overloaded.csv" >/dev/null 2>&1; then
+  echo "FAIL  a dirty queue exits nonzero so it can gate a run"; fail=$((fail+1))
+else echo "PASS  a dirty queue exits nonzero so it can gate a run"; pass=$((pass+1)); fi
+
+echo
 echo "$pass passed, $fail failed"
 [ "$fail" = 0 ]

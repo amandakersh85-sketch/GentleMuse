@@ -1,0 +1,5 @@
+id,postTimeUTC,label
+B1,2026-09-14T15:00,the anchor
+B2,2026-09-14T17:00,surplus
+B3,2026-09-14T23:00,surplus
+B4,2026-09-15T17:00,no anchor that day

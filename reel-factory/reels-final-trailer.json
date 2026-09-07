@@ -38,7 +38,10 @@
   ],
   "clip": {
    "file": "plates/samhain-48be37e1.jpg",
-   "push": 0.07
+   "push": 0.07,
+   "clip_id": "samhain-48be37e1",
+   "match_reason": "Trailer, not a single fact reel. It cuts across 4 plates and this one is only its opening frame. The bonfire is the season the trailer is announcing, the fire people actually gathered at, which is the promise the line \"the real stories are stranger\" is making. No literal word match is intended and none should be forced.",
+   "override": true
   },
   "nopage": true
  }

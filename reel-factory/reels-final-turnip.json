@@ -43,7 +43,9 @@
   ],
   "clip": {
    "file": "plates/turnip-2fc8b92d.jpg",
-   "push": 0.07
+   "push": 0.07,
+   "clip_id": "turnip-2fc8b92d",
+   "match_reason": "The whole fact is that the lantern was a turnip before it was a pumpkin, so the plate is the turnip lantern itself, lit, doing the job people claim the pumpkin invented."
   }
  }
 ]

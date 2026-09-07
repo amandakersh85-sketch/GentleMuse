@@ -28,7 +28,9 @@
   "slug": "countdown-ig",
   "clip": {
    "file": "plates/countdown-door-clean.jpg",
-   "push": 0.07
+   "push": 0.07,
+   "clip_id": "countdown-door-clean",
+   "match_reason": "The line is the boundary going thin. The plate is a doorway standing alone on a moor with nothing on the other side of it, and a crow already waiting."
   }
  }
 ]
