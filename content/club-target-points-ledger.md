@@ -551,3 +551,91 @@ worst this can do is defer a newly loaded Facebook row by a day. Checking the
 
 The Instagram rules from the same edit stand. Those were measured, not inferred:
 15 consecutive days over cap on times that are not slots at all.
+
+---
+
+## === AUDIT 7 Sep 2026, 00:09 UTC (Sun/Wed routine) ===
+
+Window 2 Sep to 6 Nov, 249 rows, no pagination cursor. Complete.
+
+### The store run worked. +60. Running total 694.
+
+Amanda filmed on 5 and 6 Sep and 2 new themes are published on TikTok:
+
+| Theme | Published | Link |
+| --- | --- | --- |
+| #TargetLaborDayFind | 5 Sep 2:24 PM Central | `7682133897622179086` |
+| #TargetActiveStyle | 6 Sep 10:18 AM Central | `7682441762052377869` |
+
+**304 baseline + 390 from 13 themes = 694.** That crosses the number the 30 Aug
+test predicted for the both-credit scenario, by TikTok alone.
+
+Three more Target TikToks are queued, worth up to 90:
+
+| Theme | Fires | Product |
+| --- | --- | --- |
+| #TargetQuickMeals | 8 Sep, 7 PM Central | Good and Gather chopped salad kits |
+| #TargetFave | 9 Sep, 7 PM Central | Tree Hut pink hibiscus scrub |
+| #TargetHomeForFall | 10 Sep, 7 PM Central | glass pumpkins, Threshold candle |
+
+### URGENT: 4 posts state prices. This is the standing hard rule.
+
+Amanda has an open TikTok Shop violation from 4 Aug 2026 over misleading pricing.
+The rule is never state a price. Four Club Target posts break it:
+
+| Post | Status | The text |
+| --- | --- | --- |
+| `6776742` #TargetLaborDayFind | **ALREADY PUBLISHED** 5 Sep | "buy 1 get 1 25% off" |
+| `4059738` no theme tag | fires 7 Sep 6 PM Central | "50% clearance", "$2.99" |
+| `4158113` #TargetQuickMeals | fires 8 Sep 7 PM Central | "dinner for $3.89" |
+| `4158117` #TargetHomeForFall | fires 10 Sep 7 PM Central | "glass pumpkins at $15" |
+
+`scripts/validate-wave.py` fails on exactly these two patterns, a dollar figure and
+a percent off. These posts did not come through the wave library so they never hit
+the validator.
+
+### Second problem: #ad is missing
+
+Every new post carries `#TargetPartner` but **not `#ad`**. Every earlier Club Target
+post carried both. That is a disclosure gap on paid partnership content, separate
+from the pricing issue and arguably more serious.
+
+Affected: `4158117`, `4175373`, `4158113`, `4059738`, `6796860`, `6776742`, `6776722`.
+
+### Third: 2 posts earn nothing
+
+- `4059738`, 7 Sep, carries `#targetfinds #clearance` and **no theme hashtag**.
+  It earns 0 points and carries both a price and a percent off. All risk, no upside.
+- `6776722`, Instagram 5 Sep, has `#ClubTarget` but no theme tag. Instagram pays 0
+  regardless.
+
+### Fourth: #TargetFave may be a repeat
+
+`4175373` on 9 Sep uses `#TargetFave`. That theme was already banked 21 Aug with the
+NYX fat oil post. If a theme credits once per creator, the Tree Hut version earns 0.
+Amanda can confirm from the portal in 5 seconds. If it is spent, the footage is still
+good, it just needs whichever fall or beauty theme is actually open.
+
+### Clean
+
+- **TikTok coverage: no gaps.** All 7 live themes carry a TikTok.
+- **Duplicates: zero.** The 3 Sep top-up hardening held on that front.
+- **Failed posts: zero.**
+
+### Still broken: Instagram cap
+
+13 days over cap between 7 and 30 Sep, on times that are not slots: 00:00, 16:30,
+17:00, 20:00, 22:50. The top-up hardening did not fix this, which means the source
+is not the top-up. Something else is writing Instagram rows. Needs tracing rather
+than another respread.
+
+### Queue
+
+190 scheduled against the Blotato Starter cap of 200. Runs through 31 Oct.
+tiktok 58, instagram 75, facebook 35, youtube 18, linkedin 4. **10 slots left.**
+
+### Verdict
+
+**+60 BANKED**, total 694, up to 784 if the 3 queued themes all credit.
+**ACTION NEEDED TONIGHT** on 3 unpublished posts carrying prices.
+**ACTION NEEDED** on the missing `#ad` across 7 posts.
