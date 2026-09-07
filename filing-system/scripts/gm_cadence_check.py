@@ -150,4 +150,11 @@ def main(argv):
 
 
 if __name__ == "__main__":
-    sys.exit(main(sys.argv))
+    # piping into head closes the pipe early; that is not an error worth a stack trace
+    try:
+        sys.exit(main(sys.argv))
+    except BrokenPipeError:
+        try:
+            sys.stdout.close()
+        finally:
+            sys.exit(0)
