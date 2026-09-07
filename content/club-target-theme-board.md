@@ -30,7 +30,29 @@ appears to be a long running evergreen one. Challenges accumulate rather than
 replace, which is the whole argument for a batched store run every 2 to 3 weeks
 instead of a weekly trip.
 
-## LIVE NOW, dropped 31 Aug 2026, "Start Your Fall Content Refresh"
+## LIVE NOW, dropped 7 Sep 2026, "Fresh Ideas to Fuel Your Creativity"
+
+Only 3 this week, not the usual 4. No seasonal steer in the subject line.
+
+| Link | Name | Hashtag | Closes |
+| --- | --- | --- | --- |
+| https://club.target.com/t/0pdf | unknown | unknown | unknown |
+| https://club.target.com/t/0pdm | unknown | unknown | unknown |
+| https://club.target.com/t/0pdq | unknown | unknown | unknown |
+
+## CONFIRMED HASHTAGS, learned from Amanda's own posts 5 to 6 Sep
+
+She filmed the store run and the captions carry the real tags. These are now known
+good, no guessing involved:
+
+| Theme | Hashtag | Status |
+| --- | --- | --- |
+| Labor Day Find | `#TargetLaborDayFind` | published 5 Sep, banked |
+| Active Style | `#TargetActiveStyle` | published 6 Sep, banked |
+| Quick Meals | `#TargetQuickMeals` | queued 8 Sep |
+| Home For Fall | `#TargetHomeForFall` | queued 10 Sep |
+
+## Dropped 31 Aug 2026, "Start Your Fall Content Refresh", "Start Your Fall Content Refresh"
 
 Names and closing dates unknown, awaiting screenshots.
 
