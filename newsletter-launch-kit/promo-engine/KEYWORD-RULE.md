@@ -407,3 +407,90 @@ away from a leg that is currently broken.
    converted because 2952 happened to have them.
 4. **Watch run `150551`.** If they reply, the address needs adding by hand until MailerLite is
    back. If they never reply, that is the argument for the button over the gate, in one datapoint.
+
+---
+
+# 2026-09-07: the casings were fixed, and the fix has a sharp edge
+
+## What changed
+
+Between **00:00:29 and 00:02:43 UTC today**, 20 live automations gained lowercase and title-case
+keyword variants. That is the fix recommended on 09-05 after "Cesa please" only converted because
+2952 happened to carry `Cesa`.
+
+| Now carrying 3+ casings | ids |
+|---|---|
+| Instagram, acct 45886 | 2278 BLOOM, 2277 FALLFIT, 2276 CURLTALK, 1424 GUIDE, 1393 CONSIDER, 1019 PLAY, 445 CESA, 444 SCRUB, 443 BUTTER, 442 NATIVE, 441 SOOTHE, 440 LIPDRIP, 439 BROW, 436 SOAK, 435 RESET |
+| Facebook, acct 30840 | 1422 GUIDE, 1394 CONSIDER, 1020 PLAY, 432 CESA, 428 SCRUB |
+
+FALLFIT, CURLTALK and LIPDRIP got a fourth variant (`FallFit`, `CurlTalk`, `LipDrip`), which is
+the right instinct for compound words.
+
+## The problem this creates, and I should have flagged it when recommending the fix
+
+**Blotato matches substrings.** That is documented higher up in this file and it is what makes a
+lowercase variant dangerous: `brow` does not only match the word "brow", it matches **any**
+lowercase text containing those four letters.
+
+Checked against ordinary words, not assumed — **12 of the 19 lowercase variants match inside
+common English words:**
+
+| Keyword | Fires on ordinary words like | Risk on this account |
+|---|---|---|
+| `brow` | brown, browns, browning, eyebrow, browse, brownie | **HIGH.** Cesa's muzzle, blankets, furniture. "her brown fur" fires a brow gel ad. |
+| `play` | playing, playful, played, display, displays | **HIGH.** A dog account. "watching her play" fires the audiobook list. |
+| `native` | **alternative**, alternatives, natively | **HIGH.** Home tips constantly say "a cheaper alternative". |
+| `bloom` | blooming, blooms, bloomed | **MEDIUM.** She posted about dandelions being open. |
+| `butter` | butterfly, butterflies, buttercup, buttery | MEDIUM |
+| `consider` | considering, considered, consideration | MEDIUM. "I'm considering one" fires a newsletter signup. |
+| `soak` | soaking, soaked, soaks | LOW |
+| `scrub` | scrubbing, scrubbed, scrubs | LOW |
+| `guide` | guided, guidelines, guidebook, misguided | LOW |
+| `soothe` | soothed, soother | LOW |
+| `reset` | preset, presets, resetting | LOW |
+| `seasonal` | seasonally | LOW |
+
+**Two costs when a false positive fires:**
+
+1. Someone making an ordinary comment gets DM'd an unrelated product link. That reads as spam on
+   the account that is trying to earn 500 followers.
+2. **It burns the one private reply per comment.** Instagram allows exactly one (error 20102). If a
+   comment says "her brown fur is going white, send me the CESA guide", `brow` can claim the slot
+   and **the real keyword fails silently.** The fix for missing leads would then start causing them.
+
+**Title case does not solve it either.** `Brow` matches "Brown blankets…" at the start of a
+sentence, `Play` matches "Playing with her…". Rarer than mid-sentence, but not safe.
+
+## Recommended, proportionate fix, no caption changes required
+
+Nothing in the queue needs rewriting for this — the CTAs all say the all-caps form.
+
+- **Drop the bare lowercase variant on all 12 above.** Keep `ALLCAPS` + `Title`. That cuts the
+  exposure to sentence-initial hits only.
+- **For `brow`, `play` and `native`, go all-caps only.** Their host words (brown, playing,
+  alternative) are too common to accept even sentence-initial risk.
+- **Leave the compound keywords as they are.** `fallfit`, `curltalk`, `lipdrip`, `dishwasher`,
+  `bottleneck`, `tuesday`, `cesa` are not substrings of ordinary words, so their lowercase forms
+  are safe and are exactly the case that caught the first real lead.
+
+## Not yet observed
+
+**Zero false positives so far.** The change went live 13 hours ago and all 34 live automations
+were swept today: no new runs anywhere. Comment volume is low enough that absence of evidence here
+is weak evidence — this is a prediction from the matching rule, not an incident report.
+
+## Two things the overnight pass did not touch
+
+- **`454` GEL and `453` MASK are still all-caps only.** Both are `message-received` (DM keyword,
+  not comment), which is why they were probably skipped. `GEL` is worth leaving alone regardless:
+  lowercase `gel` would match "angel".
+- **`2952`'s emailGate is still in place**, `updatedAt` unchanged at 2026-09-03T05:51:17Z. The pass
+  edited keywords, not gates. So the first real lead is still on the slow path.
+
+## Live state of the first real lead
+
+Run `150551`, contact `1774569036904343`, comment "Cesa please". **Still `waiting`. No reply,
+59.5 hours on.** Not expired.
+
+MailerLite has now been unavailable for **3 days** (09-05, 09-06, 09-07), confirmed by search each
+day. Step 4 of the daily sync has not run since 09-04.
