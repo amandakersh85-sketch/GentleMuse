@@ -1,6 +1,17 @@
-# Club Target, Labor Day Deals (0p1g) — 30 points, closes today
+# Club Target, Labor Day Deals (0p1g) — CLOSED, and credited
 
-**Status:** cannot be cut from this session. The 13 store clips filmed 09/04 are
+> **Outcome, 2026-09-08.** Amanda filmed and posted the cut herself, submitted it, and it was
+> **credited**. The challenge has since expired and is off the board. The edit sheet and caption
+> below were never used; they are kept because the same 13 store clips still serve the next
+> posting challenge, and the hard constraints at the bottom apply to every Club Target post.
+>
+> **One thing in this brief was wrong and is worth naming.** It said 30 points would take her
+> "past the 630 Tier 5 needs." Two numbers were wrong. Tier 5 needs about **1250**, and the
+> portal reads **"You are 579 points from Target Trendsetter 5"** against a live total of **671**.
+> The brief inherited the figure from the tracker, which has now been corrected. The post was
+> still worth making; it just did not do what this brief said it would do.
+
+**Original status (superseded):** cannot be cut from this session. The 13 store clips filmed 09/04 are
 on the D: drive only. They are not in Drive (checked 09/08, newest video in
 Drive is from July), so the render container has never seen the bytes. Rule 5,
 no substitution: a Target creator post shows the actual store trip, so a stock

@@ -4,8 +4,8 @@
   "slug": "cesa-blackgirl",
   "seed": 21,
   "duration": 24.0,
-  "label": "Gentle Muse \u00b7 Halloween",
-  "source": "Source: British maritime tradition; Edo period folklore \u00b7 HAL-021",
+  "label": "Gentle Muse · Halloween",
+  "source": "Source: British maritime tradition; Edo period folklore · HAL-021",
   "beats": [
    {
     "in": 0.0,
@@ -22,7 +22,7 @@
    {
     "in": 8.0,
     "out": 12.2,
-    "html": "In Edo period Japan a black cat<br>warded off evil and drew fortune.",
+    "html": "In Edo period Japan a black<br>cat warded off evil<br>and drew fortune.",
     "cta": null
    },
    {
@@ -34,7 +34,7 @@
    {
     "in": 15.8,
     "out": 19.8,
-    "html": "She's not a cat. But the black girls<br>have always been the good luck here.",
+    "html": "She's not a cat. But the<br>black girls have always<br>been the good luck here.",
     "cta": null
    },
    {
@@ -45,9 +45,9 @@
    }
   ],
   "clip": {
-   "file": "clips/cesa-grass-1.mp4",
+   "file": "clips/cesa-grass-1-v.webm",
    "push": 0.0,
-   "clip_id": "cesa-grass-1",
+   "clip_id": "cesa-grass-1-v",
    "override": true,
    "match_reason": "The fact rehabilitates a black animal's reputation and the closer hands it to the black and tan girl in daylight, tongue out, walking toward camera. She is the good luck, shown not argued."
   }
