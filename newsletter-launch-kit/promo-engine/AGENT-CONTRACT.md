@@ -225,3 +225,30 @@ newsletter-launch-kit/SCHEDULING-LADDER.md.
 - All MailerLite automations enabled. Both newsletters loaded and scheduled.
 - Aug 27 is the last day of the 60 Day AI Journey. From Aug 28 the cadence is 3 posts a day
   with 2 of the 3 being promos.
+
+## 0c. Checking ONE automation without paging 50 at a time
+
+`blotato_list_automations` has no get-by-id, so every gate check has meant paging 50-item pages
+until the target appears. The CESA watch does this 12 times a day across 3 automations.
+
+**A cursor is just base64 of `<createdAt>_<id>`** — the values from any earlier listing. Encode
+the automation created immediately BEFORE your target (they are ordered newest first, so
+"before" means the next one down the list) and pass `limit: 1`. You get exactly your target.
+
+```python
+base64.b64encode(b'2026-08-08T19:57:27.092Z_446').decode()  # lands on 445
+base64.b64encode(b'2026-08-08T19:48:25.060Z_434').decode()  # lands on 432
+```
+
+Verified working 2026-09-08 on both. The response's own `cursor` field confirms which record you
+landed on. Known-good anchors:
+
+| Target | Anchor to encode |
+|---|---|
+| `445` CESA IG main | `2026-08-08T19:57:27.092Z_446` |
+| `432` CESA Facebook | `2026-08-08T19:48:25.060Z_434` |
+| `2952` / `2954` Cesa IG | `2026-08-27T18:15:02.000Z_2954` (returns both at `limit: 2`) |
+
+This does not replace paging when the job is **counting** or **finding** things — a full sweep
+still has to page to an empty page and state the count examined. It replaces paging when you
+already know exactly which record you want.
