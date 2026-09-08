@@ -16,6 +16,8 @@
 #   5. renders every payload that passed
 set -euo pipefail
 
+. "$(cd "$(dirname "$0")" && pwd)/../filing-system/scripts/gm_py.sh"   # sets $PY
+
 SRC="${1:?usage: bash make-reels.sh <footage-dir> [payloads.json]}"
 PAYLOADS="${2:-reels-footage.json}"
 HERE="$(cd "$(dirname "$0")" && pwd)"
@@ -32,7 +34,7 @@ FFMPEG="$FFMPEG" bash "$HERE/prep-clips.sh" "$SRC" "$CLIPS"
 
 echo
 echo "== 2. probing into the library =="
-python3 - "$CLIPS" "$LIB" "$FFPROBE" <<'PY'
+"$PY" - "$CLIPS" "$LIB" "$FFPROBE" <<'PY'
 import csv, json, os, subprocess, sys
 clips, lib, ffprobe = sys.argv[1], sys.argv[2], sys.argv[3]
 COLS = ["ClipID","File","DurationSec","Resolution","Orientation",
@@ -98,7 +100,7 @@ echo
 echo "== 3. binding gate =="
 GATE="$HERE/../filing-system/scripts/gm_bind_check.py"
 if [ -f "$GATE" ]; then
-  python3 "$GATE" --render "$HERE/$PAYLOADS" --library "$LIB" || {
+  "$PY" "$GATE" --render "$HERE/$PAYLOADS" --library "$LIB" || {
     echo "Gate did not pass. Nothing renders."; exit 1; }
 else
   echo "  gm_bind_check.py not found, skipping. Check the bindings by hand."
