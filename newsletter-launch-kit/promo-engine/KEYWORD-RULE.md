@@ -961,3 +961,50 @@ bladder/traction/door trio from the Aug 28 caption, "stops when she wants to sto
 post `3667740` commented on, "hears the car before the door" from the exact post `3832450`
 commented on. She cut one line from draft D that was my inference rather than sourced, and she
 was right to.
+
+## `2954`'s gate came off and it got a button, 2026-09-08. Amanda's call.
+
+The last automation in the funnel carrying the gate-only shape. `blotato_update_automation`
+with `emailGate: null` and a button added in the same call.
+
+Verified on a fresh paged read, not from the write response:
+
+| Field | Before | After |
+|---|---|---|
+| `emailGate` | present, "Reply with your email address and I'll add you" | **absent** |
+| `buttons` | **`[]`** — no path at all | `Get Consider This` -> `https://consider-this.subscribepage.io` |
+| `keywords` | `CONSIDER`/`consider`/`Consider` | unchanged, all three intact |
+| `isActive` | `true` | `true` |
+| `publishedVersionId` | 4197 | **8534** |
+
+**Zero runs, ever.** `blotato_list_automation_runs` returns `{"runs":[]}`, so nothing was lost
+through it in the two weeks it was gate-only. It is also untested by real traffic.
+
+Every gate in the CESA and CONSIDER path is now gone. `4009`, `4010` and `4011` SEASONAL still
+carry gates and were not touched — they are the Sept 1 set and no decision has been asked for
+on them.
+
+### The change broke the DM copy, and this is the second time that has happened
+
+The `dmMessage` still opens **"You're in, and you'll get the Cesa part too."**
+
+That sentence was written for the world where the gate had already captured the address. With
+the gate gone it is the first thing a commenter sees, and it is false: they have given nothing
+and they are not subscribed. It tells them they are in, then offers a button they now have no
+reason to tap.
+
+`LEAK-SWEEP-0830.md` caught this identical failure on 08-30 — "emailGate they no longer have.
+Rewritten to match reality." **Removing a gate is two changes, not one: the gate and the copy
+that assumed it.** Writing that down as a rule because it has now cost twice.
+
+Draft raised for approval, minimal diff, sign-off untouched: `"You're in, and you'll get the
+Cesa part too."` becomes `"Here it is."`, and `"Tap below and add your email on the page.
+Thursday's lands in your inbox."` is added before the sign-off. Both borrowed from `2952` and
+`1393`, the two that work. Not applied — copy is approval-first.
+
+### Standing check for the daily sync and both routines
+
+When an `emailGate` is removed from any automation, re-read its `dmMessage` in the same pass and
+flag any sentence that only makes sense with a gate in the path: "you're in", "reply with",
+"I'll add you", "send me your email". A gate removal that leaves the copy behind converts worse
+than the gate did, because the gate at least asked for something real.
