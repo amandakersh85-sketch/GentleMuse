@@ -84,10 +84,10 @@ an older one in now and then to keep the mix fresh.
 what already exists and works. Spend credits only where the piece genuinely
 has to be new.
 
-6 sets are shot: turnip, snick, casper, coffinbell, lugnano, trailer. Only
-**turnip and snick are hosted**. The other 4 are 38 files sitting on disk,
-and hosting them costs nothing but the upload. That is the cheapest volume
-available anywhere in this system, so do it early.
+All 6 sets are shot and **all 6 are now hosted**: turnip, snick, casper,
+coffinbell, lugnano, trailer. 48 slides and talls, every URL verified byte
+for byte, all in `blitz-media-map.csv`. Nothing here costs a credit to use
+again.
 
 ### Pinterest, which is cold and should not be
 
@@ -103,8 +103,13 @@ The pin's destination is a **link field on the pin**, not caption text, so
 no keyword automation applies and the caption does not carry the call to
 action.
 
-10 pins are staged in `staging-library.csv` already. They could not be
-scheduled because the queue hit 200. They go in on the next drain.
+**48 pins are staged** in `staging-library.csv`, which at 1 a day is 7
+weeks of Pinterest with no new work and no credits. They could not be
+scheduled yet only because the queue is at 200, so they load on the next
+drain.
+
+The 9:16 talls are the better pin shape and should lead; the 4:5 slides
+carry the same content and work as the carousel on Instagram.
 
 ## YOUR SECOND JOB: THE 99 POST PULL, ALREADY APPROVED
 
