@@ -732,3 +732,42 @@ the one-DM-per-comment slot.
 
 **Drafts not written and nothing posted.** Replying to these is content, and content is
 approval-first.
+
+## `1393`'s gate came off, 2026-09-08. Amanda's call, same conversation.
+
+`blotato_update_automation` with `emailGate: null`. Verified on a fresh paged read, not from the
+write response:
+
+| Field | State after |
+|---|---|
+| `emailGate` | **absent** |
+| `buttons` | `Get Consider This` -> `https://consider-this.subscribepage.io` |
+| `keywords` | `["CONSIDER","consider","Consider"]` — all three intact |
+| `isActive` | `true` |
+| `publishedVersionId` | 7954 -> **8508**, so it is live |
+
+CONSIDER now behaves identically on Instagram and Facebook: comment, DM with button, landing
+page captures the address. The asymmetry is gone.
+
+### Correction to the Aug 29 gate inventory
+
+That record named `2954`, `2771`, `2772` as the emailGate set. It is out of date rather than
+wrong — three SEASONAL automations created Sept 1 (`4009` IG main, `4010` FB, `4011` Cesa IG)
+all carry gates, consistently across all three platforms. Not touched, not a discrepancy.
+Noting them so the next inventory does not read them as regressions.
+
+### The mechanism the funnel has not been using
+
+`blotato_send_message` accepts a `commentId`, which sends **one private reply per comment,
+within 7 days, with no prior DM required**. That is a separate window from the 24-hour standard
+DM rule.
+
+Every warm commenter who did not type the keyword is reachable in their inbox for a week. The
+funnel has only ever used this path through keyword automations, which means the door has been
+open on every non-keyword comment and nobody has walked through it. **This is the answer to the
+two near-misses above, and it is a standing capability, not a one-off.**
+
+Caveat worth writing down: the slot is one per comment and an automation firing consumes it.
+That is what error `20102` "already has a reply" is. So a contact whose emailGate run expired
+may be permanently unreachable through this path — testing that on contact
+`1774569036904343` is what the next send will establish.

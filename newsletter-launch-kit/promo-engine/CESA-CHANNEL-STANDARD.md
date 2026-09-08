@@ -10,7 +10,10 @@ Every post on that account carries a keyword CTA. No exceptions.
 | CESA | The Cesa guide, 19 Years Old, 10 of Them Mine | 2952 |
 | CONSIDER | Consider This newsletter | 2954 |
 
-Both are LIVE and both use an email gate, so the DM captures the address directly.
+Both are LIVE. **`2952` CESA no longer uses an email gate** — Amanda removed it 2026-09-08
+after the gate cost the first real lead, so CESA now sends a button straight to
+`cesa-guide.subscribepage.io` and the landing page captures the address. `2954` CONSIDER
+still gates and still needs the daily sync in its path.
 
 ## The CTA rule for this channel
 
