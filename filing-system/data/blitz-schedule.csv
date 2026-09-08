@@ -100,3 +100,6 @@ Date,TimeUTC,Lane,Platform,Account,FactID,Media,Status,SubmissionId
 2026-10-28,15:00,club,tiktok,41488,HAL-018,carousel lugnano slides 1-5,staged awaiting queue room,
 2026-10-30,19:00,echo,youtube,36129,CDN-001,countdown-tt pyre,staged awaiting queue room,
 2026-10-30,19:00,echo,facebook,30840,CDN-001,countdown-ig doorway,staged awaiting queue room,
+2026-09-08,20:00,halloween,instagram,45886,HAL-003,trackA-hal-003,scheduled,a88e2a6a-7824-4922-9771-28ec33ab2492
+2026-09-08,20:00,halloween,tiktok,41488,HAL-020,trackA-hal-020,scheduled,e79ac95c-dc73-4c8e-8225-2b3a8597ad2c
+2026-09-08,19:30,halloween,facebook,30840,HAL-006,trackA-hal-006,cap-blocked,
