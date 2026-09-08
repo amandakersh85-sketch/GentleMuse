@@ -1008,3 +1008,41 @@ When an `emailGate` is removed from any automation, re-read its `dmMessage` in t
 flag any sentence that only makes sense with a gate in the path: "you're in", "reply with",
 "I'll add you", "send me your email". A gate removal that leaves the copy behind converts worse
 than the gate did, because the gate at least asked for something real.
+
+### Copy fixed, 2026-09-08. Amanda's call, same conversation.
+
+Verified on a fresh paged read. `publishedVersionId` 8534 -> **8536**, `emailGate` still absent,
+button and all three keyword casings untouched.
+
+| | Text |
+|---|---|
+| Was | "**You're in, and you'll get the Cesa part too.**" |
+| Now | "**Here it is.**" |
+| Added | "**Tap below and add your email on the page. Thursday's lands in your inbox.**" |
+
+The taped-outline sentence was left exactly as written. It is the best line in the message and it
+is hers.
+
+`2954` is now the same shape as everything else that works: comment, DM, button, landing page.
+
+## A hazard the 39-keyword set creates: `2952` can trigger on Amanda's own comment
+
+`2952` now matches `"year old"` and `"years old"`. Cesa's captions say "19 years old" constantly
+— it is the whole premise of the account.
+
+Amanda uses scheduled first-comments on her other accounts (`"Prefer the link? Here it is:"` on
+Facebook, the Press Play link on her main IG). **There are currently none on account `65540`** —
+every `isAuthor: true` comment in the 7-day window was on `45886` or `30840`. So the risk is not
+live today.
+
+But the day a first-comment gets added to a Cesa post and it quotes the caption, `2952` matches
+its own account's comment. Whether Blotato ignores the account's own comments on a
+`comment-received` trigger is **unverified**, so the safe assumption is that it does not.
+
+Consequence is mild — it would DM her own account and burn nothing real — but it would look
+exactly like a lead in the runs list, and this project has already lost 12 days to a monitor
+that reported a comfortable fiction.
+
+Closed by teaching the CESA watch the difference: `17841432484315950` is Cesa's IG business id
+and `17841480184590976` is her main IG. A run from either is a **self-trigger to fix**, not a
+lead to celebrate, and the watch now says so.
