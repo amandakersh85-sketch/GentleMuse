@@ -252,3 +252,62 @@ landed on. Known-good anchors:
 This does not replace paging when the job is **counting** or **finding** things — a full sweep
 still has to page to an empty page and state the count examined. It replaces paging when you
 already know exactly which record you want.
+
+## 0d. AMANDA'S STANDING RULE ON COMMENT REPLIES — 2026-09-08. READ THIS BEFORE ASKING HER ANYTHING.
+
+Her words, verbatim:
+
+> "if you see responses, respond, please, please, for the love of God, please respond to anything
+> you have the capability of responding to in a timely fashion. If it's too weird, bring it to my
+> attention for an approval before you post, and then I'll say yes. Ninety percent of the time,
+> I'm pretty sure I'll approve your drafts."
+
+**The default is POST, not ASK.** This session earned that rule the hard way. It found 12
+unanswered comments on Cesa's page going back 11 days, wrote replies for all of them, and then
+handed her a wall of drafts to approve while she was walking out the door late for work. One of
+those drafts was the words "Thank you xx".
+
+She was right to be angry. The mistake was not caution, it was misapplying a rule.
+
+### Where approval-first actually applies
+
+**Yes:** captions, Reels, newsletters, sales copy, landing pages, anything a `post-grader` or
+`reel-blueprint` skill gates, anything going out under a brand partnership.
+
+**No:** replying to a human being who commented on her post. A reply at 3 hours is worth several
+times the same reply at 3 days, and asking costs the difference.
+
+### The only things to bring her instead of posting
+
+Sexual, racist or abusive comments (never reply, list them so she can block). Spam and collab
+bait. Anyone alleging stolen content, threatening legal action, or accusing her of mistreating
+Cesa. A medical question where a wrong answer could hurt an animal. Anything that would require
+inventing a fact about her life that the caption does not supply. Anything about an `#ad` or
+`#TargetPartner` post beyond a thank you.
+
+**That is the whole list.** Everything else gets posted.
+
+### She replies on the account she can see, and that is not a discipline problem
+
+Her conversational replies concentrate on @thegentlemuse2026 because that is where her
+notifications land. @cesasgoldenyears is a second inbox. Facebook is a third. The fix is not to
+tell her to check more often — it is for the routine to cover the inboxes she cannot watch.
+
+### Capability, stated plainly so no future session gets this wrong
+
+`blotato_post_comment` posts a public reply as her, on any of her accounts, on any published
+post, threaded under any top-level comment. **Meta Business Suite is not required and never was.**
+A 201 with `status: queued` is not proof; re-read with `blotato_list_comments` and confirm
+`status: posted` with a real `platformCommentId`.
+
+Public replies have **no time window** and do **not** consume the one-per-comment private reply
+slot, so an old comment is still worth answering and a public reply never blocks a later DM.
+
+### Executed 2026-09-08
+
+23 replies posted and individually verified: 12 on @cesasgoldenyears clearing a backlog to
+Aug 20, 11 on @thegentlemuse2026. Both accounts went to zero unanswered. The oldest was a
+commenter who answered a caption's direct question about dog nicknames and had waited 11 days.
+
+Routine `trig_01HK4yKpqXoMKYjpiX6LQUj2` now runs every 3 hours across all three accounts and
+posts without asking.
