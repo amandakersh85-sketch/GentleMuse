@@ -1,3 +1,17 @@
+# TABLED 09/08/2026 — do not build from this file
+
+Amanda's verdict: the facts are boring. She's right. This bank was generic
+internet trivia, the kind anyone could search for in 10 seconds. It carried no
+reason for a person to follow HER. Nothing in it is scheduled and nothing gets
+rendered. Left in the repo as a record of what missed, not as a queue.
+
+The real request underneath it: her, talking to camera, person to person, with
+good lighting and something genuinely interesting to say. That's the lane. A
+fact bank only earns a place inside that lane if the facts are worth stopping
+for on their own.
+
+---
+
 # Trivia Fact Bank — 30 days, Sept 8 to Oct 7 2026
 
 For the daily HeyGen trivia post. Amanda approves this bank in 1 pass, then

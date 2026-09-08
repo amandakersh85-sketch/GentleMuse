@@ -102,3 +102,34 @@ follower numbers. Ask her, do not read it from Metricool.
 No em dashes. Digits, not spelled-out numbers. Contractions always. Warm,
 grounded, practical, no hype. Instagram max 5 hashtags. Facebook and LinkedIn
 captions carry no hashtags. Never state a price on affiliate content.
+
+## Content quality bar (locked in 09/08/2026, from Amanda directly)
+
+An idea has to earn its slot. Filling a daily slot is not a reason to ship
+something. If a piece is only there to hit a posting quota, it does not go out.
+
+The test for any fact, hook, or script before it reaches Amanda: would a
+stranger stop scrolling, and does it give them a reason to follow HER
+specifically? Generic internet trivia fails both. Anything searchable in 10
+seconds is not content, it is filler.
+
+What actually converts, confirmed by the corpus: Amanda talking to camera,
+person to person. Her 2 highest watch times in the whole campaign are her
+talking (11.0s and 10.6s). The ceiling on those was the opening frame, not
+her. Build around her face and her voice, not around formats that let her
+skip filming.
+
+Known miss for the record: the 30 day trivia fact bank drafted 09/08/2026.
+Boring, generic, tabled the same day. The failure was optimizing for zero
+Amanda time instead of for whether anyone would care.
+
+## Focus rule (locked in 09/08/2026)
+
+Amanda's words: "We're bouncing around all over the place."
+
+One lane at a time until it ships or dies. Do not open a new format, channel,
+or experiment while an earlier one is still unfinished. When she asks for
+something new mid-stream, say what it displaces before starting it.
+
+The 2 things that stay open right now: her talking-to-camera footage, and
+fixing the lighting so that footage is usable. Everything else waits.
