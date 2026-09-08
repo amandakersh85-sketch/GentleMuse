@@ -465,3 +465,65 @@ every email ever sent to them.
 
 That is the outcome the re-permission approach was chosen for on 09-01: smaller, and every name
 on it has shown a sign of life.
+
+---
+
+# THE FIRST REAL SIGNUP, 2026-09-04 (found 09-08)
+
+**Shaniya, `shaniyaplunkett516@gmail.com`, subscriber `197698627660940822`.**
+
+Not one of Amanda's addresses. Not a `+alias`. Her opt-in IP
+(`2607:fb90:9a29:d79d:...`) is not Amanda's `72.58.115.46`.
+
+**This is the first subscriber the funnel has ever produced on its own.**
+
+## The whole chain fired, verified from `get_subscriber_activity`
+
+| Time (UTC) | Event |
+|---|---|
+| 2026-09-04 16:41:43 | `added_to_group` -> **Consider This** (`195832544509298574`) |
+| 2026-09-04 16:42:11 | `activated_via_confirmation` -> site **"Consider This Landing - Gentle Muse"** (`195967090619843641`) |
+| 2026-09-04 16:42:19 | `automation_email_sent` -> **"You're in. Here's what Consider This is."** (automation `196338050950759852`) |
+
+**28 seconds from form fill to confirmed double opt-in. 8 seconds from confirmation to the
+welcome email landing.** The landing page, the double opt-in, the group assignment and the
+delivery automation all worked, unattended, exactly as built.
+
+She has not opened it yet. `sent 1, opens 0, clicks 0`.
+
+## It sat invisible for four days
+
+She signed up **2026-09-04 at 16:42 UTC**. The last subscriber sweep that could see anything ran
+at **13:07 that same day — 3.5 hours before she arrived.** MailerLite then went unavailable
+09-05 through 09-08.
+
+So this signup was missed by the 09-05 sync, the 09-06 sync, the **09-07 weekly scoreboard whose
+single stated headline condition was exactly this**, and the 09-08 sync. Four consecutive checks,
+all blind.
+
+The 09-07 report said: *"If the funnel produced its first real signup this week, I would not know,
+and neither would you."* This was the thing that was hiding.
+
+**Lesson worth keeping: a check that cannot run is not a check that passed.** Report the outage as
+loudly as a finding, because a blind window is where the good news hides too, not just the bad.
+
+## Where the real list stands, 2026-09-08
+
+Amanda's own addresses and tests excluded throughout: `amandakersh85@gmail.com`,
+`amanda@gentlemuse.co`, the `+cesatest` / `+cesatest2` / `+cesaloop` / `+lptest` aliases, and
+`princesamaryelizabeth@gmail.com`.
+
+| Person | Status | Sent | Opens | Note |
+|---|---|---|---|---|
+| Mary | active | 4 | 1 | clicked once |
+| christine | active | 6 | 1 | |
+| Laura | active | 3 | **3** | opens everything |
+| **Shaniya** | **active** | 1 | 0 | **new, and the first organic one** |
+| Melissa | unsubscribed | 9 | 0 | suppressed today |
+| Nadia | unsubscribed | 9 | 0 | suppressed today |
+
+**4 real people receive mail, up from 3 alive this morning.** Every one of them has either opened
+something or only just arrived. Nobody on the list has ignored every email ever sent to them.
+
+Net change since the 09-04 13:07 sweep: **+1 organic signup, −2 suppressed.** The list got
+smaller and better on the same day it grew for the first time.
