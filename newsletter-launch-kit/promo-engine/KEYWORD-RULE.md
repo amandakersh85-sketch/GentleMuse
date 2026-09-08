@@ -1142,3 +1142,61 @@ Both routines now **read the live keywords from `blotato_list_automations` every
 trusting a copy. This is the third time in this project a hardcoded list has gone stale
 underneath a monitor. The rule is now explicit: a routine that checks configuration reads that
 configuration from source at run time, never from its own prompt.
+
+---
+
+# 18:40 — THE FIRST REAL OUT-OF-SAMPLE TEST, 54 MINUTES AFTER SHIPPING. IT MISSED.
+
+The lead sweep's first firing caught a genuinely new comment, and it is the honest test the earlier
+5/5 could never be.
+
+Contact `2535614900194954` wrote "She looks amazing!" on `6712462` on Sept 4 and was never
+answered. A public reply went out at 18:23. **Four minutes after reading it they came back:**
+
+> "@cesasgoldenyears gives me hope for my healthy chi that's about to turn 9 ❤️💪"
+
+Nothing fired. `my chi` is in `2952`'s 83 keywords, but **the adjective splits it** — "my healthy
+chi" does not contain the substring "my chi". A qualified lead, self-identified, on the account
+the keywords were built for, missed by one word of English.
+
+**Proposed fix, not applied:** the standalone token `" chi "` with surrounding spaces. It catches
+this, it catches "her chi", "the chi", "a chi is". It does not collide with anything on `2952`, and
+"Chihuahua" does not contain `" chi "` because the required trailing space is absent. Keyword
+changes are config, and Amanda wants those approved, so it waits.
+
+**The lesson is bigger than one keyword.** Multi-word keywords assume word adjacency, and real
+people put adjectives in the middle. `my dog` misses "my old dog". `my girl` misses "my sweet
+girl". `senior dog` misses "senior rescue dog". A meaningful share of the 83 are quietly fragile in
+exactly this way, and no amount of adding phrases fixes the class — which is precisely why the
+sweep exists and why its measurement matters more than the keyword list does.
+
+## What was actually done for her, under the new rule
+
+Public reply threaded under her top-level comment, plus a private DM with the button. Both
+verified. Conversation `505547`, message `1594288`, status `sent`.
+
+The DM leans on Amanda's own published line from `6503252`: *"People ask me what the secret is.
+There isn't one. It's small adjustments, made early and kept up."* That line is why a 9-year-old
+dog's owner is the right audience for a guide about a 19-year-old, and it is her sentence, not an
+invented pitch.
+
+## Reply-threads are not nestable
+
+`blotato_post_comment` rejects a `parentCommentId` that is itself a reply — "must be a top-level
+comment". To answer someone who replied inside a thread, thread the answer under their ORIGINAL
+top-level comment; it lands in the same visible conversation.
+
+## Three routines, all rewritten this hour to Amanda's rule
+
+| Routine | Cadence | Default |
+|---|---|---|
+| Comment replies (`trig_01HK4yKpqXoMKYjpiX6LQUj2`) | every 3h, all 3 accounts | **posts** |
+| Lead sweep (`trig_012kjdGhjy2pJoLjMn6h5x2G`) | every 6h | **sends the guide** |
+| CESA delivery watch (`trig_01ErT42pMQ87cEbk1Y3NXppt`) | every 2h | reports only |
+
+The lead sweep's original prompt ended "DO NOT SEND ANYTHING... that is her standing rule and it is
+not negotiable." It fired 20 minutes after she replaced that rule and would have sat on a live lead
+to ask permission. **A routine's prompt is a snapshot of a rule, and rules change faster than
+prompts.** Both the sweep and the watch now read live state from source rather than from their own
+text: the sweep reads keywords off the automations, the watch discovers DM conversations instead of
+carrying a list that was already one short.
