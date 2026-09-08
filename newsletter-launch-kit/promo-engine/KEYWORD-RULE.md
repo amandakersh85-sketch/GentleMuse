@@ -559,3 +559,71 @@ remain two `20102` errors on `445` from 2026-08-28. **No followGate anywhere.**
 
 **No false positives from the lowercase keywords yet** — they have been live ~37 hours and comment
 volume is low. Still a prediction, not an observation.
+
+---
+
+# 2026-09-08: THE LOWERCASE VARIANTS STAY. RECOMMENDATION WITHDRAWN.
+
+## Do not strip them. Amanda's direct instruction, and she is right.
+
+The 09-07 and 09-08 sections above recommend removing the bare lowercase keyword variants from
+12 automations because Blotato matches substrings and `brow` sits inside "brown".
+
+**That recommendation is withdrawn. Do not act on it.** If you are a future session reading this
+file, the sections above are kept only as the record of a bad call. **Every keyword keeps every
+casing.**
+
+## Why the recommendation was wrong
+
+Set the two risks side by side honestly:
+
+| | Missed match | Substring false positive |
+|---|---|---|
+| Status | **Demonstrated** | **Predicted, never observed** |
+| Evidence | The only real keyword lead in the funnel's history — "Cesa please", 2026-09-05 — matched **solely because 2952 carried `Cesa`**. All-caps only and it silently misses. | 12 keywords, live since 2026-09-07 00:00 UTC. Swept every automation daily since. **Zero false-positive runs.** |
+| Cost when it happens | A real person asks for the thing, gets nothing, never knows, and neither do we | An unrelated DM, and one burned reply slot |
+
+I argued from a word list. She argued from the one conversion the funnel has ever produced. **Her
+evidence is real and mine was hypothetical**, and I weighted them the wrong way round.
+
+## The standing rule, in her words
+
+> **"We don't want it to be case specific. They're there for a reason. We don't want any missed
+> connections. The goal is conversion. If somebody doesn't get the link when they comment the
+> keyword in the wrong case, that's a leak."**
+
+That is the priority order for this whole funnel: **a missed connection is a leak, and a leak
+outranks tidiness.** Nobody types keywords in all caps. Expecting them to is the bug.
+
+**Any new automation gets ALLCAPS + lowercase + Title case at minimum**, plus a camel variant for
+compounds (`FallFit`, `CurlTalk`, `LipDrip`). `5215` DISHWASHER was built this way from the start.
+
+The two remaining single-casing automations, `454` GEL and `453` MASK, are `message-received`
+(DM keyword, not comment). **GEL is the one genuine exception**: lowercase `gel` matches "angel",
+and that one is worth leaving alone.
+
+## What monitoring stays
+
+The daily sweep already checks every live automation's runs. If a false positive ever actually
+fires, that is data and it gets reported with the comment text that triggered it. **Until one
+does, there is nothing to report and nothing to change.**
+
+## The gate came off 2952 today
+
+Same instruction, same conversation. `blotato_update_automation` with `emailGate: null`.
+
+Verified on a fresh `list_automations` read, not from the write response:
+
+| Field | State after |
+|---|---|
+| `emailGate` | **absent** |
+| `buttons` | `Get the guide` -> `https://cesa-guide.subscribepage.io` |
+| `keywords` | `["CESA","cesa","Cesa"]` — **all three intact** |
+| `isActive` | `true` |
+| `publishedVersionId` | 6298 -> **8481**, so it is live |
+
+CESA on Cesa's Instagram is back to the Aug 28 design: **comment -> DM with button -> landing page
+captures the email and delivers the guide itself.** No in-thread reply required, no daily sync job
+in the path, no MailerLite dependency. One tap.
+
+That is the path the first real lead should have gotten. The next one will.
