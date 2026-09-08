@@ -575,6 +575,39 @@ if grep -q "^twitter,.*,0,0," "$HERE/../data/channel-rules.csv"; then
 else echo "FAIL  X is recorded as dropped, in data not prose"; fail=$((fail+1)); fi
 
 echo
+echo "== fact repeats (added 09/08, after the queue ran 1 fact 6 times) =="
+# The board counted posts and called itself healthy while YouTube carried
+# the same Disney reel on 6 of 11 days and TikTok ran 1 fact twice in a day.
+# Nothing recorded what a post was about, so nothing could see it. The fix
+# is the fact column and these 3 rules, not a reminder to vary the queue.
+if python3 "$CAD" "$HERE/cadence.facts.csv" 2>/dev/null | grep -q "cadence clean"; then
+  echo "PASS  a board with spaced facts is clean"; pass=$((pass+1))
+else echo "FAIL  a board with spaced facts is clean"
+     python3 "$CAD" "$HERE/cadence.facts.csv" 2>&1 | sed 's/^/      /'; fail=$((fail+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.facts-broken.csv" 2>/dev/null | grep -q "C08_FACT_TWICE"; then
+  echo "PASS  the same fact twice on 1 channel in 1 day is caught"; pass=$((pass+1))
+else echo "FAIL  the same fact twice on 1 channel in 1 day is caught"; fail=$((fail+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.facts-broken.csv" 2>/dev/null | grep -q "C09_FACT_OVERPLAYED.*The cap is 2"; then
+  echo "PASS  a 3rd airing of 1 fact on 1 channel is caught"; pass=$((pass+1))
+else echo "FAIL  a 3rd airing of 1 fact on 1 channel is caught"; fail=$((fail+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.facts-broken.csv" 2>/dev/null | grep -q "Minimum is 3 days"; then
+  echo "PASS  2 airings closer than 3 days is caught"; pass=$((pass+1))
+else echo "FAIL  2 airings closer than 3 days is caught"; fail=$((fail+1)); fi
+
+# A check that quietly skips the rows it cannot read is worse than no check.
+if python3 "$CAD" "$HERE/cadence.facts-broken.csv" 2>/dev/null | grep -q "C10_FACT_UNLABELLED"; then
+  echo "PASS  a row with no fact fails rather than passing unchecked"; pass=$((pass+1))
+else echo "FAIL  a row with no fact fails rather than passing unchecked"; fail=$((fail+1)); fi
+
+# Boards written before the column existed must not start failing for it.
+if python3 "$CAD" "$HERE/cadence.board.csv" 2>/dev/null | grep -q "cadence clean"; then
+  echo "PASS  a board with no fact column is still checked as before"; pass=$((pass+1))
+else echo "FAIL  a board with no fact column is still checked as before"; fail=$((fail+1)); fi
+
+echo
 echo "== media reachability (Run 6, added 09/08) =="
 # A clip row can be complete and still be unusable: the footage is on a
 # machine the renderer has never seen. Describing a shot is not having it.

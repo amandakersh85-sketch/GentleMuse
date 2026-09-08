@@ -18,14 +18,26 @@ count of 1.
   C06_DEAD_HOUR       a post in the hours the audience is not there
   C04_COUNTDOWN_DRIFT a caption counting down to a date that no longer
                       matches the day it is scheduled on
+  C08_FACT_TWICE      the same fact twice on 1 channel on 1 day
+  C09_FACT_OVERPLAYED the same fact more than 2 times on 1 channel across
+                      the window, or 2 airings closer together than 3 days
+  C10_FACT_UNLABELLED a row with no fact, which the 2 rules above cannot
+                      be run against
 
 Exit code 1 when anything is flagged, so it can gate a scheduling run.
 
 Usage:
   gm_cadence_check.py <snapshot.csv> [--anchor 15:00] [--target 2026-10-31]
 
-Snapshot columns: id, postTimeUTC, label
-postTimeUTC is UTC. The anchor default 15:00 UTC is 10:00 America/Chicago
+Snapshot columns: id, postTimeUTC, label, platform, accountId, fact
+postTimeUTC is UTC.
+
+The fact column is the one added on 09/08/2026, after a refill put the same
+Disney reel on YouTube 6 times in 11 days and the same TikTok fact twice in
+1 day. Nothing in the board recorded what a post was *about*, so no gate
+could see it. Volume is not variety, and a queue that only counts posts
+cannot tell the difference. A row with no fact fails rather than passes,
+because a check that silently skips is worse than no check. The anchor default 15:00 UTC is 10:00 America/Chicago
 during daylight time, which is the whole September and October window.
 """
 import csv
@@ -40,6 +52,12 @@ ANCHOR_DEFAULT = "15:00"
 # her targets and her measured limits
 MIN_PER_DAY = 3
 MAX_PER_DAY = 5
+
+# How often 1 fact may run on 1 channel. 2 airings in the window, never
+# closer than 3 days, and never twice in 1 day. Measured against the 09/08
+# board, where 6 airings of 1 fact in 11 days was what she caught by eye.
+MAX_AIRINGS = 2
+MIN_FACT_GAP_DAYS = 3
 
 # Per channel overrides, because 3 to 5 is not the rule everywhere.
 # LinkedIn is 1 a day and always business. X is 0, dropped 09/08 because it
@@ -96,6 +114,11 @@ def load(path):
                 # which is right for 1 account and wrong for a board.
                 "platform": (r.get("platform") or "").strip().lower(),
                 "account": (r.get("accountId") or r.get("account") or "").strip(),
+                # What the post is about, not what file it plays. 2 renders
+                # of 1 fact on 2 plates are still 1 fact to the person
+                # scrolling, so the plate is not the thing to count.
+                "fact": (r.get("fact") or "").strip().lower(),
+                "has_fact_column": "fact" in r,
             })
     return rows
 
@@ -204,6 +227,67 @@ def check(rows, anchor=ANCHOR_DEFAULT, target=None):
                           % (r["time"], DEAD_FROM, DEAD_TO),
                 "ids": [r["id"]],
             })
+
+    # What the board is about, per channel. Counting posts told us the queue
+    # was healthy while 1 fact carried 6 of the 11 YouTube days. These 3 rules
+    # are the difference between volume and variety.
+    if any(r.get("has_fact_column") for r in rows):
+        unlabelled = [r["id"] for r in rows if not r["fact"]]
+        if unlabelled:
+            findings.append({
+                "rule": "C10_FACT_UNLABELLED",
+                "day": "-",
+                "detail": "%d row(s) carry no fact. The repeat rules cannot be run "
+                          "against them, so the board is not checked. Fill the column."
+                          % len(unlabelled),
+                "ids": unlabelled[:20],
+            })
+
+        by_fact = defaultdict(list)
+        for r in rows:
+            if r["fact"]:
+                by_fact[(r["account"] or r["platform"], r["fact"])].append(r)
+
+        for key in sorted(by_fact):
+            lane, fact = key
+            posts = sorted(by_fact[key], key=lambda r: (r["day"], r["time"]))
+
+            per_day = defaultdict(list)
+            for p in posts:
+                per_day[p["day"]].append(p)
+            for day in sorted(per_day):
+                if len(per_day[day]) > 1:
+                    findings.append({
+                        "rule": "C08_FACT_TWICE",
+                        "day": day,
+                        "detail": "\"%s\" runs %d times on %s in 1 day. Once a day is the rule."
+                                  % (fact, len(per_day[day]), lane),
+                        "ids": [p["id"] for p in per_day[day]],
+                    })
+
+            if len(posts) > MAX_AIRINGS:
+                findings.append({
+                    "rule": "C09_FACT_OVERPLAYED",
+                    "day": posts[0]["day"],
+                    "detail": "\"%s\" runs %d times on %s (%s). The cap is %d."
+                              % (fact, len(posts), lane,
+                                 ", ".join(p["day"] for p in posts), MAX_AIRINGS),
+                    "ids": [p["id"] for p in posts],
+                })
+
+            for a, b in zip(posts, posts[1:]):
+                if a["day"] == b["day"]:
+                    continue
+                gap = (date.fromisoformat(b["day"]) - date.fromisoformat(a["day"])).days
+                if gap < MIN_FACT_GAP_DAYS:
+                    findings.append({
+                        "rule": "C09_FACT_OVERPLAYED",
+                        "day": b["day"],
+                        "detail": "\"%s\" runs on %s and again %d day(s) later on %s. "
+                                  "Minimum is %d days."
+                                  % (fact, a["day"], gap, lane, MIN_FACT_GAP_DAYS),
+                        "ids": [a["id"], b["id"]],
+                    })
 
     if target:
         tgt = date.fromisoformat(target)

@@ -1,0 +1,13 @@
+id,postTimeUTC,label,platform,accountId,fact
+y1,2026-09-08T14:30,,youtube,36129,nbc
+y2,2026-09-08T17:20,,youtube,36129,goosebumps
+y3,2026-09-08T20:20,,youtube,36129,turnip
+y4,2026-09-11T14:30,,youtube,36129,nbc
+y5,2026-09-11T17:20,,youtube,36129,goosebumps
+y6,2026-09-11T20:20,,youtube,36129,samhain
+t1,2026-09-08T15:00,,tiktok,41488,nbc
+t2,2026-09-08T17:00,,tiktok,41488,casper
+t3,2026-09-08T20:00,,tiktok,41488,turnip
+t4,2026-09-11T15:00,,tiktok,41488,goosebumps
+t5,2026-09-11T17:00,,tiktok,41488,samhain
+t6,2026-09-11T20:00,,tiktok,41488,casper
