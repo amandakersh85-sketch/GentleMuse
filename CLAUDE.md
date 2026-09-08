@@ -74,6 +74,29 @@ storefront link. The heyday phone case TikTok from the same day did it right
   time. The camera-roll/Remotion pipeline plus the reel-blueprint clone skill
   are the engines for that.
 
+## Export and watermark rule (locked in 09/08/2026)
+
+Never download a published video from one platform and re-upload it to
+another. Instagram demotes both AI-disclosure labels and competitor
+watermarks. Always upload the clean original render (HeyGen, Remotion,
+camera roll) directly to each platform.
+
+Confirmed case: the Instagram trivia reel carried a burned in "TikTok, AI
+Cast" badge and got 37 views. The same format on Facebook, posted clean, runs
+230 to 577.
+
+## Data methodology rule (locked in 09/08/2026)
+
+Every data scrub compares against the FULL campaign corpus, never the last 48
+hours alone. Two format rankings were reported wrong in August because short
+windows caught outliers. Specifically: Cesa content was called a 150 to 225
+view baseline off a 2 day sample, when the 4 week corpus shows Cesa reels
+routinely at 800 to 7,700 on Instagram and dominating every other format.
+
+Metricool's follower sync is unreliable, it lagged 3 to 5 days through the
+entire August campaign. Amanda's manual counts are the source of truth for
+follower numbers. Ask her, do not read it from Metricool.
+
 ## Voice rules (enforced by post-grader)
 
 No em dashes. Digits, not spelled-out numbers. Contractions always. Warm,
