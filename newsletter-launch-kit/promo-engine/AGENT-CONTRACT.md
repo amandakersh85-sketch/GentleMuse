@@ -311,3 +311,64 @@ commenter who answered a caption's direct question about dog nicknames and had w
 
 Routine `trig_01HK4yKpqXoMKYjpiX6LQUj2` now runs every 3 hours across all three accounts and
 posts without asking.
+
+## 0e. THE DM INBOX WAS NEVER BEING WATCHED — found 2026-09-08 20:18
+
+The funnel watch was expanded to discover DM conversations dynamically instead of carrying a
+hardcoded list. On its first run with that change it found three threads with activity that day,
+and only ONE of them was a thread this session created.
+
+**The instruction had a bug of its own.** It said "every conversation created on or after
+2026-09-08". Two of the three were created days earlier and *bumped* that morning, so
+`createdAt`-only would have hidden them. Fixed to **`createdAt` OR `updatedAt` in the last 24
+hours**. Cheap shortcut worth knowing: when `updatedAt == createdAt`, nothing has happened in that
+thread since it was opened, so there is no need to fetch its messages.
+
+### What was in there
+
+| Thread | Contact | What it is |
+|---|---|---|
+| `504372` | `1061893740060282` | "We love this!!🩷🩷" — a real person, unanswered since 16:47. **Replied.** |
+| `490500` | `965890496530269` | Pay-to-collab scheme. **No reply.** |
+| `219329` | `1701463360911952` | MLM recruiter, running since Aug 20. **No reply.** |
+
+**`490500` is the one that matters.** @emmamilesx / ratherpeach.com, four messages Sept 7-8, and
+the mechanism is: get a discount code, **place an order yourself**, reply DONE, then get
+"onboarded" and a personal code to push to followers. As of 16:08 today it added "we have limited
+spots" urgency.
+
+Amanda's own screening message, live on automation `415`, says: *"I do not pay shipping,
+processing, membership, starter kit, or ambassador fees."* This offer requires her to buy the
+product to become an affiliate for it. It is exactly what that sentence exists to refuse.
+
+**`219329`** has been running since Aug 20 with periodic bumps — "freedom-based online business",
+"my team", a "high-ticket affiliate" Roadmap. Standard MLM recruitment.
+
+### `415` PR screening is missing these, and it is the same bug as the keywords
+
+`415`'s keywords are multi-word phrases: `like to collab`, `gifted collab`, `pr package`,
+`brand ambassador`, `partnership opportunity`. The pitch that got through said **`Tap "collab"
+below 💌`**. It contains "collab" but not "like to collab", so nothing fired.
+
+This is the **third** instance today of the same failure: a multi-word keyword assuming word
+adjacency while a real human puts other words in between.
+
+| Keyword | Real text | Fired |
+|---|---|---|
+| `my chi` | "my **healthy** chi that's about to turn 9" | no |
+| `like to collab` | 'Tap "collab" below' | no |
+| `my dog` | "my old dog" (predicted, same shape) | no |
+
+**Proposed, not applied:** add the standalone token `collab` to `415`. Keyword changes are config
+and Amanda approves those. Worth noting `415` is `message-received`, so a false positive there
+costs almost nothing — it just sends her screening boilerplate to someone who said "collab".
+
+### Standing rule that follows from this
+
+Her DM inbox holds real people and real solicitations, and nothing was reading it. The watch now
+does, every 2 hours, and it REPLIES to real people rather than reporting them — per her rule of
+2026-09-08. Solicitations are never answered on her behalf: they get quoted to her and left alone.
+
+Note the constraint difference. A plain DM reply only works within **24 hours** of the person's
+last message, and once that window closes it is gone — unlike a comment, where a public reply
+works forever. So an unread DM decays in a way an unread comment does not.
