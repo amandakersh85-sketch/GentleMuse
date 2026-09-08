@@ -494,3 +494,68 @@ Run `150551`, contact `1774569036904343`, comment "Cesa please". **Still `waitin
 
 MailerLite has now been unavailable for **3 days** (09-05, 09-06, 09-07), confirmed by search each
 day. Step 4 of the daily sync has not run since 09-04.
+
+---
+
+# 2026-09-08: the first real lead expired. Outcome recorded.
+
+Run `150551` on automation **2952** flipped from `waiting` to **`expired` at 2026-09-08T05:00:00Z**.
+
+| | |
+|---|---|
+| Comment | `"Cesa please"`, 2026-09-05T01:36:05Z |
+| Contact | `1774569036904343` — never seen before or since |
+| DM sent | Yes, `sent`, no error |
+| Replies received | **Zero.** Conversation `452629` holds exactly 1 message, outgoing. |
+| Time from DM to expiry | **~75.4 hours** |
+| Result | **Lead lost. No email captured. Guide never delivered.** |
+
+**This is the whole funnel's first real keyword use, and it converted to nothing.**
+
+## Why, mechanically
+
+`2952` carried an `emailGate` when the comment landed. The gate replaces the button flow with
+"reply with your email address and I'll send it." So the path was:
+
+```
+comment "Cesa please"  ->  DM asks for email in thread  ->  no reply  ->  expired
+```
+
+The path this automation was **deliberately built to use on 2026-08-28** was:
+
+```
+comment "Cesa please"  ->  DM with button  ->  cesa-guide.subscribepage.io  ->  page captures  ->  guide delivered
+```
+
+The gate came back on **2026-09-03T05:51:17Z**, two days before the comment. It is **still there
+as of today**, `updatedAt` unchanged. Nothing in the 09-07 keyword-casing pass touched it.
+
+## What this is and is not evidence for
+
+**It is one datapoint, not a proven mechanism.** This person may simply not have wanted the guide
+enough to type an address. Plenty of people comment and then lose interest.
+
+**What it does establish, without needing a bigger sample:** the gate makes conversion depend on a
+second deliberate action from the reader, inside Instagram DMs, plus a daily sync job, plus a live
+MailerLite connection. The button path depends on one tap. **Three of those four dependencies were
+either slower or entirely broken during this lead's window** — MailerLite has now been unavailable
+since 09-05, so even a reply could not have been delivered.
+
+The asymmetry is the argument, not the single loss.
+
+## Standing recommendation, unchanged and now with a cost attached
+
+1. **Remove the emailGate from 2952.** Restore the Aug 28 design. The landing page captures and
+   delivers without a daily job in the loop.
+2. Re-authorize MailerLite. Unavailable **4 days** now (09-05 through 09-08), confirmed by search
+   each day. Step 4 of this job has not run since 09-04.
+3. Strip the bare lowercase variants from the 12 keywords listed in the 09-07 section. Still
+   present, still untouched.
+
+## Sweep result today
+
+All **34** live automations checked. **No new runs. No new failures.** The only failures on record
+remain two `20102` errors on `445` from 2026-08-28. **No followGate anywhere.**
+
+**No false positives from the lowercase keywords yet** — they have been live ~37 hours and comment
+volume is low. Still a prediction, not an observation.
