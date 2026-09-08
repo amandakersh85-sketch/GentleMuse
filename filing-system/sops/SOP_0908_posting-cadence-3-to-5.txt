@@ -1,0 +1,139 @@
+THE GENTLE MUSE — POSTING CADENCE SOP, 3 TO 5 PER PLATFORM PER DAY
+
+New. Created 09/08/2026. Written after the cadence was misread three times
+in a row and a starved queue got thinned instead of filled.
+
+TOOLS: gm_cadence_check.py, gm_queue_plan.py, slot-model.csv,
+staging-library.csv
+Companions to the Blotato refill loop, not replacements.
+
+WHY THIS SOP EXISTS
+
+posting-cadence.csv used to read "1 reel. Not 2." That line was true once
+and stopped being true, and nothing in the data said so. An assistant read
+it, believed it, and started thinning a queue that was already running at
+1.8 posts a day against a target of 3 to 5.
+
+The correction did not hold the first time either, because the gate written
+to enforce it had no column for platform or account. It counted every post
+in a day as one number. So a full board of 4 accounts posting 4 times each
+came back as "16 posts in a day, over target", and Instagram at 15:00
+alongside TikTok at 15:00 came back as a collision. The gate was arguing
+for the same wrong answer in a more official voice.
+
+A written rule cannot fix a missing column. This one adds the columns, then
+refuses anything that cannot be checked against them.
+
+THE RULE, IN AMANDA'S WORDS
+"I want between three to five posts per platform per day."
+
+THE RULE, AS THE GATE ENFORCES IT
+
+  C01  3 to 5 posts per ACCOUNT per day.
+       Per account, not per platform. thegentlemuse2026 and
+       cesasgoldenyears are 2 audiences and each one gets 3 to 5.
+  C02  One post per PLATFORM per timestamp.
+       2 platforms at 15:00 is the cross posting model working. It is not
+       a collision. The same platform twice at 15:00 is.
+  C05  2 hours minimum between posts on ONE ACCOUNT.
+       Never measured across accounts. Measured: 2 reels 2 seconds apart
+       took 1818 views and 162.
+  C06  Nothing between 02:00 and 13:00 UTC.
+       That is 21:00 to 08:00 Central. Nobody is there.
+       Note 00:00 UTC is 19:00 Central and is prime time, not dead.
+
+THE SLOT MODEL
+
+slot-model.csv is the written answer to "what does a day contain". It ran
+for months describing 3 Instagram slots, 2 TikTok, 2 Facebook and no
+YouTube row at all, which is the whole reason YouTube posted 0 to 1 times a
+day. You cannot load 4 a day against a model that describes 2.
+
+  Instagram 45886   15:00  18:00  20:00  23:00  01:30    (5)
+  TikTok    41488   15:00  17:00  20:00  23:00           (4)
+  Facebook  30840   14:00  17:00  19:30  22:00           (4)
+  YouTube   36129   14:30  17:20  20:20  23:20           (4)
+
+All UTC. Every account's slots are 2 hours or more apart. None sit in the
+dead window.
+
+Two of these are load bearing and must not be moved casually:
+  - Instagram 15:00 is 10:00 Central, the measured peak at 5528. Moving it
+    costs about 25 percent on the one account that cannot afford it.
+  - Nothing lands at 19:00 Central. 19:00 Central is 00:00Z the NEXT day,
+    and that off by one already cost 4 Cesa posts a day once. The late
+    Instagram slot is 20:30 Central for this reason.
+
+THE CAP IS A WINDOW, NOT A BUDGET
+
+Blotato's starter plan holds 200 scheduled posts. That is not a monthly
+allowance, it is how many can wait in line at once.
+
+  200 slots / 16 posts a day (4 accounts at 4) = 12.5 days of queue.
+
+So 200 is the right size for 3 to 5 a day, on one condition: the queue
+holds a rolling window of about 12 days and everything past that waits in
+the reservoir. A post scheduled for Oct 31 owns a slot from the day it is
+made until it publishes. Held on 09/08 that is 53 days of slot for 1 post,
+and 101 posts held that way is half the queue serving 2.4 posts a day.
+
+On 09/08 the queue was full at 200 and starved at 4.6 a day at the same
+time. Both were true. That is what holding far out does.
+
+THE LOOP
+
+1. Before scheduling anything, check what is already there.
+   python3 gm_cadence_check.py <queue.csv>
+   Input columns: id, postTimeUTC, platform, accountId, label
+   Without platform and accountId it checks as a single lane, which is
+   right for 1 account and wrong for a board.
+
+2. Compare the near window to the model.
+   python3 gm_queue_plan.py --queue live.json --start <today> --days 14
+
+3. Fill the holes oldest need first, from staging-library.csv STAGED rows.
+   Before each one, confirm three things:
+     - the FACT is not already scheduled on another day. Running a fact
+       early and again later is a duplicate, not volume.
+     - the MEDIA is not already worn by a scheduled post. Recycled
+       captions never re-wear media. Carousel campaigns are the exception.
+     - the proposed day still passes the gate WITH the new post in it.
+       Build the day, run the gate, then schedule. Not after.
+
+4. Load until the cap refuses. It refuses with "You have reached the
+   maximum number of scheduled posts (200) for your plan." That message is
+   the expected end of a run, not a failure.
+
+5. Record every scheduled post in blitz-schedule.csv with its
+   SubmissionId, and every refusal as Status cap-blocked, so the next pass
+   knows where it stopped.
+
+WHAT TO DO WHEN THE QUEUE IS FULL AND STARVED
+
+In this order, because only one of these is usually the real one.
+
+  1. Is it CONTENT? 12 days at 16 a day needs 192 posts, which is 48
+     unique reels at 4 platforms each. Count what is rendered. On 09/08
+     it was 28. That is the answer most of the time, and no amount of
+     scheduling fixes it.
+  2. Is it SLOTS? Check slot-model.csv actually describes the cadence you
+     are trying to run.
+  3. Is it the WINDOW? Look at how far out the queue reaches. If the tail
+     is thin and long, it is eating the near days.
+
+Never propose a plan upgrade. Amanda has ruled on that twice. Extra
+credits bought separately are fine.
+
+THE REAL CEILING
+
+The refill SOP already said it and it is still true: about 148 unique
+content ideas exist, which caps sustainable cadence near 5 posts a day per
+account. Cadence beyond that is not a scheduling problem.
+
+TESTS
+bash filing-system/tests/run-tests.sh
+The cadence cases are named. A full 4 platform board must read as clean,
+2 platforms at the same minute must not be a collision, and 2 accounts on
+one platform must be counted apart. If those 3 fail, the gate has drifted
+back to counting a day as one number and it will start arguing for
+thinning again.

@@ -40,7 +40,8 @@ plus 3 built and waiting on hosting. 28.
 The reservoir's other 93 rows are not near term content. They are next
 year's holidays: Christmas 15, Thanksgiving 8, Valentine's 8, St Patrick's
 7, and so on. Each needs a plate, and a plate is about 50 credits. 93
-plates is roughly 4,650 credits against 1,574 held.
+plates is roughly 4,650 credits against 2,974 held, so about 59 of the 93
+are affordable today and the rest are not.
 
 Every one of the 20 reservoir Halloween facts is already scheduled
 somewhere in October. Loading them onto Sep 8 would run the fact weeks
