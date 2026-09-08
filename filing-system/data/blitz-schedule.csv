@@ -194,3 +194,9 @@ Date,TimeUTC,Lane,Platform,Account,FactID,Media,Status,SubmissionId
 2026-09-17,19:30,halloween,facebook,30840,,61382cad-b1e8-4107-a772-9de73c36ced3.mp4,scheduled-refill,
 2026-09-17,20:20,halloween,youtube,36129,,2acb99e6-c069-4ece-980d-9ed0569ca477.mp4,scheduled-refill,
 2026-09-18,19:30,halloween,facebook,30840,,1c247fa9-edeb-48aa-a2fe-298efe46722e.mp4,scheduled-refill,
+2026-09-10,13:30,editorial,linkedin,20723,,text-only,scheduled-refill,b03cf3b6
+2026-09-13,13:30,editorial,linkedin,20723,,text-only,scheduled-refill,dcc97286
+2026-09-16,13:30,editorial,linkedin,20723,,text-only,scheduled-refill,e5ee14fa
+2026-09-15,13:30,promo,linkedin,20723,,aeef98fe towels,scheduled-refill,f5f75dfb
+2026-09-17,13:30,promo,linkedin,20723,,b801f364 bookmarking,cap-blocked,
+2026-09-18,13:30,promo,linkedin,20723,,55bdef6b nightmare,cap-blocked,

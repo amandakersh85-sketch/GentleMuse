@@ -1,7 +1,7 @@
-Channel,AccountIds,MinPerDay,MaxPerDay,Content,CTA,VideoForm,Why
-instagram,45886|65540,3,5,everything,comment-keyword,short,"Same cadence as Facebook. Both carry the keyword comment to DM, so they run as a pair."
-facebook,30840,3,5,everything,comment-keyword,short,"Same cadence as Instagram. Both carry the keyword comment to DM, so they run as a pair."
-tiktok,41488|55761,3,5,everything,link-in-bio,short,"Never the comment keyword. TikTok's call to action is the bio link. The keyword lane is Instagram and Facebook only."
-youtube,36129,3,5,everything,link-in-description,short+long,"Gets everything. Shorts for reels, long form for food reviews. A food review is not a short."
-linkedin,20723,1,1,business-only,link,short,"1 post a day, always business. Just Another Tuesday or the free AI guide. Nothing else belongs on LinkedIn."
-twitter,21430,0,0,none,none,none,"Dropped 09/08/2026. It was not serving, and dropping it frees the slots for the 4 that are."
+Channel,AccountIds,MinPerDay,MaxPerDay,Content,CTA,VideoForm,Why,Rotation,Source
+instagram,45886|65540,3,5,everything,comment-keyword,short,"Same cadence as Facebook. Both carry the keyword comment to DM, so they run as a pair.",,
+facebook,30840,3,5,everything,comment-keyword,short,"Same cadence as Instagram. Both carry the keyword comment to DM, so they run as a pair.",,
+tiktok,41488|55761,3,5,everything,link-in-bio,short,Never the comment keyword. TikTok's call to action is the bio link. The keyword lane is Instagram and Facebook only.,,
+youtube,36129,3,5,everything,link-in-description,short+long,"Gets everything. Shorts for reels, long form for food reviews. A food review is not a short.",,
+linkedin,20723,1,1,promo-links + editorial,link,short,"Amanda, Sep 8 2026: 'It's mostly to put my links in front of people that might want to sign up for them. That's literally the entire point.' No conversion in the data yet, a few impressions. Low stakes, so recycled promo is fine here and the editorial carries the brand.","2 days of links, then 1 editorial business post. Sunday editorial, Monday Just Another Tuesday promo, Tuesday link, Wednesday editorial, and on in that pattern.","editorial posts are written from Amanda's newsletters, made cohesive and on brand. It has to read like business advice she would actually give someone. press-play is a valid LinkedIn link alongside just-another-tuesday and consider-this."
+twitter,21430,0,0,none,none,none,"Dropped 09/08/2026. It was not serving, and dropping it frees the slots for the 4 that are.",,

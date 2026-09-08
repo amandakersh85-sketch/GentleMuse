@@ -71,6 +71,16 @@ together because both carry the keyword comment to DM. TikTok never gets
 the comment keyword, its call to action is the bio link. A food review goes
 to YouTube as long form, not as a Short.
 
+LinkedIn runs on a rotation: 2 days of promo links, then 1 editorial
+business post. The editorial is written from Amanda's newsletters, made
+cohesive and on brand, and it has to read like business advice she would
+actually give someone. Recycling promo there is fine and she has said so.
+`press-play`, `consider-this` and `just-another-tuesday` are all valid
+LinkedIn links. Pinterest is parked on purpose, not forgotten.
+
+Prefer a HyperFrames motion text video over a still wherever there is a
+choice. One video covers every platform; a still does not.
+
 The rule lives in `filing-system/data/channel-rules.csv` and
 `gm_cadence_check.py` enforces it. Change the CSV, not the gate, and never
 a prose note instead of either.
