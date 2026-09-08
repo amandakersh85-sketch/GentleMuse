@@ -771,3 +771,65 @@ Caveat worth writing down: the slot is one per comment and an automation firing 
 That is what error `20102` "already has a reply" is. So a contact whose emailGate run expired
 may be permanently unreachable through this path — testing that on contact
 `1774569036904343` is what the next send will establish.
+
+---
+
+# CONFIRMED 2026-09-08: an expired gate run permanently burns the comment
+
+The test ran. This is no longer a caveat, it is a measured fact, and it makes the gate
+considerably worse than "adds friction."
+
+Four messages went out on Amanda's approval. Verified individually with `blotato_get_comment`
+and `blotato_get_message`, not from the send responses.
+
+| # | What | Target | Result |
+|---|---|---|---|
+| A | Public comment reply | comment `3791926`, post `6743958` | **`posted`**, platform id `18134260012643719` |
+| B | Private reply + button | contact `1774569036904343` | **`failed`, error `20102`** |
+| C | Private reply + button | contact `1732590004635114` | **`sent`**, conversation `504237` |
+| D | Private reply + button | contact `1386554462976400` | **`sent`**, conversation `504238` |
+
+B's exact error:
+
+> Could not send Instagram message: The comment you are trying to reply to, already has a reply.
+
+## What this establishes
+
+A comment carries **one** private reply, ever. When an automation fires on that comment it
+spends the slot — even if the run then expires having delivered nothing of value. The gate's
+"reply with your email address" message *is* the spent slot.
+
+So the cost of an emailGate is not friction. It is this:
+
+1. Someone comments the keyword.
+2. The gate consumes the one private reply to ask them a question.
+3. They do not answer.
+4. The run expires.
+5. **There is now no way to DM that person about that comment. Ever.**
+
+The button path cannot fail this way, because the button *is* the delivery — the slot gets
+spent on the thing they asked for rather than on a question about it.
+
+The only route left to a burned contact is a public comment reply, which is what A was, and it
+posted fine. Public replies do not touch the private reply slot and have no time window.
+
+**Corrected guidance for the watcher and for any future session:** do not tell Amanda a lost
+gate lead can be DM'd by hand. It cannot. The watcher prompt was updated with this.
+
+## The two hand-sent leads are now off the sync's radar
+
+C and D worked, and that creates a gap. They are not automation runs, so
+`blotato_list_automation_runs` will never show them and the daily lead sync will not see them.
+If either replies with an email address in-thread instead of tapping the button, that address
+is stranded — nothing is going to pick it up.
+
+Closed by extending the CESA delivery watch (`trig_01ErT42pMQ87cEbk1Y3NXppt`, every 2h at :18)
+to check conversations `504237` and `504238` for incoming messages each run, and to add a
+stranded address to the Cesa group `196024300390581479` by hand.
+
+## The standing capability, restated plainly
+
+Every comment on Amanda's own posts is an open inbox for 7 days, once. The funnel has only ever
+used it through keyword automations. Two of the three sends above were to people who never
+typed a keyword, and both reached them — that is the mechanism working exactly as intended on
+traffic the funnel was previously discarding.
