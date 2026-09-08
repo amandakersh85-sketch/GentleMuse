@@ -13,6 +13,28 @@ bend.
 Branch: `claude/holiday-caption-strategy-m5abq8`. Everything below is
 already committed and pushed there. Pull it before you start.
 
+You own **footage**. The Carousel Build project owns the carousels and the
+schedule, see `HANDOFF_0908_carousel-build-and-scheduling.md`. Do not
+duplicate its work. When you finish a cut, host it, stage it in
+`staging-library.csv`, and let that session place it.
+
+## THE BOARD
+
+| Channel | Per day | What goes there | Call to action |
+|---|---|---|---|
+| Instagram | 3 to 5 | everything | comment keyword to DM |
+| Facebook | 3 to 5 | everything, same cadence as IG, they move as a pair | comment keyword to DM |
+| TikTok | 3 to 5 | everything | **link in bio, never the keyword** |
+| YouTube | 3 to 5 | Shorts for reels, **long form for food reviews** | link in description |
+| LinkedIn | **1** | **business only.** Just Another Tuesday or the free AI guide | link |
+| X | **0** | dropped 09/08 | none |
+
+In `filing-system/data/channel-rules.csv`, enforced by `gm_cadence_check.py`.
+Change the CSV, never the gate.
+
+The lanes a day gets filled from, never 5 of one: holiday fact, Cesa, Club
+Target, food review, lead magnet carousel, Amanda on camera, trivia.
+
 ## WHY YOU EXIST AND THE CLOUD SESSION DOES NOT
 
 You can open the D: drive. That is the whole difference and it is the
@@ -131,6 +153,64 @@ For anything using existing plates, the bind gate polices the pairing, so a
 forced match will be refused rather than shipped. That is working as
 intended, not an obstacle to route around.
 
+### 4. Food reviews, which have never been redistributed
+
+They exist on TikTok and are doing nothing anywhere else. Raw first, TikTok
+as the fallback.
+
+1. **Inventory the raw.** Search the phone and D: drive for restaurant
+   footage. Amanda specifically cannot find **Amigos, from August** — look
+   for it. Anything you find, ingest into `clip-library-drive.csv` with a
+   real Shot description and MediaState.
+2. **Fall back to TikTok** for reviews with no raw. Pull her posted copies
+   down and strip the watermark before reusing them.
+3. **Cut each one 2 ways:**
+   - **YouTube long form.** The full review, as a normal video, NOT a Short.
+     This is explicit: a food review is not a Short.
+   - **Short cut** for Instagram, Facebook and TikTok.
+4. Caption per channel. Keyword to DM on Instagram and Facebook, bio link on
+   TikTok, description link on YouTube.
+
+Food reviews are a **recycle lane**, not a one-off. The Tuesday magnet is
+"Consider This", the newsletter that promises to say when something is
+overpriced. `rotation-magnet.csv` calls that a review contract, so a food
+review is the natural Tuesday post.
+
+### 5. The trivia series
+
+Amanda wants a random trivia facts series, and the standing rule is the same
+one the holiday bank already runs on: **fact verified, source verified,
+cited, and true.** That is the whole point of it, so nothing goes out that
+`gm_holiday_check.py` would refuse.
+
+The series currently lives in a ChatGPT project called Avery. **Ask Amanda
+for that handoff prompt before you build anything** — the format and voice
+are already decided there and reinventing them wastes the work.
+
+Then, per fact: a bank row with a real Source and a Year, a beat script, a
+plate or an existing clip with a `match_reason`, and Marcia reading it. The
+same pipeline as the Halloween run. Do not invent a second one.
+
+**On the avatar twin, the honest answer:** the HeyGen account behind this
+API key has 20 avatar groups and every one is a HeyGen stock avatar (Dante,
+Brody, Aya, Elodie and so on). **There is no twin of Amanda on it.** The CLI
+does have `heygen avatar create` and `heygen avatar consent create`, so one
+can be made, but it needs her consent recording and her sitting down to do
+it. Until then the trivia series runs as typography plus Marcia, exactly
+like the Halloween reels, which already works.
+
+Do not tell her the twin is ready. Tell her what it takes.
+
+### 6. Amanda on camera
+
+She said it plainly and it keeps getting dropped: she is on camera. She has
+HyperFrames and a 3 motion machine. Her 5 to camera scripts are in
+`filing-system/data/halloween-track-a-scripts.csv` for Oct 19, 21, 23, 27
+and 29. Two of the 5 backup reels have been spent on near term volume; the
+Mary Shelley and War of the Worlds cuts are held so those days cannot go
+dark. When she films, her footage replaces the backup and the backup goes
+back to the reservoir.
+
 ## TWO DECISIONS AMANDA HAS ALREADY MADE
 
 **Track A reels: split.** 5 were built 09/08 as backup for her Oct 19-29 to
@@ -145,8 +225,9 @@ Sep 20 to Oct 31 at 2.4 a day, holding half the cap. 95 are not locked to
 their date; 6 are (Samhain Oct 31, trick or treat Sep 30 and Oct 4). Pulling
 the 95 frees 95 slots and lets the near 12 days run full.
 
-She said no preference, which is delegation, not permission to be careless.
-Do it in this order and no other:
+**Approved 09/08.** The Carousel Build session owns executing it, but if
+that has not happened by the time you are working, the order is the same and
+it does not change:
 1. Write every one of the 95 into `staging-library.csv` as a STAGED row with
    its caption, hosted media URL, account and intended slot.
 2. Verify each row reads back complete. A row missing its media URL is not
@@ -204,7 +285,8 @@ window of it so a run of them does not open identically.
 instagram  45886  thegentlemuse2026      instagram 65540  cesasgoldenyears
 tiktok     41488  thegentlemuse2026      tiktok    55761  cesasgoldenyears
 facebook   30840  pageId 1086399221215093
-youtube    36129   twitter 21430   linkedin 20723   pinterest 6328
+youtube    36129   linkedin 20723   pinterest 6328
+twitter    dropped 09/08, nothing schedules there
 ```
 
 ## THINGS THAT DO NOT BEND

@@ -1,0 +1,7 @@
+Channel,AccountIds,MinPerDay,MaxPerDay,Content,CTA,VideoForm,Why
+instagram,45886|65540,3,5,everything,comment-keyword,short,"Same cadence as Facebook. Both carry the keyword comment to DM, so they run as a pair."
+facebook,30840,3,5,everything,comment-keyword,short,"Same cadence as Instagram. Both carry the keyword comment to DM, so they run as a pair."
+tiktok,41488|55761,3,5,everything,link-in-bio,short,"Never the comment keyword. TikTok's call to action is the bio link. The keyword lane is Instagram and Facebook only."
+youtube,36129,3,5,everything,link-in-description,short+long,"Gets everything. Shorts for reels, long form for food reviews. A food review is not a short."
+linkedin,20723,1,1,business-only,link,short,"1 post a day, always business. Just Another Tuesday or the free AI guide. Nothing else belongs on LinkedIn."
+twitter,21430,0,0,none,none,none,"Dropped 09/08/2026. It was not serving, and dropping it frees the slots for the 4 that are."

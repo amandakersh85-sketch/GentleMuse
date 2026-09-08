@@ -51,6 +51,34 @@ they test. `bash filing-system/tests/run-tests.sh`.
 5. **No substitution.** When the right input is missing, say so and stop. Do
    not reach for the nearest thing that fits the slot.
 
+## The posting board, which does not get re-litigated
+
+Set 09/08/2026. This is the whole cadence in one place, because it has been
+explained more times than it should have been.
+
+| Channel | Per day | What goes there | Call to action |
+|---|---|---|---|
+| Instagram | 3 to 5 | everything | comment keyword to DM |
+| Facebook | 3 to 5 | everything, same cadence as Instagram | comment keyword to DM |
+| TikTok | 3 to 5 | everything | link in bio, never the keyword |
+| YouTube | 3 to 5 | everything. Shorts for reels, long form for food reviews | link in description |
+| LinkedIn | 1 | business only. Just Another Tuesday, or the free AI guide | link |
+| X | 0 | dropped 09/08, it was not serving | none |
+
+The 3 to 5 is per account per day, not per platform: the 2 Instagram
+accounts are 2 audiences. Instagram and Facebook are a pair and move
+together because both carry the keyword comment to DM. TikTok never gets
+the comment keyword, its call to action is the bio link. A food review goes
+to YouTube as long form, not as a Short.
+
+The rule lives in `filing-system/data/channel-rules.csv` and
+`gm_cadence_check.py` enforces it. Change the CSV, not the gate, and never
+a prose note instead of either.
+
+Variety is the point of the volume. A day should not be 5 of the same lane.
+The lanes are: holiday fact, Cesa, Club Target, food review, lead magnet
+carousel, Amanda on camera, trivia.
+
 ## Voice
 
 Anything written for Amanda's audience follows the Gentle Muse voice: calm,

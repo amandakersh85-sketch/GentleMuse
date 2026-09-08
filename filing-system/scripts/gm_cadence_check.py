@@ -29,6 +29,7 @@ postTimeUTC is UTC. The anchor default 15:00 UTC is 10:00 America/Chicago
 during daylight time, which is the whole September and October window.
 """
 import csv
+import os
 import re
 import sys
 from collections import defaultdict
@@ -39,6 +40,32 @@ ANCHOR_DEFAULT = "15:00"
 # her targets and her measured limits
 MIN_PER_DAY = 3
 MAX_PER_DAY = 5
+
+# Per channel overrides, because 3 to 5 is not the rule everywhere.
+# LinkedIn is 1 a day and always business. X is 0, dropped 09/08 because it
+# was not serving. Keeping these in a CSV rather than in this file means the
+# rule can be read by anything, and changed without touching the gate.
+CHANNEL_RULES = os.path.join(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+    "data", "channel-rules.csv")
+
+
+def load_channel_rules(path=CHANNEL_RULES):
+    """Channel -> (min, max). Falls back to 3 to 5 for anything unlisted."""
+    rules = {}
+    try:
+        with open(path, newline="") as fh:
+            for r in csv.DictReader(fh):
+                ch = (r.get("Channel") or "").strip().lower()
+                if not ch:
+                    continue
+                try:
+                    rules[ch] = (int(r["MinPerDay"]), int(r["MaxPerDay"]))
+                except (KeyError, ValueError):
+                    continue
+    except OSError:
+        pass
+    return rules
 MIN_GAP_MIN = 120          # 2 hours between posts on 1 account
 DEAD_FROM, DEAD_TO = "02:00", "13:00"   # 21:00 to 08:00 Central, the hours nobody is there
 DEAD_START, DEAD_END = 2 * 60, 13 * 60
@@ -92,25 +119,39 @@ def check(rows, anchor=ANCHOR_DEFAULT, target=None):
     for r in rows:
         by_lane[(r["day"], r["account"] or r["platform"])].append(r)
 
+    rules = load_channel_rules()
     for day, lane in sorted(by_lane):
         posts = sorted(by_lane[(day, lane)], key=lambda r: r["time"])
         platform = posts[0]["platform"]
         where = (" on %s %s" % (platform, lane)).rstrip() if platform else ""
+        lo, hi = rules.get(platform, (MIN_PER_DAY, MAX_PER_DAY))
 
-        if len(posts) < MIN_PER_DAY:
+        # A channel set to 0 is not starved, it is retired. Posting to it at
+        # all is the finding.
+        if hi == 0:
+            findings.append({
+                "rule": "C07_RETIRED_CHANNEL",
+                "day": day,
+                "detail": "%d post(s) on %s, which was dropped. Nothing schedules here."
+                          % (len(posts), platform),
+                "ids": [p["id"] for p in posts],
+            })
+            continue
+
+        if len(posts) < lo:
             findings.append({
                 "rule": "C01_DAY_STARVED",
                 "day": day,
-                "detail": "%d post(s)%s, target is %d to %d per platform"
-                          % (len(posts), where, MIN_PER_DAY, MAX_PER_DAY),
+                "detail": "%d post(s)%s, target is %d to %d a day"
+                          % (len(posts), where, lo, hi),
                 "ids": [p["id"] for p in posts],
             })
-        if len(posts) > MAX_PER_DAY:
+        if len(posts) > hi:
             findings.append({
                 "rule": "C01_DAY_OVER",
                 "day": day,
-                "detail": "%d posts%s, target is %d to %d per platform"
-                          % (len(posts), where, MIN_PER_DAY, MAX_PER_DAY),
+                "detail": "%d posts%s, target is %d to %d a day"
+                          % (len(posts), where, lo, hi),
                 "ids": [p["id"] for p in posts],
             })
 
@@ -205,12 +246,14 @@ def main(argv):
         # Per platform is the number that matters. The total is only ever
         # context, and reading the total as the cadence is the mistake that
         # this gate exists to stop anyone making twice.
+        rules = load_channel_rules()
         for lane in lanes:
             n = sum(1 for r in rows if r["platform"] == lane)
             per = n / days if days else 0
-            mark = "" if MIN_PER_DAY <= per <= MAX_PER_DAY else "   <-- off target"
-            print("  %-10s %3d posts, %.1f a day%s" % (lane, n, per, mark))
-        print("  target is %d to %d a day on each" % (MIN_PER_DAY, MAX_PER_DAY))
+            lo, hi = rules.get(lane, (MIN_PER_DAY, MAX_PER_DAY))
+            mark = "" if lo <= per <= hi else "   <-- off target"
+            print("  %-10s %3d posts, %.1f a day  (target %d to %d)%s"
+                  % (lane, n, per, lo, hi, mark))
     else:
         print("  no platform column, checked as a single lane, %.1f a day (target %d to %d)"
               % (len(rows) / days if days else 0, MIN_PER_DAY, MAX_PER_DAY))

@@ -553,6 +553,28 @@ if python3 "$CAD" "$HERE/cadence.board.csv" 2>/dev/null | grep -q "instagram .*4
 else echo "FAIL  the summary reports each platform, not one total"; fail=$((fail+1)); fi
 
 echo
+echo "== channel rules (added 09/08) =="
+# 3 to 5 is not the rule everywhere. LinkedIn is 1 a day and always
+# business. X was dropped. The rule lives in data/channel-rules.csv so it
+# can be read and changed without touching the gate.
+if python3 "$CAD" "$HERE/cadence.channels.csv" 2>/dev/null | grep -q "cadence clean"; then
+  echo "PASS  LinkedIn at 1 a day is clean, not starved"; pass=$((pass+1))
+else echo "FAIL  LinkedIn at 1 a day is clean, not starved"
+     python3 "$CAD" "$HERE/cadence.channels.csv" 2>&1 | sed 's/^/      /'; fail=$((fail+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.channels-broken.csv" 2>/dev/null | grep -q "C01_DAY_OVER.*linkedin"; then
+  echo "PASS  a 2nd LinkedIn post in a day is caught"; pass=$((pass+1))
+else echo "FAIL  a 2nd LinkedIn post in a day is caught"; fail=$((fail+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.channels-broken.csv" 2>/dev/null | grep -q "C07_RETIRED_CHANNEL"; then
+  echo "PASS  scheduling to a dropped channel is caught"; pass=$((pass+1))
+else echo "FAIL  scheduling to a dropped channel is caught"; fail=$((fail+1)); fi
+
+if grep -q "^twitter,.*,0,0," "$HERE/../data/channel-rules.csv"; then
+  echo "PASS  X is recorded as dropped, in data not prose"; pass=$((pass+1))
+else echo "FAIL  X is recorded as dropped, in data not prose"; fail=$((fail+1)); fi
+
+echo
 echo "== media reachability (Run 6, added 09/08) =="
 # A clip row can be complete and still be unusable: the footage is on a
 # machine the renderer has never seen. Describing a shot is not having it.

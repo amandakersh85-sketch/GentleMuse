@@ -42,6 +42,33 @@ THE RULE, AS THE GATE ENFORCES IT
        That is 21:00 to 08:00 Central. Nobody is there.
        Note 00:00 UTC is 19:00 Central and is prime time, not dead.
 
+THE BOARD, PER CHANNEL
+
+3 to 5 is not the rule everywhere. Set 09/08/2026 and enforced from
+channel-rules.csv.
+
+  instagram   3 to 5   everything                comment keyword to DM
+  facebook    3 to 5   everything, pairs with IG comment keyword to DM
+  tiktok      3 to 5   everything                link in bio
+  youtube     3 to 5   shorts, and long form     link in description
+                       for food reviews
+  linkedin    1        business only             link
+  twitter     0        dropped 09/08             none
+
+Instagram and Facebook move as a pair because both carry the keyword
+comment to DM. TikTok never gets the comment keyword; its call to action is
+the bio link. A food review goes to YouTube as long form video, not a
+Short. LinkedIn carries Just Another Tuesday or the free AI guide and
+nothing else. X is retired and C07_RETIRED_CHANNEL fires if anything is
+scheduled there.
+
+VARIETY IS THE POINT OF THE VOLUME
+
+A day is filled across lanes, never 5 of one. The lanes are holiday fact,
+Cesa, Club Target, food review, lead magnet carousel, Amanda on camera, and
+trivia. On 09/08 the October tail was 93 Halloween facts out of 105, which
+is what filling a board from one lane looks like.
+
 THE SLOT MODEL
 
 slot-model.csv is the written answer to "what does a day contain". It ran
