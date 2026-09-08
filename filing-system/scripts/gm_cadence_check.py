@@ -2,22 +2,20 @@
 """
 gm_cadence_check.py - the follower-growth gate.
 
-Amanda's 500 to 1000 Instagram goal has one measured rule behind it,
-recorded in posting-cadence.csv: 1 reel a day, at 10:00 America/Chicago.
-Her own numbers are the reason. 15 reels in a single day produced 1330
-views. 1 good reel produced 7726. Posting more does not add reach on
-Instagram, it splits it.
+Amanda's target is 3 to 5 posts per platform per day. Her words,
+Sep 8 2026. The 200 post Blotato cap is a throughput valve, not a
+ceiling on the plan, and the wave refill is what answers it.
 
-Guidance did not hold that line. Three separate build waves each added
-posts to the same days and nothing refused them, so the queue drifted to
-2 and 3 and 6 posts on a day. This script is the missing check, not
-another reminder.
+What actually killed reach was never volume. It was 15 posts stacked on
+1 timestamp, and 2 reels published 2 seconds apart taking 1818 views and
+162. So the rules that matter are spacing and the live hours, not a
+count of 1.
 
-It reads a queue snapshot and reports:
-
-  C01_DAY_OVERLOAD    more than 1 Instagram post on a calendar day
+  C01_DAY_STARVED     fewer than 3 posts on a day, under target
+  C01_DAY_OVER        more than 5 posts on a day, over target
   C02_SLOT_COLLISION  2 posts at the exact same minute
-  C03_ANCHOR_MISSING  a day with posts but none in the 10:00 slot
+  C05_TOO_CLOSE       2 posts less than 2 hours apart on 1 account
+  C06_DEAD_HOUR       a post in the hours the audience is not there
   C04_COUNTDOWN_DRIFT a caption counting down to a date that no longer
                       matches the day it is scheduled on
 
@@ -37,6 +35,18 @@ from collections import defaultdict
 from datetime import date, datetime
 
 ANCHOR_DEFAULT = "15:00"
+
+# her targets and her measured limits
+MIN_PER_DAY = 3
+MAX_PER_DAY = 5
+MIN_GAP_MIN = 120          # 2 hours between posts on 1 account
+DEAD_FROM, DEAD_TO = "02:00", "13:00"   # 21:00 to 08:00 Central, the hours nobody is there
+DEAD_START, DEAD_END = 2 * 60, 13 * 60
+
+
+def _mins(hhmm):
+    h, m = hhmm.split(":")
+    return int(h) * 60 + int(m)
 
 
 def load(path):
@@ -69,11 +79,18 @@ def check(rows, anchor=ANCHOR_DEFAULT, target=None):
     for day in sorted(by_day):
         posts = sorted(by_day[day], key=lambda r: r["time"])
 
-        if len(posts) > 1:
+        if len(posts) < MIN_PER_DAY:
             findings.append({
-                "rule": "C01_DAY_OVERLOAD",
+                "rule": "C01_DAY_STARVED",
                 "day": day,
-                "detail": "%d Instagram posts on 1 day, the rule is 1" % len(posts),
+                "detail": "%d post(s), target is %d to %d" % (len(posts), MIN_PER_DAY, MAX_PER_DAY),
+                "ids": [p["id"] for p in posts],
+            })
+        if len(posts) > MAX_PER_DAY:
+            findings.append({
+                "rule": "C01_DAY_OVER",
+                "day": day,
+                "detail": "%d posts, target is %d to %d" % (len(posts), MIN_PER_DAY, MAX_PER_DAY),
                 "ids": [p["id"] for p in posts],
             })
 
@@ -89,13 +106,28 @@ def check(rows, anchor=ANCHOR_DEFAULT, target=None):
                     "ids": ids,
                 })
 
-        if posts and not any(p["time"] == anchor for p in posts):
-            findings.append({
-                "rule": "C03_ANCHOR_MISSING",
-                "day": day,
-                "detail": "nothing in the %s UTC slot, the best hour goes unused" % anchor,
-                "ids": [p["id"] for p in posts],
-            })
+        # 2 posts on 1 account inside 2 hours bury each other. Measured:
+        # 2 reels 2 seconds apart took 1818 views and 162.
+        for a, b in zip(posts, posts[1:]):
+            gap = _mins(b["time"]) - _mins(a["time"])
+            if gap < MIN_GAP_MIN:
+                findings.append({
+                    "rule": "C05_TOO_CLOSE",
+                    "day": day,
+                    "detail": "%s and %s are %d min apart, minimum is %d"
+                              % (a["time"], b["time"], gap, MIN_GAP_MIN),
+                    "ids": [a["id"], b["id"]],
+                })
+
+        for p in posts:
+            if DEAD_START <= _mins(p["time"]) < DEAD_END:
+                findings.append({
+                    "rule": "C06_DEAD_HOUR",
+                    "day": day,
+                    "detail": "%s UTC falls in the dead window %s to %s, nobody is awake for it"
+                              % (p["time"], DEAD_FROM, DEAD_TO),
+                    "ids": [p["id"]],
+                })
 
     if target:
         tgt = date.fromisoformat(target)
@@ -132,8 +164,8 @@ def main(argv):
     findings = check(rows, anchor=anchor, target=target)
 
     days = len({r["day"] for r in rows})
-    print("%d Instagram posts across %d days (%.1f per day, the rule is 1.0)"
-          % (len(rows), days, len(rows) / days if days else 0))
+    print("%d Instagram posts across %d days (%.1f per day, target is %d to %d)"
+          % (len(rows), days, len(rows) / days if days else 0, MIN_PER_DAY, MAX_PER_DAY))
     print()
 
     if not findings:
