@@ -1,0 +1,31 @@
+# Line endings, decided once so the suite is not red on one machine and green on
+# the other.
+#
+# Everything here is read by bash and python on two machines: a Linux cloud
+# container and Amanda's Windows box. Git ships core.autocrlf=true on Windows,
+# which rewrites LF to CRLF on checkout. The blobs in this repo are LF, so that
+# rewrite lands in the working tree only, and a gate then compares a value
+# against the same value plus a trailing carriage return.
+#
+# On 2026-09-08 that failed the holiday-anchor test while printing
+#     labor-day resolved 2026-09-07, wanted 2026-09-07
+# because a carriage return only moves the cursor. Nine dates, every one of them
+# correct, all reported as mismatches, and nothing on screen to say why.
+#
+# eol=lf pins the working tree to LF on every platform. Binaries are marked so
+# nothing tries to translate them.
+
+* text=auto eol=lf
+
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.mp4   binary
+*.mp3   binary
+*.wav   binary
+*.woff2 binary
+*.pyc   binary
+*.xlsx  binary
+*.pdf   binary
+*.zip   binary
