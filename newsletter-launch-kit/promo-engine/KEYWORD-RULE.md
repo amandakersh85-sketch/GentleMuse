@@ -627,3 +627,108 @@ captures the email and delivers the guide itself.** No in-thread reply required,
 in the path, no MailerLite dependency. One tap.
 
 That is the path the first real lead should have gotten. The next one will.
+
+---
+
+# WATCH RESULT 2026-09-08T16:18Z: no new CESA comment. Three other things surfaced.
+
+Trigger `trig_01ErT42pMQ87cEbk1Y3NXppt`, first firing. Amanda's instruction was "watch for the
+next cesa comment and confirm it delivers." **No CESA comment has landed since the gate came
+off.** The honest result is silence. But the watch also had a standing requirement to report
+gate reappearances even with no new run, and that requirement earned its keep.
+
+## 1. The three watched automations, verified on a fresh paged read
+
+Paged `blotato_list_automations` to an empty page. All three examined directly, not inferred.
+
+| Automation | Account | `emailGate` | `followGate` | `keywords` | Active | New runs |
+|---|---|---|---|---|---|---|
+| `2952` CESA | 65540 Cesa IG | **absent** | absent | `CESA`/`cesa`/`Cesa` | yes | none |
+| `445` CESA | 45886 IG main | **absent** | absent | `CESA`/`cesa`/`Cesa` | yes | none |
+| `432` CESA | 30840 FB | **absent** | absent | `CESA`/`cesa`/`Cesa` | yes | none |
+
+No gate has reappeared on any of the three. All three lowercase/mixed variants intact on all
+three, per Amanda's standing rule. Runs unchanged: `2952` still shows `150551` expired and
+`122274` completed; `445` still shows `122325`/`113285` completed and `113157`/`112624` failed
+`20102` from Aug 28; `432` still has zero runs.
+
+**The watcher itself is confirmed working end to end.** It fired into this session with MCP
+tools intact, which also settles the open question about the connector warning: that warning
+was about fresh-session triggers, not session-bound ones.
+
+## 2. `1393` CONSIDER on IG main is carrying an emailGate. Its Facebook twin is not.
+
+Found while paging, outside the three watched automations.
+
+| Automation | Keyword | Account | `emailGate` |
+|---|---|---|---|
+| `1393` | CONSIDER | 45886 IG main | **present** |
+| `1394` | CONSIDER | 30840 FB | absent |
+
+Same offer, same keyword, two different delivery paths depending on which platform someone
+comments on. The gate text asks the commenter to "Reply with your email address and I'll add
+you" — the same mechanism that just cost the first real CESA lead.
+
+The Aug 29 design record in `FLYWHEEL-STATUS.md` names the intended emailGate set as `2954`
+CONSIDER on Cesa's IG, `2771` and `2772` TUESDAY. **`1393` is not in that set.** Whether the
+gate is a regression like `2952`'s or was never removed in the first place, the read does not
+say, and this file is not going to guess.
+
+**Nothing has been lost through it.** `blotato_list_automation_runs` on `1393` returns
+`{"runs":[]}` — zero runs since it was created Aug 16. It is a leak that has not leaked yet.
+
+**Not changed.** The standing rule in this file is that a gate reappearance gets flagged for a
+decision rather than a silent fix, and Amanda's instruction was scoped to `2952`. Flagged.
+
+## 3. The lost lead, in full, and it is worse than "expired"
+
+The conversation is on the record. One message, and the person never came back.
+
+| When | What |
+|---|---|
+| 2026-09-05T01:36:05Z | Contact `1774569036904343` comments **"Cesa please"** on post `6743958` |
+| 2026-09-05T01:36:06Z | `2952` fires. One outgoing DM, status `sent`, message `1419557` |
+| since | **Nothing. Zero incoming messages. Conversation `452629` `updatedAt` == `createdAt`** |
+
+What she was sent, verbatim:
+
+> Yes. 15 pages, free, everything that actually keeps her comfortable at 19. Written from our
+> living room, not a clinic. Reply with your email address and I'll send it.
+
+She typed the word *please*. She asked politely for a free thing and was asked for her email
+address instead of being handed the thing. She never replied, the run expired, and the guide
+was never delivered.
+
+This is the demonstrated case, and it is why the casing variants stay and why the gates come
+off. Not a predicted failure. A named human who asked and got nothing.
+
+**Recovery may still be possible but is not guaranteed.** Conversation `452629` exists and
+`blotato_send_message` can target `recipientId` `1774569036904343` on account `65540`. Against
+it: Instagram's messaging window for business accounts is 24 hours from the last user message,
+and this is roughly 63 hours past it, so the send may simply be rejected. A rejection costs
+nothing and is itself information. **Amanda's call — this is an unsolicited DM to a real
+person, so it does not go out on my own initiative.**
+
+## 4. Two warm people commented on Cesa's account and neither used the keyword
+
+Both on account `65540`, both inside 48 hours, both exactly the audience the guide is written
+for. Neither triggered anything, and neither was supposed to — the automations behaved
+correctly. The leak is upstream of the automation.
+
+| Comment | When | Post | Text |
+|---|---|---|---|
+| `4172237` | 09-08T10:29Z | `6600952` | "They get to pee wherever they want when they're old 😂 I tried to get mine to go outside but he wouldn't make it sometimes. It's an honor to clean it up after all those years together." |
+| `4103323` | 09-07T19:30Z | `6519273` | "...I miss seeing her hopping around like your **Cesla**." |
+
+`6600952`'s caption does say "Comment CESA and I'll send you what I wrote about her." She
+answered the post instead of the instruction — which is what people do when a caption moves
+them. The guide is about incontinence, traction and door distance; she described incontinence.
+
+`4103323` typed **Cesla**. One letter off. Substring matching does not save it: `Cesa` is not
+inside `Cesla`. No casing variant would have caught this either, so it is not an argument
+against the current keyword set — it is an argument that the keyword is not the only door that
+should exist. A public comment reply catches both of these, and public replies do not consume
+the one-DM-per-comment slot.
+
+**Drafts not written and nothing posted.** Replying to these is content, and content is
+approval-first.
