@@ -1046,3 +1046,99 @@ that reported a comfortable fiction.
 Closed by teaching the CESA watch the difference: `17841432484315950` is Cesa's IG business id
 and `17841480184590976` is her main IG. A run from either is a **self-trigger to fix**, not a
 lead to celebrate, and the watch now says so.
+
+---
+
+# CORRECTION 2026-09-08: the 5/5 was rigged, and the honest number was 18%
+
+Earlier today this file reported the natural-language keyword set catching **5 of 5** qualified
+comments with 0 false positives. That measurement was taken on the same 25 comments used to
+choose the keywords. It proved nothing except that the keywords matched the comments they were
+copied from.
+
+Amanda then asked for the CONSIDER automations to get the same treatment, which meant pulling a
+wider comment history — 2026-08-20 to 09-01, never seen when the keywords were written. That is
+a real out-of-sample test, and the shipped set failed it.
+
+| Keyword set | Cesa page | Gentle Muse page | False positives |
+|---|---|---|---|
+| The 39 shipped at 16:58 | **0 / 5** | 2 / 7 | 0 / 45 |
+| Plus phrases derived from the misses | **3 / 5** | 7 / 7 | 0 / 45 |
+
+**The set that went live at 16:58 caught nothing at all on Cesa's own page.** Both of its two
+hits were on the Gentle Muse page. 18% overall, not 100%.
+
+Script: `promo-engine/kwtest.py` (in-sample) and the out-of-sample run in scratchpad.
+
+## What fixed it, and why these words and not others
+
+Every added phrase came from an actual comment the set missed. None were invented:
+
+| Missed comment | Phrase added |
+|---|---|
+| "**Mine loves** to snuggle up on this old mop head" | `Mine loves` |
+| "extra looks to our **old bud**s" | `old bud` |
+| "That's what I feed **my dawg**gies" | `my dawg` |
+| "even with demitia **my baby** had to have his foods" | `my baby` |
+| "my Julio who **just passed** 😢 he was 15" | `just passed` |
+| "My Miku **only got to see** 12😢 I **miss her** every single day" | `got to see`, `miss her` |
+| "She looks amazing **at 19**" | `at 19` |
+
+83 keywords now on `2952`, verified on a fresh paged read: `publishedVersionId` 8524 -> **8545**,
+gate still absent, button unchanged.
+
+Still missed on Cesa's page, and honestly unfixable by keyword: a list of dog nicknames answering
+a caption's question, and "Maybe because it smells it's owners". Neither has a generalizable
+phrase. **That is what the sweep routine is for.**
+
+## `2954` CONSIDER: what the data would not support
+
+Amanda asked for natural-language keywords on the CONSIDER automations, Cesa's page only. Two
+findings changed what that could be.
+
+**1. Dog phrases on `2954` would collide with `2952` on every single comment.** Both live on
+account `65540` with `postId: null`, so both listen to every post. A shared keyword means both
+fire on the same comment and the loser fails `20102` every time — not occasionally, every time.
+That is the exact race the one-tool-per-keyword rule exists to prevent. Not done.
+
+**2. There are zero audience comments on any CONSIDER post, ever.** Checked 08-20 through 09-08:
+`6796347`, `6773370`, `6736921`, `6659651`, `6629277` and their Facebook siblings have not
+received a single audience comment. This matches `REACH-ANALYSIS.md` — static carousels reach 3
+to 4 people against 112 to 1,739 for Reels. **The bottleneck on CONSIDER is not the keyword. It
+is that nobody sees the posts.**
+
+So `2954` got subscribe-intent phrases only — `sign me up`, `add me`, `count me in`,
+`the newsletter`, `the weekly`, `weekly note` and casings. 19 keywords, `publishedVersionId`
+4197 -> **8546**. These share no substring with any of `2952`'s 83, so the guaranteed collision is
+avoided.
+
+**Flagged honestly: these are unvalidated.** Not one of them appears in 19 days of real comments.
+They are the safest available guess, not a measured choice, and they are the only part of today's
+keyword work that is not data-backed. The sweep will report whether they ever fire.
+
+Residual risk that cannot be removed: a comment containing both a `2952` phrase and a `2954`
+phrase ("my baby is 15, sign me up") still races. Rare rather than guaranteed, and the person
+still receives exactly one DM.
+
+## The lead pool nobody harvested
+
+Post `6250675` on the **Gentle Muse** page is the single largest concentration of qualified
+senior-dog comments in the whole account history — a dozen or more people describing their own
+dogs by name and age, several grieving. Amanda replied to many of them by hand, warmly, one at a
+time. **Not one received the guide.**
+
+Every one of those comments is now past the 7-day private-reply window. They are reachable only
+by public comment reply. Amanda's instruction today was to keep natural-language keywords off the
+Gentle Muse page, so automation will not catch the next batch there either — the sweep is the
+only thing that will.
+
+## Design fix: stop hardcoding keyword lists into routine prompts
+
+The sweep prompt shipped at 16:59 embedded all 39 keywords as literal text. Two hours later that
+list was wrong, and a stale list makes the sweep report caught comments as missed — corrupting
+the exact measurement it exists to produce.
+
+Both routines now **read the live keywords from `blotato_list_automations` every run** instead of
+trusting a copy. This is the third time in this project a hardcoded list has gone stale
+underneath a monitor. The rule is now explicit: a routine that checks configuration reads that
+configuration from source at run time, never from its own prompt.
