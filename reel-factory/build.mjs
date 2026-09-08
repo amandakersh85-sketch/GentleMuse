@@ -64,7 +64,21 @@ for (const reel of reels){
   await page.waitForFunction(() => window.__ready === true, null, {timeout:40000})
             .catch(() => {});
   const state = await page.evaluate(() => ({
-    ready: window.__ready === true, fonts: window.__fonts, plate: window.__plate }));
+    ready: window.__ready === true, fonts: window.__fonts, plate: window.__plate,
+    consumesPlate: window.__consumes_plate !== false }));
+  // A payload can bind a clip and still be handed to a composition that draws
+  // no footage at all. The render then succeeds, the frames look deliberate,
+  // and the only way to find out is to watch it. Refuse instead: the payload
+  // says a clip belongs on screen, so a composition that ignores clips is the
+  // wrong one. Cost of this check the day it was written: 5 reels, 10 minutes.
+  const declaresClip = !!(reel.clip && String(reel.clip.file || '').trim());
+  if (state.ready && declaresClip && !state.consumesPlate){
+    await page.close(); await browser.close(); server.close();
+    console.error(`\n${reel.id} REFUSED: payload binds "${reel.clip.file}" but ` +
+      `${process.env.COMP || 'reel.html'} does not put a clip on screen. ` +
+      `Set COMP=reel-footage.html, or drop the clip from the payload.`);
+    process.exit(2);
+  }
   if (!state.ready){
     const why = [];
     if (!state.fonts) why.push('webfonts never loaded, type would render in a fallback face');

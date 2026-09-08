@@ -166,6 +166,7 @@ const withTimeout = (p, ms) => Promise.race([p, new Promise(r => setTimeout(r, m
   window.__plate = IS_STILL
     ? (still.complete && still.naturalWidth > 0)
     : (video.readyState >= 1 && video.videoWidth > 0);
+  window.__consumes_plate = true;        // this cut puts the clip on screen
   layout(); await window.seek(0);
   window.__ready = window.__fonts && window.__plate;
 })();

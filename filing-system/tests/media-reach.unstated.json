@@ -1,0 +1,21 @@
+[
+ {
+  "id": "T-M1",
+  "slug": "unstated",
+  "duration": 6.4,
+  "label": "t",
+  "source": "t",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 6.0,
+    "html": "Field stones under bare oaks."
+   }
+  ],
+  "clip": {
+   "file": "plates/here-plate.jpg",
+   "clip_id": "unstated",
+   "match_reason": "The line names field stones under bare oaks and the clip is exactly that."
+  }
+ }
+]

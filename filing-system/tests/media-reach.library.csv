@@ -1,0 +1,5 @@
+ClipID,File,DriveFileId,SizeMB,Created,Lane,DurationSec,Resolution,Orientation,Shot,Mood,Tags,Described,MediaState,Source
+here-plate,plates/here-plate.jpg,,,2026-09-08,GM,,1080x1920,Vertical,"Empty autumn field with field stones under bare oaks at dusk","calm",plate,yes,local,"generated"
+gone-plate,plates/gone-plate.jpg,,,2026-09-08,GM,,1080x1920,Vertical,"Empty autumn field with field stones under bare oaks at dusk","calm",plate,yes,local,"generated"
+phone-only,VID_20260904_192034247.mp4,,34.9,2026-09-04,clubtarget,30,1080x1920,Vertical,"Empty autumn field with field stones under bare oaks at dusk","calm",target,yes,offline,"PhoneImport D:\Phone Backup\2026-09-05 Phone Import\Camera"
+unstated,plates/here-plate.jpg,,,2026-09-08,GM,,1080x1920,Vertical,"Empty autumn field with field stones under bare oaks at dusk","calm",plate,yes,,"generated"

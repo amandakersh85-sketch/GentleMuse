@@ -535,5 +535,47 @@ if python3 "$CAD" "$HERE/cadence.countdown.csv" --target 2026-10-31 2>/dev/null 
 else echo "FAIL  a countdown that drifted off its date is caught"; fail=$((fail+1)); fi
 
 echo
+echo "== media reachability (Run 6, added 09/08) =="
+# A clip row can be complete and still be unusable: the footage is on a
+# machine the renderer has never seen. Describing a shot is not having it.
+MR="$HERE/media-reach.library.csv"
+MRROOT="$HERE/media-reach-root"
+expect_exit "a local plate that is on disk passes" 0 \
+  env GM_MEDIA_ROOT="$MRROOT" python3 "$GATE" --render "$HERE/media-reach.present.json"  --library "$MR" --quiet
+expect_exit "a local plate that is not on disk is refused" 1 \
+  env GM_MEDIA_ROOT="$MRROOT" python3 "$GATE" --render "$HERE/media-reach.missing.json"  --library "$MR" --quiet
+expect_exit "footage that only exists on the phone is refused" 1 \
+  env GM_MEDIA_ROOT="$MRROOT" python3 "$GATE" --render "$HERE/media-reach.offline.json"  --library "$MR" --quiet
+expect_exit "a clip with no MediaState passes with a note" 0 \
+  env GM_MEDIA_ROOT="$MRROOT" python3 "$GATE" --render "$HERE/media-reach.unstated.json" --library "$MR" --quiet
+
+if env GM_MEDIA_ROOT="$MRROOT" python3 "$GATE" --render "$HERE/media-reach.offline.json" \
+     --library "$MR" 2>&1 | grep -q E11_MEDIA_UNREACHABLE; then
+  echo "PASS  unreachable footage is named by rule, not just refused"; pass=$((pass+1))
+else echo "FAIL  unreachable footage is named by rule, not just refused"; fail=$((fail+1)); fi
+
+if env GM_MEDIA_ROOT="$MRROOT" python3 "$GATE" --render "$HERE/media-reach.offline.json" \
+     --library "$MR" 2>&1 | grep -q "D:.Phone Backup"; then
+  echo "PASS  the refusal says where the footage actually is"; pass=$((pass+1))
+else echo "FAIL  the refusal says where the footage actually is"; fail=$((fail+1)); fi
+
+echo
+echo "== a composition that ignores the plate (Run 6, added 09/08) =="
+# reel.html draws embers and no footage. A payload that binds a clip must
+# not render there: it succeeds, and the missing footage looks deliberate.
+RF="$HERE/../../reel-factory"
+if grep -q "__consumes_plate = false" "$RF/reel.html"; then
+  echo "PASS  the typography cut declares it draws no footage"; pass=$((pass+1))
+else echo "FAIL  the typography cut declares it draws no footage"; fail=$((fail+1)); fi
+
+if grep -q "__consumes_plate = true" "$RF/reel-footage.html"; then
+  echo "PASS  the footage cut declares it draws footage"; pass=$((pass+1))
+else echo "FAIL  the footage cut declares it draws footage"; fail=$((fail+1)); fi
+
+if grep -q "declaresClip && !state.consumesPlate" "$RF/build.mjs"; then
+  echo "PASS  the build refuses a bound clip on a plateless composition"; pass=$((pass+1))
+else echo "FAIL  the build refuses a bound clip on a plateless composition"; fail=$((fail+1)); fi
+
+echo
 echo "$pass passed, $fail failed"
 [ "$fail" = 0 ]

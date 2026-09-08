@@ -30,6 +30,13 @@ import os
 import re
 import sys
 
+# Where a MediaState=local file is expected to actually be. The reel factory
+# holds the plates it renders; override when the renderer runs elsewhere.
+MEDIA_ROOT = os.environ.get(
+    "GM_MEDIA_ROOT",
+    os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(
+        os.path.abspath(__file__)))), "reel-factory"))
+
 # ---------------------------------------------------------------- text tools
 
 STOPWORDS = {
@@ -280,6 +287,35 @@ def check_video(video, library, index):
                 % clip_id)
             continue
 
+        # ---- the bytes have to be somewhere this machine can open
+        #
+        # A clip row can be complete and truthful and still be unusable here:
+        # the footage sits on Amanda's D: drive, and the renderer is a cloud
+        # container that has never seen it. Describing the shot is not the
+        # same as having the file. Without this column the only way to learn
+        # that is to plan a whole cut against 13 store clips and find out at
+        # render time, which is what happened on 09/08.
+        state = (row.get("MediaState") or "").strip().lower()
+        if state == "offline":
+            add("E11_MEDIA_UNREACHABLE", "FAIL", position,
+                'clip "%s" is MediaState=offline. The description is here but the '
+                "footage is not: %s. Render it where the file is, or get the file "
+                "to Drive first. Do not substitute a clip that is merely nearby."
+                % (clip_id, (row.get("Source") or "unrecorded location").strip()))
+            continue
+        if state == "local":
+            here = os.path.join(MEDIA_ROOT, (row.get("File") or "").strip())
+            if not os.path.exists(here):
+                add("E11_MEDIA_UNREACHABLE", "FAIL", position,
+                    'clip "%s" is MediaState=local but "%s" is not on disk. '
+                    "The library and the filesystem disagree."
+                    % (clip_id, (row.get("File") or "").strip()))
+                continue
+        if not state:
+            add("N04_NO_MEDIA_STATE", "NOTE", position,
+                'clip "%s" has no MediaState. Set local, drive or offline so the '
+                "gate can tell whether the footage is reachable." % clip_id)
+
         # ---- declared file must agree with the library
         json_file = (clip.get("file") or "").strip()
         lib_file = (row.get("File") or "").strip()
@@ -389,10 +425,15 @@ def load_renders(path):
     if os.path.isdir(path):
         # npm drops its own metadata next to the payloads; neither is a render.
         skip = {"package.json", "package-lock.json"}
+        # A payload named WAITING-* is one whose footage does not exist yet.
+        # It is not a failure and it is not shippable; it is a cut written in
+        # advance of a shoot. Sweeping the directory skips it so "everything
+        # here passes" keeps meaning everything that could ship, passes.
         paths = sorted(
             os.path.join(path, name)
             for name in os.listdir(path)
             if name.lower().endswith(".json") and name not in skip
+            and not name.startswith("WAITING-")
         )
     else:
         paths = [path]
