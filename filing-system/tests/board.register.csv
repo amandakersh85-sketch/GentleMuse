@@ -1,0 +1,4 @@
+Slug,FactID,Platform,AccountId,SlotUTC,Status,MediaUrl,Text,Waiting
+nbc-crt,HAL-001,youtube,36129,,STAGED,https://x/a.mp4,"Disney would not put its own name on it.\n\nThe Nightmare Before Christmas came out under Touchstone in 1993.",
+nbc-oak,HAL-001,youtube,36129,,STAGED,https://x/b.mp4,"Disney would not put its own name on it.\n\nIt came out under Touchstone in 1993 because the studio thought it too dark.",
+turnip,HAL-002,youtube,36129,,STAGED,https://x/c.mp4,"Jack o lanterns were turnips.\n\nIreland and Scotland carved them out of turnips for centuries.",

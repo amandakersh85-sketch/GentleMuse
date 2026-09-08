@@ -24,6 +24,13 @@ count of 1.
   C10_FACT_UNLABELLED a row with no fact, which the 2 rules above cannot
                       be run against
 
+Fill the fact column from what the caption *opens* with, not from the whole
+caption. The CTA, the link and the hashtags are identical across a lane and
+drown the 1 part that says what the post is about: matching whole captions
+scored a correct pair at 0.21 and split Hocus Pocus into 2 facts, which let a
+real repeat through. And 4 plates of 1 fact are 1 fact here. A different
+plate is a different reel and the same thing said twice.
+
 Exit code 1 when anything is flagged, so it can gate a scheduling run.
 
 Usage:

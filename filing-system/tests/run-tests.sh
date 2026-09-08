@@ -608,6 +608,47 @@ if python3 "$CAD" "$HERE/cadence.board.csv" 2>/dev/null | grep -q "cadence clean
 else echo "FAIL  a board with no fact column is still checked as before"; fail=$((fail+1)); fi
 
 echo
+echo "== filling the fact column from a queue dump (added 09/08) =="
+# The queue carries a caption, not a fact. This is the step in between, and
+# it is where the 09/08 miss actually happened: matched on the whole caption,
+# a correct pair scored 0.21 and Hocus Pocus came out as 2 facts.
+SNAP="$HERE/../scripts/gm_board_snapshot.py"
+OUT="$(mktemp)"
+python3 "$SNAP" "$HERE/board.queue.json" "$OUT" --register "$HERE/board.register.csv" >/dev/null 2>&1
+
+# The CTA, the link and the hashtags are the same on every post in a lane.
+# Only the opening says what the post is about.
+if [ "$(grep -c ',nbc,' "$OUT")" = "2" ]; then
+  echo "PASS  a fact buried under a long CTA is still found"; pass=$((pass+1))
+else echo "FAIL  a fact buried under a long CTA is still found"
+     cat "$OUT" | sed 's/^/      /'; fail=$((fail+1)); fi
+
+# 2 plates of 1 fact are 1 fact. The plate is the reel; the fact is what
+# the person scrolling sees twice.
+if [ "$(awk -F, '$6=="nbc"' "$OUT" | wc -l)" = "2" ] && grep -q "^q2,.*,nbc," "$OUT"; then
+  echo "PASS  2 plates of 1 fact collapse to 1 fact"; pass=$((pass+1))
+else echo "FAIL  2 plates of 1 fact collapse to 1 fact"; fail=$((fail+1)); fi
+
+# A guess that looks like an answer is worse than a blank.
+if grep -q "^q4,[^,]*,,youtube,36129,," "$OUT"; then
+  echo "PASS  a row the register does not cover gets no fact, not a guess"; pass=$((pass+1))
+else echo "FAIL  a row the register does not cover gets no fact, not a guess"
+     grep "^q4," "$OUT" | sed 's/^/      /'; fail=$((fail+1)); fi
+
+# The guess is still written down, in a column the gate does not read, so
+# whoever fills the register has somewhere to start.
+if grep -q "^q4,.*she-picked-the-blanket-with-the-gold" "$OUT"; then
+  echo "PASS  the guess is kept beside it for whoever fills the register"; pass=$((pass+1))
+else echo "FAIL  the guess is kept beside it for whoever fills the register"; fail=$((fail+1)); fi
+
+# End to end: the snapshot feeds the gate, and the gate says the board is
+# not fully checked rather than passing it.
+if python3 "$CAD" "$OUT" 2>/dev/null | grep -q "C10_FACT_UNLABELLED"; then
+  echo "PASS  the gate reads the snapshot and reports the unchecked rows"; pass=$((pass+1))
+else echo "FAIL  the gate reads the snapshot and reports the unchecked rows"; fail=$((fail+1)); fi
+rm -f "$OUT"
+
+echo
 echo "== media reachability (Run 6, added 09/08) =="
 # A clip row can be complete and still be unusable: the footage is on a
 # machine the renderer has never seen. Describing a shot is not having it.
