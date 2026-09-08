@@ -1,0 +1,58 @@
+[
+ {
+  "id": "HAL-020",
+  "slug": "trackA-hal-020",
+  "seed": 35,
+  "duration": 21.63,
+  "label": "Gentle Muse · Halloween",
+  "source": "Source: Joel Best, University of Delaware · HAL-020",
+  "beats": [
+   {
+    "in": 0.3,
+    "out": 3.1,
+    "html": "Not 1 confirmed case.",
+    "cta": null,
+    "vo_in": 0.3,
+    "vo_dur": 2.377
+   },
+   {
+    "in": 3.1,
+    "out": 8.06,
+    "html": "No child has been killed by a<br>stranger's poisoned<br>Halloween candy.",
+    "cta": null,
+    "vo_in": 3.1,
+    "vo_dur": 4.545
+   },
+   {
+    "in": 8.06,
+    "out": 14.33,
+    "html": "A sociologist named Joel Best<br>has tracked every report<br>since 1958.",
+    "cta": null,
+    "vo_in": 8.06,
+    "vo_dur": 5.851
+   },
+   {
+    "in": 14.33,
+    "out": 16.3,
+    "html": "None of them hold up.",
+    "cta": null,
+    "vo_in": 14.33,
+    "vo_dur": 1.541
+   },
+   {
+    "in": 16.3,
+    "out": 21.08,
+    "html": "<span class='em'>A fear that changed how a<br>country parents has<br>nothing behind it.</span>",
+    "cta": null,
+    "vo_in": 16.3,
+    "vo_dur": 4.362
+   }
+  ],
+  "clip": {
+   "file": "plates/trackA-porch.jpg",
+   "push": 0.07,
+   "clip_id": "trackA-porch",
+   "match_reason": "The fact is the Halloween poisoned candy scare, and the plate is a 1970s front porch on Halloween night with a bowl of wrapped candy left out under one light and nobody watching it."
+  }
+ }
+]

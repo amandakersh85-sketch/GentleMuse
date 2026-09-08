@@ -167,6 +167,20 @@ const withTimeout = (p, ms) => Promise.race([p, new Promise(r => setTimeout(r, m
     ? (still.complete && still.naturalWidth > 0)
     : (video.readyState >= 1 && video.videoWidth > 0);
   window.__consumes_plate = true;        // this cut puts the clip on screen
+  // Every beat writes its own line breaks. When a line is a few characters
+  // too wide the browser breaks it again, and the second break lands
+  // wherever it lands: "A fear that changed how a / country / parents has
+  // nothing behind / it." The words are right and the card is ruined, and
+  // nothing catches it except looking. So count the lines the browser
+  // actually drew against the lines the beat asked for.
+  window.__overflow = nodes.map(function (n, i) {
+    var lh = parseFloat(getComputedStyle(n).lineHeight);
+    var drew = Math.round(n.offsetHeight / lh);
+    var asked = (P.beats[i].html.split(/<br\s*\/?>/i).length) +
+                (P.beats[i].cta ? 1 : 0);
+    return drew > asked ? { beat: i, asked: asked, drew: drew,
+                            html: P.beats[i].html } : null;
+  }).filter(Boolean);
   layout(); await window.seek(0);
   window.__ready = window.__fonts && window.__plate;
 })();

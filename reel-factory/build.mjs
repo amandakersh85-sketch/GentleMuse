@@ -65,7 +65,18 @@ for (const reel of reels){
             .catch(() => {});
   const state = await page.evaluate(() => ({
     ready: window.__ready === true, fonts: window.__fonts, plate: window.__plate,
-    consumesPlate: window.__consumes_plate !== false }));
+    consumesPlate: window.__consumes_plate !== false,
+    overflow: window.__overflow || [] }));
+
+  // A beat whose line broke twice reads as a typo to everyone but the
+  // person who wrote it. Refuse rather than encode 700 frames of it.
+  if (state.ready && state.overflow.length){
+    await page.close(); await browser.close(); server.close();
+    console.error(`\n${reel.id} REFUSED: ${state.overflow.length} beat(s) wrapped past their own line breaks. Shorten the line, or move the break:`);
+    for (const o of state.overflow)
+      console.error(`  beat ${o.beat}: asked for ${o.asked} lines, drew ${o.drew} — ${o.html}`);
+    process.exit(2);
+  }
   // A payload can bind a clip and still be handed to a composition that draws
   // no footage at all. The render then succeeds, the frames look deliberate,
   // and the only way to find out is to watch it. Refuse instead: the payload

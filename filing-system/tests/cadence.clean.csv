@@ -1,5 +1,5 @@
-id,postTimeUTC,label
-A1,2026-09-08T15:00,slot 1
-A2,2026-09-08T17:00,slot 2
-A3,2026-09-08T19:00,slot 3
-A4,2026-09-08T21:00,slot 4
+id,postTimeUTC,platform,accountId,label
+A1,2026-09-08T15:00,instagram,45886,slot 1
+A2,2026-09-08T17:00,instagram,45886,slot 2
+A3,2026-09-08T19:00,instagram,45886,slot 3
+A4,2026-09-08T21:00,instagram,45886,slot 4

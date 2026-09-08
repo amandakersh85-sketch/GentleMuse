@@ -1,0 +1,17 @@
+id,postTimeUTC,platform,accountId,label
+E1,2026-10-01T15:00,instagram,45886,ig 1
+E2,2026-10-01T18:00,instagram,45886,ig 2
+E3,2026-10-01T20:00,instagram,45886,ig 3
+E4,2026-10-01T23:00,instagram,45886,ig 4
+E5,2026-10-01T15:00,tiktok,41488,tt 1 same minute as ig, different platform
+E6,2026-10-01T17:00,tiktok,41488,tt 2
+E7,2026-10-01T20:00,tiktok,41488,tt 3
+E8,2026-10-01T23:00,tiktok,41488,tt 4
+E9,2026-10-01T14:00,facebook,30840,fb 1
+E10,2026-10-01T17:00,facebook,30840,fb 2
+E11,2026-10-01T19:30,facebook,30840,fb 3
+E12,2026-10-01T22:00,facebook,30840,fb 4
+E13,2026-10-01T14:30,youtube,36129,yt 1
+E14,2026-10-01T17:20,youtube,36129,yt 2
+E15,2026-10-01T20:20,youtube,36129,yt 3
+E16,2026-10-01T23:20,youtube,36129,yt 4

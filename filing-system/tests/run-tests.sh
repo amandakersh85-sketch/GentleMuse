@@ -534,6 +534,24 @@ if python3 "$CAD" "$HERE/cadence.countdown.csv" --target 2026-10-31 2>/dev/null 
   echo "PASS  a countdown that drifted off its date is caught"; pass=$((pass+1))
 else echo "FAIL  a countdown that drifted off its date is caught"; fail=$((fail+1)); fi
 
+if python3 "$CAD" "$HERE/cadence.board.csv" 2>/dev/null | grep -q "cadence clean"; then
+  echo "PASS  4 platforms at 4 a day is a full board, not an overload"; pass=$((pass+1))
+else echo "FAIL  4 platforms at 4 a day is a full board, not an overload"
+     python3 "$CAD" "$HERE/cadence.board.csv" 2>&1 | sed 's/^/      /'; fail=$((fail+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.board.csv" 2>/dev/null | grep -q "C02_SLOT_COLLISION"; then
+  echo "FAIL  2 platforms at the same minute is not a collision"; fail=$((fail+1))
+else echo "PASS  2 platforms at the same minute is not a collision"; pass=$((pass+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.twoaccounts.csv" 2>/dev/null | grep -q "cadence clean"; then
+  echo "PASS  2 accounts on 1 platform are counted apart"; pass=$((pass+1))
+else echo "FAIL  2 accounts on 1 platform are counted apart"
+     python3 "$CAD" "$HERE/cadence.twoaccounts.csv" 2>&1 | sed 's/^/      /'; fail=$((fail+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.board.csv" 2>/dev/null | grep -q "instagram .*4.0 a day"; then
+  echo "PASS  the summary reports each platform, not one total"; pass=$((pass+1))
+else echo "FAIL  the summary reports each platform, not one total"; fail=$((fail+1)); fi
+
 echo
 echo "== media reachability (Run 6, added 09/08) =="
 # A clip row can be complete and still be unusable: the footage is on a
@@ -575,6 +593,22 @@ else echo "FAIL  the footage cut declares it draws footage"; fail=$((fail+1)); f
 if grep -q "declaresClip && !state.consumesPlate" "$RF/build.mjs"; then
   echo "PASS  the build refuses a bound clip on a plateless composition"; pass=$((pass+1))
 else echo "FAIL  the build refuses a bound clip on a plateless composition"; fail=$((fail+1)); fi
+
+echo
+echo "== a beat that wrapped past its own line breaks (Run 6, added 09/08) =="
+# 11 of 26 beats shipped with an orphaned word on its own line. The words
+# were right, the card was not, and only looking at it caught that.
+if grep -q "__overflow" "$RF/reel-footage.html"; then
+  echo "PASS  the composition counts drawn lines against asked lines"; pass=$((pass+1))
+else echo "FAIL  the composition counts drawn lines against asked lines"; fail=$((fail+1)); fi
+
+if grep -q "wrapped past their own line breaks" "$RF/build.mjs"; then
+  echo "PASS  the build refuses a beat that wrapped"; pass=$((pass+1))
+else echo "FAIL  the build refuses a beat that wrapped"; fail=$((fail+1)); fi
+
+if grep -q "shorten the line, or move the break" -i "$RF/build.mjs"; then
+  echo "PASS  the refusal says what to do about it"; pass=$((pass+1))
+else echo "FAIL  the refusal says what to do about it"; fail=$((fail+1)); fi
 
 echo
 echo "$pass passed, $fail failed"

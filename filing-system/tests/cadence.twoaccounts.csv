@@ -1,0 +1,7 @@
+id,postTimeUTC,platform,accountId,label
+F1,2026-10-02T15:00,instagram,45886,gm account
+F2,2026-10-02T15:30,instagram,65540,cesa account 30 min later, different account
+F3,2026-10-02T18:00,instagram,45886,gm 2
+F4,2026-10-02T20:00,instagram,45886,gm 3
+F5,2026-10-02T18:30,instagram,65540,cesa 2
+F6,2026-10-02T21:00,instagram,65540,cesa 3

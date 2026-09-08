@@ -60,6 +60,15 @@ def load(path):
                 "day": day,
                 "time": hhmm[:5],
                 "label": r.get("label", "").strip(),
+                # Every rule here is per platform or per account. Without these
+                # 2 columns the checks collapse into 1 stream and start
+                # contradicting the doctrine they exist to enforce: 4 platforms
+                # posting 4 times each reads as 16 posts in a day, and
+                # Instagram at 15:00 alongside TikTok at 15:00 reads as a
+                # collision. A file without them is checked as a single lane,
+                # which is right for 1 account and wrong for a board.
+                "platform": (r.get("platform") or "").strip().lower(),
+                "account": (r.get("accountId") or r.get("account") or "").strip(),
             })
     return rows
 
@@ -72,62 +81,88 @@ def countdown_days(label):
 
 def check(rows, anchor=ANCHOR_DEFAULT, target=None):
     findings = []
-    by_day = defaultdict(list)
-    for r in rows:
-        by_day[r["day"]].append(r)
 
-    for day in sorted(by_day):
-        posts = sorted(by_day[day], key=lambda r: r["time"])
+    # 3 to 5 a day is 3 to 5 *per platform*. Counting a board of 4 platforms
+    # as 1 stream is what made a full day look overloaded and started a queue
+    # being thinned that was already starved.
+    # Counted per account, not per platform: the 2 Instagram accounts are 2
+    # audiences, and 3 to 5 is what each of them gets. Platform is the label
+    # in the message; the account is the thing being saturated.
+    by_lane = defaultdict(list)
+    for r in rows:
+        by_lane[(r["day"], r["account"] or r["platform"])].append(r)
+
+    for day, lane in sorted(by_lane):
+        posts = sorted(by_lane[(day, lane)], key=lambda r: r["time"])
+        platform = posts[0]["platform"]
+        where = (" on %s %s" % (platform, lane)).rstrip() if platform else ""
 
         if len(posts) < MIN_PER_DAY:
             findings.append({
                 "rule": "C01_DAY_STARVED",
                 "day": day,
-                "detail": "%d post(s), target is %d to %d" % (len(posts), MIN_PER_DAY, MAX_PER_DAY),
+                "detail": "%d post(s)%s, target is %d to %d per platform"
+                          % (len(posts), where, MIN_PER_DAY, MAX_PER_DAY),
                 "ids": [p["id"] for p in posts],
             })
         if len(posts) > MAX_PER_DAY:
             findings.append({
                 "rule": "C01_DAY_OVER",
                 "day": day,
-                "detail": "%d posts, target is %d to %d" % (len(posts), MIN_PER_DAY, MAX_PER_DAY),
+                "detail": "%d posts%s, target is %d to %d per platform"
+                          % (len(posts), where, MIN_PER_DAY, MAX_PER_DAY),
                 "ids": [p["id"] for p in posts],
             })
 
+
+    # 1 post per platform per timestamp. 2 platforms at 15:00 is the cross
+    # posting model working, not a collision, so this groups by platform.
+    by_platform = defaultdict(list)
+    for r in rows:
+        by_platform[(r["day"], r["platform"])].append(r)
+    for day, platform in sorted(by_platform):
         seen = defaultdict(list)
-        for p in posts:
+        for p in by_platform[(day, platform)]:
             seen[p["time"]].append(p["id"])
         for t, ids in sorted(seen.items()):
             if len(ids) > 1:
                 findings.append({
                     "rule": "C02_SLOT_COLLISION",
                     "day": day,
-                    "detail": "%d posts at exactly %s UTC" % (len(ids), t),
+                    "detail": "%d posts%s at exactly %s UTC"
+                              % (len(ids), " on " + platform if platform else "", t),
                     "ids": ids,
                 })
 
-        # 2 posts on 1 account inside 2 hours bury each other. Measured:
-        # 2 reels 2 seconds apart took 1818 views and 162.
+    # 2 posts on 1 account inside 2 hours bury each other. Measured:
+    # 2 reels 2 seconds apart took 1818 views and 162. The rule is about
+    # 1 account's own feed, so it is checked per account, never across them.
+    by_account = defaultdict(list)
+    for r in rows:
+        by_account[(r["day"], r["account"] or r["platform"])].append(r)
+    for key in sorted(by_account):
+        day = key[0]
+        posts = sorted(by_account[key], key=lambda r: r["time"])
         for a, b in zip(posts, posts[1:]):
             gap = _mins(b["time"]) - _mins(a["time"])
             if gap < MIN_GAP_MIN:
                 findings.append({
                     "rule": "C05_TOO_CLOSE",
                     "day": day,
-                    "detail": "%s and %s are %d min apart, minimum is %d"
+                    "detail": "%s and %s are %d min apart on 1 account, minimum is %d"
                               % (a["time"], b["time"], gap, MIN_GAP_MIN),
                     "ids": [a["id"], b["id"]],
                 })
 
-        for p in posts:
-            if DEAD_START <= _mins(p["time"]) < DEAD_END:
-                findings.append({
-                    "rule": "C06_DEAD_HOUR",
-                    "day": day,
-                    "detail": "%s UTC falls in the dead window %s to %s, nobody is awake for it"
-                              % (p["time"], DEAD_FROM, DEAD_TO),
-                    "ids": [p["id"]],
-                })
+    for r in sorted(rows, key=lambda r: (r["day"], r["time"])):
+        if DEAD_START <= _mins(r["time"]) < DEAD_END:
+            findings.append({
+                "rule": "C06_DEAD_HOUR",
+                "day": r["day"],
+                "detail": "%s UTC falls in the dead window %s to %s, nobody is awake for it"
+                          % (r["time"], DEAD_FROM, DEAD_TO),
+                "ids": [r["id"]],
+            })
 
     if target:
         tgt = date.fromisoformat(target)
@@ -164,8 +199,21 @@ def main(argv):
     findings = check(rows, anchor=anchor, target=target)
 
     days = len({r["day"] for r in rows})
-    print("%d Instagram posts across %d days (%.1f per day, target is %d to %d)"
-          % (len(rows), days, len(rows) / days if days else 0, MIN_PER_DAY, MAX_PER_DAY))
+    lanes = sorted({r["platform"] for r in rows if r["platform"]})
+    print("%d posts across %d days" % (len(rows), days))
+    if lanes:
+        # Per platform is the number that matters. The total is only ever
+        # context, and reading the total as the cadence is the mistake that
+        # this gate exists to stop anyone making twice.
+        for lane in lanes:
+            n = sum(1 for r in rows if r["platform"] == lane)
+            per = n / days if days else 0
+            mark = "" if MIN_PER_DAY <= per <= MAX_PER_DAY else "   <-- off target"
+            print("  %-10s %3d posts, %.1f a day%s" % (lane, n, per, mark))
+        print("  target is %d to %d a day on each" % (MIN_PER_DAY, MAX_PER_DAY))
+    else:
+        print("  no platform column, checked as a single lane, %.1f a day (target %d to %d)"
+              % (len(rows) / days if days else 0, MIN_PER_DAY, MAX_PER_DAY))
     print()
 
     if not findings:
