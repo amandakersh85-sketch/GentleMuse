@@ -81,6 +81,18 @@ LinkedIn links. Pinterest is parked on purpose, not forgotten.
 Prefer a HyperFrames motion text video over a still wherever there is a
 choice. One video covers every platform; a still does not.
 
+**Reuse before generating.** The budget does not stretch to regenerating
+what already exists and works. Every free lead magnet carousel is evergreen
+and reusable, and there is enough variation in them to keep running until
+the volume target is met or the data says otherwise. New sets lead because
+they are the best quality; an older one goes in now and then to keep the
+mix fresh.
+
+Pinterest runs 1 recycled pin a day off that same evergreen pool, to keep
+the account warm rather than dry. A pin is a bookmark, so repinning the
+same image is how the platform works and does not count as re-wearing
+media. Everywhere else the no re-wear rule stands.
+
 The rule lives in `filing-system/data/channel-rules.csv` and
 `gm_cadence_check.py` enforces it. Change the CSV, not the gate, and never
 a prose note instead of either.

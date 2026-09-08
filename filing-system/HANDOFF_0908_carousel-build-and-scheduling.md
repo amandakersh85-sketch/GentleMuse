@@ -72,6 +72,40 @@ carousel runs with a bio link instead of the keyword.
 **Just Another Tuesday goes to YouTube and LinkedIn.** That is the LinkedIn
 business post on the days it runs; the free AI guide covers the rest.
 
+### The carousels are evergreen. Treat them that way.
+
+A free lead magnet carousel does not expire. The offer does not change and
+it is not seasonal, so it can run again on any platform, any time. There is
+already enough variation to keep going until the volume target is met or
+the data says stop. New sets lead because they are the best quality; drop
+an older one in now and then to keep the mix fresh.
+
+**Reuse before you generate.** The budget does not stretch to regenerating
+what already exists and works. Spend credits only where the piece genuinely
+has to be new.
+
+6 sets are shot: turnip, snick, casper, coffinbell, lugnano, trailer. Only
+**turnip and snick are hosted**. The other 4 are 38 files sitting on disk,
+and hosting them costs nothing but the upload. That is the cheapest volume
+available anywhere in this system, so do it early.
+
+### Pinterest, which is cold and should not be
+
+1 pin a day, recycled off the same evergreen carousel slides. The point is
+keeping the account warm, not conversion: Amanda's words are "we run dry on
+it constantly." Rotate unless the data shows it is not worth it.
+
+Pinterest is the one place a repeat is fine. A pin is a bookmark and
+repinning is how the platform works, so the no re-wear rule does not apply
+there. It still applies everywhere else.
+
+The pin's destination is a **link field on the pin**, not caption text, so
+no keyword automation applies and the caption does not carry the call to
+action.
+
+10 pins are staged in `staging-library.csv` already. They could not be
+scheduled because the queue hit 200. They go in on the next drain.
+
 ## YOUR SECOND JOB: THE 99 POST PULL, ALREADY APPROVED
 
 105 posts sit between 19 Sep and 31 Oct at 2.4 a day, holding half the
