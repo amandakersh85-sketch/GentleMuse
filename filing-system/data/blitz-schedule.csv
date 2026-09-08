@@ -54,10 +54,10 @@ Date,TimeUTC,Lane,Platform,Account,FactID,Media,Status,SubmissionId
 2026-10-07,19:00,echo,facebook,30840,HAL-011,afraidark,scheduled,75b99fcd-7215-4dbe-9fbe-ee4026a90060
 2026-10-08,19:00,echo,youtube,36129,HAL-014,gb-fort,scheduled,0c9eebc0-c7d3-4b93-afaf-5cbe0274d8e0
 2026-10-08,19:00,echo,facebook,30840,HAL-014,gb-paperbacks,scheduled,6ec9196a-54ca-46f8-95aa-04b207a3a4eb
-2026-10-10,19:00,echo,youtube,36129,HAL-012,casper,blocked: plan cap 200 scheduled posts,
-2026-10-10,19:00,echo,facebook,30840,HAL-012,casper,blocked: plan cap 200 scheduled posts,
-2026-10-12,19:00,echo,youtube,36129,HAL-010,nbc-cemetery,blocked: plan cap 200 scheduled posts,
-2026-10-12,19:00,echo,facebook,30840,HAL-010,nbc-theater,blocked: plan cap 200 scheduled posts,
+2026-10-10,19:00,echo,youtube,36129,HAL-012,casper,scheduled,b5f814d7-8670-4ede-a6a7-e1b48c1eb9d5
+2026-10-10,19:00,echo,facebook,30840,HAL-012,casper,scheduled,8cb9531d-31c3-4a75-95d1-c871a75e93fd
+2026-10-12,19:00,echo,youtube,36129,HAL-010,nbc-cemetery,scheduled,73a6972e-033b-4c2a-af2e-e1243c4cabf6
+2026-10-12,19:00,echo,facebook,30840,HAL-010,nbc-theater,scheduled,5e82abed-3855-482d-9040-03f38227382d
 2026-10-19,19:00,echo,youtube,36129,HAL-017,mare-nightstand,blocked: plan cap 200 scheduled posts,
 2026-10-19,19:00,echo,facebook,30840,HAL-017,mare-bedroom,blocked: plan cap 200 scheduled posts,
 2026-10-21,19:00,echo,youtube,36129,HAL-005,coffinbell,blocked: plan cap 200 scheduled posts,
@@ -72,15 +72,15 @@ Date,TimeUTC,Lane,Platform,Account,FactID,Media,Status,SubmissionId
 2026-10-05,15:00,club,tiktok,41488,HAL-002,carousel turnip slides 1-5,scheduled,ba470e6c-48b1-4710-a48a-1f1b5fd92759
 2026-10-09,15:00,club,instagram,45886,HAL-015,carousel snick slides 1-5,scheduled,694dceb7-4479-4652-88df-9d0bbb02a504
 2026-10-09,15:00,club,tiktok,41488,HAL-015,carousel snick slides 1-5,scheduled,762fb875-62a6-4880-be51-4b6494577d87
-2026-10-09,19:00,echo,youtube,36129,HAL-002,SLIDES-turnip.mp4,staged awaiting queue room,
-2026-10-09,19:00,echo,facebook,30840,HAL-002,carousel turnip slides 1-5,staged awaiting queue room,
+2026-10-09,19:00,echo,youtube,36129,HAL-002,SLIDES-turnip.mp4,scheduled,893077c6-cc13-4459-a870-8ebcc4134e97
+2026-10-09,19:00,echo,facebook,30840,HAL-002,carousel turnip slides 1-5,scheduled,5e03c581-b6aa-4aec-a2f9-32e129dbc163
 2026-10-12,15:00,club,instagram,45886,HAL-012,carousel casper slides 1-5,staged awaiting queue room,
 2026-10-12,15:00,club,tiktok,41488,HAL-012,carousel casper slides 1-5,staged awaiting queue room,
 2026-10-13,15:00,club,instagram,45886,HAL-013,halloweentown-v2 kitchen cut,staged awaiting queue room,
 2026-10-13,15:00,club,tiktok,41488,HAL-013,halloweentown-v2 kitchen cut,staged awaiting queue room,
 2026-10-13,19:00,echo,youtube,36129,HAL-015,SLIDES-snick.mp4,staged awaiting queue room,
 2026-10-13,19:00,echo,facebook,30840,HAL-015,carousel snick slides 1-5,staged awaiting queue room,
-2026-10-14,15:00,club,instagram,45886,HAL-014,gb-bike,staged awaiting queue room,
+2026-10-14,15:00,club,instagram,45886,HAL-014,gb-bike,scheduled,cb18d966-b128-4e2e-9965-5e9717a46db0
 2026-10-14,15:00,club,tiktok,41488,HAL-014,gb-rack,staged awaiting queue room,
 2026-10-16,15:00,club,instagram,45886,HAL-010,nbc-oak,staged awaiting queue room,
 2026-10-16,15:00,club,tiktok,41488,HAL-010,nbc-crt,staged awaiting queue room,
