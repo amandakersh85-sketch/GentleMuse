@@ -833,3 +833,131 @@ Every comment on Amanda's own posts is an open inbox for 7 days, once. The funne
 used it through keyword automations. Two of the three sends above were to people who never
 typed a keyword, and both reached them — that is the mechanism working exactly as intended on
 traffic the funnel was previously discarding.
+
+---
+
+# 2026-09-08: KEYWORDS DO NOT HAVE TO BE MAGIC WORDS
+
+Amanda's question, and it reframed the whole mechanism: "How do we get commonly asked questions
+responded to automatically with the guide?"
+
+Blotato matches keywords by **case-sensitive substring**. That has always been treated as a
+hazard to work around. It is also a feature nobody used: `"your secret"` is a perfectly valid
+keyword. So is `"mine is"`. **People already announce that they qualify, in their own words.
+The funnel was waiting for them to guess a password.**
+
+## Why she asked, and what the source actually said
+
+She thought she had replied to two of the flagged comments. She had not, and the reason is
+structural rather than forgetful.
+
+Her conversational replies in the 7-day window — `3662582`, `3638273`, `3638228` — are all on
+post `6709365`, on her **main** IG. Both comments she remembered answering are on post
+`6712462`, on **Cesa's** account.
+
+**Zero conversational replies on Cesa's account across the entire window.** Two inboxes, one
+set of eyes. Blotato does capture her native app replies, so the absence is real data and not a
+blind spot in the tooling.
+
+That is worth stating plainly: the dedicated conversion channel receives the most qualified
+comments and gets the least human attention.
+
+## The keyword set was tested against real comments before it shipped
+
+25 real audience comments from the 7-day window, both IG accounts, run against candidate
+keywords with exact case-sensitive substring semantics. Script kept at
+`scratchpad/kwtest.py`.
+
+| Measure | Result |
+|---|---|
+| Qualified caught | **5 / 5** |
+| Qualified missed | 0 / 5 |
+| False positives | **0 / 19** noise and spam comments |
+
+Every one of the 5 people hand-DM'd on 09-08 would have been caught automatically. Neither spam
+comment fires. No emoji-only comment fires.
+
+**The number flatters itself and the record should say so.** The keywords were chosen after
+reading those 25 comments, so 5/5 is overfitted by construction. Only comments from 09-08
+onward are an honest test. The sweep routine reports that measurement every run.
+
+What is not overfitted is the shape of it: a multi-word phrase about someone's own dog cannot
+appear inside "Beautiful" or an emoji string. The specificity is structural, not fitted.
+
+## What shipped: 39 keywords on `2952`, Cesa's IG only
+
+Amanda's call was to extend `2952` rather than create a second automation. Correct call — two
+automations on one account can both match one comment, and the loser fails `20102`. One
+automation cannot race itself.
+
+Verified on a fresh paged read: `publishedVersionId` 8481 -> **8524**, `emailGate` still absent,
+button unchanged, `CESA`/`cesa`/`Cesa` intact and first in the list.
+
+```
+CESA cesa Cesa
+your secret / Your secret / YOUR SECRET
+her secret / Her secret
+mine is / Mine is / mine was / Mine was
+get mine / Get mine / got mine / Got mine
+year old / Year old / years old / Years old / yr old / yrs old
+still walk / Still walk
+walkies / Walkies
+how old / How old / HOW OLD
+my dog / My dog / my girl / My girl / my boy / My boy
+senior dog / Senior dog / senior pup / Senior pup
+```
+
+**Cesa's account only, deliberately.** Her main IG carries Target hauls and holiday history
+posts where `"year old"` would fire on Debbie Reynolds. `2952` has `postId: null` so it fires on
+any post on its account, and every post on that account is senior-dog content. The topical risk
+is near zero there and real on `445`.
+
+## The three honest limits
+
+1. **This delivers the guide, it does not answer questions.** One automation, one canned DM.
+   Someone asking what food Cesa eats gets the guide, not a food answer.
+2. **It spends the private reply slot** — the same slot the gate burned. A false positive means a
+   real person got a DM they did not ask for and can never be DM'd about that comment again. A
+   false positive costs more than a miss, which is why the watcher hunts for them specifically.
+3. **It does not fix the thing Amanda actually noticed.** A robot answering is not her
+   answering. Guide delivery and human reply are different jobs and automation only covers one.
+
+## Two standing routines now cover the gap
+
+| Routine | Trigger | Cadence | Job |
+|---|---|---|---|
+| CESA delivery watch | `trig_01ErT42pMQ87cEbk1Y3NXppt` | every 2h at :18 | Runs, gates, failures, the 5 manual threads |
+| Comment sweep | `trig_012kjdGhjy2pJoLjMn6h5x2G` | every 6h at :40 | Qualified comments no keyword caught. **Drafts, never sends.** |
+
+The sweep measures the keyword set every run: true positives, misses with the exact phrase used
+instead (a miss is a candidate keyword, proposed not added), and false positives with the
+offending keyword named. Both are bound to this session, which is why they keep their MCP tools
+— the connector warning on creation applies to fresh-session triggers, confirmed when the CESA
+watch fired with tools intact at 16:18 UTC.
+
+## Flagged, not changed: `2954` CONSIDER on Cesa's IG has a gate and NO button
+
+`buttons: []`. It is gate-only with no fallback whatsoever, which makes it strictly worse than
+`2952` was before today: a commenter MUST reply with an email in-thread, and that reply spends
+their one slot. If they do not answer, the run expires and they are burned with no button ever
+having been offered.
+
+It is in the Aug 29 intended-gate set, so this is a design decision rather than a regression,
+and it is Amanda's to make. Recording it because it is now the last place in the funnel carrying
+the exact failure shape that cost the first real lead.
+
+## The five sent 2026-09-08, all verified individually
+
+| Comment | Account | What they said | Result |
+|---|---|---|---|
+| `4172237` | 65540 | "an honor to clean it up after all those years together" | conv `504237` |
+| `4103323` | 65540 | 18-year-old Chiweenie, losing her vision | conv `504238` |
+| `3690124` | 65540 | "What's your secret?! She looks so healthy!!" | conv `504442` |
+| `3667740` | 65540 | "Wow 19!! I hope little doggie lives this long" | conv `504443` |
+| `3832450` | 45886 | "mine is 15 and its like that everyday I come home" | conv `504444` |
+
+Every concrete detail in all five drafts was lifted from Amanda's own published captions — the
+bladder/traction/door trio from the Aug 28 caption, "stops when she wants to stop" from the exact
+post `3667740` commented on, "hears the car before the door" from the exact post `3832450`
+commented on. She cut one line from draft D that was my inference rather than sourced, and she
+was right to.
