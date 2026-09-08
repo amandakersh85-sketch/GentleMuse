@@ -575,6 +575,39 @@ if grep -q "^twitter,.*,0,0," "$HERE/../data/channel-rules.csv"; then
 else echo "FAIL  X is recorded as dropped, in data not prose"; fail=$((fail+1)); fi
 
 echo
+echo "== a channel with nothing on it (added 09/08) =="
+# Every rule above groups the rows it was given, so a channel with no rows
+# makes no group and gets no finding. Pinterest sat at 0 posts for 11 days
+# and the board reported clean, while Amanda could see the empty channel
+# with her own eyes. Absence has to be checked against the roster, not the
+# file.
+if python3 "$CAD" "$HERE/cadence.silent.csv" 2>/dev/null | grep -q "C11_CHANNEL_SILENT.*pinterest"; then
+  echo "PASS  a channel scheduled to post and holding nothing is caught"; pass=$((pass+1))
+else echo "FAIL  a channel scheduled to post and holding nothing is caught"
+     python3 "$CAD" "$HERE/cadence.silent.csv" 2>&1 | sed 's/^/      /'; fail=$((fail+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.silent.csv" 2>/dev/null | grep -q "C11_CHANNEL_SILENT.*linkedin"; then
+  echo "PASS  a 1 a day channel missing a single day is caught"; pass=$((pass+1))
+else echo "FAIL  a 1 a day channel missing a single day is caught"; fail=$((fail+1)); fi
+
+# A channel that is posting its full cadence is not silent.
+if python3 "$CAD" "$HERE/cadence.silent.csv" 2>/dev/null | grep -q "C11_CHANNEL_SILENT.*youtube"; then
+  echo "FAIL  a channel posting every day is not called silent"; fail=$((fail+1))
+else echo "PASS  a channel posting every day is not called silent"; pass=$((pass+1)); fi
+
+# 1 post held for Halloween must not make every channel look silent for the
+# 6 weeks in between. The window ends at the first real gap.
+if python3 "$CAD" "$HERE/cadence.tail.csv" 2>/dev/null | grep -q "of the 1 days"; then
+  echo "PASS  a lone post far out does not stretch the window"; pass=$((pass+1))
+else echo "FAIL  a lone post far out does not stretch the window"
+     python3 "$CAD" "$HERE/cadence.tail.csv" 2>&1 | grep C11 | sed 's/^/      /'; fail=$((fail+1)); fi
+
+# X is set to 0 a day. Silence there is the point, not a finding.
+if python3 "$CAD" "$HERE/cadence.silent.csv" 2>/dev/null | grep -q "C11_CHANNEL_SILENT.*twitter"; then
+  echo "FAIL  a retired channel is not called silent"; fail=$((fail+1))
+else echo "PASS  a retired channel is not called silent"; pass=$((pass+1)); fi
+
+echo
 echo "== fact repeats (added 09/08, after the queue ran 1 fact 6 times) =="
 # The board counted posts and called itself healthy while YouTube carried
 # the same Disney reel on 6 of 11 days and TikTok ran 1 fact twice in a day.
@@ -646,6 +679,18 @@ else echo "FAIL  the guess is kept beside it for whoever fills the register"; fa
 if python3 "$CAD" "$OUT" 2>/dev/null | grep -q "C10_FACT_UNLABELLED"; then
   echo "PASS  the gate reads the snapshot and reports the unchecked rows"; pass=$((pass+1))
 else echo "FAIL  the gate reads the snapshot and reports the unchecked rows"; fail=$((fail+1)); fi
+
+# The roster travels in the file, not in somebody remembering a flag. A
+# snapshot that does not carry it cannot be checked for a silent channel,
+# and the 1 time that mattered was the 1 time it would have been forgotten.
+if head -1 "$OUT" | grep -q "roster"; then
+  echo "PASS  the snapshot carries the roster so silence can be checked"; pass=$((pass+1))
+else echo "FAIL  the snapshot carries the roster so silence can be checked"; fail=$((fail+1)); fi
+
+if awk -F, 'NR==2' "$OUT" | grep -q "pinterest"; then
+  echo "PASS  the roster names every channel that owes a post"; pass=$((pass+1))
+else echo "FAIL  the roster names every channel that owes a post"
+     awk -F, 'NR==2' "$OUT" | sed 's/^/      /'; fail=$((fail+1)); fi
 rm -f "$OUT"
 
 echo

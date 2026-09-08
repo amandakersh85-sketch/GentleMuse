@@ -5062,5 +5062,200 @@
    },
    "accountId": "41488"
   }
+ },
+ {
+  "id": "PENDING-pinterest-2026-09-08",
+  "scheduledAt": "2026-09-08T21:00:00.000Z",
+  "draft": {
+   "target": {
+    "targetType": "pinterest"
+   },
+   "accountId": "6328",
+   "content": {
+    "platform": "pinterest",
+    "text": "scheduled this turn",
+    "mediaUrls": []
+   }
+  }
+ },
+ {
+  "id": "PENDING-pinterest-2026-09-09",
+  "scheduledAt": "2026-09-09T21:00:00.000Z",
+  "draft": {
+   "target": {
+    "targetType": "pinterest"
+   },
+   "accountId": "6328",
+   "content": {
+    "platform": "pinterest",
+    "text": "scheduled this turn",
+    "mediaUrls": []
+   }
+  }
+ },
+ {
+  "id": "PENDING-pinterest-2026-09-10",
+  "scheduledAt": "2026-09-10T21:00:00.000Z",
+  "draft": {
+   "target": {
+    "targetType": "pinterest"
+   },
+   "accountId": "6328",
+   "content": {
+    "platform": "pinterest",
+    "text": "scheduled this turn",
+    "mediaUrls": []
+   }
+  }
+ },
+ {
+  "id": "PENDING-pinterest-2026-09-11",
+  "scheduledAt": "2026-09-11T21:00:00.000Z",
+  "draft": {
+   "target": {
+    "targetType": "pinterest"
+   },
+   "accountId": "6328",
+   "content": {
+    "platform": "pinterest",
+    "text": "scheduled this turn",
+    "mediaUrls": []
+   }
+  }
+ },
+ {
+  "id": "PENDING-pinterest-2026-09-12",
+  "scheduledAt": "2026-09-12T21:00:00.000Z",
+  "draft": {
+   "target": {
+    "targetType": "pinterest"
+   },
+   "accountId": "6328",
+   "content": {
+    "platform": "pinterest",
+    "text": "scheduled this turn",
+    "mediaUrls": []
+   }
+  }
+ },
+ {
+  "id": "PENDING-pinterest-2026-09-13",
+  "scheduledAt": "2026-09-13T21:00:00.000Z",
+  "draft": {
+   "target": {
+    "targetType": "pinterest"
+   },
+   "accountId": "6328",
+   "content": {
+    "platform": "pinterest",
+    "text": "scheduled this turn",
+    "mediaUrls": []
+   }
+  }
+ },
+ {
+  "id": "PENDING-pinterest-2026-09-14",
+  "scheduledAt": "2026-09-14T21:00:00.000Z",
+  "draft": {
+   "target": {
+    "targetType": "pinterest"
+   },
+   "accountId": "6328",
+   "content": {
+    "platform": "pinterest",
+    "text": "scheduled this turn",
+    "mediaUrls": []
+   }
+  }
+ },
+ {
+  "id": "PENDING-pinterest-2026-09-15",
+  "scheduledAt": "2026-09-15T21:00:00.000Z",
+  "draft": {
+   "target": {
+    "targetType": "pinterest"
+   },
+   "accountId": "6328",
+   "content": {
+    "platform": "pinterest",
+    "text": "scheduled this turn",
+    "mediaUrls": []
+   }
+  }
+ },
+ {
+  "id": "PENDING-pinterest-2026-09-16",
+  "scheduledAt": "2026-09-16T21:00:00.000Z",
+  "draft": {
+   "target": {
+    "targetType": "pinterest"
+   },
+   "accountId": "6328",
+   "content": {
+    "platform": "pinterest",
+    "text": "scheduled this turn",
+    "mediaUrls": []
+   }
+  }
+ },
+ {
+  "id": "PENDING-pinterest-2026-09-17",
+  "scheduledAt": "2026-09-17T21:00:00.000Z",
+  "draft": {
+   "target": {
+    "targetType": "pinterest"
+   },
+   "accountId": "6328",
+   "content": {
+    "platform": "pinterest",
+    "text": "scheduled this turn",
+    "mediaUrls": []
+   }
+  }
+ },
+ {
+  "id": "PENDING-pinterest-2026-09-18",
+  "scheduledAt": "2026-09-18T21:00:00.000Z",
+  "draft": {
+   "target": {
+    "targetType": "pinterest"
+   },
+   "accountId": "6328",
+   "content": {
+    "platform": "pinterest",
+    "text": "scheduled this turn",
+    "mediaUrls": []
+   }
+  }
+ },
+ {
+  "id": "PENDING-linkedin-2026-09-17",
+  "scheduledAt": "2026-09-17T13:30:00.000Z",
+  "draft": {
+   "target": {
+    "targetType": "linkedin"
+   },
+   "accountId": "20723",
+   "content": {
+    "platform": "linkedin",
+    "text": "scheduled this turn",
+    "mediaUrls": []
+   }
+  }
+ },
+ {
+  "id": "PENDING-linkedin-2026-09-18",
+  "scheduledAt": "2026-09-18T13:30:00.000Z",
+  "draft": {
+   "target": {
+    "targetType": "linkedin"
+   },
+   "accountId": "20723",
+   "content": {
+    "platform": "linkedin",
+    "text": "scheduled this turn",
+    "mediaUrls": []
+   }
+  }
  }
 ]

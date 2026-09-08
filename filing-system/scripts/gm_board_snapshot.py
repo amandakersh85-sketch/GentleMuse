@@ -77,6 +77,28 @@ def containment(a, b):
     return len(a & b) / max(1, min(len(a), len(b)))
 
 
+def load_roster(path=None):
+    """The channels this board is supposed to cover, from channel-rules.csv.
+
+    Written onto every row so the gate can check for a channel that is
+    missing entirely. Nothing else can: every other rule groups the rows it
+    was handed, and a silent channel has none.
+    """
+    out = []
+    try:
+        with open(path or os.path.join(DATA, "channel-rules.csv"), newline="") as fh:
+            for r in csv.DictReader(fh):
+                ch = (r.get("Channel") or "").strip().lower()
+                try:
+                    if ch and int(r["MinPerDay"]) > 0:
+                        out.append(ch)
+                except (KeyError, ValueError):
+                    continue
+    except OSError:
+        pass
+    return "|".join(sorted(out))
+
+
 def load_register(path=REGISTER):
     """Slug -> the openings of every caption written for it."""
     reg = defaultdict(list)
@@ -143,8 +165,10 @@ def main(argv):
     tmp = args[1] + ".tmp"
     with open(tmp, "w", newline="") as fh:
         w = csv.writer(fh)
-        w.writerow(["id", "postTimeUTC", "label", "platform", "accountId", "fact", "factGuess"])
-        w.writerows(out)
+        w.writerow(["id", "postTimeUTC", "label", "platform", "accountId",
+                    "fact", "factGuess", "roster"])
+        roster = load_roster()
+        w.writerows([row + [roster] for row in out])
     os.replace(tmp, args[1])
 
     print("%d posts: %d carry a fact from the register, %d have none"

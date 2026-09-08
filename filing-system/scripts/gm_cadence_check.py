@@ -23,6 +23,10 @@ count of 1.
                       the window, or 2 airings closer together than 3 days
   C10_FACT_UNLABELLED a row with no fact, which the 2 rules above cannot
                       be run against
+  C11_CHANNEL_SILENT  a channel that is supposed to post and has nothing at
+                      all on a day in the window. Read off the roster column,
+                      not off the rows, because a channel with no rows makes
+                      no group and every other rule skips it in silence.
 
 Fill the fact column from what the caption *opens* with, not from the whole
 caption. The CTA, the link and the hashtags are identical across a lane and
@@ -76,7 +80,14 @@ CHANNEL_RULES = os.path.join(
 
 
 def load_channel_rules(path=CHANNEL_RULES):
-    """Channel -> (min, max). Falls back to 3 to 5 for anything unlisted."""
+    """Channel -> (min, max). Falls back to 3 to 5 for anything unlisted.
+
+    This is the roster as well as the rule. C01 can only flag a channel that
+    is already in the file being checked, so a channel with nothing scheduled
+    produces no group and no finding: Pinterest sat at 0 posts for 11 days
+    and every check passed. C11 walks this roster instead, which is the only
+    place that knows a channel is meant to be posting at all.
+    """
     rules = {}
     try:
         with open(path, newline="") as fh:
@@ -126,6 +137,13 @@ def load(path):
                 # scrolling, so the plate is not the thing to count.
                 "fact": (r.get("fact") or "").strip().lower(),
                 "has_fact_column": "fact" in r,
+                # The channels this board is supposed to cover, carried on
+                # every row by gm_board_snapshot.py. Without it, absence is
+                # invisible: Pinterest held 0 posts for 11 days and the board
+                # reported clean, because there were no Pinterest rows to
+                # group. A file with no roster is a single lane, not a board,
+                # and is not checked for silence.
+                "roster": [c for c in (r.get("roster") or "").split("|") if c],
             })
     return rows
 
@@ -134,6 +152,24 @@ def countdown_days(label):
     """Pull an explicit countdown number out of a label, if it carries one."""
     m = re.search(r"countdown(\d+)", label, re.I)
     return int(m.group(1)) if m else None
+
+
+def posting_window(rows):
+    """The run of days the board is actually posting across.
+
+    Not every day between the first and the last: a single post held for
+    Halloween would make every channel look silent for 6 weeks. The window
+    ends at the first gap of 2 days or more with nothing scheduled anywhere.
+    """
+    days = sorted({r["day"] for r in rows})
+    if not days:
+        return []
+    window = [days[0]]
+    for prev, nxt in zip(days, days[1:]):
+        if (date.fromisoformat(nxt) - date.fromisoformat(prev)).days >= 2:
+            break
+        window.append(nxt)
+    return window
 
 
 def check(rows, anchor=ANCHOR_DEFAULT, target=None):
@@ -185,6 +221,35 @@ def check(rows, anchor=ANCHOR_DEFAULT, target=None):
                 "ids": [p["id"] for p in posts],
             })
 
+
+    # A channel with nothing scheduled has no rows, so every rule above skips
+    # it in silence. On 09/08 that hid Pinterest at 0 posts for 11 days while
+    # the board reported clean. This walks the roster in channel-rules.csv
+    # rather than the file, so absence is a finding rather than a blank.
+    roster = sorted({c for r in rows for c in r["roster"]})
+    if rows and roster:
+        window = posting_window(rows)
+        present = defaultdict(set)
+        for r in rows:
+            if r["platform"]:
+                present[r["platform"]].add(r["day"])
+        for channel in roster:
+            lo, _hi = rules.get(channel, (MIN_PER_DAY, MAX_PER_DAY))
+            if lo <= 0:
+                continue
+            silent = [d for d in window if d not in present.get(channel, set())]
+            if not silent:
+                continue
+            findings.append({
+                "rule": "C11_CHANNEL_SILENT",
+                "day": silent[0],
+                "detail": "%s has nothing at all on %d of the %d days in the window "
+                          "(%s). It is set to %d a day."
+                          % (channel, len(silent), len(window),
+                             ", ".join(silent[:6]) + (" ..." if len(silent) > 6 else ""),
+                             lo),
+                "ids": [],
+            })
 
     # 1 post per platform per timestamp. 2 platforms at 15:00 is the cross
     # posting model working, not a collision, so this groups by platform.
