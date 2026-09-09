@@ -1357,3 +1357,38 @@ got 32 slots without anyone having to remember.
 
 Steps 1 through 4 took 6 tool calls. Step 5 is where the answer was. Two sessions never got
 past a stale note to reach step 1.
+
+## What was fixed 09-09, and what is still open
+
+**Applied and verified live.** 3 scheduled Instagram posts had no keyword CTA and no link,
+so a reader had no way to reach anything. Each now carries a `firstComment` with the JAT
+link, which is this file's own documented pattern: *"Put the raw link in `firstComment`
+instead of the caption. The keyword leads, the link is still there for anyone who prefers
+it, and the caption stays clean."* **No caption was altered.** Media, scheduled time,
+`mediaType: reel` and `shareToFeed` all preserved and re-read to confirm.
+
+| id | When | Why it was chosen |
+|---|---|---|
+| `4231131` | 09-16 18:00 | Opens with the JAT landing page's own headline, "You do not need to be 10 years ahead on AI. About 10 hours is enough," promises a free guide, and offered no way to get either. Carries the guide link first, then JAT. |
+| `3691541` | 09-15 23:00 | #004 send day. Build-in-public voice. |
+| `4231110` | 09-15 15:00 | #004 send day. Carries #buildinpublic. |
+
+`3732531` (09-15 17:00, the gratitude reel) was deliberately left alone. Wrong post for it.
+
+**Each `blotato_update_schedule` returned "Schedule updated successfully" and was then
+re-read.** The message alone is not proof, same rule as MailerLite's 200s.
+
+### Still open, needs Amanda
+
+1. **The caption CTA.** A `firstComment` link gives a reader a path. It does **not** fire the
+   automation. Only a comment containing the keyword does that, so `447`/`427`/`2771`/`2772`
+   stay at 0 triggers until captions say **"Comment TUESDAY and I'll send it to you."**
+   That is editing captions she wrote, so it waits for her yes.
+2. **6 of 7 send days have no posts at all.** The IG and FB queue ends 09-21. Send days
+   09-22, 09-29, 10-06, 10-13, 10-20 and 10-27 are empty, so there is nothing to add a CTA
+   to. Those need new posts, not edits.
+3. **JAT #006 to #010 are not in MailerLite.** Only #004 (09-15 07:00) and #005 (09-22 07:00)
+   are `ready`. Consider This has 6 issues queued through 10-15. Copy is drafted and waiting
+   on her approval.
+4. **The JAT group has 3 active subscribers and 1 is Amanda.** #004 reaches 2 real people on
+   09-15. That is the number the whole fix exists to move.
