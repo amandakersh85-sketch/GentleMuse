@@ -437,3 +437,45 @@ checking whether they already appear in her own files.
 Every one is the same error: **treating the absence of a record as the absence of the thing.**
 Before reporting that something has not happened, establish that the source would show it if it
 had.
+
+## 0g. TWO ROUTINES, NOT THREE. Comment replies and the lead sweep merged 2026-09-09.
+
+Amanda's call. Three routines were polling the same comment list on overlapping schedules — funnel
+watch every 2h, comment replies every 3h, lead sweep every 6h — against a real arrival rate of
+about **one audience comment every 2.5 days**. Nearly every pass found nothing, and each one still
+produced a report in her terminal.
+
+`trig_012kjdGhjy2pJoLjMn6h5x2G` (lead sweep) is **DELETED**. Do not recreate it.
+
+| Routine | Trigger | Cadence | What it does |
+|---|---|---|---|
+| Comments | `trig_01HK4yKpqXoMKYjpiX6LQUj2` | every 3h at :50 | Replies publicly to everyone AND sends the guide to anyone who qualified. Acts without asking. |
+| Funnel watch | `trig_01ErT42pMQ87cEbk1Y3NXppt` | every 2h at :18 | Runs, gates, DM inbox. **Reports only, never writes.** |
+
+### Why merging was right, not just cheaper
+
+Both old routines read the same `blotato_list_comments` page and both had to decide the same thing
+about the same comment: does this person get a reply, and do they get the guide. Splitting that
+across two prompts on different clocks meant the answers could disagree, and it meant the lead
+sweep might reply to a comment the reply routine had already handled three hours earlier, or leave
+one for a routine that would not run for another three.
+
+One pass over one list, one decision per comment, one report.
+
+### The split that DOES matter, and must not be collapsed
+
+The remaining boundary is **write vs read**, not comments vs leads:
+
+- **Comments are public.** The whole reply history is visible in `blotato_list_comments`, there is
+  no hidden side, so acting automatically is safe. That routine writes.
+- **DMs are her correspondence.** Blotato does not record the replies she sends from the Instagram
+  app, so you cannot tell whether a thread has been answered (see `0f`). That routine only reads.
+
+The one exception is a `commentId`-scoped private reply to someone who has just commented. That is
+funnel machinery, not correspondence, and it lives in the comments routine where it belongs.
+
+### Cadence reasoning, in case it comes up again
+
+3 hours is chosen for staleness, not for volume. At one comment every 2.5 days almost any cadence
+covers the load; what 3 hours buys is that nobody waits half a day for an answer. The funnel watch
+stays at 2 hours because a reappearing gate is silent and costs leads for as long as it stands.
