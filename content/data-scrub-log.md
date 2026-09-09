@@ -486,6 +486,43 @@ dashboard at club.target.com. The storefront product picker returns the exact
 `/_/sku/{SKU}` link, which is the number the caption needs. The Target app's
 barcode scan on the physical jar also returns it.
 
+#### Second pass 09/09, deeper attempt
+
+Read the label off the video at full resolution. It says: SOY BLEND CANDLE
+WITH ESSENTIAL OILS, Threshold monogram, **Cozy Nights**, **CARAMEL ·
+TOBACCO**, **15.1 OZ (430 g)**. Full navy wrap, gold fern fronds and pale
+berry sprigs, gold arch outline, gold lid.
+
+Every one of those attributes except the printed art matches TCIN **94682422**
+(2 Wick Lidded Glass Cozy Nights Jar Candle Dark Gray 15.1oz). Same size, same
+scent order, same 2 wick lidded glass, same gold lid, same label template.
+
+But 94682422 is not confirmable as the same item. Pulled its entire 24 image
+gallery: every shot shows the blue watercolor wave label, none show ferns.
+Also pulled and compared the whole Limited Edition family off 94682320
+(Cozy Nights, Lavender Lemonade, Marshmallow Petals, Pink Champagne) and all 4
+are the dense paisley wrap, not ferns.
+
+Mined the related-item graph across 6 Cozy Nights product pages, which
+surfaced roughly 40 sibling TCINs. No fern variant exists in any of them.
+
+**Conclusion: the gold fern wrap is a fall 2026 seasonal that is not in
+Target's public listings reachable from here.** Most likely the same TCIN with
+refreshed packaging Target has not rephotographed, or a store-only endcap item.
+
+Methods exhausted: redsky search API is captcha walled at 403 (Target's bot
+wall, not the session proxy), WebFetch is egress blocked on target.com,
+product page HTML works and was mined fully, web search does not surface it.
+
+**94682422 is the best candidate and it is NOT verified.** Do not ship it.
+Verify It At The Source is one of Amanda's own scripts and this is exactly
+that case. A wrong affiliate link is worse than the storefront link.
+
+**20 second fix, needs the physical jar or the dashboard:** scan the barcode in
+the Target app, the item number is on the product page it opens. Or search Cozy
+Nights in the Club Target storefront picker, which returns the exact
+`/_/sku/{SKU}` link. Either number, and the caption gets rewritten immediately.
+
 ### SEPARATE HARD RULE VIOLATION in the same video
 
 The video carries burned-in on-screen text reading **"GLASS PUMPKINS AT $15."**
