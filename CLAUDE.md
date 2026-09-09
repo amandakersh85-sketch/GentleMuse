@@ -224,13 +224,23 @@ control the scheduling you should know exactly when to check."
 **Every scheduled Club Target post gets a paired claim reminder.** Scheduling
 the post is only half the job. The points are the reason the post exists.
 
+**The claim process, in Amanda's words:** "After a challenge you go to the Club
+Target challenge board and post the URL onto the challenge board and hit claim."
+
+So the reminder MUST carry the live post URL. That is the thing she pastes.
+
 Process, every time a Club Target post is scheduled:
 1. Note the exact publish time in UTC and in America/Chicago.
 2. Set a reminder for roughly 15 minutes after publish.
-3. When it fires, tell Amanda the post is live, give her the live post URL, and
-   name the challenge it should be submitted to.
-4. Claiming happens at club.target.com, which needs a login and a real browser,
-   so it runs on the laptop or on her phone, never in the cloud session.
+3. When it fires: confirm the post published, **pull the live post URL**, and
+   name the challenge it goes to. Hand her the URL ready to paste.
+4. She pastes the URL onto that challenge on the board and hits claim.
+5. Claiming needs a login and a real browser, so it happens on her phone or the
+   laptop, never in the cloud session.
+
+Amanda has submitted the majority of her Target points through this session
+already. The process was just never written down, which is why it kept being
+re-derived. It is written down now.
 
 There are already uncollected points sitting on her board. Clearing that
 backlog is its own task, separate from the ongoing per-post claims.
