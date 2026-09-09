@@ -1690,3 +1690,64 @@ morning the issue actually goes out.** It fires `2772`, whose gate was removed 7
 
 Not scheduled: posts 2 to 6. They promote issues #006 to #010, which are not in MailerLite.
 Scheduling them would promise an email that does not send.
+
+## Comment run 2026-09-09 18:50 UTC — the 09-05 lost lead came back
+
+**1 audience comment examined**, and it is the best news of the day.
+
+`4311853`, contact **`1774569036904343`**, 09-09 17:51 on post `6743958`:
+> "@cesasgoldenyears thank you!"
+
+That is **the lead lost on 09-05** — the one whose `emailGate` asked for an email she never
+gave, whose run `150551` expired, and whose single private reply slot was spent for good
+(20102, confirmed by test). The DM path to her has been permanently closed since.
+
+The thread now reads, in full:
+
+| id | when | who | what |
+|---|---|---|---|
+| `3791926` | 09-05 | her | the original comment |
+| `4202598` | 09-08 16:33 | Cesa account | public reply: *"Here she is, and sorry for the extra step... cesa-guide.subscribepage.io. 15 pages, free."* |
+| `4311853` | 09-09 17:51 | her | "thank you!" |
+
+**The public comment reply was the only route left, and it worked.** No reply posted to her
+thank-you: that is the closed pleasantry the routine says to let rest, and she already has the
+guide. Nothing sent, because her DM path cannot be reopened.
+
+She is now also a candidate for the `artinehaladadyan@gmail.com` signup at 02:48 today, which
+sits between the 09-08 public reply and this thank-you. **Still not provable** — an Instagram
+contact id does not map to an email address from this surface — so this is a second plausible
+chain alongside the 6 DM recipients, not an attribution.
+
+### A substring that should have fired and did not
+
+`@cesasgoldenyears` **contains the substring `cesa`**, which is a live lowercase keyword on
+`2952`. Matching is case-sensitive substring, so on the rule as documented this comment should
+have triggered.
+
+**It did not.** `2952`'s run list is unchanged: still only `150551` and `122274`, no run for
+this comment.
+
+Competing explanations, none verified, and this file should not pretend otherwise:
+1. Blotato strips or ignores @mentions before matching.
+2. Blotato only matches **top-level** comments, and this one has `parentCommentId` set.
+3. Some per-contact dedupe suppresses a second run for a contact that already has one.
+
+**Explanation 2 would be a silent leak** and matters most: it would mean a qualified lead who
+answers inside an existing thread never fires anything. Every real lead so far commented at
+top level, so nothing observed distinguishes these yet. Worth a deliberate test rather than a
+guess: leave a top-level comment and a threaded reply from a non-test account carrying the same
+keyword and see which produces a run.
+
+Good news either way: her own handle is not the false-positive magnet it looked like.
+
+### Keyword measurement
+
+| | This run | Tally since 09-08 17:46 |
+|---|---|---|
+| Qualified comments on `65540` | 0 (a thank-you is not a signal) | 1 |
+| Caught | 0 | 0 |
+| Missed | 0 | 1, "my healthy chi", fixed with `" chi "` |
+| False positives | 0 | 0 |
+
+0 replies posted, 0 guides sent, 0 spam.
