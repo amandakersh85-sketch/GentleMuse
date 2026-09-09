@@ -441,9 +441,12 @@ until now the caption said Rubik's Cube.
    returns HTTP 400, so that post would have failed to publish. Repointed to
    the working file.
 
-#### Still open
+#### Duplicate deleted
 
-4247414 and 4249434 are now the same video, same title, same caption, 3 days
-apart. Fixing the captions could not make one clip into 2 different posts.
-Amanda should probably delete one. Left in place because the instruction was
-fix, not delete.
+4249434 deleted 09/09 on Amanda's instruction. It was the same video, title
+and caption as 4247414, and rewriting captions could not make one clip into 2
+posts. 4247414 stands as the single YouTube version, Sept 9 14:00 UTC.
+
+Net result: 3 broken posts became 2 correct ones. Facebook 4247411 at 13:30
+UTC and YouTube 4247414 at 14:00 UTC, both carrying captions that match the
+video, both on working media, neither falsely declared as AI.
