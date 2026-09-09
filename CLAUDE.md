@@ -15,7 +15,7 @@ For Target / Club Target content:
 
 For other affiliate content: use the platform tracked links (gm-tiktok-20,
 gm-insta-20, gm-web-20, gm-pin-20). DMs route to the website link, never a raw
-Amazon link. Never state a price on affiliate content.
+Amazon link.
 
 Before scheduling ANY product video: confirm the SKU or product link exists in
 the caption. If the SKU is unknown, ask Amanda or look it up. Do not ship the
@@ -101,7 +101,29 @@ follower numbers. Ask her, do not read it from Metricool.
 
 No em dashes. Digits, not spelled-out numbers. Contractions always. Warm,
 grounded, practical, no hype. Instagram max 5 hashtags. Facebook and LinkedIn
-captions carry no hashtags. Never state a price on affiliate content.
+captions carry no hashtags.
+
+## Price claims: TikTok Shop only (narrowed 09/09/2026)
+
+**No prices on TikTok Shop content.** That is the whole rule.
+
+Origin: an open TikTok Shop violation from 08/04/2026. This rule was written
+as a blanket "never state a price on affiliate content" and applied to
+everything, which was wrong.
+
+Verified 09/09/2026: **Target and Club Target have no price rule.** Searched
+the entire Club Target inbox, every Duel email, the ClubTarget@target.com
+compliance thread, and the Program Terms references. Nothing about pricing
+anywhere. Do not block a Club Target post over a price.
+
+Prices are fine on Club Target content, organic content, and the newsletter.
+The only real consideration outside TikTok Shop is accuracy: prices change and
+vary by store, and a video lives forever, so a price stated on camera can go
+stale. That is a judgment call for Amanda, never a blocker.
+
+Case for the record: the 09/10 Target fall TikTok has "GLASS PUMPKINS AT $15"
+burned into it. It was flagged as a hard rule violation needing a re-render.
+That was an overstatement. It shipped.
 
 ## Content quality bar (locked in 09/08/2026, from Amanda directly)
 
