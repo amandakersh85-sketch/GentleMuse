@@ -133,3 +133,21 @@ something new mid-stream, say what it displaces before starting it.
 
 The 2 things that stay open right now: her talking-to-camera footage, and
 fixing the lighting so that footage is usable. Everything else waits.
+
+## Cloud session capability limits (verified 09/09/2026)
+
+Checked directly, not assumed. In the cloud session:
+
+- **A real browser cannot reach the internet.** Chromium and Playwright are
+  installed, but every request dies with ERR_CONNECTION_RESET, including
+  example.com and google.com, not just one site. The session proxy drops the
+  browser's tunnel after 6 seconds. curl through the same proxy returns 200.
+  So anything that needs a real browser (a site that blocks scripted requests,
+  a login, a dashboard, a captcha wall) has to run on the laptop.
+- **curl and the MCP connectors work.** Public HTML, media files, and the
+  Metricool, Blotato, Drive and Gmail connectors are all fine.
+- **Target's product API is captcha walled** to non-browser traffic. Product
+  pages load through curl, the search API returns 403 with a captcha URL.
+
+If a task needs a browser, say so immediately and hand it to the laptop
+session. Do not spend Amanda's time working around it.

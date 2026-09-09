@@ -537,3 +537,25 @@ show it, or pull the post.
 Also note the video names **2** products, the Cozy Nights candle and the glass
 pumpkins. Under the hard rule both need their own product links, not the
 storefront.
+
+#### Browser attempt 09/09, and why it failed
+
+Amanda asked why driving a real browser was not an option. It should have been
+tried first. It was tried now and it does not work in this session.
+
+Installed Playwright, pointed it at the preinstalled Chromium at
+/opt/pw-browsers/chromium-1194, added the session CA to the system trust store,
+routed it through the session proxy, disabled QUIC and HTTP/2 and ECH, and also
+ran Chromium directly with --dump-dom outside Playwright.
+
+Every attempt returns **ERR_CONNECTION_RESET**, including for example.com and
+google.com. The proxy log shows the tunnel closing after 6 seconds with 39
+bytes received, for all 3 hosts. curl through the same proxy returns HTTP 200
+on the same URLs.
+
+**Conclusion: browser egress is blocked in the cloud session. This is not a
+Target problem.** Recorded in CLAUDE.md so no future session repeats the hours
+this cost.
+
+The SKU needs either the laptop session, which has real browser access, or a
+20 second barcode scan of the physical jar.
