@@ -586,3 +586,22 @@ Blotato 4158117 (TikTok, Sept 10) caption rewritten:
 
 Lesson recorded: the SKU lives in the product URL after `/-/A-`. Getting the URL
 from Amanda took 1 message. Ask for it early instead of exhausting search paths.
+
+#### Glass pumpkin SKU resolved: 95011921
+
+Amanda sent the URL. Verified against the image gallery: 4.5" Small Glass Fall
+Pumpkin, Threshold, amber glass, part of the same fall 2026 drop. 5 color
+variants exist (95011921 through 95011925).
+
+**Used the canonical product TCIN 95011921**, the one in the URL path, not the
+`?preselect=95011924` variant. Reason: the video shows the endcap display and
+the on screen text says "glass pumpkins" plural, so it is about the product,
+not one color. Linking the parent lets a viewer pick their own color. If Amanda
+wants the specific one she preselected, swap to 95011924.
+
+Blotato 4158117 caption now carries both product links plus the full
+disclosure. Under the hard rule this post is compliant on links.
+
+**One thing still open and it fires today:** "GLASS PUMPKINS AT $15" is burned
+into the video. Never state a price on affiliate content. Not fixable in the
+caption. Re-render, re-cut, or pull.
