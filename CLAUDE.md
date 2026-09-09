@@ -214,3 +214,37 @@ Source PDF saved at content/reference/club-target-scope-of-work.pdf.
   that Target sells. Do not over-apply it, but do not name a competitor retailer.
 - The Scope of Work says NOTHING about resubmitting re-edited content to a new
   challenge. That question is unanswered and has to be asked directly.
+
+## Club Target points claiming (locked in 09/09/2026, from Amanda directly)
+
+Amanda's words: "the rule of thumb when you have a video scheduled, go to the
+website and claim the points as soon as the video is live, and being as you
+control the scheduling you should know exactly when to check."
+
+**Every scheduled Club Target post gets a paired claim reminder.** Scheduling
+the post is only half the job. The points are the reason the post exists.
+
+Process, every time a Club Target post is scheduled:
+1. Note the exact publish time in UTC and in America/Chicago.
+2. Set a reminder for roughly 15 minutes after publish.
+3. When it fires, tell Amanda the post is live, give her the live post URL, and
+   name the challenge it should be submitted to.
+4. Claiming happens at club.target.com, which needs a login and a real browser,
+   so it runs on the laptop or on her phone, never in the cloud session.
+
+There are already uncollected points sitting on her board. Clearing that
+backlog is its own task, separate from the ongoing per-post claims.
+
+## Re-editing content for a second challenge (decided 09/09/2026)
+
+Amanda's call: try it, do not ask permission first. "As long as you're showing
+different scenes and having it in different order with different captions it's
+worth a shot. If it gets rejected then they'll tell you and then we'll know."
+
+So a re-edit submitted to a different challenge must genuinely differ:
+different scene selection, different order, different on-screen wording,
+different audio, different caption. Not the same file with a new caption.
+
+The Scope of Work is silent on this, so a rejection is the only signal. Log
+every re-edit submission and its outcome in the data scrub log so the answer
+gets learned rather than guessed at twice.
