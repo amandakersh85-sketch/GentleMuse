@@ -350,3 +350,58 @@ not as clean.
 Cadence is solved. Compliance is not, and the product link rule was broken 4
 times in 3 days, which is the same miss documented in CLAUDE.md from August.
 The trivia test is not actually scheduled where it needs to run.
+
+### Trivia test, scheduled 09/09 (and a bigger finding)
+
+**Instagram trivia scheduled.** Metricool post id 373073787, uuid
+-9125125126305788963. Thursday Sept 10, 11:30 AM CT. Instagram Reel, manual
+publish (autoPublish false, so Metricool pings the phone and nothing fires on
+its own). `isAiGenerated` is set true in the post itself, so the Instagram AI
+declaration is already handled and does not depend on remembering to flip it.
+
+Same fact as the Facebook and YouTube versions, on purpose. Holding the fact
+constant is what makes this a platform and export test rather than a content
+test.
+
+**The media on it is a deliberate placeholder and must be swapped.** Swap in
+the clean HeyGen trivia render before confirming.
+
+#### The finding: the scheduled trivia posts have the wrong video attached
+
+Verified by downloading the media from the Blotato URLs and pulling frames.
+
+All 3 scheduled "Rubik's Cube trivia" posts point at the same file
+(md5 955fa33ab314deba0beb448c310d8c36):
+- Facebook 4247411, Sept 9 13:30
+- YouTube 4247414, Sept 9 14:00
+- YouTube 4249434, Sept 9 14:00 (URL 400s, same post duplicated)
+
+**That file is not a trivia video.** It is Amanda face to camera, 16.4 seconds,
+1080x1920, with burned-in text reading "POV: you finally realized adulthood
+never required you to become boring" and "Comment the song that instantly
+brings you back to life."
+
+So a Rubik's Cube caption is scheduled to publish over a video about music and
+not being boring, on 2 platforms, in a few hours. There is no trivia render in
+the queue at all.
+
+#### What is good about that file
+
+Frame 1 and frame at 15s both checked. **No TikTok badge. No AI Cast badge. No
+watermark of any kind.** It is a clean export. It is also real Amanda talking
+to camera, which is the highest converting format in the corpus, sitting in
+Blotato already attached to the wrong captions.
+
+Lighting on it is exactly the problem documented in content/lighting-setup.md:
+strong blue cast, overhead source, hot blown-out highlights on the face and
+chest, heavy compression noise. Watchable, not good.
+
+#### Actions
+
+1. Fix or delete Blotato 4247411 and 4247414 before 13:30 UTC Sept 9. Either
+   swap in a real trivia render or move the trivia caption off them.
+2. Render Day 1 trivia clean from HeyGen and swap it into Metricool 373073787
+   before Thursday.
+3. The face-to-camera clip deserves its own post with a caption that matches
+   what is actually on screen. It is clean and it is her, which is the whole
+   format the campaign is supposed to be built on.
