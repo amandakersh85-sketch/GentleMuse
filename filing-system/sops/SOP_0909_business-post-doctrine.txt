@@ -1,0 +1,48 @@
+SOP 0909: THE BUSINESS POST DOCTRINE
+Adopted 2026-09-09 at Amanda's direction, from the 4C content system she
+flagged (competence, credibility, character, consistency). This governs
+business-lane content only: the quiz, the Decision Session, the Chaos
+Cleanup Intensive, the retainer, and anything pointing at them. It sits on
+top of the voice rules in CLAUDE.md and the Cesa separation rule. It never
+overrides either.
+
+THE PREMISE
+The content is the interview. By the time somebody buys a $47 session or a
+$750 intensive, they have already read the posts, scrolled the profile, and
+watched how Amanda talks to people. Every business post is doing one of 4
+jobs. A draft that does none of them is filler and does not ship.
+
+THE 4 JOBS, IN GENTLE MUSE TERMS
+
+1. COMPETENCE. Show the work.
+   Break down 1 bottleneck the way the quiz does: name the specific thing
+   that stalls a business and the 1 move that clears it. Practical tips.
+   How a real client problem would get solved, step by step.
+
+2. CREDIBILITY. Show receipts, never invent them.
+   Real numbers, real before-and-after, real client outcomes, lessons from
+   real projects. HARD RULE, from the Sarah incident: no invented clients,
+   no composite stories dressed as real ones, no pre-written social proof.
+   A hypothetical must be unmistakably hypothetical. If there is no receipt
+   yet, post competence instead and say so plainly. Thin and true beats
+   specific and invented.
+
+3. CHARACTER. Show what working with her is like.
+   How she communicates, how she handles a deadline, a mistake she owned,
+   the build-in-public register Just Another Tuesday already carries. This
+   is the lane where most sellers lose the client, and it is the lane
+   Amanda's voice is strongest in.
+
+4. CONSISTENCY. Stay visible where the buyers are.
+   The business buyer looks at LinkedIn and the business lane of the main
+   accounts. Target 3 to 5 quality business posts a week, rotating the 4
+   jobs. Volume is not the goal; the overall queue already runs 7 to 13
+   posts a day. This is about the business lane specifically, which today
+   is the thinnest lane in the queue (LinkedIn carries 12 posts of 200).
+
+ROUTING
+Every business draft names which of the 4 jobs it does, in 1 word, in the
+proposal. post-grader gates it like everything else: 8 of 10 or it does
+not ship. The Cesa separation rule applies before anything else: a
+business post never touches Cesa content, Cesa accounts, or Cesa threads.
+gm_cta_check enforces the account side (P09, H03).

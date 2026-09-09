@@ -13,6 +13,15 @@ This is the check that reads that map and refuses.
 
 Each queue row needs: id, platform, accountId, text. Optional: at, magnet.
 Exit 0 PASS, 1 FAIL, 2 HOLD.
+
+2026-09-09: a comment pitching the quiz and the Decision Session was posted
+under a Cesa video and the audience turned on it within hours. Amanda's rule:
+never mix the Gentle Muse business products and Cesa. The missing data was a
+zone on each account and a registry of the business offer links, so the check
+had nothing to refuse with. Now it does: platform-cta.csv carries a Zone
+column, offer-map.csv names the business links, P09 refuses either direction
+on a cesa account, and H03 holds dog content that carries a business link
+anywhere else.
 """
 import argparse, csv, json, os, re, sys
 from datetime import datetime
@@ -26,6 +35,13 @@ BIO = re.compile(r"\bin (?:my|the) bio\b|\blink in bio\b", re.I)
 
 # queue-zones.csv defines the PAID zone as anything carrying one of these.
 PAID = re.compile(r"#ad\b|#TargetPartner\b", re.I)
+
+# What reads as Cesa content. Kept narrow on purpose: a miss becomes a hold
+# for Amanda at worst, but a loose match would hold half the queue and be
+# ignored inside a week, same lesson as paid-vs-organic spacing.
+CESA_CONTENT = re.compile(
+    r"\bcesa\b|\bsenior\s+(?:dog|pup)\b|\b19\s+years?\s+old\b|\bshe(?:'s|’s|\s+is)\s+19\b",
+    re.I)
 
 
 def load_magnets(path):
@@ -53,12 +69,25 @@ def load_platforms(path):
     return out
 
 
+def load_offers(path):
+    """Business offer links from offer-map.csv, normalized like magnet URLs."""
+    out = set()
+    with open(path, newline="", encoding="utf-8") as fh:
+        for r in csv.DictReader(fh):
+            if (r.get("Business") or "").strip().lower() != "yes":
+                continue
+            u = (r.get("URL") or "").strip().rstrip("/")
+            if u:
+                out.add(u)
+    return out
+
+
 def page_claim(text):
     """Return page counts a caption asserts, e.g. '15 pages' or '13 page guide'."""
     return {m.group(1) for m in re.finditer(r"\b(\d{1,3})\s+page", text, re.I)}
 
 
-def check(rows, magnets, platforms):
+def check(rows, magnets, platforms, offers=frozenset()):
     findings = []
 
     def add(code, row, msg):
@@ -84,6 +113,30 @@ def check(rows, magnets, platforms):
                 add("P01_DEAD_KEYWORD", row,
                     "says %s but no %s automation is live on %s (%s)"
                     % (kw, kw, plat["Handle"], plat["Platform"]))
+
+        # P09/H03 Amanda's rule, 2026-09-09: the business products and Cesa
+        # never mix. On a cesa account the only links that belong are the
+        # magnets actually wired to that account, and a business keyword is
+        # refused even if someone wires an automation for it later. Anywhere
+        # else, Cesa content carrying a business link is held for Amanda.
+        zone = (plat.get("Zone") or "").strip().lower()
+        dests = urls + ([str(row["link"]).rstrip("/")] if row.get("link") else [])
+        biz_urls = [u for u in dests if any(b and b in u for b in offers)]
+        biz_kws = [kw for kw in named if magnets[kw]["_url"] in offers]
+        if zone == "cesa":
+            wired = {m["_url"] for m in magnets.values() if aid in m["_accounts"] and m["_url"]}
+            for u in dests:
+                if not any(w and w in u for w in wired):
+                    add("P09_CESA_ZONE", row,
+                        "links %s on %s, and nothing but this account's own magnets belongs there"
+                        % (u, plat["Handle"]))
+            for kw in biz_kws:
+                add("P09_CESA_ZONE", row,
+                    "says %s on %s, and a business offer never goes near Cesa" % (kw, plat["Handle"]))
+        elif CESA_CONTENT.search(text) and (biz_urls or biz_kws):
+            add("H03_CESA_CROSSOVER", row,
+                "reads as Cesa content and carries %s, which is a business offer, so Amanda decides"
+                % (biz_urls[0] if biz_urls else biz_kws[0]))
 
         # P02 keyword named, magnet link present, and they disagree
         for kw in named:
@@ -213,6 +266,7 @@ def main():
     ap.add_argument("--queue", required=True)
     ap.add_argument("--magnets", default=os.path.join(DATA, "magnet-map.csv"))
     ap.add_argument("--platforms", default=os.path.join(DATA, "platform-cta.csv"))
+    ap.add_argument("--offers", default=os.path.join(DATA, "offer-map.csv"))
     ap.add_argument("--paid-window", type=int, default=120, metavar="MIN",
                     help="minutes of clear air a paid post needs, default 120")
     ap.add_argument("--quiet", action="store_true")
@@ -221,7 +275,8 @@ def main():
     rows = json.load(open(a.queue, encoding="utf-8"))
     if isinstance(rows, dict):
         rows = rows.get("items") or rows.get("posts") or []
-    findings = check(rows, load_magnets(a.magnets), load_platforms(a.platforms))
+    findings = check(rows, load_magnets(a.magnets), load_platforms(a.platforms),
+                     load_offers(a.offers))
     findings += paid_stacking(rows, a.paid_window)
 
     fails = [f for f in findings if not f["code"].startswith("H")]
