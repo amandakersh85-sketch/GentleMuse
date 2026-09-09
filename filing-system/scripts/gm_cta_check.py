@@ -21,6 +21,7 @@ DATA = os.path.join(HERE, "..", "data")
 ACTION = re.compile(r"\b(follow|share|save|like|subscribe|repost)\b", re.I)
 URL = re.compile(r"https?://[^\s<>\")]+")
 BIO = re.compile(r"\bin (?:my|the) bio\b|\blink in bio\b", re.I)
+SWIPE = re.compile(r"\bswipe\b", re.I)
 
 
 def load_magnets(path):
@@ -136,6 +137,15 @@ def check(rows, magnets, platforms):
                 add("P07_PROMISE_MISMATCH", row,
                     "promises %s pages, %s delivers %s"
                     % ("/".join(sorted(claims)), kw, "/".join(sorted(want))))
+
+        # P08 caption promises frames the media does not carry. A live post said
+        # "the drive, the dishes, the laundry, groceries" with 1 image, recycled
+        # from a 6 image carousel that had shown a different fact per frame.
+        media_count = len(row.get("media") or [])
+        if SWIPE.search(text) and media_count <= 1:
+            add("P08_SWIPE_NO_CAROUSEL", row,
+                "says swipe but carries %d image(s), so there is nothing to swipe to"
+                % media_count)
 
         # H01 nothing to capture with. An action ask on an action platform counts,
         # a follow is a real return even when no link is in the caption.
