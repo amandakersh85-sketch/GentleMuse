@@ -9,6 +9,11 @@ default and only transmits under --send.
   python3 gm_symphony.py --message "..."            # prints what would be sent
   python3 gm_symphony.py --message "..." --send     # sends and waits
   python3 gm_symphony.py --resume <conversationId>  # collects a late answer
+  python3 gm_symphony.py --message "..." --send --expect-data
+
+--expect-data says the message asked for facts, so a reply that describes what
+Symphony could do rather than reporting anything is failed the same way a
+credit wall is. Leave it off for questions that genuinely want prose.
 
 The token is read from SYMPHONY_TOKEN and is never written to the terminal, to
 a file or to a commit. Without it the relay stops rather than sending unsigned.
@@ -50,6 +55,80 @@ def wall_reason(reply):
     return None
 
 
+# A reply can also come back fluent, on topic and empty. Asked what is on the
+# calendar, an agent that cannot reach the calendar will describe what it could
+# do for you, and that reads like an answer to everything except a person
+# checking it against their own accounts. It is the wall again in a politer
+# register, so it is caught the same way.
+#
+# Two signals have to agree before the relay calls it. HEDGES are the phrasings
+# of a capability description rather than a report. EVIDENCE counts the
+# particulars that make a claim checkable: digits, weekdays, months. A blurb
+# carries hedges and almost no particulars. A real answer that happens to close
+# with an offer of help carries both, and passes.
+HEDGES = [
+    "i can help", "i can assist", "i'd be able to", "i would be able to",
+    "i'll be able to", "i am able to", "i'm able to", "i can also",
+    "once you connect", "once connected", "you can ask me", "you can tell me",
+    "just let me know", "let me know if you", "would you like me to",
+    "here's what i can do", "here is what i can do", "i don't have access",
+    "i do not have access", "i can't access", "i cannot access",
+    "i don't currently have", "i do not currently have",
+    # Added 09/09 from Symphony's own words on the first real capability probe.
+    # It declines in a register the list above missed entirely: not "I cannot
+    # access" but "I don't have direct read access", "I could pull it", "I
+    # can't see those". That reply passed on evidence, with 56 particulars in
+    # it, so nothing was mis-called. A pure blurb in the same voice would have
+    # gone through unflagged.
+    "i don't have direct", "i do not have direct",
+    "i don't have a live", "i do not have a live",
+    "i can't pull", "i cannot pull", "i could pull",
+    "i can't see those", "i cannot see those",
+    "if you connected", "if you gave me",
+    "i can search for", "i can look",
+    "isn't surfaced", "is not surfaced",
+]
+
+EVIDENCE = re.compile(
+    r"\d"
+    r"|\b(?:mon|tues|wednes|thurs|fri|satur|sun)day\b"
+    r"|\b(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\b",
+    re.I)
+
+# 3 particulars. Below that a reply is not reporting anything, whatever else it
+# is doing. Seven days of calendar, a contact count with 3 sends, and a run of
+# recent posts cannot be answered truthfully with 2 numbers in it.
+EVIDENCE_FLOOR = 3
+
+# Phrasings that make a message a request for facts. Used only to notice that
+# --expect-data was probably meant. It never turns the check on by itself,
+# because guessing wrong there is what would make the check untrustworthy.
+ASKS = ["how many", "what is on", "what's on", "with dates", "how did",
+        "what were", "show me", "when did", "how much", "list "]
+
+
+def thin_reason(reply):
+    """Return why this reply describes rather than reports, or None.
+
+    Only meaningful when the message asked for facts. The caller says so with
+    --expect-data, because prose is the right answer to a question that asked
+    for prose and this must never fire on those.
+    """
+    low = (reply or "").lower()
+    if not any(h in low for h in HEDGES):
+        return None
+    found = len(EVIDENCE.findall(reply or ""))
+    if found >= EVIDENCE_FLOOR:
+        return None
+    return ("it describes what it can do and reports %d particular%s"
+            % (found, "" if found == 1 else "s"))
+
+
+def looks_factual(message):
+    low = message.lower()
+    return any(a in low for a in ASKS)
+
+
 def post(path, token, payload, timeout):
     req = urllib.request.Request(
         "%s/%s" % (BASE.rstrip("/"), path),
@@ -83,16 +162,26 @@ def collect(token, convo, wait, interval):
     return None
 
 
-def report(reply, token):
+def report(reply, token, expect_data=False):
     """Print the reply and say whether it is an answer. Returns the exit code."""
     reply = scrub(reply, token)
     print("\nSYMPHONY\n%s" % reply)
+
     reason = wall_reason(reply)
     if reason:
         print("\nTHIS IS NOT AN ANSWER. %s." % reason.capitalize())
         print("Symphony reported success and did no work. Whatever was asked")
         print("for has not happened. Do not record it as done.")
         return 1
+
+    if expect_data:
+        reason = thin_reason(reply)
+        if reason:
+            print("\nTHIS IS NOT AN ANSWER. Facts were asked for and %s." % reason)
+            print("Nothing here can be checked against your own accounts, so the")
+            print("ability is unproven rather than delivered. Do not record it")
+            print("as done.")
+            return 1
     return 0
 
 
@@ -112,6 +201,8 @@ def main():
                     help="keeps replies in one thread, default claude-code")
     ap.add_argument("--resume", metavar="CONVERSATION_ID",
                     help="poll a conversation already sent, instead of sending")
+    ap.add_argument("--expect-data", action="store_true",
+                    help="the message asks for facts, so hold the reply to that")
     ap.add_argument("--send", action="store_true",
                     help="actually transmit. Without it nothing is sent.")
     ap.add_argument("--wait", type=int, default=120,
@@ -130,7 +221,7 @@ def main():
         if not reply:
             print("still no answer after %ds. The conversation stays open." % a.wait)
             return 2
-        return report(reply, token)
+        return report(reply, token, a.expect_data)
 
     if a.message_file:
         try:
@@ -151,6 +242,10 @@ def main():
         print("  message : %s" % message)
         print("\nThis message will reach Symphony as Amanda and carries her")
         print("authority to act on her business. Read it once more before --send.")
+        if looks_factual(message) and not a.expect_data:
+            print("\nThis reads as a request for facts. Add --expect-data and a")
+            print("reply that only describes what Symphony could do is failed")
+            print("rather than recorded as an answer.")
         return 0
 
     token = token_or_stop()
@@ -187,7 +282,7 @@ def main():
             print("  python3 %s --resume %s" % (os.path.basename(__file__), convo))
             return 2
 
-    return report(reply, token)
+    return report(reply, token, a.expect_data)
 
 
 if __name__ == "__main__":

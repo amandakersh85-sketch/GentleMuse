@@ -543,6 +543,38 @@ relay "resume collects an open conversation"  0 "tok-abc" \
 relay "an empty message is refused"           2 "tok-abc" \
       --message "   " --send -- "no message"
 
+# a reply that describes instead of reporting is the wall in a politer register.
+relay "a capability blurb is caught"          1 "tok-abc" \
+      --message "PROSE what is on my calendar" --send --expect-data -- \
+      "THIS IS NOT AN ANSWER" "describes what it can do" "0 particulars"
+
+# the false positive that would make the check untrustworthy. Prose is the
+# right answer to a question that wanted prose, so without the flag it passes.
+relay "the same blurb passes without the flag" 0 "tok-abc" \
+      --message "PROSE what should I post Tuesday" --send -- "stay on top"
+
+relay "an honest refusal is still no data"     1 "tok-abc" \
+      --message "NOACC what is on my calendar" --send --expect-data -- \
+      "THIS IS NOT AN ANSWER" "unproven rather than delivered"
+
+# real particulars that happen to close with an offer of help must pass.
+relay "an answer that offers help still passes" 0 "tok-abc" \
+      --message "MIXED what is on my calendar" --send --expect-data -- "CESA drop"
+
+relay "a clean answer passes with the flag on" 0 "tok-abc" \
+      --message "book the call" --send --expect-data -- "Booked"
+
+# Symphony's real refusal register, captured 09/09. The original hedge list
+# matched none of it.
+relay "the observed refusal voice is caught" 1 "tok-abc" \
+      --message "VOICE what are my recent posts" --send --expect-data -- \
+      "THIS IS NOT AN ANSWER" "unproven rather than delivered"
+
+# the wall is the more specific finding, so it wins when both fire.
+relay "the wall outranks the blurb"           1 "tok-abc" \
+      --message "WPROSE what is on my calendar" --send --expect-data -- \
+      "credit limit"
+
 # the token must never reach the terminal, on any path.
 leak=0
 for m in "book the call" "AUTH book the call" "WALL book the call"; do
