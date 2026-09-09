@@ -559,3 +559,30 @@ this cost.
 
 The SKU needs either the laptop session, which has real browser access, or a
 20 second barcode scan of the physical jar.
+
+#### RESOLVED: Cozy Nights SKU is 95010565
+
+Amanda found the page and sent the URL. Verified before writing it into the
+caption: pulled the product's image gallery and the navy jar with gold
+botanicals reading Cozy Nights is there, sitting in Target's fall 2026 line
+alongside Orchard Cider, Pumpkin Pancakes, Fireside Flannel, Cranberry Orange
+Scone and Almond Croissant. That confirms the earlier read that this was a fall
+seasonal not indexed in the older Cozy Nights listings.
+
+**TCIN 95010565, "2 Wick Glass Cozy Nights Jar Candle with Lid 15.1oz,
+Threshold."** Link: https://club.target.com/s/amanda.20/_/sku/95010565
+
+Blotato 4158117 (TikTok, Sept 10) caption rewritten:
+- Candle product link added, replacing "storefront's in my bio"
+- Full partner disclosure sentence added, which the original was missing
+- Hashtags kept: #ad #TargetPartner #ClubTarget #TargetHomeForFall
+
+**Still open on that post, 2 things:**
+1. **The glass pumpkins have no link.** The video names them too, so under the
+   hard rule they need their own SKU. Need that product URL from Amanda.
+2. **"GLASS PUMPKINS AT $15" is burned into the video.** Never state a price on
+   affiliate content. A caption edit cannot fix this one. Re-render, re-cut, or
+   pull the post.
+
+Lesson recorded: the SKU lives in the product URL after `/-/A-`. Getting the URL
+from Amanda took 1 message. Ask for it early instead of exhausting search paths.
