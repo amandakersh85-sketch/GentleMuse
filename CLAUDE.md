@@ -248,3 +248,38 @@ different audio, different caption. Not the same file with a new caption.
 The Scope of Work is silent on this, so a rejection is the only signal. Log
 every re-edit submission and its outcome in the data scrub log so the answer
 gets learned rather than guessed at twice.
+
+## Platform split (locked in 09/09/2026, from Amanda directly)
+
+The 2 platforms do different jobs. Do not treat them as one queue.
+
+**TikTok is the points engine.** Club Target challenge submissions live here.
+Product videos, storefront videos, challenge content. Every post is aimed at
+claimable points while follower growth is slow.
+
+**Instagram is the growth and warm-up engine.** Amanda talking to camera lives
+here, with comment-keyword CTAs. These earn no Club Target points and that is
+fine, it is not what they are for. Their job is visibility, recognition, and
+rehearsing the comment-to-keyword mechanic so the audience is trained before
+the follower goal lands.
+
+Amanda's words: "we won't get points for them but we'll start to build
+visibility and recognition and be practicing our comment to keyword, warming up
+the engine for when we hit our followers goal."
+
+Talking-to-camera clips do NOT go to TikTok. They do not fit there.
+
+### Known gap in the keyword engine (verified 09/09/2026)
+
+MailerLite holds **15 enabled automations and 14 total subscribers.** Every
+single automation triggers on `subscriber_joins_group`. Nothing is triggered by
+an Instagram comment.
+
+So the chain is: comment keyword → **[missing link]** → joins group → nurture
+fires. The nurture half is built and working. The bridge from an Instagram
+comment to a group membership is not automated anywhere Claude can see.
+
+Consequence: posting keyword CTAs trains the audience, which is real and worth
+doing. It does not exercise an automated engine, because there is no automation
+between the comment and the list. Confirm with Amanda how a comment becomes a
+subscriber today before promising that volume scales.
