@@ -27,6 +27,8 @@ count of 1.
                       all on a day in the window. Read off the roster column,
                       not off the rows, because a channel with no rows makes
                       no group and every other rule skips it in silence.
+  C12_RUNWAY_END      slots held on the far side of a hole 5 days or longer,
+                      while the near days are the empty ones
 
 Fill the fact column from what the caption *opens* with, not from the whole
 caption. The CTA, the link and the hashtags are identical across a lane and
@@ -69,6 +71,11 @@ MAX_PER_DAY = 5
 # board, where 6 airings of 1 fact in 11 days was what she caught by eye.
 MAX_AIRINGS = 2
 MIN_FACT_GAP_DAYS = 3
+
+# A hole this long with posts stranded on the far side of it. A day or 2
+# of sparseness is ordinary; 5 is a week of silence with slots already
+# spent on the other side, which is what the cap punishes.
+MIN_RUNWAY_HOLE_DAYS = 5
 
 # Per channel overrides, because 3 to 5 is not the rule everywhere.
 # LinkedIn is 1 a day and always business. X is 0, dropped 09/08 because it
@@ -226,6 +233,38 @@ def check(rows, anchor=ANCHOR_DEFAULT, target=None):
     # it in silence. On 09/08 that hid Pinterest at 0 posts for 11 days while
     # the board reported clean. This walks the roster in channel-rules.csv
     # rather than the file, so absence is a finding rather than a blank.
+    # Where the board actually runs out, and what is being held past it.
+    #
+    # The 200 post cap is a fixed number of slots, so a post held for
+    # Halloween owns its slot for 7 weeks. On 09/08 that filled the queue
+    # while the next 11 days starved, and on 09/09 the nightly backfill
+    # tried it again: every row left in the backlog was dated Oct 12 or
+    # later, and the board was about to run dry on Sep 19. Scheduling
+    # oldest first is what does it, because the oldest waiting row is the
+    # furthest from useful.
+    if rows:
+        window = posting_window(rows)
+        allday = sorted({r["day"] for r in rows})
+        beyond = [d for d in allday if d > window[-1]]
+        # Running dry is not itself a finding, it is just where the runway
+        # ends, and the summary prints it. The defect is holding slots on
+        # the far side of a hole while the near days are the empty ones.
+        if beyond:
+            gap = (date.fromisoformat(beyond[0])
+                   - date.fromisoformat(window[-1])).days - 1
+            if gap >= MIN_RUNWAY_HOLE_DAYS:
+                held = sum(1 for r in rows if r["day"] > window[-1])
+                findings.append({
+                    "rule": "C12_RUNWAY_END",
+                    "day": window[-1],
+                    "detail": "the board runs dry after %s, then %d empty day(s) "
+                              "before the next post on %s. %d slot(s) are held "
+                              "past the hole. Fill the near days first, they are "
+                              "the ones an audience is waiting through."
+                              % (window[-1], gap, beyond[0], held),
+                    "ids": [],
+                })
+
     roster = sorted({c for r in rows for c in r["roster"]})
     if rows and roster:
         window = posting_window(rows)
@@ -413,6 +452,10 @@ def main(argv):
     else:
         print("  no platform column, checked as a single lane, %.1f a day (target %d to %d)"
               % (len(rows) / days if days else 0, MIN_PER_DAY, MAX_PER_DAY))
+    if rows:
+        window = posting_window(rows)
+        if window:
+            print("  runway ends %s" % window[-1])
     print()
 
     if not findings:

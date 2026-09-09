@@ -608,6 +608,33 @@ if python3 "$CAD" "$HERE/cadence.silent.csv" 2>/dev/null | grep -q "C11_CHANNEL_
 else echo "PASS  a retired channel is not called silent"; pass=$((pass+1)); fi
 
 echo
+echo "== where the board runs dry (added 09/09) =="
+# The cap is a fixed number of slots, so a post held for Halloween owns its
+# slot for 7 weeks. That filled the queue on 09/08 while the next 11 days
+# starved, and the nightly backfill tried it again on 09/09: every row left
+# in the backlog was dated Oct 12 or later while the board was about to go
+# dark on Sep 19. Scheduling oldest first is what does it, because the
+# oldest waiting row is the furthest from useful.
+if python3 "$CAD" "$HERE/cadence.runway.csv" 2>/dev/null | grep -q "51 empty day"; then
+  echo "PASS  the hole between the board and its tail is measured"; pass=$((pass+1))
+else echo "FAIL  the hole between the board and its tail is measured"
+     python3 "$CAD" "$HERE/cadence.runway.csv" 2>&1 | grep C12 | sed 's/^/      /'; fail=$((fail+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.runway.csv" 2>/dev/null | grep -q "1 slot(s) are held past the hole"; then
+  echo "PASS  slots held on the far side of the hole are counted"; pass=$((pass+1))
+else echo "FAIL  slots held on the far side of the hole are counted"; fail=$((fail+1)); fi
+
+# Running dry is information, not a defect. A board with no tail must not
+# fail the gate for simply having an end.
+if python3 "$CAD" "$HERE/cadence.runway-notail.csv" 2>/dev/null | grep -q "runway ends 2026-09-09"; then
+  echo "PASS  a board with no tail reports its runway without failing"; pass=$((pass+1))
+else echo "FAIL  a board with no tail reports its runway without failing"; fail=$((fail+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.runway-notail.csv" 2>/dev/null | grep -q "C12_RUNWAY_END"; then
+  echo "FAIL  running dry with nothing held past it is not a finding"; fail=$((fail+1))
+else echo "PASS  running dry with nothing held past it is not a finding"; pass=$((pass+1)); fi
+
+echo
 echo "== fact repeats (added 09/08, after the queue ran 1 fact 6 times) =="
 # The board counted posts and called itself healthy while YouTube carried
 # the same Disney reel on 6 of 11 days and TikTok ran 1 fact twice in a day.

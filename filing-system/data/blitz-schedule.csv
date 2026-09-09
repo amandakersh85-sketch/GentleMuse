@@ -58,12 +58,12 @@ Date,TimeUTC,Lane,Platform,Account,FactID,Media,Status,SubmissionId
 2026-10-10,19:00,echo,facebook,30840,HAL-012,casper,scheduled,8cb9531d-31c3-4a75-95d1-c871a75e93fd
 2026-10-12,19:00,echo,youtube,36129,HAL-010,nbc-cemetery,scheduled,73a6972e-033b-4c2a-af2e-e1243c4cabf6
 2026-10-12,19:00,echo,facebook,30840,HAL-010,nbc-theater,scheduled,5e82abed-3855-482d-9040-03f38227382d
-2026-10-19,19:00,echo,youtube,36129,HAL-017,mare-nightstand,blocked: plan cap 200 scheduled posts,
-2026-10-19,19:00,echo,facebook,30840,HAL-017,mare-bedroom,blocked: plan cap 200 scheduled posts,
-2026-10-21,19:00,echo,youtube,36129,HAL-005,coffinbell,blocked: plan cap 200 scheduled posts,
-2026-10-21,19:00,echo,facebook,30840,HAL-005,coffinbell,blocked: plan cap 200 scheduled posts,
-2026-10-29,19:00,echo,youtube,36129,HAL-018,lugnano,blocked: plan cap 200 scheduled posts,
-2026-10-29,19:00,echo,facebook,30840,HAL-018,lugnano,blocked: plan cap 200 scheduled posts,
+2026-10-19,19:00,echo,youtube,36129,HAL-017,mare-nightstand,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-19,19:00,echo,facebook,30840,HAL-017,mare-bedroom,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-21,19:00,echo,youtube,36129,HAL-005,coffinbell,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-21,19:00,echo,facebook,30840,HAL-005,coffinbell,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-29,19:00,echo,youtube,36129,HAL-018,lugnano,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-29,19:00,echo,facebook,30840,HAL-018,lugnano,"held 09/09, Oct row behind the Sep 19 hole",
 2026-09-29,15:00,club,instagram,45886,TRL-001,trailer,scheduled,86849af0-9995-49b1-97ff-d9d6b70b397e
 2026-09-29,15:00,club,tiktok,41488,TRL-001,trailer,scheduled,89491cb6-7b82-4afc-98fe-e1df4b9a8ae7
 2026-09-29,19:00,echo,youtube,36129,TRL-001,trailer,scheduled,63e2d271-3d76-4cac-98f7-d1b3595a84e7
@@ -74,35 +74,35 @@ Date,TimeUTC,Lane,Platform,Account,FactID,Media,Status,SubmissionId
 2026-10-09,15:00,club,tiktok,41488,HAL-015,carousel snick slides 1-5,scheduled,762fb875-62a6-4880-be51-4b6494577d87
 2026-10-09,19:00,echo,youtube,36129,HAL-002,SLIDES-turnip.mp4,scheduled,893077c6-cc13-4459-a870-8ebcc4134e97
 2026-10-09,19:00,echo,facebook,30840,HAL-002,carousel turnip slides 1-5,scheduled,5e03c581-b6aa-4aec-a2f9-32e129dbc163
-2026-10-12,15:00,club,instagram,45886,HAL-012,carousel casper slides 1-5,staged awaiting queue room,
-2026-10-12,15:00,club,tiktok,41488,HAL-012,carousel casper slides 1-5,staged awaiting queue room,
-2026-10-13,15:00,club,instagram,45886,HAL-013,halloweentown-v2 kitchen cut,staged awaiting queue room,
-2026-10-13,15:00,club,tiktok,41488,HAL-013,halloweentown-v2 kitchen cut,staged awaiting queue room,
-2026-10-13,19:00,echo,youtube,36129,HAL-015,SLIDES-snick.mp4,staged awaiting queue room,
-2026-10-13,19:00,echo,facebook,30840,HAL-015,carousel snick slides 1-5,staged awaiting queue room,
+2026-10-12,15:00,club,instagram,45886,HAL-012,carousel casper slides 1-5,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-12,15:00,club,tiktok,41488,HAL-012,carousel casper slides 1-5,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-13,15:00,club,instagram,45886,HAL-013,halloweentown-v2 kitchen cut,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-13,15:00,club,tiktok,41488,HAL-013,halloweentown-v2 kitchen cut,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-13,19:00,echo,youtube,36129,HAL-015,SLIDES-snick.mp4,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-13,19:00,echo,facebook,30840,HAL-015,carousel snick slides 1-5,"held 09/09, Oct row behind the Sep 19 hole",
 2026-10-14,15:00,club,instagram,45886,HAL-014,gb-bike,scheduled,cb18d966-b128-4e2e-9965-5e9717a46db0
-2026-10-14,15:00,club,tiktok,41488,HAL-014,gb-rack,staged awaiting queue room,
-2026-10-16,15:00,club,instagram,45886,HAL-010,nbc-oak,staged awaiting queue room,
-2026-10-16,15:00,club,tiktok,41488,HAL-010,nbc-crt,staged awaiting queue room,
-2026-10-16,19:00,echo,youtube,36129,HAL-012,SLIDES-casper.mp4,staged awaiting queue room,
-2026-10-16,19:00,echo,facebook,30840,HAL-012,carousel casper slides 1-5,staged awaiting queue room,
-2026-10-17,19:00,echo,youtube,36129,HAL-013,halloweentown-v2 kitchen cut,staged awaiting queue room,
-2026-10-17,19:00,echo,facebook,30840,HAL-013,halloweentown-v2 kitchen cut,staged awaiting queue room,
-2026-10-20,15:00,club,instagram,45886,HAL-005,carousel coffinbell slides 1-5,staged awaiting queue room,
-2026-10-20,15:00,club,tiktok,41488,HAL-005,carousel coffinbell slides 1-5,staged awaiting queue room,
-2026-10-22,15:00,club,instagram,45886,HAL-017,mare-weighted,staged awaiting queue room,
-2026-10-22,15:00,club,tiktok,41488,HAL-017,mare-rocking,staged awaiting queue room,
-2026-10-24,19:00,echo,youtube,36129,HAL-005,SLIDES-coffinbell.mp4,staged awaiting queue room,
-2026-10-24,19:00,echo,facebook,30840,HAL-005,carousel coffinbell slides 1-5,staged awaiting queue room,
-2026-10-26,15:00,club,instagram,45886,CDN-001,countdown-ig doorway,staged awaiting queue room,
-2026-10-26,15:00,club,tiktok,41488,CDN-001,countdown-tt pyre,staged awaiting queue room,
-2026-10-28,15:00,club,instagram,45886,HAL-018,carousel lugnano slides 1-5,staged awaiting queue room,
-2026-10-28,15:00,club,tiktok,41488,HAL-018,carousel lugnano slides 1-5,staged awaiting queue room,
-2026-10-30,19:00,echo,youtube,36129,CDN-001,countdown-tt pyre,staged awaiting queue room,
-2026-10-30,19:00,echo,facebook,30840,CDN-001,countdown-ig doorway,staged awaiting queue room,
+2026-10-14,15:00,club,tiktok,41488,HAL-014,gb-rack,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-16,15:00,club,instagram,45886,HAL-010,nbc-oak,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-16,15:00,club,tiktok,41488,HAL-010,nbc-crt,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-16,19:00,echo,youtube,36129,HAL-012,SLIDES-casper.mp4,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-16,19:00,echo,facebook,30840,HAL-012,carousel casper slides 1-5,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-17,19:00,echo,youtube,36129,HAL-013,halloweentown-v2 kitchen cut,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-17,19:00,echo,facebook,30840,HAL-013,halloweentown-v2 kitchen cut,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-20,15:00,club,instagram,45886,HAL-005,carousel coffinbell slides 1-5,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-20,15:00,club,tiktok,41488,HAL-005,carousel coffinbell slides 1-5,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-22,15:00,club,instagram,45886,HAL-017,mare-weighted,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-22,15:00,club,tiktok,41488,HAL-017,mare-rocking,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-24,19:00,echo,youtube,36129,HAL-005,SLIDES-coffinbell.mp4,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-24,19:00,echo,facebook,30840,HAL-005,carousel coffinbell slides 1-5,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-26,15:00,club,instagram,45886,CDN-001,countdown-ig doorway,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-26,15:00,club,tiktok,41488,CDN-001,countdown-tt pyre,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-28,15:00,club,instagram,45886,HAL-018,carousel lugnano slides 1-5,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-28,15:00,club,tiktok,41488,HAL-018,carousel lugnano slides 1-5,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-30,19:00,echo,youtube,36129,CDN-001,countdown-tt pyre,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-30,19:00,echo,facebook,30840,CDN-001,countdown-ig doorway,"held 09/09, Oct row behind the Sep 19 hole",
 2026-09-08,20:00,halloween,instagram,45886,HAL-003,trackA-hal-003,scheduled,a88e2a6a-7824-4922-9771-28ec33ab2492
 2026-09-08,20:00,halloween,tiktok,41488,HAL-020,trackA-hal-020,scheduled,e79ac95c-dc73-4c8e-8225-2b3a8597ad2c
-2026-09-08,19:30,halloween,facebook,30840,HAL-006,trackA-hal-006,cap-blocked,
+2026-09-08,19:30,halloween,facebook,30840,HAL-006,trackA-hal-006,"expired, the date passed while it was cap-blocked",
 2026-09-08,14:30,halloween,youtube,36129,,24d5f596-4539-49a4-8d6e-493b04d40bf0.mp4,scheduled-refill,
 2026-09-08,20:20,soft,youtube,36129,,53be24ff-3114-45d9-b7cd-d090702a519f.mp4,scheduled-refill,
 2026-09-08,14:00,soft,facebook,30840,,329c16e4-319b-4199-b4b4-91e2b0f2c5a7.mp4,scheduled-refill,
@@ -198,5 +198,5 @@ Date,TimeUTC,Lane,Platform,Account,FactID,Media,Status,SubmissionId
 2026-09-13,13:30,editorial,linkedin,20723,,text-only,scheduled-refill,dcc97286
 2026-09-16,13:30,editorial,linkedin,20723,,text-only,scheduled-refill,e5ee14fa
 2026-09-15,13:30,promo,linkedin,20723,,aeef98fe towels,scheduled-refill,f5f75dfb
-2026-09-17,13:30,promo,linkedin,20723,,b801f364 bookmarking,cap-blocked,
-2026-09-18,13:30,promo,linkedin,20723,,55bdef6b nightmare,cap-blocked,
+2026-09-17,13:30,promo,linkedin,20723,,b801f364 bookmarking,scheduled 09/09 backfill,4244707
+2026-09-18,13:30,promo,linkedin,20723,,55bdef6b nightmare,scheduled 09/09 backfill,4244712
