@@ -185,3 +185,57 @@ THREE THINGS TO KNOW BEFORE THESE SHIP
    Checked live: `2772` is the Facebook TUESDAY automation, isActive true, keywords TUESDAY /
    tuesday / Tuesday, emailGate removed 09/09 16:09, button to the JAT page. Facebook keyword
    CTAs do fire. The skill file needs that line updated.
+
+=====================================================================
+UPDATE 09/09 — ISSUES LOADED, VISUALS PROPOSED
+=====================================================================
+
+ALL 5 ISSUES ARE NOW LIVE IN MAILERLITE, status ready, targeting the Just Another Tuesday
+group 195832548837819660. So posts 2 to 6 no longer promise an email that does not send.
+
+| Issue | Campaign id | Sends | Subject as loaded |
+|---|---|---|---|
+| #006 | 198159681569425155 | 09-29 07:00 | I Ignored My Own Number 1 Problem For 3 Weeks |
+| #007 | 198159716433528109 | 10-06 07:00 | I Had 4 Front Doors. They Were All The Same Door. |
+| #008 | 198159746646148644 | 10-13 07:00 | The Algorithm Was Not Broken. I Was. |
+| #009 | 198159775258641788 | 10-20 07:00 | I Chased Down $9.23 |
+| #010 | 198159806579606746 | 10-27 07:00 | I Built My First Robot To Ask Permission |
+
+SUBJECT LINES SHORTENED, and not on taste. `validate_subject_lines` flagged 4 of the 5
+original titles with "May be cut off on mobile (recommended max 50 chars)". #006's title was
+85 characters. Every shortened subject came back clean. The full titles are unchanged in the
+issue drafts and in the doc; only the email subject differs.
+
+TWO FIXES APPLIED BEFORE LOADING, both caught on a read-through of the generated HTML:
+- #009 opened with the internal "[WRAPPER SLOT...]" bracket note. Stripped. It now opens on
+  "I reconciled a $9.23 line item this summer," which the draft says stands alone by design.
+- #007's preview text said "On one platform." Changed to "On 1 platform," per the digits rule.
+
+VISUALS: her own MuseRoom set, not a phone camera roll
+
+**There is no camera roll on any surface I can reach.** Google Photos is not connected. What
+Drive holds is 14 loose IMG_*.jpg files in root, 2 folders of Cesa and selfie photos from
+2017, brand assets, and the 7-image **MuseRoom** series. The MuseRoom set is the right answer
+anyway: it is an illustrated series of Amanda, Avery, Claude and Cesa documenting the same 60
+day project these issues are drawn from, so the promos become a visual series instead of 6
+unrelated pictures.
+
+| Sends | Issue | Visual | Fit |
+|---|---|---|---|
+| 09-22 | #005 Be Bad On Purpose | `MuseRoomDay1.png` | good. "I'm going to document everything," which is the issue's own thesis |
+| 09-29 | #006 Number 1 Problem | `MuseRoomDAy5.png` | **exact.** The panel literally reads "Four weeks. Zero website clicks. That's the real problem" |
+| 10-06 | #007 4 Front Doors | `MuseRoomDay3.png` | strong. The affiliate flows checklist, which is the automations-that-were-really-one story |
+| 10-13 | #008 Algorithm Was Obedient | `MuseRoomDay4.png` | decent. "I never realized..." carries the being-wrong-about-your-own-thing beat |
+| 10-20 | #009 Chased Down $9.23 | `MuseRoomDay6Edit.png` | decent. The build log, worked line by line at 1:03 AM |
+| 10-27 | #010 Robot Asks Permission | `MuseRoomDay7Edit.png` | **exact.** "Filed the video library," the filing robot itself |
+
+`MuseRoomDay2.png` is the unused spare.
+
+Contact sheet for approval: `JAT_promo_visual_pairings.jpg` in this folder.
+
+STILL NOT DONE, deliberately:
+- Nothing uploaded to Blotato and no Instagram post created. Blotato needs a public URL, so
+  each image has to be pushed through `blotato_create_presigned_upload_url` first. That is a
+  1-way step and it waits for Amanda's yes on the pairings.
+- The Facebook half of posts 2 to 6 could go up now that the issues are loaded. Also waiting.
+- Only post 1 is scheduled, `4285787`, Facebook, 09-22 18:00 UTC.
