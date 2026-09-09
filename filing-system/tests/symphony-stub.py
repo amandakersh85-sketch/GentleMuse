@@ -3,6 +3,10 @@
 
 Behaviour is chosen by what the message contains:
   WALL   the credit wall that the live endpoint returned on 09/08
+  PROSE  fluent capability blurb carrying no particulars
+  NOACC  an honest refusal, which is still no data
+  MIXED  real particulars that close with an offer of help
+  WPROSE the credit wall wearing a blurb, to check precedence
   SLOW   accepted first, answered on the third poll
   NEVER  accepted, then pending forever
   AUTH   401, as a rejected token
@@ -17,6 +21,19 @@ WALL = ("You’ve reached your daily credit limit, so your agents paused "
         "midway. They’ll pick up where they left off when your credits "
         "reset tomorrow. To keep them going now with no daily limit, upgrade "
         "to a Premium plan. [Upgrade](https://symphony.wix.com/packages)")
+
+PROSE = ("I can help you stay on top of your schedule, keep in touch with the "
+         "people who matter, and keep your posts going out on time. Once you "
+         "connect your accounts I will be able to pull all of that together "
+         "for you. Just let me know what you would like to start with.")
+
+NOACC = ("I do not have access to your calendar or your contact list at the "
+         "moment, so I cannot pull that together for you.")
+
+MIXED = ("Calendar for the next seven days: Tuesday Sep 15 at 9:00, CESA drop "
+         "off. Thursday Sep 17 at 14:30, vending route restock. You have 412 "
+         "contacts and the last 3 sends went out Sep 2, Aug 26 and Aug 19. "
+         "Let me know if you would like me to move anything.")
 
 STATE = {}
 
@@ -46,6 +63,18 @@ class Handler(BaseHTTPRequestHandler):
                 return self._send(401, {"error": "token rejected"})
             if "WALL" in msg:
                 return self._send(200, {"conversationId": "c-wall", "reply": WALL})
+            if "WPROSE" in msg:
+                return self._send(200, {"conversationId": "c-wp",
+                                        "reply": PROSE + " " + WALL})
+            if "PROSE" in msg:
+                return self._send(200, {"conversationId": "c-prose",
+                                        "reply": PROSE})
+            if "NOACC" in msg:
+                return self._send(200, {"conversationId": "c-noacc",
+                                        "reply": NOACC})
+            if "MIXED" in msg:
+                return self._send(200, {"conversationId": "c-mixed",
+                                        "reply": MIXED})
             if "SLOW" in msg:
                 STATE["c-slow"] = 0
                 return self._send(200, {"conversationId": "c-slow",

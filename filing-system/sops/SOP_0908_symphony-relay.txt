@@ -20,6 +20,7 @@ HOW IT IS USED
   python3 gm_symphony.py --message "..."             proposes, sends nothing
   python3 gm_symphony.py --message "..." --send      sends and waits
   python3 gm_symphony.py --resume <conversationId>   collects a late answer
+  add --expect-data when the message asks for facts
 
 The default prints the exact message, the session it will land in and the
 endpoint it will reach, then stops. Rule 1 of this workspace is propose only,
@@ -64,9 +65,47 @@ Amanda ever asks Symphony about her own billing. That is the trade taken on
 purpose. A false flag costs one read. A missed wall costs a task everyone
 believes is finished.
 
+THE SECOND WALL, THE ONE THAT SOUNDS LIKE AN ANSWER
+The credit wall announces itself. The other refusal does not.
+
+Asked what is on the calendar, an agent that cannot reach the calendar will
+describe what it could do for you once things are connected. That reply is
+fluent, on topic, and empty, and it reads like an answer to everything except
+a person checking it against her own accounts. It is the same failure as the
+wall, wearing better manners.
+
+The relay catches it when 2 signals agree. HEDGES holds the phrasings of a
+capability description rather than a report, the "I can help", the "once you
+connect", the "I do not have access". EVIDENCE counts the particulars that
+make a claim checkable, digits and weekdays and months. Under 3 particulars
+alongside a hedge, and the reply is describing rather than reporting.
+
+Both are required on purpose. A blurb carries hedges and no particulars. A
+real answer that closes with an offer to move a meeting carries both, and
+passes, which a hedge test on its own would have failed.
+
+WHY IT IS OPT IN
+--expect-data turns the check on, and the default leaves it off.
+
+This is the important part. Prose is the correct answer to a question that
+wanted prose. Asked what to post on Tuesday, a good reply is 4 sentences with
+no dates in it at all, and a check that fires there would be wrong every time
+Amanda asked for judgment rather than facts. A check that cries wolf on the
+work she does most gets ignored inside a week, and then it is not a check.
+
+So the caller states the standard. The propose step notices when a message
+reads as a request for facts and --expect-data was not passed, and says so.
+It notices, it does not decide, because guessing wrong is the one thing that
+would make this untrustworthy.
+
+An honest refusal fires it too. "I do not have access to your calendar" is a
+truthful sentence and a failed capability, and the point of the run was to
+learn whether the ability is real. Honest still means unproven.
+
 EXIT CODES
   0  Symphony answered
-  1  Symphony replied and the reply is a wall. Nothing was done.
+  1  Symphony replied and nothing came back. Either the credit wall, or,
+     under --expect-data, a reply that describes rather than reports.
   2  the exchange could not be completed. No token, refused token, no
      network, malformed response, or silence past the wait.
 
@@ -75,10 +114,10 @@ Silence is 2 and not 1, and the conversation stays open. The relay prints the
 timeout is not a failure, it is an answer that has not arrived yet.
 
 WHAT IS STILL OPEN
-The credit wall was live when this was written, so no message that asks
-Symphony to actually do something has been through this relay yet. The
+The credit wall was live through 09/09, so no message that asks Symphony to
+actually do something has been through this relay yet. The
 transport, the polling, the timeout, the resume path and the wall detection are
-all verified, 10 cases against a local stub plus the one live call. The first
+all verified, 16 cases against a local stub plus the live calls. The first
 real instruction to Symphony is still ahead, and it should be small, and
 Amanda should read the propose output before it goes.
 
