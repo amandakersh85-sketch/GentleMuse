@@ -405,3 +405,45 @@ chest, heavy compression noise. Watchable, not good.
 3. The face-to-camera clip deserves its own post with a caption that matches
    what is actually on screen. It is clean and it is her, which is the whole
    format the campaign is supposed to be built on.
+
+#### Resolution: fixed, not deleted (Amanda's call 09/09)
+
+All 3 posts rewritten to match the video that is actually attached.
+
+| Post | Platform | Now scheduled | Change |
+|---|---|---|---|
+| 4247411 | Facebook Reel | Sept 9 13:30 UTC | New caption, no hashtags per voice rules |
+| 4247414 | YouTube Short | Sept 9 14:00 UTC | New caption and title, media fixed, synthetic flag cleared |
+| 4249434 | YouTube Short | **moved to Sept 12 14:00 UTC** | Same, plus moved off the collision |
+
+**Facebook caption:**
+> Nobody ever actually told us that growing up meant getting boring.
+> We just did it. Quietly, one skipped thing at a time, until the fun version
+> of us became a story we tell instead of a person we are.
+> I'm not doing that part anymore.
+> Comment the song that instantly brings you back to life. I want the whole list.
+
+**YouTube title:** Adulthood never required you to become boring
+**YouTube caption:** short version of the same, plus the Consider This link and
+2 hashtags.
+
+Both CTAs now match the CTA burned into the video itself, which is the point.
+The video says "comment the song that instantly brings you back to life" and
+until now the caption said Rubik's Cube.
+
+#### 2 other defects found and fixed in the same pass
+
+1. **`containsSyntheticMedia` was set true on both YouTube posts.** That flag
+   was correct for a HeyGen trivia render. It is wrong for real footage of
+   Amanda, and declaring genuine footage as synthetic invites the same
+   suppression as the AI Cast badge did on Instagram. Set to false on both.
+2. **4249434's media URL was dead.** `b8a982c9-b3fe-47fd-959f-70b44695fb6c.mp4`
+   returns HTTP 400, so that post would have failed to publish. Repointed to
+   the working file.
+
+#### Still open
+
+4247414 and 4249434 are now the same video, same title, same caption, 3 days
+apart. Fixing the captions could not make one clip into 2 different posts.
+Amanda should probably delete one. Left in place because the instruction was
+fix, not delete.
