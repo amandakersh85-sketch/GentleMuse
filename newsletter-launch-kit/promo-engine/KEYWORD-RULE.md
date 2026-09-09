@@ -1667,3 +1667,26 @@ to. Editing captions cannot fix an empty queue.
 So the honest state: the plumbing is now permanently correct, and the promotion is fixed only
 as far as 09-16. Making it permanent means content on send days, which is writing, not
 config. That is the next ask.
+
+## Post 1 scheduled to Facebook 2026-09-09, verified
+
+Amanda: *"schedule post 1 to facebook"*.
+
+| | |
+|---|---|
+| Blotato post id | `4285787` |
+| Account | `30840` The Gentle Muse, page `1086399221215093` |
+| Fires | **Tue 09-22 18:00 UTC**, state `scheduled` |
+| `firstComment` | the JAT signup URL |
+| `mediaUrls` | `[]`, text only, which Facebook accepts |
+
+**Time chosen deliberately.** Issue #005 sends 09-22 at 07:00 and the caption says "This
+morning's Just Another Tuesday," so the post has to land after the send. 18:00 UTC is after
+07:00 whether that 07:00 is Central or UTC, so the claim is true either way. 09-22 had **0
+posts scheduled on it**, so there is no collision.
+
+**This is the first JAT send day in the queue's history that carries a TUESDAY CTA on the
+morning the issue actually goes out.** It fires `2772`, whose gate was removed 7 hours earlier.
+
+Not scheduled: posts 2 to 6. They promote issues #006 to #010, which are not in MailerLite.
+Scheduling them would promise an email that does not send.
