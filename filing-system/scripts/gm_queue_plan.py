@@ -11,7 +11,7 @@ slot-model.csv. This reads it and reports the difference.
 
 Exit 0 the window matches the model, 1 it does not, 2 nothing to compare.
 """
-import argparse, csv, json, os, sys, collections
+import argparse, csv, json, os, re, sys, collections
 from datetime import datetime, timedelta, timezone, date
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -37,6 +37,20 @@ def load_rotation(path):
         return {r["Weekday"]: r for r in csv.DictReader(fh)}
 
 
+def load_campaigns(path):
+    """Keywords running as extra volume on top of the slot model, not counted
+    against it. See magnet-campaign.csv: Amanda ordered these as additive."""
+    out = {}
+    if not os.path.exists(path):
+        return out
+    with open(path, newline="", encoding="utf-8") as fh:
+        for r in csv.DictReader(fh):
+            kw = (r.get("Keyword") or "").strip().upper()
+            if kw and r.get("Status") == "active" and r.get("Layer") == "extra":
+                out[kw] = r
+    return out
+
+
 def wanted_per_day(slots):
     """account id -> how many posts a day the model asks for."""
     want = collections.Counter()
@@ -50,22 +64,34 @@ def local_date(iso):
     return datetime.fromisoformat(iso.replace("Z", "+00:00")).astimezone(CT)
 
 
-def plan(rows, slots, start, days):
+def plan(rows, slots, start, days, campaigns=None):
+    campaigns = campaigns or {}
+    campaign_re = re.compile(r"\b(" + "|".join(re.escape(k) for k in campaigns) + r")\b") \
+        if campaigns else None
+
     want = wanted_per_day(slots)
     window = [start + timedelta(days=n) for n in range(days)]
     last = window[-1]
 
     have = collections.defaultdict(collections.Counter)
+    campaign_have = collections.defaultdict(collections.Counter)
     beyond, offmodel = [], []
     for r in rows:
         d = local_date(r["at"])
         aid = str(r.get("accountId") or "")
         if d.date() > last:
             beyond.append(r)
-        elif d.date() >= start:
-            have[d.date()][aid] += 1
-            if aid not in want:
-                offmodel.append(r)
+            continue
+        if d.date() < start:
+            continue
+        m = campaign_re.search(r.get("text") or "") if campaign_re else None
+        if m:
+            # extra volume: counted separately, never against the slot quota
+            campaign_have[d.date()][(aid, m.group(1))] += 1
+            continue
+        have[d.date()][aid] += 1
+        if aid not in want:
+            offmodel.append(r)
 
     over, under = [], []
     for day in window:
@@ -76,7 +102,8 @@ def plan(rows, slots, start, days):
             elif got < n:
                 under.append((day, aid, got, n))
     return {"window": window, "have": have, "want": want, "over": over,
-            "under": under, "beyond": beyond, "offmodel": offmodel}
+            "under": under, "beyond": beyond, "offmodel": offmodel,
+            "campaign": campaign_have}
 
 
 def main():
@@ -86,6 +113,7 @@ def main():
     ap.add_argument("--days", type=int, default=14)
     ap.add_argument("--model", default=os.path.join(DATA, "slot-model.csv"))
     ap.add_argument("--rotation", default=os.path.join(DATA, "rotation-magnet.csv"))
+    ap.add_argument("--campaigns", default=os.path.join(DATA, "magnet-campaign.csv"))
     ap.add_argument("--json", action="store_true")
     a = ap.parse_args()
 
@@ -98,8 +126,9 @@ def main():
 
     slots = load_model(a.model)
     rot = load_rotation(a.rotation)
+    campaigns = load_campaigns(a.campaigns)
     start = date.fromisoformat(a.start)
-    p = plan(rows, slots, start, a.days)
+    p = plan(rows, slots, start, a.days, campaigns)
 
     if a.json:
         print(json.dumps({
@@ -107,10 +136,12 @@ def main():
             "under": [[str(d), aid, g, w] for d, aid, g, w in p["under"]],
             "beyond": [r["id"] for r in p["beyond"]],
             "offmodel": [r["id"] for r in p["offmodel"]],
+            "campaign": [[str(d), aid, kw, n] for d, c in p["campaign"].items()
+                         for (aid, kw), n in c.items()],
         }, indent=1))
     else:
         cols = sorted(p["want"])
-        print("day".ljust(16) + "  ".join(NAMES.get(c, c).ljust(8) for c in cols) + "  rotation")
+        print("day".ljust(16) + "  ".join(NAMES.get(c, c).ljust(8) for c in cols) + "  rotation  extra")
         for day in p["window"]:
             wd = WEEKDAY[day.weekday()]
             cells = []
@@ -118,10 +149,13 @@ def main():
                 got, w = p["have"][day][c], p["want"][c]
                 cells.append(("%d/%d" % (got, w) + ("!" if got != w else " ")).ljust(8))
             kw = (rot.get(wd) or {}).get("Keyword", "?")
-            print(("%s %s" % (day, wd[:3])).ljust(16) + "  ".join(cells) + "  " + kw)
+            extra = p["campaign"][day]
+            extra_str = ", ".join("%s %s" % (ckw, NAMES.get(aid, aid)) for (aid, ckw) in extra) if extra else "-"
+            print(("%s %s" % (day, wd[:3])).ljust(16) + "  ".join(cells) + "  " + kw.ljust(9) + extra_str)
+        n_extra = sum(sum(c.values()) for c in p["campaign"].values())
         print("\n%d slots over, %d slots under, %d posts beyond the %d day window, "
-              "%d on channels the model does not run daily"
-              % (len(p["over"]), len(p["under"]), len(p["beyond"]), a.days, len(p["offmodel"])))
+              "%d on channels the model does not run daily, %d extra campaign post(s) not counted against quota"
+              % (len(p["over"]), len(p["under"]), len(p["beyond"]), a.days, len(p["offmodel"]), n_extra))
 
     return 0 if not (p["over"] or p["under"] or p["beyond"]) else 1
 

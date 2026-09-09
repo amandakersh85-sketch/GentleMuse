@@ -1,0 +1,11 @@
+[
+ {"id":"a1","platform":"instagram","accountId":"45886","at":"2026-09-02T15:00:00.000Z","text":"fact"},
+ {"id":"a2","platform":"instagram","accountId":"45886","at":"2026-09-02T22:00:00.000Z","text":"rotation"},
+ {"id":"a3","platform":"instagram","accountId":"45886","at":"2026-09-03T00:00:00.000Z","text":"personal"},
+ {"id":"b1","platform":"tiktok","accountId":"41488","at":"2026-09-02T15:00:00.000Z","text":"fact"},
+ {"id":"b2","platform":"tiktok","accountId":"41488","at":"2026-09-02T22:00:00.000Z","text":"rotation"},
+ {"id":"c1","platform":"facebook","accountId":"30840","at":"2026-09-02T19:00:00.000Z","text":"fact"},
+ {"id":"c2","platform":"facebook","accountId":"30840","at":"2026-09-03T00:00:00.000Z","text":"personal"},
+ {"id":"extra1","platform":"instagram","accountId":"45886","at":"2026-09-02T18:00:00.000Z","text":"Comment PLAY and I will send the list"},
+ {"id":"extra2","platform":"instagram","accountId":"45886","at":"2026-09-02T20:00:00.000Z","text":"Comment CONSIDER for the weekly note"}
+]

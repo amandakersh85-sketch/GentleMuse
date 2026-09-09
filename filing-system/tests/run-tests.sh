@@ -421,6 +421,26 @@ cta "edge cases all fire"               1 "$HERE/cta.edge.json" \
 cta "a tiktok follow is a real return" 0 "$HERE/cta.tiktok.json"
 cta "a reach only post holds"           2 "$HERE/cta.hold.json"   H01_NO_CAPTURE_PATH
 
+CAROUSEL="$HERE/../scripts/gm_carousel_check.py"
+
+carousel() { # name expected_exit queue_file [grep ...]
+  local name="$1" want="$2" q="$3"; shift 3
+  local out; out="$(python3 "$CAROUSEL" --queue "$q" --archive "$HERE/carousel-archive.csv" 2>&1)"; local got=$?
+  local ok=1
+  [ "$got" = "$want" ] || { ok=0; echo "  exit $got, wanted $want"; }
+  for pat in "$@"; do
+    grep -q "$pat" <<<"$out" || { ok=0; echo "  missing: $pat"; }
+  done
+  if [ $ok = 1 ]; then echo "PASS  $name"; pass=$((pass+1))
+  else echo "FAIL  $name"; echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
+}
+
+echo
+echo "== carousel regression check =="
+carousel "a full carousel and a legit 1-image LinkedIn post both pass" 0 "$HERE/carousel.clean.json"
+carousel "a caption that used to carry 6 images and now carries 1 is caught" 1 "$HERE/carousel.broken.json" \
+    C01_MEDIA_REGRESSION
+
 
 PLAN="$HERE/../scripts/gm_queue_plan.py"
 
@@ -442,6 +462,8 @@ qplan "a day that matches the model passes" 0 "$HERE/queue.model.json" \
       "0 slots over, 0 slots under, 0 posts beyond"
 qplan "drift in every direction is caught"  1 "$HERE/queue.drift.json" \
       "1 slots over" "2 slots under" "1 posts beyond" "1 on channels"
+qplan "a campaign magnet adds volume without tripping over" 0 "$HERE/queue.campaign.json" \
+      "0 slots over, 0 slots under" "2 extra campaign post"
 
 
 ANCH="$HERE/../scripts/gm_anchors.py"

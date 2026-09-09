@@ -1,0 +1,19 @@
+CarouselID,Title,Frame,FrameText,Source
+CESA-01,10 of her 19 years,1,She is 19. 10 of those years have been mine.,verified: subject-facts.csv SUB-001 plus already-used post
+CESA-01,10 of her 19 years,2,I did not raise a puppy. I inherited a senior citizen with opinions.,derived from the verified age
+CESA-01,10 of her 19 years,3,She checks the machine first. Then goes to the bowl. Every time.,verified: already-used post, automatic feeder routine
+CESA-01,10 of her 19 years,4,31 seconds of a 19 year old dog doing her rounds. That is the whole event.,verified: already-used post
+CESA-01,10 of her 19 years,5,15 pages of what actually keeps her comfortable. Written from our living room, not a clinic.,verified: magnet-map.csv delivery description
+CESA-01,10 of her 19 years,6,Comment CESA and I will send it to you.,CTA
+CESA-02,The accident nobody explains,1,She peed in my office and then looked me dead in the eye.,verified: already-used post
+CESA-02,The accident nobody explains,2,No guilt. No slinking off. She is 19 and the rules stopped applying to her around year 15.,verified: already-used post
+CESA-02,The accident nobody explains,3,Here is the part nobody tells you about this age. It is usually not defiance.,verified: already-used post
+CESA-02,The accident nobody explains,4,"Bladder capacity, floor traction, how far the door is. All 3 are things you can adjust.",verified: already-used post
+CESA-02,The accident nobody explains,5,I put what worked for us in a free 15 page guide.,verified: magnet-map.csv delivery description
+CESA-02,The accident nobody explains,6,Comment CESA and I will send it over.,CTA
+CESA-03,She does not move out of the way anymore,1,She does not move out of the way anymore. So I move the room.,verified: already-used post
+CESA-03,She does not move out of the way anymore,2,She picked her spot in the kitchen years ago and has no intention of renegotiating it.,verified: already-used post
+CESA-03,She does not move out of the way anymore,3,I taped out her spot on the floor before I moved the counter around.,verified: already-used post
+CESA-03,She does not move out of the way anymore,4,The path I walk carrying something hot is never the 3 feet where she sleeps.,verified: already-used post
+CESA-03,She does not move out of the way anymore,5,Senior dog care is not heroics. It is moving the furniture instead of asking her to move.,verified: already-used post
+CESA-03,She does not move out of the way anymore,6,Comment CESA and I will send you what I wrote about her.,CTA
