@@ -450,3 +450,53 @@ posts. 4247414 stands as the single YouTube version, Sept 9 14:00 UTC.
 Net result: 3 broken posts became 2 correct ones. Facebook 4247411 at 13:30
 UTC and YouTube 4247414 at 14:00 UTC, both carrying captions that match the
 video, both on working media, neither falsely declared as AI.
+
+### Threshold Cozy Nights candle SKU hunt, 09/09
+
+**Not resolved. Do not ship a guessed SKU.**
+
+Pulled the scheduled TikTok's own media (Blotato 4158117, 21.4s) and read
+frames to identify the exact product rather than guessing from the caption.
+
+**What is in the video:** a clear glass jar candle, gold Threshold lid, navy
+arch label carrying gold fern fronds and small white berry sprigs, reading
+"Cozy Nights" and "TOBACCO · CARAMEL".
+
+**What was checked and ruled out**, by pulling each product image and
+comparing side by side:
+
+| TCIN | Product | Verdict |
+|---|---|---|
+| 94682320 | 2 Wick Limited Edition Cozy Nights Dark Gray 15.1oz | No. Jar fully wrapped in dense gold paisley, not a clear jar |
+| 94682422 | 2 Wick Lidded Glass Cozy Nights Dark Gray 15.1oz | No. Blue wave label |
+| 95042014 | 15.1oz 2-Wick Lidded Glass Cozy Nights | No. Blue wave label |
+| 94682280 | 2 Wick Lidded Glass Cozy Nights Dark Gray 21.5oz | No. Blue wave label |
+| 1006890802 | 21.5oz 2-Wick Lidded Glass Cozy Nights | No. Blue wave label |
+| 94320167 | Cozy Nights Jar Candle 12oz | Page 404s, could not see the image |
+| 90043488 / 90043512 / 90043473 | older Cozy Nights variants | Pages 404 |
+
+The gold fern label version did not surface in any search. It is likely a 2026
+fall seasonal that the public listings have not indexed.
+
+**Tooling limits hit:** redsky search API returns 403, WebFetch is blocked on
+target.com by the egress proxy, several product pages 404 through curl.
+
+**Fastest path to the real number:** search Cozy Nights inside the Club Target
+dashboard at club.target.com. The storefront product picker returns the exact
+`/_/sku/{SKU}` link, which is the number the caption needs. The Target app's
+barcode scan on the physical jar also returns it.
+
+### SEPARATE HARD RULE VIOLATION in the same video
+
+The video carries burned-in on-screen text reading **"GLASS PUMPKINS AT $15."**
+
+CLAUDE.md: never state a price on affiliate content. That rule exists because
+of the 08/04/2026 TikTok Shop violation. This one is baked into the render, so
+the caption cannot fix it. The post is scheduled for Sept 10.
+
+Options: re-render without the price card, cut to the segment that does not
+show it, or pull the post.
+
+Also note the video names **2** products, the Cozy Nights candle and the glass
+pumpkins. Under the hard rule both need their own product links, not the
+storefront.
