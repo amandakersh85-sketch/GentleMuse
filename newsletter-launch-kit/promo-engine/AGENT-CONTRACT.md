@@ -372,3 +372,68 @@ does, every 2 hours, and it REPLIES to real people rather than reporting them �
 Note the constraint difference. A plain DM reply only works within **24 hours** of the person's
 last message, and once that window closes it is gone — unlike a comment, where a public reply
 works forever. So an unread DM decays in a way an unread comment does not.
+
+## 0f. CORRECTION: you cannot see Amanda's side of a DM. Never treat her inbox as a queue.
+
+**Found 2026-09-09 04:18, and it overturns a claim this file made six hours earlier.**
+
+`0e` said the DM inbox "was never being watched" and that real messages sat in it unanswered.
+**That was wrong.** Blotato records DMs sent *through Blotato* and DMs *received*, but NOT the
+replies Amanda sends from the Instagram app.
+
+The proof is in the threads themselves. Conversations `229724` and `219329` contain ONLY
+`direction: incoming` messages — and in both, the other person quotes her replies straight back:
+
+> "I like the way you think"
+> "You're right about Cesa; you need to take care of her"
+> "You're not chasing shiny objects, you're letting the data tell you where to double down"
+
+She has been answering all along. The record is incomplete, and an incomplete record was read as
+an empty one. **A missing outgoing message is not evidence of silence.**
+
+### What this breaks
+
+The funnel watch had been instructed to reply to any DM that "looked unanswered". That
+instruction was live for six hours and is now revoked. Had it fired on a real thread it could
+have:
+
+- replied into a conversation she is actively holding,
+- contradicted something she already said and the record does not show,
+- and imitated a register that is hers — one thread contains "Yes honey".
+
+### The rule now
+
+**Her DM inbox is correspondence, not a work queue. Read it, report it, do not answer it.** The
+single exception is an email address typed in-thread: that address is genuinely stranded because
+nothing syncs a hand-sent thread, so add it to the Cesa group and say so.
+
+Public comment replies are the opposite case and remain fully automatic. A comment is public, its
+whole reply history is visible in `blotato_list_comments`, and there is no hidden side. That
+routine (`trig_01HK4yKpqXoMKYjpiX6LQUj2`) is unaffected and correct.
+
+### `229724` — read this before judging it
+
+Contact `1725097938924220` sells **food trailers** and is proposing a commission arrangement with
+her in Iowa. The register is personal and affectionate. On the surface it has the shape of a
+romance-plus-business approach.
+
+**It is almost certainly none of those things.** *House of Trailers* is one of her real website
+clients, named in her own `wix-site-builder` skill. This is a live business relationship with a
+client, in a warm register, about money.
+
+Calling that a scam would have been a fabrication about her life dressed up as a security finding
+— the exact failure her hard rule exists to prevent: **NEVER GUESS, ALWAYS CHECK SOURCE.** Two
+sources disagreed and the repo held the answer. Never characterise a person in her inbox without
+checking whether they already appear in her own files.
+
+### The general lesson, third time in two days
+
+| Read | Mistake |
+|---|---|
+| Partial Blotato queue | claimed "zero collisions" |
+| Analytics not yet fetched | claimed no breakout post |
+| DM list missing her outgoing | claimed nobody reads her inbox |
+
+Every one is the same error: **treating the absence of a record as the absence of the thing.**
+Before reporting that something has not happened, establish that the source would show it if it
+had.
