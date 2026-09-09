@@ -1504,3 +1504,102 @@ account, unvalidated, same as before.
 Worth stating plainly next to the JAT finding from earlier today: `2954` at 0 runs and the
 TUESDAY pair at 0 runs are the same shape of problem. The automation is not the thing that is
 broken. Almost nothing asks anyone to type the word.
+
+---
+
+# Daily lead sync 2026-09-09 13:06 UTC — a real conversion, and the baseline is wrong
+
+## THE NEWS: the Cesa guide funnel converted a stranger overnight
+
+`artinehaladadyan@gmail.com` (field name "A") joined the **Cesa group**
+`196024300390581479` at **2026-09-09 02:48:00**, `source: webform`. Sent 1, **opened 1,
+clicked 1.** IP `2603:8001:7af0:...`, which is not Amanda's `72.58.115.46`.
+
+This is the conversion the funnel watch has been checking for every 2 hours. It did not come
+through a keyword. It came through the landing page.
+
+**Probable attribution, stated as inference and not proof.** 6 guide DMs went out from the
+comment sweep on 09-08 between 16:34 and 18:42 UTC, each carrying the "Get the guide" button
+to `cesa-guide.subscribepage.io`. This signup lands 8 to 10 hours later, and the Cesa group
+went from 3 active to 4. An Instagram contact id cannot be mapped to an email address from
+this surface, so which of the 6 it was cannot be established. Recipients were
+`1732590004635114`, `1386554462976400`, `4459306094331032`, `977713232018221`,
+`2286721815396579`, `2535614900194954`.
+
+## Second correction: there are 7 real subscribers, not 5
+
+The routine's baseline names 5 (Mary, Melissa, Nadia, christine, Laura). Two more are real
+and were never recorded:
+
+| Email | Name | Group | Joined | Sent / opens |
+|---|---|---|---|---|
+| `shaniyaplunkett516@gmail.com` | Shaniya | Consider This | 09-04 16:42, double opt-in confirmed | 1 / 0 |
+| `artinehaladadyan@gmail.com` | A | Cesa | 09-09 02:48 | 1 / 1, plus 1 click |
+
+**Both arrived by `source: webform`, i.e. a landing page.** That makes **4 real webform
+conversions** to date (christine 08-19 JAT, Laura 08-23 JAT, Shaniya 09-04 Consider This,
+artine 09-09 Cesa) against **0 keyword conversions, ever.** Same finding as this morning's
+JAT diagnosis, now with 4 data points instead of 2: the pages convert, the keywords never
+fire because almost nothing asks anyone to type them.
+
+## The emailGate list is 4, and not the 3 the routine expects
+
+Built from a full sweep of all **40** automations, not from the prompt.
+
+| id | Keyword | Account | Group | Note |
+|---|---|---|---|---|
+| `4011` | SEASONAL | Cesa IG 65540 | Consider This | gate deliberate |
+| `4010` | SEASONAL | FB 30840 | Consider This | gate deliberate |
+| `4009` | SEASONAL | IG 45886 | Consider This | gate deliberate |
+| `2772` | TUESDAY | FB 30840 | Just Another Tuesday | **gate should be gone, removal blocked** |
+
+Changed from the routine's 08-31 snapshot: `2954` lost its gate 09-08, `2771` lost its gate
+today at 06:25, and the 3 SEASONAL automations were created 09-01 and never appeared in it.
+
+**All 4 have 0 runs, ever. Nothing captured, nothing to sync to MailerLite.**
+
+## Health checks
+
+- **No followGate anywhere.** All 40 checked. The 5 that briefly carried one on 08-30
+  (`445`, `435`, `1393`, `1019`, `1424`) are all still clean.
+- **No duplicate of a live automation.** Every keyword that appears twice is once per account
+  (IG 45886 / FB 30840 / Cesa IG 65540). The 6 inactive records are all labelled RETIRED or
+  Draft: `450`, `447`, `446`, `427`, `413`, `412`.
+- **No failed runs.** Checked runs on all 19 funnel automations (`2952`, `445`, `432`, `2954`,
+  `2771`, `2772`, `4009`, `4010`, `4011`, `1393`, `1394`, `1424`, `1422`, `1019`, `1020`,
+  `435`, `2778`, `3994`, `3995`). Only failures in the system remain the 2 x 20102 on `445`
+  from 08-28, both the test contact, both baseline. **The 21 Target product automations were
+  not run-checked** — 21 more calls for affiliate links with no history, said plainly rather
+  than implied.
+- **No unconfirmed subscribers, and no active subscriber with 0 sends.** Nothing to re-add.
+
+## The 12-send check: nobody qualifies, and a trap for the next run
+
+Condition is sent >= 12 AND opens_count == 0. Nobody meets it.
+
+Melissa (`mmlaird8@gmail.com`) and Nadia (`nadezhda.isaenko.psy@gmail.com`), the two the rule
+was written for, were **already suppressed on 2026-09-08 15:03:38**, both at 9 sends and 0
+opens, both `status: unsubscribed` and not deleted, which is the correct method. They never
+reached 12 and are no longer accumulating sends.
+
+**Trap:** `amanda@gentlemuse.co` is at **11 sends, 0 opens**. It crosses 12 on the next send
+and will meet the condition exactly. It is Amanda's own address and must never be flagged for
+removal. Exclude her own addresses before applying this check, every time.
+
+## Keyword false-positive risk nobody is watching
+
+The 09-08 recommendation was to drop the bare lowercase form on `brow`, `play` and `native`
+because their host words are too common. That was **not applied, or was reverted**. Live now:
+
+| id(s) | Bare lowercase keyword | Matches inside |
+|---|---|---|
+| `439`, `423` | `brow` | brown, browse, brows, eyebrow |
+| `1019`, `1020` | `play` | playing, played, player, display |
+| `442`, `426` | `native` | alternative, imaginative |
+| `454`, `6025` | `gel` | **angel** |
+
+These are all Target affiliate automations on IG 45886 and FB 30840. A false positive both
+sends a stranger a product ad and spends that comment's single private reply slot. The comment
+routine's keyword measurement only covers Cesa's account `65540`, so nothing is watching these.
+**Proposed, not applied:** space-pad them (`" brow "`, `" play "`, `" gel "`) the way `" chi "`
+was, or drop to all-caps plus Title. Keyword config is Amanda's call.
