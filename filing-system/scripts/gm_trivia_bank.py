@@ -54,6 +54,7 @@ from datetime import date, timedelta
 HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(HERE, "..", "data")
 DEFAULT_BANK = os.path.join(DATA, "trivia-fact-bank.csv")
+DEFAULT_SOURCES = os.path.join(DATA, "trivia-sources.csv")
 
 BANK_COLUMNS = [
     "FactID", "Topic", "Fact", "Backbone", "FoundIn", "Source", "SourceUrl",
@@ -91,6 +92,28 @@ def _read(path, required, label):
         return [r for r in reader if any((v or "").strip() for v in r.values())]
 
 
+def load_sources(path=DEFAULT_SOURCES):
+    """The senders Amanda approved, lowercased.
+
+    Approving a reading list is only half a rule. Without this, a session
+    could mine any newsletter in the inbox and bank the result, and nothing
+    would notice: FoundIn would quietly say so and every other check would
+    pass. The 5 stock-tip newsletters she parked are high volume enough to
+    look like signal to anything reading by hand.
+
+    A missing file means no list to check against, so nothing is enforced.
+    That is deliberate: this file is hers to fill, and an empty one must not
+    silently block the whole bank.
+    """
+    try:
+        with open(path, newline="", encoding="utf-8-sig") as fh:
+            return {(r.get("Sender") or "").strip().lower()
+                    for r in csv.DictReader(fh)
+                    if (r.get("Approved") or "").strip().lower() in ("yes", "true", "1")}
+    except OSError:
+        return set()
+
+
 def load_bank(path=DEFAULT_BANK):
     rows = _read(path, BANK_COLUMNS, "trivia-fact-bank.csv")
     return {(r["FactID"] or "").strip(): r for r in rows if (r["FactID"] or "").strip()}
@@ -122,7 +145,7 @@ def is_stale(fact, today=None):
     return (today or date.today()) - checked > timedelta(days=DECAY_DAYS)
 
 
-def usable_problems(fact, today=None):
+def usable_problems(fact, today=None, approved=None):
     """Every reason this row cannot carry a post yet. Empty list means usable."""
     problems = []
 
@@ -154,6 +177,17 @@ def usable_problems(fact, today=None):
     if _clean(fact, "Verified").lower() not in ("yes", "true", "1"):
         problems.append("not Verified")
 
+    # A blank FoundIn means the fact did not come off the newsletter sweep,
+    # which is fine. A FoundIn that names something she has not approved is
+    # a fact mined somewhere she said not to read.
+    found = _clean(fact, "FoundIn")
+    if approved is None:
+        approved = load_sources()
+    if found and approved and found.lower() not in approved:
+        problems.append('FoundIn "%s" is not an approved source. Either she has '
+                        "not approved it or it should not have been read."
+                        % found)
+
     if is_stale(fact, today):
         checked = _clean(fact, "VerifiedOn") or "never"
         problems.append("Decays and was last checked %s, past the %d day window"
@@ -162,17 +196,19 @@ def usable_problems(fact, today=None):
     return problems
 
 
-def is_usable(fact, today=None):
-    return not usable_problems(fact, today)
+def is_usable(fact, today=None, approved=None):
+    return not usable_problems(fact, today, approved)
 
 
-def audit(bank, today=None):
+def audit(bank, today=None, sources=None):
+    approved = load_sources(sources or DEFAULT_SOURCES)
     usable, held = [], []
     for fid, fact in sorted(bank.items()):
-        problems = usable_problems(fact, today)
+        problems = usable_problems(fact, today, approved)
         (held if problems else usable).append((fid, fact, problems))
 
-    print("%d fact(s) in the bank" % len(bank))
+    print("%d fact(s) in the bank, %d approved source(s) to hunt in"
+          % (len(bank), len(approved)))
     by_topic = Counter(_clean(f, "Topic").lower() for f in bank.values())
     for topic in TOPICS:
         print("  %-11s %d" % (topic, by_topic.get(topic, 0)))
@@ -193,9 +229,10 @@ def audit(bank, today=None):
     return 1 if held else 0
 
 
-def available(bank, limit, today=None):
+def available(bank, limit, today=None, sources=None):
     """Usable facts, least recently used first. That is the pull order."""
-    rows = [(fid, f) for fid, f in bank.items() if is_usable(f, today)]
+    approved = load_sources(sources or DEFAULT_SOURCES)
+    rows = [(fid, f) for fid, f in bank.items() if is_usable(f, today, approved)]
     rows.sort(key=lambda r: (_clean(r[1], "LastUsed") or "0000-00-00", r[0]))
     return rows[:limit] if limit else rows
 
@@ -203,6 +240,7 @@ def available(bank, limit, today=None):
 def main():
     ap = argparse.ArgumentParser(add_help=True)
     ap.add_argument("--bank", default=DEFAULT_BANK)
+    ap.add_argument("--sources", default=DEFAULT_SOURCES)
     ap.add_argument("--audit", action="store_true")
     ap.add_argument("--available", nargs="?", type=int, const=5, default=None)
     ap.add_argument("--topics", action="store_true")
@@ -211,7 +249,7 @@ def main():
     bank = load_bank(args.bank)
 
     if args.available is not None:
-        rows = available(bank, args.available)
+        rows = available(bank, args.available, sources=args.sources)
         if not rows:
             print("nothing usable in the bank. Run --audit to see what each row "
                   "is waiting on. Do not reach for the nearest fact that fits.")
@@ -232,7 +270,7 @@ def main():
             print("%-11s usable %-3d held %d" % (topic, c["usable"], c["held"]))
         return 0
 
-    return audit(bank)
+    return audit(bank, sources=args.sources)
 
 
 if __name__ == "__main__":

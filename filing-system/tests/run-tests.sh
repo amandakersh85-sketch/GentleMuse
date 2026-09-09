@@ -766,6 +766,24 @@ if [ $? -eq 2 ]; then
   echo "PASS  a post naming no fact holds rather than guessing one"; pass=$((pass+1))
 else echo "FAIL  a post naming no fact holds rather than guessing one"; fail=$((fail+1)); fi
 
+# Approving a reading list is only half a rule. Without this check a session
+# could mine any newsletter in the inbox and bank it, and FoundIn would
+# quietly say so while every other rule passed.
+if python3 "$TB" --bank "$HERE/trivia.bank.csv" --sources "$HERE/trivia.sources.csv" --audit 2>/dev/null \
+   | grep -q 'FoundIn "amn@mail.beehiiv.com" is not an approved source'; then
+  echo "PASS  a fact mined from a parked newsletter is held"; pass=$((pass+1))
+else echo "FAIL  a fact mined from a parked newsletter is held"; fail=$((fail+1)); fi
+
+# And the rule is "not approved", not "has a FoundIn at all".
+if python3 "$HERE/trivia_assert.py" approved-passes; then
+  echo "PASS  a fact found in an approved newsletter still passes"; pass=$((pass+1))
+else echo "FAIL  a fact found in an approved newsletter still passes"; fail=$((fail+1)); fi
+
+# Amanda's real list, so a bad edit to it shows up here rather than in a post.
+if python3 "$HERE/trivia_assert.py" live-list; then
+  echo "PASS  the live list is her 09/09 answer, tier 1 and 3, tier 2 parked"; pass=$((pass+1))
+else echo "FAIL  the live list is her 09/09 answer, tier 1 and 3, tier 2 parked"; fail=$((fail+1)); fi
+
 # The live bank ships unverified on purpose. Nothing was marked checked that
 # was not actually opened and read.
 if python3 "$TB" --audit 2>/dev/null | grep -q "0 usable"; then

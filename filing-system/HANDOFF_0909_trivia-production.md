@@ -38,10 +38,17 @@ Re-run `--audit`. You want usable rows before anything else happens.
 
 ## 2. Hunt (the daily loop)
 
-The hunting ground is `filing-system/data/trivia-sources.csv`, 15 senders
-proposed off a scan of her inbox on 09/09. **Every row has Approved blank.
-Read only the rows she has approved.** An unapproved list is a guess at her
-inbox, and a guess is not an input.
+The hunting ground is `filing-system/data/trivia-sources.csv`. Amanda
+answered on 09/09: **tier 1 and tier 3 approved, tier 2 parked.** 10 senders
+to read, 5 marked `later`.
+
+You do not have to remember that. `gm_trivia_bank.py` reads the list and
+holds any fact whose `FoundIn` names a sender she has not approved. A blank
+`FoundIn` is fine, it just means the fact did not come off the sweep.
+
+Tier 2 is parked, not rejected. If she opens it later, set `Approved` to
+`yes` on those rows and the bank starts accepting them. Change the CSV,
+never the gate.
 
 Tier 3 is worth understanding: TikTok Shop, Amazon Associates and Blotato
 announcing their own policy changes ARE primary sources. A fact from one of
@@ -215,11 +222,10 @@ Account ids: YouTube 36129, TikTok 41488, Facebook 30840 (pageId
 
 ## Decisions, answered 09/09
 
-1. **Newsletters.** Amanda asked for a scan and a proposed shortlist
-   rather than naming senders. Read the inbox, find what actually carries
-   AI, automation and creator-economy substance, and put the list in front
-   of her to approve or cut. Until she has approved it, the hunt stage has
-   no defined input, so do not start banking facts off a guess.
+1. **Newsletters.** Scanned 09/09, and she approved tier 1 and tier 3 and
+   parked tier 2. 10 senders live in `trivia-sources.csv`, enforced by the
+   bank. Tier 3 is the cheap half: TikTok Shop, Amazon Associates and
+   Blotato announcing their own changes are primary sources already.
 2. **Delivery.** HeyGen talking head, using her existing twin. See the
    render section for look ids. No consent recording needed.
 3. **Cadence.** 1 fact a day, all 4 platforms. That is 28 of the 200
