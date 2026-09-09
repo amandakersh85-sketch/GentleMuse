@@ -1603,3 +1603,67 @@ sends a stranger a product ad and spends that comment's single private reply slo
 routine's keyword measurement only covers Cesa's account `65540`, so nothing is watching these.
 **Proposed, not applied:** space-pad them (`" brow "`, `" play "`, `" gel "`) the way `" chi "`
 was, or drop to all-caps plus Title. Keyword config is Amanda's call.
+
+---
+
+# Approved and applied 2026-09-09 16:09 UTC — the TUESDAY path is whole
+
+Amanda: *"yes add the caption CTAs and fix 2772"*, and separately *"did you already fix the
+JAT signup form or landing page situation? i want that permanently fixed"*.
+
+## Answer to the landing page question, plainly
+
+**The signup form and landing page were never broken.** That was this workspace's error,
+reported twice, and Amanda caught it by opening MailerLite herself. There is nothing there to
+permanently fix because nothing there is wrong. Verified 3 independent ways on 09-09:
+
+1. `just-another-tuesday-gm.subscribepage.io` returns **HTTP 200** with a working email field
+   posting to account `2465670`, page `196122128046621787`.
+2. It **converts real strangers**: christine 08-19 and Laura 08-23, both `source: webform`.
+3. Popup `195832725497709843` is `active: true`, `is_broken: false`,
+   `has_missing_groups: false`, feeding Consider This **and** Just Another Tuesday.
+
+The same day proved the pattern twice more: Shaniya into Consider This 09-04 and
+`artinehaladadyan@gmail.com` into Cesa 09-09 02:48, both `source: webform`, the second one
+opening and clicking. **4 real conversions, all through landing pages. 0 through keywords.**
+
+## `2772` fixed. Both gates now gone for good.
+
+| id | Platform | emailGate | Version | Confirmed |
+|---|---|---|---|---|
+| `2771` | Instagram | **removed** 06:25 | 4602 → **8850** | independent re-read |
+| `2772` | Facebook | **removed** 16:09 | 4603 → **8955** | independent re-read |
+
+Both keep `isActive: true`, all 3 keywords (`TUESDAY`, `tuesday`, `Tuesday`), and the
+"Get Tuesdays" button to the JAT page. Both `dmMessage` rewritten off "You're in," which was
+only true with a gate capturing the email first.
+
+**The TUESDAY comment-to-DM path is functional end to end on both platforms for the first time
+since it was built on 08-25.** Before today: comment the keyword, get asked for your email,
+never answer, run expires, and your one private reply slot is gone forever. That is exactly
+how the 09-05 lead was lost.
+
+## Caption CTAs added, all 5 verified on re-read
+
+No media, scheduled time, `mediaType`, `shareToFeed` or `pageId` was disturbed on any of them.
+
+| id | When | Account | CTA added | Why this post |
+|---|---|---|---|---|
+| `4249445` | 09-10 13:30 | FB reel | **TUESDAY** | Her own AI cast, tools she is still learning. Fires `2772`. |
+| `3691551` | 09-14 20:00 | IG | **TUESDAY** | "the real build in public." Day before #004 sends. |
+| `4231110` | 09-15 15:00 | IG reel | **TUESDAY** | #004 send day. Hooks the caption's own "quiet one" line. |
+| `3691541` | 09-15 23:00 | IG | **TUESDAY** | #004 send day. Says the issue is out, which it is. |
+| `4231131` | 09-16 18:00 | IG | **GUIDE** | Caption promises the free 59 page guide, so the keyword matches the promise. `firstComment` carries both links. |
+
+`3732531` (09-15 17:00, the gratitude reel) deliberately left alone. Wrong post for a
+newsletter pitch.
+
+## What is NOT permanently fixed, and cannot be from here
+
+**6 of the 7 JAT send days have no posts at all.** The IG and FB queue ends 09-21. Send days
+09-22, 09-29, 10-06, 10-13, 10-20 and 10-27 are empty, so there is no caption to attach a CTA
+to. Editing captions cannot fix an empty queue.
+
+So the honest state: the plumbing is now permanently correct, and the promotion is fixed only
+as far as 09-16. Making it permanent means content on send days, which is writing, not
+config. That is the next ask.
