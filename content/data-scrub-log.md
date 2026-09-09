@@ -587,6 +587,29 @@ Blotato 4158117 (TikTok, Sept 10) caption rewritten:
 Lesson recorded: the SKU lives in the product URL after `/-/A-`. Getting the URL
 from Amanda took 1 message. Ask for it early instead of exhausting search paths.
 
+#### Correction 09/09: the price rule's actual scope
+
+Amanda asked whether Target has a rule against prices in videos. Checked
+rather than assumed. Searched the full Club Target inbox: every Duel
+(target@duel.technology) email, the ClubTarget@target.com compliance thread,
+and the Program Terms references.
+
+**No Target or Club Target rule about prices exists in any of it.**
+
+The rule's only documented origin, in
+filing-system/HANDOFF_0819_local-execution.md, is one line: "Never state a
+price on affiliate content. Open TikTok Shop violation from 08/04/2026." That
+is TikTok Shop, not Target, and the note carries no detail about what the
+violation actually was.
+
+So the earlier entries calling the "$15" card a HARD RULE VIOLATION overstate
+it. It is Amanda's own internal rule, its origin platform is TikTok, and this
+post is a TikTok, which is the only thing that makes it relevant here. It is
+her call to waive, not an external compliance requirement.
+
+The genuine non-rule risk is accuracy: Target prices change and vary by store,
+and a video lives forever, so a price card can become wrong later.
+
 #### Glass pumpkin SKU resolved: 95011921
 
 Amanda sent the URL. Verified against the image gallery: 4.5" Small Glass Fall
