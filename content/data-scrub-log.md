@@ -243,3 +243,110 @@ live number at the time was 134. The update was requested and did not get
 completed before the post fired. Minor, but logged for accuracy.
 
 Campaign closed. This trigger disables itself now.
+
+---
+
+# 1K CAMPAIGN, Sept 8 to Oct 8 2026
+
+## Scrub, Day 1, night of Mon Sept 8 (run 09/09 02:37 UTC)
+
+**Follower count: UNKNOWN.** Amanda's manual count is the source of truth and
+she is not here. Campaign start was 190. Metricool lags 3 to 5 days and is not
+trusted per CLAUDE.md. Ask her tomorrow and backfill this line.
+
+### Analytics status, read this before drawing any conclusion
+
+**No Blotato metrics exist yet for anything published Sept 8 or 9.** Both the
+Instagram and Facebook top-post queries filtered to `since 2026-09-08` came
+back empty. Analytics are collected on a background refresh and the most
+recent snapshot in the whole account is 09/08 16:01 UTC, against a post
+published Sept 7.
+
+So Day 1 is a volume and compliance scrub, not a performance scrub. Any
+performance claim tonight would be invented. Day 2 is the earliest the Sept 8
+posts can be read.
+
+### Post volume, Day 1 (target 3 to 4 per platform)
+
+| Platform | Published Sept 8 | Target | Met |
+|---|---|---|---|
+| Instagram | 4 | 3 to 4 | yes |
+| TikTok | 4 | 3 to 4 | yes |
+| Facebook | 4 | 3 to 4 | yes |
+| YouTube Shorts | 3 | 3 to 4 | yes |
+| Pinterest | 1 | n/a | n/a |
+
+Day 1 hit the cadence target on every platform in scope. That is the first
+time this has happened.
+
+Instagram, Sept 8: Are You Afraid of the Dark reel (15:01), Cesa party era
+(17:00), Salem reel (20:01), bookmarking photo (23:00).
+Facebook: staying in reel (14:00), AYAOTD reel (17:00), Consider This promo
+(19:30), Cesa yard reel (22:00).
+TikTok: nightmare etymology (15:01), AYAOTD photo carousel (17:01), Halloween
+candy (20:00), 3 second stare (23:00).
+YouTube: season teaser (14:30), Nightmare Before Christmas (17:20), math short
+(20:20).
+
+### Trivia test against the 37 view baseline
+
+**Not yet measurable.** No trivia post published since Sept 8 has metrics. The
+Rubik's Cube trivia is scheduled Sept 9 on Facebook (13:30) and YouTube
+(14:00). There is no Instagram trivia in the Sept 9 queue at all, which means
+the clean export test, the entire point, is not scheduled to run on the one
+platform where the 37 view failure happened.
+
+**Action: put a clean Instagram trivia render in the queue or the test does
+not exist.**
+
+### Cesa above 10,000 views
+
+**No.** Ceiling is still the Aug 18 coming home reel at 7,726 views on
+Instagram, which remains the single best post in the corpus. Nothing since has
+come near it. Second best is the Sept 3 sidewalk walk reel at 2,085.
+
+Full corpus Instagram Cesa ranking, unchanged from the last scrub: 7,726 /
+2,085 / 1,865 / 1,842 / 1,727 / 1,629 / 1,498 / 1,296 / 1,263 / 1,191 / 905 /
+870 / 801. Cesa remains the dominant format. The Aug 18 outlier is 3.7x the
+next best, so it is an outlier, not a repeatable baseline.
+
+### HARD RULE VIOLATIONS, product links
+
+4 Club Target posts name a specific product and carry only "storefront's in my
+bio." Every one of these needs the product's own
+`https://club.target.com/s/amanda.20/_/sku/{SKU}` link.
+
+| Post | Product named | Status |
+|---|---|---|
+| TikTok 6837551, Sept 7 23:01 | Tillamook seasonal flavors | published |
+| TikTok 6838766, Sept 8 00:00 | Good & Gather chopped salad kits | published |
+| TikTok 6869994, Sept 9 00:00 | Tree Hut pink hibiscus scrub | published |
+| TikTok 4158117, Sept 10 | Threshold cozy nights candle | **SCHEDULED, still fixable** |
+
+**4158117 is the one that can still be fixed before it fires.** Pull the SKU
+for the Threshold Cozy Nights candle and put the product link in the caption
+before Sept 10.
+
+The 3 published ones can be edited in TikTok directly, or left and logged.
+Amanda decides.
+
+Also noted on all 4: they carry #TargetPartner and #ad, but not the full
+disclosure sentence CLAUDE.md specifies ("I'm a Target partner, so I may earn
+rewards or commission when you shop my link, at no extra cost to you"). The
+hashtags alone may satisfy the platform. They do not match the documented
+standard.
+
+### Watermark and AI badge check
+
+**Could not verify from this session.** Confirming a burned-in badge means
+pulling frame 1 of each published video, and video download through this
+session's connectors is not workable at these file sizes. The Sept 8 posts
+went out through Blotato from stored media, which is the correct path and not
+the re-download path that caused the 37 view failure. Flagging as unverified,
+not as clean.
+
+### Day 1 read
+
+Cadence is solved. Compliance is not, and the product link rule was broken 4
+times in 3 days, which is the same miss documented in CLAUDE.md from August.
+The trivia test is not actually scheduled where it needs to run.
