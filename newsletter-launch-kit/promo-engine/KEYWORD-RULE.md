@@ -1474,3 +1474,33 @@ straight into the trap that already cost 1.
   gate and old "You're in" copy both intact. So Facebook TUESDAY remains a lead-burning
   path until either Amanda removes the gate in the Blotato dashboard or grants the
   permission. The IG side is safe now; the FB side is not.
+
+## Comment run 2026-09-09 06:50 UTC — nothing to answer
+
+1 comment examined in the 8-hour window (since 09-08 22:50). It was `4258636`,
+`isAuthor: true`, her own reply on `6691079`: "@emily_nyc_53 thank you, she appreciates such
+nice compliments ☺️". Discarded per the filter. No cursor returned, so that was the whole
+list. **0 audience comments, 0 unanswered, 0 replies posted, 0 guides sent, 0 spam.**
+
+### Keyword measurement
+
+| | This run | Out-of-sample tally since keywords shipped 09-08 17:46 |
+|---|---|---|
+| Qualified comments on `65540` | 0 | 1 |
+| Caught by live keywords | 0 (none to catch) | 0 |
+| Missed | 0 | 1 — "my healthy chi", since fixed with `" chi "` |
+| False positives | 0 | 0 |
+
+Tally unchanged. **0 runs fired anywhere in this window**, so no false positive was possible.
+
+### `2954` subscribe-intent keywords: still never fired, now confirmed by run count
+
+`blotato_list_automation_runs` on `2954` returns **an empty list**. Zero runs, ever. So on
+Cesa's account neither `CONSIDER` itself nor any of the 6 subscribe-intent phrases
+(`sign me up`, `add me`, `count me in`, `the newsletter`, `the weekly`, `weekly note`) has
+matched a single comment since going live. That is the whole Consider This funnel on that
+account, unvalidated, same as before.
+
+Worth stating plainly next to the JAT finding from earlier today: `2954` at 0 runs and the
+TUESDAY pair at 0 runs are the same shape of problem. The automation is not the thing that is
+broken. Almost nothing asks anyone to type the word.
