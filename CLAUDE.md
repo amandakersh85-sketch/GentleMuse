@@ -101,6 +101,15 @@ Variety is the point of the volume. A day should not be 5 of the same lane.
 The lanes are: holiday fact, Cesa, Club Target, food review, lead magnet
 carousel, Amanda on camera, trivia.
 
+The trivia lane is scoped to AI, automation and the creator economy. Set
+09/08/2026. General trivia fills the same slot at the same cost while
+diluting the positioning the account is there to carry, so the scope lives
+in the Topic column of `filing-system/data/trivia-fact-bank.csv` and the
+bank refuses anything else. A newsletter is where a fact was found, never
+what makes it true: FoundIn and Source are 2 columns and the gate refuses a
+row where they are the same. Facts that move get re-checked every 90 days.
+`SOP_0909_trivia-pipeline.txt` is the whole procedure.
+
 ## Voice
 
 Anything written for Amanda's audience follows the Gentle Muse voice: calm,

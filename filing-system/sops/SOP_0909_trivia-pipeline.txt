@@ -1,0 +1,163 @@
+SOP 09/09/2026 — THE TRIVIA PIPELINE (Run 8)
+The Gentle Muse. Supersedes nothing. Additive to the posting board.
+
+────────────────────────────────────────────────────────────────────────
+1. WHAT THIS LANE IS, AND WHAT IT IS NOT
+────────────────────────────────────────────────────────────────────────
+
+Amanda's call, 09/08/2026: the trivia runs on Gentle Muse, on the 4
+platforms already connected, and it is scoped to AI, automation and the
+creator economy. Not general trivia.
+
+The reason is not taste. General trivia fills the same slots at the same
+cost while diluting the positioning the account exists to carry. Scoped
+trivia fills those slots AND reinforces it. The scope is enforced in data,
+in the Topic column, so it cannot drift at 1am:
+
+    ai | automation | creator
+
+Anything else is refused by the bank, not argued about.
+
+Why the lane exists at all: the board needs distinct facts. On 09/08 the
+video pool held 17 Halloween facts against 132 video slots in 11 days, and
+that shortage is what produced both the repeats and the gaps. A daily
+trivia cut is 4 genuinely new posts a day across YouTube, TikTok, Facebook
+and Instagram. It is the only lever on the table that adds material without
+a credit spend.
+
+────────────────────────────────────────────────────────────────────────
+2. THE RISK THIS PIPELINE IS BUILT AROUND
+────────────────────────────────────────────────────────────────────────
+
+Run 6 stopped a caption being bound to a clip that did not show it.
+Run 7 stopped a caption being bound to a holiday fact nobody checked.
+Run 8 is the same guard on the lane where it matters most.
+
+The audience for AI and creator trivia is an audience that will know when a
+number is wrong. The account's whole proposition is being the one that gets
+it right. A confident invented figure, in her voice, costs more than a week
+of silence.
+
+Two failures this lane has that the holiday lane does not:
+
+  A newsletter is not a source.  A newsletter is where a fact was FOUND.
+  What makes it true is the thing itself: the company's own post, the
+  paper, the filing, the documentation. A summary of a summary is how a
+  wrong number ends up being said out loud. FoundIn and Source are 2
+  different columns and the gate refuses a row where Source is just the
+  newsletter again.
+
+  Facts move.  Nobody is going to change what year Goosebumps started. A
+  price, a model name, a user count or a policy changes constantly. A fact
+  true in March and repeated in September is not a fact, it is a mistake.
+  Rows marked Decays are held once VerifiedOn is more than 90 days old.
+
+────────────────────────────────────────────────────────────────────────
+3. THE PIPELINE
+────────────────────────────────────────────────────────────────────────
+
+  1  HUNT       Read the newsletters. Pull candidates only. Nothing that
+                comes out of this stage is a fact yet, it is a lead.
+
+  2  VERIFY     Open the primary source. Not the newsletter's link text,
+                the actual thing. If it cannot be opened and read, the
+                candidate is dropped. Not softened, dropped.
+
+  3  BANK       Write the row into data/trivia-fact-bank.csv. Fact,
+                Backbone, FoundIn, Source, SourceUrl, AsOf, Decays.
+                Verified stays "no" until a human has read the source.
+
+  4  GATE       python3 scripts/gm_trivia_bank.py --audit
+                Every held row prints the reason it is held. Fix the row
+                or leave it held. Never substitute a nearby fact.
+
+  5  WRITE      One script per fact, then per-platform captions. The
+                Backbone has to survive into the caption. A fact reported
+                without a turn is trivia, and trivia is not the product.
+
+  6  CHECK      python3 scripts/gm_trivia_check.py --post <caption.json>
+                Exit 0 PASS, 1 FAIL, 2 HOLD. Then post-grader, 8+/10.
+
+  7  APPROVE    Amanda. Every time. See section 5.
+
+────────────────────────────────────────────────────────────────────────
+4. THE GATE, RULE BY RULE
+────────────────────────────────────────────────────────────────────────
+
+Bank rules (gm_trivia_bank.py)
+
+  no Fact line              under 20 characters is not a claim
+  no Backbone               under 15 characters is a fact with no turn
+  Topic outside the lane    ai, automation, creator, nothing else
+  no Source                 blank, "n/a", "tbd" and friends
+  Source is a newsletter    provenance mistaken for authority
+  Source equals FoundIn     nothing was checked, it was copied
+  no SourceUrl              nobody can check it in 1 click
+  not Verified              a human has not read the source yet
+  Decays and stale          past the 90 day window, re-check before use
+
+Caption rules (gm_trivia_check.py)
+
+  T00_NO_FACT_ID            HOLD. No fact named, so nothing to check
+                            against. Write the fact down first.
+  T01_UNKNOWN_FACT          FAIL. A fact not in the bank was not checked.
+  T02_FACT_NOT_USABLE       FAIL. Relays the bank's reasons.
+  T03_NUMBER_NOT_IN_BANK    FAIL. Every number the caption asserts must
+                            appear in the bank row. THIS IS THE ONE THAT
+                            DOES THE WORK. Asked to write 40 seconds
+                            about a 2017 paper, a model will happily add
+                            a citation count, a funding round or a market
+                            size nobody asked for and nobody checked.
+                            Those extra numbers are the entire risk and
+                            they are mechanically findable.
+  T04_NO_TURN               FAIL. The Backbone did not survive into the
+                            caption.
+  T05_OFF_LANE              FAIL. Topic outside the scope.
+  T06_VOICE                 FAIL. Em dash.
+
+────────────────────────────────────────────────────────────────────────
+5. APPROVAL, AND WHY IT IS NOT AUTOMATED
+────────────────────────────────────────────────────────────────────────
+
+House rule 4: approval is the gate. Machine verdicts are proposals.
+
+A PASS from either script means "nothing here is provably wrong." It does
+not mean "this is true." Only a person who opened the source knows that.
+The pipeline produces a HOLD queue. Amanda releases it.
+
+This is not caution for its own sake. Unattended publishing on this lane
+buys 4 posts a day and risks the reason the account is followed.
+
+────────────────────────────────────────────────────────────────────────
+6. COST
+────────────────────────────────────────────────────────────────────────
+
+Per fact, delivered to 4 platforms:
+
+  verification        time only
+  script + captions   time only
+  voiceover           about $0.02 per line at the measured HeyGen rate
+  render              local, free
+  distribution        1 Blotato slot per platform, 4 of the 200
+
+At 1 fact a day that is roughly $0.10 a week of HeyGen wallet and 28 of
+the 200 scheduled slots. It is the cheapest material on the board.
+
+The binding constraint is not money, it is the 200 slot cap. 4 more posts
+a day shortens the runway. See C12_RUNWAY_END in gm_cadence_check.py, and
+fill the nearest empty days first.
+
+────────────────────────────────────────────────────────────────────────
+7. THE BANK SHIPS EMPTY ON PURPOSE
+────────────────────────────────────────────────────────────────────────
+
+trivia-fact-bank.csv ships with 3 rows and 0 of them usable. Every one is
+marked Verified=no.
+
+They are seeded so the shape is obvious and the gate is demonstrably
+working, and they are unverified because nobody has opened the sources
+yet. Marking them verified to make the pipeline look ready is exactly the
+failure this whole run exists to prevent.
+
+First production job: open the 3 URLs, read them, and set Verified=yes and
+VerifiedOn only for the ones that hold up.

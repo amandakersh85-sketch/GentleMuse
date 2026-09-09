@@ -721,6 +721,58 @@ else echo "FAIL  the roster names every channel that owes a post"
 rm -f "$OUT"
 
 echo
+echo "== trivia fact bank and caption gate (Run 8, added 09/09) =="
+# The trivia lane is the one where a language model can do the most damage:
+# a confident invented number, in her voice, to an audience that follows her
+# partly because she gets this right. 2 failures the holiday lane does not
+# have: a fact sourced to the newsletter it was found in, and a moving fact
+# repeated after it stopped being true.
+TB="$HERE/../scripts/gm_trivia_bank.py"
+TC="$HERE/../scripts/gm_trivia_check.py"
+
+if python3 "$TB" --bank "$HERE/trivia.bank.csv" --audit 2>/dev/null | grep -q "is a newsletter"; then
+  echo "PASS  a fact sourced to the newsletter it came from is held"; pass=$((pass+1))
+else echo "FAIL  a fact sourced to the newsletter it came from is held"; fail=$((fail+1)); fi
+
+if python3 "$TB" --bank "$HERE/trivia.bank.csv" --audit 2>/dev/null | grep -q "past the 90 day window"; then
+  echo "PASS  a moving fact checked too long ago is held"; pass=$((pass+1))
+else echo "FAIL  a moving fact checked too long ago is held"; fail=$((fail+1)); fi
+
+python3 "$TC" --post "$HERE/trivia.clean.json" --bank "$HERE/trivia.bank.csv" >/dev/null 2>&1
+if [ $? -eq 0 ]; then
+  echo "PASS  a caption traced to a checked fact passes"; pass=$((pass+1))
+else echo "FAIL  a caption traced to a checked fact passes"
+     python3 "$TC" --post "$HERE/trivia.clean.json" --bank "$HERE/trivia.bank.csv" 2>&1 | sed 's/^/      /'; fail=$((fail+1)); fi
+
+# The rule that does the most work. Extra numbers are the whole risk.
+python3 "$TC" --post "$HERE/trivia.invented.json" --bank "$HERE/trivia.bank.csv" >/dev/null 2>&1
+if [ $? -eq 1 ] && python3 "$TC" --post "$HERE/trivia.invented.json" --bank "$HERE/trivia.bank.csv" 2>/dev/null | grep -q "T03_NUMBER_NOT_IN_BANK"; then
+  echo "PASS  a number the bank does not carry is refused"; pass=$((pass+1))
+else echo "FAIL  a number the bank does not carry is refused"; fail=$((fail+1)); fi
+
+python3 "$TC" --post "$HERE/trivia.noturn.json" --bank "$HERE/trivia.bank.csv" >/dev/null 2>&1
+if [ $? -eq 1 ]; then
+  echo "PASS  a caption that reports the fact and never turns it is refused"; pass=$((pass+1))
+else echo "FAIL  a caption that reports the fact and never turns it is refused"; fail=$((fail+1)); fi
+
+python3 "$TC" --post "$HERE/trivia.secondary.json" --bank "$HERE/trivia.bank.csv" >/dev/null 2>&1
+if [ $? -eq 1 ]; then
+  echo "PASS  a post built on a newsletter sourced fact is refused"; pass=$((pass+1))
+else echo "FAIL  a post built on a newsletter sourced fact is refused"; fail=$((fail+1)); fi
+
+# No fact is HOLD, not FAIL, and never the nearest fact that fits.
+python3 "$TC" --post "$HERE/trivia.nofact.json" --bank "$HERE/trivia.bank.csv" >/dev/null 2>&1
+if [ $? -eq 2 ]; then
+  echo "PASS  a post naming no fact holds rather than guessing one"; pass=$((pass+1))
+else echo "FAIL  a post naming no fact holds rather than guessing one"; fail=$((fail+1)); fi
+
+# The live bank ships unverified on purpose. Nothing was marked checked that
+# was not actually opened and read.
+if python3 "$TB" --audit 2>/dev/null | grep -q "0 usable"; then
+  echo "PASS  the shipped bank holds every row until somebody verifies it"; pass=$((pass+1))
+else echo "FAIL  the shipped bank holds every row until somebody verifies it"; fail=$((fail+1)); fi
+
+echo
 echo "== media reachability (Run 6, added 09/08) =="
 # A clip row can be complete and still be unusable: the footage is on a
 # machine the renderer has never seen. Describing a shot is not having it.
