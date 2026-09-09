@@ -102,6 +102,33 @@ An honest refusal fires it too. "I do not have access to your calendar" is a
 truthful sentence and a failed capability, and the point of the run was to
 learn whether the ability is real. Honest still means unproven.
 
+WHAT THE FIRST REAL PROBE TAUGHT
+On 09/09 at 08:13 the credit wall had lifted and Symphony answered a read only
+capability probe for real. Of the 3 things asked for, 1 came back with data.
+
+  calendar  7 days of real events with dates and times, verifiable
+  contacts  lookup exists, no count, no outreach on record
+  posts     no read access to Instagram, TikTok or Facebook history
+
+The check stayed quiet, correctly, and the reason is worth keeping. That reply
+carried 56 particulars, and the original HEDGES list matched none of it. It
+declines in a register the list never anticipated, not "I cannot access" but
+"I do not have direct read access", "I could pull it", "I can not see those".
+So it passed on the hedge gate rather than on the evidence gate, which was the
+right outcome reached by the wrong door. A pure blurb in that same voice would
+have gone through unflagged.
+
+The list now carries Symphony's own words, taken from that reply. Widening it
+is safe precisely because 2 signals are required. Rescored afterwards, the
+same real answer matches 7 hedges and still passes on 56 particulars, which is
+the AND requirement doing the work it was put there for.
+
+The second lesson is about the money. The credit wall and the missing access
+are different problems. Premium removes the daily limit. It does not appear to
+grant social read access, because Symphony describes that as needing a
+connected tool rather than a paid tier. Buying the plan to fix the posts
+question would be buying the wrong thing.
+
 EXIT CODES
   0  Symphony answered
   1  Symphony replied and nothing came back. Either the credit wall, or,
@@ -114,10 +141,11 @@ Silence is 2 and not 1, and the conversation stays open. The relay prints the
 timeout is not a failure, it is an answer that has not arrived yet.
 
 WHAT IS STILL OPEN
-The credit wall was live through 09/09, so no message that asks Symphony to
-actually do something has been through this relay yet. The
+A read only probe has now been through the relay and came back real. No
+message that asks Symphony to change anything has, and that is the next
+threshold. The
 transport, the polling, the timeout, the resume path and the wall detection are
-all verified, 16 cases against a local stub plus the live calls. The first
+all verified, 17 cases against a local stub plus the live calls. The first
 real instruction to Symphony is still ahead, and it should be small, and
 Amanda should read the propose output before it goes.
 

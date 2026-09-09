@@ -74,6 +74,19 @@ HEDGES = [
     "here's what i can do", "here is what i can do", "i don't have access",
     "i do not have access", "i can't access", "i cannot access",
     "i don't currently have", "i do not currently have",
+    # Added 09/09 from Symphony's own words on the first real capability probe.
+    # It declines in a register the list above missed entirely: not "I cannot
+    # access" but "I don't have direct read access", "I could pull it", "I
+    # can't see those". That reply passed on evidence, with 56 particulars in
+    # it, so nothing was mis-called. A pure blurb in the same voice would have
+    # gone through unflagged.
+    "i don't have direct", "i do not have direct",
+    "i don't have a live", "i do not have a live",
+    "i can't pull", "i cannot pull", "i could pull",
+    "i can't see those", "i cannot see those",
+    "if you connected", "if you gave me",
+    "i can search for", "i can look",
+    "isn't surfaced", "is not surfaced",
 ]
 
 EVIDENCE = re.compile(

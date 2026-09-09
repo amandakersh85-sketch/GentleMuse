@@ -564,6 +564,12 @@ relay "an answer that offers help still passes" 0 "tok-abc" \
 relay "a clean answer passes with the flag on" 0 "tok-abc" \
       --message "book the call" --send --expect-data -- "Booked"
 
+# Symphony's real refusal register, captured 09/09. The original hedge list
+# matched none of it.
+relay "the observed refusal voice is caught" 1 "tok-abc" \
+      --message "VOICE what are my recent posts" --send --expect-data -- \
+      "THIS IS NOT AN ANSWER" "unproven rather than delivered"
+
 # the wall is the more specific finding, so it wins when both fire.
 relay "the wall outranks the blurb"           1 "tok-abc" \
       --message "WPROSE what is on my calendar" --send --expect-data -- \

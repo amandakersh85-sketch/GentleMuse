@@ -6,6 +6,7 @@ Behaviour is chosen by what the message contains:
   PROSE  fluent capability blurb carrying no particulars
   NOACC  an honest refusal, which is still no data
   MIXED  real particulars that close with an offer of help
+  VOICE  a thin reply in Symphony's own observed refusal register
   WPROSE the credit wall wearing a blurb, to check precedence
   SLOW   accepted first, answered on the third poll
   NEVER  accepted, then pending forever
@@ -34,6 +35,11 @@ MIXED = ("Calendar for the next seven days: Tuesday Sep 15 at 9:00, CESA drop "
          "off. Thursday Sep 17 at 14:30, vending route restock. You have 412 "
          "contacts and the last 3 sends went out Sep 2, Aug 26 and Aug 19. "
          "Let me know if you would like me to move anything.")
+
+VOICE = ("I don't have direct read access to your Instagram, TikTok or "
+         "Facebook post history or performance data. If you connected a "
+         "social analytics tool I could pull it for you. Right now I can't "
+         "see those.")
 
 STATE = {}
 
@@ -72,6 +78,9 @@ class Handler(BaseHTTPRequestHandler):
             if "NOACC" in msg:
                 return self._send(200, {"conversationId": "c-noacc",
                                         "reply": NOACC})
+            if "VOICE" in msg:
+                return self._send(200, {"conversationId": "c-voice",
+                                        "reply": VOICE})
             if "MIXED" in msg:
                 return self._send(200, {"conversationId": "c-mixed",
                                         "reply": MIXED})
