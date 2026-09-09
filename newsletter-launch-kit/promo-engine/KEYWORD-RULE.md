@@ -1200,3 +1200,64 @@ to ask permission. **A routine's prompt is a snapshot of a rule, and rules chang
 prompts.** Both the sweep and the watch now read live state from source rather than from their own
 text: the sweep reads keywords off the automations, the watch discovers DM conversations instead of
 carrying a list that was already one short.
+
+---
+
+# 2026-09-09: `" chi "` and `collab` added. Amanda's call. And Blotato does NOT trim keyword whitespace.
+
+Both fixes for the two observed adjacency misses. Verified on fresh paged reads, not write responses.
+
+| Automation | Added | `publishedVersionId` |
+|---|---|---|
+| `2952` CESA, Cesa IG | `" chi "`, `" Chi "` (85 keywords) | 8545 -> **8817** |
+| `415` PR screening, IG main | `collab`, `Collab`, `COLLAB` (15 keywords) | 467 -> **8816** |
+
+Gates still absent on `2952`, button unchanged. `415` still `message-received`, `dmMessage`
+untouched.
+
+## The whitespace question, and why it mattered enormously
+
+`" chi "` only works if Blotato stores the leading and trailing spaces. If it silently trimmed
+them to bare `chi`, the substring match would degrade catastrophically. Tested before shipping
+(`promo-engine/chitest.py`) against a 22-item corpus:
+
+| Stored as | Qualified caught | False positives |
+|---|---|---|
+| `" chi "` — spaces kept | 4 / 5 | **1 / 17** ("tai chi", harmless on a dog account) |
+| `chi` — spaces trimmed | 5 / 5 | **10 / 17** |
+
+The trimmed version fires on **chicken, children, Chicago, chill, chip, gnocchi and Chihuahua**.
+On a senior-dog account "she eats chicken and rice" is an ordinary comment, and every one of those
+would have burned a real person's single private-reply slot on a guide DM they never asked for.
+
+**ANSWER, verified empirically: Blotato PRESERVES leading and trailing spaces in keywords.** A
+fresh `list_automations` read returns `" chi "` and `" Chi "` with both spaces intact. This was
+unknown before today and is now a usable technique: **a space-padded keyword is a poor man's word
+boundary**, and it is the only way to match a short token safely under substring matching.
+
+The method generalises. Any short or common word — `chi`, `pup`, `old`, `mine` — is unsafe bare and
+safe padded. Test both forms before shipping, because the failure mode is invisible: nothing
+errors, the automation just starts DMing people who mentioned dinner.
+
+## Known residual gaps in `" chi "`
+
+It needs a space on both sides, so it misses a sentence-final "I love your chi" and a
+punctuated "my recently passed chi!". Punctuation variants (`" chi."`, `" chi,"`, `" chi!"`) were
+tested clean and are available if a real miss shows up. Not added — three unobserved keywords is
+speculation, and the sweep exists to catch what the list misses and propose from real data.
+
+## `collab` on `415` is nearly free, which is why it is bare rather than padded
+
+`415` is `message-received` and its only action is sending screening boilerplate. A false positive
+costs a stranger one polite form letter, not a burned lead slot. That asymmetry is why the bare
+token is fine here and would not be on `2952`.
+
+It also makes the existing `like to collab` and `gifted collab` redundant. Left in place — they
+cost nothing and removing them is a change with no upside.
+
+## Both observed adjacency misses would now fire
+
+| Real text | Keyword | Before | After |
+|---|---|---|---|
+| "gives me hope for my healthy chi that's about to turn 9" | `" chi "` | miss | **hit** |
+| `Tap "collab" below 💌` | `collab` | miss | **hit** |
