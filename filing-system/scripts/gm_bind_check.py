@@ -387,10 +387,12 @@ def load_renders(path):
     """Accept one JSON file, or a directory of them. Always returns a list."""
     paths = []
     if os.path.isdir(path):
+        # npm drops its own metadata next to the payloads; neither is a render.
+        skip = {"package.json", "package-lock.json"}
         paths = sorted(
             os.path.join(path, name)
             for name in os.listdir(path)
-            if name.lower().endswith(".json")
+            if name.lower().endswith(".json") and name not in skip
         )
     else:
         paths = [path]

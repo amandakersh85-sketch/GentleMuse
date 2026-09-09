@@ -1,0 +1,8 @@
+[
+  {"id": "S1", "platform": "instagram", "postTime": "2026-09-16T15:00:00Z",
+   "text": "Nightmare used to name one specific thing.\n\nComment SEASONAL and I'll send you the weekly note.",
+   "mediaUrls": ["https://cdn.example/mare-fresh-render.mp4"]},
+  {"id": "S2", "platform": "instagram", "postTime": "2026-09-17T15:00:00Z",
+   "text": "Comment PLAY and I'll send you the guide.",
+   "mediaUrls": ["https://cdn.example/play-1.jpg", "https://cdn.example/play-2.jpg"]}
+]

@@ -421,6 +421,27 @@ cta "edge cases all fire"               1 "$HERE/cta.edge.json" \
 cta "a tiktok follow is a real return" 0 "$HERE/cta.tiktok.json"
 cta "a reach only post holds"           2 "$HERE/cta.hold.json"   H01_NO_CAPTURE_PATH
 
+REPOST="$HERE/../scripts/gm_repost_media_check.py"
+
+repost() { # name expected_exit queue_file [expected_code ...]
+  local name="$1" want="$2" q="$3"; shift 3
+  local out; out="$(python3 "$REPOST" --queue "$q" --published "$HERE/repost-published.json" \
+                    --campaigns "$HERE/repost-campaigns.csv" 2>&1)"; local got=$?
+  local ok=1
+  [ "$got" = "$want" ] || { ok=0; echo "  exit $got, wanted $want"; }
+  for pat in "$@"; do
+    grep -q "$pat" <<<"$out" || { ok=0; echo "  missing: $pat"; }
+  done
+  if [ $ok = 1 ]; then echo "PASS  $name"; pass=$((pass+1))
+  else echo "FAIL  $name"; echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
+}
+
+echo
+echo "== repost media check =="
+repost "fresh media on a repeat and a campaign carousel both pass" 0 "$HERE/repost.clean.json"
+repost "a repeat wearing its worn media and a scheduled twin are caught" 1 "$HERE/repost.broken.json" \
+    R01_WORN_MEDIA_REPOST R02_TWIN_IN_SCHEDULE
+
 
 PLAN="$HERE/../scripts/gm_queue_plan.py"
 
@@ -556,6 +577,42 @@ else echo "FAIL  the token never reaches the terminal"; fail=$((fail+1)); fi
 kill $STUB_PID 2>/dev/null
 trap 'rm -rf "$TMP"' EXIT
 
+
+echo
+echo "== cadence gate, 3 to 5 a day =="
+CAD="$HERE/../scripts/gm_cadence_check.py"
+
+if python3 "$CAD" "$HERE/cadence.clean.csv" >/dev/null 2>&1; then
+  echo "PASS  4 posts spaced 2 hours apart passes clean"; pass=$((pass+1))
+else echo "FAIL  4 posts spaced 2 hours apart passes clean"; fail=$((fail+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.overloaded.csv" 2>/dev/null | grep -q C01_DAY_OVER; then
+  echo "PASS  a 6th post in a day is refused"; pass=$((pass+1))
+else echo "FAIL  a 6th post in a day is refused"; fail=$((fail+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.overloaded.csv" 2>/dev/null | grep -q C01_DAY_STARVED; then
+  echo "PASS  a day under 3 posts is flagged as starved"; pass=$((pass+1))
+else echo "FAIL  a day under 3 posts is flagged as starved"; fail=$((fail+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.overloaded.csv" 2>/dev/null | grep -q C06_DEAD_HOUR; then
+  echo "PASS  a post in the dead hours is caught"; pass=$((pass+1))
+else echo "FAIL  a post in the dead hours is caught"; fail=$((fail+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.clean.csv" 2>/dev/null | grep -q C06_DEAD_HOUR; then
+  echo "FAIL  19:00 Central is prime time, not a dead hour"; fail=$((fail+1))
+else echo "PASS  19:00 Central is prime time, not a dead hour"; pass=$((pass+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.collision.csv" 2>/dev/null | grep -q C02_SLOT_COLLISION; then
+  echo "PASS  2 posts in the same minute are caught"; pass=$((pass+1))
+else echo "FAIL  2 posts in the same minute are caught"; fail=$((fail+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.tooclose.csv" 2>/dev/null | grep -q C05_TOO_CLOSE; then
+  echo "PASS  2 posts inside 2 hours are caught"; pass=$((pass+1))
+else echo "FAIL  2 posts inside 2 hours are caught"; fail=$((fail+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.countdown.csv" --target 2026-10-31 2>/dev/null | grep -q "D2"; then
+  echo "PASS  a countdown that drifted off its date is caught"; pass=$((pass+1))
+else echo "FAIL  a countdown that drifted off its date is caught"; fail=$((fail+1)); fi
 
 echo
 echo "$pass passed, $fail failed"

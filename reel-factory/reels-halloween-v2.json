@@ -1,0 +1,92 @@
+[
+ {
+  "id": "HAL-010",
+  "slug": "nightmare-touchstone-v2",
+  "seed": 146,
+  "duration": 17.0,
+  "label": "Gentle Muse \u00b7 Fall",
+  "source": "Source: Disney corporate history; Touchstone Pictures \u00b7 HAL-010",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 2.8,
+    "html": "Disney would not put<br>its name on<br>The Nightmare Before Christmas.",
+    "cta": null
+   },
+   {
+    "in": 2.8,
+    "out": 6.0,
+    "html": "It came out in 1993<br>under Touchstone.",
+    "cta": null
+   },
+   {
+    "in": 6.0,
+    "out": 9.4,
+    "html": "They thought it was<br>too dark and too strange<br>for the Disney label.",
+    "cta": null
+   },
+   {
+    "in": 9.4,
+    "out": 12.8,
+    "html": "<span class='em'>It is now the thing<br>they sell you<br>every single October.</span>",
+    "cta": null
+   },
+   {
+    "in": 12.8,
+    "out": 17.0,
+    "html": "Somebody you know is<br>hiding the strange one.<br><span class='em'>That is usually the good one.</span>",
+    "cta": "The real one"
+   }
+  ],
+  "keyword_delivers": "Consider This weekly note via SEASONAL comment-to-DM, live on IG 4009, FB 4010, cesasgoldenyears IG 4011, all with an email gate",
+  "look": "moon"
+ },
+ {
+  "id": "HAL-017",
+  "slug": "the-mare-v2",
+  "seed": 147,
+  "duration": 17.0,
+  "label": "Gentle Muse \u00b7 Fall",
+  "source": "Source: Oxford English Dictionary; Encyclopaedia Britannica \u00b7 HAL-017",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 2.6,
+    "html": "Nightmare named<br>a specific thing.",
+    "cta": null
+   },
+   {
+    "in": 2.6,
+    "out": 5.8,
+    "html": "A mare was a spirit<br>believed to sit<br>on a sleeper's chest.",
+    "cta": null
+   },
+   {
+    "in": 5.8,
+    "out": 9.4,
+    "html": "The weight. The paralysis.<br>The certainty something<br>is in the room.",
+    "cta": null
+   },
+   {
+    "in": 9.4,
+    "out": 12.8,
+    "html": "<span class='em'>People had a word for it<br>centuries before<br>they had an explanation.</span>",
+    "cta": null
+   },
+   {
+    "in": 12.8,
+    "out": 17.0,
+    "html": "Somebody you know has<br>woken up unable to move.<br><span class='em'>It has always had a name.</span>",
+    "cta": "The real one"
+   }
+  ],
+  "keyword_delivers": "Consider This weekly note via SEASONAL comment-to-DM, live on IG 4009, FB 4010, cesasgoldenyears IG 4011, all with an email gate",
+  "look": "veil"
+ }
+]
