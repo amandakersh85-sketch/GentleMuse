@@ -1392,3 +1392,85 @@ re-read.** The message alone is not proof, same rule as MailerLite's 200s.
    on her approval.
 4. **The JAT group has 3 active subscribers and 1 is Amanda.** #004 reaches 2 real people on
    09-15. That is the number the whole fix exists to move.
+
+---
+
+# Funnel watch 2026-09-09 06:21 UTC, and a second JAT fault found
+
+## Watch result: clean on everything it was asked to check
+
+| Check | Result |
+|---|---|
+| `2952` runs | 2, both baseline (150551 expired, 122274 completed). No new. |
+| `445` runs | 4, all baseline, all test contact `1048429878116670`. No new. |
+| `432` runs | Still 0, ever. |
+| Real leads | **None.** No run from any id outside the 5 known. |
+| Self-triggers | **None**, despite `2952` matching "year old" / "years old". |
+| `2952` gates | No emailGate, no followGate. Button to `cesa-guide` intact. |
+| `2954` gates | Clean. Button to `consider-this` intact. |
+| `445` gates | Clean. Button intact. |
+| `432` gates | Clean. Button intact. |
+
+DM inbox, read only, last 24h. 5 threads on Cesa IG `65540` and 4 on main IG `45886`.
+**No email address was typed in any thread, so nothing was stranded and no MailerLite write
+was needed.** The 5 Cesa threads (`504237`, `504238`, `504442`, `504443`, `505547`) are all
+outgoing guide DMs this workspace sent 09-08, every one `status: sent`, `errorCode: null`,
+each carrying the `cesa-guide` button. No replies yet.
+
+Two known threads moved and neither is actionable:
+- `229724` (House of Trailers, real client) sent one new message at 02:58 UTC: `😍`. Nothing
+  to act on. Never reply from a routine.
+- `490500` (@emmamilesx pay-to-collab) followed up 09-08 16:08 with *"Hey lovely, we have
+  limited spots."* Scarcity nudge on an offer that contradicts her stated policy. Never reply.
+
+## The correction: there are 2 live TUESDAY automations, not 4
+
+The diagnosis written earlier today said all 4 TUESDAY automations sit at 0 triggers. The
+run counts were right, the framing was wrong:
+
+| id | State | Keywords |
+|---|---|---|
+| `447` IG | **`isActive: false`** — "RETIRED, use 2771 (captures email)" | `TUESDAY` only |
+| `427` FB | **`isActive: false`** — "RETIRED, use 2772 (captures email)" | `TUESDAY` only |
+| `2771` IG | live | `TUESDAY`, `tuesday`, `Tuesday` |
+| `2772` FB | live | `TUESDAY`, `tuesday`, `Tuesday` |
+
+Both were retired 08-27T18:13, the same day the URL correction landed. So `AGENT-CONTRACT.md`'s
+"All 4 TUESDAY automations now point at the JAT page" describes a state that lasted hours.
+**2 live automations at 0 triggers.** The lowercase claim holds: `tuesday` is live on both.
+
+## SECOND FAULT: both live TUESDAY automations still had an emailGate
+
+```
+"emailGate":{"message":"Yes! Just Another Tuesday is 1 email a week ...
+             Reply with your email address and I'll add you."}
+```
+
+This is the exact mechanism that destroyed the 09-05 lead: the gate asks for an email in
+thread, the contact never replies, the run expires, and the comment's **one private reply
+slot is spent forever**. After that only a public comment reply can reach that person.
+
+The 09-08 gate sweep covered `2952`, `445`, `432`, `1393`, `2954`. **The TUESDAY path was
+never in that set.** Both records still read `updatedAt: 2026-08-27T16:10`, untouched since.
+Their `dmMessage` also opened "You're in," which is only true after a gate captures an
+email, the exact gate-dependent phrasing the watch says to flag.
+
+**This matters more than it looks.** The fix proposed earlier today is to put "Comment
+TUESDAY" CTAs on posts. Doing that with the gate in place would have walked every new lead
+straight into the trap that already cost 1.
+
+### Fixed, verified on an independent re-read
+
+- **`2771` Instagram: emailGate REMOVED.** `publishedVersionId` 4602 → **8850**,
+  `updatedAt` 2026-09-09T06:25:57. Button "Get Tuesdays" to the JAT page intact, all 3
+  keywords intact, `dmMessage` rewritten so it no longer claims "You're in" and instead says
+  "Tap below and add your email on the page," matching the CESA/CONSIDER construction.
+
+### NOT fixed, needs Amanda
+
+- **`2772` Facebook: emailGate STILL PRESENT.** The identical call was **refused twice by
+  this environment's permission classifier**, not by Blotato. Re-read confirms nothing
+  partial was written: still `publishedVersionId 4603`, still `updatedAt 2026-08-27T16:10`,
+  gate and old "You're in" copy both intact. So Facebook TUESDAY remains a lead-burning
+  path until either Amanda removes the gate in the Blotato dashboard or grants the
+  permission. The IG side is safe now; the FB side is not.
