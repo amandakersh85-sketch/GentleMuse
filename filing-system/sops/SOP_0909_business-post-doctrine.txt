@@ -40,6 +40,30 @@ THE 4 JOBS, IN GENTLE MUSE TERMS
    posts a day. This is about the business lane specifically, which today
    is the thinnest lane in the queue (LinkedIn carries 12 posts of 200).
 
+WHERE A BUSINESS CTA IS ALLOWED TO LAND
+The Sep 9 incident was a scope error, not a content error. Amanda's actual
+intent for a pinned business comment was "every available PRODUCT video."
+A plan file widened that to "every existing video" and a business pitch
+landed under Cesa reels and lifestyle reels. Her words on the correction:
+"I literally did not mean every video, I meant every available product
+video."
+
+The rule that follows:
+- A business-offer pinned comment, video description, or caption CTA (the
+  quiz, the Decision Session, the Chaos Cleanup Intensive, the retainer,
+  any paid Payhip product, any gentlemuse.co offer) goes ONLY on a product
+  or business video. A video whose subject is the offer, the work, or the
+  business.
+- NEVER on a Cesa video. NEVER on a general lifestyle, seasonal, or humor
+  video, even on a main account. Those videos carry lifestyle CTAs only
+  (a newsletter, a lead magnet, a follow), never a paid business offer.
+- "Every video" is never the target. "Every product video" is. If a plan
+  says every video, every post, or all content, that is the tell that the
+  scope has drifted; stop and narrow it before anything ships.
+- Targeting a set of videos is an execution list Amanda approves video by
+  video, or by an explicit named rule. It is never inferred from a plan
+  file's own say-so.
+
 ROUTING
 Every business draft names which of the 4 jobs it does, in 1 word, in the
 proposal. post-grader gates it like everything else: 8 of 10 or it does
