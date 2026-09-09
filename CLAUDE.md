@@ -9,9 +9,23 @@ For Target / Club Target content:
 - Specific product link format: https://club.target.com/s/amanda.20/_/sku/{SKU}
 - Storefront (only when the video is about the whole storefront, never as a
   substitute for a specific product): https://club.target.com/a/amanda.20
-- Required disclosure on every Club Target post: "I'm a Target partner, so I
-  may earn rewards or commission when you shop my link, at no extra cost to
-  you. #ad" plus #TargetPartner and the active challenge hashtag.
+- **DISCLOSURE PLACEMENT IS A COMPLIANCE RULE, NOT A STYLE CHOICE.** From the
+  Club Target Scope of Work (saved at content/reference/club-target-scope-of-work.pdf):
+  - `#TargetPartner` must appear **within the first 2 lines of the caption**,
+    visible without tapping "more."
+  - On video, the disclosure must ALSO appear **on screen, early, and near the
+    link or product.**
+  - Explicitly does NOT count: disclosure only in the bio, disclosure buried at
+    the end of the caption, or relying on the platform's paid-partnership tool.
+  - "Failure to properly disclose may result in removal from the program."
+  - Full sentence still goes in the caption body: "I'm a Target partner, so I
+    may earn rewards or commission when you shop my link, at no extra cost to
+    you." Plus the active challenge hashtag.
+
+  Known miss: on 09/09/2026 I rewrote the 09/10 fall TikTok and moved
+  `#TargetPartner` from line 1 to the end of the caption, which broke this rule.
+  The original caption had it right. Caught by reading the Scope of Work and
+  fixed the same day.
 
 For other affiliate content: use the platform tracked links (gm-tiktok-20,
 gm-insta-20, gm-web-20, gm-pin-20). DMs route to the website link, never a raw
@@ -180,3 +194,23 @@ When a Target product URL carries `?preselect=########`, that number is the
 exact variant being shown, and it is the SKU that goes in the caption. Do not
 substitute the parent TCIN from the URL path. Amanda picks the variant in the
 store, so her link is the source of truth over any inference from the footage.
+
+## Club Target program mechanics (from the Scope of Work, read 09/09/2026)
+
+Source PDF saved at content/reference/club-target-scope-of-work.pdf.
+
+- **"You can join and participate in as many challenges as you like."** Points
+  farming is explicitly sanctioned. Every challenge submission earns points,
+  points move Amanda up tiers, tiers unlock rewards. She is at Target
+  Trendsetter 4.
+- 100 points unlocks Tier 2. Volume is the lever while Instagram grows.
+- Gifted product obligates 1 Instagram feed or TikTok post within 30 days.
+- Target may re-purpose any content tagged `#ClubTarget` for its own marketing,
+  with credit where possible. Assume anything submitted can be reused by Target.
+- Account terminates after 3 months of inactivity, or for low quality content,
+  or content that breaks Target or FTC guidelines.
+- **Cannot include references to products or services from other brands.**
+  Reading: this targets promoting non-Target brands, not incidental shelf items
+  that Target sells. Do not over-apply it, but do not name a competitor retailer.
+- The Scope of Work says NOTHING about resubmitting re-edited content to a new
+  challenge. That question is unanswered and has to be asked directly.
