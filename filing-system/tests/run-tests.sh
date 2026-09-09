@@ -477,6 +477,86 @@ if python3 "$DAILY" --queue "$HERE/does-not-exist.json" --today 2026-09-02 >/dev
 else echo "FAIL  an unreadable queue exits 2 instead of guessing"; fail=$((fail+1)); fi
 
 
+
+RELAY="$HERE/../scripts/gm_symphony.py"
+STUB="$HERE/symphony-stub.py"
+PORT=8973
+
+echo
+echo "== symphony relay =="
+
+python3 "$STUB" "$PORT" >/dev/null 2>&1 &
+STUB_PID=$!
+trap 'kill $STUB_PID 2>/dev/null; rm -rf "$TMP"' EXIT
+for _ in $(seq 1 30); do
+  python3 -c "import socket,sys;s=socket.socket();sys.exit(s.connect_ex(('127.0.0.1',$PORT)))" && break
+  sleep 0.2
+done
+
+relay() { # name expected_exit env_token args... ; greps come after a --
+  local name="$1" want="$2" tok="$3"; shift 3
+  local args=() greps=()
+  while [ $# -gt 0 ] && [ "$1" != "--" ]; do args+=("$1"); shift; done
+  [ "${1:-}" = "--" ] && shift
+  greps=("$@")
+  local out
+  out="$(SYMPHONY_BASE="http://127.0.0.1:$PORT" SYMPHONY_TOKEN="$tok" \
+         python3 "$RELAY" --wait 6 --interval 1 "${args[@]}" 2>&1)"
+  local got=$?
+  local ok=1
+  [ "$got" = "$want" ] || { ok=0; echo "  exit $got, wanted $want"; }
+  for pat in "${greps[@]}"; do
+    grep -qi -e "$pat" <<<"$out" || { ok=0; echo "  missing: $pat"; }
+  done
+  if [ $ok = 1 ]; then echo "PASS  $name"; pass=$((pass+1))
+  else echo "FAIL  $name"; echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
+}
+
+# rule 1, propose only. A bare run must not reach the network at all.
+relay "nothing is sent without --send"        0 "tok-abc" \
+      --message "book the call" -- "PROPOSED" "Nothing was sent"
+
+# rule 5, no substitution. No token means stop, not send unsigned.
+relay "no token stops instead of sending"     2 "" \
+      --message "book the call" --send -- "SYMPHONY_TOKEN is not set" "Nothing was sent"
+
+relay "an answer comes back clean"            0 "tok-abc" \
+      --message "book the call" --send -- "Booked" "Tuesday at 10"
+
+# the failure this tool exists for: success on the wire, no work done.
+relay "the credit wall is not read as work"   1 "tok-abc" \
+      --message "WALL book the call" --send -- "THIS IS NOT AN ANSWER" \
+      "credit limit" "Do not record it as done"
+
+relay "a deferred answer is collected"        0 "tok-abc" \
+      --message "SLOW book the call" --send -- "Three follow ups"
+
+relay "silence times out, does not hang"      2 "tok-abc" \
+      --message "NEVER book the call" --send -- "did not answer" "--resume"
+
+relay "a rejected token says how to fix it"   2 "tok-abc" \
+      --message "AUTH book the call" --send -- "HTTP 401" "Reissue it"
+
+relay "resume collects an open conversation"  0 "tok-abc" \
+      --resume c-slow -- "Three follow ups"
+
+relay "an empty message is refused"           2 "tok-abc" \
+      --message "   " --send -- "no message"
+
+# the token must never reach the terminal, on any path.
+leak=0
+for m in "book the call" "AUTH book the call" "WALL book the call"; do
+  out="$(SYMPHONY_BASE="http://127.0.0.1:$PORT" SYMPHONY_TOKEN="s3cr3t-tok" \
+         python3 "$RELAY" --message "$m" --send --wait 4 --interval 1 2>&1)"
+  grep -q "s3cr3t-tok" <<<"$out" && { leak=1; echo "  leaked on: $m"; }
+done
+if [ $leak = 0 ]; then echo "PASS  the token never reaches the terminal"; pass=$((pass+1))
+else echo "FAIL  the token never reaches the terminal"; fail=$((fail+1)); fi
+
+kill $STUB_PID 2>/dev/null
+trap 'rm -rf "$TMP"' EXIT
+
+
 echo
 echo "$pass passed, $fail failed"
 [ "$fail" = 0 ]

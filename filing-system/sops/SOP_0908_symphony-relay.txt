@@ -1,0 +1,88 @@
+THE GENTLE MUSE — THE SYMPHONY RELAY
+
+New. Created 09/08/2026. Written after the first live call, not before it.
+
+TOOLS: gm_symphony.py
+TESTS: tests/symphony-stub.py, run-tests.sh
+Credential: SYMPHONY_TOKEN in the environment. Never in this repo.
+
+WHAT SYMPHONY IS
+Symphony is Amanda's team of AI business agents. It can schedule, reach out to
+her contacts, follow up, build reports and act on her business. It acts as her.
+A message sent to it is not a question put to a tool. It is Amanda speaking
+with her own authority, and whatever comes of it is done in her name.
+
+That is the whole reason this relay exists as a script instead of a curl line
+in a chat window. A curl line has no propose step, no token discipline and no
+way to tell a real answer from a wall.
+
+HOW IT IS USED
+  python3 gm_symphony.py --message "..."             proposes, sends nothing
+  python3 gm_symphony.py --message "..." --send      sends and waits
+  python3 gm_symphony.py --resume <conversationId>   collects a late answer
+
+The default prints the exact message, the session it will land in and the
+endpoint it will reach, then stops. Rule 1 of this workspace is propose only,
+and an agent that can email a contact list is the last place to make an
+exception. --send is the execute flag.
+
+The token is read from SYMPHONY_TOKEN. Without it the relay stops and says so
+rather than sending unsigned, which is rule 5. The token is scrubbed from
+everything the relay prints, on every path, and a test asserts that on 3 of
+them. It is revocable in Symphony, Settings, Connections.
+
+WHY THE WALL CHECK IS A CHECK AND NOT A NOTE
+The first live call was made on 09/08 as a connection test. It asked Symphony
+what it could do. The transport behaved perfectly. The ask returned a
+conversation id, 2 polls returned pending, the third returned this:
+
+  status: answered
+  reply:  "You've reached your daily credit limit, so your agents paused
+           midway. They'll pick up where they left off when your credits
+           reset tomorrow."
+
+Read the envelope and everything succeeded. HTTP 200 twice. Status answered.
+A reply string present and non empty. Read the string and nothing happened at
+all. The agents paused midway, which means some of the work may have started
+and stopped in the middle.
+
+An assistant polling in a loop and printing .reply would have shown that text
+and moved on, and the next thing written down would have been that Symphony
+had been asked and had responded. Both true. Both useless. The task would sit
+undone with a green mark against it.
+
+This is the Run 6 shape again. The pairing step had nothing to pair on, so the
+fix was the missing column and a gate, not a reminder to look closer. Here the
+caller has no field that distinguishes a delivered answer from a refusal
+wearing an answer's envelope, so the fix is that field. wall_reason() carries
+the markers, the relay exits 1 when one fires, and it says in plain words that
+the work has not happened and must not be recorded as done. Exit 0 is reserved
+for an answer that is actually an answer.
+
+The marker list will catch a genuine reply that happens to discuss credits, if
+Amanda ever asks Symphony about her own billing. That is the trade taken on
+purpose. A false flag costs one read. A missed wall costs a task everyone
+believes is finished.
+
+EXIT CODES
+  0  Symphony answered
+  1  Symphony replied and the reply is a wall. Nothing was done.
+  2  the exchange could not be completed. No token, refused token, no
+     network, malformed response, or silence past the wait.
+
+Silence is 2 and not 1, and the conversation stays open. The relay prints the
+--resume line to collect it later. Symphony turns can run past 2 minutes, so a
+timeout is not a failure, it is an answer that has not arrived yet.
+
+WHAT IS STILL OPEN
+The credit wall was live when this was written, so no message that asks
+Symphony to actually do something has been through this relay yet. The
+transport, the polling, the timeout, the resume path and the wall detection are
+all verified, 10 cases against a local stub plus the one live call. The first
+real instruction to Symphony is still ahead, and it should be small, and
+Amanda should read the propose output before it goes.
+
+Rule 3 does not bend here either. Sensitive material is held, never handed to
+an agent that will act on it unattended. The relay does not classify what it
+is given. Amanda does, at the propose step, which is what the propose step is
+for.
