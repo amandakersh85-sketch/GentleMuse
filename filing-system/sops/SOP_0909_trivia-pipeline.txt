@@ -137,6 +137,10 @@ Per fact, delivered to 4 platforms:
   verification        time only
   script + captions   time only
   voiceover           about $0.02 per line at the measured HeyGen rate
+  talking head        HeyGen, using Amanda's own avatar twin. It already
+                      exists, 2 groups of it. Listing avatars without
+                      --ownership private returns only stock and makes it
+                      look like it does not.
   render              local, free
   distribution        1 Blotato slot per platform, 4 of the 200
 

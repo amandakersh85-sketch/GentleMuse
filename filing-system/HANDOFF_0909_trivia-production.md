@@ -38,9 +38,24 @@ Re-run `--audit`. You want usable rows before anything else happens.
 
 ## 2. Hunt (the daily loop)
 
-Amanda's newsletters are the hunting ground. She gets marketing, creator
-and AI mail daily. **Ask her which senders or which Gmail label to read
-before you start** — see Open Questions.
+The hunting ground is `filing-system/data/trivia-sources.csv`, 15 senders
+proposed off a scan of her inbox on 09/09. **Every row has Approved blank.
+Read only the rows she has approved.** An unapproved list is a guess at her
+inbox, and a guess is not an input.
+
+Tier 3 is worth understanding: TikTok Shop, Amazon Associates and Blotato
+announcing their own policy changes ARE primary sources. A fact from one of
+those needs no second hop, which makes them the cheapest verified material
+in the lane.
+
+There is also an exclusion that matters more than the inclusions. Her inbox
+carries 5 high-volume stock-tip newsletters on beehiiv: alphasignals,
+stocknewsletter, amn, dividends, stockmarketnews. Headlines like "Jon
+Najarian's #1 Energy Trade" and "BlackRock is hoarding it. Do you own it?"
+They are off-lane, they are hype shaped, and several read as promotional
+rather than reported. They are the worst possible input for a lane whose
+entire value is being right. Do not read them, and do not let their volume
+make them look like signal.
 
 Rules for this stage:
 
@@ -133,11 +148,40 @@ heygen voice speech create --voice-id 05f19352e8f74b0392a8f411eba40de1 \
 There is no `--json` flag. Mix against `reel-factory/beds/eerie-calm-bed.wav`
 with the ducking recipe in the reel-factory README.
 
-**Blocker on the talking head:** there is no HeyGen avatar twin of Amanda.
-All 20 avatar groups on the account are stock. `avatar create` and
-`avatar consent create` exist but need a consent recording from her that
-does not exist yet. Until then a talking head is either a stock face that
-is not her, or footage she shoots. See Open Questions.
+**Her avatar twins already exist.** There is no blocker here. An earlier
+version of this handoff said there was, because `heygen avatar list` was
+run with no filter and a default limit of 20, which returns the stock
+groups and stops. The filter is the whole trick:
+
+```bash
+heygen avatar list --ownership private --limit 50
+heygen avatar looks list --group-id <id> --limit 50
+```
+
+Five private groups: 2 Amanda, plus Avery, Cesa and Claude. The look id is
+the `avatar_id` you pass when creating a video, not the group id.
+
+Group `e81779635cbc4a7982cfd571a194e0dd` is the production one, 16 looks,
+8 of them deliberately named:
+
+| look id | name |
+|---|---|
+| `3243536278874919a784ed66c135a473` | Amanda with a podcast microphone |
+| `96af09cd10804111a290ecb70f39500f` | Amanda hosting a live podcast |
+| `f47aa68f16a945c380f47c5045b797ff` | Warmly Lit Radiance |
+| `da3d97c8c1164a90a7dad04dfd61ab43` | Authority Red Casual |
+| `583b7249de074a2db80fd8b8dc35bf86` | UGC Ad Video |
+| `d33d6e3265a14daa8263858d836b4a7f` | Chic Urban Fashionista |
+
+The other group is `8b9584ee0f3b42ff9561f4a32b622de7`, 13 looks, 4 named,
+including a plain "Amanda" at `f3105abaf466488e960c54bf89449d47`.
+
+For trivia use one of the 2 podcast looks. It reads as somebody telling
+you a thing they know, which is the posture the lane wants. Rotate rather
+than using one look every day, the same way plates rotate on the reels.
+
+Avery is a separate person and a separate voice. Do not use the Avery or
+Cesa twins on Gentle Muse trivia without asking.
 
 ## 7. Schedule
 
@@ -169,22 +213,24 @@ Account ids: YouTube 36129, TikTok 41488, Facebook 30840 (pageId
 - Propose a Blotato plan upgrade. She has ruled twice.
 - Put any API key in git.
 
-## Open questions for Amanda
+## Decisions, answered 09/09
 
-1. **Which newsletters.** Name the senders or a Gmail label. Without it
-   the hunt stage has no defined input and I will be guessing at her inbox.
-2. **The talking head.** No avatar twin exists. Options: she records a
-   HeyGen consent clip once and gets an unlimited twin, she shoots the
-   cuts herself as she did for the existing Daily Random Trivia Fact
-   clips, or the lane runs as motion text until she has time.
-3. **Cadence.** 1 fact a day across 4 platforms is 4 more of the 200
-   slots per day, which shortens the runway. Confirm 1 a day, or set it
-   to 3 a week.
+1. **Newsletters.** Amanda asked for a scan and a proposed shortlist
+   rather than naming senders. Read the inbox, find what actually carries
+   AI, automation and creator-economy substance, and put the list in front
+   of her to approve or cut. Until she has approved it, the hunt stage has
+   no defined input, so do not start banking facts off a guess.
+2. **Delivery.** HeyGen talking head, using her existing twin. See the
+   render section for look ids. No consent recording needed.
+3. **Cadence.** 1 fact a day, all 4 platforms. That is 28 of the 200
+   slots a week, so watch `C12_RUNWAY_END` and fill the nearest empty
+   days first.
 
 ## State on handoff
 
 - Branch `claude/holiday-caption-strategy-m5abq8`, pushed.
 - `run-tests.sh` 126 passing, 0 failing.
 - Bank: 3 rows, 0 usable, all awaiting verification.
+- Avatar: her own twin, group `e81779635cbc4a7982cfd571a194e0dd`.
 - Board: 199 of 200 scheduled, runs dry after Sep 18 except a thin tail.
 - Cesa lane still 42 posts short, blocked on footage not in Drive.
