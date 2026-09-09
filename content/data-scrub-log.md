@@ -593,11 +593,13 @@ Amanda sent the URL. Verified against the image gallery: 4.5" Small Glass Fall
 Pumpkin, Threshold, amber glass, part of the same fall 2026 drop. 5 color
 variants exist (95011921 through 95011925).
 
-**Used the canonical product TCIN 95011921**, the one in the URL path, not the
-`?preselect=95011924` variant. Reason: the video shows the endcap display and
-the on screen text says "glass pumpkins" plural, so it is about the product,
-not one color. Linking the parent lets a viewer pick their own color. If Amanda
-wants the specific one she preselected, swap to 95011924.
+**Using 95011924**, the preselected variant. I first used the parent 95011921,
+reasoning that "pumpkins" plural meant the display. Amanda corrected it: the
+preselect is the exact pumpkin in the video, the one the price card refers to.
+Her call stands, she was in the store and I was reading frames.
+
+Rule going forward: when a Target URL carries `?preselect=`, that variant is
+the product being shown. Use it, do not fall back to the parent.
 
 Blotato 4158117 caption now carries both product links plus the full
 disclosure. Under the hard rule this post is compliant on links.

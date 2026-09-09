@@ -151,3 +151,10 @@ Checked directly, not assumed. In the cloud session:
 
 If a task needs a browser, say so immediately and hand it to the laptop
 session. Do not spend Amanda's time working around it.
+
+## Target variant links (locked in 09/09/2026)
+
+When a Target product URL carries `?preselect=########`, that number is the
+exact variant being shown, and it is the SKU that goes in the caption. Do not
+substitute the parent TCIN from the URL path. Amanda picks the variant in the
+store, so her link is the source of truth over any inference from the footage.
