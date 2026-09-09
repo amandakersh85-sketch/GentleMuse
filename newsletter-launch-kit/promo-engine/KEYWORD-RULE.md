@@ -1261,3 +1261,99 @@ cost nothing and removing them is a change with no upside.
 |---|---|---|---|
 | "gives me hope for my healthy chi that's about to turn 9" | `" chi "` | miss | **hit** |
 | `Tap "collab" below 💌` | `collab` | miss | **hit** |
+
+---
+
+# The Just Another Tuesday diagnosis, 2026-09-09
+
+Amanda asked, for the third time, why the newsletter is not getting subscribers, and told
+this workspace to stop reporting the symptom and find the cause. She had opened MailerLite
+herself and was sure the form was active. She was right. It is.
+
+## What I reported wrong, twice
+
+I said there was no live signup page, that popup `195832725497709843` had `active = false`,
+and that it fed the wrong group. All 3 were false. I lifted them from open item 1 of the
+issues 1-5 Drive doc, written 08-18 and **already fixed on 08-27**, and never ran the live
+check. The correct state was sitting in this repo the whole time, in `FLYWHEEL-STATUS.md`:
+"Dual newsletter popup is now ACTIVE (`195832725497709843`) ... Confirmed `active: true`.
+Feeds both newsletter groups."
+
+Two sessions in a row read a stale note and published it as live state. That is the exact
+thing the hard rule exists to stop. **A Drive doc is a record of a moment, not a source of
+truth. Live API or nothing.**
+
+## What is actually true, all checked live 09-09
+
+| Thing | State |
+|---|---|
+| `just-another-tuesday-gm.subscribepage.io` | **HTTP 200, live.** Title "Just Another Tuesday: 10 hours ahead on AI, not 10 years" |
+| Its form | Real email field, posts to account `2465670`, page `196122128046621787` |
+| Does it convert | **Yes.** 2 strangers in the JAT group, `source: webform`, 08-19 and 08-23 |
+| Popup `195832725497709843` | `active: true`, `is_broken: false`, `has_missing_groups: false` |
+| Its groups | Consider This **and** Just Another Tuesday. Correct. |
+| Stranded at double opt-in | **0 account-wide** |
+| `list_forms type=promotion` | Returns **0**. This is why the pages looked missing. |
+
+**Landing pages are not `promotion` forms.** The subscribepage.io pages are MailerLite
+*pages*, a resource the forms API does not list. `api/sites`, `api/pages` and
+`api/landing-pages` all 404, which is already logged in `FLYWHEEL-STATUS.md`. So the only
+way to check a landing page from here is **curl the public URL and read the form action.**
+Do that. An empty `promotion` list proves nothing.
+
+## The actual cause
+
+The 4 TUESDAY automations have **never fired**. Not once since 08-25.
+
+| id | Account | Keyword | Triggered |
+|---|---|---|---|
+| 447 | IG main 45886 | TUESDAY / tuesday | **0** |
+| 427 | FB 30840 | TUESDAY / tuesday | **0** |
+| 2771 | IG main 45886 | TUESDAY / tuesday | **0** |
+| 2772 | FB 30840 | TUESDAY / tuesday | **0** |
+
+Not a casing problem: lowercase `tuesday` is live and is on the safe list. The automations
+are fine. Nobody types the keyword because almost nothing asks them to.
+
+**Published, 08-25 to 09-09, 100 IG and FB posts:**
+- 2 distinct posts said "Comment TUESDAY," both inside the first 3 days
+- 56 posts asked for a different keyword
+- 39 asked for nothing
+
+**Scheduled, through 10-31, 91 IG and FB posts:**
+
+| CTA | Posts |
+|---|---|
+| SEASONAL | 32 |
+| CESA | 26 |
+| (none at all) | 18 |
+| CONSIDER | 7 |
+| PLAY | 3 |
+| GUIDE | 3 |
+| **TUESDAY** | **2** |
+
+On **09-15**, the day #004 sends, 8 posts are scheduled and **none** mentions the newsletter.
+Send days 09-22 through 10-27 have **0 posts scheduled at all** — the queue dries up after
+09-21, which is its own problem.
+
+## The rule this produces
+
+The weekly product is the least promoted thing she makes. A working door with no sign on it
+converts at exactly the rate observed: 2 people in 3 weeks, both of whom found it some other
+way.
+
+**Every JAT send day gets a TUESDAY CTA on IG and FB.** Not "should," per the 08-25 note
+that was never enforced. It goes in the rotation as a standing slot, the same way SEASONAL
+got 32 slots without anyone having to remember.
+
+## Diagnostic order for "the funnel is not converting", in this order
+
+1. `curl` the public landing page URL. Read the form action. Never trust `list_forms`.
+2. Check the destination group for `source: webform` subscribers. That proves conversion.
+3. Check `status: unconfirmed` account-wide. That finds double opt-in strandings.
+4. `blotato_get_automation_analytics` on every automation for the offer. **0 triggered means
+   the leak is upstream of the automation, not inside it.**
+5. Only then count how many published and scheduled posts actually carry the CTA.
+
+Steps 1 through 4 took 6 tool calls. Step 5 is where the answer was. Two sessions never got
+past a stale note to reach step 1.

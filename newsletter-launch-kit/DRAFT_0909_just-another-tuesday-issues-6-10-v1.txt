@@ -582,15 +582,34 @@ SOURCE QUALITY NOTE — READ THIS BEFORE ANY OF THESE SEND
    every figure traceable to the Daily Autopsy Report v3. Nothing in Layer 1 needs
    refreshing before send.
 
-5. STILL UNFIXED FROM THE ISSUES 1-5 DOC, AND NOW MORE URGENT.
-   Open item 1, no live signup page, is still the blocker that matters most. Form
-   195832725497709843 is a popup with active = false, 0 opens, 0 conversions, and it
-   feeds "Gentle Muse Subscribers" rather than "Just Another Tuesday." 10 issues of a
-   newsletter with no working front door is 10 issues of asking people to knock on a
-   painted wall.
-   Issue 6's entire lesson is about avoiding the most important task while working hard
-   on everything else. It would be a bad look to publish that on 09/29 with that form
-   still switched off, and worse, it would be true.
+5. CORRECTION, 09/09/2026. THE FRONT DOOR WORKS. NOTHING LEADS TO IT.
+   An earlier version of this note said there was no live signup page, that form
+   195832725497709843 was inactive, and that it fed the wrong group. All 3 of those were
+   wrong. They were copied from open item 1 of the issues 1-5 doc, which was written
+   08/18 and fixed on 08/27. The live check was never run. Amanda caught it by opening
+   MailerLite herself.
+   What the live data says, checked 09/09/2026:
+   - https://just-another-tuesday-gm.subscribepage.io returns 200, is titled "Just
+     Another Tuesday: 10 hours ahead on AI, not 10 years," and carries a working email
+     field posting to account 2465670, page 196122128046621787.
+   - It converts. 2 real strangers are in the Just Another Tuesday group with
+     source = webform, 08/19 and 08/23. 1 of them has opened 3 of 3 issues.
+   - Popup 195832725497709843 is active = true, is_broken = false,
+     has_missing_groups = false, and feeds Consider This AND Just Another Tuesday. It was
+     activated 08/27 and that is recorded in FLYWHEEL-STATUS.md in this repo.
+   - 0 subscribers are stranded at double opt-in account-wide.
+   The real problem is upstream of all of it. The 4 TUESDAY comment-to-DM automations
+   (447 and 2771 on IG, 427 and 2772 on FB) have been triggered 0 times, ever, since
+   08/25. Reason: across 100 published IG and FB posts from 08/25 to 09/09, only 2
+   distinct posts ever said "Comment TUESDAY," both in the first 3 days. 56 posts asked
+   for a different keyword. Across 91 scheduled IG and FB posts through 10/31, exactly 2
+   carry TUESDAY, against 32 for SEASONAL and 26 for CESA. On 09/15, the day #004 sends,
+   8 posts are scheduled and not 1 mentions the newsletter.
+   So this is not a plumbing problem. A newsletter that sends every Tuesday is asked for
+   in roughly 2% of her posts, and the weekly product with a working landing page is the
+   least promoted thing in the queue.
+   Issue 6's lesson lands harder now, not softer. The most important task was not
+   building the door. It was pointing at it.
 
 6. NUMBERS AND DASHES.
    Digits throughout, no spelled-out numbers, no em dashes, per the post-grader voice
