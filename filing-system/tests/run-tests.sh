@@ -421,6 +421,24 @@ cta "edge cases all fire"               1 "$HERE/cta.edge.json" \
 cta "a tiktok follow is a real return" 0 "$HERE/cta.tiktok.json"
 cta "a reach only post holds"           2 "$HERE/cta.hold.json"   H01_NO_CAPTURE_PATH
 
+# 2026-08-21: 4 paid and promotional posts inside 3 minutes took 2, 0, 0 and 0
+# likes. The spacing rule was already written down and nothing read it at ship.
+cta "the Aug 21 paid stack is refused"  1 "$HERE/cta.paid.json" P08_PAID_STACKED
+cta "paid posts spaced out pass"        0 "$HERE/cta.paid-clean.json"
+cta "paid with no run time holds"       2 "$HERE/cta.paid-notime.json" H02_PAID_NO_TIME
+
+# the stack is 3 posts, so 2 consecutive pairs are too close, not 1.
+out="$(python3 "$CTA" --queue "$HERE/cta.paid.json" 2>&1)"
+if [ "$(grep -c P08_PAID_STACKED <<<"$out")" = 2 ]; then
+  echo "PASS  every close pair is reported, not just the first"; pass=$((pass+1))
+else echo "FAIL  every close pair is reported, not just the first"; fail=$((fail+1)); fi
+
+# a shorter window is a different question, and the flag has to actually change it.
+out="$(python3 "$CTA" --queue "$HERE/cta.paid-clean.json" --paid-window 600 2>&1)"
+if grep -q P08_PAID_STACKED <<<"$out"; then
+  echo "PASS  --paid-window widens the rule"; pass=$((pass+1))
+else echo "FAIL  --paid-window widens the rule"; echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
+
 
 PLAN="$HERE/../scripts/gm_queue_plan.py"
 
