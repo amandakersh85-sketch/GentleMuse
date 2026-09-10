@@ -1,5 +1,34 @@
 # Agent coordination contract
 
+## 0-RATIO. ONE RENDER PER FACT. SET BY AMANDA 2026-09-10. PERMANENT.
+
+Her words: *"fix the ratio ... anything that you see we haven't used, from all of what we have
+now, let's keep it fully cohesive and rotated."*
+
+**The rule: 1 media render per IDEA, reused on every platform that idea runs on.**
+A second render only when the aspect ratio genuinely differs, which in practice means Pinterest
+and nothing else. **Never 1 render per post.**
+
+### Why this exists
+Measured 2026-09-10 across the live seasonal library: **146 distinct media files behind 117
+posts. 145 of the 146 used exactly once.** The mare and sleep-paralysis fact alone has 8 posts
+and 8 separate mp4s, 2 of which published on the same day, 09-11, one to Facebook and one to
+Instagram. Same fact, same words, 2 files.
+
+Working ratio was **7.3 renders per idea.** At that ratio the 32 new seasonal nights would cost
+about 234 renders. At 1 per idea reused, 32. Plus Pinterest crops, 64.
+
+### What this obligates, every time
+1. Before generating anything, check whether a render for that idea already exists. Reuse it.
+2. When an idea cross-posts, pass the SAME `mediaUrls` value to every platform.
+3. Only regenerate for a real aspect-ratio change, and say which ratio and why.
+4. If a batch would produce more files than it has ideas, that batch is wrong. Stop and re-plan.
+
+### Blotato balance
+2,974 credits on `amandakersh85@gmail.com`, $6 per 1,000, minimum purchase 1,000. The per-render
+credit cost is NOT exposed by the API. Do not quote one. What is certain is that the old ratio
+multiplied whatever that cost is by 7.3.
+
 ## 0. PLATFORM RULES SET BY AMANDA 2026-09-10. PERMANENT. DO NOT RE-DECIDE THESE.
 
 ### LinkedIn gets business posts only. Never holiday, never seasonal.
