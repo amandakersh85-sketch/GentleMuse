@@ -10,13 +10,24 @@ A second render only when the aspect ratio genuinely differs, which in practice 
 and nothing else. **Never 1 render per post.**
 
 ### Why this exists
-Measured 2026-09-10 across the live seasonal library: **146 distinct media files behind 117
-posts. 145 of the 146 used exactly once.** The mare and sleep-paralysis fact alone has 8 posts
-and 8 separate mp4s, 2 of which published on the same day, 09-11, one to Facebook and one to
-Instagram. Same fact, same words, 2 files.
+**CORRECTED 2026-09-10, same day.** The first measurement counted distinct `mediaUrls` and
+reported 146 files at 7.3 per idea. That was wrong. **Blotato mints a fresh storage URL every
+time media is attached to a post**, proven by handing 6 identical image URLs to 2 posts and
+getting 12 different URLs back. URL count is not file count.
 
-Working ratio was **7.3 renders per idea.** At that ratio the 32 new seasonal nights would cost
-about 234 renders. At 1 per idea reused, 32. Plus Pinterest crops, 64.
+Re-measured by actual byte size across all 146 URLs: **at most 90 distinct files behind 117
+posts**, carrying about 20 facts. **Roughly 4.5 files per idea**, not 7.3. The mare and
+sleep-paralysis fact has 8 posts running on 4 distinct files, not 8.
+
+90 is an upper bound. A platform re-encode of one source counts as a separate file by size
+without being separate creative work, so the true number of renders is 90 or fewer.
+
+At 4.5 the 32 new seasonal nights would cost about 144 renders. At 1 per idea reused, 32. Plus
+Pinterest crops, 64. The waste is real and the rule still holds, it is just about half the size
+first reported.
+
+**Storage duplication itself is free.** It happens automatically on attach and costs nothing.
+Only generation costs.
 
 ### What this obligates, every time
 1. Before generating anything, check whether a render for that idea already exists. Reuse it.

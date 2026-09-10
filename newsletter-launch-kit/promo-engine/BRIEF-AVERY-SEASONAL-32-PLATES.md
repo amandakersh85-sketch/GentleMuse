@@ -10,8 +10,10 @@
 ## 0. Read this part before generating anything
 
 Amanda's whole reason for routing this to you is cost. Her Blotato balance is 2,974 credits and
-the existing seasonal run burned **146 separate renders on 117 posts**, because every cross-post
-got its own file. That is the mistake this brief exists to not repeat.
+the existing seasonal run used **at most 90 distinct files across 117 posts** carrying about 20
+facts, roughly 4.5 files per fact. (An earlier count said 146 and 7.3; that counted storage URLs,
+and Blotato mints a new URL on every attach. Corrected same day.) That is still 4 or 5 renders
+where 1 would have done, and it is the mistake this brief exists to not repeat.
 
 **1 image per fact. Not 1 per post.** The same file goes to Instagram, TikTok, Facebook and
 YouTube. Only Pinterest gets a second crop, and only because the shape genuinely differs.
