@@ -1,5 +1,51 @@
 # Agent coordination contract
 
+## 0. PLATFORM RULES SET BY AMANDA 2026-09-10. PERMANENT. DO NOT RE-DECIDE THESE.
+
+### LinkedIn gets business posts only. Never holiday, never seasonal.
+
+Her words: *"LinkedIn only gets the business posts not the holiday posts I need that to be a
+permanent rule going forward."*
+
+This is not a preference to weigh against reach. It is a standing rule with no expiry.
+
+**Never schedule to LinkedIn (account `20723`):** anything about Halloween, Samhain, the
+seasonal nightly run, holiday history, spooky or horror movie facts, ghosts, witches, graves,
+trick or treat, jack o lanterns, Christmas, or any other holiday. If the seasonal campaign is
+cross-posting to every channel, LinkedIn is carved out of the loop, not included and filtered
+later.
+
+**LinkedIn gets:** what she actually learned building the business, AI worth using in plain
+language, systems and automation failures with the mistake left in, practical household or
+consumer findings that stand on their own as useful, and the free lead magnets.
+
+Verified clean at the time the rule was set: 14 scheduled LinkedIn posts, 09-11 through 09-24,
+0 seasonal. Nothing had to be pulled. The rule exists to keep it that way when the 33-night
+seasonal run gets built, because that run would otherwise cross-post straight onto LinkedIn.
+
+Note the LinkedIn queue ends 09-24 and has its own cliff after that.
+
+### X / Twitter is OFF. It stays off unless Amanda says otherwise.
+
+All 19 scheduled X posts were deleted 2026-09-02 under the 200-post plan cap. Copy preserved in
+full in `DELETED-X-QUEUE.md`. Confirmed live 2026-09-10: querying X from 08-01 to 12-31 returns
+**0 scheduled**. Every X record is `published` (last 2026-09-02 13:30) or `failed`.
+
+Do not refill the X queue as a side effect of building anything else.
+
+**Why it failed, which matters if it is ever revived.** Two separate problems, not one:
+1. `blotato_list_top_posts` for twitter since 06-01 returns no rows at all. Not low numbers, no
+   rows, across 3 months, on a platform Blotato does instrument.
+2. **Every X post carrying video failed**, 11 of them, all with `Could not upload media to
+   Twitter`. Only text-only posts ever published successfully.
+
+So the one configuration that has ever technically worked on X is **text-only posts with a
+lead-magnet link**. That is her open question, not a decision: she said *"unless you blast x
+with my carousels ... it needs to be nothing but free lead magnets ... and see if anything
+happens but I don't know I feel like it's not worth the time."* Carousels are images, and image
+uploads are in the same media path that failed on video, so a carousel revival is the version
+least likely to work. Do not act on any of this without her explicit go-ahead.
+
 ## 0b. THIS ENVIRONMENT CANNOT FACT-CHECK THE JAT SOURCE DOMAINS
 
 `sabrina.dev`, `substack.com` and `reletter.com` are **blocked by the network egress proxy** in
