@@ -101,6 +101,13 @@ Variety is the point of the volume. A day should not be 5 of the same lane.
 The lanes are: holiday fact, Cesa, Club Target, food review, lead magnet
 carousel, Amanda on camera, trivia.
 
+Re-airing is fine after 4 days. Amanda, 09/10/2026. There is no cap on how
+many times a fact runs on a channel, only on how close together, because
+the board holds about 17 distinct video facts and filling a day is almost
+always a re-air. Twice on 1 channel in 1 day is still refused and always
+was. `gm_fill_plan.py` proposes the fills and `C09` enforces the gap; both
+read the spacing from 1 constant, so change it there.
+
 The trivia lane is scoped to AI, automation and the creator economy. Set
 09/08/2026. General trivia fills the same slot at the same cost while
 diluting the positioning the account is there to carry, so the scope lives

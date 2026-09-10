@@ -68,11 +68,17 @@ ANCHOR_DEFAULT = "15:00"
 MIN_PER_DAY = 3
 MAX_PER_DAY = 5
 
-# How often 1 fact may run on 1 channel. 2 airings in the window, never
-# closer than 3 days, and never twice in 1 day. Measured against the 09/08
-# board, where 6 airings of 1 fact in 11 days was what she caught by eye.
-MAX_AIRINGS = 2
-MIN_FACT_GAP_DAYS = 3
+# How often 1 fact may run on 1 channel.
+#
+# Amanda, 09/10/2026: "re-air is fine after 4+ days". That replaces the count
+# cap with a spacing rule. The 2 airing cap was mine, set on 09/08 when 1 fact
+# had run 6 times in 11 days, and the real complaint then was 6 airings inside
+# a fortnight and twice in a day, not the number itself. Spacing fixes both.
+#
+# MAX_AIRINGS = 0 means no cap on the count. Twice in 1 day is still refused
+# by C08, which is the rule she actually stated and never softened.
+MAX_AIRINGS = 0
+MIN_FACT_GAP_DAYS = 4
 
 # A hole this long with posts stranded on the far side of it. A day or 2
 # of sparseness is ordinary; 5 is a week of silence with slots already
@@ -400,7 +406,7 @@ def check(rows, anchor=ANCHOR_DEFAULT, target=None):
                         "ids": [p["id"] for p in per_day[day]],
                     })
 
-            if len(posts) > MAX_AIRINGS:
+            if MAX_AIRINGS and len(posts) > MAX_AIRINGS:
                 findings.append({
                     "rule": "C09_FACT_OVERPLAYED",
                     "day": posts[0]["day"],

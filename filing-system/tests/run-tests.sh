@@ -608,6 +608,35 @@ if python3 "$CAD" "$HERE/cadence.silent.csv" 2>/dev/null | grep -q "C11_CHANNEL_
 else echo "PASS  a retired channel is not called silent"; pass=$((pass+1)); fi
 
 echo
+echo "== filling an empty day without repeating too soon (added 09/10) =="
+# The board holds about 17 distinct video facts, so filling an empty day is
+# almost always a re-air. Amanda, 09/10: "re-air is fine after 4+ days".
+# The picker is only as good as the history it checks, and a history that
+# cannot be read produces a confident wrong answer rather than an error.
+FP="$HERE/../scripts/gm_fill_plan.py"
+
+if python3 "$FP" --day 2026-09-20 --history "$HERE/fill.history.json" \
+     --queue "$HERE/../data/queue-2026-09-10-backfill.json" >/dev/null 2>&1; then
+  echo "PASS  an empty day is filled from a readable history"; pass=$((pass+1))
+else echo "FAIL  an empty day is filled from a readable history"
+     python3 "$FP" --day 2026-09-20 --history "$HERE/fill.history.json" \
+       --queue "$HERE/../data/queue-2026-09-10-backfill.json" 2>&1 | sed 's/^/      /'; fail=$((fail+1)); fi
+
+# The 09/10 near miss: a dump that had lost its caption text made every fact
+# read as never aired, and the plan put a fact on YouTube 1 day after it runs.
+if python3 "$FP" --day 2026-09-20 --history "$HERE/fill.history-blind.json" \
+     --queue "$HERE/../data/queue-2026-09-10-backfill.json" 2>&1 | grep -q "carry no text"; then
+  echo "PASS  a history with no captions is refused, not guessed at"; pass=$((pass+1))
+else echo "FAIL  a history with no captions is refused, not guessed at"; fail=$((fail+1)); fi
+
+# The same failure 1 step along: a history that stops before the day being
+# filled cannot see what was scheduled in between.
+if python3 "$FP" --day 2026-09-25 --history "$HERE/fill.history.json" \
+     --queue "$HERE/../data/queue-2026-09-10-backfill.json" 2>&1 | grep -q "history stops at"; then
+  echo "PASS  a history that stops short of the day is refused"; pass=$((pass+1))
+else echo "FAIL  a history that stops short of the day is refused"; fail=$((fail+1)); fi
+
+echo
 echo "== where the board runs dry (added 09/09) =="
 # The cap is a fixed number of slots, so a post held for Halloween owns its
 # slot for 7 weeks. That filled the queue on 09/08 while the next 11 days
@@ -649,13 +678,16 @@ if python3 "$CAD" "$HERE/cadence.facts-broken.csv" 2>/dev/null | grep -q "C08_FA
   echo "PASS  the same fact twice on 1 channel in 1 day is caught"; pass=$((pass+1))
 else echo "FAIL  the same fact twice on 1 channel in 1 day is caught"; fail=$((fail+1)); fi
 
-if python3 "$CAD" "$HERE/cadence.facts-broken.csv" 2>/dev/null | grep -q "C09_FACT_OVERPLAYED.*The cap is 2"; then
-  echo "PASS  a 3rd airing of 1 fact on 1 channel is caught"; pass=$((pass+1))
-else echo "FAIL  a 3rd airing of 1 fact on 1 channel is caught"; fail=$((fail+1)); fi
+# Amanda, 09/10: "re-air is fine after 4+ days". Spacing is the rule and the
+# count is not capped, so a 3rd airing 5 days out is correct, not a finding.
+if python3 "$CAD" "$HERE/cadence.thrice.csv" 2>/dev/null | grep -qE "^C09"; then
+  echo "FAIL  a 3rd airing spaced 5 days is allowed"; fail=$((fail+1))
+else echo "PASS  a 3rd airing spaced 5 days is allowed"; pass=$((pass+1)); fi
 
-if python3 "$CAD" "$HERE/cadence.facts-broken.csv" 2>/dev/null | grep -q "Minimum is 3 days"; then
-  echo "PASS  2 airings closer than 3 days is caught"; pass=$((pass+1))
-else echo "FAIL  2 airings closer than 3 days is caught"; fail=$((fail+1)); fi
+if python3 "$CAD" "$HERE/cadence.facts-broken.csv" 2>/dev/null | grep -q "Minimum is 4 days"; then
+  echo "PASS  2 airings closer than 4 days is caught"; pass=$((pass+1))
+else echo "FAIL  2 airings closer than 4 days is caught"
+     python3 "$CAD" "$HERE/cadence.facts-broken.csv" 2>&1 | grep C09 | sed 's/^/      /'; fail=$((fail+1)); fi
 
 # A check that quietly skips the rows it cannot read is worse than no check.
 if python3 "$CAD" "$HERE/cadence.facts-broken.csv" 2>/dev/null | grep -q "C10_FACT_UNLABELLED"; then
