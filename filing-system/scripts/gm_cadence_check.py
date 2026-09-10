@@ -18,7 +18,9 @@ count of 1.
   C06_DEAD_HOUR       a post in the hours the audience is not there
   C04_COUNTDOWN_DRIFT a caption counting down to a date that no longer
                       matches the day it is scheduled on
-  C08_FACT_TWICE      the same fact twice on 1 channel on 1 day
+  C08_FACT_TWICE      the same fact twice on 1 channel on 1 day, except on a
+                      channel marked RepeatExempt, where repeating is the
+                      mechanism rather than the mistake
   C09_FACT_OVERPLAYED the same fact more than 2 times on 1 channel across
                       the window, or 2 airings closer together than 3 days
   C10_FACT_UNLABELLED a row with no fact, which the 2 rules above cannot
@@ -84,6 +86,27 @@ MIN_RUNWAY_HOLE_DAYS = 5
 CHANNEL_RULES = os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
     "data", "channel-rules.csv")
+
+
+def load_repeat_exempt(path=CHANNEL_RULES):
+    """Channels where repeating a fact is the mechanism, not a mistake.
+
+    Pinterest is the only one. A pin is a bookmark, so repinning the same
+    image is how the platform works, and C08 and C09 flagging it is the gate
+    enforcing a rule the house policy already exempts. Read from the CSV so
+    the exemption is a fact about the channel, not a name buried in here.
+    """
+    out = set()
+    try:
+        with open(path, newline="") as fh:
+            for r in csv.DictReader(fh):
+                if (r.get("RepeatExempt") or "").strip().lower() in ("yes", "true", "1"):
+                    ch = (r.get("Channel") or "").strip().lower()
+                    if ch:
+                        out.add(ch)
+    except OSError:
+        pass
+    return out
 
 
 def load_channel_rules(path=CHANNEL_RULES):
@@ -354,9 +377,10 @@ def check(rows, anchor=ANCHOR_DEFAULT, target=None):
                 "ids": unlabelled[:20],
             })
 
+        exempt = load_repeat_exempt()
         by_fact = defaultdict(list)
         for r in rows:
-            if r["fact"]:
+            if r["fact"] and r["platform"] not in exempt:
                 by_fact[(r["account"] or r["platform"], r["fact"])].append(r)
 
         for key in sorted(by_fact):

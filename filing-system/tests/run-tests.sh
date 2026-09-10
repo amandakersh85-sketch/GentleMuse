@@ -662,6 +662,24 @@ if python3 "$CAD" "$HERE/cadence.facts-broken.csv" 2>/dev/null | grep -q "C10_FA
   echo "PASS  a row with no fact fails rather than passing unchecked"; pass=$((pass+1))
 else echo "FAIL  a row with no fact fails rather than passing unchecked"; fail=$((fail+1)); fi
 
+# Pinterest is the 1 channel where repeating is the mechanism. A pin is a
+# bookmark, so repinning the same image is how the platform works, and the
+# gate flagging it was enforcing a rule the house policy already exempts.
+if python3 "$CAD" "$HERE/cadence.exempt.csv" 2>/dev/null | grep -qE "^C0[89]"; then
+  echo "FAIL  a repeat-exempt channel is not flagged for repeating"; fail=$((fail+1))
+else echo "PASS  a repeat-exempt channel is not flagged for repeating"; pass=$((pass+1)); fi
+
+# And the exemption is per channel, not a hole in the rule.
+if python3 "$CAD" "$HERE/cadence.notexempt.csv" 2>/dev/null | grep -q "C08_FACT_TWICE"; then
+  echo "PASS  a channel that is not exempt still fails on a same day repeat"; pass=$((pass+1))
+else echo "FAIL  a channel that is not exempt still fails on a same day repeat"; fail=$((fail+1)); fi
+
+# Read as CSV, not with grep: the Why column is a long quoted string that
+# spans physical lines, so a line-oriented match never sees the record.
+if python3 "$HERE/trivia_assert.py" pinterest-exempt; then
+  echo "PASS  the exemption lives in the CSV, not in the gate"; pass=$((pass+1))
+else echo "FAIL  the exemption lives in the CSV, not in the gate"; fail=$((fail+1)); fi
+
 # Boards written before the column existed must not start failing for it.
 if python3 "$CAD" "$HERE/cadence.board.csv" 2>/dev/null | grep -q "cadence clean"; then
   echo "PASS  a board with no fact column is still checked as before"; pass=$((pass+1))

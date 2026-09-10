@@ -32,8 +32,17 @@ def live_list_matches_her_answer():
             and "paul@shopifreaks.com" not in a)      # tier 2, parked
 
 
+def pinterest_is_repeat_exempt():
+    """The exemption is a fact about the channel, recorded next to its cadence."""
+    sys.path.insert(0, os.path.join(HERE, "..", "scripts"))
+    import gm_cadence_check as C
+    exempt = C.load_repeat_exempt()
+    return exempt == {"pinterest"}
+
+
 if __name__ == "__main__":
     fn = {"approved-passes": approved_source_still_passes,
           "parked-held": parked_source_is_held,
-          "live-list": live_list_matches_her_answer}[sys.argv[1]]
+          "live-list": live_list_matches_her_answer,
+          "pinterest-exempt": pinterest_is_repeat_exempt}[sys.argv[1]]
     sys.exit(0 if fn() else 1)
