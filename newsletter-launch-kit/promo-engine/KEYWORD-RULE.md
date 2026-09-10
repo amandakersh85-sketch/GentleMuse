@@ -1751,3 +1751,49 @@ Good news either way: her own handle is not the false-positive magnet it looked 
 | False positives | 0 | 0 |
 
 0 replies posted, 0 guides sent, 0 spam.
+
+## Daily lead sync 2026-09-10 13:06 UTC — the 12-send trap fired, exactly as predicted
+
+### The one thing to report
+
+**`amanda@gentlemuse.co` now meets the 12-send drop condition: sent 12, opens_count 0.**
+
+Yesterday's run recorded this in advance: *"amanda@gentlemuse.co is at 11 sends, 0 opens. It
+crosses 12 on the next send and will meet the condition exactly. It is Amanda's own address
+and must never be flagged for removal."* It crossed overnight.
+
+**It is not a drop candidate and must never be actioned.** The routine's own "Who is real"
+section names `amanda@gentlemuse.co` as one of Amanda's addresses, alongside
+`amandakersh85@gmail.com`, the `+cesatest` / `+cesatest2` / `+cesaloop` / `+lptest` aliases
+and `princesamaryelizabeth@gmail.com`. The 12-send rule and the exclusion list are both live
+and they now contradict each other on this record.
+
+**Fix the rule, not the record:** apply the exclusion list *before* the 12-send check, every
+run. A run that reads the check literally will hand Amanda her own forwarding address as
+something to delete.
+
+**No real subscriber meets the condition.** Nobody else is above 9 sends with 0 opens.
+Melissa and Nadia, the 2 the rule was written for, remain suppressed since 09-08 15:03:38 at
+9 sends each, `status: unsubscribed`, not deleted, and no longer accumulating.
+
+### Everything else
+
+| Check | Result |
+|---|---|
+| emailGate automations | **3**, down from 4. `4009`, `4010`, `4011` SEASONAL only, all deliberate. |
+| `2772` gate | Still removed. Yesterday's fix held, `publishedVersionId` still 8955. |
+| `2771` gate | Still removed, still 8850. |
+| Runs on the 3 gated | **0 each, ever.** Nothing captured, nothing to sync to MailerLite. |
+| followGate | None on any of the 10 automations read today. |
+| Unconfirmed subscribers | 0 |
+| Active subscribers with 0 sends | 0 |
+| New subscribers since yesterday | **None.** `artinehaladadyan@gmail.com` at 09-09 02:48 is still the most recent. |
+
+Movement since yesterday, all just sends landing: Shaniya 1 → 2 sent, Mary 5 → 6 sent,
+`amanda@gentlemuse.co` 11 → 12 sent. No new opens, no new clicks, no new signups.
+
+**Coverage stated honestly:** 10 automations were read from source today, not all 40. The
+funnel watch has been reading `2952`, `2954`, `445` and `432` every 2 hours since yesterday
+and all stayed clean, and no automation anywhere has produced a run since 08-30, so there is
+nothing new that could have failed. A full 40-record followGate sweep was done yesterday and
+is not repeated here.
