@@ -1896,3 +1896,56 @@ the recycling flagged earlier.
 
 Either the 33 nights get built, or those 2 posts stop promising them. Amanda's call, but it has
 to be made before 20:00 UTC today, because `4231020` is the post that makes the promise.
+
+## 2026-09-10 — The September fact bank counted, and where the credits actually go
+
+Amanda asked how many seasonal facts are already built and live. Counted from source, published
+posts 08-25 to 09-10 plus everything scheduled 09-10 to 10-31.
+
+### The fact bank
+
+**20 real seasonal facts.** 21 clusters if you count "The season sells you fear," which is the
+campaign promo, not a fact.
+
+Samhain / Halloween was never about fear · nightmare and the mare, sleep paralysis · jack o
+lanterns were turnips · trick or treat is younger than jazz · somebody decided children deserved
+their own night · Casper, the first fully CGI lead, 1995 · Victorian safety coffins · Disney and
+The Nightmare Before Christmas · the Roman grave at Lugnano and the stone in the child's mouth ·
+Mary Shelley was 18 · Goosebumps dismissed by critics · the scary part was never the monster ·
+Sarah Winchester · not 1 confirmed razor blade case · nobody was burned at Salem, and the witch
+trials were not medieval · SNICK 1992 · Are You Afraid of the Dark 1992 · the panic was a story
+about a story · Hocus Pocus was a flop · Halloweentown 1998.
+
+**117 seasonal posts** carry those 20 facts. Roughly 6 posts per fact, which is the recycling
+already visible in the Pinterest run.
+
+### The actual money leak, and it is not the facts
+
+**146 distinct media assets back those 117 posts. 145 of the 146 are used exactly once.**
+
+Nothing is reused. Every cross-post got its own render. The nightmare-and-the-mare fact has 8
+posts and 8 separate mp4 files. Two of them published on 09-11, 1 to Facebook and 1 to Instagram,
+same fact, same day, 2 different files. On 09-18 that fact rendered 3 more times.
+
+So the working ratio is about **7.3 renders per fact.**
+
+If the 32 new nights follow the pattern already in the queue, that is roughly **234 renders**. If
+1 asset per fact is reused across every platform it is **32**. Adding a second aspect ratio for
+Pinterest makes it 64. That is an 86% reduction and it costs nothing to adopt, because it is a
+habit, not a purchase.
+
+**Standing rule from here: 1 render per fact, reused across every platform it runs on. A second
+render only when the aspect ratio genuinely differs. Never 1 render per post.**
+
+### Blotato balance
+
+2,974 credits on `amandakersh85@gmail.com`. $6 per 1,000, minimum purchase 1,000, so the balance
+is worth about $17.80. **The per-visual credit cost is not exposed by the API.** Not guessing at
+it. What is certain is that the 7.3x ratio multiplies whatever that number turns out to be, and
+fixing the ratio is worth more than any purchase decision.
+
+### HeyGen
+
+There is no HeyGen connector in this environment. It cannot be driven from here. The 32 nights
+are a clean first test for the avatar twin if she wires it up: 32 scripts, identical format,
+20 to 30 seconds each, no filming and no editing, which is the exact pitch.
