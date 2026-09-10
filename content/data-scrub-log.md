@@ -740,3 +740,62 @@ Instagram, the platform the entire 1K goal rides on, is delivering 1 to 176
 views on posts that used to do 800 to 7,700.
 
 Everything else is secondary until that is understood.
+
+## FOLLOWER COUNT and the Instagram volume cut, 09/10
+
+**Amanda's manual count: 185 on Sept 10.**
+
+- Sept 8 campaign start: 190
+- Sept 10: **185**
+- **Net: minus 5 in 2 days.**
+
+The campaign is running backwards. Not slow growth, actual loss, during the
+2 days of highest posting volume the account has ever seen.
+
+That plus the reach collapse in the Day 2 scrub (Cesa down from 800-7,700 to
+176 and 101, seasonal fact reels at 1 and 3 views) points one direction.
+
+### What was queued
+
+The Instagram queue held **5 posts a day** through Sept 13. Same pattern that
+produced the collapse, scheduled to keep running for 4 more days.
+
+### What was changed, 09/10
+
+**Instagram cut to 2 posts a day.** 13 posts rescheduled, none deleted. Nothing
+is lost, it is spread out.
+
+New Instagram cadence: **17:00 UTC (noon CT) and 00:00 UTC (7 PM CT).** Those 2
+windows are where her best posts in the whole corpus landed. The 7,726 view reel
+went out at 17:01 UTC, the 2,085 at 16:30, the 1,296 and 1,263 at 00:00.
+
+Resulting schedule, 2 per day:
+
+| Date UTC | 00:00 | 17:00 |
+|---|---|---|
+| Sept 10 | (trivia test 16:30) | Becoming her |
+| Sept 11 | Bath day | The floor changes |
+| Sept 12 | Comes to find me | Lint screen |
+| Sept 13 | Flipped over | POV peed in the office |
+| Sept 14 | Black and gold | AI guide |
+| Sept 15 | Walks out front | Brows |
+| Sept 16 | Her own seat | 5 things in your house |
+| Sept 17 | Picked the blanket | Free 1 page |
+| Sept 18 | Nightmare | Sarah Winchester |
+| Sept 19 | Halloweentown | Season sells you fear |
+
+**The 4 seasonal fact reels were pushed to the back, Sept 18 and 19.** That
+format is doing 1 to 3 views on Instagram while the same videos do 219 to 330
+on Facebook. They are dead weight on Instagram and they are eating slots the
+Cesa content could use. Recommend cutting them from Instagram entirely and
+letting them live on Facebook, TikTok and YouTube where they work. Amanda's
+call, they are parked not deleted.
+
+TikTok, Facebook and YouTube were left alone. Their reach is normal and the
+Club Target points engine runs on TikTok.
+
+### What to watch
+
+If Instagram reach recovers over the next 3 days, the cause was volume and the
+fix holds. If it does not, the account has a restriction that needs Meta
+support, and no amount of scheduling changes it.
