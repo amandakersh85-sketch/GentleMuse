@@ -678,3 +678,97 @@ and it is now closed on everything still unpublished.
 
 3 new challenges, not the usual 4. Subject "Fresh Ideas to Fuel Your Creativity",
 no seasonal steer. `/t/0pdf`, `/t/0pdm`, `/t/0pdq`.
+
+---
+
+## === AUDIT 10 Sep 2026, 00:08 UTC (Sun/Wed routine) ===
+
+Window 5 Sep to 31 Oct, 250 rows. **A pagination cursor was returned, so the read is
+capped at 250 rows and does not cover every row out to 10 Nov.** Every Club Target
+post falls inside the window read, so the coverage and pricing checks are complete.
+The Instagram cap count may understate.
+
+### +90. Running total 784.
+
+Three more themes published since the last audit:
+
+| Theme | Published, Central | Post |
+| --- | --- | --- |
+| #TargetQuickMeals | 8 Sep, 7 PM | `6838766` |
+| #TargetFave | 9 Sep, 7 PM | `6869994` |
+| #TargetHomeForFall | 9 Sep, 7 PM | `6901620` |
+
+| | |
+| --- | --- |
+| Baseline 17 Aug | 304 |
+| 16 themes x 30 | 480 |
+| **Total** | **784** |
+
+**Caveat on 784.** `#TargetFave` was already banked on 21 Aug with the NYX fat oil
+post. If a theme credits once per creator, the 9 Sep Tree Hut version earns nothing
+and the real total is **754**. Amanda can settle it from the portal.
+
+### The pricing fix held. Verified post by post.
+
+Every caption edited on 7 Sep published clean:
+
+| Post | `#ad` | Price language |
+| --- | --- | --- |
+| `6837551` tillamook, 7 Sep | yes | none |
+| `6838766` QuickMeals, 8 Sep | yes | none |
+| `6869994` TargetFave, 9 Sep | yes | none |
+| `6901620` HomeForFall, 9 Sep | yes | none |
+
+### Amanda kept filming, and the new posts are clean on their own
+
+Three more themes are queued that nobody asked me to fix, and every one already
+carries `#ad` and states no price:
+
+| Theme | Fires, Central |
+| --- | --- |
+| #TargetFallCollage | 10 Sep, 10 AM |
+| #TargetEverydayFavorites | 10 Sep, 7 PM |
+| #TargetWellnessReset | 11 Sep, 7 PM |
+
+`#TargetFallCollage` is the "fall style collage" challenge Amanda named on 4 Sep.
+That closes the loop from the run sheet to a filmed, scheduled, compliant post.
+
+Up to **874** if all 3 credit.
+
+### Clean
+
+- **TikTok coverage: no gaps.** All 8 live themes carry a TikTok.
+- **Duplicates: zero.**
+- **Failed posts: zero.**
+
+### Still needs Amanda, unchanged from 7 Sep
+
+Three published posts cannot be edited through the API:
+
+| Post | Problem |
+| --- | --- |
+| `6776742` #TargetLaborDayFind, 5 Sep | **still says "25% off"**, and no `#ad` |
+| `6796860` #TargetActiveStyle, 6 Sep | no `#ad` |
+| `6776722` Instagram, 5 Sep | no `#ad`, and no theme tag |
+
+The live 25% off caption is the one that matters. Everything scheduled since is
+clean, so this is the last piece of exposure left from the 5 Sep batch.
+
+### Instagram cap, unresolved for a third audit
+
+9 days over cap, on times that are still not slots: 00:00, 14:00, 16:30, 17:00,
+18:00, 20:00, 22:50. Two of those, 14:00 and 18:00, are new since 7 Sep, so
+something is still writing Instagram rows outside the SOP. The top-up hardening did
+not stop it, which rules the top-up out as the source. Needs tracing to whatever
+else writes to Instagram before another respread is worth doing.
+
+### Queue
+
+182 scheduled, running through 31 Oct.
+
+### Verdict
+
+**+90 BANKED**, 784, or 754 if `#TargetFave` is a spent theme.
+**PRICING RESOLVED** on everything unpublished. 1 live caption still exposed.
+**COVERAGE CLEAN.**
+**UNRESOLVED** Instagram slot discipline, third audit running.
