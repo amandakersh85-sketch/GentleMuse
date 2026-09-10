@@ -64,6 +64,28 @@ The rule that follows:
   video, or by an explicit named rule. It is never inferred from a plan
   file's own say-so.
 
+THE CESA LINK WHITELIST, exact
+Amanda, Sep 10: "the only links we ever tied to Cesa are her guide landing
+page or the Consider This landing page. That's it, that's all."
+The complete list of links allowed anywhere near Cesa, her content, or her
+accounts:
+  1. https://cesa-guide.subscribepage.io
+  2. https://consider-this.subscribepage.io
+No third link exists. Not a business offer, not a paid product, not another
+lead magnet. If a draft near Cesa carries anything but these 2, it is
+wrong. gm_cta_check P09 already enforces this on the cesa accounts, where
+these are the only wired magnets.
+
+HOW BUSINESS VIDEO GETS MADE
+Amanda, Sep 10: business video is either an avatar twin (HeyGen) or Amanda
+recording herself to camera. There is no third source. No auto-generated
+business pitch posted on Amanda's behalf, ever again. That was the Sep 9
+failure.
+DRAFTS FIRST, ALWAYS. Her words: "you come over drafts before you create
+stuff." Scripts and storyboards go to Amanda for approval BEFORE any video
+is produced or published. Approval is the gate. A plan file is not
+approval. Amanda's explicit yes to a specific draft is approval.
+
 ROUTING
 Every business draft names which of the 4 jobs it does, in 1 word, in the
 proposal. post-grader gates it like everything else: 8 of 10 or it does
