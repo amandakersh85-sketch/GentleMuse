@@ -630,3 +630,20 @@ disclosure. Under the hard rule this post is compliant on links.
 **One thing still open and it fires today:** "GLASS PUMPKINS AT $15" is burned
 into the video. Never state a price on affiliate content. Not fixable in the
 caption. Re-render, re-cut, or pull.
+
+### Club Target claim, fall aisles TikTok, 09/09 7:00 PM CT
+
+**Published.** Blotato 6901620.
+Live URL: https://www.tiktok.com/@thegentlemuse2026/video/7683689557392510222
+
+Caption verified as published: `#TargetPartner` is in line 1, the full partner
+disclosure is in the body, both product links are present (candle 95010565,
+pumpkin 95011924), `#ClubTarget` and `#TargetHomeForFall` at the end. Compliant
+on disclosure placement and on the product link rule.
+
+**Submit to: "TikTok: Fall Home Refresh," 30 points, 11 day clock.** The video's
+on-screen text reads FALL HOME RESET. Fallback if unavailable: "TIKTOK: Share a
+Target Find," 30 points, repeatable.
+
+First post to run the full process end to end: scheduled, paired reminder set at
+publish time, URL pulled and handed over ready to paste.
