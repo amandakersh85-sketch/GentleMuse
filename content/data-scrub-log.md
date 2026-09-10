@@ -647,3 +647,96 @@ Target Find," 30 points, repeatable.
 
 First post to run the full process end to end: scheduled, paired reminder set at
 publish time, URL pulled and handed over ready to paste.
+
+## Scrub, Day 2, night of Wed Sept 9 (run 09/10 02:31 UTC)
+
+**Follower count: UNKNOWN.** Still need Amanda's manual number. Campaign start
+was 190 on Sept 8. Metricool is not trusted per CLAUDE.md.
+
+### THE HEADLINE: Instagram reach has collapsed
+
+Instagram posts, Sept 8 to 9, with metrics:
+
+| Post | Format | Views | Reach | Watch avg |
+|---|---|---|---|---|
+| Cesa scatters food, 09/09 00:00 | Cesa organic | 176 | 155 | 5.5s |
+| Cesa party era, 09/08 17:00 | Cesa organic | 101 | 70 | 3.8s |
+| Bookmarking photo, 09/08 23:00 | photo list | 9 | 5 | n/a |
+| Salem reel, 09/08 20:01 | seasonal fact | **3** | 2 | 6.7s |
+| Are You Afraid of the Dark, 09/08 15:01 | seasonal fact | **1** | 1 | 10.0s |
+
+Compare the full 4 week corpus, which is the methodology rule. Instagram Cesa
+reels ran **7,726 / 2,085 / 1,865 / 1,842 / 1,727 / 1,629 / 1,498 / 1,296 /
+1,263 / 1,191 / 905 / 870 / 801**.
+
+Cesa has gone from 800 to 7,700 down to **176 and 101**. The seasonal fact reels
+are at 1 and 3 views after roughly 23 hours. That is not a weak post. That is
+distribution switched off.
+
+**This is not a content problem, because Facebook is fine.** The identical Are
+You Afraid of the Dark video did **219 views on Facebook** and **1 on
+Instagram.** Same file, same day, same caption. Facebook is holding its normal
+230 to 577 band: 330, 219, 201.
+
+### The most likely cause, and it is testable
+
+**Instagram post volume.** Day 1 ran 4 Instagram posts, Day 2 ran 6:
+09/09 at 00:00, 15:01, 16:30, 17:00, 20:00, 23:00.
+
+That is 5 to 6 posts a day into an account with 190 followers. Instagram does
+not reward that on a small account, it dampens it. The reach collapse starts
+exactly when the campaign volume ramp started on Sept 8.
+
+The second candidate is an account level restriction, which cannot be checked
+from this session.
+
+**Recommendation: cut Instagram to 2 posts a day for 3 days and watch reach.**
+Reversible, cheap, and it separates the 2 causes. If reach recovers, it was
+volume. If it does not, it is account level and needs Meta support.
+
+Chasing 3 to 4 posts per platform per day is actively costing reach on the one
+platform the 1K goal depends on.
+
+### Post volume, Day 2 (target 3 to 4 per platform)
+
+| Platform | Published Sept 9 | Target | Met |
+|---|---|---|---|
+| Instagram | 6 | 3 to 4 | over |
+| TikTok | 5 | 3 to 4 | over |
+| Facebook | 5 | 3 to 4 | over |
+| YouTube | 4 | 3 to 4 | yes |
+| Pinterest | 1, LinkedIn 1 | n/a | n/a |
+
+Volume is not the problem. Volume may be the cause of the problem.
+
+### Trivia test against the 37 baseline
+
+**Not yet run.** Metricool 373073787 fires today, Thu Sept 10, 11:30 AM CT. The
+placeholder media still needs swapping for the clean HeyGen render.
+
+### Cesa above 10,000 views
+
+**No.** Best Cesa post in this window is 176. The ceiling is still the Aug 18
+reel at 7,726. Given the reach collapse, a 10,000 view Cesa post is not
+reachable on Instagram until reach is restored. **This blocks the 1K goal.**
+
+### Compliance flags
+
+**Product link violation, published.** TikTok 6869994 (09/09 00:00) names "tree
+hut pink hibiscus" and carries only "storefront's in my bio." It needs
+`https://club.target.com/s/amanda.20/_/sku/89094549`.
+
+Mitigating: the HIBISCUS comment automation was switched on 09/09 and is now
+live on both IG and FB, so a commenter does get the product link by DM. The
+caption itself is still non compliant.
+
+**Watermark and AI badge check:** no violations found. Everything published in
+this window went out through Blotato from stored media, not re-downloaded.
+
+### Day 2 read
+
+Cadence is being hit and then some. Compliance is close, 1 caption short. And
+Instagram, the platform the entire 1K goal rides on, is delivering 1 to 176
+views on posts that used to do 800 to 7,700.
+
+Everything else is secondary until that is understood.
