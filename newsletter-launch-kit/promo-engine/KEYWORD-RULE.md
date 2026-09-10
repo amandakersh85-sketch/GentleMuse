@@ -1949,3 +1949,56 @@ fixing the ratio is worth more than any purchase decision.
 There is no HeyGen connector in this environment. It cannot be driven from here. The 32 nights
 are a clean first test for the avatar twin if she wires it up: 32 scripts, identical format,
 20 to 30 seconds each, no filming and no editing, which is the exact pitch.
+
+## 2026-09-10 late — collisions from the redistribution, and the promise reconciled
+
+Amanda ran a holiday caption and strategy job against the Blotato queue. Diffed against the
+14:40 snapshot: **12 added, 6 removed, 13 retimed, 0 text edits.**
+
+The 6 removals were not deletions, they were the 09-10 posts publishing and ageing out of the
+scheduled list. That includes `4285801`, the Target post, which **published 15:01 with the
+storefront link**, live at `tiktok.com/@thegentlemuse2026/video/7683921586990238990`. The dead
+SKU never went out.
+
+The 12 additions were 10 seasonal posts all landing on 09-19, plus the 2 gasket carousel posts.
+**09-19 went from 1 seasonal post to 13.** First dark night moved 09-19 to 10-01.
+
+**October did not move.** Still 29 dark nights, still 26 consecutive from 10-05 to 10-30. The
+fill worked on the thin stretch, not the cliff. The 32 plates are still exactly what October
+needs.
+
+### 5 collisions, caused by retiming into occupied slots
+
+All 13 retimes were Instagram, and whatever moved them did not check the destination. 5 landed
+on top of posts already there, same account, same minute:
+
+| Slot | Sitting there | Moved in | Fixed to |
+|---|---|---|---|
+| 09-15 00:00 | `4093090` | `4059571` | 01:00 |
+| 09-15 17:00 | `3732531` | `4231058` | 18:00 |
+| 09-16 00:00 | `4093118` | `4059582` | 01:00 |
+| 09-17 00:00 | `4093134` | `4059603` | 01:00 |
+| 09-18 17:00 | `3732555` | `4059560` | 18:00 |
+
+In each pair the **newcomer** moved, so the original schedule design is preserved. Every
+destination slot was confirmed empty first. **No post in any pair carried `#ad` or
+`#TargetPartner`**, checked before touching anything. Re-read after: 0 collisions remain on
+Instagram or TikTok between 09-11 and 09-19.
+
+### The 33-night promise never added up, and now it does
+
+`4231020` (IG) and `4231035` (TikTok) both promised "33 nights, no dark days" and both opened
+with "Starting tomorrow." The dates never worked:
+
+- `4231035` fires 09-11. Starting tomorrow means 09-12, which is 50 nights to Halloween.
+- `4231020` fires 09-19, having been moved there today. Starting tomorrow means 09-20, 42 nights.
+
+Neither is 33. Fixed by dropping "Starting tomorrow" for "every night from tonight to
+Halloween" and counting honestly from each post's own fire date:
+
+- `4231035`, 09-11 to 10-31 = **51 nights**
+- `4231020`, 09-19 to 10-31 = **43 nights**
+
+Both numbers are deliverable once the 32 plates land, because the plates plus existing coverage
+close every night from 09-19 to 10-31. **If the plates do not land, these 2 posts become
+promises the queue cannot keep.** That is the dependency, stated plainly.
