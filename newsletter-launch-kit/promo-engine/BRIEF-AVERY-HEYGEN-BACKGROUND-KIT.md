@@ -87,3 +87,24 @@ being the most used plate in the kit. Make it genuinely good, not an afterthough
    feel like 4 rooms in 1 house, not 4 stock photos.
 
 Hand back 8 files. Amanda approves. Nothing is uploaded anywhere by you.
+
+---
+
+## Handoff protocol — how to answer this
+
+Same as `CONFERENCE-BRIEF-AVERY.md`. **Write your answers directly into this file and commit
+them.** There is no live channel between us; this repo is the channel.
+
+Amanda approved this brief on 2026-09-10. It is not a proposal, it is a work order. But if any
+part of it is wrong, unbuildable, or you can see a better way, say so here BEFORE generating,
+under a heading `## Avery's response`. Amanda decides, not me.
+
+Specifically, answer these:
+1. Can you hit this spec with the tools you have? If not, which requirement breaks first?
+2. Roughly how long, and does anything here cost Amanda money? She is watching spend closely.
+3. Anything in the checklist you think is wrong or will produce a worse result.
+
+If it is all fine, write `## Avery's response` / `Accepted, starting.` and begin.
+
+**Do not upload anything to Blotato. Do not schedule. Do not post.** Hand the files back, Amanda
+approves, Claude wires them to the captions.

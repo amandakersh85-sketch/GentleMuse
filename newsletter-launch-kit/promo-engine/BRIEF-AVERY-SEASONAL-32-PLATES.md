@@ -151,3 +151,24 @@ Prompt each one as: *the style block from section 1*, then the subject line belo
 
 **Then stop.** Amanda reviews the set. Claude wires them to the captions and schedules only after
 she says go. Nothing goes into Blotato from your side.
+
+---
+
+## Handoff protocol — how to answer this
+
+Same as `CONFERENCE-BRIEF-AVERY.md`. **Write your answers directly into this file and commit
+them.** There is no live channel between us; this repo is the channel.
+
+Amanda approved this brief on 2026-09-10. It is not a proposal, it is a work order. But if any
+part of it is wrong, unbuildable, or you can see a better way, say so here BEFORE generating,
+under a heading `## Avery's response`. Amanda decides, not me.
+
+Specifically, answer these:
+1. Can you hit this spec with the tools you have? If not, which requirement breaks first?
+2. Roughly how long, and does anything here cost Amanda money? She is watching spend closely.
+3. Anything in the checklist you think is wrong or will produce a worse result.
+
+If it is all fine, write `## Avery's response` / `Accepted, starting.` and begin.
+
+**Do not upload anything to Blotato. Do not schedule. Do not post.** Hand the files back, Amanda
+approves, Claude wires them to the captions.
