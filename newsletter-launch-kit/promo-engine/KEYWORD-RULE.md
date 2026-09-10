@@ -1797,3 +1797,102 @@ funnel watch has been reading `2952`, `2954`, `445` and `432` every 2 hours sinc
 and all stayed clean, and no automation anywhere has produced a run since 08-30, so there is
 nothing new that could have failed. A full 40-record followGate sweep was done yesterday and
 is not repeated here.
+
+## 2026-09-10 14:40 UTC — dead Target link fixed 20 minutes before it fired, and a promise the queue cannot keep
+
+Two things applied with Amanda's approval, both re-read from source afterward rather than trusted
+to the success message.
+
+### 1. Post `4285801`, the `#ad` cardigan post
+
+Fired 2026-09-10 15:00 UTC on TikTok `41488`. Carried
+`https://club.target.com/s/amanda.20/_/sku/94430281`, which returns HTTP 200 at 144,140 bytes
+with the body "Item not available. We're sorry, but the item you're looking for is not available
+at Target." The soft-404 signature holds: dead SKU pages come back around 144 KB, live ones 320
+KB and up.
+
+Replaced the dead SKU line with the storefront, `https://club.target.com/a/amanda.20`, live at
+82,013 bytes. **The date was not touched** — still 15:00 UTC the same day, per the standing rule
+that nothing carrying `#ad` or `#TargetPartner` moves to another date. `isBrandedContent: true`
+was preserved through the update; losing it would have stripped TikTok's paid-partnership
+disclosure off a sponsored post.
+
+The wording is not new. Automation `2277` was renamed **"IG FALLFIT — NEEDS SKU, cardigan
+94430282 is dead"** on 09-09 and already says *"Target moved this one, so here's my storefront
+while I track down the new link."* The post now matches the DM. Both cardigan variants are dead:
+`94430281` and `94430282`.
+
+### 2. The 12-send check can no longer fire on Amanda's own address
+
+The daily sync routine `trig_0123dXXH4Gn978bHSD6gehCZ` now removes her own addresses and test
+aliases from the set **before** step 4(b) runs, instead of listing them in a separate section
+further down that the check never consulted. Her decision is unchanged; it just cannot land on
+her. Verified in the stored prompt, next run 2026-09-11 13:03 UTC.
+
+The routine was also brought current while it was open: the emailGate list is the 3 SEASONAL
+automations rather than the old TUESDAY pair, 2771 and 2772 are named as gate-free and to be
+flagged if a gate returns, the real-subscriber count is 7 rather than 5, and the suppression
+method (`status: unsubscribed`, never delete, because imports resurrect deleted records) is
+stated where the drop decision is.
+
+### Every other Target link is live
+
+All 14 distinct SKUs behind the 30 live Target DM automations were fetched: `1010763977`,
+`94851578`, `76550582`, `91946019`, `87824456`, `83245016`, `51693591`, `76612085`, `94837564`,
+`83347380`, `1005653750`, `1004621500`, `76858934`, `89094549`. All live, 319 KB to 877 KB, no
+"Item not available" on any of them. The cardigan was the only dead one.
+
+The whole scheduled runway, 184 posts from 09-10 to 10-31, contains exactly 2 Target links:
+`4285801` (now the storefront) and `4283877` (SKU `87824456`, lip drip, live at 877 KB, fires
+09-11 00:00 UTC).
+
+### The 5 newsletter front doors are all live
+
+Each returns 200 with a real MailerLite form action on account `2465670`:
+
+| Front door | MailerLite page id |
+|---|---|
+| consider-this.subscribepage.io | 195967090733090002 |
+| just-another-tuesday-gm.subscribepage.io | 196122128046621787 |
+| ai-guide.subscribepage.io | 195972182518531751 |
+| press-play.subscribepage.io | 195619539493323930 |
+| cesa-guide.subscribepage.io | 196292380755756593 |
+
+**Payhip cannot be checked from this environment.** All 3 Payhip URLs — `9FE2U`, `upvAa`,
+`96U8s` — return an identical 4,832-byte Cloudflare "Attention Required!" challenge, with a
+browser user agent as well as without. That is bot blocking on the datacenter IP, not evidence
+of a dead page. Recording it as unverifiable rather than either working or broken. Payhip has to
+be opened from Amanda's own browser.
+
+## The queue cannot keep the promise the queue is about to make
+
+This is bigger than the dead link and nobody has raised it.
+
+Post `4231020` (Instagram, today 20:00 UTC) and `4231035` (TikTok, 09-11 15:00 UTC) both say:
+
+> The real stories are stranger. **Starting tomorrow, 1 true thing about this season every
+> single night until Halloween.** ... **33 nights. No dark days.**
+
+The copy is already inconsistent with itself. "Starting tomorrow" from a 09-10 post means night
+1 is 09-11, which is 51 nights to Halloween, not 33. 33 nights to 10-31 means starting 09-29.
+
+The queue delivers neither. Scheduled coverage by day:
+
+| Window | Posts per day |
+|---|---|
+| 09-10 to 09-18 | 14 to 20, all 6 platforms |
+| 09-19 | 4 |
+| 09-20 to 09-24 | 2 to 3, LinkedIn and Pinterest only |
+| 09-25 to 09-29 | 1, Pinterest only |
+| 09-30 to 10-31 | **3 days have anything at all**: 09-30, 10-04, 10-31 |
+
+October is **29 completely empty days**. In the 33-night window the campaign promises, there are
+6 posts across 3 days. "No dark days" is currently 29 dark days.
+
+The 09-19 to 09-29 Pinterest run is also 5 captions on a loop, not 11 posts: SNICK repeats on
+09-19, 09-23 and 09-27; the Ireland and Scotland turnips on 09-20, 09-24 and 09-28; the Roman
+grave at Lugnano on 09-21 and 09-26; the 1995 CGI character on 09-22 and 09-29. That confirms
+the recycling flagged earlier.
+
+Either the 33 nights get built, or those 2 posts stop promising them. Amanda's call, but it has
+to be made before 20:00 UTC today, because `4231020` is the post that makes the promise.
