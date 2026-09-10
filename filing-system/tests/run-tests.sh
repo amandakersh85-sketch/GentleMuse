@@ -439,6 +439,14 @@ if grep -q P08_PAID_STACKED <<<"$out"; then
   echo "PASS  --paid-window widens the rule"; pass=$((pass+1))
 else echo "FAIL  --paid-window widens the rule"; echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
 
+# 2026-09-09: a business pitch landed under a Cesa video and the audience
+# turned on it. Amanda's rule: the business products and Cesa never mix.
+cta "a business link on the cesa account is refused" 1 "$HERE/cta.cesa-zone.json" P09_CESA_ZONE
+cta "a business keyword on the cesa account is refused even unwired" 1 "$HERE/cta.cesa-zone.json" \
+    P01_DEAD_KEYWORD P09_CESA_ZONE
+cta "cesa content with cesa links passes"            0 "$HERE/cta.cesa-ok.json"
+cta "cesa content with a business link elsewhere holds" 2 "$HERE/cta.crossover.json" H03_CESA_CROSSOVER
+
 
 PLAN="$HERE/../scripts/gm_queue_plan.py"
 

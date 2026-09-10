@@ -1,0 +1,94 @@
+SOP 0909: THE BUSINESS POST DOCTRINE
+Adopted 2026-09-09 at Amanda's direction, from the 4C content system she
+flagged (competence, credibility, character, consistency). This governs
+business-lane content only: the quiz, the Decision Session, the Chaos
+Cleanup Intensive, the retainer, and anything pointing at them. It sits on
+top of the voice rules in CLAUDE.md and the Cesa separation rule. It never
+overrides either.
+
+THE PREMISE
+The content is the interview. By the time somebody buys a $47 session or a
+$750 intensive, they have already read the posts, scrolled the profile, and
+watched how Amanda talks to people. Every business post is doing one of 4
+jobs. A draft that does none of them is filler and does not ship.
+
+THE 4 JOBS, IN GENTLE MUSE TERMS
+
+1. COMPETENCE. Show the work.
+   Break down 1 bottleneck the way the quiz does: name the specific thing
+   that stalls a business and the 1 move that clears it. Practical tips.
+   How a real client problem would get solved, step by step.
+
+2. CREDIBILITY. Show receipts, never invent them.
+   Real numbers, real before-and-after, real client outcomes, lessons from
+   real projects. HARD RULE, from the Sarah incident: no invented clients,
+   no composite stories dressed as real ones, no pre-written social proof.
+   A hypothetical must be unmistakably hypothetical. If there is no receipt
+   yet, post competence instead and say so plainly. Thin and true beats
+   specific and invented.
+
+3. CHARACTER. Show what working with her is like.
+   How she communicates, how she handles a deadline, a mistake she owned,
+   the build-in-public register Just Another Tuesday already carries. This
+   is the lane where most sellers lose the client, and it is the lane
+   Amanda's voice is strongest in.
+
+4. CONSISTENCY. Stay visible where the buyers are.
+   The business buyer looks at LinkedIn and the business lane of the main
+   accounts. Target 3 to 5 quality business posts a week, rotating the 4
+   jobs. Volume is not the goal; the overall queue already runs 7 to 13
+   posts a day. This is about the business lane specifically, which today
+   is the thinnest lane in the queue (LinkedIn carries 12 posts of 200).
+
+WHERE A BUSINESS CTA IS ALLOWED TO LAND
+The Sep 9 incident was a scope error, not a content error. Amanda's actual
+intent for a pinned business comment was "every available PRODUCT video."
+A plan file widened that to "every existing video" and a business pitch
+landed under Cesa reels and lifestyle reels. Her words on the correction:
+"I literally did not mean every video, I meant every available product
+video."
+
+The rule that follows:
+- A business-offer pinned comment, video description, or caption CTA (the
+  quiz, the Decision Session, the Chaos Cleanup Intensive, the retainer,
+  any paid Payhip product, any gentlemuse.co offer) goes ONLY on a product
+  or business video. A video whose subject is the offer, the work, or the
+  business.
+- NEVER on a Cesa video. NEVER on a general lifestyle, seasonal, or humor
+  video, even on a main account. Those videos carry lifestyle CTAs only
+  (a newsletter, a lead magnet, a follow), never a paid business offer.
+- "Every video" is never the target. "Every product video" is. If a plan
+  says every video, every post, or all content, that is the tell that the
+  scope has drifted; stop and narrow it before anything ships.
+- Targeting a set of videos is an execution list Amanda approves video by
+  video, or by an explicit named rule. It is never inferred from a plan
+  file's own say-so.
+
+THE CESA LINK WHITELIST, exact
+Amanda, Sep 10: "the only links we ever tied to Cesa are her guide landing
+page or the Consider This landing page. That's it, that's all."
+The complete list of links allowed anywhere near Cesa, her content, or her
+accounts:
+  1. https://cesa-guide.subscribepage.io
+  2. https://consider-this.subscribepage.io
+No third link exists. Not a business offer, not a paid product, not another
+lead magnet. If a draft near Cesa carries anything but these 2, it is
+wrong. gm_cta_check P09 already enforces this on the cesa accounts, where
+these are the only wired magnets.
+
+HOW BUSINESS VIDEO GETS MADE
+Amanda, Sep 10: business video is either an avatar twin (HeyGen) or Amanda
+recording herself to camera. There is no third source. No auto-generated
+business pitch posted on Amanda's behalf, ever again. That was the Sep 9
+failure.
+DRAFTS FIRST, ALWAYS. Her words: "you come over drafts before you create
+stuff." Scripts and storyboards go to Amanda for approval BEFORE any video
+is produced or published. Approval is the gate. A plan file is not
+approval. Amanda's explicit yes to a specific draft is approval.
+
+ROUTING
+Every business draft names which of the 4 jobs it does, in 1 word, in the
+proposal. post-grader gates it like everything else: 8 of 10 or it does
+not ship. The Cesa separation rule applies before anything else: a
+business post never touches Cesa content, Cesa accounts, or Cesa threads.
+gm_cta_check enforces the account side (P09, H03).
