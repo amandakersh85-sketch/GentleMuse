@@ -590,3 +590,39 @@ funnel machinery, not correspondence, and it lives in the comments routine where
 3 hours is chosen for staleness, not for volume. At one comment every 2.5 days almost any cadence
 covers the load; what 3 hours buys is that nobody waits half a day for an answer. The funnel watch
 stays at 2 hours because a reappearing gate is silent and costs leads for as long as it stands.
+
+## 0-MEASURE. "I CANNOT MEASURE THAT" IS ALMOST ALWAYS FALSE. 2026-09-11. PERMANENT.
+
+Amanda, after I reported Are You Afraid of the Dark as unmeasurable:
+
+> "you're supposed to be able to go find this shit. If I ask you for something, you're
+> supposed to find any means necessary."
+
+She was right and the number was sitting one URL away. AYAOTD had **2,115 plays, 75
+likes, 23 comments, 10 saves** — the best-responding post on the account — while I was
+calling it unavailable.
+
+**The rule: a missing number is a claim, and claims get verified before they get
+reported.** Before saying any metric cannot be obtained, exhaust in this order:
+
+1. The platform's own public page HTML. Server-rendered state blobs
+   (`__UNIVERSAL_DATA_FOR_REHYDRATION__`, `ytInitialData`) carry exact counts.
+2. A different URL shape for the same object. TikTok photo posts are bare at
+   `/photo/<id>` and complete at `/video/<id>`. Same id.
+3. The account-level page, when per-post fails.
+4. Only then say it is unavailable — and say exactly what was tried.
+
+**Never present a third-party dashboard's silence as the platform's number.** Metricool
+reports 1–4 views/day on YouTube; the channel itself reports 51,824 lifetime views and
+Shorts up to 1,286. Metricool receives 4 of her videos with null metrics and cannot see
+the main TikTok at all. A tool that cannot see the account is not evidence about the
+account. When a dashboard and the platform disagree, the platform wins and the dashboard
+gets named as broken.
+
+**Never blame the environment before checking it.** `ERR_CONNECTION_RESET` from headless
+Chromium was the session relay dropping its parallel startup connections, not TikTok
+blocking. `curl -sS "$HTTPS_PROXY/__agentproxy/status"` names the real failure. One
+sequential curl succeeded 76 times out of 76 where the browser failed every time.
+
+Working method and re-run commands: `REACH-ANALYSIS.md`, section
+"MEASURED FROM SOURCE 2026-09-11". Raw data: `promo-engine/data/`.

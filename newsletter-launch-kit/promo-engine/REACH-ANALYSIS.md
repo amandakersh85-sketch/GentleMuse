@@ -576,3 +576,135 @@ The one thing worth stating flat: **Instagram is the only platform producing rea
 is the only content producing it there.** The 93-night campaign currently points mostly at
 surfaces that are not delivering. That is not a reason to stop. It is a reason to make the
 Instagram cut of it the best one.
+
+---
+
+## MEASURED FROM SOURCE 2026-09-11. TIKTOK AND YOUTUBE, EVERY POST.
+
+Previous entries in this file said TikTok photo carousels and the main TikTok account
+could not be measured, and that YouTube had collapsed ~99%. **Both were wrong.** What
+follows replaces them. Method is at the bottom so it can be re-run.
+
+### What was actually blocking it
+
+TikTok serves a photo/carousel post at `/@handle/photo/<id>` as a stripped shell with no
+stats in it. The **same post id** at `/@handle/video/<id>` returns the full
+`webapp.video-detail` scope with exact `statsV2`. It was never a browser problem, a
+login problem, or a proxy problem. It was the URL. Any handle resolves any id, and the
+response names the true author, so one sweep covers both accounts.
+
+76 of 76 published posts since 08-20 fetched, zero failures. Outliers re-fetched twice.
+
+### Account level (public profile, exact)
+
+| account | followers | lifetime likes | posts |
+|---|---|---|---|
+| @thegentlemuse2026 | 1,823 | 6,048 | 596 |
+| @cesasgoldenyears | 101 | 2,910 | 117 |
+| YouTube (60 subs) | 60 | — | 51,824 lifetime views |
+
+### TikTok, posts since 08-20
+
+| | n | median | mean | range | total |
+|---|---|---|---|---|---|
+| @thegentlemuse2026 | 55 | 109 | 454 | 9–12,000 | 24,994 |
+| @cesasgoldenyears | 21 | 329 | 331 | 30–887 | 6,945 |
+
+### The three posts that actually broke out (main account)
+
+| plays | likes | comments | saves | date | post |
+|---|---|---|---|---|---|
+| **12,000** | 20 | 4 | 4 | 09-04 | She does not look up once.  Head down in the purple  |
+| **2,986** | 18 | 0 | 0 | 09-05 | The first Labor Day parade was September 5, 1882. To |
+| **2,115** | 75 | 23 | 10 | 09-08 | Are You Afraid of the Dark started in 1992 and the w |
+
+Amanda's instinct was right. **Are You Afraid of the Dark did the best work on the
+account** — not the biggest play count, the biggest *response*: 75 likes, 23 comments,
+10 saves on 2,115 plays. A 3.5% like rate and 23 comments is the only post in the set
+that made people talk.
+
+The 12,000-play Cesa clip on the main account got 20 likes and 4 comments — a 0.17%
+like rate. That is a distribution event, not an audience. AYAOTD converts attention
+**20x better per view**. Chase the second number, not the first.
+
+### Carousels are not handicapped
+
+| format | n | median | mean | max |
+|---|---|---|---|---|
+| photo/carousel | 15 | 113 | 320 | 2,115 |
+| video | 40 | 106 | 505 | 12,000 |
+
+Medians are within 7 plays of each other. The seasonal plates being carousels costs
+nothing. This removes the last reason to hesitate on the 32-plate format.
+
+### Seasonal history vs the rest of the main account
+
+| plays | date | plate |
+|---|---|---|
+| 2,115 | 09-08 | Are You Afraid of the Dark started in 1992 and the whole |
+| 563 | 09-06 | Halloweentown premiered on the Disney Channel in 1998. D |
+| 423 | 09-09 | Goosebumps started in 1992 and R.L. Stine was writing th |
+| 329 | 09-10 | Disney would not put its name on The Nightmare Before Ch |
+
+The four seasonal-history carousels are the four best carousels on the account. The
+book/AI carousels sit at a median of 108. **The seasonal content runs
+3–20x the baseline.** This is the measurement that justifies the whole October–January
+campaign, and it is the first hard evidence for it.
+
+### Cesa's own account: small reach, best engagement anywhere
+
+21 posts, median 329, range 30–887. Top post 887 plays / 106 likes.
+Like rates run 10–20% against the main account's 0.2–3.5%. She is beating the main
+account's median 3x on a tenth of the followers. Nothing here is a cadence problem.
+
+### YouTube: it did not collapse
+
+Earlier note in this file said 99%, sourced from Metricool, which receives only 4 of
+her videos with null metrics. From the channel itself: **51,824 lifetime views, 60
+subscribers, 48 Shorts on the first page, 1 long-form video (2 views, not hers).**
+
+There is a real decline, and it is about 9x, not 99x: newest 12 Shorts median **66**
+views against the oldest 12 median **617**. Exact top posts:
+
+| views | likes | short |
+|---|---|---|
+| 1,286 | 84 | She does not care what got done |
+| 1,255 | 8 | The best table in town is your own kitchen |
+| 1,023 | 25 | My 19 year old Chihuahua is the scene stealer |
+| 1,000 | 20 | Tell me your dog's name and the 17 nicknames |
+
+The top four Shorts on the channel are all Cesa. Same finding as Instagram, same
+finding as TikTok engagement. Three platforms now agree.
+
+Metricool cannot see this channel's real numbers. **Stop sourcing YouTube claims from
+Metricool.** Use the channel pages directly, per the method below.
+
+### Method, so this is repeatable
+
+```
+# TikTok, any post including photo carousels — note /video/ even for /photo/ posts
+curl -sS --compressed -A '<desktop UA>' \
+  https://www.tiktok.com/@thegentlemuse2026/video/<itemId>
+# then read __UNIVERSAL_DATA_FOR_REHYDRATION__
+#   -> __DEFAULT_SCOPE__['webapp.video-detail'].itemInfo.itemStruct.statsV2
+#      {playCount, diggCount, commentCount, shareCount, collectCount, repostCount}
+#   -> .author.uniqueId tells you which account it really belongs to
+#   -> 'imagePost' in itemStruct means carousel; .imagePost.images gives the plate count
+
+# TikTok account totals
+curl .../@<handle>  -> __DEFAULT_SCOPE__['webapp.user-detail'].userInfo.stats
+
+# YouTube per-short view counts
+curl .../channel/UCvhked6JYf87Xbe6Um3cutA/shorts
+  -> var ytInitialData -> shortsLockupViewModel.accessibilityText ('... , 1.2 thousand views')
+  NOTE: parse 'thousand'/'million' words, not just K/M, or you silently drop the winners
+# exact counts + likes
+curl .../watch?v=<id>  -> "viewCount":"N"  and  "likeCount":"N"
+```
+Post ids come from `blotato_list_posts` (published state carries `postUrl`).
+TikTok's `/api/item/detail/` and `/api/post/item_list/` return HTTP 200 with 0 bytes —
+they need request signing. Do not bother with them. The page HTML is the source.
+
+Do not use headless Chromium for this. It opens dozens of parallel connections at
+startup and the session relay drops them (`ws_closed_mid_exchange`), which looks like
+TikTok blocking you and is not. One curl per post works.
