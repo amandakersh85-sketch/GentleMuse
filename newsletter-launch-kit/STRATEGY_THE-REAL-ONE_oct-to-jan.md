@@ -130,9 +130,15 @@ Where that leaves it, honestly:
 So this is a preference call, not a risk call, and it is hers. Claude's recommendation is still
 the countdown, but only because she said she likes it, not because the alternative is unsafe.
 
-Footer, not headline, so the fact stays the post:
-- October: `THE REAL ONE · 11 NIGHTS TO HALLOWEEN`
-- Nov to Dec: `THE REAL ONE · 38 NIGHTS TO CHRISTMAS`
+**3 phases, not 2.** Amanda caught that a straight countdown to Christmas erases Thanksgiving
+and turns a holiday she cares about into a waiting room for one that has not happened. Each
+phase is anchored to the next real thing:
+- Oct 1 to Oct 31: `THE REAL ONE · 11 NIGHTS TO HALLOWEEN`
+- Nov 1 to Nov 26: `THE REAL ONE · 14 NIGHTS TO THANKSGIVING`
+- Nov 27 to Dec 25: `THE REAL ONE · 22 NIGHTS TO CHRISTMAS`
+- Dec 26 to Jan 1: `THE REAL ONE · 4 NIGHTS TO THE NEW YEAR`
+
+Footer, not headline, so the fact stays the post.
 
 OPEN: she is undecided. This is Claude's call unless she overrides.
 
@@ -164,6 +170,59 @@ aspect ratio change.
 **Every date above gets verified against source before it is written into a caption**, including
 Hanukkah 2026, which is not listed here because it has not been checked yet. The 33-night
 promise failed because nobody did the arithmetic. That does not happen twice.
+
+### THANKSGIVING. The hardest week of the run, and the one that decides the name.
+
+Amanda's position, in her words: *"I disagree with the origins of Thanksgiving because it's
+basically the violation and enslavement of indigenous people, I still like that Thanksgiving, I
+still have love and respect for thankfulness and gratitude and appreciativeness, that is part of
+my core existence ... we have to acknowledge the ugly scary dirty historical side ... but at the
+same time spin it and make it be about being thankful and grateful."*
+
+**She does not have to choose, and it is not a spin.** Checked 2026-09-11:
+
+**Giving thanks at harvest was already here.** The Wampanoag kept **Thirteen Moons, thirteen
+thanksgivings a year** on the lunar calendar: the first strawberries, the first green beans, the
+tapping of the maples, the storytelling month in deep winter. Also Nikkomosachmiawene, the Grand
+Sachem's Council feast. Millennia before anyone landed.
+*Sources: Smithsonian NMAI Native Knowledge 360, "Rethinking Thanksgiving"; Plimoth Patuxet,
+"Wampanoag Traditions of Giving Thanks"; PBS NewsHour.*
+
+**So the thesis is:** gratitude is the oldest and truest part of the story, and the part that was
+already here. America took the practice, attached it to the wrong event, and spent 200 years
+building a founding myth around a harvest dinner nobody present thought was significant. The
+thing Amanda loves is the true part. It just belongs to the people the story erased.
+
+That is a stronger and more accurate piece than either the sanitized version or straight
+condemnation, and it is the whole reason the series is called The Real One.
+
+#### A trap, flagged before it gets posted
+**"Thanksgiving was created to celebrate the Pequot massacre" is CONTESTED and Snopes fact-checks
+it.** What is true: Governor Winthrop proclaimed a day of thanksgiving in 1637 after the Mystic
+massacre. What is NOT supported: that this is the origin of the modern holiday. Days of
+thanksgiving were routine proclamations for many occasions.
+
+**Do not post the causal version.** It is exactly the kind of detail everyone repeats that is
+wrong, and repeating it inside this series would be self-refuting. The Mystic massacre can be
+covered on its own terms. The causal link to the holiday cannot.
+
+#### The arc, roughly, all still to be source-checked individually
+1. The 1621 harvest feast happened. Roughly 90 Wampanoag were there. Nobody called it
+   Thanksgiving and nobody thought it founded anything.
+2. The alliance was strategy, not friendship. An epidemic in the years before the Mayflower had
+   devastated the Wampanoag and left them exposed to the Narragansett.
+3. The myth was built in the 1800s. Sarah Josepha Hale campaigned for decades. Lincoln
+   proclaimed it in 1863, mid Civil War, as a unity measure.
+4. What followed was King Philip's War, 1675 to 1676, led by Massasoit's own son Metacom. Among
+   the deadliest per capita in American history. Massacre and enslavement of captives.
+5. Since 1970 there has been a National Day of Mourning at Plymouth every Thanksgiving.
+6. **The landing: the thirteen thanksgivings, and why the gratitude outlived all of it.**
+
+#### Tone rule for this week specifically
+No lecturing, no guilt, no performance. Amanda is not apologising on anyone's behalf and is not
+telling her audience how to feel. She is doing what she always does: here is what the record
+says, and the real version is better than the one you were handed. The gratitude is not a
+consolation prize bolted onto bad news. It is the finding.
 
 ### Subject territory
 November is harvest and origin. December is the build.
