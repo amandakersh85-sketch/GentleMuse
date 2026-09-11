@@ -235,6 +235,7 @@ Add a row before you start. Do not build anything that already has a row.
 | 6-slide carousels | Avery/Codex | claimed by Amanda's direction | 2026-08-25 |
 | 32 seasonal plates (`BRIEF-AVERY-SEASONAL-32-PLATES.md`) | Avery/Codex | **HANDED OFF, awaiting Avery** | 2026-09-10 |
 | HeyGen background kit (`BRIEF-AVERY-HEYGEN-BACKGROUND-KIT.md`) | Avery/Codex | **HANDED OFF, awaiting Avery** | 2026-09-10 |
+| The Real One, 9 pilot plates (`BRIEF-AVERY-REAL-ONE-PILOT-9.md`) | Avery/Codex | **HANDED OFF, awaiting Avery** | 2026-09-11 |
 
 **Claude is NOT building carousels** while Avery holds that claim. Claude owns single promo
 cards, captions, scheduling, keyword automations, and the newsletter side.
