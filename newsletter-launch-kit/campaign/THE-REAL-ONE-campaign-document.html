@@ -1,0 +1,266 @@
+<title>The Real One</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Karla:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap">
+<style>
+:root{
+  --ink:#1b1830; --ink-soft:#3d3757; --ash:#736d8c; --ash-faint:#a9a3bd;
+  --paper:#f7f4ee; --paper-2:#efeae1; --rule:#ddd6c9;
+  --ember:#c2552b; --moss:#4f7a5c; --wheat:#c2913f; --hollow:#e2dbcd;
+}
+:root:not([data-theme="light"]){ @media (prefers-color-scheme:dark){
+  --ink:#f2ede3; --ink-soft:#d3ccbe; --ash:#9a93ad; --ash-faint:#6b6584;
+  --paper:#16132a; --paper-2:#1f1b38; --rule:#332d52;
+  --ember:#e8834f; --moss:#74a882; --wheat:#dfae5c; --hollow:#2a2547;
+}}
+:root[data-theme="dark"]{
+  --ink:#f2ede3; --ink-soft:#d3ccbe; --ash:#9a93ad; --ash-faint:#6b6584;
+  --paper:#16132a; --paper-2:#1f1b38; --rule:#332d52;
+  --ember:#e8834f; --moss:#74a882; --wheat:#dfae5c; --hollow:#2a2547;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:Karla,system-ui,sans-serif;
+  font-size:16px;line-height:1.55;padding:40px 20px 80px;margin:0}
+.wrap{max-width:1000px;margin:0 auto;display:flex;flex-direction:column;gap:54px}
+.eyebrow{font-family:JetBrains Mono,monospace;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ash)}
+h1{font-family:Fraunces,Georgia,serif;font-weight:800;font-size:clamp(2.3rem,7vw,4rem);
+  line-height:1;margin:.2em 0 0;letter-spacing:-.02em;text-wrap:balance}
+h2{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:clamp(1.3rem,3.4vw,1.7rem);
+  margin:0;text-wrap:balance}
+h3{font-family:JetBrains Mono,monospace;font-size:11px;letter-spacing:.13em;
+  text-transform:uppercase;margin:0;color:var(--ash);font-weight:400}
+p{margin:0;max-width:68ch;color:var(--ink-soft)}
+.lede{font-size:1.14rem;margin-top:1.1em;color:var(--ink-soft)}
+section{display:flex;flex-direction:column;gap:18px}
+.hdr{display:flex;flex-direction:column;gap:6px}
+.thesis{font-family:Fraunces,Georgia,serif;font-size:1.35rem;line-height:1.35;color:var(--ink);
+  border-left:3px solid var(--ember);padding-left:20px;max-width:60ch;margin-top:8px}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);
+  border:1px solid var(--rule);border-radius:6px;overflow:hidden}
+.st{background:var(--paper);padding:17px 16px;display:flex;flex-direction:column;gap:4px}
+.st .n{font-family:Fraunces,Georgia,serif;font-size:2.2rem;font-weight:800;line-height:1;
+  font-variant-numeric:tabular-nums}
+.st .l{font-size:12.5px;color:var(--ash);line-height:1.35}
+.st.a .n{color:var(--ink)} .st.b .n{color:var(--moss)} .st.c .n{color:var(--ember)} .st.d .n{color:var(--wheat)}
+
+.phases{display:flex;flex-direction:column;gap:1px;background:var(--rule);
+  border:1px solid var(--rule);border-radius:6px;overflow:hidden}
+.ph{background:var(--paper);padding:15px 18px;display:grid;grid-template-columns:150px 108px 1fr;
+  gap:18px;align-items:baseline}
+.ph .when{font-family:JetBrains Mono,monospace;font-size:12px;color:var(--ink);font-weight:700}
+.ph .cnt{font-family:JetBrains Mono,monospace;font-size:11px;color:var(--ember);letter-spacing:.04em}
+.ph .what{font-size:14.5px;color:var(--ink-soft)}
+
+.tbl-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:520px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:JetBrains Mono,monospace;font-size:10.5px;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--ash);font-weight:400}
+td.mono{font-family:JetBrains Mono,monospace;font-variant-numeric:tabular-nums;font-weight:700}
+td b{color:var(--ink)}
+
+.decks{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.dk{border:1px solid var(--rule);border-radius:6px;padding:17px 19px;background:var(--paper-2);
+  display:flex;flex-direction:column;gap:9px}
+.dk .q{font-family:Fraunces,Georgia,serif;font-size:1.05rem;font-weight:600;color:var(--ink);line-height:1.3}
+.dk .a{font-size:14px;color:var(--ink-soft)}
+.dk .a b{color:var(--ink)}
+
+ul{margin:0;padding-left:19px;color:var(--ink-soft);font-size:14.5px;display:flex;
+  flex-direction:column;gap:7px;max-width:68ch}
+li b{color:var(--ink)}
+.quote{font-style:italic;color:var(--ink);border-left:2px solid var(--ash-faint);
+  padding-left:15px;font-size:14.5px;max-width:64ch}
+.warn{border-left:3px solid var(--ember);background:var(--paper-2);padding:14px 18px;
+  border-radius:0 5px 5px 0;font-size:14.5px;color:var(--ink-soft);max-width:68ch}
+.warn b{color:var(--ink)}
+.open{border:1px dashed var(--wheat);border-radius:6px;padding:16px 19px;background:transparent}
+.note{font-size:13px;color:var(--ash);max-width:68ch}
+@media (max-width:720px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .decks{grid-template-columns:1fr}
+  .ph{grid-template-columns:1fr;gap:5px}
+}
+</style>
+
+<div class="wrap">
+
+<header class="hdr">
+  <div class="eyebrow">The Gentle Muse · campaign document · locked 11 Sept 2026</div>
+  <h1>The Real One</h1>
+  <p class="lede">1 Oct 2026 to 1 Jan 2027. 93 consecutive nights. The operating document for the campaign, for Amanda, Claude and Avery.</p>
+  <div class="thesis">Every holiday in this window has a version everyone repeats and a version that actually happened. The second one is better. That is the whole show.</div>
+</header>
+
+<section>
+  <h3>Where it stands</h3>
+  <div class="stats">
+    <div class="st a"><div class="n">93</div><div class="l">nights, Oct 1 to Jan 1</div></div>
+    <div class="st b"><div class="n">31</div><div class="l">already covered or in build</div></div>
+    <div class="st c"><div class="n">62</div><div class="l">still to write, Nov 1 to Jan 1</div></div>
+    <div class="st d"><div class="n">5</div><div class="l">platforms a night, never LinkedIn</div></div>
+  </div>
+  <p class="note">The name was not invented for this. It is already in Amanda's published captions: “Follow for the real one, every holiday, before the day gets here” (TikTok 4024572) and “Subscribe for the real one, every season” (YouTube 4230998). Adopting it cost nothing and needs no explaining. It also survives past Jan 1, so this can keep running.</p>
+</section>
+
+<section>
+  <div class="hdr">
+    <h2>The spine</h2>
+    <p>4 phases. The footer counter anchors to the next real thing, so nothing gets skipped over on the way to something else.</p>
+  </div>
+  <div class="phases">
+    <div class="ph"><div class="when">Oct 1 – Oct 31</div><div class="cnt">→ HALLOWEEN</div><div class="what"><b>31 nights, covered.</b> 29 are Avery's plates, plus existing posts on 10/04 and 10/31.</div></div>
+    <div class="ph"><div class="when">Nov 1 – Nov 26</div><div class="cnt">→ THANKSGIVING</div><div class="what"><b>26 nights, to build.</b> Harvest and origin. The hardest week of the run sits at the end of it.</div></div>
+    <div class="ph"><div class="when">Nov 27 – Dec 25</div><div class="cnt">→ CHRISTMAS</div><div class="what"><b>29 nights, to build.</b> Saturnalia, solstice, Krampus, St Nicholas, and why almost none of it started where people think.</div></div>
+    <div class="ph"><div class="when">Dec 26 – Jan 1</div><div class="cnt">→ THE NEW YEAR</div><div class="what"><b>7 nights, to build.</b> Boxing Day, Kwanzaa, the Twelve Days, Hogmanay.</div></div>
+  </div>
+  <p class="note">Sept 11 to Sept 30 is deliberately excluded. Already built, already scheduled, not renamed and not renumbered. The series starts clean on Oct 1.</p>
+</section>
+
+<section>
+  <div class="hdr">
+    <h2>The nightly ladder</h2>
+    <p>Not invented. These are Amanda's own dominant slots, measured across 243 published and 190 scheduled posts. The campaign uses the schedule she already runs.</p>
+  </div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Time UTC</th><th>Platform</th><th>Account</th><th>Why this slot</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">15:00</td><td><b>Instagram</b></td><td class="mono">45886</td><td>Her single most used slot, 24 posts</td></tr>
+        <tr><td class="mono">17:10</td><td><b>Facebook</b></td><td class="mono">30840</td><td>Her top Facebook slot, 22 posts</td></tr>
+        <tr><td class="mono">17:20</td><td><b>YouTube</b></td><td class="mono">36129</td><td>Her top YouTube slot, 20 posts</td></tr>
+        <tr><td class="mono">21:00</td><td><b>Pinterest</b></td><td class="mono">6328</td><td>22 of her 29 Pinterest posts sit here</td></tr>
+        <tr><td class="mono">23:00</td><td><b>TikTok</b></td><td class="mono">41488</td><td>Her top TikTok slot, 15 posts. Latest slot, closes the night</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="warn"><b>LinkedIn (20723) gets nothing from this campaign. Ever.</b> Standing rule, set 10 Sept. Business, AI, systems and lead magnets only. The seasonal run is carved out of the cross-post loop entirely rather than included and filtered later.</div>
+</section>
+
+<section>
+  <div class="hdr"><h2>Decisions, locked</h2></div>
+  <div class="decks">
+    <div class="dk">
+      <div class="q">How close to religion?</div>
+      <div class="a"><b>Everything, including the hard parts.</b> The December 25 dating question, what the earliest sources do and do not say, the Puritan bans. Amanda's call, made with the risk stated: her audience skews women 40+ in the Midwest and some will read careful history as an attack on their faith. She weighed it and said go. Tone is curiosity, never correction. No post tells anyone what to believe.</div>
+    </div>
+    <div class="dk">
+      <div class="q">Does it carry affiliate?</div>
+      <div class="a"><b>History is the default. Bridges only where the fact leads there honestly.</b> Amanda's own standard: turnips and gourds, into how modern decoration actually started, and only then the glass pumpkin. Fact first, segue that stands alone, product last. <b>If the bridge feels forced it does not get built.</b></div>
+    </div>
+    <div class="dk">
+      <div class="q">What is the CTA?</div>
+      <div class="a"><b>Comment SEASONAL, into Consider This.</b> No new lead magnet. SEASONAL stays year-round and multi-purpose, not narrowed to winter. The series name sits separately from the keyword, so naming the run costs the keyword nothing. Live on automations 4009, 4010, 4011.</div>
+    </div>
+    <div class="dk">
+      <div class="q">How is it counted?</div>
+      <div class="a"><b>Countdown in the footer, retargeting each phase.</b> Not a headline, so the fact stays the post. <b>Still open:</b> Amanda is undecided between this and Night N of 93. Claude's original argument for the countdown rested on a gap during the cruise, which will not happen, so that argument is withdrawn. It is now a preference call, and hers.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="hdr">
+    <h2>Thanksgiving</h2>
+    <p>The hardest week of the run, and the week that decides whether the name means anything.</p>
+  </div>
+  <div class="quote">“I disagree with the origins of Thanksgiving because it's basically the violation and enslavement of indigenous people. I still like that Thanksgiving. I still have love and respect for thankfulness and gratitude and appreciativeness, that is part of my core existence.”</div>
+  <p><b>She does not have to choose, and the resolution is not a spin.</b> Giving thanks at harvest was already here. The Wampanoag kept <b>Thirteen Moons, thirteen thanksgivings a year</b> on the lunar calendar: the first strawberries, the first green beans, the tapping of the maples, the storytelling month in deep winter. Millennia before anyone landed. Verified against the Smithsonian's Native Knowledge 360 and Plimoth Patuxet.</p>
+  <div class="thesis">The gratitude is the oldest and truest part of the story, and it was already here. America took the practice, attached it to the wrong event, and spent 200 years building a myth around a harvest dinner nobody present thought was significant.</div>
+  <div class="warn"><b>A trap, flagged before anyone posts it.</b> “Thanksgiving was created to celebrate the Pequot massacre” is <b>contested, and Snopes fact-checks it.</b> True: Winthrop proclaimed a day of thanksgiving in 1637 after Mystic. Not supported: that this is the origin of the holiday. Days of thanksgiving were routine proclamations. Posting the causal version inside a series about details everyone repeats that are wrong would be self-refuting. The massacre can be covered on its own terms. The causal link cannot.</div>
+  <ul>
+    <li><b>No lecturing, no guilt, no performance.</b> Amanda is not apologising on anyone's behalf and is not telling her audience how to feel.</li>
+    <li>The gratitude is not a consolation prize bolted onto bad news. <b>It is the finding.</b></li>
+  </ul>
+</section>
+
+<section>
+  <div class="hdr"><h2>Fixed points</h2></div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Date</th><th>Day</th><th>What</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">Oct 31</td><td>Sat</td><td>Halloween. Counter retargets to Thanksgiving from Nov 1</td></tr>
+        <tr><td class="mono">Nov 1–2</td><td>Sun–Mon</td><td>Día de los Muertos. Already drafted as plate 32</td></tr>
+        <tr><td class="mono">Nov 5–11</td><td>Thu–Wed</td><td><b>Amanda on a cruise. Not a gap.</b> The queue posts without her, which is what the queue is for</td></tr>
+        <tr><td class="mono">Nov 26</td><td>Thu</td><td>Thanksgiving</td></tr>
+        <tr><td class="mono">Dec 5</td><td>Sat</td><td>Krampusnacht</td></tr>
+        <tr><td class="mono">Dec 6</td><td>Sun</td><td>St Nicholas Day</td></tr>
+        <tr><td class="mono">Dec 17–23</td><td></td><td>Saturnalia</td></tr>
+        <tr><td class="mono">Dec 21</td><td>Mon</td><td>Winter solstice</td></tr>
+        <tr><td class="mono">Dec 23</td><td>Wed</td><td>Festivus</td></tr>
+        <tr><td class="mono">Dec 25</td><td>Fri</td><td>Christmas</td></tr>
+        <tr><td class="mono">Dec 26</td><td>Sat</td><td>Boxing Day. Kwanzaa begins</td></tr>
+        <tr><td class="mono">Dec 31</td><td>Thu</td><td>Hogmanay</td></tr>
+        <tr><td class="mono">Jan 1</td><td>Fri</td><td>Series ends</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">Every date gets verified against source before it is written into a caption, including Hanukkah 2026, which is deliberately absent above because it has not been checked yet. The 33-night promise failed because nobody did the arithmetic. That does not happen twice.</p>
+</section>
+
+<section>
+  <div class="hdr">
+    <h2>Standing rules this campaign runs under</h2>
+    <p>All set 10–11 Sept and written into <span style="font-family:JetBrains Mono,monospace;font-size:13px">AGENT-CONTRACT.md</span>. None of these are up for re-litigation mid-campaign.</p>
+  </div>
+  <ul>
+    <li><b>LinkedIn never gets holiday or seasonal.</b> Business, AI, systems, lead magnets only.</li>
+    <li><b>1 render per idea</b>, reused on every platform. A second only for a genuine aspect-ratio change. Never 1 render per post.</li>
+    <li><b>Amanda being away is not a content problem.</b> No blackout windows, no planning around her shifts or sleep or travel. The queue runs; she lives her life. The only thing that pauses is live human work, and a comment backlog is recoverable because public replies have no time limit.</li>
+    <li><b>A post carrying #ad or #TargetPartner never moves to another date.</b> Same day is fine. Every bridge night is therefore date-locked, so the calendar has to be right the first time.</li>
+    <li><b>X stays off.</b> 19 posts deleted 09/02, queue confirmed empty. Every X post carrying video failed on upload.</li>
+    <li><b>Every fact checked against live source, source named under each draft.</b> No exceptions, no memory.</li>
+    <li><b>Graded 8+ before Amanda sees it.</b> Hook leads with the turn. Numerals not spelled-out numbers, no em dashes, no hype, 4 to 5 hashtags.</li>
+    <li><b>Nothing goes into Blotato until Amanda reads and approves the copy.</b></li>
+  </ul>
+</section>
+
+<section>
+  <div class="hdr"><h2>Who does what</h2></div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Work</th><th>Owner</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>32 October plates</td><td>Avery</td><td><b>Handed off.</b> BRIEF-AVERY-SEASONAL-32-PLATES.md</td></tr>
+        <tr><td>4 HeyGen background plates</td><td>Avery</td><td><b>Handed off.</b> BRIEF-AVERY-HEYGEN-BACKGROUND-KIT.md</td></tr>
+        <tr><td>62 winter captions, Nov 1 – Jan 1</td><td>Claude</td><td>Not started. Assumed unless Amanda says otherwise</td></tr>
+        <tr><td>Winter visuals</td><td>Avery</td><td>Brief not written. Blocked on the 32 landing first</td></tr>
+        <tr><td>Fact checking, grading, scheduling</td><td>Claude</td><td>Ongoing</td></tr>
+        <tr><td>Approval</td><td><b>Amanda</b></td><td>The only step nobody else can do</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="warn"><b>The one live dependency.</b> October is 29 dark nights until Avery delivers the plates. Two scheduled posts already promise “no dark days” for 43 and 51 nights. If the plates do not land, those become promises the queue cannot keep.</div>
+  <p class="note">Build schedule, working back from a courtesy deadline rather than a risk: November drafted and graded by Oct 25, approved by Oct 31, scheduled by Nov 4. December has until roughly Nov 20. Avery has no live channel to this session; the repo is the channel, and responses go into the brief files under “Avery's response”.</p>
+</section>
+
+<section>
+  <div class="hdr">
+    <h2>Still open</h2>
+    <p>Four calls that are Amanda's. Everything else above is decided.</p>
+  </div>
+  <div class="decks">
+    <div class="dk open"><div class="q">1 · The counter</div><div class="a">Countdown, or Night N of 93. Claude's recommendation is the countdown, but only because Amanda said she likes the urgency. The safety argument for it was wrong and has been withdrawn.</div></div>
+    <div class="dk open"><div class="q">2 · Does Cesa get a lane?</div><div class="a">A 19 year old dog through the holidays is the strongest emotional content on the account, and her channel has its own voice and playbook. Currently not in this plan at all.</div></div>
+    <div class="dk open"><div class="q">3 · Thanksgiving and Christmas Day</div><div class="a">Every other night is a fact. Should those 2 be something warmer and personal instead? Claude's instinct is yes.</div></div>
+    <div class="dk open"><div class="q">4 · Who writes the 62</div><div class="a">Assumed Claude writes and grades, Avery generates visuals, same split as the plates. Confirm or change.</div></div>
+  </div>
+</section>
+
+<section>
+  <div class="hdr">
+    <h2>Correction log</h2>
+    <p>Things Claude got wrong during planning and fixed. Kept visible so nobody rebuilds on a bad number.</p>
+  </div>
+  <ul>
+    <li><b>Render ratio.</b> Reported 146 files and 7.3 per idea. That counted storage URLs, and Blotato mints a new URL on every attach. Re-measured by byte size: at most 90 files, about 4.5 per idea. Storage duplication is free.</li>
+    <li><b>The cruise.</b> Planned Nov 5–11 as a blackout window. Amanda corrected it: the queue is the point. Now a standing rule.</li>
+    <li><b>The countdown argument.</b> Justified by a gap that will not happen. Withdrawn.</li>
+    <li><b>The TikTok collision.</b> Reported a collision on 09/10 that a live re-read showed did not exist.</li>
+    <li><b>The Sanrio avatar.</b> Identified as Amanda's HeyGen twin. It is TikTok AI Cast, and the watermark was visible in the frames Claude had already pulled.</li>
+    <li><b>The countdown erasing Thanksgiving.</b> Caught by Amanda, not Claude. Fixed to 4 phases.</li>
+  </ul>
+</section>
+
+</div>
