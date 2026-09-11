@@ -1,0 +1,436 @@
+CESA'S HOLIDAY LANE
+@cesasgoldenyears. Nov 1 2026 to Jan 1 2027. Drafted 2026-09-11.
+
+NOTHING IS SCHEDULED. NOTHING GOES INTO BLOTATO UNTIL AMANDA READS THIS AND SAYS GO.
+
+WHAT THIS IS AND WHAT IT IS NOT
+21 holiday posts, not 62. Her channel already runs daily at 00:10 UTC and it does not
+need replacing. This is the holiday lane that sits inside that cadence: the nights the season
+actually reaches her. Every other night keeps running normal Cesa content.
+
+62 would have meant inventing 62 scenes in her house, and the rule is that nothing about her,
+the house or Amanda's life gets fabricated. So every caption here is built only from details
+already in her own published posts, and anything I do not know is in the SHOT line as a
+direction, never asserted as fact in the caption.
+
+WHY SHE GETS A LANE AT ALL, WITH THE NUMBERS
+Measured from source 2026-09-11. Her own TikTok runs a median of 329 plays against the main
+account's 109, on 101 followers against 1,823. Her like rates run 10 to 20 percent where the
+main account runs 0.2 to 3.5. The top 4 Shorts on the YouTube channel are all her. 3 platforms
+agree: she is the strongest thing in the operation. See REACH-ANALYSIS.md.
+
+This lane is not an attempt to tune her. Amanda's rule stands: her cadence is not a growth
+lever. It is the holidays reaching a 19 year old dog, written in her voice.
+
+THE VOICE, WHICH IS THE WHOLE POINT
+Per CESA-CHANNEL-STANDARD.md as corrected by Amanda on 2026-09-11. Inside her head, not
+across the room. Deadpan, smug, total unearned confidence. She is not a sad old dog and she is
+not a prop. She is an extremely old, extremely small animal who has correctly concluded that
+the rules do not apply to her, and the joke is that she is right.
+
+THE GRIEF STAYS OFFSTAGE. None of these pre-grieve her. Not one. The build refuses to write
+this file if sentiment language or an outside-voice sentence gets in.
+
+WHERE THE GRIEF ACTUALLY GOES, AND THIS IS ALREADY HANDLED
+Automation 2952 CESA carries these keywords, live right now: "just passed", "recently passed",
+"passed away", "he passed", "she passed", "lost my", "miss her", "miss him", "got to see",
+"only got". Holidays are when people miss their dogs. They will say so in her comments, and
+the guide goes to them automatically. So the grief on this channel arrives from the audience
+and is met with something useful, while Cesa's own captions stay exactly as unbothered as she
+is. That is the correct division and it needs no changes.
+
+=============================================================================
+THE CTA IS NOT THE SAME ON BOTH OF HER ACCOUNTS
+=============================================================================
+
+CESA IG (65540) - keep the CTA exactly as written under each post.
+  Live and verified 2026-09-11:
+    2952 CESA      -> button to cesa-guide.subscribepage.io. NO email gate.
+    2954 CONSIDER  -> button to consider-this.subscribepage.io. NO email gate (see below).
+    4011 SEASONAL  -> Consider This, and this one DOES have an email gate.
+
+CESA TIKTOK (@cesasgoldenyears) - REPLACE the CTA. TikTok has no comment to DM. There is no
+automation that can answer a TikTok comment, so "Comment CESA" is a dead instruction that
+costs the lead. Use instead:
+  For a CESA post:     "19 years old. What actually keeps her comfortable is in my bio."
+  For a CONSIDER post: "The weekly note is in my bio."
+
+CROSS-POSTS TO AMANDA'S OWN ACCOUNTS may stay in Amanda's voice. The POV rule governs
+@cesasgoldenyears only. On Amanda's channels Cesa is someone Amanda is telling you about,
+which is a different and also correct job.
+
+2 CORRECTIONS TO CESA-CHANNEL-STANDARD.md, FOUND BY CHECKING LIVE
+1. The standard says "the 2 live keywords on that channel." There are 3. SEASONAL (4011) has
+   been live on Cesa IG since 2026-09-01 and the standard never recorded it.
+2. The standard says 2954 CONSIDER "still gates and still needs the daily sync in its path."
+   It does not gate any more. There is no emailGate on 2954 as of today; it sends a button to
+   the landing page, same as CESA. 4011 SEASONAL is the one on her channel that still gates.
+   Both files are corrected.
+
+ON USING SEASONAL HERE: it would work, and I did not use it. The standard says CESA is the
+native ask because it matches why people followed her, roughly 2 CESA to 1 CONSIDER, and this
+lane holds that ratio exactly at 14 to 7. Adding a third keyword to her rotation changes
+the channel standard, so it is Amanda's call, not mine.
+
+THE CRUISE, NOV 5 TO 11
+Not a gap. The queue posts without her, which is what the queue is for. 2 posts fall in that
+window and both are written to assert nothing about who is in the house or where Amanda is,
+because that is the one thing I cannot know. Film them before Nov 5 and schedule them. The
+build fails if a cruise-window caption says "mom" or "my" or claims anyone's presence.
+
+HOW TO READ EACH ENTRY
+  CAPTION  is what posts.
+  SHOT     is what footage it needs. If the footage does not exist, skip the post. Do not buy
+           a prop or stage her to make a caption work.
+  NOTE     is anything date locked, sourced or risky.
+
+=============================================================================
+POST 1 of 21 - 2026-11-01 (Sun) - 00:10 UTC - CESA
+=============================================================================
+CAPTION
+POV, dinner is late and nobody has explained why.
+
+You do not care that the clocks went back an hour at 2am. You have run on your own clock for 19 years and it has never once been wrong. The humans changed something, the food did not arrive, and you have chosen to take this personally.
+
+Somebody is going to hear about this at 4am.
+
+Comment CESA and I'll send you what I wrote about her.
+#seniordog #dogmom #chihuahua #cesasgoldenyears
+
+SHOT: Her at the bowl, or the stare. Anything that reads as waiting. Daylight saving ended at 2am today.
+NOTE: Real: DST ended Sun Nov 1 2026 at 2am, the earliest date the rule allows. Source: timeanddate.com.
+
+=============================================================================
+POST 2 of 21 - 2026-11-03 (Tue) - 00:10 UTC - CESA
+=============================================================================
+CAPTION
+POV, it got cold overnight and you have already solved it.
+
+Not by toughing it out. By locating the single warmest object in the house and lying on it until it becomes yours by law. You are 19 and you have never once been cold indoors, because you have never once accepted being cold indoors.
+
+Adaptation is for animals without a plan.
+
+Comment CESA and I'll send you what I wrote about her.
+#seniordog #dogmom #chihuahua #cesasgoldenyears
+
+SHOT: First genuinely cold morning. Her on the blanket, or wherever she actually relocated to.
+
+=============================================================================
+POST 3 of 21 - 2026-11-06 (Fri) - 00:10 UTC - CONSIDER [CRUISE WINDOW, PRE-SCHEDULE]
+=============================================================================
+CAPTION
+POV, the routine is slightly different this week and you have decided to allow it.
+
+Same floor. Same spot. Same hours, which are all of them. Whatever else is going on around you is an administrative matter and you have delegated it.
+
+The house runs on your schedule. It always has.
+
+Comment CONSIDER and I'll add you.
+#seniordog #dogmom #chihuahua #cesasgoldenyears
+
+SHOT: Any calm clip of her in her usual spot. Film this BEFORE Nov 5 and schedule it.
+NOTE: CRUISE WINDOW Nov 5 to 11. Deliberately asserts nothing about who is in the house or where Amanda is. Do not add a detail here.
+
+=============================================================================
+POST 4 of 21 - 2026-11-09 (Mon) - 00:10 UTC - CESA [CRUISE WINDOW, PRE-SCHEDULE]
+=============================================================================
+CAPTION
+POV, your standards do not change based on who is holding the bowl.
+
+The bowl goes down. You look at it. You look up. You wait for the small ceremony you have earned over 19 years, and only then do you begin. This is not fussiness. This is a contract.
+
+Everyone learns it eventually.
+
+Comment CESA and I'll send you what I wrote about her.
+#seniordog #dogmom #chihuahua #cesasgoldenyears
+
+SHOT: Feeding clip. Her looking up before she starts. Film BEFORE Nov 5 and schedule it.
+NOTE: CRUISE WINDOW Nov 5 to 11. Again, no claim about who is present.
+
+=============================================================================
+POST 5 of 21 - 2026-11-14 (Sat) - 00:10 UTC - CESA
+=============================================================================
+CAPTION
+POV, they are putting clothes on you and you are letting them, for reasons of your own.
+
+You could object. You have objected to smaller things with more force. But the sweater is warm, the attention is correct, and there is no version of this where you come out behind.
+
+Dignity is knowing which fights are worth it.
+
+Comment CESA and I'll send you what I wrote about her.
+#seniordog #dogmom #chihuahua #cesasgoldenyears #sweaterweather
+
+SHOT: Her in whatever she actually wears, if she wears anything. If she does not, skip this one rather than buying a sweater for a post.
+
+=============================================================================
+POST 6 of 21 - 2026-11-19 (Thu) - 00:10 UTC - CONSIDER
+=============================================================================
+CAPTION
+POV, the heat came on and you have already found the exact best square foot in the house.
+
+Not near it. On it. You did 1 slow lap, made 1 decision, and that is where you live now. The rest of the house is storage.
+
+You are 19. You do not browse.
+
+Comment CONSIDER and I'll add you.
+#seniordog #dogmom #chihuahua #cesasgoldenyears
+
+SHOT: Where she actually moved to once the heat started running. Wherever that is, that is the shot.
+
+=============================================================================
+POST 7 of 21 - 2026-11-25 (Wed) - 00:10 UTC - CESA
+=============================================================================
+CAPTION
+POV, the kitchen has started smelling like something and you have relocated accordingly.
+
+You are not begging. Begging is undignified and also unnecessary. You have simply moved to a position from which you can be seen, at ankle height, with the full face deployed.
+
+You have never had to ask for anything in your life.
+
+Comment CESA and I'll send you what I wrote about her.
+#seniordog #dogmom #chihuahua #cesasgoldenyears
+
+SHOT: Her underfoot in the kitchen the day before Thanksgiving. Ankle level, looking up.
+
+=============================================================================
+POST 8 of 21 - 2026-11-26 (Thu) - 00:10 UTC - CESA
+=============================================================================
+CAPTION
+POV, everyone is eating and you are not, and you want it on the record.
+
+You have sat through the whole thing. You have been extremely good. You have made eye contact with every single person at that table and you have been handed nothing you did not already own.
+
+19 Thanksgivings. Still no plate. Still trying.
+
+Comment CESA and I'll send you what I wrote about her.
+#seniordog #dogmom #chihuahua #cesasgoldenyears #thanksgiving
+
+SHOT: Thanksgiving. Her near the table, watching. Do not stage her with human food.
+NOTE: DATE LOCKED. Thanksgiving is Thu Nov 26 2026.
+
+=============================================================================
+POST 9 of 21 - 2026-11-27 (Fri) - 00:10 UTC - CONSIDER
+=============================================================================
+CAPTION
+POV, the good smells are still here and most of them are off limits.
+
+Not a rule invented to spite you. The onions in the stuffing and the mashed potatoes are in the same family as garlic and they damage red blood cells in dogs. Grapes and raisins can take out a kidney. Chocolate and xylitol, no. The turkey without skin, bones or seasoning is usually the only thing on that counter with your name on it.
+
+You would eat any of it. That is exactly why somebody has to know this instead of you.
+
+Comment CONSIDER and I'll add you.
+#seniordog #dogmom #chihuahua #cesasgoldenyears #petsafety
+
+SHOT: Leftovers on the counter with her somewhere below. No food near her mouth in frame.
+NOTE: Sourced: ASPCA, People Foods to Avoid Feeding Your Pets, and ASPCApro, 4 Harmful Thanksgiving Foods for Pets. ASPCA Animal Poison Control: 888-426-4435. Put the number in the first comment.
+
+=============================================================================
+POST 10 of 21 - 2026-12-01 (Tue) - 00:10 UTC - CONSIDER
+=============================================================================
+CAPTION
+POV, there is a tree in the house now and nobody asked you.
+
+It appeared. It takes up floor. It has changed the route you have walked every day for 19 years, and you are the one who has to renegotiate it, at 5 pounds, in the dark, at 3am.
+
+A whole new obstacle, installed on purpose, by people who claim to love you.
+
+Comment CONSIDER and I'll add you.
+#seniordog #dogmom #chihuahua #cesasgoldenyears
+
+SHOT: The tree going up, with her in frame at floor level. Her looking at it is the shot.
+
+=============================================================================
+POST 11 of 21 - 2026-12-05 (Sat) - 00:10 UTC - CESA
+=============================================================================
+CAPTION
+POV, they hung the breakable things at exactly your height.
+
+Eye level. Shiny. Swinging slightly. You have not touched them. You want that noted, because you could have, at any point, and the only reason nothing has happened is restraint.
+
+You are not good. You are choosing to be good, which is worth more.
+
+Comment CESA and I'll send you what I wrote about her.
+#seniordog #dogmom #chihuahua #cesasgoldenyears
+
+SHOT: Low ornaments at her height, her near them. Do not bait her into knocking one off.
+
+=============================================================================
+POST 12 of 21 - 2026-12-09 (Wed) - 00:10 UTC - CONSIDER
+=============================================================================
+CAPTION
+POV, everyone is scared of the plant and the plant is barely a problem.
+
+Poinsettias have a reputation for killing pets that they have not earned. The ASPCA lists them as mild to moderate stomach upset. Irritating, not lethal. Meanwhile the real hazards on that list are the things nobody photographs: onions, grapes and raisins, chocolate, xylitol.
+
+The famous danger is the small one. That is usually how it goes.
+
+Comment CONSIDER and I'll add you.
+#seniordog #dogmom #chihuahua #cesasgoldenyears #petsafety
+
+SHOT: Her near a poinsettia if there is one in the house. If not, film the room and let the caption carry it.
+NOTE: Sourced: ASPCA, Keep Your Pet Safe from These 10 Holiday Hazards, and ASPCA People Foods to Avoid. Pairs with the poinsettia night on Amanda's own channel.
+
+=============================================================================
+POST 13 of 21 - 2026-12-13 (Sun) - 00:10 UTC - CONSIDER
+=============================================================================
+CAPTION
+POV, the floor is cold in December and you have opinions about flooring.
+
+Hard floor is a young dog's surface. You are 19. You do 1 lap, you establish where the soft warm things are, and after that the cold parts of this house simply do not exist to you.
+
+The house did not get smaller. You got more efficient.
+
+Comment CONSIDER and I'll add you.
+#seniordog #dogmom #chihuahua #cesasgoldenyears
+
+SHOT: Her crossing the hard floor, then where she settles. The contrast is the point.
+
+=============================================================================
+POST 14 of 21 - 2026-12-17 (Thu) - 00:10 UTC - CESA
+=============================================================================
+CAPTION
+POV, a box came and it is yours now.
+
+Not what was in it. The box. You did not ask permission, you did not check whose it was, you got in, and the matter was closed. Possession is the entire law and you have never lost a case.
+
+Everything at your height belongs to you. Everything else is pending.
+
+Comment CESA and I'll send you what I wrote about her.
+#seniordog #dogmom #chihuahua #cesasgoldenyears
+
+SHOT: Any delivery box she actually gets into or sits beside. This one needs real footage, do not stage it.
+
+=============================================================================
+POST 15 of 21 - 2026-12-20 (Sun) - 00:10 UTC - CESA
+=============================================================================
+CAPTION
+POV, there are people in the house and every one of them is here for you.
+
+They think they came for something else. That is fine. You will do 1 slow circuit of the room, accept what is offered at each stop, and retire before anyone has finished explaining who you are.
+
+19 years of this. You have never had to work a room. You just enter it.
+
+Comment CESA and I'll send you what I wrote about her.
+#seniordog #dogmom #chihuahua #cesasgoldenyears
+
+SHOT: Guests, her moving between people or being held. Whatever actually happens.
+
+=============================================================================
+POST 16 of 21 - 2026-12-23 (Wed) - 00:10 UTC - CESA
+=============================================================================
+CAPTION
+POV, the paper is the good part and you knew that immediately.
+
+Everyone is looking at what came out of it. You are looking at what is left on the floor: warm, loud, exactly your size, and already flat. You did not have to be taught this.
+
+They spent money. You found the best thing in the room for free.
+
+Comment CESA and I'll send you what I wrote about her.
+#seniordog #dogmom #chihuahua #cesasgoldenyears
+
+SHOT: Wrapping paper on the floor with her in it or on it. Loose paper only, no ribbon near her.
+
+=============================================================================
+POST 17 of 21 - 2026-12-24 (Thu) - 00:10 UTC - CESA
+=============================================================================
+CAPTION
+POV, it is Christmas Eve and you are going to bed at your normal time.
+
+Everyone else is staying up. That is their business. The lights are on, there is noise in the kitchen, and none of it moves your bedtime by 1 minute, because your bedtime has never been up for discussion.
+
+Let them wait for morning. You have done 19 of these.
+
+Comment CESA and I'll send you what I wrote about her.
+#seniordog #dogmom #chihuahua #cesasgoldenyears
+
+SHOT: Her asleep while the house is still awake and lit. The mismatch is the whole joke.
+NOTE: DATE LOCKED. Pairs with Silent Night on Amanda's channel the same night.
+
+=============================================================================
+POST 18 of 21 - 2026-12-25 (Fri) - 00:10 UTC - CESA
+=============================================================================
+CAPTION
+POV, it is Christmas morning and you are the only one who has not changed.
+
+Same spot. Same hours. Same 1 slow lap to confirm the house is where you left it. Everyone around you is unwrapping things and you already have all of it: the floor, the warm square, the people, the bowl.
+
+Merry Christmas from the smallest and most powerful person in this house.
+
+Comment CESA and I'll send you what I wrote about her.
+#seniordog #dogmom #chihuahua #cesasgoldenyears #merrychristmas
+
+SHOT: Christmas morning, her in her spot while everything happens around her. Do not stage her in a hat.
+NOTE: DATE LOCKED.
+
+=============================================================================
+POST 19 of 21 - 2026-12-28 (Mon) - 00:10 UTC - CESA
+=============================================================================
+CAPTION
+POV, it is the dead week between the holidays and it is the best week of your year.
+
+Nobody leaves. Nobody is on a schedule. There is a person on the couch at all hours and you have moved onto the nearest available one without asking. The whole house has finally arranged itself correctly.
+
+This is how it should be run year round and you have said so repeatedly.
+
+Comment CESA and I'll send you what I wrote about her.
+#seniordog #dogmom #chihuahua #cesasgoldenyears
+
+SHOT: Her asleep on somebody during the quiet week. Real footage, whoever is actually there.
+
+=============================================================================
+POST 20 of 21 - 2026-12-31 (Thu) - 00:10 UTC - CONSIDER
+=============================================================================
+CAPTION
+POV, something is banging outside and you have already picked your room.
+
+Not under the bed in a panic. You went to the most interior spot in the house, away from the windows, where the noise arrives as a rumor instead of an event. Nobody showed you that. You worked it out.
+
+The safest place in any house is wherever you are, because you checked first.
+
+Comment CONSIDER and I'll add you.
+#seniordog #dogmom #chihuahua #cesasgoldenyears #newyearseve
+
+SHOT: Where she actually goes when it gets loud. That location is the post.
+NOTE: Practical value for the audience: interior room, away from glass, before the noise starts rather than during.
+
+=============================================================================
+POST 21 of 21 - 2027-01-01 (Fri) - 00:10 UTC - CESA
+=============================================================================
+CAPTION
+POV, it is a new year and you have made no changes.
+
+No resolutions. No plans to be different. You have been getting it exactly right since 2007 and the only thing that has ever needed adjusting is everyone else's understanding of the arrangement.
+
+Same floor. Same hours. Same dog. Still undefeated.
+
+Comment CESA and I'll send you what I wrote about her.
+#seniordog #dogmom #chihuahua #cesasgoldenyears #newyear
+
+SHOT: Anything ordinary. The point of this one is that nothing is special about it.
+NOTE: 2007 is from her stated age of 19, which is in her own published captions. If her birth year is different, fix this line before it posts.
+
+=============================================================================
+THE 3 THINGS THAT WOULD BREAK THIS LANE
+=============================================================================
+
+1. Staging her. Every post here is pegged to something that happens anyway: the clocks change,
+   the heat comes on, a box arrives, the paper ends up on the floor. If the footage did not
+   happen, the post does not run. Buying a sweater so post 5 can exist is how this channel
+   turns back into a scrapbook with a caption on it.
+
+2. Letting the grief in. It will be tempting in December. It belongs on Amanda's channels in
+   Amanda's voice. Cesa is not worried about anything and the audience can feel the difference.
+
+3. Third person. "She is 19 and bath day is not a fight" is warm and it is the slow-growth
+   voice Amanda diagnosed. Every hook here is a POV hook and the build enforces it.
+
+WHAT IS STILL NEEDED FROM AMANDA
+  1. Read and approve, or strike the ones she does not want.
+  2. Confirm the birth year in post 21. It says 2007, derived from the 19 in her own captions.
+  3. Decide whether SEASONAL joins the keyword rotation on this channel during the campaign.
+  4. Footage for 21 posts, most of which is ordinary life she is already filming.
+
+WHAT IS NOT NEEDED
+  A new lead magnet. The guide, "19 Years Old, 10 of Them Mine," is already built, already has
+  its MailerLite group and its 2 email delivery sequence, and already converts warmer than
+  anything else on the channel. Nothing here invents an offer.

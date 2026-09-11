@@ -3,17 +3,41 @@
 **@cesasgoldenyears is a conversion channel now, not a scrapbook.** Amanda's call, 2026-08-26.
 Every post on that account carries a keyword CTA. No exceptions.
 
-## The 2 live keywords on that channel
+## The live keywords on that channel. RE-READ FROM SOURCE 2026-09-11.
 
-| Keyword | Delivers | Blotato ID |
-|---|---|---|
-| CESA | The Cesa guide, 19 Years Old, 10 of Them Mine | 2952 |
-| CONSIDER | Consider This newsletter | 2954 |
+**This section said "the 2 live keywords." There are 3, and the gate status was wrong.**
+Corrected against `blotato_list_automations` on 2026-09-11.
 
-Both are LIVE. **`2952` CESA no longer uses an email gate** — Amanda removed it 2026-09-08
-after the gate cost the first real lead, so CESA now sends a button straight to
-`cesa-guide.subscribepage.io` and the landing page captures the address. `2954` CONSIDER
-still gates and still needs the daily sync in its path.
+| Keyword | Delivers | Blotato ID | Email gate? |
+|---|---|---|---|
+| CESA | The Cesa guide, 19 Years Old, 10 of Them Mine | 2952 | **No** |
+| CONSIDER | Consider This newsletter | 2954 | **No, not any more** |
+| SEASONAL | Consider This newsletter | 4011 | **Yes** |
+
+All 3 are LIVE. 2 corrections to what this file used to say:
+
+1. **SEASONAL (`4011`) has been live on this channel since 2026-09-01** and this file never
+   recorded it. It is the seasonal campaign's automation, running on Cesa's account.
+2. **`2954` CONSIDER no longer gates.** This file said it "still gates and still needs the
+   daily sync in its path." There is no `emailGate` on `2954` as of 2026-09-11. It sends a
+   button to `consider-this.subscribepage.io`, the same shape as CESA. `4011` SEASONAL is now
+   the only automation on this channel that gates, so it is the only one that needs the daily
+   sync in its path.
+
+**`2952` CESA no longer uses an email gate** either — Amanda removed it 2026-09-08 after the
+gate cost the first real lead, so CESA sends a button straight to
+`cesa-guide.subscribepage.io` and the landing page captures the address.
+
+### CESA also catches grief, deliberately
+
+`2952` carries these keywords live: "just passed", "recently passed", "passed away",
+"he passed", "she passed", "lost my", "miss her", "miss him", "got to see", "only got".
+
+This matters for the holidays. People miss their dogs in November and December and they will
+say so in her comments, and the guide reaches them automatically. **So the grief on this
+channel arrives from the audience and gets met with something useful, while Cesa's own
+captions stay exactly as unbothered as she is.** That division is correct and needs no change.
+It is also why the holiday lane does not need a single sad post in it.
 
 ## The CTA rule for this channel
 
@@ -91,3 +115,40 @@ dedicated channel is where the audience self-selected. It needs its own queue.
 The daily lead sync (routine trig_0123dXXH4Gn978bHSD6gehCZ, 13:00 UTC) pulls captured
 addresses from the DM threads into the matching MailerLite group. Joining the group is what
 fires the delivery automation, so the group assignment IS the delivery.
+
+
+---
+
+## THE HOLIDAY LANE, 2026-09-11
+
+`DRAFT_0911_cesa-holiday-lane.txt`. 21 posts, Nov 1 to Jan 1, nothing scheduled.
+
+**21, not 62.** Her channel already runs daily at 00:10 UTC and does not need replacing. The
+lane is the nights the season actually reaches her; every other night keeps running normal
+Cesa content. 62 would have meant inventing 62 scenes in her house, and nothing about her, the
+house or Amanda's life gets fabricated. So every caption uses only details already in her own
+published posts, and everything I do not know sits in a SHOT line as a direction rather than
+being asserted as fact in a caption.
+
+**The build enforces the voice.** It refuses to write the file on: a hook that is not a POV
+hook, a sentence starting with "She" (the outside voice Amanda diagnosed), sentiment or grief
+language from a blocklist, a post with no SHOT note, em dashes, hashtags outside 4 to 5, or a
+CESA to CONSIDER ratio off the 2 to 1 standard. It currently lands at exactly 14 to 7.
+
+**The cruise, Nov 5 to 11.** Not a gap; the queue posts without her. 2 posts fall in that
+window and both are written to assert nothing about who is in the house or where Amanda is,
+because that is the one thing that cannot be known in advance. The build fails a cruise-window
+caption that says "mom" or "my" or claims anyone's presence.
+
+**TikTok gets a different CTA.** @cesasgoldenyears on TikTok has no comment-to-DM, so
+"Comment CESA" is a dead instruction there. The file carries the bio-link replacement for both
+keyword types.
+
+**Open for Amanda:** whether SEASONAL joins the keyword rotation on this channel during the
+campaign. It would work and it is already live here, but this standard says CESA is the native
+ask at roughly 2 to 1, so changing the mix is her call and the lane does not assume it.
+
+**Deliberately not used:** the xoloitzcuintli, the dog that carries souls across the river in
+Aztec belief. It is a genuinely great fact and it is in the main campaign on Nov 4 instead.
+On a 19 year old dog's own channel it reads as pre-grieving her, which is the one thing this
+standard forbids.
