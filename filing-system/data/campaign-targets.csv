@@ -1,0 +1,2 @@
+Campaign,TargetDate,Live,CountsFrom,Why
+halloween-nightly,2026-10-31,yes,inclusive,"1 true fact a night from the trailer date to Halloween. The trailers state the number of nights left, so the number is only true on the day the post is scheduled. Inclusive means tonight is night 1, which is how the trailers were written. Moving a trailer changes its number, which is what C04 is for."

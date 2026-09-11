@@ -130,7 +130,7 @@ def minutes(hhmm):
     return int(hhmm[:2]) * 60 + int(hhmm[3:])
 
 
-def plan_day(day, history, queue, register, inv):
+def plan_day(day, history, queue, register, inv, cta):
     # Last airing per platform. Per platform rather than per account is the
     # stricter reading, and stricter is the safe direction here.
     last = defaultdict(dict)
@@ -185,10 +185,75 @@ def plan_day(day, history, queue, register, inv):
             taken[acct].append(slot)
             onday[platform].add(f)
             url, text = inv[slug][platform]
+            written = recaption(text, platform, acct, cta)
+            if written is None:
+                out.append({"platform": platform, "slug": None,
+                            "why": "no call to action recorded for %s %s in "
+                                   "cta-lines.csv" % (platform, acct)})
+                continue
             out.append({"account": acct, "platform": platform, "day": day,
                         "time": slot, "slug": slug, "fact": f, "url": url,
-                        "text": text, "lastRan": ran or "not in this history"})
+                        "text": written,
+                        "lastRan": ran or "not in this history"})
     return out
+
+
+CTA_LINES = os.path.join(DATA, "cta-lines.csv")
+
+
+def load_cta_lines(path=CTA_LINES):
+    """The call to action each account actually carries, keyed by account."""
+    with open(path, newline="", encoding="utf-8") as fh:
+        return {(r["Platform"], r["AccountId"]): r for r in csv.DictReader(fh)}
+
+
+# A caption reused on another channel arrives carrying the old channel's ask.
+# On 09/11 that put "Comment SEASONAL" on 20 YouTube posts, where nothing
+# listens for it. The body travels. The ask does not, and neither do the
+# hashtags, because both are properties of where the post lands.
+CTA_MARKERS = (
+    "comment ", "subscribe for", "follow for", "link in bio",
+    "the note is in my bio", "1 true thing about the season",
+)
+
+
+def body_of(text):
+    """The caption with its old ask, link and hashtags taken off."""
+    kept = []
+    for para in (text or "").split("\n\n"):
+        stripped = para.strip()
+        if not stripped:
+            continue
+        low = stripped.lower()
+        if any(m in low for m in CTA_MARKERS):
+            continue
+        if stripped.startswith("#"):
+            continue
+        if stripped.startswith("http"):
+            continue
+        kept.append(stripped)
+    return "\n\n".join(kept)
+
+
+def recaption(text, platform, account, cta):
+    """Put the target account's own ask on a body borrowed from elsewhere."""
+    row = cta.get((platform, str(account)))
+    if row is None:
+        # No substitution. A channel with no recorded ask does not get one
+        # invented for it, and it does not get another channel's either.
+        return None
+    parts = [body_of(text)]
+    line, link = row["Line"], row["Link"]
+    if link and line.rstrip().endswith(":"):
+        parts.append(line + "\n" + link)   # the link reads as the colon's object
+    elif link:
+        parts.append(line)
+        parts.append(link)
+    else:
+        parts.append(line)
+    if row["Hashtags"]:
+        parts.append(row["Hashtags"])
+    return "\n\n".join(p for p in parts if p)
 
 
 def main():
@@ -203,7 +268,8 @@ def main():
     queue = json.load(open(args.queue))
     if isinstance(queue, dict):
         queue = queue.get("items", [])
-    rows = plan_day(args.day, history, queue, S.load_register(), load_inventory())
+    rows = plan_day(args.day, history, queue, S.load_register(),
+                    load_inventory(), load_cta_lines())
 
     if args.json:
         print(json.dumps(rows, indent=1))

@@ -950,5 +950,43 @@ if python3 "$HERE/keyword_assert.py"; then
 else echo "FAIL  every live Target keyword in Blotato has a registry row"; fail=$((fail+1)); fi
 
 echo
+echo "== a countdown moved to a day where its number is wrong (Run 9, added 09/11) =="
+# Rescheduling a trailer to clear a slot collision silently turned a correct
+# "43 nights" into a wrong one. C04 existed and could not see it: it read a
+# label column the snapshot had stopped writing, and it only ran when someone
+# passed --target, which nobody did.
+GATE="$HERE/../scripts/gm_cadence_check.py"
+
+if python3 "$GATE" --board "$HERE/cadence.countdown-drift.csv" 2>&1 | grep -q C04_COUNTDOWN_DRIFT; then
+  echo "PASS  C04 runs without anyone passing a target"; pass=$((pass+1))
+else echo "FAIL  C04 runs without anyone passing a target"; fail=$((fail+1)); fi
+
+if python3 "$GATE" --board "$HERE/cadence.countdown-drift.csv" 2>&1 | grep -q "c2"; then
+  echo "PASS  a nights trailer on the wrong day is refused"; pass=$((pass+1))
+else echo "FAIL  a nights trailer on the wrong day is refused"; fail=$((fail+1)); fi
+
+if python3 "$GATE" --board "$HERE/cadence.countdown-drift.csv" 2>&1 | grep -q "c4"; then
+  echo "PASS  a days-out caption on the wrong day is refused"; pass=$((pass+1))
+else echo "FAIL  a days-out caption on the wrong day is refused"; fail=$((fail+1)); fi
+
+# c1 and c3 sit on the day their own number is true, under the 2 different
+# counting conventions. Flagging either would make the rule noise.
+if python3 "$GATE" --board "$HERE/cadence.countdown-drift.csv" 2>&1 | grep C04 | grep -qE "\bc1\b|\bc3\b"; then
+  echo "FAIL  a correct countdown is left alone under both conventions"; fail=$((fail+1))
+else echo "PASS  a correct countdown is left alone under both conventions"; pass=$((pass+1)); fi
+
+if python3 "$HERE/countdown_assert.py"; then
+  echo "PASS  the countdown reader tells a countdown from a number"; pass=$((pass+1))
+else echo "FAIL  the countdown reader tells a countdown from a number"; fail=$((fail+1)); fi
+
+echo
+echo "== a caption reused on a channel that cannot answer its ask (Run 9, added 09/11) =="
+# gm_fill_plan copies a caption from whichever channel last ran the fact. The
+# body travels. The ask does not, and neither do the hashtags.
+if python3 "$HERE/recaption_assert.py"; then
+  echo "PASS  a reused caption is re-asked for the channel it lands on"; pass=$((pass+1))
+else echo "FAIL  a reused caption is re-asked for the channel it lands on"; fail=$((fail+1)); fi
+
+echo
 echo "$pass passed, $fail failed"
 [ "$fail" = 0 ]

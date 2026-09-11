@@ -68,6 +68,33 @@ def toks(text):
     return [w for w in t.split() if w not in STOP and len(w) > 2]
 
 
+# A campaign trailer states how far out it is, and that number stops being
+# true the moment the post is moved. On 09/11 a reschedule to fix a slot
+# collision silently turned a correct "43 nights" into a wrong one, and C04
+# could not see it because the rule read a column the snapshot left empty.
+#
+# The board uses 2 phrasings and they count differently, which is why a bare
+# "\d+ days" is not enough to go on:
+#   "43 nights. No dark days."   tonight is night 1, so inclusive
+#   "Halloween is 43 days out."  days remaining, so exclusive
+# Everything else that says a number and a day is prose, not a countdown:
+# "60 days ago", "free for 30 days", "hold about 12 days at a time".
+NIGHTS   = re.compile(r"\b(\d{1,3})\s+nights?\b", re.I)
+DAYS_OUT = re.compile(r"\b(?:is\s+)?(\d{1,3})\s+days?\s+(?:out|to go|left)\b", re.I)
+
+
+def countdown_in(text):
+    """The countdown a caption states, as <number><n for nights, d for days>."""
+    text = text or ""
+    m = NIGHTS.search(text)
+    if m:
+        return m.group(1) + "n"
+    m = DAYS_OUT.search(text)
+    if m:
+        return m.group(1) + "d"
+    return ""
+
+
 def opening(text):
     """The first 3 lines. That is where the fact is stated."""
     return set(toks(" ".join((text or "").strip().split("\n")[:3])))
@@ -144,7 +171,8 @@ def resolve(rows, register):
             fact = ""
             first = " ".join(r["text"].strip().split("\n")[0].split()[:7]).lower()
             guess = re.sub(r"[^a-z0-9]+", "-", first).strip("-") or ("row-" + r["id"])
-        out.append([r["id"], r["when"], "", r["platform"], r["account"], fact, guess])
+        out.append([r["id"], r["when"], countdown_in(r["text"]), r["platform"],
+                    r["account"], fact, guess])
     out.sort(key=lambda x: x[1])
     return out, unresolved
 
@@ -165,7 +193,7 @@ def main(argv):
     tmp = args[1] + ".tmp"
     with open(tmp, "w", newline="") as fh:
         w = csv.writer(fh)
-        w.writerow(["id", "postTimeUTC", "label", "platform", "accountId",
+        w.writerow(["id", "postTimeUTC", "countdown", "platform", "accountId",
                     "fact", "factGuess", "roster"])
         roster = load_roster()
         w.writerows([row + [roster] for row in out])

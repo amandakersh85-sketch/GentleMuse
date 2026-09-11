@@ -159,6 +159,12 @@ def load(path):
                 "day": day,
                 "time": hhmm[:5],
                 "label": r.get("label", "").strip(),
+                # What the caption claims about how far out the campaign is.
+                # C04 read "label" and the snapshot had stopped writing one,
+                # so the rule ran against an always-empty cell and passed
+                # everything. A rule reading a column nobody fills is not a
+                # rule, it is a line in a docstring.
+                "countdown": (r.get("countdown") or "").strip(),
                 # Every rule here is per platform or per account. Without these
                 # 2 columns the checks collapse into 1 stream and start
                 # contradicting the doctrine they exist to enforce: 4 platforms
@@ -184,10 +190,43 @@ def load(path):
     return rows
 
 
-def countdown_days(label):
-    """Pull an explicit countdown number out of a label, if it carries one."""
-    m = re.search(r"countdown(\d+)", label, re.I)
-    return int(m.group(1)) if m else None
+def countdown_days(cell):
+    """The countdown a row states, as (number, inclusive).
+
+    The snapshot writes 43n for "43 nights", which counts tonight, and 43d for
+    "43 days out", which does not. Both phrasings are hers and both are right;
+    they just do not mean the same arithmetic, so the gate has to be told
+    which one it is looking at rather than guessing. The older countdown12
+    label form still reads, so a board written by an earlier snapshot checks
+    instead of silently passing.
+    """
+    cell = (cell or "").strip()
+    m = re.search(r"countdown(\d+)", cell, re.I)
+    if m:
+        return int(m.group(1)), True
+    m = re.match(r"^(\d{1,3})([nd])$", cell, re.I)
+    if m:
+        return int(m.group(1)), m.group(2).lower() == "n"
+    return (int(cell), True) if cell.isdigit() else None
+
+
+CAMPAIGNS = os.path.join(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+    "data", "campaign-targets.csv")
+
+
+def load_target(path=CAMPAIGNS):
+    """The date the live countdown campaign is counting down to.
+
+    C04 used to need --target on the command line, which meant it ran only
+    when somebody remembered to pass it, which was never. The date belongs in
+    the data next to everything else the gate reads.
+    """
+    if not os.path.exists(path):
+        return None
+    with open(path, newline="", encoding="utf-8") as fh:
+        live = [r for r in csv.DictReader(fh) if r["Live"] == "yes"]
+    return live[0] if live else None
 
 
 def posting_window(rows):
@@ -430,18 +469,25 @@ def check(rows, anchor=ANCHOR_DEFAULT, target=None):
                         "ids": [a["id"], b["id"]],
                     })
 
-    if target:
-        tgt = date.fromisoformat(target)
+    campaign = load_target()
+    if target or campaign:
+        tgt = date.fromisoformat(target or campaign["TargetDate"])
+        name = campaign["Campaign"] if campaign and not target else "the target"
         for r in rows:
-            n = countdown_days(r["label"])
-            if n is None:
+            got = countdown_days(r.get("countdown") or r.get("label") or "")
+            if got is None:
                 continue
-            actual = (tgt - date.fromisoformat(r["day"])).days
+            n, inclusive = got
+            out = (tgt - date.fromisoformat(r["day"])).days
+            actual = out + 1 if inclusive else out
             if actual != n:
                 findings.append({
                     "rule": "C04_COUNTDOWN_DRIFT",
                     "day": r["day"],
-                    "detail": "caption says %d days out, the date is %d days out" % (n, actual),
+                    "detail": "caption says %d %s, but %s is %d %s from %s"
+                              % (n, "nights" if inclusive else "days out", name,
+                                 actual, "nights" if inclusive else "days out",
+                                 r["day"]),
                     "ids": [r["id"]],
                 })
 
