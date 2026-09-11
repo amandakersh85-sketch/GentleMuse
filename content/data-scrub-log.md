@@ -799,3 +799,100 @@ Club Target points engine runs on TikTok.
 If Instagram reach recovers over the next 3 days, the cause was volume and the
 fix holds. If it does not, the account has a restriction that needs Meta
 support, and no amount of scheduling changes it.
+
+## Scrub, Day 3, night of Thu Sept 10 (run 09/11 02:31 UTC)
+
+**Follower count: need Amanda's number for Sept 11.** Last known 185 on Sept 10.
+
+### CORRECTION to the Day 2 headline
+
+Day 2 said "Instagram reach has collapsed." That over-generalized from a mixed
+set of formats, which is exactly what the Data Methodology rule warns against,
+and I did it anyway. With a full day more data the picture is 3 tiers, not one
+collapse.
+
+**Instagram, full campaign corpus, all measured at roughly 24 hours old:**
+
+| Post | Format | Views | Reach | Watch |
+|---|---|---|---|---|
+| The 3 second stare, 09/09 17:00 | Cesa, real footage | **223** | 166 | 5.1s |
+| Does not look up once, 09/09 16:30 | Cesa, real footage | **217** | 189 | 6.9s |
+| Scatters it then eats it, 09/09 00:00 | Cesa, real footage | 176 | 155 | 5.5s |
+| Stops to check I'm there, 09/09 15:01 | Cesa, real footage | 145 | 110 | 5.6s |
+| Party era, 09/08 17:00 | Cesa, real footage | 101 | 70 | 3.8s |
+| Bookmarking, 09/08 23:00 | static graphic | 9 | 5 | n/a |
+| Salem, 09/08 20:01 | HeyGen avatar reel | 3 | 2 | 6.7s |
+| Goosebumps, 09/09 20:00 | HeyGen avatar reel | **2** | 2 | 1.3s |
+| Tuesday automations, 09/09 23:00 | static graphic | **1** | 1 | n/a |
+| Are You Afraid of the Dark, 09/08 15:01 | HeyGen avatar reel | 1 | 1 | 10.0s |
+
+### The real finding: this is format specific, not account wide
+
+**Tier 1, real footage of Cesa: 101, 145, 176, 217, 223.** Climbing steadily
+across the campaign. The account is not throttled.
+
+**Tier 2, static graphics: 1 and 9 views.**
+
+**Tier 3, HeyGen avatar reels: 1, 2 and 3 views.** Functionally zero
+distribution. Every single one.
+
+That maps exactly onto the case already in CLAUDE.md: the Instagram trivia reel
+carrying an AI badge got 37 views while the same format ran 230 to 577 on
+Facebook. Instagram is suppressing the AI-generated content and leaving the real
+footage alone.
+
+**The honest caveat, so this correction does not overcorrect:** Cesa at 223 is
+still well under its own 4 week corpus range of 801 to 7,726. Cesa is
+functioning and trending up, not restored. There may be a milder depression on
+top of the format effect. Watch it for 3 more days before calling it.
+
+### The volume cut, reassessed
+
+Cutting Instagram from 5 posts a day to 2 was not the fix I presented it as.
+Cesa was already climbing at 5 posts a day. The cut still stands on its own
+merits, 5 near-identical posts a day into 185 followers is a lot, and it costs
+nothing to find out. But it was not the cause and I should not have called it
+the most likely one without checking format first.
+
+### THE TRIVIA TEST FAILED, and not the way we were testing for
+
+Metricool 373073787 shows **status PUBLISHED** at 11:30 AM CT on Sept 10.
+
+**It published with the placeholder video still attached.** The media is
+`6066935-file-8154403769052226077.mp4`, which is the face-to-camera "adulthood
+never required you to become boring" clip I attached deliberately as an obvious
+placeholder. So a Rubik's Cube caption published over a video about music.
+
+The clean export test did not run. **The result is void.**
+
+**Second problem, and it may be the whole story.** That post carries
+`isAiGenerated: true`, which I set on 09/09 when the plan was a HeyGen render.
+The video that actually published is real footage of Amanda. So a genuine
+face-to-camera clip went out declared to Instagram as AI generated.
+
+Given tier 3 above, that is likely to bury it. Worth checking its views
+tomorrow: if a real Cesa-quality clip lands at 1 to 3 views while flagged as AI,
+that is strong confirmation of the suppression mechanism.
+
+### Cesa above 10,000 views
+
+No. Ceiling in campaign is 223. Historical ceiling 7,726 on Aug 18.
+
+### Compliance flags
+
+Pink hibiscus TikTok still missing SKU 89094549 in its caption, unchanged from
+Day 2. The HIBISCUS comment automation covers commenters.
+
+No watermarks or badges found on published media this window.
+
+### What to do
+
+1. **Stop putting HeyGen avatar reels on Instagram.** 1 to 3 views, every time,
+   no exceptions in the data. They work on Facebook at 219 to 330. The 4 already
+   parked at the back of the Instagram queue should come off Instagram entirely.
+2. **Never declare real footage as AI generated.** Fix Metricool 373073787's
+   flag if the post can still be edited, and never set that flag again except on
+   an actual avatar render.
+3. **Instagram becomes Cesa plus real footage only.** That is the only tier
+   getting distribution.
+4. Re-run the trivia test properly, with a real render, once there is one.
