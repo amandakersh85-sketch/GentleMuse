@@ -259,3 +259,65 @@ invention · wassailing · mumming · the Yule log · mistletoe · why December 
 - 1 render per idea.
 - Nothing scheduled until she says go.
 - Nothing to LinkedIn.
+
+---
+
+## THE 62 ARE WRITTEN. 2026-09-11.
+
+`DRAFT_0911_the-real-one-62-winter-nights.txt`. Nov 1 to Jan 1, all 62, source-verified,
+nothing scheduled.
+
+### OPEN items from this file, now closed
+
+1. **The counter.** Amanda chose the countdown. It retargets at each phase boundary, sits in
+   the footer above the hashtags, and on the anchor night it names the day instead of counting
+   ("THE REAL ONE · THANKSGIVING", not "0 NIGHTS TO").
+2. **Cesa gets a lane.** Her decision. Not built yet. Her channel has its own voice and Cesa
+   closes her own posts, so the holiday lane is a separate draft, not a slot inside these 62.
+   This is the one piece of the campaign still unwritten.
+3. **Thanksgiving and Christmas Day as something warmer.** Claude's instinct was yes and
+   Amanda left it to Claude. Nights 26, 55 and 62 are written as warm nights rather than fact
+   posts and are marked in the file. Each one closes its phase by naming what the run found.
+4. **Who writes the 62.** Claude wrote and graded them, per the assumption in this file.
+
+### Corrections this draft forced
+
+- **Día de los Muertos was never covered.** This file and the campaign document both said it
+  was "already drafted as plate 32." Plate 32 is dated 2026-10-30. Nov 1 and Nov 2 were
+  uncovered nights. They are now nights 1 and 2. The campaign document is fixed.
+- **Hanukkah 2026 is checked.** Sundown Fri Dec 4 to nightfall Sat Dec 12, 8 nights, final
+  candle Dec 11, verified against Hebcal. It was the one date deliberately left off the fixed
+  points table. It is now on it, and night 34 is date locked to the first candle.
+- **Advent 2026 begins Sun Nov 29.** Night 29.
+- **Las Posadas runs Dec 16 to 24.** Night 46 opens it.
+
+### The arithmetic is now enforced, not promised
+
+The 33-night promise broke because someone typed a number. Every date and countdown value in
+the draft is computed, and the generator refuses to write the file unless there are exactly 62
+entries covering every day from Nov 1 to Jan 1 with no gaps, duplicates or reordering. It also
+fails the build on em dashes, on any caption outside 4 to 5 hashtags, on a missing source, and
+on a YouTube title of 60 characters or more. It caught 3 real errors in this draft before the
+file existed.
+
+### 2 claims cut for failing the source check
+
+- **"Jingle Bells was written for Thanksgiving."** Snopes finds no demonstrable evidence and
+  traces it to 1980s newspaper quizzes. What survives: published Sept 1857 as The One Horse
+  Open Sleigh, and the lyrics never mention Christmas or any holiday. That version is on the
+  bench.
+- **The Pequot causal claim**, already flagged in this file. Night 18 names the claim and takes
+  it apart rather than avoiding it, which is what this series has to do with a convenient wrong
+  detail.
+
+Also corrected against Claude's own earlier notes: the cranberry bounce is Webb 1880 and the
+Hayden separator patent is 1900; Hale's own letter says 15 years, so the caption uses her
+number and "from the 1830s on"; Nast's first Santa is Jan 3 1863 and the red-suited one is
+1881; lead tinsel was never banned, the FDA lacked the evidence and importers stopped
+voluntarily after Jan 1 1972.
+
+### A bench, so a swap does not need a research pass
+
+6 fully verified nights are held in reserve at the end of the draft: tinsel, the 1843 Christmas
+card, the poinsettia, Jingle Bells, wassailing, and Christmas becoming a US federal holiday in
+1870. Use any of them to replace a night Amanda does not want.
