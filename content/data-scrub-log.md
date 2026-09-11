@@ -945,3 +945,67 @@ makes it the clean discriminator:
 Either result is worth more than another week of guessing. Run 1 avatar reel on
 Instagram, real render, clean export, correct AI declaration, in a proven time
 slot.
+
+## AVATAR TEST scheduled, 09/11
+
+Amanda sent 4 avatar clips to test the water on Instagram. Opened all 4 before
+scheduling, per the rule added this morning.
+
+**All 4 carried the "TikTok · AI Cast" badge in the top right corner.** These
+are TikTok exports. Posting one to Instagram as-is would have repeated the exact
+failure already documented in CLAUDE.md, the 37 view reel, and it would have
+confounded the test beyond use: a dead result could mean AI detection, or the
+competitor badge, or the category label, with no way to tell which.
+
+They also all carried a **"Random Fact Until I Hit 2K" category label** across
+the top, which is the opener problem diagnosed on 09/08, and all 4 were
+720x1280, not 1080x1920.
+
+### What was fixed before scheduling
+
+Per Amanda's own 09/08 instruction, "keep AI cast, kill the badge":
+
+1. Cropped off the top 215 pixels, which removes **both** the TikTok AI Cast
+   badge and the "Random Fact Until I Hit 2K" label in one pass.
+2. Rebuilt at **1080x1920** with a blurred bed behind, so nothing is stretched.
+3. **AI is still declared**, through Instagram's own mechanism:
+   `isAiGenerated: true` on the post. The disclosure is honest, it just is not
+   TikTok's branding anymore.
+
+### Which clip and why
+
+4 candidates, picked on caption legibility since the burned-in text cannot be
+fixed:
+
+- Tickle: "YOU CAN'TIRSELE / YOU CANT TCKLE". Badly garbled, rejected.
+- Sharks: "SHARKS ARE THE OLDER THAN THAN TREES". Badly garbled, rejected.
+- Wombats: "WOMBATS 💩 CUBES." Garbled, rejected.
+- **Clouds: "THIS CLOUD WEIGH OVER 1 MILLION POUNDS". One grammar error,
+  otherwise clean. Selected.**
+
+Flagging plainly: the burned-in captions on these renders are mangled across
+all 4. That is a HeyGen render quality problem to fix at source, not something
+a crop can solve.
+
+### The scheduled test
+
+Metricool **374241052**, uuid 1431613597763190908.
+**Instagram Reel, Fri Sept 11, 12:00 PM CT. Auto publish ON.**
+
+Noon CT is the proven slot: the 7,726 view reel went out at 17:01 UTC, the
+2,085 at 16:30.
+
+### What it answers
+
+Established: Cesa real footage 101 to 223, faceless dark text cards 1 to 3,
+static graphics 1 to 9. What is NOT established is whether the cause is AI
+detection or faceless dark static content, because the dead posts were both.
+
+The avatar is AI with a face, motion and a person talking, so it splits them:
+
+- **Lands near the Cesa band (100+):** the problem is faceless, dark and
+  static. AI is not the issue and the avatar is a real Instagram engine.
+- **Dies at 1 to 3:** Instagram is detecting AI, and the avatar cannot carry
+  Instagram no matter how well it is rendered.
+
+Read it at 24 hours, Sept 12 noon CT.
