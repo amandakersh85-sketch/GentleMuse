@@ -506,3 +506,73 @@ decide later. The only action this analysis supports is **fixing the instrument*
 Also recorded, from Amanda: *"we just love her, I put too much work in it, you just learn to not
 love her."* **Cesa's cadence is not a growth lever to be tuned.** Claude suggested 1 night a week
 might be too low. That was the wrong instinct and is withdrawn. She stays where Amanda put her.
+
+## 2026-09-11 — Every platform, measured. The first complete read.
+
+Amanda asked for all the numbers. Pulled from Blotato analytics, Metricool, and for the main
+TikTok, scraped from the public pages because no tool can see that account.
+
+### The scoreboard
+
+| Platform | Typical | Best | State |
+|---|---|---|---|
+| **Instagram** @thegentlemuse2026 | ~400 median | **2,972** | The only real reach on the account |
+| TikTok @cesasgoldenyears | 297 to 887 | 887 | Modest but alive, best like ratio anywhere |
+| Facebook page | 247 median | 1,113 | Flat floor, 70% under 300 |
+| **TikTok @thegentlemuse2026** | **44 to 282** | 282 | **Effectively dead** |
+| YouTube channel | **1 to 4 views/day** in Sept | 2,205/day in Aug | **Collapsed ~99%** |
+| Pinterest | **0** | 15 | **Dead.** 38 pins, almost all zero |
+
+### Main TikTok, post by post (public page scrape, 2026-09-11)
+
+| Post | Views | Likes | Shares |
+|---|---|---|---|
+| CESA 3 second stare 09-08 | 282 | 7 | 1 |
+| CESA pov peed 09-10 | 167 | 6 | 0 |
+| CESA coming home 09-06 | 154 | 14 | 0 |
+| TRIVIA body moves 09-09 | 128 | 1 | 1 |
+| SEASONAL razor blade 09-08 | 105 | 3 | 2 |
+| TARGET hibiscus 09-09 | 100 | 3 | 3 |
+| SEASONAL mare 09-08 | 92 | 2 | 2 |
+| TARGET fall racks 09-10 | 89 | 1 | 1 |
+| SEASONAL promo 09-11 | 44 | 1 | 1 |
+
+Compare Cesa's own TikTok on the same days: bath day **887 views, 106 likes**; scatters it **297
+views, 30 likes**. Cesa's channel is running 3 to 10x the main account.
+
+**Caveat, stated plainly:** these came from scraping public TikTok pages, not an API. Treat as
+approximate and possibly stale. **The photo carousels could not be read at all** because TikTok
+serves those stats client-side. That includes Are You Afraid of the Dark, Goosebumps, Nightmare
+Before Christmas, Labor Day and Halloweentown. **Amanda specifically asked about Are You Afraid
+of the Dark and it is the one post in this whole sweep that could not be measured.**
+
+### YouTube collapsed and the cause is not visible
+
+Channel video views by day (Metricool):
+
+| Window | Views/day |
+|---|---|
+| 08-20 to 08-26 | 601 to 2,205 |
+| 08-27 to 08-31 | 172 to 581 |
+| 09-01 | 37 |
+| 09-02 to 09-07 | **1 to 4** |
+| 09-08 | 24 |
+
+Subscribers grew 45 to 61 across the same window.
+
+**Uploads never stopped.** Verified in Blotato: 50 YouTube posts published 08-20 to 09-11, zero
+failed, every one with a live watch URL. So this is not a publishing failure.
+
+**The per-video data that would explain it is not reaching Metricool.** `YTVP` returns only 4
+videos, all from 08-20 and 08-21, all with null metrics, while Blotato shows 50 published. So the
+cause cannot be attributed from available data. Not guessing at it.
+
+### What this means, without recommending anything
+
+Amanda's standing instruction is that the blitz runs, bad numbers are data, and the schedule does
+not change. That holds. This is the data, not an argument.
+
+The one thing worth stating flat: **Instagram is the only platform producing real reach, and Cesa
+is the only content producing it there.** The 93-night campaign currently points mostly at
+surfaces that are not delivering. That is not a reason to stop. It is a reason to make the
+Instagram cut of it the best one.
