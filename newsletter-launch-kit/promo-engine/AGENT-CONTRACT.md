@@ -1,5 +1,27 @@
 # Agent coordination contract
 
+## 0-AWAY. AMANDA BEING AWAY IS NOT A CONTENT PROBLEM. SET 2026-09-11. PERMANENT.
+
+Claude planned around her Nov 5 to 11 cruise as if it were a blackout window. She corrected it:
+
+> *"Don't assume we're automatically going to skip that just because I'm on a cruise. That's the
+> entire purpose and point of having Blotato and our refill queue draft situation, so I can
+> actually go live my life and have fun and have social media take care of itself."*
+
+**The queue posts without her. That is the whole point of the queue.** She has been scheduling
+weeks ahead since August.
+
+**Never frame her travel, her shift, her sleep or her time off as a risk to the content.** Do not
+build "blackout windows". Do not propose skipping days. Do not treat a week away as something to
+survive. The correct posture is that the machine runs and she lives her life.
+
+**The only thing that genuinely pauses is live human work:** comment replies and in-the-moment
+judgment. Even that is recoverable, because public comment replies have no time limit and do not
+consume the single private-reply slot. A backlog waiting when she gets back is normal, not damage.
+
+**The one real deadline is approval**, because only she can approve copy. Get batches to her
+before she is hard to reach, as a courtesy, not as risk mitigation.
+
 ## 0-RATIO. ONE RENDER PER FACT. SET BY AMANDA 2026-09-10. PERMANENT.
 
 Her words: *"fix the ratio ... anything that you see we haven't used, from all of what we have

@@ -33,24 +33,40 @@ series starts Oct 1 and nothing before it gets retrofitted.
 
 ---
 
-## THE CRUISE. Read this before planning anything else.
+## THE CRUISE, Nov 5 to 11. Corrected 2026-09-11.
 
-**Amanda is on a cruise 2026-11-05 to 2026-11-11. 7 nights, inside the run.**
+**An earlier version of this plan treated the cruise as a blackout risk. That was wrong, and
+Amanda corrected it.** Her words: *"don't assume we're automatically going to skip that just
+because I'm on a cruise, that's the entire purpose and point of having Blotato and our refill
+queue draft situation, so I can actually go live my life and have fun and have social media take
+care of itself."*
 
-Assume no reliable connectivity, no manual posting, no comment replies, no approvals.
+She is right. **The queue posts without her. That is what it is for.** Nov 5 to 11 is not a gap,
+is not a hazard, and is not a week to plan around. It is 7 ordinary nights that happen to
+publish while she is somewhere better. She has been scheduling weeks ahead all along; the queue
+already runs to Oct 31.
 
-What follows from that:
+**Never again frame her being away as a content problem.** The correct posture: the machine runs,
+she lives her life, and the only thing that changes is the pace of things that genuinely need a
+human.
 
-1. **Nov 5 to Nov 11 must be fully scheduled and live in Blotato before she leaves on Nov 5.**
-2. Realistically the whole of November should be scheduled before she goes, because a problem
-   found on Nov 8 cannot be fixed from a ship.
-3. Nothing in that window can require her to act. No post whose CTA needs a manual reply, no
-   launch, no anything with a deadline attached.
-4. DM automations will keep firing. She cannot answer comments. **Public comment replies are the
-   only recovery path for a missed DM and there is no time limit on them**, so a backlog on
-   Nov 12 is recoverable. Say so rather than panicking.
-5. Working backwards: November drafted and graded by **Oct 25**, approved by **Oct 31**,
-   scheduled by **Nov 4**. December has until roughly Nov 20.
+### What genuinely needs her, and therefore has a real deadline
+
+Exactly 1 thing: **approval.** She reads and approves copy before it goes into Blotato. Nobody
+else can do that step.
+
+So the November batch goes to her **before Nov 5**, not because the cruise is dangerous, but
+because that is when she is easiest to reach. Working back: drafted and graded by **Oct 25**,
+approved by **Oct 31**, scheduled by **Nov 4**. December has until roughly Nov 20.
+
+That is a courtesy deadline, not a risk mitigation. If she approves from the ship, fine.
+
+### What actually pauses
+
+Live human work, and only that: comment replies and anything needing her judgment in the moment.
+Automations keep firing and keep delivering. **A DM backlog is recoverable** because public
+comment replies have no time limit and do not consume the single private-reply slot. So a queue
+of comments waiting on Nov 12 is normal, not damage.
 
 ---
 
@@ -100,11 +116,19 @@ The series name is separate from the keyword. Naming the run costs the keyword n
 Live automations carrying SEASONAL, verified 2026-09-10: `4009` (IG 45886), `4010` (FB 30840),
 `4011` (Cesa IG 65540). All 3 have an emailGate, all deliberate, all into Consider This.
 
-### 4. The counter: countdown, in the footer, retargeting
-**The cruise decided this.** A "Night 34" counter implies an unbroken chain, so a gap while she
-is at sea is visible and permanent. A countdown is anchored to a fixed date, not to posting
-history, so it cannot break. She liked the countdown for urgency and feared breaking a count.
-The countdown is the format immune to exactly that.
+### 4. The counter: STILL OPEN. Claude's earlier argument was wrong.
+Claude argued for a countdown on the grounds that a night counter would break if a night were
+missed during the cruise. **Amanda corrected the premise: no night will be missed, because the
+queue posts without her.** With the gap risk gone, that argument collapses and both formats are
+back on the table on their merits.
+
+Where that leaves it, honestly:
+- She said she **loves the countdown** for the urgency it adds. That reason still stands.
+- She leaned toward a plain number **out of fear of breaking a count**. That fear is now gone.
+- `Night 34 of 93` is viable again and is the stronger commitment, because the queue can keep it.
+
+So this is a preference call, not a risk call, and it is hers. Claude's recommendation is still
+the countdown, but only because she said she likes it, not because the alternative is unsafe.
 
 Footer, not headline, so the fact stays the post:
 - October: `THE REAL ONE · 11 NIGHTS TO HALLOWEEN`
