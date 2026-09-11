@@ -422,3 +422,87 @@ The Aug 18 result is still unexplained. With length ruled out, the next variable
    because they need shares to travel, not because 280 characters is magic.
 4. **Test subject next, not format or length.** That is the only variable the Aug 18 breakout
    still has in common with the Sept 3 pair: Cesa, in motion, doing something ordinary.
+
+---
+
+# 2026-09-11 — Platform read during the blitz, and the instrument that is broken
+
+Amanda noticed seasonal seems to do better on Facebook than Instagram. **Half right, and the
+half that is wrong matters more.**
+
+## Facebook does not discriminate. Instagram does.
+
+Facebook, 40 posts, 08-25 to 09-11:
+
+| | |
+|---|---|
+| Median | **247 views** |
+| Posts under 300 | **28 of 40, 70%** |
+| Full range | 165 to 1,113, a **6x** spread |
+
+Instagram, top 15, 09-01 to 09-11:
+
+| | |
+|---|---|
+| Median | 400 (top 15 only, true median is lower) |
+| Range | 151 to 2,972, a **19x** spread |
+
+**Facebook hands almost everything the same 230 to 250 views regardless of what it is.** That is
+a floor, not performance. Instagram punishes and rewards.
+
+### So what is seasonal actually doing?
+
+| Facebook, by type | n | median | best |
+|---|---|---|---|
+| Cesa | 12 | 307 | 1,113 |
+| trivia | 8 | 271 | 577 |
+| **seasonal** | 3 | **260** | 1,011 |
+| Amanda | 16 | 226 | 941 |
+
+Seasonal's Facebook median is **260, which is Facebook's floor.** The single 1,011 was the
+campaign announcement post, not a nightly fact. The actual facts: Goosebumps 260, Are You Afraid
+of the Dark 219. Both sitting exactly where everything else on Facebook sits.
+
+**Seasonal is not outperforming on Facebook. It is receiving Facebook's automatic 250.** It looks
+better than seasonal on Instagram only because Facebook's floor is higher than Instagram's floor.
+Facebook's ceiling is also much lower.
+
+Meanwhile zero seasonal posts appear anywhere in Instagram's top 15, where the floor is 151.
+
+## THE REAL PROBLEM: her main TikTok is invisible in both tools
+
+Amanda's plan is *"we put stuff out there, we get data back, and from the data we figure out
+which platforms which content should go to."* **That plan cannot run right now.**
+
+| Platform | Blotato analytics | Metricool | Measured |
+|---|---|---|---|
+| Instagram @thegentlemuse2026 | yes | yes | **yes** |
+| Facebook page 1086399221215093 | yes | yes | **yes** |
+| TikTok @cesasgoldenyears | no | yes | **yes** |
+| **TikTok @thegentlemuse2026 (Blotato 41488)** | **no** | **no** | **NO** |
+| YouTube UCvhked6JYf87Xbe6Um3cutA | no | connected | probably |
+| Pinterest TheGentleMuse2026 | no | connected | probably |
+
+**Blotato collects analytics for Twitter, Instagram, Facebook, Threads and Bluesky only.** No
+TikTok, no YouTube, no Pinterest. Metricool covers the rest, and Metricool's brand `6066935` has
+`tiktokData: cesasgoldenyears`. Verified by pulling 11 days of TikTok post data: every row is a
+Cesa post. Her main TikTok is not there.
+
+**The entire 93-night seasonal run posts to that account.** 90 TikTok posts sit in Blotato under
+41488 and not one of them has ever been measured by anything.
+
+That is also the platform where this content most plausibly belongs. Short, factual, hook-first,
+correction-shaped. It is exactly TikTok's format, and it is the one platform being flown blind.
+
+**The fix is connecting @thegentlemuse2026 to Metricool. That is 1 setting, it changes no
+schedule, and without it the blitz answers the wrong question for 3 months.**
+
+## What NOT to do
+
+Nothing here says change the schedule. Amanda's call stands and it is correct: 11 days of
+seasonal data on a 93 night campaign is far too little to route anything. Publish, collect,
+decide later. The only action this analysis supports is **fixing the instrument**, not the plan.
+
+Also recorded, from Amanda: *"we just love her, I put too much work in it, you just learn to not
+love her."* **Cesa's cadence is not a growth lever to be tuned.** Claude suggested 1 night a week
+might be too low. That was the wrong instinct and is withdrawn. She stays where Amanda put her.
