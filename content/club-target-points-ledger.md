@@ -846,3 +846,46 @@ Three audits told her Instagram was broken. It largely was not. The 31 Aug respr
 of 37 posts was justified by real duplicates and the genuine noon pileup, but the
 follow-on alarms on 3, 7 and 10 Sep overstated the problem using a field that does
 not mean what I assumed.
+
+### Both routines fixed, 11 Sep
+
+**Sun/Wed audit `trig_01CHbGjy41Va6Pw7LVCSGC83`.** Two rules now sit above the
+task list, before any check runs:
+
+- **Rule 1, accounts.** `list_posts` returns no `accountId`. Amanda runs 2 Instagram
+  and 2 TikTok accounts. Caps are per account, and a row whose account cannot be
+  established cannot be counted.
+- **Rule 2, times.** `list_posts.postTime` is not authoritative. Every row about to
+  be flagged for a slot, cap or collision problem must be confirmed with
+  `get_schedule`. Over roughly 15 confirmations, report the suspicion as explicitly
+  unconfirmed and say how many rows were checked.
+
+The reasoning is written in, not just the rule: an unverified count is worse than no
+count, because it sends Amanda chasing a problem that is not there, and it already
+caused two unnecessary reschedules of her queue.
+
+Both exemptions are stated too. Coverage and duplicate checks compare text and
+hashtags rather than times and stay reliable, so they are not slowed down.
+
+Other changes to the audit:
+- **Price and disclosure is now check 2**, promoted above duplicates, since it is the
+  only check tied to an open platform violation.
+- **Failed posts** got their own numbered step. A failed TikTok costs 30 points.
+- **The theme board step was rewritten.** It said `club.target.com` is egress
+  blocked. That is stale: the host resolves since Amanda opened the policy, it is
+  just a JavaScript app behind her login that returns an empty shell. The step now
+  names the 2 routes that actually work, Gmail and her own published captions, and
+  tells the audit to stop asking her for the board every run.
+- Report step now forbids opening with an unverified scheduling complaint.
+
+**Daily top-up `trig_01CiLyBpQXyJfk242UsTec7g`.** Same 2 rules added, since this job
+decides placement from queue state and was reading it the same wrong way.
+
+- **Facebook cap corrected from 1 a day to 2**, at 17:10 and 22:00 UTC. The 1 was
+  inferred on 3 Sep and was wrong, and the correction says so in the prompt so it
+  does not get re-inferred.
+- **Never state a price** is now a hard rule at load time: a row carrying a dollar
+  figure or percent off is reported, not loaded.
+- Caps are per account.
+- The discredited "15 consecutive days over cap" evidence was removed. Keeping it
+  would have had the job solving a problem that was mostly a measurement artifact.
