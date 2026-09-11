@@ -899,5 +899,56 @@ if grep -q "shorten the line, or move the break" -i "$RF/build.mjs"; then
 else echo "FAIL  the refusal says what to do about it"; fail=$((fail+1)); fi
 
 echo
+echo "== a keyword the account cannot answer (Run 9, added 09/11) =="
+# 09/11: keyword-audit.csv listed 13 automations. Blotato had 57. Reading the
+# repo said BROW was not a keyword. It had been live on 2 accounts since 08/08.
+KG="$HERE/../scripts/gm_keyword_check.py"
+KR="$HERE/keyword.registry.csv"
+
+if python3 "$KG" --posts "$HERE/keyword.clean.json" --registry "$KR" >/dev/null 2>&1; then
+  echo "PASS  a live keyword on the right account passes"; pass=$((pass+1))
+else echo "FAIL  a live keyword on the right account passes"; fail=$((fail+1)); fi
+
+if python3 "$KG" --posts "$HERE/keyword.dead.json" --registry "$KR" 2>&1 | grep -q K01_KEYWORD_DEAD; then
+  echo "PASS  a keyword with no automation on that account is refused"; pass=$((pass+1))
+else echo "FAIL  a keyword with no automation on that account is refused"; fail=$((fail+1)); fi
+
+if python3 "$KG" --posts "$HERE/keyword.dead.json" --registry "$KR" 2>&1 | grep -q "live on instagram 45886"; then
+  echo "PASS  the refusal says which account does answer it"; pass=$((pass+1))
+else echo "FAIL  the refusal says which account does answer it"; fail=$((fail+1)); fi
+
+if python3 "$KG" --posts "$HERE/keyword.tiktok.json" --registry "$KR" 2>&1 | grep -q K02_KEYWORD_NO_LISTENER; then
+  echo "PASS  a keyword CTA on TikTok is refused"; pass=$((pass+1))
+else echo "FAIL  a keyword CTA on TikTok is refused"; fail=$((fail+1)); fi
+
+if python3 "$KG" --posts "$HERE/keyword.broken.json" --registry "$KR" 2>&1 | grep -q K03_KEYWORD_BROKEN; then
+  echo "PASS  a live keyword whose link is dead is refused"; pass=$((pass+1))
+else echo "FAIL  a live keyword whose link is dead is refused"; fail=$((fail+1)); fi
+
+if python3 "$KG" --posts "$HERE/keyword.nodisclosure.json" --registry "$KR" 2>&1 | grep -q K04_NO_DISCLOSURE; then
+  echo "PASS  an affiliate keyword with no disclosure in the caption is refused"; pass=$((pass+1))
+else echo "FAIL  an affiliate keyword with no disclosure in the caption is refused"; fail=$((fail+1)); fi
+
+if python3 "$KG" --posts "$HERE/keyword.price.json" --registry "$KR" 2>&1 | grep -q K05_PRICE_ON_AFFILIATE; then
+  echo "PASS  a price on affiliate content is refused"; pass=$((pass+1))
+else echo "FAIL  a price on affiliate content is refused"; fail=$((fail+1)); fi
+
+# The question that started this. The registry has to answer it off the repo,
+# with no network, or the next session reads the stale file and says no.
+if python3 "$KG" --keyword BROW --platform instagram --account 45886 \
+     --registry "$HERE/../data/keyword-registry.csv" 2>&1 | grep -q "automation 439"; then
+  echo "PASS  the registry answers is BROW live on IG without a network call"; pass=$((pass+1))
+else echo "FAIL  the registry answers is BROW live on IG without a network call"; fail=$((fail+1)); fi
+
+if python3 "$KG" --keyword BROW --platform tiktok \
+     --registry "$HERE/../data/keyword-registry.csv" >/dev/null 2>&1; then
+  echo "FAIL  the registry claims BROW works on TikTok"; fail=$((fail+1))
+else echo "PASS  the registry does not claim BROW works on TikTok"; pass=$((pass+1)); fi
+
+if python3 "$HERE/keyword_assert.py"; then
+  echo "PASS  every live Target keyword in Blotato has a registry row"; pass=$((pass+1))
+else echo "FAIL  every live Target keyword in Blotato has a registry row"; fail=$((fail+1)); fi
+
+echo
 echo "$pass passed, $fail failed"
 [ "$fail" = 0 ]

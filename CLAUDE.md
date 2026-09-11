@@ -97,6 +97,16 @@ The rule lives in `filing-system/data/channel-rules.csv` and
 `gm_cadence_check.py` enforces it. Change the CSV, not the gate, and never
 a prose note instead of either.
 
+Which keyword each account can actually answer lives in
+`filing-system/data/keyword-registry.csv`, and `gm_keyword_check.py` refuses a
+caption that asks for one the account cannot. That file is the full copy of
+what is live in Blotato, not a sample. On 09/11 the old partial file said BROW
+was not a keyword. It had been live on 2 accounts since 08/08, and 20 YouTube
+posts were queued asking for a comment keyword YouTube has no listener for. A
+dead keyword is worse than no call to action, because somebody comments the
+word and waits. Refresh the registry from Blotato whenever an automation
+changes.
+
 Variety is the point of the volume. A day should not be 5 of the same lane.
 The lanes are: holiday fact, Cesa, Club Target, food review, lead magnet
 carousel, Amanda on camera, trivia.
