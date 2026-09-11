@@ -1009,3 +1009,21 @@ The avatar is AI with a face, motion and a person talking, so it splits them:
   Instagram no matter how well it is rendered.
 
 Read it at 24 hours, Sept 12 noon CT.
+
+### The other 3 avatar clips: killed 09/11
+
+Amanda's call. Recording plainly: **these were never scheduled anywhere.** They
+existed only as uploads in this session, so there was nothing in a queue to
+delete. They are recorded as rejected so no later session picks them back up.
+
+| Clip | Headline as rendered | Why killed |
+|---|---|---|
+| Tickle | YOU CAN' 'T / YOU CAN'TIRSELE / YOU CANT TCKLE | Headline drawn 3 times, stacked, all corrupted. Subtitle falls into Cyrillic glyphs. |
+| Sharks | SHARKS ARE THE OLDER THAN THAN TREES | Doubled word, broken grammar |
+| Wombats | WOMBATS 💩 CUBES. | A word replaced by an emoji |
+
+Only the clouds clip shipped, as Metricool 374241052.
+
+Full teardown of the render fault written to
+**content/reference/heygen-caption-bug.md**, including the finding that the
+word-by-word caption layer is clean and only the headline layer is broken.
