@@ -896,3 +896,52 @@ No watermarks or badges found on published media this window.
 3. **Instagram becomes Cesa plus real footage only.** That is the only tier
    getting distribution.
 4. Re-run the trivia test properly, with a real render, once there is one.
+
+### Correction to the Day 3 diagnosis, 09/11
+
+Day 3 called the 1 to 3 view reels "HeyGen avatar reels" and concluded
+Instagram is suppressing AI content. **I never looked at them.** Pulled frame 1
+from all 3 and they are not avatar videos at all.
+
+They are **faceless dark AI-image cards with serif text overlay.** Near black
+frames. No person, no motion, no hook. A category label across the top reading
+"GENTLE MUSE · FALL" or "GENTLE MUSE · HALLOWEEN". A tiny unreadable source
+credit at the bottom.
+
+They break Amanda's own video doctrine on every point it has: no visual hook in
+frame 1, nothing moving by second 2, a category label opener, and text only.
+That is the same diagnosis made on the trivia reel back on 09/08.
+
+**So the honest state of the evidence:**
+
+Established, measured:
+- Cesa real footage on Instagram: 101, 145, 176, 217, 223. Climbing.
+- Faceless dark text reels: 1, 2, 3. Functionally zero.
+- Static graphics: 1, 9. Functionally zero.
+
+NOT established, and I stated it as though it were:
+- Whether the cause is "Instagram suppresses AI" or "Instagram ignores
+  faceless, dark, static content." **Both are true of these 3 reels, so this
+  data cannot separate them.** Day 3 picked one and asserted it.
+
+### Amanda's point, which is correct
+
+Her HeyGen avatar, the good twin, **has never run on Instagram.** The only
+avatar-adjacent post that ever did was the trivia reel that carried a burned-in
+TikTok AI Cast badge and got 37 views, which is confounded by the badge.
+
+So the avatar is untested on Instagram, and nothing in this data says otherwise.
+
+### The test that actually separates the 2 hypotheses
+
+Her avatar is AI generated but it has a face, motion and a person talking. That
+makes it the clean discriminator:
+
+- If the avatar performs near the Cesa band, the problem is **faceless, dark,
+  static content**, and AI is irrelevant. Format is the lever.
+- If the avatar dies at 1 to 3 views like the text cards, the problem is
+  **Instagram detecting AI**, and the avatar cannot be the Instagram engine.
+
+Either result is worth more than another week of guessing. Run 1 avatar reel on
+Instagram, real render, clean export, correct AI declaration, in a proven time
+slot.

@@ -170,6 +170,21 @@ something new mid-stream, say what it displaces before starting it.
 The 2 things that stay open right now: her talking-to-camera footage, and
 fixing the lighting so that footage is usable. Everything else waits.
 
+## Look at the media before diagnosing it (locked in 09/11/2026)
+
+On 09/11 a scrub concluded "Instagram is suppressing HeyGen avatar reels" about
+3 posts that had never been opened. Pulling frame 1 showed they were not avatar
+videos at all, they were faceless dark AI-image cards with text overlay.
+
+**Before explaining why a post performed the way it did, open the media and
+look at it.** Frame extraction is cheap and it has caught something every
+single time in this project: the TikTok AI Cast badge, the wrong video on 3
+scheduled posts, the dead cardigan SKU, the Cozy Nights label.
+
+Related: when 2 explanations both fit the same evidence, say so and name the
+test that separates them. Do not pick one and present it as the finding.
+
+
 ## Cloud session capability limits (verified 09/09/2026)
 
 Checked directly, not assumed. In the cloud session:
