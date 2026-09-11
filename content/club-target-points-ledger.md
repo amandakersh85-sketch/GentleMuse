@@ -772,3 +772,77 @@ else writes to Instagram before another respread is worth doing.
 **PRICING RESOLVED** on everything unpublished. 1 live caption still exposed.
 **COVERAGE CLEAN.**
 **UNRESOLVED** Instagram slot discipline, third audit running.
+
+---
+
+## === TRACE 11 Sep 2026: what writes the Instagram rows ===
+
+Three audits reported Instagram over cap on non-slot times. Traced to source.
+**Two of the three causes are not defects, and the third is a bug in my own audit.**
+
+### 1. The 00:00 block is Cesa's account, not Amanda's
+
+All 7 rows at 00:00 UTC sit in one contiguous id range, `4093042` to `4093134`,
+and every one is a Cesa post. Confirmed with `blotato_get_schedule`:
+
+```
+4093042  accountId 65540  username cesasgoldenyears  2026-09-11T00:00
+```
+
+`blotato_list_posts` does **not** return `accountId`, only `platform`. So every
+audit has been summing @thegentlemuse2026 and @cesasgoldenyears into one Instagram
+cap. 00:00 UTC is 7 PM Central, a perfectly sensible slot for the second account.
+
+**Not a defect. An audit that cannot tell two accounts apart.**
+
+### 2. 16:30, 17:00 and 22:50 are legacy rows, already draining
+
+Ids `3472650` through `3927278`, all created before the slot fix shipped on 26 Aug.
+`3709373` checks out exactly as listed, 2026-09-10T17:00 on account 45886. They are
+a finite tail, the last one lands 18 Sep, and nothing is creating more.
+
+**Not a live writer. Self-resolving in 7 days.**
+
+### 3. 18:00, 20:00 and 14:00 do not exist. `list_posts` reports the wrong time.
+
+This is the real finding. `blotato_list_posts.postTime` disagrees with
+`blotato_get_schedule.scheduledAt` on a subset of rows:
+
+| id | list_posts says | actually scheduled | matches |
+| --- | --- | --- | --- |
+| `4093042` | 11 Sep 00:00 | 11 Sep 00:00 | yes |
+| `3709373` | 10 Sep 17:00 | 10 Sep 17:00 | yes |
+| `4236592` | 10 Sep 15:00 | 10 Sep 15:00 | yes |
+| `4231020` | 10 Sep 20:00 | **19 Sep 23:00** | **no** |
+| `4231043` | 11 Sep 18:00 | **20 Sep 00:00** | **no** |
+| `4231044` | 11 Sep 23:00 | **20 Sep 23:00** | **no** |
+
+Every mismatch is in the `4231xxx` batch and every one is about 9 days early in the
+listing. All three land on real slots once you read the authoritative field: 23:00,
+00:00 and 23:00.
+
+**So the alarming times, 18:00 and 20:00 and 14:00, are an artifact of the listing
+endpoint.** They are not in the schedule. Three audits chased a number that was
+never real, and two Instagram respreads were done partly on the strength of it.
+
+### What this changes
+
+- `get_schedule.scheduledAt` is authoritative. `list_posts.postTime` is not, and
+  must never again be the sole basis for calling a slot wrong.
+- The daily top-up's hardening on 3 Sep did not "fail to fix" the Instagram spread.
+  There was much less to fix than the listing suggested.
+- Of 48 scheduled Instagram rows, 7 belong to Cesa's account. The remaining 41 sit
+  across roughly 40 days on Amanda's account, which is at or under cap.
+
+### Fix applied
+
+The Sunday and Wednesday audit now has to confirm any suspected slot or cap
+violation against `get_schedule` before reporting it, and has to resolve
+`accountId` per row rather than treating every `instagram` row as one account.
+
+### Correction owed to Amanda
+
+Three audits told her Instagram was broken. It largely was not. The 31 Aug respread
+of 37 posts was justified by real duplicates and the genuine noon pileup, but the
+follow-on alarms on 3, 7 and 10 Sep overstated the problem using a field that does
+not mean what I assumed.
