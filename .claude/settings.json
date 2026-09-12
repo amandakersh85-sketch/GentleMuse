@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Blotato__blotato_list_automation_runs",
+      "mcp__Blotato__blotato_list_automation_logs",
+      "mcp__Blotato__blotato_list_automations",
+      "mcp__Blotato__blotato_list_posts",
+      "mcp__Blotato__blotato_list_schedules",
+      "mcp__Blotato__blotato_list_accounts",
+      "mcp__Blotato__blotato_list_comments",
+      "mcp__Blotato__blotato_get_schedule",
+      "mcp__Blotato__blotato_get_visual_status",
+      "mcp__Blotato__blotato_get_post_analytics",
+      "mcp__Blotato__blotato_get_automation_analytics",
+      "mcp__MailerLite__list_subscribers",
+      "mcp__MailerLite__list_campaigns",
+      "mcp__MailerLite__list_automations",
+      "mcp__MailerLite__list_forms",
+      "mcp__MailerLite__list_resources",
+      "mcp__MailerLite__get_form",
+      "mcp__MailerLite__get_campaign",
+      "mcp__MailerLite__get_group_subscribers",
+      "mcp__MailerLite__get_subscriber_count",
+      "mcp__MailerLite__get_automation_activity"
+    ]
+  }
+}
