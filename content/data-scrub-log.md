@@ -1027,3 +1027,179 @@ Only the clouds clip shipped, as Metricool 374241052.
 Full teardown of the render fault written to
 **content/reference/heygen-caption-bug.md**, including the finding that the
 word-by-word caption layer is clean and only the headline layer is broken.
+
+---
+
+# Day 4 scrub — 2026-09-12 (02:31 UTC / 09-11 21:31 CT)
+
+Method per the data methodology rule: full campaign corpus, 2026-08-14 to now.
+Source this time is **Metricool reel reach (IGRE11) for brand 6066935**, 123
+Instagram reels, plus Blotato view counts for Facebook. Metricool reach runs
+roughly 20 to 30% under Blotato's view count on the same post (Sept 9 Cesa reel:
+Metricool 172, Blotato 223), so the 2 are comparable in shape, not in absolute
+value. All Instagram numbers below are Metricool reach.
+
+## 1. The avatar test: NOT READABLE YET
+
+**Metricool 374241052 published on time.** Live at
+https://www.instagram.com/reel/DdJ55C9DJU6/, Sept 11 12:05 PM CT, `isAiGenerated: true`.
+
+**Reach right now: 0.** That is a 9 hour read, not the 24 hour read, and it is
+not trustworthy yet. Metricool's reel reach matures for about 2 days:
+
+| Post age at read | Example | Reach |
+|---|---|---|
+| 9 hours | avatar clouds, Sept 11 | 0 |
+| 17 hours | Amanda's manifestation reel, Sept 11 | 7 |
+| 2 days | 3 reels, Sept 10 | 16, 16, 2 |
+| 3 days | 3 reels, Sept 9 | 172, 110, 3 |
+
+The check-in at Sept 12 17:30 UTC reads it at a true 24 hours. Even that will be
+early. **Calling this test needs a Sept 13 read, not a Sept 12 one.** Recorded so
+nobody reports a 0 as a result.
+
+One thing the 0 does NOT mean: it is not evidence of AI detection yet, because
+Amanda's own face-to-camera reel from the same day sits at 7.
+
+## 2. The real finding: the SEASONAL series is dead on Instagram and alive on Facebook
+
+Seven seasonal-fact reels have published to Instagram since Sept 5. Every single
+one:
+
+| Date | Reel | IG reach |
+|---|---|---|
+| 09/05 | First Labor Day parade | 5 |
+| 09/06 | Halloween / Samhain | 5 |
+| 09/07 | Labor Day is in September on purpose | 2 |
+| 09/08 | Are You Afraid of the Dark | 2 |
+| 09/08 | Nobody was burned at Salem | 5 |
+| 09/09 | Goosebumps started in 1992 | 3 |
+| 09/10 | Disney would not put its name on Nightmare | 2 |
+
+**7 posts, 24 total reach, median 3.** No other format in the 30 day corpus
+performs like this. It is not a slow format, it is a zero.
+
+The same content on Facebook, same days, same captions:
+
+| Post | Facebook | Instagram | Gap |
+|---|---|---|---|
+| Goosebumps | 260 views | 3 | 87x |
+| "The season sells you fear" | 1,011 views | n/a | — |
+
+## 3. Why: I opened the media
+
+Per the look-at-the-media rule, I pulled frame 1 of the Nightmare Before
+Christmas and Goosebumps reels. Contact sheet at
+`scratchpad/seasonal_pair.jpg`.
+
+Both open on a **near black, low contrast AI room interior.** No face. No motion.
+No product. No hook text. The only type on the frame is a tracked-out
+`GENTLE MUSE · FALL` header and a grey 10px source footnote at the bottom
+(`Source: Disney corporate history; Touchstone Pictures · HAL-010`).
+
+The headline is not on frame 1 at all.
+
+That is a direct violation of the locked video doctrine: *"The first frame is the
+thumbnail and the hook. Every cut opens on a visual hook."* At Instagram grid
+thumbnail size these frames are a dark rectangle with a citation on it.
+
+**This explains the platform gap without needing an AI-suppression theory.**
+Instagram Reels distribution is thumbnail-driven discovery to people who don't
+follow her. Facebook pushes reels to an existing audience regardless of the
+opening frame. A dead thumbnail costs everything on Instagram and almost nothing
+on Facebook. That is the same shape as the confirmed TikTok-badge case (37 on
+Instagram, 230 to 577 on Facebook).
+
+Honest alternative that also fits: Instagram is penalising the account for a run
+of unwatched posts, and the seasonal reels are the symptom rather than the cause.
+**The test that separates them:** the queue below is 11 more of these. If the
+first retooled one (real footage or Amanda's face on frame 1, same script) lands
+in the 70 to 170 band while the account is otherwise unchanged, it was the
+thumbnail. If it also dies at 2 to 5, it is account level.
+
+## 4. What is queued, and it is a lot
+
+Instagram queue, Sept 14 to Sept 21, from Blotato:
+
+- **11 more seasonal-fact reels** in the same format (Hocus Pocus, turnips,
+  Rudolph, SNICK, Nightmare Before Christmas again, the mare, Winchester,
+  Halloweentown, Are You Afraid of the Dark again, Casper, and the "43 nights,
+  no dark days" launcher).
+- **1 Rubik's Cube trivia reel** (Sept 19, 15:00 UTC), the tabled trivia format.
+- The series as pitched is ~40 more nights of this.
+
+At the observed rate that is roughly **35 to 55 total reach** for 11 posts.
+
+**Second problem: the volume cut never reached the Blotato queue.** Day 3 recorded
+Instagram moving to 2 posts a day. Sept 19 has 5 scheduled. Sept 20 has 5.
+
+## 5. Reach by day, full corpus
+
+| Date | Posts | Total reach | Avg | Best |
+|---|---|---|---|---|
+| 08/14 | 3 | 445 | 148 | 283 |
+| 08/15 | 4 | 656 | 164 | 417 |
+| 08/16 | 4 | 395 | 99 | 108 |
+| 08/17 | 4 | 448 | 112 | 186 |
+| 08/18 | 4 | 7,911 | 1,978 | **7,522** |
+| 08/19 | 7 | 772 | 110 | 175 |
+| 08/20 | 9 | 676 | 75 | 147 |
+| 08/21 | 15 | 1,209 | 81 | 134 |
+| 08/22 | 7 | 608 | 87 | 128 |
+| 08/23 | 6 | 1,784 | 297 | **1,464** |
+| 08/24 | 6 | 537 | 90 | 200 |
+| 08/25 | 5 | 248 | 50 | 124 |
+| 08/26 | 2 | 138 | 69 | 118 |
+| 08/27 | 2 | 166 | 83 | 149 |
+| 08/28 | 3 | 1,290 | 430 | **1,123** |
+| 08/29 | 4 | 455 | 114 | 201 |
+| 08/30 | 2 | 256 | 128 | 140 |
+| 08/31 | 4 | 112 | 28 | 41 |
+| 09/02 | 2 | 248 | 124 | 243 |
+| 09/03 | 4 | 1,694 | 424 | **1,652** |
+| 09/04 | 3 | 41 | 14 | 18 |
+| 09/05 | 3 | 195 | 65 | 150 |
+| 09/06 | 2 | 1,066 | 533 | **1,061** |
+| 09/07 | 5 | 236 | 47 | 114 |
+| 09/08 | 5 | 118 | 24 | 73 |
+| 09/09 | 3 | 285 | 95 | 172 |
+| 09/10 | 3 | 34 | 11 | 16 (immature) |
+| 09/11 | 2 | 7 | 4 | 7 (immature) |
+
+Every single one of the 5 breakout days is a **Cesa reel**. 7,522 / 1,652 /
+1,464 / 1,123 / 1,061. The most recent was Sept 6, 6 days ago. Cesa remains the
+only format in this account that has ever cleared 1,000, and it did it 5 times.
+
+The Day 3 tiering holds on 30 days of data:
+
+- **Cesa real footage:** 73 to 7,522. Median around 120, with a long right tail.
+- **Amanda face to camera:** 7 to 114. No breakouts yet, but no zeros either.
+- **Seasonal / trivia / AI dark cards:** 2 to 5. Flat zero, no exceptions.
+
+Correcting a phrase from Day 3: "AI and graphic formats are dead" was close but
+imprecise. The 30 day corpus says the dead thing is specifically **a dark,
+faceless, motionless opening frame.** The dead posts are all AI, but being AI is
+not what they have in common with each other that the live posts lack.
+
+## 6. Recommendations, in order
+
+1. **Pull the 11 queued seasonal reels off Instagram.** They keep the Facebook
+   slot, where they run 260 to 1,011. This is Instagram only. 1 approval, and
+   nothing is deleted from Facebook.
+2. **Retool 1 of them as the test in section 3** before killing the format
+   outright: same script, but frame 1 is Amanda's face or real footage, and the
+   hook text is on the first frame. If that one lands above 70, the series is
+   salvageable and the fix is the opening frame.
+3. **Apply the volume cut to the Blotato queue.** Sept 19 and Sept 20 are at 5
+   Instagram posts each, not 2.
+4. **Kill the Rubik's Cube trivia reel on Sept 19.** The trivia format was tabled
+   on 09/08 and this one is still scheduled.
+5. **Re-read the avatar test Sept 13,** not Sept 12.
+
+## 7. Still needed from Amanda
+
+- **Follower count.** Last known is 185 manual on Sept 10. Metricool's sync is
+  not trusted per the methodology rule, so this has to come from her.
+- The `isAiGenerated` flag on the published Sept 10 trivia post, still set on
+  real footage.
+- Club Target points backlog. **240 points expire around Sept 14, 2 days out.**
