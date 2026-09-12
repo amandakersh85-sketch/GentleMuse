@@ -187,3 +187,45 @@ link-your-post action before you produce another 20 posts on top of it.
 Commit everything to branch `claude/club-target-game-plan-9xs2du`.
 End commit messages with:
 Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+
+---
+
+## WHAT SHE ACTUALLY SHOT, 12 Sep. Reported by Amanda.
+
+All 4 gap themes were filmed. Everything is b-roll, no narration, she is not in frame.
+
+| Theme | Got it | Note |
+| --- | --- | --- |
+| Find Your Denim | yes | product and rack footage, no try-on |
+| Make It Yours with Heyday | yes | current, replaces the 20 Aug footage |
+| New Ways to Play | yes | shot the entire gaming wall, framed as family game night |
+| Game Day Line Up | **partial** | she shot **sportswear**, not snacks |
+
+**SKUs captured:** the dress and the sweater she bought, both of which also feed
+Fall Style Collage. Use one of them to repair automation `2277` FALLFIT if the
+Universal Thread piece is among them.
+
+**Not captured:** the medicube Kojic Acid Turmeric Jelly Gel Mask shelf tag.
+Automation `453` stays broken until someone gets it.
+
+### Game Day read, unresolved
+
+The board copy is "What makes your game day lineup? Round up the Target finds you
+actually reach for on game day." That supports either reading: what you eat, or what
+you wear. She shot the apparel read. Snacks is the more common interpretation and she
+offered to go back for chips, dips and drinks.
+
+Game Day expires 7 Oct, 25 days out, so there is no rush. If both clips exist, cut
+the snack version as the primary and hold the sportswear as the second attempt or as
+Share a Target Find filler.
+
+### New opportunity from the purchase
+
+She bought a dress and a sweater. That unlocks 3 repeatable challenges filmed at home
+with no store trip:
+
+- **Post your Target Haul**, IG Story, 15
+- **Share a Target Find**, IG Story 30 plus IG Reel 30 plus TikTok 30
+- **Budget-friendly finds**, IG Reel 30, as long as no price is stated
+
+Unboxing or laying the pieces out on a bed is enough. Still no face required.
