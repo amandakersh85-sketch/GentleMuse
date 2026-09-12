@@ -98,11 +98,39 @@ Both currently dump people on the bare storefront instead of a product page.
 - **`453` FB MASK.** medicube Kojic Acid Turmeric Jelly Gel Mask. Broken since
   8 Aug, nobody had noticed. Same fix.
 
+## HOW SHE FILMS. This is fixed, do not plan around anything else.
+
+Amanda confirmed 12 Sep:
+
+- **She is not on camera. Ever.** No face, no body, no fitting room, no try-on, no
+  hands-in-frame talking piece. Do not write a shot, a script beat, or a caption
+  that implies she appeared in the video.
+- **Product and aisle footage only.** Shelf, rack, endcap, the item picked up and
+  turned, the item in the cart. That is the whole vocabulary.
+- **She may not record a voiceover.** Build every edit so it works silent, with the
+  story carried by on-screen text and the caption. If she does hand you a voice
+  memo, drop it into the Remotion render natively and treat it as a bonus, not a
+  dependency. Never generate a synthetic voice.
+- **Denim specifically: no fitting room.** The challenge asks her to show the Target
+  denim, not to model it. Rack pan, folded stack, one pair held up to the light,
+  close on the wash and the stitching. That satisfies it.
+
+This constrains the hook. With no face and possibly no voice, the first 2 seconds
+have to be carried by the on-screen text line and the strongest frame in the clip.
+Lead with the frame, not a talking setup.
+
+## WHEN THE FOOTAGE ARRIVES
+
+She said she may upload tonight or tomorrow. Do not assume same-day. If the phone
+has nothing dated 12 Sep or later, say so in one line and stop, do not go hunting
+through older footage or start producing from the existing library to fill the gap.
+
 ## STEP 6. Produce and queue
 
-Use the Remotion pipeline already in the repo. Voiceover is Amanda's own voice
-recorded on her phone, dropped into the Remotion render natively, frame by frame.
-Do not build a separate voiceover step and do not spend generation credits on TTS.
+Use the Remotion pipeline already in the repo. If she supplies a voice memo, drop it
+into the Remotion render natively, frame by frame. Do not build a separate voiceover
+step and never spend credits on synthetic voice. Assume silent-with-text as the
+default and treat her voice as optional.
 
 **Instagram Stories ARE supported by Blotato.** Verified 12 Sep:
 `blotato_create_post` takes `mediaType: "story"` for Instagram and Facebook. Queue
