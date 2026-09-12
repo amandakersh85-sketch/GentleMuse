@@ -2002,3 +2002,76 @@ Halloween" and counting honestly from each post's own fire date:
 Both numbers are deliverable once the 32 plates land, because the plates plus existing coverage
 close every night from 09-19 to 10-31. **If the plates do not land, these 2 posts become
 promises the queue cannot keep.** That is the dependency, stated plainly.
+
+---
+
+## DAILY SYNC 2026-09-12. THE FIRST REAL KEYWORD USE, AND IT WAS LOST TO THE GATE.
+
+Nothing to sync. All 3 gated automations (`4009`, `4010`, `4011`) have zero runs. The sweep of
+all 52 active automations found no new failures. But it found this.
+
+### A real person asked for the guide on Cesa's channel and never got it
+
+On **2026-09-05 at 01:36 UTC**, contact `1774569036904343` commented **"Cesa please"** on post
+`6743958` on @cesasgoldenyears. `isAuthor: false`, so not Amanda. Automation `2952` CESA fired
+and sent the **gated** version:
+
+> "Yes. 15 pages, free, everything that actually keeps her comfortable at 19. Written from our
+> living room, not a clinic. Reply with your email address and I'll send it."
+
+It registered a wait condition. **They never replied. Run `150551` expired 2026-09-08.**
+
+This is the lead the Cesa standard already refers to when it says Amanda removed the gate from
+`2952` on 2026-09-08 "after the gate cost the first real lead." The timeline matches exactly:
+the run expired the same day the gate came off. So this is not new news. What is new is that
+**nobody ever went back and gave this person the guide.**
+
+### Recovered 2026-09-12
+
+Posted a public threaded reply to comment `3791926`, verified `posted`, platform comment id
+`18067354466756700`:
+
+> "Here she is, and thank you for asking about her. 19 Years Old, 10 of Them Mine. 15 pages,
+> free: https://cesa-guide.subscribepage.io"
+
+A public reply was the right instrument and the only available one. The single private-reply
+slot for that comment was consumed on 09-05 by the gated DM, and Instagram allows one per
+comment, ever. Public replies have no time window and do not consume the slot, which is why a
+DM backlog is recoverable and this was too, 7 days later.
+
+No approval was needed: comment replies are pre-authorized. Keyword and config changes are not,
+which is why the item below is a flag and not a fix.
+
+### FLAG FOR AMANDA: the same gate is still live on the same account
+
+`4011` SEASONAL on Cesa IG `65540` **still has an emailGate.** It is 1 of the 3 deliberate
+gates and it sits on the exact account where a real person just walked away from a gate.
+
+The seasonal campaign is about to run 62 nights. If any of that reaches Cesa's channel, or if
+anyone comments SEASONAL there, they hit the same wall that cost the lead on 09-05.
+
+Options, hers to pick:
+1. Remove the gate from `4011` and let `consider-this.subscribepage.io` capture the address,
+   which is what `2952` and `2954` already do.
+2. Leave it. The gate does capture in-thread, and the daily sync exists to move those across.
+   It costs anyone who will not type their email into a DM.
+
+Claude's read is option 1, for the same reason option 1 was right on `2952`. Not doing it
+without her, because it is a config change.
+
+### Everything else, verified from source 2026-09-12
+
+| Check | Result |
+|---|---|
+| Active automations with an emailGate | Exactly 3: `4009`, `4010`, `4011`. All SEASONAL, all deliberate |
+| `2771` / `2772` TUESDAY emailGate | Still absent. Correct |
+| `445` / `432` / `2952` CESA emailGate | Still absent. Correct, no syncing needed |
+| followGate anywhere | None. All 52 active automations clean |
+| Duplicate keyword on the same account | None. No 20102 collision risk from duplicates |
+| New failed runs | None |
+| Historical failures | `445` CESA, 2 runs failed 20102 on 2026-08-28 at 16:33 and 18:58. Same contact, 2 weeks old, pre-date the fixes |
+| Subscribers unconfirmed | None |
+| Subscribers active with 0 sends | None |
+| 12-send check, after removing Amanda's addresses | **Nobody.** Highest real send count is 9 (Melissa, Nadia, both already suppressed 09-08) |
+| `amanda@gentlemuse.co` | 12 sends, 0 opens, as predicted. Excluded by rule, not surfaced |
+| New subscribers since 09-09 | None. Still 7 named humans |
