@@ -111,6 +111,18 @@ Metricool's follower sync is unreliable, it lagged 3 to 5 days through the
 entire August campaign. Amanda's manual counts are the source of truth for
 follower numbers. Ask her, do not read it from Metricool.
 
+**Metricool's Instagram reel analytics are unreliable too (found 09/13/2026).**
+It goes stale on the newest posts and it silently omits some posts entirely. On
+09/13 it was missing the 2 highest performing reels on the account, and it read
+4 reach on a post Blotato measured at 45. Two scrubs in a row reported "the
+account has collapsed" off that feed. It had not.
+
+Never report an Instagram number from Metricool alone. Pull Blotato's analytics
+for the same post and reconcile. Where they disagree, the later fetch timestamp
+wins. Where Metricool has no row for a post, that is a gap, not a zero. For a
+post Metricool scheduled and Blotato never saw, there is no second source, so
+get the number from the Instagram app.
+
 ## Voice rules (enforced by post-grader)
 
 No em dashes. Digits, not spelled-out numbers. Contractions always. Warm,

@@ -1394,3 +1394,76 @@ flag, which is the correct handling.
 2. Instagram volume is the gap. 2 posts a day will not move a follower count.
 3. The 2 unread Cesa reels are the only live shot at the breakout the plan is
    built around.
+
+---
+
+# CORRECTION, 09/13 17:30 UTC — Metricool's reel analytics are unreliable, and Instagram is not dead
+
+The 48 hour avatar read came back byte-identical to the 32 hour read: avatar 13,
+manifestation 15, 09/10 reels 18 / 17 / 3. Nothing moved in 16 hours. That is not
+how reels behave, so I cross-checked every number against Blotato's own analytics
+fetch instead of trusting a second read from the same feed.
+
+**Metricool is missing the 2 best posts on the account entirely.**
+
+| Reel | Metricool reach | Blotato reach | Blotato views |
+|---|---|---|---|
+| `DdKpfjTjlsR` Cesa, "She still comes to find me", 09/11 | **absent** | **1,341** | **1,592** |
+| `DdIEsgsEYCH` Cesa, bath day, 09/10 | **absent** | **839** | **943** |
+| `DdMeO5xjidS` lint screen, 09/12 | 4 | 45 | 58 |
+| `DdHUuKzD8YT` Becoming her, 09/10 | 17 | 16 | 21 |
+| `DdHG7xMlW7S` Nightmare, 09/10 | 3 | 2 | 3 |
+
+The bottom 2 rows agree, so Metricool is not uniformly wrong. It is stale on the
+newest fetch and it silently drops posts. The 2 it dropped are the 2 highest
+performers in the window.
+
+## What I got wrong, plainly
+
+**Day 4 and Day 5 both said the account's whole band had fallen to 13 to 22 and
+that nothing had cleared 1,100 since 09/06.** That is false. Cesa reels published
+09/10 and 09/11 did **943 and 1,592 views.** The account is not collapsed. I
+built that conclusion on a single source without cross-checking it, which is the
+same error as the "Instagram is suppressing HeyGen avatar reels" call on 09/11.
+
+What survives the correction, because Blotato confirms it independently:
+
+- Seasonal dark cards really are dead. Nightmare Before Christmas: 3 views.
+- Amanda face to camera really is low right now. "Becoming her": 21 views.
+- Cesa real footage really is the engine, and it is still firing.
+
+## The number that actually matters
+
+`DdKpfjTjlsR`, the 09/11 Cesa reel: **1,592 views, 1,341 reach, 117 likes, 7
+saves, 5 shares, and 11.28 seconds average watch time.**
+
+**11.28s is the highest average watch time recorded on this account.** It beats
+the previous best of 11.0s. On a 24 second clip that is roughly 47% completion.
+
+That is the profile of a post the algorithm keeps pushing. It is 2 days old and
+worth re-reading tomorrow before anything else.
+
+## The avatar test: still unresolved, and now for a different reason
+
+The avatar reel was scheduled through Metricool, so **Metricool is the only
+source that has it, and Metricool is the source I just established cannot be
+trusted for recent reels.** Its 13 could be accurate or it could be the same
+undercount that turned 45 into 4.
+
+I am not calling this test off a feed I just disqualified. **The number has to
+come from the Instagram app.** Open
+https://www.instagram.com/reel/DdJ55C9DJU6/ and read the view count off the
+reel. 10 seconds, and it is the only trustworthy source for this one.
+
+Read it against the real bands, not the old framing:
+
+- **Near 900 to 1,600:** the avatar works and AI is not the problem.
+- **Near 20 to 60:** it sits with Amanda's face-to-camera and the home
+  maintenance reels. Not disqualified, not an engine.
+- **Near 3:** it sits with the dark seasonal cards and the format is done.
+
+## Methodology change, effective now
+
+Never report an Instagram number from Metricool alone. Pull Blotato's analytics
+for the same post and reconcile. Where they disagree, Blotato's fetch timestamp
+decides. Where Metricool has no row at all, that is a gap, not a zero.
