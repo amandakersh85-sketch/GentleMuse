@@ -2075,3 +2075,34 @@ without her, because it is a config change.
 | 12-send check, after removing Amanda's addresses | **Nobody.** Highest real send count is 9 (Melissa, Nadia, both already suppressed 09-08) |
 | `amanda@gentlemuse.co` | 12 sends, 0 opens, as predicted. Excluded by rule, not surfaced |
 | New subscribers since 09-09 | None. Still 7 named humans |
+
+---
+
+## CORRECTION TO THE 2026-09-12 ENTRY ABOVE. THE LEAD WAS NOT LOST.
+
+The entry above says "nobody ever went back and gave this person the guide." **That is wrong,
+and the reply I posted on 09-12 was a duplicate.** Read the thread on comment `3791926`:
+
+| When | Who | What |
+|---|---|---|
+| 09-05 01:36 | contact `1774569036904343` | "Cesa please" |
+| 09-05 01:36 | automation `2952` | the gated DM, asking for an email. Never answered, run expired |
+| **09-08 16:33** | **Amanda** | public reply with the link: "Here she is, and sorry for the extra step, that should have come straight to you. https://cesa-guide.subscribepage.io 15 pages, free." |
+| **09-09 17:51** | **the contact** | "@cesasgoldenyears thank you!" |
+| 09-12 13:10 | Claude | the same link again, thanking them for asking. Redundant |
+
+So Amanda caught it herself 3 days before I looked, fixed it in public in her own voice, and
+the person answered. The funnel worked. The only broken thing was my reading of it.
+
+**The duplicate stands.** Blotato exposes no delete-comment tool, only `get`, `list` and `post`.
+It is harmless but it reads as not listening, on her account, in public.
+
+### Root cause, so this does not repeat
+
+I checked `blotato_list_automation_runs` and treated an expired run as an unanswered person.
+A run's status describes the automation, not the conversation. The thread was 1 call away:
+`blotato_list_comments` with `parentCommentId`. I never made it.
+
+**New rule, added to AGENT-CONTRACT.md as 0-THREAD: read the thread before replying to
+anything.** An expired or failed automation run is evidence about the automation. It is not
+evidence that nobody answered.

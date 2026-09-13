@@ -626,3 +626,28 @@ sequential curl succeeded 76 times out of 76 where the browser failed every time
 
 Working method and re-run commands: `REACH-ANALYSIS.md`, section
 "MEASURED FROM SOURCE 2026-09-11". Raw data: `promo-engine/data/`.
+
+## 0-THREAD. READ THE THREAD BEFORE REPLYING. 2026-09-13. PERMANENT.
+
+On 2026-09-12 Claude found an expired automation run on Cesa's channel, concluded the person
+had never been helped, and posted a public reply with the guide link. Amanda had already
+posted that same link herself on 09-08, in her own voice, with a better line than mine, and
+the person had already replied "thank you!" on 09-09. The result was a duplicate comment on
+her account that reads as not listening, and it cannot be deleted: Blotato exposes
+`get_comment`, `list_comments` and `post_comment`, and no delete.
+
+**The rule: never reply to a person based on automation state alone. Read the conversation
+first.**
+
+- `blotato_list_comments` with `parentCommentId` returns the whole thread, including Amanda's
+  own replies and the person's response. 1 call.
+- A run marked `expired` or `failed` describes what the automation did. It says nothing about
+  whether a human stepped in afterward, and Amanda frequently does.
+- This applies to DMs too: check `blotato_list_messages` on the conversation before sending.
+
+Amanda's standing permission to answer comments without approval is not withdrawn and should
+not be. The permission was never the problem. Acting on a partial read was.
+
+**Generalize it: before taking any outward-facing action on someone's behalf, check whether
+they already took it.** Same failure family as reporting a metric from a dashboard that cannot
+see the account (rule 0-MEASURE). Read the primary source, and read all of it.
