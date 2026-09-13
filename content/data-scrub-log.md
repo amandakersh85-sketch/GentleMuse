@@ -1203,3 +1203,65 @@ not what they have in common with each other that the live posts lack.
 - The `isAiGenerated` flag on the published Sept 10 trivia post, still set on
   real footage.
 - Club Target points backlog. **240 points expire around Sept 14, 2 days out.**
+
+---
+
+## Follower count, 09/12 (Amanda's manual count, source of truth)
+
+**188 followers.** 483 posts, 856 following. Profile dashboard reads 27.7K views
+in the last 30 days.
+
+| Date | Followers | Change |
+|---|---|---|
+| 09/10 | 185 | -5 from 190 |
+| 09/12 | 188 | **+3** |
+
+The dip reversed. Net for the campaign is still roughly flat.
+
+Two things visible on the profile that are worth fixing and have nothing to do
+with content:
+
+- **856 following against 188 followers.** A 4.5 to 1 ratio reads as
+  spam-adjacent to a human who lands on the profile and deciding whether to
+  follow back. Worth pruning.
+- **The bio has an em dash** ("Building The Gentle Muse in public — while
+  working full-time"). Breaks the voice rule on the 1 piece of copy every
+  visitor reads.
+
+## Avatar test, 32 hour read (09/13 00:56 UTC)
+
+**Metricool 374241052 / reel DdJ55C9DJU6: 13 reach, 2 likes.**
+
+The test was framed as Cesa band (100+) versus dead (1 to 3). It landed in
+neither, and the reason is that the framing was wrong: it compared against a
+Cesa band that had no entries in the test window. **The correct comparison is
+Amanda's own face-to-camera reels from the same days**, and against those the
+avatar is indistinguishable:
+
+| Reel | Date | Format | Reach |
+|---|---|---|---|
+| Manifestation hot take | 09/11 | Amanda, real face | 15 |
+| **Avatar clouds** | **09/11** | **HeyGen avatar, AI declared** | **13** |
+| Brow routine | 09/10 | Amanda, real face | 18 |
+| Becoming her | 09/10 | Amanda, real face | 17 |
+| Nightmare Before Christmas | 09/10 | dark faceless card | 3 |
+| Goosebumps | 09/09 | dark faceless card | 4 |
+
+**Reading: Instagram is not penalising the AI.** The avatar sat within 2 points
+of Amanda's own face on the same days and ran roughly 4x the dark card format,
+while carrying `isAiGenerated: true` openly. The thing that kills a post here is
+a dark, faceless, motionless opening frame, not synthetic media.
+
+Caveats stated plainly:
+
+1. **Still maturing.** 32 hours. The 09/09 reels reached 110 and 172 by day 3.
+   A final read is scheduled for 09/13 17:30 UTC.
+2. **1 clip is not a format.** This says the avatar is not disqualified. It does
+   not say the avatar is an engine.
+3. The whole non-Cesa band in this window is 13 to 22. The avatar matching it is
+   a floor result, not a win.
+
+What it changes: the "Instagram suppresses AI" theory is no longer the leading
+explanation, and the avatar is worth a second and third clip once the HeyGen
+caption render fault is fixed. What it does not change: the seasonal card format
+is still the thing to cut.
