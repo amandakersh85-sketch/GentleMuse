@@ -1,3 +1,8 @@
+> **SUPERSEDED 13 Sep 2026.** Use `HANDOFF_target-queue-and-ingest.md` instead.
+> Rule 2 below ("NO PRICES") is wrong. The real rule is narrower: no prices on
+> TikTok Shop items linked on TikTok, and nothing else. See
+> `content/canon/pricing-rule.md`. Kept only for the 12 Sep run notes at the end.
+
 # LOCAL SESSION HANDOFF: ingest the Target run and collect every open point
 
 Paste this into a Claude Code session on Amanda's laptop, after she connects her
