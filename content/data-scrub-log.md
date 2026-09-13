@@ -1265,3 +1265,28 @@ What it changes: the "Instagram suppresses AI" theory is no longer the leading
 explanation, and the avatar is worth a second and third clip once the HeyGen
 caption render fault is fixed. What it does not change: the seasonal card format
 is still the thing to cut.
+
+## Decisions, 09/12 (from Amanda directly)
+
+**The seasonal reels stay in the queue.** Her call: "continue publishing as we
+have planned." The 11 queued seasonal reels through 09/21 and the 09/19 Rubik's
+Cube reel all ship as scheduled. Nothing cut, nothing rescheduled.
+
+Recording this so the next scrub does not re-litigate it. The finding stands in
+the record (7 posts, 24 reach, median 3, dark faceless opening frame), and it
+can be revisited when she wants to. It is not an open question being ignored,
+it is a closed decision.
+
+The volume cut to 2 Instagram posts a day also stays un-applied to the Blotato
+queue, since applying it would mean cutting scheduled posts.
+
+**Bio em dash: cannot be fixed from this session.** There is no tool in this
+stack that writes an Instagram bio. Blotato publishes posts and runs DM
+automations, Metricool schedules, and the Meta connector is ads-only and
+read-only for profile fields. Instagram's own site rate-limited the read
+(HTTP 429), so the full bio text is not available here either.
+
+Handed her the replacement for the 1 line that carries the em dash, to paste in
+the app under Edit profile:
+
+> Building The Gentle Muse in public while working full-time.
