@@ -175,17 +175,32 @@ count alone.
    - `scripts/validate-wave.py` still carries an over-broad no-prices check that
      predates this correction. If it fails only on a price in a Club Target row,
      that is a false alarm. Say so and proceed.
-3. Disclosure line, verbatim: "I'm a Target partner, so I may earn rewards or
-   commission when you shop my link, at no extra cost to you."
-4. Every Instagram and Facebook post names a LIVE keyword. Never ship a post
+3. **ON-SCREEN DISCLOSURE. This is the one most likely to be costing her points
+   right now.** Target's official Scope of Work requires that on videos,
+   `#TargetPartner` appears **on screen, early in the video, near the product**,
+   and is **repeated** in anything longer than roughly 15 seconds. A disclosure
+   that appears only at the end does **not** count.
+   - Measured 13 Sep: her captions all pass, but of 3 published Club Target
+     TikToks sampled, 2 carry the disclosure only in the final frame and 1 carries
+     none at all. Every challenge on her board reads 0%. These are probably the
+     same fact.
+   - So **every video you cut must open with `#TargetPartner` burned into the
+     first frames.** Put it near the product, not floating in a corner. Repeat it
+     around the midpoint on anything over 15 seconds. Keep it in the end card too
+     if you like, but the end card alone is a fail.
+   - Full rule and the source document: `content/canon/disclosure-rule.md` and
+     `content/reference/club-target-scope-of-work.txt`.
+4. Disclosure line in the caption, verbatim: "I'm a Target partner, so I may earn
+   rewards or commission when you shop my link, at no extra cost to you."
+5. Every Instagram and Facebook post names a LIVE keyword. Never ship a post
    pointing at nothing. Check with `blotato_list_automations` first.
-5. No duplicates. Do not re-queue an asset already scheduled to the same platform.
-6. Voice: warm, grounded, practical. No hype. **No em dashes.** Digits, not
+6. No duplicates. Do not re-queue an asset already scheduled to the same platform.
+7. Voice: warm, grounded, practical. No hype. **No em dashes.** Digits, not
    spelled-out numbers. Contractions always. Product copy reads as lived experience,
    not ad copy. Max 5 hashtags on Instagram, none on Facebook or LinkedIn.
-7. Platform lanes: Instagram and Facebook share a lane, TikTok is separate because
+8. Platform lanes: Instagram and Facebook share a lane, TikTok is separate because
    TikTok Shop is a separate business. Do not blanket cross-post.
-8. **Nothing publishes without Amanda's approval.** Queue it, show her the list,
+9. **Nothing publishes without Amanda's approval.** Queue it, show her the list,
    wait.
 
 # THE CLAIM STEP, and what you cannot do
@@ -201,13 +216,23 @@ A routine already runs daily at 16:00 UTC that catches each publish and appends 
 to `content/club-target-claim-ledger.md`. Keep that file accurate for anything you
 queue.
 
-# OPEN QUESTION, resolve early
+# THE 0% MYSTERY, likely solved 13 Sep
 
-Every challenge on her board reads **0%**, including ones she has already published
-for. Her captions do carry both required tags, so this is not a tagging error. It is
-either a lag in Target's review or a submission step in the portal she has not done.
-**Have her check one challenge card for a submit or link-your-post action before you
-produce another 20 posts on top of it.**
+Every challenge on her board reads **0%**, including ones she has published for.
+Her captions are not the problem: all 42 Club Target posts carry `#TargetPartner`
+within the first 2 lines.
+
+**The video frames are.** Target's Scope of Work requires the disclosure on screen
+EARLY in the video. Of 3 published Club Target TikToks sampled, 2 carry it only in
+the final frame and 1 carries none. See `content/canon/disclosure-rule.md`.
+
+So cut every new video with the disclosure in the opening frames and this should
+stop recurring. It does not fix the already-published ones, which only Amanda can
+edit, and it does not rule out a second cause: there may also be a submit or
+link-your-post step in the portal she has not done. **Have her open one challenge
+card and look for a submit action.** Two minutes, and it either confirms or
+eliminates the remaining possibility.
+
 
 # WHAT TO HAND BACK
 

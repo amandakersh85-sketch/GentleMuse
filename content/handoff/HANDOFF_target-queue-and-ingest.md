@@ -261,13 +261,23 @@ claimed or submitted anything.
 A routine already runs daily at 16:00 UTC that catches each publish and appends it
 to `content/club-target-claim-ledger.md`. Keep that file accurate.
 
-# OPEN QUESTION, resolve early
+# THE 0% MYSTERY, likely solved 13 Sep
 
 Every challenge on her board reads **0%**, including ones she has published for.
-Her captions do carry both required tags, so this is not a tagging error. It is
-either a lag in Target's review or a submission step in the portal she has not
-done. **Have her check one challenge card for a submit or link-your-post action
-before you produce another 20 posts on top of it.**
+Her captions are not the problem: all 42 Club Target posts carry `#TargetPartner`
+within the first 2 lines.
+
+**The video frames are.** Target's Scope of Work requires the disclosure on screen
+EARLY in the video. Of 3 published Club Target TikToks sampled, 2 carry it only in
+the final frame and 1 carries none. See `content/canon/disclosure-rule.md`.
+
+So cut every new video with the disclosure in the opening frames and this should
+stop recurring. It does not fix the already-published ones, which only Amanda can
+edit, and it does not rule out a second cause: there may also be a submit or
+link-your-post step in the portal she has not done. **Have her open one challenge
+card and look for a submit action.** Two minutes, and it either confirms or
+eliminates the remaining possibility.
+
 
 # WHAT TO HAND BACK
 
