@@ -111,7 +111,17 @@ def keyword_works(cta_rows, platform):
 
 
 def asks(text):
-    """The keywords a caption tells people to comment."""
+    """The keywords a caption tells people to comment.
+
+    The text is normalised first. On 09/13 staging-library.csv was found to
+    hold captions whose line breaks were the 2 characters backslash and n
+    rather than a newline, and that silently blinded this gate: in
+    "...for children.\\nComment SEASONAL", the n and the C are both word
+    characters, so there is no word boundary and the ask never matched. 10
+    YouTube posts carrying a keyword YouTube cannot answer read as clean.
+    A gate that can be switched off by bad whitespace is not a gate.
+    """
+    text = (text or "").replace("\\n", "\n").replace("\\t", "\t")
     found = []
     for pattern in (ASK, ASK_ALT):
         for m in pattern.finditer(text or ""):

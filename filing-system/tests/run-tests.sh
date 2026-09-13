@@ -988,5 +988,23 @@ if python3 "$HERE/recaption_assert.py"; then
 else echo "FAIL  a reused caption is re-asked for the channel it lands on"; fail=$((fail+1)); fi
 
 echo
+echo "== a caption whose line breaks are not line breaks (Run 9, added 09/13) =="
+# 84 of 256 staged rows stored paragraph breaks as backslash-n. Posting one
+# puts backslash-n in a live caption. Worse, it blinded the keyword gate: in
+# "children.\\nComment SEASONAL" the n and the C are both word characters, so
+# the word boundary the ask needs never exists and 10 dead YouTube CTAs read
+# as clean.
+KG="$HERE/../scripts/gm_keyword_check.py"
+KR="$HERE/keyword.registry.csv"
+
+if python3 "$KG" --posts "$HERE/keyword.escaped.json" --registry "$KR" 2>&1 | grep -q K02_KEYWORD_NO_LISTENER; then
+  echo "PASS  a dead ask is caught even when the line breaks are escaped"; pass=$((pass+1))
+else echo "FAIL  a dead ask is caught even when the line breaks are escaped"; fail=$((fail+1)); fi
+
+if python3 "$HERE/staging_assert.py"; then
+  echo "PASS  no staged caption stores a literal backslash-n"; pass=$((pass+1))
+else echo "FAIL  no staged caption stores a literal backslash-n"; fail=$((fail+1)); fi
+
+echo
 echo "$pass passed, $fail failed"
 [ "$fail" = 0 ]
