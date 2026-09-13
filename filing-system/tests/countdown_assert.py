@@ -30,6 +30,14 @@ want(S.countdown_in("Halloween is 43 days out."), "43d", "days out")
 want(S.countdown_in("Halloween is 7 days out."), "7d", "single digit days out")
 want(S.countdown_in("12 days to go."), "12d", "days to go")
 
+# "5 nights out" is the exclusive phrasing wearing the word nights. Read as
+# inclusive it counts tonight twice, which on the Samhain trailer turned a
+# correct 5 into a drift finding against 6. Order in the reader decides this.
+want(S.countdown_in("Samhain is 5 nights out."), "5d", "nights out is exclusive")
+want(S.countdown_in("3 nights away."), "3d", "nights away is exclusive")
+want(S.countdown_in("43 nights. No dark days."), "43n",
+     "a bare nights count still reads as inclusive")
+
 # Prose that states a number and a unit and is not a countdown. Every one of
 # these is a real caption the first version flagged.
 for prose in ("I wrote the AI guide I needed 60 days ago.",

@@ -79,19 +79,24 @@ def toks(text):
 #   "Halloween is 43 days out."  days remaining, so exclusive
 # Everything else that says a number and a day is prose, not a countdown:
 # "60 days ago", "free for 30 days", "hold about 12 days at a time".
+# Order matters. "5 nights out" is the exclusive phrasing wearing the word
+# nights, so it has to be recognised before the bare nights pattern claims it
+# and counts tonight twice. Found 09/14 on the Samhain trailer, which says
+# "Samhain is 5 nights out" on 10/26 and means 5, not 6.
+DAYS_OUT = re.compile(
+    r"\b(?:is\s+)?(\d{1,3})\s+(?:days?|nights?)\s+(?:out|to go|left|away)\b", re.I)
 NIGHTS   = re.compile(r"\b(\d{1,3})\s+nights?\b", re.I)
-DAYS_OUT = re.compile(r"\b(?:is\s+)?(\d{1,3})\s+days?\s+(?:out|to go|left)\b", re.I)
 
 
 def countdown_in(text):
     """The countdown a caption states, as <number><n for nights, d for days>."""
     text = text or ""
-    m = NIGHTS.search(text)
-    if m:
-        return m.group(1) + "n"
     m = DAYS_OUT.search(text)
     if m:
         return m.group(1) + "d"
+    m = NIGHTS.search(text)
+    if m:
+        return m.group(1) + "n"
     return ""
 
 
