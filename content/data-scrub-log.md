@@ -1290,3 +1290,107 @@ Handed her the replacement for the 1 line that carries the em dash, to paste in
 the app under Edit profile:
 
 > Building The Gentle Muse in public while working full-time.
+
+---
+
+# Day 5 scrub — 2026-09-13 (02:30 UTC / 09-12 21:30 CT)
+
+Full corpus since 09-08 per the methodology rule. Instagram numbers are
+Metricool reel reach; Facebook, TikTok and YouTube are Blotato publish records.
+
+## COMPLIANCE VIOLATION, already published
+
+**TikTok 6966604, published 09/12 00:00 UTC.** The Everyday Wellness Reset
+post. It names 2 specific products and carries only the storefront link:
+
+> "the flavcity instant black coffee with the functional stuff in it, and dr
+> teals calm and serenity for after... storefront's in my bio."
+
+That breaks the hard rule at the top of CLAUDE.md. This is the same miss as the
+FlavCity protein smoothie TikTok from 08/20, on the same brand, 3 weeks later.
+
+Worse, it is a challenge submission (`#TargetWellnessReset`, 30 points, TikTok,
+expires around 09/27), so it is the post Target actually looks at.
+
+**Fix:** edit the TikTok caption in the app to carry both SKUs. Neither SKU is
+known here and Target's search API is captcha walled to this session, so Amanda
+has to pull them from her storefront or the product pages.
+
+Doing it right, same day, for contrast: **TikTok 6933972, 09/11, the NYX Fat Oil
+Lip Drip.** Names 1 product, carries
+`https://club.target.com/s/amanda.20/_/sku/87824456`. That is the pattern.
+
+## Tracking item 1: the trivia clean-export test
+
+**It did not reproduce the 37.** The clean export avatar reel (DdJ55C9DJU6,
+09/11) is at **13 reach** after 32 hours, roughly a third of the 37 view
+baseline it was meant to beat.
+
+Stating the caveat rather than the headline, because the honest read is not
+"the fix failed":
+
+| | August | Now |
+|---|---|---|
+| Typical non-Cesa Instagram reel | 50 to 150 | 13 to 22 |
+| Trivia / avatar reel | 37 | 13 |
+
+Relative to the account's own baseline, 13 today is about where 37 sat in
+August. **The account floor moved, not the format's position on it.** The
+clean-export fix is neither confirmed nor refuted by this number.
+
+Facebook band, same window, holding: Goosebumps 260, "The season sells you
+fear" 1,011. The 230 to 577 band is intact and Facebook is unaffected by
+whatever is happening on Instagram.
+
+Separate dark-card seasonal reels on Instagram: 09/09 Goosebumps 4, 09/10
+Nightmare Before Christmas 3. Still the dead tier.
+
+## Tracking item 2: the 10,000 view Cesa breakout
+
+**No.** Ceiling remains 7,522 from 08/18, now 25 days old. Nothing since 09/06
+has cleared 1,100.
+
+2 new Cesa Instagram reels published in this window and are not yet in
+Metricool's sync, so they are unread, not zero:
+
+- `DdKpfjTjlsR` "She still comes to find me", 09/11 19:00 CT
+- `DdNOVVrE0Cx` "She flipped over and stayed there", 09/12 19:00 CT
+
+Both are real footage, both open on the dog, both are the format that has
+produced every breakout on this account. They are the ones to watch tomorrow.
+
+## Tracking item 3: daily volume against 3 to 4 per platform
+
+| Platform | 09/11 | 09/12 | Target | Status |
+|---|---|---|---|---|
+| TikTok | 5 | 7 | 3 to 4 | over |
+| YouTube Shorts | 3 | 3 | 3 to 4 | on |
+| Facebook | 3 | 4 | 3 to 4 | on |
+| **Instagram** | **3** | **2** | **3 to 4** | **under** |
+| Pinterest | 1 | 1 | n/a | |
+| LinkedIn | 1 | 1 | n/a | |
+
+**Instagram is the only platform under target, and it is the platform the
+campaign is about.** 09/12 shipped 2 reels. TikTok shipped 7 the same day.
+
+That is worth naming plainly: the queue is pouring volume into the points
+engine and starving the growth engine. TikTok does not need 7. Instagram needs 4.
+
+## Tracking item 4: watermarks and AI badges
+
+No new watermarked or badged posts found in this window. The 09/11 avatar reel
+went out cropped clean with `isAiGenerated` declared through Instagram's own
+flag, which is the correct handling.
+
+## Follower count
+
+188 on 09/12, Amanda's manual count. Campaign start was 190 on 09/08.
+**Net for the campaign so far: minus 2 in 4 days.** The goal line is 1,000 by
+10/08, which needs about 27 net per day from here.
+
+## What actually matters going into Day 6
+
+1. The published TikTok caption needs its 2 SKUs. It is a points submission.
+2. Instagram volume is the gap. 2 posts a day will not move a follower count.
+3. The 2 unread Cesa reels are the only live shot at the breakout the plan is
+   built around.
