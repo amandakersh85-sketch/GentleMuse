@@ -889,3 +889,85 @@ decides placement from queue state and was reading it the same wrong way.
 - Caps are per account.
 - The discredited "15 consecutive days over cap" evidence was removed. Keeping it
   would have had the job solving a problem that was mostly a measurement artifact.
+
+---
+
+## Audit, 14 Sep 2026 00:09 UTC. Sun/Wed run.
+
+**Clean run. No expiring gap, no coverage loss, no live duplicates.**
+
+### 1. TikTok coverage: no gaps
+
+18 challenge themes appear across her Club Target posts. **Every one of them has a
+TikTok row.** This is the first run with zero coverage gaps.
+
+`HeyDayTechAugust, TargetActiveStyle, TargetBudgetFinds, TargetCatandJackSummer,
+TargetCollegeMVPs, TargetEverydayEssentials, TargetEverydayFavorites,
+TargetFallCollage, TargetFallFirstLooks, TargetFave, TargetGoodandGatherFaves,
+TargetHomeForFall, TargetLaborDayFind, TargetLittleFinds, TargetLunchThrowback,
+TargetPetFaves, TargetQuickMeals, TargetWellnessReset`
+
+19 published TikTok rows carry a theme. `#TargetFave` appears twice, 21 Aug with
+NYX and 9 Sep with Tree Hut. A repeat may credit 0.
+
+### 2. Disclosure
+
+All 42 Club Target posts carry `#TargetPartner` inside the first 2 lines and
+`#ClubTarget`. Zero failures on the tags Target actually requires.
+
+3 published posts have no `#ad`: `6776722`, `6776742`, `6796860`. Low severity.
+The Scope of Work names `#TargetPartner` as the required disclosure and does not
+mention `#ad` at all. Published, so only Amanda can edit them.
+
+**The real disclosure problem is not in the captions.** See
+`content/canon/disclosure-rule.md`, written 13 Sep: Target requires the disclosure
+ON SCREEN early in the video, and 2 of 3 sampled videos carry it only in the final
+frame while 1 carries none. That is the live issue, not `#ad`.
+
+### 3. Duplicates: none
+
+Checked the live forward queue, 193 scheduled rows from 13 Sep 16:00 to 4 Oct.
+**Zero exact duplicates and zero media reused on the same platform.**
+
+### 4. Failed posts
+
+1 Club Target loss, already known: `688849`, 1 Sep, Facebook,
+`#TargetCatandJackSummer`, "the video could not be processed". Never went live.
+
+Separately, **11 Twitter failures between 20 and 27 Aug**, all "Could not upload
+media to Twitter", plus 1 TikTok URL-verification failure on 26 Aug. Twitter last
+published successfully on 2 Sep and last failed on 27 Aug, so the cluster looks
+closed rather than ongoing. Not a Club Target issue. Noted so it is not rediscovered
+as new.
+
+### 5. Two phantoms caught by Rule 1 and Rule 2
+
+Worth recording, because both would have been reported as real on any earlier run.
+
+**Phantom A, 3 scheduled Club Target rows missing `#ad`.** The pooled snapshots
+showed `4158113`, `4175373` and `4158117` as scheduled and short a tag.
+`blotato_get_schedule` returns **not found** for them. They no longer exist. The
+pool had gone stale.
+
+**Phantom B, 36 duplicate groups.** Pooling scheduled rows across 15 snapshot files
+taken over 3 weeks produced 36 apparent duplicates. Against the live queue alone
+there are **zero**. The duplicates were the same posts seen in different snapshots.
+
+The lesson generalizes past times and accounts: **pooled snapshots are not state.**
+Any check that asks "what is scheduled right now" has to run against one fresh pull,
+not the accumulated file set.
+
+### 6. Queue state
+
+**Zero Club Target rows scheduled anywhere through 4 Oct.** Confirmed on a fresh
+pull after the 06:00 UTC top-up ran. The general queue is healthy at 193 rows.
+
+Nothing new can be queued until the challenge hashtags are known. The weekly email
+carries links only and the names live in tile images that still 403. Amanda has the
+3 newest links, `0pdf` `0pdm` `0pdq`, and needs to screenshot one name and tag.
+
+### Routine correction needed
+
+Step 6 of this audit's own prompt says `obs.duel.me` is 403. **That is now stale.**
+It resolved on 13 Sep and served the Scope of Work PDF, which is where the
+disclosure rule came from. Prompt updated.
