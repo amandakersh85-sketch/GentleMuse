@@ -607,6 +607,175 @@ kill $STUB_PID 2>/dev/null
 trap 'rm -rf "$TMP"' EXIT
 
 
+# ---------------------------------------------------------------- the ladder
+# The sequence itself, and the rule that 1 work station is open at a time.
+# The failure is working on station 13 while station 2 is open.
+
+LADDER="$HERE/../scripts/gm_ladder_check.py"
+LROWS="$HERE/../data/mastery-ladder.csv"
+LGATES="$HERE/../data/acquisition-gates.csv"
+
+lcheck() { # name expected_exit args... ; greps come after a --
+  local name="$1" want="$2"; shift 2
+  local args=() greps=()
+  while [ $# -gt 0 ] && [ "$1" != "--" ]; do args+=("$1"); shift; done
+  [ "${1:-}" = "--" ] && shift
+  greps=("$@")
+  local out; out="$(python3 "$LADDER" "${args[@]}" 2>&1)"; local got=$?
+  local ok=1
+  [ "$got" = "$want" ] || { ok=0; echo "  exit $got, wanted $want"; }
+  for pat in "${greps[@]}"; do
+    grep -q -e "$pat" <<<"$out" || { ok=0; echo "  missing: $pat"; }
+  done
+  if [ $ok = 1 ]; then echo "PASS  $name"; pass=$((pass+1))
+  else echo "FAIL  $name"; echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
+}
+
+echo
+echo "== the ladder =="
+lcheck "the shipped sequence holds"      0 --ladder "$LROWS" -- "1 station open"
+
+python3 - "$TMP" "$LROWS" <<'PYL'
+import csv, os, sys
+tmp, src = sys.argv[1], sys.argv[2]
+rows = list(csv.DictReader(open(src, newline="", encoding="utf-8-sig")))
+cols = list(rows[0].keys())
+
+def dump(name, rs):
+    h = open(os.path.join(tmp, name), "w", newline="", encoding="utf-8")
+    w = csv.DictWriter(h, fieldnames=cols); w.writeheader(); w.writerows(rs)
+
+def copy():
+    return [dict(r) for r in rows]
+
+def find(rs, sid):
+    return next(r for r in rs if r["StationID"] == sid)
+
+# 2 work stations open. The whole rule, broken.
+r = copy(); find(r, "S05")["Status"] = "open"
+dump("ladder-twoopen.csv", r)
+
+# nothing open and work remaining
+r = copy(); find(r, "S01")["Status"] = "locked"
+dump("ladder-noneopen.csv", r)
+
+# an exit test that turns on a feeling
+r = copy(); find(r, "S12")["DoneWhen"] = "Amanda is comfortable with the numbers"
+dump("ladder-feeling.csv", r)
+
+# an exit test nobody else could check
+r = copy(); find(r, "S12")["DoneWhen"] = "the research is properly done"
+dump("ladder-uncountable.csv", r)
+
+# closed, with nothing left behind
+r = copy(); s = find(r, "S01"); s["Status"] = "done"; s["ProofIs"] = ""
+find(r, "S02")["Status"] = "open"
+dump("ladder-noproof.csv", r)
+
+# closed, and the proof was never filed
+r = copy(); s = find(r, "S01")
+s["Status"] = "done"; s["ProofIs"] = "filing-system/data/not-filed-yet.csv"
+find(r, "S02")["Status"] = "open"
+dump("ladder-unfiled.csv", r)
+
+# the flip: automate the week before the week has sold anything
+r = copy()
+a, b = find(r, "S11"), find(r, "S05")
+a["Order"], b["Order"] = b["Order"], a["Order"]
+a["Needs"], b["Needs"] = "", "S10"
+dump("ladder-ahead.csv", r)
+
+# buying a laundromat before the books are split
+r = copy()
+a, b = find(r, "S18"), find(r, "S14")
+a["Order"], b["Order"] = b["Order"], a["Order"]
+a["Needs"], b["Needs"] = "", "S16"
+dump("ladder-unprotected.csv", r)
+
+# a dependency that points down the ladder instead of up it
+r = copy(); find(r, "S02")["Needs"] = "S09"
+dump("ladder-needslater.csv", r)
+
+# open while what it depends on is not done
+r = copy(); find(r, "S01")["Status"] = "locked"; find(r, "S04")["Status"] = "open"
+dump("ladder-openlocked.csv", r)
+
+# closed on top of something that is not
+r = copy(); find(r, "S04")["Status"] = "done"; find(r, "S04")["ProofIs"] = "a screenshot"
+dump("ladder-donegap.csv", r)
+
+# a layer nobody defined
+r = copy(); find(r, "S07")["Layer"] = "vibes"
+dump("ladder-badfield.csv", r)
+PYL
+
+lcheck "2 open work stations is refused"  1 --ladder "$TMP/ladder-twoopen.csv"     -- L01_TWO_OPEN
+lcheck "an idle ladder is refused"        1 --ladder "$TMP/ladder-noneopen.csv"    -- L02_NOTHING_OPEN
+lcheck "a feeling is not an exit test"    1 --ladder "$TMP/ladder-feeling.csv"     -- L10_FEELING_TEST
+lcheck "an uncheckable exit test fails"   1 --ladder "$TMP/ladder-uncountable.csv" -- L03_UNCOUNTABLE
+lcheck "closing needs a proof"            1 --ladder "$TMP/ladder-noproof.csv"     -- L04_NO_PROOF
+lcheck "an unfiled proof holds"           2 --ladder "$TMP/ladder-unfiled.csv"     -- H01_PROOF_NOT_FILED
+lcheck "automating before selling fails"  1 --ladder "$TMP/ladder-ahead.csv"       -- L05_WORKING_AHEAD
+lcheck "expanding before protecting fails" 1 --ladder "$TMP/ladder-unprotected.csv" -- L06_EXPAND_UNPROTECTED
+lcheck "a backwards dependency fails"     1 --ladder "$TMP/ladder-needslater.csv"  -- L07_NEEDS_LATER
+lcheck "opening out of order fails"       1 --ladder "$TMP/ladder-openlocked.csv"  -- L08_OPEN_LOCKED
+lcheck "closing out of order fails"       1 --ladder "$TMP/ladder-donegap.csv"     -- L09_DONE_GAP
+lcheck "an undefined layer fails"         1 --ladder "$TMP/ladder-badfield.csv"    -- L00_BAD_FIELD
+
+echo
+echo "== the one thing =="
+lcheck "today names exactly 1 station"    0 --today -- "THE ONE THING  S01" "protect -> sell -> distribute"
+lcheck "a task on the open station goes"  0 --task "separate the bank accounts by entity" -- \
+       "This is the one thing"
+lcheck "a task 12 stations ahead stops"   1 --task "build the due diligence checklist" -- \
+       "Not yet. Locked behind" "Today is S01"
+# rule 5, no substitution. An unmatched task is never filed under the nearest fit.
+lcheck "an unmatched task is not guessed" 2 --task "repaint the office" -- \
+       "No station on the ladder owns this"
+
+echo
+echo "== the 8 acquisition gates =="
+python3 - "$TMP" "$LGATES" <<'PYG'
+import csv, os, sys
+tmp, src = sys.argv[1], sys.argv[2]
+rows = list(csv.DictReader(open(src, newline="", encoding="utf-8-sig")))
+cols = list(rows[0].keys())
+
+def dump(name, rs):
+    h = open(os.path.join(tmp, name), "w", newline="", encoding="utf-8")
+    w = csv.DictWriter(h, fieldnames=cols); w.writeheader(); w.writerows(rs)
+
+def passed():
+    r = [dict(x) for x in rows]
+    for x in r:
+        x["Verdict"] = "pass"
+        x["Evidence"] = "checked 2026-09-14, filed under deals/maple-st"
+    return r
+
+dump("deal-clean.csv", passed())
+
+r = passed(); r[2]["Verdict"] = "fail"
+r[2]["Evidence"] = "owner cash flow goes negative once a manager wage goes back in"
+dump("deal-failed.csv", r)
+
+r = passed(); r[5]["Evidence"] = ""
+dump("deal-noevidence.csv", r)
+
+r = [x for x in passed() if x["GateID"] != "G8"]
+dump("deal-missing.csv", r)
+
+r = passed(); r[1]["Verdict"] = "looks fine"
+dump("deal-badverdict.csv", r)
+PYG
+
+# the template ships with every gate unproven, which is the correct starting state
+lcheck "a fresh gate sheet holds"         2 --deal "$LGATES"                -- H02_GATE_UNPROVEN
+lcheck "8 of 8 with evidence passes"      0 --deal "$TMP/deal-clean.csv"    -- "Amanda decides"
+lcheck "1 failed gate blocks the deal"    1 --deal "$TMP/deal-failed.csv"   -- D01_GATE_FAILED
+lcheck "a pass with no evidence blocks"   1 --deal "$TMP/deal-noevidence.csv" -- D02_NO_EVIDENCE
+lcheck "a dropped gate is caught"         1 --deal "$TMP/deal-missing.csv"  -- D03_MISSING_GATE
+lcheck "an invented verdict is caught"    1 --deal "$TMP/deal-badverdict.csv" -- D04_BAD_VERDICT
+
 echo
 echo "$pass passed, $fail failed"
 [ "$fail" = 0 ]

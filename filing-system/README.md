@@ -23,15 +23,19 @@ video's duration, group a photo burst, or spot a sensitive document.
 | `data/holiday-fact-bank.csv` | Run 7. 50 sourced facts, each with the turn that makes it hers and what it needs on screen. |
 | `scripts/gm_teardown_check.py` | Run 8. The gate. Refuses a competitor nobody read, and a reel that asks without promising. |
 | `data/competitor-teardowns.csv` | Run 8. 8 accounts torn down from their own content, plus 3 leads held as unusable. |
+| `scripts/gm_ladder_check.py` | The one thing gate. Refuses a task that belongs to a later station, and a deal with a gate nobody filled. |
+| `data/mastery-ladder.csv` | 18 stations in sequence, 1 open at a time, each with an exit test somebody else could check. |
+| `data/acquisition-gates.csv` | The 8 gates a laundromat deal passes before it is a deal. Ships with all 8 unproven. |
 | `sops/SOP_0819_video-triage-run-3.txt` | Run 3 SOP |
 | `sops/SOP_0819_photo-triage-run-4.txt` | Run 4 SOP |
 | `sops/SOP_0819_document-triage-run-5.txt` | Run 5 SOP |
 | `sops/SOP_0828_reel-caption-clip-binding.txt` | Run 6 SOP |
 | `sops/SOP_0829_holiday-caption-strategy.txt` | Run 7 SOP |
 | `sops/SOP_0901_competitor-teardowns.txt` | Run 8 SOP |
+| `sops/SOP_0914_mastery-ladder.txt` | The mastery ladder SOP |
 | `patches/video-factory-clip-binding.md` | Paste-in patch for the `gentle-muse-video-factory` skill |
 | `patches/holiday-caption-strategy.md` | Paste-in patch for the video factory, `content-coach` and `post-grader` |
-| `tests/run-tests.sh` | Regression suite for Runs 6 and 7, 29 cases |
+| `tests/run-tests.sh` | Regression suite for every Python module here, 111 cases |
 
 SOPs are `.txt` on purpose. GitHub renders plain text preformatted, which keeps
 the column alignment the house format uses.
@@ -155,3 +159,28 @@ from a name in somebody else's roundup, and will not let the second be cited as
 the first. Run 8 also taught the Run 6 binding gate to read the reel factory's
 payload shape, which it could not do before, so the ten built reels are checked
 for the first time.
+
+## The mastery ladder — one thing at a time
+
+Two companies, 5 phases and 6 workstreams is a plan. It is not a sequence, and
+without a sequence all 7 good ideas are 30 percent finished in month 7.
+
+`mastery-ladder.csv` holds 18 stations in order, one open at a time, each with a
+`DoneWhen` that a second person could check. Clock stations, the ones that need
+the calendar rather than attention, run underneath. The layers are Avery's
+weekly hierarchy and the gate enforces the order rather than mentioning it:
+protect, sell, distribute, improve, automate, expand.
+
+    python3 scripts/gm_ladder_check.py --today
+    python3 scripts/gm_ladder_check.py --task "build a due diligence checklist"
+    python3 scripts/gm_ladder_check.py --ladder
+    python3 scripts/gm_ladder_check.py --deal deals/maple-st.csv
+
+The task router is the part that gets used daily. It answers whether a thing
+belongs to today, and a task that belongs to station 13 while station 1 is open
+exits `1` with what today actually is. A task matching no station exits `2` and
+stops rather than being filed under the nearest station that fits.
+
+An exit test that turns on a feeling is refused. "Understand the numbers" has no
+last day; "6 numbers, each with a source Amanda read herself" has one. See the
+SOP for the full finding list.
