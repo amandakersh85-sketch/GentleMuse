@@ -101,6 +101,29 @@ She filmed the entire gaming wall and framed it as family game night. The tile s
 LEGO, a window cling kit and Jackpot Roll. Direct match, no reshoot needed.
 
 
+## CONFIRMED HASHTAGS, read from Amanda's own published captions
+
+Her captions carry the real tags, so these are known good with no guessing and no
+input from her. This is the cheapest source of a hashtag there is.
+
+| Theme | Hashtag | Status |
+| --- | --- | --- |
+| Denim | `#TargetDenimEdit` | published 14 Sep |
+| Wellness Reset | `#TargetWellnessReset` | published 12 Sep |
+| Everyday Favorites | `#TargetEverydayFavorites` | published 11 Sep |
+| Fall Collage | `#TargetFallCollage` | published 10 Sep |
+| Home For Fall | `#TargetHomeForFall` | published 10 Sep |
+| Target Fave | `#TargetFave` | published 9 Sep, also used 21 Aug |
+| Quick Meals | `#TargetQuickMeals` | published 8 Sep |
+| Active Style | `#TargetActiveStyle` | published 6 Sep |
+| Labor Day Find | `#TargetLaborDayFind` | published 5 Sep |
+| Little Finds | `#TargetLittleFinds` | published 3 Sep |
+| Cat and Jack Summer | `#TargetCatandJackSummer` | published 2 Sep |
+
+`#TargetDenimEdit` most likely claims **Find Your Denim**, which closes 23 Sep. It
+could instead be read against **The Fall Outfit Edit** from 14 Sep. Amanda's call,
+and the portal will show which one moved.
+
 ## Dropped 31 Aug 2026, "Start Your Fall Content Refresh", "Start Your Fall Content Refresh"
 
 Names and closing dates unknown, awaiting screenshots.
