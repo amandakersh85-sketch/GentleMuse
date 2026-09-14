@@ -1,0 +1,188 @@
+THE GENTLE MUSE AND FRESH SPIN — THE MASTERY LADDER
+
+New. Created 09/14/2026. Written from Avery's sequencing note and the numbers
+already in this repo, not from a fresh opinion about what should come first.
+
+TOOLS: gm_ladder_check.py
+DATA:  data/mastery-ladder.csv, data/acquisition-gates.csv
+TESTS: tests/run-tests.sh, 22 cases
+
+WHAT AMANDA ASKED FOR
+Keep it stupid. Sequence it fast. One thing at a time, master it, then master
+the next one.
+
+That is the whole specification and it is a good one, because it names the
+failure precisely. The problem is not that the plan is wrong. The plan is fine.
+The problem is that 7 good ideas are all live at once and each of them is 30
+percent finished in month 7.
+
+WHAT AVERY GOT RIGHT, AND WHAT WAS MISSING
+The note is correct on both counts that matter. Goals are not equally urgent,
+and the natural instinct here runs backwards: expand, automate, improve,
+distribute, sell. The right order is protect, sell, distribute, improve,
+automate, expand.
+
+What the note could not do is stop the thing it describes. It is guidance, and
+guidance governs judgment. Judgment is what already fails here. This repo has
+been through that twice already. Run 6 was captions landing on the wrong clips,
+and the fix was not a reminder to check, it was the missing description column
+plus a gate. Run 8 was calls to action with nothing behind them, and the fix was
+not better writing, it was a contract field the render could not ship without.
+
+So the sequence is a data file with an exit test on every row, and a gate that
+refuses to call a later station today's work.
+
+THE RULE
+One work station is open at a time. It closes when its DoneWhen is proven by
+something a second person could check. Not when it feels done.
+
+Clock stations are the single exception and they are marked as such in the file.
+A clock station is a few hours a month and then the calendar. S03, the Kersh
+operating record, is one. So is S14, funding the reserve floor. They run
+underneath the open work station, because waiting is not attention and there is
+no reason for the calendar to be idle while Gentle Muse is the one thing.
+
+THE SEQUENCE, IN ONE SCREEN
+  S01  both        Split the money into 4 books                    protect
+  S02  gentle-muse Write the Friday number down                    protect
+  S03  kersh       Start the Kersh operating record        clock   protect
+  S04  gentle-muse Make the capture machine fire                   sell
+  S05  gentle-muse Name 1 offer and sell it once                   sell
+  S06  gentle-muse Give the history lane its own magnet            distribute
+  S07  gentle-muse Reach 500 followers on the main account         distribute
+  S08  gentle-muse Find the 1 topic that makes subscribers         improve
+  S09  gentle-muse Sell the same offer 10 times down 1 path        sell
+  S10  gentle-muse Codify the week that won                        improve
+  S11  gentle-muse Automate the week that won                      automate
+  S12  fresh-spin  Learn the 6 numbers a laundromat runs on        improve
+  S13  fresh-spin  Underwrite 10 real listings on 1 template       improve
+  S14  fresh-spin  Write the reserve floor and fund it     clock   protect
+  S15  fresh-spin  Build the lender file                           sell
+  S16  fresh-spin  Get 1 lender to say yes or no in writing        sell
+  S17  gentle-muse Pick the 1 scale lever the data earned          expand
+  S18  fresh-spin  Run 1 real deal through the 8 gates             expand
+
+Gentle Muse holds the first 11 because it is the only one of the 2 that can
+produce money this quarter. Fresh Spin is not idle during them. S03 starts at
+position 3 and runs underneath everything, which means the Kersh operating
+record is 6 months old by the time S13 needs it rather than 6 weeks old.
+
+WHY THE FIRST 5 ARE WHERE THEY ARE
+S01 is first because 3 LLCs already run through 1 Downloads folder. That is why
+Run 5 routes documents by entity at all. Every station below reads a number off
+these books, and right now the question "is Gentle Muse making money" has no
+answer, because there is no set of books that could produce one.
+
+S02 is second because posting-cadence.csv already schedules a Friday review at
+16:00 that reads 1 number, followers gained this week, and there is no file it
+writes to. No week can be compared to the week before it. Phase 2 of Avery's
+note asks which topics work. That question is unanswerable until weeks are
+comparable, which is why it sits at S08 and not at S03.
+
+S04 is the one that matters most and it comes from the audit, not from a hunch.
+30,671 views produced 13 email subscribers. keyword-audit.csv says why: 13
+automations live, 1 contact ID across nearly all of them, and 8 of the 13 have
+never fired once. That is not a writing problem. Better captions do not touch
+it. The machine was built, went live, and was never pointed at.
+
+S05 is 1 sale to 1 stranger, because magnet-map.csv carries 8 magnets and not
+one of them is a product. Everything live is free. Until somebody pays once
+there is no money path to optimise, and every conversation about scale is a
+conversation about a hypothesis.
+
+WHERE THE LADDER SAYS NOT YET
+S11 is automation, and it is 11th on purpose. That is the station Amanda's
+instinct wants to start at. Automating an unproven week produces the wrong thing
+faster and with less attention on it, so everything above that line exists to
+make sure the thing being multiplied is worth multiplying.
+
+The gate enforces this rather than mentioning it. L05_WORKING_AHEAD refuses any
+automate or expand station sequenced before a sell or distribute station of the
+same company that is not finished. L06_EXPAND_UNPROTECTED refuses an expand
+station that gets ahead of a protect station. Move S11 up the file and the
+audit fails. That is the point.
+
+WHAT COUNTS AS CLOSING A STATION
+An exit test has to be checkable by somebody who is not Amanda. A number, a
+named file, or a signature. L03_UNCOUNTABLE refuses a DoneWhen with none of the
+3 in it.
+
+L10_FEELING_TEST refuses the specific way a mastery station fails, which is an
+exit test that turns on a feeling. "Understand the numbers" has no last day.
+"6 numbers written down, each with a source Amanda read herself" has one. The
+same distinction is the difference between "I know about laundromats" and "hand
+me a listing and I know exactly what to ask", and only the second is a station.
+
+A closed station has to leave something behind. L04_NO_PROOF refuses a done row
+with an empty proof. H01_PROOF_NOT_FILED holds when the proof names a file that
+is not in the repo yet, which is a wait on Amanda rather than a failure.
+
+THE TASK ROUTER
+This is the part that gets used daily. Ask it whether a thing belongs to today.
+
+  python3 gm_ladder_check.py --task "build a due diligence checklist"
+
+It answers that the task is S13, that S13 is locked behind S12, and that today
+is S01. Exit 1. The task is not wrong, it is early, and the difference is the
+whole methodology.
+
+An unmatched task exits 2 and stops. It is never filed under the nearest station
+that fits, because that is rule 5 and this is exactly where it would be tempting
+to break it. If a task genuinely matches nothing, either a station is missing
+from the file, in which case write the station, or the work is not this
+quarter's, in which case it goes nowhere.
+
+THE 8 ACQUISITION GATES
+Avery's gates are in acquisition-gates.csv with a countable test on each one.
+The template ships with all 8 unproven, which is the correct starting state, and
+a fresh sheet returns HOLD rather than PASS.
+
+Copy it per deal, fill the Verdict and Evidence columns, and run it:
+
+  python3 gm_ladder_check.py --deal deals/maple-st.csv
+
+A gate marked pass with an empty Evidence column is refused. A verdict outside
+pass, fail and unproven is refused. A sheet missing a gate is refused, which is
+the one that matters, because a dropped gate looks exactly like a passed one on
+a spreadsheet somebody is reading at 11pm.
+
+Gate 6 is the reason S14 is a clock station. It cannot be answered by the deal,
+only by a balance that existed before the deal showed up. Gate 3 puts a real
+manager wage back into the cash flow, because seller's discretionary earnings
+usually assumes Amanda works there for free, and a business that only clears
+when she is the labour is a job bought at a premium.
+
+8 of 8 passing is still a proposal. Amanda decides. That is rule 4 and this
+module does not get an exception to it just because the number is large.
+
+HOW TO RUN IT
+  python3 filing-system/scripts/gm_ladder_check.py --today
+  python3 filing-system/scripts/gm_ladder_check.py --task "..."
+  python3 filing-system/scripts/gm_ladder_check.py --ladder
+  python3 filing-system/scripts/gm_ladder_check.py --deal deals/name.csv
+  bash filing-system/tests/run-tests.sh
+
+Exit 0 passes. Exit 1 blocks. Exit 2 holds and waits on Amanda.
+
+CLOSING A STATION
+Edit mastery-ladder.csv. Set the closed row to done and fill ProofIs with what
+proves it. Set the next row to open. Run --ladder. If it passes, the move was
+legal. If it does not, the gate names which rule it broke.
+
+Nothing here closes a station on its own and nothing here is scheduled. The file
+is the record and Amanda moves it.
+
+WHAT THIS DOES NOT DO
+It does not check whether a DoneWhen actually happened. It cannot see a bank
+balance, a Metricool number or a lender's letter, and it does not pretend to.
+It checks that the sequence is sound, that every exit test is the kind of thing
+that could be checked, and that today's work is today's.
+
+It does not decide the stations are the right stations. That is Amanda's and
+Avery's call. It holds them in one file so that when the order changes, it
+changes once, in a place every assistant reads.
+
+SAFETY
+Propose-only. The script reads. It never moves, renames or deletes anything, and
+it writes no file at all. Nothing is scheduled or published. A PASS is a
+proposal.

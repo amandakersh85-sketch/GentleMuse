@@ -11,3 +11,7 @@ Gentle Muse Workspace.
 - **`filing-system/scripts/gm_symphony.py`** — the relay to Symphony, Amanda's
   AI business agents. Proposes by default, sends only under `--send`. See
   `filing-system/sops/SOP_0908_symphony-relay.txt`.
+- **`filing-system/data/mastery-ladder.csv`** — the sequence both companies run
+  in. 18 stations, 1 open at a time, each with an exit test. Enforced by
+  `filing-system/scripts/gm_ladder_check.py`. See
+  `filing-system/sops/SOP_0914_mastery-ladder.txt`.
