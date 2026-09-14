@@ -7,7 +7,7 @@ Amanda claims these herself on `club.target.com`. Claude cannot: the board is a
 JavaScript app behind a login and every URL returns the same empty shell to a
 non-browser client. Claude's job is to catch each publish and hand over the row.
 
-## Published and awaiting confirmation, 31 Aug to 12 Sep 2026
+## Published and awaiting confirmation, 31 Aug to 14 Sep 2026
 
 | Date (UTC) | Platform | Theme | Live URL |
 |---|---|---|---|
@@ -26,6 +26,7 @@ non-browser client. Claude's job is to catch each publish and hand over the row.
 | 10 Sep | TikTok | #TargetFallCollage | https://www.tiktok.com/@thegentlemuse2026/video/7683921586990238990 |
 | 11 Sep | TikTok | #TargetEverydayFavorites | https://www.tiktok.com/@thegentlemuse2026/video/7684060702042049806 |
 | 12 Sep | TikTok | #TargetWellnessReset | https://www.tiktok.com/@thegentlemuse2026/video/7684431735240559886 |
+| 14 Sep | TikTok | #TargetDenimEdit | https://www.tiktok.com/@thegentlemuse2026/video/7685421280316771598 |
 
 One Facebook row failed and never went live: `688849`, 01 Sep,
 #TargetCatandJackSummer, "the video could not be processed". No post, no points.
@@ -42,3 +43,16 @@ As of 13 Sep 2026 there are zero Club Target rows scheduled anywhere in Blotato
 through 04 Oct. The last one published 12 Sep 00:00 UTC. Nothing is coming, so
 nothing will trigger a claim, until footage from the 12 Sep Target run is cut
 and loaded.
+
+## 14 Sep: the first video that meets the on-screen disclosure rule
+
+`7042258`, the denim TikTok, is the first Club Target video built after the
+disclosure rule was found. Sampled at 0.2s, 0.8s, 2.0s, the midpoint and the end:
+
+- `#TargetPartner` is burned in **from the opening frame** and holds through the
+  middle of the video.
+- The end card carries the full set, `#TargetPartner #ClubTarget #TargetDenimEdit`.
+- Silent b-roll, no voiceover, Amanda not on camera. Matches her current method.
+
+This is what every Club Target video should look like from now on. If the board
+credits this one and not the earlier ones, the disclosure theory is confirmed.
