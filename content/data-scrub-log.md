@@ -1467,3 +1467,109 @@ Read it against the real bands, not the old framing:
 Never report an Instagram number from Metricool alone. Pull Blotato's analytics
 for the same post and reconcile. Where they disagree, Blotato's fetch timestamp
 decides. Where Metricool has no row at all, that is a gap, not a zero.
+
+---
+
+# Day 6 scrub — 2026-09-14 (02:30 UTC / 09-13 21:30 CT)
+
+First scrub run under the new rule: **Instagram numbers are Blotato's analytics
+fetch, not Metricool.** Full corpus since 09-08.
+
+## THE FINDING: average watch time predicts reach, and 5 seconds is the kill line
+
+Every Instagram post since 09/08, sorted by average watch time:
+
+| Reel | Date | Watch | Views | Reach |
+|---|---|---|---|---|
+| Cesa, "She still comes to find me" | 09/11 | **11.28s** | **1,592** | 1,341 |
+| Cesa, bath day | 09/10 | **7.91s** | **943** | 839 |
+| Cesa, "does not look up once" | 09/09 | 6.93s | 217 | 189 |
+| Cesa, "flipped over and stayed there" | 09/12 | 6.72s | 290 | 262 |
+| Cesa, "stops every few seconds" | 09/09 | 5.56s | 145 | 110 |
+| Cesa, "scatters it, then eats it" | 09/08 | 5.51s | 176 | 155 |
+| Cesa, 3 second stare | 09/09 | 5.10s | 223 | 166 |
+| Lint screen, home maintenance | 09/12 | 4.53s | 58 | 45 |
+| Amanda, "Becoming her" | 09/10 | 4.39s | 21 | 16 |
+| Cesa, party era | 09/08 | 3.81s | 101 | 70 |
+
+Below 5 seconds the post dies regardless of what is in it. A Cesa reel at 3.81s
+did 101. Above 7.9s it takes off. Nothing in between crosses 300.
+
+That is the first thing in this corpus that predicts a number instead of
+describing one. **Grade a cut on whether it will hold 8 seconds, not on whether
+it is on brand.**
+
+The seasonal dark cards are excluded from the table because their watch times
+are noise. Nightmare Before Christmas reads 14.60s, off exactly 1 viewer.
+
+## Tracking item 1: trivia on Instagram against the 37 baseline
+
+**The clean-export fix has not restored Instagram, and the honest reading is now
+that it never was an export problem.**
+
+| Seasonal card | Date | IG views | Same content on Facebook |
+|---|---|---|---|
+| Nightmare Before Christmas | 09/10 | 3 | 193 |
+| Nobody was burned at Salem | 09/08 | 3 | — |
+| Goosebumps | 09/09 | 2 | 260 |
+| Are You Afraid of the Dark | 09/08 | 1 | 219 |
+
+The watermarked 37 view post outperformed every clean export by roughly 10x. The
+watermark was never what was wrong. Correcting the export/watermark rule's
+stated evidence is a separate job, but the rule itself still stands on its own
+merits.
+
+Facebook band holding: 193 to 1,011 across 16 reels. Unaffected.
+
+## 2 Facebook anomalies worth opening
+
+Every Facebook reel in the window sits between 193 and 1,011 except these:
+
+- **Sarah Winchester, 09/12: 4 views.** SNICK the same day did 230.
+- **Wombats, 09/10: 1 view.** Its caption reads "My AI cast read that with a
+  completely straight face."
+
+**The wombats clip is one of the 3 avatar clips killed on 09/11** for the
+garbled headline layer (`WOMBATS 💩 CUBES.`). It was recorded as never
+scheduled. It published to Facebook on 09/10, before the kill decision, and did
+1 view. The log said those clips existed only as session uploads. That was
+wrong for at least this one.
+
+## Tracking item 2: the 10,000 view Cesa breakout
+
+**No.** Best in the campaign window is 1,592 (09/11). Campaign ceiling remains
+7,522 from 08/18.
+
+## Tracking item 3: daily volume against 3 to 4 per platform
+
+| Platform | 09/11 | 09/12 | 09/13 | Status |
+|---|---|---|---|---|
+| TikTok | 5 | 7 | 4 | on or over |
+| Facebook | 3 | 4 | 4 | on |
+| YouTube Shorts | 3 | 3 | 3 | on |
+| **Instagram** | **3** | **2** | **2** | **under, 3 days running** |
+
+## Tracking item 4: watermarks and AI badges
+
+The wombats Facebook post above is the only hit, and it predates the kill
+decision.
+
+## Tracking item 5: product posts missing a SKU
+
+No new Club Target product posts on 09/13. **The 09/12 Wellness Reset TikTok is
+still outstanding** and still names FlavCity instant coffee and Dr Teal's Calm
+and Serenity with only a storefront link.
+
+## Follower count
+
+Not updated. Last known is 188 manual on 09/12, against a 190 campaign start.
+Needed from Amanda.
+
+## What Day 7 should act on
+
+1. **Post 4 Instagram reels tomorrow, not 2.** Volume is the only lever not
+   being pulled, and it is the platform the campaign is named after.
+2. **Cut for watch time.** A clip that holds 8 seconds gets 10x a clip that
+   holds 4. That is a production instruction, not an observation.
+3. Open the Sarah Winchester Facebook file. 4 views against a 230 sibling on the
+   same day is a broken-file signature, not audience behaviour.
