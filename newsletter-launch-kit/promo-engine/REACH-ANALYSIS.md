@@ -708,3 +708,104 @@ they need request signing. Do not bother with them. The page HTML is the source.
 Do not use headless Chromium for this. It opens dozens of parallel connections at
 startup and the session relay drops them (`ws_closed_mid_exchange`), which looks like
 TikTok blocking you and is not. One curl per post works.
+
+---
+
+## WEEKLY SCOREBOARD 2026-09-14. THE FUNNEL PRODUCED ITS FIRST REAL RESULTS.
+
+Verified from source today. 2 of the 3 scoreboard triggers fired, and they may be the same
+event seen from 2 different systems.
+
+### 1. THE FIRST REAL KEYWORD LEAD IN THE FUNNEL'S HISTORY
+
+Every automation run in the system had previously come from Amanda testing, from contact
+`1048429878116670` or `955627417560872`. There is now a third.
+
+| Field | Value |
+|---|---|
+| Contact | `1774569036904343`, `isAuthor: false`, neither test account |
+| When | 2026-09-05 01:36 UTC |
+| Where | post `6743958` on @cesasgoldenyears |
+| What they wrote | **"Cesa please"** |
+| Offer | CESA, the Cesa guide, automation `2952` |
+| Did the DM send? | **Yes.** Message `1419557`, status `sent`, conversation `452629` |
+| Which version sent | the **gated** one, asking them to reply with an email |
+| Outcome | no reply. Run `150551` expired 2026-09-08 |
+| Recovery | Amanda replied publicly on the thread 09-08 16:33 with the direct link |
+| Their answer | "@cesasgoldenyears thank you!" on 09-09 17:51 |
+
+So the keyword worked, the automation fired, the DM delivered, and the gate is the only thing
+that stopped it converting on its own. Amanda closed it by hand.
+
+### 2. 2 REAL SUBSCRIBERS THE WEEKLY BASELINE DID NOT HAVE
+
+The weekly routine's list of real subscribers is 5, set 2026-09-01: Mary, Melissa, Nadia,
+christine, Laura. There are now 2 more, both genuine, both from a landing page webform, both on
+IPs unrelated to Amanda's.
+
+| Who | Subscribed | Source | Group | Sent | Opened | Clicked |
+|---|---|---|---|---|---|---|
+| Shaniya, `shaniyaplunkett516@gmail.com` | 2026-09-04 16:42 | webform | **Consider This** | 2 | 0 | 0 |
+| artine, `artinehaladadyan@gmail.com` | 2026-09-09 02:48 | webform | **Cesa** | 2 | **1** | **1** |
+
+**The Cesa guide delivery sequence fired correctly and completely for artine.** Subscribed
+2026-09-09 02:48:00, record updated 2026-09-13 02:48:17. That is 4 days and 17 seconds, which is
+exactly the shape of the sequence: "Her guide is here" immediately, then "Walk the house at her
+height" 4 days later. 2 sends, 1 open, 1 click. The wiring that was broken in August works.
+
+### 3. THEY MAY BE THE SAME PERSON. NOT CONFIRMED.
+
+The timing lines up:
+
+```
+09-08 16:33  Amanda posts the guide link publicly on the "Cesa please" thread
+09-09 02:48  artine subscribes, and lands in the CESA group specifically
+09-09 17:51  the commenter replies "@cesasgoldenyears thank you!"
+```
+
+10 hours from the link to the signup, and the signup went into the Cesa group, which is what
+`cesa-guide.subscribepage.io` feeds. If that is the same person, then the first keyword lead
+also became the first keyword-originated subscriber, and the recovery reply is what earned it.
+
+**This is an inference and it is not verified.** MailerLite gives an email and an IP. Blotato
+gives an Instagram contact id. There is no shared identifier between them, so the systems cannot
+be joined from this side.
+
+**What would settle it in 10 seconds:** Amanda opens the "Cesa please" comment on that post and
+looks at the handle. If it reads as A. Haladadyan, it is the same person and the chain is
+confirmed. If not, then the funnel produced 2 separate real results in the same week, which is
+also good news.
+
+Recorded as unconfirmed either way. Do not write "first keyword conversion" into a report until
+that handle is checked.
+
+### FOLLOWERS: nothing to report, and that is per the rule
+
+@thegentlemuse2026, IGEV01 and IGEV03, 09-06 through 09-12 (Metricool returned no rows for
+09-13 or 09-14):
+
+```
+09-06  189   0
+09-07  189   0
+09-08  190  +1
+09-09  185  -5
+09-10  187  +2
+09-11  188  +1
+09-12  189  +1
+```
+
+Net for the window: **0.** No threshold crossed, the peak is 190 against the next line at 200.
+Net is flat rather than negative, and 0 does not meet the "report if negative" bar, so the
+scoreboard rule says stay quiet on followers and this entry exists only as the record.
+
+Worth keeping in view rather than reporting: 177 on 08-31 to 189 now is 12 over 2 weeks, and all
+of it landed in the first week. This week added nothing net, and there was a 5 follower drop on
+09-09.
+
+### The one thing this changes
+
+The gate on `4011` SEASONAL, Cesa's Instagram, is no longer a theoretical risk. The gate on
+`2952` on that same account demonstrably stopped the only real keyword lead the account has ever
+had from converting without human rescue. `4011` still has it, and 62 nights of seasonal content
+are about to run. The recommendation to remove it stands and is now evidence backed rather than
+argued from principle. Still Amanda's call, still not touched.
