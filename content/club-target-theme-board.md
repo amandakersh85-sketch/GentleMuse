@@ -2,10 +2,12 @@
 
 ## How the board actually gets here
 
-`club.target.com` is hard blocked from Claude's network. Gateway returns 403 on
-CONNECT. Verified 31 Aug 2026 five ways: direct curl, `www.target.com`, headless
-Chromium (same wall, it is network policy not a browser problem), the tile image
-CDN `d3k81ch9hvuctc.cloudfront.net`, and `obs.duel.me`. All 403. Do not re-test.
+**Updated 14 Sep 2026.** The egress policy has loosened. `obs.duel.me` and the
+tile image CDN `d3k81ch9hvuctc.cloudfront.net` now both return 200, so the old
+"everything is 403" note below is out of date and the challenge names are readable
+without her. Only `club.target.com` itself still fails, and not on the network: it
+resolves fine and is simply a JavaScript app behind her login that serves an empty
+shell to any non-browser client. Do not re-test that one.
 
 **The route in is Gmail.** Club Target emails the week's challenges every Monday
 around 8 AM Central from `target@duel.technology`. The email carries the direct
@@ -30,27 +32,74 @@ appears to be a long running evergreen one. Challenges accumulate rather than
 replace, which is the whole argument for a batched store run every 2 to 3 weeks
 instead of a weekly trip.
 
-## LIVE NOW, dropped 7 Sep 2026, "Fresh Ideas to Fuel Your Creativity"
+## HOW TO NAME A CHALLENGE WITHOUT ASKING HER. Works as of 14 Sep 2026.
 
-Only 3 this week, not the usual 4. No seasonal steer in the subject line.
+**The tile image CDN is no longer blocked.** `d3k81ch9hvuctc.cloudfront.net`
+returns 200. So do `obs.duel.me` and `indd.adobe.com`. Only `club.target.com`
+itself is still unreadable, because it is a JavaScript app behind her login.
 
-| Link | Name | Hashtag | Closes |
+That means the challenge NAMES can be read straight out of the weekly email with
+no input from Amanda at all:
+
+1. `mcp__Gmail__get_thread` with `messageFormat: FULL_CONTENT`. The result is too
+   large to read inline, so parse the saved file with python3.
+2. Pull `htmlBody` and regex every
+   `cloudfront.net/company/SmsXRV/images/<id>.png`, keeping first-seen order.
+3. `curl` each one. The challenge tiles are the square-ish ones, roughly 521x542
+   in a 3-challenge week and 521x530 in a 4-challenge week. Skip the 223x73
+   buttons, the 561x249 banners and the 1201-wide creator spotlight.
+4. Read the PNGs. Each tile carries the challenge name, a one-line brief, the
+   eligible platforms and the tier gate.
+5. Tile order matches challenge-link order in the plaintext body.
+
+**The tiles do NOT carry the hashtag or the closing date.** Those still only come
+from the challenge card in the portal. So this method gets the name and the brief
+for free, and Amanda only needs to supply the tag.
+
+## LIVE NOW, dropped 14 Sep 2026, "Switch Up Your Content This Season"
+
+4 challenges. All Instagram plus TikTok, all Tier 3+.
+
+| Link | Name | Brief | Hashtag |
 | --- | --- | --- | --- |
-| https://club.target.com/t/0pdf | unknown | unknown | unknown |
-| https://club.target.com/t/0pdm | unknown | unknown | unknown |
-| https://club.target.com/t/0pdq | unknown | unknown | unknown |
+| `t/0pp2` | **Meet Target Beauty Studio** | Explore Target's new beauty destination and share your faves in a haul or first-look review | unknown |
+| `t/0pp9` | **The Fall Outfit Edit** | Share a GRWM with the layers, denim and wardrobe staples you'll style all season | unknown |
+| `t/0q0x` | **Set the Halloween Vibe** | Create a decorate-with-me moment featuring seasonal touches transforming your space | unknown |
+| `t/tt7` | **Share your budget finds** | Repeatable. "Anytime you spot something you love, you can come back to this challenge once a month" | unknown |
 
-## CONFIRMED HASHTAGS, learned from Amanda's own posts 5 to 6 Sep
+`tt7` is the evergreen slot, the same role `txd` played in August. It is explicitly
+monthly and repeatable.
 
-She filmed the store run and the captions carry the real tags. These are now known
-good, no guessing involved:
+**The Fall Outfit Edit asks for a GRWM.** Amanda is not on camera, so the standard
+read does not fit. Her denim rack footage and the dress and sweater she bought can
+carry a layering flat-lay or rack-to-cart version instead. Worth confirming with her
+before producing.
 
-| Theme | Hashtag | Status |
-| --- | --- | --- |
-| Labor Day Find | `#TargetLaborDayFind` | published 5 Sep, banked |
-| Active Style | `#TargetActiveStyle` | published 6 Sep, banked |
-| Quick Meals | `#TargetQuickMeals` | queued 8 Sep |
-| Home For Fall | `#TargetHomeForFall` | queued 10 Sep |
+## Dropped 7 Sep 2026, "Fresh Ideas to Fuel Your Creativity". NAMES NOW KNOWN.
+
+3 challenges. All Instagram plus TikTok, Tier 3+.
+
+| Link | Name | Brief | Hashtag |
+| --- | --- | --- | --- |
+| `t/0pdf` | **On The Menu: Wellness Refresh** | A "what I eat in a day" with feel-good bites and sips | unknown |
+| `t/0pdm` | **Game Day Lineup** | "Turn your tailgate must-haves into a packing checklist for kickoff and beyond" | unknown |
+| `t/0pdq` | **Family Game Night Finds** | Share how you spend family time and turn it into a content moment | unknown |
+
+### Game Day Lineup: the apparel reading was wrong
+
+The tile settles it. The brief says **tailgate must-haves as a packing checklist**,
+and the artwork is an Igloo cooler, a handheld fan and a pack of Olipop. It is gear
+and drinks, not clothing.
+
+Amanda shot **sportswear** on 12 Sep. That is the wrong read and would likely score
+0. She already offered to go back for chips, dips and drinks. She should. Add a
+cooler and a portable fan to the list if the store has them.
+
+### Family Game Night Finds: her 12 Sep footage fits
+
+She filmed the entire gaming wall and framed it as family game night. The tile shows
+LEGO, a window cling kit and Jackpot Roll. Direct match, no reshoot needed.
+
 
 ## Dropped 31 Aug 2026, "Start Your Fall Content Refresh", "Start Your Fall Content Refresh"
 
