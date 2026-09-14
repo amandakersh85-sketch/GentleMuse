@@ -2106,3 +2106,50 @@ A run's status describes the automation, not the conversation. The thread was 1 
 **New rule, added to AGENT-CONTRACT.md as 0-THREAD: read the thread before replying to
 anything.** An expired or failed automation run is evidence about the automation. It is not
 evidence that nobody answered.
+
+---
+
+## DAILY SYNC 2026-09-14. CLEAN. PLUS 1 CAPABILITY THAT BROKE.
+
+Nothing to sync. All 3 gated automations (`4009`, `4010`, `4011`) still at zero runs. Swept all
+52 active automations: no new runs, no new failures. The only failures on record remain the 2
+error 20102s on `445` from 2026-08-28. Subscribers byte-identical to yesterday: nobody
+unconfirmed, nobody active at 0 sends, and after removing Amanda's own addresses nobody meets
+the 12-send check. `amanda@gentlemuse.co` holding at 12 sends and 0 opens, excluded by rule.
+
+### Amanda fixed FALLFIT herself
+
+`2277` was updated 2026-09-14 at 12:09 UTC, about an hour before this job fired. It went from
+"IG FALLFIT — NEEDS SKU, cardigan 94430282 is dead" pointing at the bare storefront, to
+"IG FALLFIT — Universal Thread Crewneck Pullover" with a direct item link, SKU `94966870`, and
+rewritten copy. The open NEEDS SKU flag on this automation is cleared. Storefront fallback is
+gone, which matters because a bare storefront on an affiliate post is the weaker pattern.
+
+### THE SKU VERIFICATION METHOD NO LONGER WORKS. DO NOT USE IT.
+
+The method recorded earlier in this file, that a dead Target SKU page returns HTTP 200 at
+roughly 144KB containing "Item not available" while a live page runs 320KB to 877KB, **stopped
+discriminating between live and dead.** Checked today:
+
+| URL form | Result |
+|---|---|
+| `target.com/p/-/A-94966870` (the new SKU) | HTTP 200, 37,697 bytes, empty `<title>`, contains "Item not available" AND 11 bot markers and 3 captcha markers |
+| `target.com/p/-/A-94430282` (the SKU known dead) | HTTP 200, 38,592 bytes, same shape, same markers |
+| `club.target.com/s/amanda.20/_/sku/...` (both) | **HTTP 403, 3.3KB, "Just a moment..."** Cloudflare challenge |
+
+Both SKUs now return the same thing, so the size and string test cannot tell them apart. The
+37KB response is a bot-challenge shell, not a product page, and the "Item not available" string
+is in that shell's template regardless of the product. The affiliate URL form is outright 403.
+
+**So this sync cannot confirm whether SKU `94966870` is live.** Not confirmed dead either. It
+is unverifiable from here today, and reporting either way would be reporting from a source that
+cannot see the thing, which rule 0-MEASURE exists to prevent.
+
+**What to do instead, until a working method exists:** Amanda taps her own link on her phone.
+That is 5 seconds and it is authoritative. Do not substitute a scrape that returns the same
+bytes for a live and a dead product.
+
+**If a programmatic check is wanted later**, the candidates are Target's own product API rather
+than the storefront HTML, or a headless browser that solves the challenge, and neither has been
+tested. Until one is tested and shown to separate a known-live SKU from a known-dead one, the
+honest answer to "is this affiliate link alive" is that it needs a human tap.
