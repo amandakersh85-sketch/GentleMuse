@@ -1573,3 +1573,91 @@ Needed from Amanda.
    holds 4. That is a production instruction, not an observation.
 3. Open the Sarah Winchester Facebook file. 4 views against a 230 sibling on the
    same day is a broken-file signature, not audience behaviour.
+
+---
+
+# Day 7 scrub — 2026-09-15 (02:30 UTC / 09-14 21:30 CT)
+
+Blotato analytics, full corpus since 09-08.
+
+## The Day 6 finding was half right. Here is the corrected version.
+
+Day 6 said "below 5 seconds the post dies regardless of what is in it." Two new
+posts contradict that: a Cesa reel at 3.93s did **166 views**, another at 4.91s
+did **154**. That is not dying.
+
+The new data says something sharper, and it reverses the usual advice.
+
+**Completion rate does not drive reach. Absolute seconds watched does.**
+
+| Reel | Clip length | Avg watch | Completion | Views |
+|---|---|---|---|---|
+| She still comes to find me | 24s | **11.28s** | 47% | **1,592** |
+| Bath day | 34s | **7.91s** | **23%** | **943** |
+| Does not look up once | 12s | 6.93s | 58% | 217 |
+| Scatters it, then eats it | 16s | 5.51s | 34% | 176 |
+| **Stops every few seconds** | **8s** | 5.56s | **70%** | **145** |
+| **Black and gold girl** | **8s** | 3.93s | **49%** | **166** |
+
+Read the 2 bolded rows against the top 2.
+
+- The **8 second clip with 70% completion** did 145 views.
+- The **34 second clip with 23% completion** did 943 views.
+
+The clip people finished did 6.5x worse than the clip most people abandoned. A
+70% hold on 8 seconds is 5.6 seconds. A 23% hold on 34 seconds is 7.9 seconds.
+Instagram paid for the seconds, not the percentage.
+
+**Production instruction: stop shipping 8 second clips.** Cut Cesa footage at 25
+to 40 seconds and let retention fall. The ceiling on a short clip is the clip.
+
+Subject still sets the floor. Cesa at 3.93s did 166 while non-Cesa at 4.53s
+(lint screen) did 58 and 4.39s (Amanda, "Becoming her") did 21. Seconds watched
+sets the ceiling, subject sets the floor.
+
+## Instagram volume: fixed
+
+| Platform | 09/11 | 09/12 | 09/13 | 09/14 |
+|---|---|---|---|---|
+| **Instagram** | 3 | 2 | 2 | **5** |
+| TikTok | 5 | 7 | 4 | 4 |
+| Facebook | 3 | 4 | 4 | 3 |
+| YouTube Shorts | 3 | 3 | 3 | 2 |
+
+Instagram cleared the 3 to 4 target for the first time in the campaign. YouTube
+slipped to 2.
+
+## Club Target
+
+**New post: TikTok 7042258, the denim wall, 09/14 16:01 UTC.** `#TargetDenimEdit`,
+which maps to the **Find Your Denim** challenge (TikTok, 30 points, expiring
+around 09/20).
+
+**Calling this correct, not a violation, and saying why.** It names Universal
+Thread, but it is a slow pass down a whole rack under the Denim Collective sign.
+No single item is picked up, held, or singled out. That is the storefront case
+the hard rule explicitly allows. `#TargetPartner` is on line 1 and the full
+disclosure sentence is in the body. Noting the reasoning so this does not get
+re-flagged every night.
+
+**45 points left on the table from the same trip.** Find Your Denim also pays
+IG Reel 30 and IG Story 15, and this only went to TikTok.
+
+**Still outstanding:** the 09/12 Wellness Reset TikTok names FlavCity instant
+coffee and Dr Teal's Calm and Serenity with only a storefront link. Those are 2
+specific products. That one is a real violation and still unfixed, 3 days on.
+
+## Tracking items
+
+1. **Trivia on Instagram:** Hocus Pocus published 09/14 15:00, too new to read.
+   Prior clean seasonal cards remain 1, 2, 3, 3 against the 37 watermark
+   baseline. Facebook band holding 193 to 1,011.
+2. **10,000 view Cesa breakout:** no. Best in campaign window is 1,592.
+3. **Volume:** Instagram fixed, YouTube slipped.
+4. **Watermarks and AI badges:** none new.
+5. **Product posts missing a SKU:** the 09/12 Wellness Reset TikTok, unchanged.
+
+## Follower count
+
+Still not updated. Last known 188 manual on 09/12 against a 190 start. Needed
+from Amanda.
