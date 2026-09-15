@@ -2153,3 +2153,91 @@ bytes for a live and a dead product.
 than the storefront HTML, or a headless browser that solves the challenge, and neither has been
 tested. Until one is tested and shown to separate a known-live SKU from a known-dead one, the
 honest answer to "is this affiliate link alive" is that it needs a human tap.
+
+---
+
+## DAILY SYNC 2026-09-15. FOLLOWGATE IS BACK, ON 7 AUTOMATIONS. FLAGGED, NOT REMOVED.
+
+Nothing to sync. All 3 gated automations still at zero runs, all 59 active automations swept
+with no new runs and no new failures, subscribers clean. 1 thing fired the report rule.
+
+### The 7
+
+All created yesterday, 2026-09-14 between 17:03 and 17:08 UTC. All on Amanda's Instagram
+`45886`. All active. All carrying an identical `followGate`:
+
+> "Almost. Tap follow first so this actually reaches you, then hit the button below and I'll
+> send the link right over."  Button: "I'm following"
+
+| id | keyword | product | link |
+|---|---|---|---|
+| `6938` | DENIM | Universal Thread High-Rise Straight Jeans | direct SKU `94332983` |
+| `6939` | SPOOKY | Hyde and EEK! 3pc Ceramic Ghosts | direct SKU `94895169` |
+| `6940` | FLAVCITY | Coffee with Benefits Variety Pack | direct SKU `95123340` |
+| `6941` | KUROMI | A-Sha Kuromi x KATSEYE Popping Boba | direct SKU `1011093652` |
+| `6942` | GAMENIGHT | Target game aisle | storefront |
+| `6943` | GAMEDAY | Target game day run | storefront |
+| `6945` | FALLPICKS | Target fall rack | storefront |
+
+**Flagged and not touched**, per the standing instruction: if a followGate appears, flag it and
+name it rather than removing it. All 7 carry proper Target partner disclosure in the DM.
+
+### The honest read, because the rule and the situation are not identical
+
+The rule was written on 2026-08-30, when 5 automations briefly gained a followGate and Amanda
+had all 5 removed the next day. The reasoning then: with zero real keyword usage, a gate could
+only add friction to the one thing that converts. Those 5 were **lead magnets** (CESA, RESET,
+CONSIDER, PLAY, GUIDE).
+
+**These 7 are affiliate posts, and that is a different trade.** A follow is 1 tap, not an email
+address typed into a DM. And follower count is the thing standing between her and Club Target at
+500, so on Target content specifically a follow gate buys something the lead magnets never got.
+
+Against it: we now have evidence, not theory, that a gate on this account costs real leads. The
+emailGate on `2952` demonstrably stopped the only real keyword lead @cesasgoldenyears has ever
+had, and Amanda had to rescue it by hand. A followGate is the same shape of obstacle placed on
+the step that converts, and the account has never had a single real affiliate keyword use to
+lose. 0 runs on all 7 so far.
+
+**Claude's recommendation: leave these 7 and watch them, but only because the follower threshold
+is a real goal and 1 tap is a small ask.** If a run on any of the 7 ever shows a person hitting
+the follow gate and not coming back, that settles it and the gate comes off. Until then this is
+a defensible experiment rather than a repeat of the August mistake. Amanda's call either way.
+
+Also noted without objection: 3 of the 7 point at the bare storefront rather than a direct item
+link. On a single-product post that is the weaker pattern, but `GAMENIGHT`, `GAMEDAY` and
+`FALLPICKS` are aisle and rack runs rather than 1 product, so a storefront is arguably the right
+destination for them.
+
+### A SCHEMA CHANGE THAT SILENTLY BROKE A CHECK
+
+**Blotato moved every automation from `trigger` (object) to `triggers` (array).** All 65
+automations now use the array shape. Nothing in the payload announces this.
+
+The first duplicate-keyword check this morning read `a['trigger']['keywords']`, found no such
+key, and reported "no duplicate keywords" after examining nothing at all. It looked like a pass.
+Re-run against both shapes, the real answer is also **none**, so no harm this time, but the
+check was vacuous and would have reported clean through an actual collision.
+
+**Any script or routine keyed on `trigger` needs updating to read both.** The pattern that works:
+
+```python
+def keywords(a):
+    out = []
+    if 'trigger' in a:  out += a['trigger'].get('keywords', []) or []
+    for t in a.get('triggers', []) or []:  out += t.get('keywords', []) or []
+    return out
+```
+
+Worth generalizing: a check that returns "clean" because the field it reads no longer exists is
+worse than no check, because it produces confidence. Same family as rule 0-MEASURE.
+
+### Everything else, 2026-09-15
+
+Gates: still exactly 3, `4009` `4010` `4011`, all SEASONAL. `2771` `2772` `445` `432` `2952`
+still ungated, correct. No duplicate keywords, both shapes checked. No new runs or failures
+anywhere. No subscriber unconfirmed, none active at 0 sends. The 12-send check after removing
+Amanda's own addresses: nobody, and the highest real count is christine at 7 sends with 1 open,
+which disqualifies her regardless. `amanda@gentlemuse.co` now at 13 sends and 0 opens, climbing
+as predicted, excluded by rule and not surfaced. A campaign went out this morning: Laura to 4
+sends and 4 opens, christine to 7.
