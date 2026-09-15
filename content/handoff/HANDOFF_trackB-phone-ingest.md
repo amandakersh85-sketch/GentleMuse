@@ -113,9 +113,11 @@ Turmeric Jelly Gel Mask tag she did not get. Leave it broken and note it.
 
 # HOW SHE FILMS. Fixed. Do not plan around anything else.
 
-- **She is not on camera. Ever.** No face, no body, no fitting room, no try-on, no
-  hands-in-frame talking piece. Never write a shot, a script beat, or a caption
-  that implies she appeared in the video.
+- **Whether she is on camera VARIES. Do not assume either way.** She said on
+  12 Sep she would stay off camera, then published an on-camera fitting room post
+  on 15 Sep. Her older work is talking head. **Cut what the footage actually
+  contains**, look at the frames before writing a caption, and never claim a shot
+  the footage does not have. See `content/canon/filming-method.md`.
 - **Product and aisle footage only.** Shelf, rack, endcap, the item picked up and
   turned, the item in the cart. That is the whole vocabulary.
 - **She may not record a voiceover.** Build every edit so it works silent, carried
