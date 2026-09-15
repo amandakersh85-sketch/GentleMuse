@@ -184,12 +184,15 @@ questions. Ask there.
 
 ## A STYLE CHANGE YOU NEED TO KNOW ABOUT
 
-Her published Club Target videos are **talking head**: she is on camera, speaking,
-holding products. That is the existing body of work.
+Her mode varies and you cannot assume one. Published Club Target work through
+12 Sep is **talking head**, on camera, speaking. The 14 Sep denim TikTok is
+**silent b-roll**, no face. The 15 Sep fall fits post is **on camera in a fitting
+room**, despite her saying on 12 Sep she would not do one.
 
-**Going forward she is not on camera and may not record voiceover.** She confirmed
-this on 12 Sep. The new footage is silent b-roll: shelf, rack, endcap, item picked
-up and turned. No face, no fitting room, no try-on.
+**Cut what the footage actually contains.** Look at the frames before writing a
+caption, never claim a shot the footage does not have, and ask her before planning
+a shoot. See `content/canon/filming-method.md`. She may still decline to record a
+voiceover, so build every edit to work silent.
 
 That changes the hook. With no face and no voice, the first 2 seconds are carried
 by the on-screen text line and the strongest frame. Lead with the frame. And note
