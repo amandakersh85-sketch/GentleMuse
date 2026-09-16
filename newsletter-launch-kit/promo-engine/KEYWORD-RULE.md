@@ -2241,3 +2241,169 @@ Amanda's own addresses: nobody, and the highest real count is christine at 7 sen
 which disqualifies her regardless. `amanda@gentlemuse.co` now at 13 sends and 0 opens, climbing
 as predicted, excluded by rule and not surfaced. A campaign went out this morning: Laura to 4
 sends and 4 opens, christine to 7.
+
+---
+
+## Daily lead sync 2026-09-16 — the rename pass moved one keyword, and a different dead instruction turned up
+
+Yesterday's sync caught 25 automations rewritten between 15:22 and 19:36 on 09-15, a lead-magnet
+renaming pass. The risk in a rename pass is always the same: the caption says the new word while
+the automation still listens for the old one, or the reverse. Today's job was to check that
+against the actual posts rather than assume.
+
+### The one keyword that moved
+
+`451` is the **only** automation in the entire 25-automation pass whose keyword changed.
+
+| | |
+|---|---|
+| was | `IG SESSION — Decision Session LIVE`, keywords `SESSION` / `session` / `Session` |
+| now | `IG DECISION — The Decision Map LIVE`, keywords `DECISION` / `decision` / `Decision` |
+
+Every other renamed automation kept its original keyword. `448` went from Paycheck Planner to
+"Done Reacting to Money" and still listens on BUDGET. `435`/`2778` still listen on RESET.
+`1422`/`1424` still listen on GUIDE.
+
+### Is `SESSION` now a dead instruction anywhere? No. Checked properly.
+
+Read **every post in the account** from 2026-08-01 to 2026-10-31: 922 posts, 709 published,
+200 scheduled, 13 failed, across all 7 platforms. Extracted every "comment X" instruction.
+
+| instructed | count | listening automation |
+|---|---|---|
+| SEASONAL | 84 | `4009` `4010` `4011` |
+| CESA | 81 | `2952` `445` `432` |
+| GUIDE | 26 | `1424` `1422` |
+| PLAY | 21 | `1019` `1020` |
+| CONSIDER | 18 | `2954` `1394` `1393` |
+| TUESDAY | 12 | `2771` `2772` |
+| RESET | 6 | `2778` `435` |
+| FALLFIT | 1 | `2277` |
+| DISHWASHER | 1 | `6024` `5215` |
+| **AI** | **14** | **nothing** |
+
+**Zero posts anywhere say "comment SESSION."** The rename cost nothing. The mirror of that is
+also true and worth writing down: **`DECISION` now has no posts driving it.** `451` is live and
+listening for a word nobody is being told to comment, which is not a leak, just an idle
+automation waiting on copy that does not exist yet.
+
+### THE ACTUAL FINDING: 14 live Instagram posts say "Comment AI" and no automation listens for AI
+
+All 14 are from the Day-of-60 run, published 2026-08-01 through 2026-08-16, and every one closes
+with the same line:
+
+> **Comment AI for the guide.**
+
+The AI guide automations are `1424` (IG) and `1422` (FB) and they listen on **GUIDE**, not AI.
+Anyone who followed that instruction literally got nothing back. The posts are still up.
+
+| post | date | post | date |
+|---|---|---|---|
+| `6187823` | 08-16 | `5951044` | 08-07 |
+| `6140500` | 08-14 | `5922781` | 08-06 |
+| `6112265` | 08-13 | `5894246` | 08-05 |
+| `6083886` | 08-12 | `5865545` | 08-04 |
+| `6028382` | 08-10 | `5836986` | 08-03 |
+| `6001943` | 08-09 | `5811007` | 08-02 |
+| `5977508` | 08-08 | `5787504` | 08-01 |
+
+**What it has cost so far: nothing, and the reason is its own finding.** Queried comments on
+each of the 14 posts individually rather than trusting the 30-day comment window, which only
+reaches back to 08-15. All 14 returned **zero comments**. Not zero AI comments. Zero comments of
+any kind. Fourteen consecutive AI-guide posts drew no engagement at all, which lines up with
+LEAK-SWEEP-0830: the AI Guide and Press Play groups have never had a single subscriber despite
+live keywords.
+
+So this is a dead instruction that has never been followed. It still wants fixing, because the
+back catalogue is what a new follower scrolls, and the fix is one keyword added to two
+automations.
+
+**Not touched. Keyword changes are Amanda's call.** The change if she wants it: add `AI` / `ai` /
+`Ai` to `1424` and `1422` alongside the existing GUIDE variants. Nothing else moves, no caption
+gets edited, and the 14 posts start working retroactively.
+
+### Two label mismatches from the rename pass, flagged not touched
+
+Both are cosmetic and both sit inside the DM the contact receives:
+
+- `448` is now "Done Reacting to Money" but its button still reads **"Paycheck Planner"** →
+  `payhip.com/b/96U8s`
+- `451` is now "The Decision Map" but its button still reads **"Decision Session"** →
+  `payhip.com/b/upvAa`
+
+Also: 2 Pinterest pins published 08-19 and 08-21 (`6277145`, `6335670`) still sell the product
+under the old name "Paycheck Planner," as do 4 Day-48 posts from 08-15 across IG, TikTok, FB and
+YouTube. Those are published copy on a link-out platform, not comment keywords, so nothing leaks.
+Listed only so the rename is known to be partial.
+
+### Case coverage: checked exhaustively, zero gaps
+
+Amanda's rule is that a keyword missing a case variant is a leak. Checked all three cases
+(UPPER / lower / Title) on every live automation carrying a keyword that any post instructs.
+22 automations, **no gaps**. `2277` FALLFIT carries a fourth variant, `FallFit`.
+
+It also works in practice, not just on paper. The single real lowercase keyword comment in the
+record — `1997223`, the word `guide` typed in lowercase on 08-17 — fired run `32587` on `1424`
+and **completed**. The lowercase path is proven, not assumed.
+
+### Runs sweep: all 59 active automations, and nothing has fired in 11 days
+
+| automation | triggered | completed | failed |
+|---|---|---|---|
+| `435` RESET (IG) | 1 | 1 | 0 |
+| `445` CESA (IG) | 4 | 2 | 2 |
+| `1424` GUIDE (IG) | 1 | 1 | 0 |
+| `2952` CESA (Cesa IG) | 2 | 1 | 0 (1 expired) |
+| **all other 55** | **0** | **0** | **0** |
+
+Every run is baseline and already recorded. The 2 failures on `445` are the known 08-28 `20102`
+pair, both from contact `1048429878116670`, Amanda's own account. **The most recent run anywhere
+in the system started 2026-09-05.** Eleven days, no keyword activity from anyone.
+
+**The number worth sitting with: `4009`/`4010`/`4011` SEASONAL have triggered 0 times, ever,
+against 84 posts instructing SEASONAL.** That is the most-instructed keyword in the account by a
+wide margin and the least used. It is also the keyword the 62 winter nights are built on, and
+`4011` still carries an emailGate. Both already-open flags point at the same place.
+
+### MailerLite
+
+14 records. 7 are Amanda's own and never count as audience. 7 real: **5 active**
+(artine, Shaniya, Laura, christine, Mary), **2 suppressed** (Nadia, Melissa, both
+`status: unsubscribed` since 09-08, both still present, correct — never deleted).
+
+No subscriber unconfirmed. None active at 0 sends. No new subscriber since artine on 09-09.
+
+**12-send check, exclusion list applied first as the rule requires: nobody qualifies.** Highest
+real send count is christine at 7, and she has 1 open, which disqualifies her regardless.
+`amanda@gentlemuse.co` is at 13 sends and 0 opens and `princesamaryelizabeth@gmail.com` at 10
+and 0 — both Amanda's, both excluded by rule before the check runs, neither surfaced. The
+ordering fix from 09-10 is doing exactly what it was written to do.
+
+Open rate across real audience only, Amanda's 7 addresses removed: **7 opens on 39 sends, 17.9%**
+counting the 2 suppressed records, **7 on 21, 33.3%** counting only the 5 active.
+
+One movement: Shaniya's record updated 2026-09-15 19:36:18, inside the same window as the Blotato
+rename pass. Her `sent` is unchanged at 2, so no email went out to her. Field or group touch only.
+
+### Queue health
+
+13 failed posts in the whole Aug 1 → Oct 31 window, all between 08-21 and 09-01, all previously
+recorded: 11 Twitter media-upload failures, 1 TikTok URL-ownership failure on Day 59, 1 Facebook
+video-processing failure on the 09-01 Cat & Jack `#ad`. **Zero failures in the last 15 days.**
+
+The scheduled queue ends **2026-10-31**. The 62 winter nights begin 2026-11-01. The runway and
+the draft meet with no gap and no overlap.
+
+### Unchanged from yesterday
+
+Gates still exactly 3: `4009` `4010` `4011`, all SEASONAL. followGate still on the same 7
+Target automations (`6938`–`6943`, `6945`), flagged 09-15, still 0 runs each. `2771` `2772`
+`445` `432` `2952` still ungated, correct. No duplicate keywords, both schema shapes checked.
+No automation added or removed; 65 total, 59 active.
+
+### Waiting on Amanda
+
+1. Add `AI` / `ai` / `Ai` to `1424` and `1422`, or decide the 14 posts stay dead.
+2. Remove the emailGate from `4011` SEASONAL before the 62 nights start.
+3. The followGate on the 7 Target automations: leave and watch, or remove.
+4. Button labels on `448` and `451`.
