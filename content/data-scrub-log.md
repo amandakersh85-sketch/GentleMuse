@@ -1661,3 +1661,136 @@ specific products. That one is a real violation and still unfixed, 3 days on.
 
 Still not updated. Last known 188 manual on 09/12 against a 190 start. Needed
 from Amanda.
+
+---
+
+# Day 8 scrub — 2026-09-16 (02:31 UTC / 09-15 21:31 CT)
+
+## First, a correction, and a change in how I report
+
+Day 6 said watch time under 5 seconds kills a post. Day 7 corrected that to
+"seconds watched sets the ceiling, cut at 25 to 40 seconds." **Day 8 data breaks
+Day 7 too.**
+
+The 09/14 post "The full spa treatment" is a **34 second clip**, exactly what Day
+7 prescribed. It did **137 views** at 4.60s watch. And "19 years old and she
+still walks out front," at 6.09s watch, did **60 views**, while a 6.72s post 2
+days earlier did 290.
+
+Three nights, three mechanisms, each one contradicted by the next 2 days of
+data. I have been calling a cause off 3 or 4 posts and then walking it back.
+**That stops.** From here this log reports the trend and the clean natural
+experiments, and names a mechanism only when a deliberate test separates it.
+
+## The trend, stated without a theory attached
+
+Every Cesa Instagram reel this campaign, by publish date:
+
+| Date | Reel | Views | Watch |
+|---|---|---|---|
+| 09/08 | Party era | 101 | 3.81s |
+| 09/09 | 3 second stare | 223 | 5.10s |
+| 09/09 | Does not look up once | 217 | 6.93s |
+| 09/09 | Stops every few seconds | 145 | 5.56s |
+| 09/10 | Bath day | **943** | 7.91s |
+| 09/11 | She still comes to find me | **1,592** | 11.28s |
+| 09/12 | She flipped over | 290 | 6.72s |
+| 09/13 | Black and gold girl | 166 | 3.93s |
+| 09/13 | POV peed in office | 154 | 4.91s |
+| 09/14 | Full spa treatment | 137 | 4.60s |
+| 09/14 | Walks out front | **60** | 6.09s |
+
+Peak 09/11, monotonic decline every day since. 1,592 to 60 in 3 days. The
+decline runs through fresh footage and reposts alike, so it is not explained by
+either one on its own.
+
+## The one clean natural experiment in the data
+
+Two of the 09/14 posts are **the same footage Instagram already published**:
+
+| Footage | First run on IG | Re-run on IG | Change |
+|---|---|---|---|
+| "Walks out front" | 09/03: **2,972** | 09/14: **60** | **50x down** |
+| Bath day | 09/10: **943** | 09/14: **137** | **7x down** |
+
+Same account, same subject, same footage, different caption. Both cratered.
+
+That is a real signal and it is worth acting on, but it does not explain the
+whole decline, because the 09/12 and 09/13 posts were fresh to Instagram and
+they fell too (290, 166, 154).
+
+**Two things fit, and I am not picking between them tonight:**
+
+1. **Instagram is discounting re-published footage**, and the 09/14 pair are
+   the visible edge of it.
+2. **The account is coming down off the 09/11 spike**, and the re-runs happened
+   to land at the bottom of that slide.
+
+**The test that separates them:** on 1 day, post 1 fresh-to-Instagram Cesa reel
+and 1 re-run, at comparable times. If the fresh one lands near the day's trend
+and the re-run lands well under it, it is re-publishing. If both land the same,
+it is the slide. Until that runs, neither goes in the log as a finding.
+
+Worth noting for whoever schedules: **the queue is heavy with re-runs.** That is
+the lever this test decides the value of.
+
+## COMPLIANCE: the FALLFIT reel, published 09/15 16:30 UTC
+
+**Instagram reel DdUJLHTlaM5, `#TargetFallFits`.** The caption names what she is
+wearing: "the rust floral midi," "the ribbed knit dress with the olive cardigan
+over it." It carries **no product link at all.** The CTA is "Comment FALLFIT and
+I'll send you the sweater."
+
+Two problems:
+
+1. **Hard rule violation.** A named, worn product with no link in the caption.
+2. **The promise does not deliver.** On 09/09 the FALLFIT automation was found
+   pointing at SKU 94430282, which 404s, and was repointed to the **storefront**
+   as a stopgap. So "I'll send you the sweater" currently sends a storefront
+   link. Anyone who comments gets the wrong thing.
+
+**Fix needs Amanda:** the SKU for the olive cardigan and the ribbed knit dress.
+Target's search is captcha walled here. Once she has them, the caption gets the
+cardigan link and the FALLFIT automation gets repointed off the storefront.
+
+Still outstanding from 09/12: the Wellness Reset TikTok, FlavCity instant coffee
+and Dr Teal's Calm and Serenity, storefront only. **4 days now.**
+
+## Something new and good: the first Instagram Story of the campaign
+
+**09/15 22:00 UTC, "Fall fits from my Target run. Full reel's on my page."**
+
+That is the first Story in the whole campaign, and Stories are the cheapest
+points on the Club Target board at 15 each. Paired with the FALLFIT reel it is
+the stacking the board analysis called for on 09/09. Both go to the Fall Style
+challenge family.
+
+## Volume
+
+| Platform | 09/12 | 09/13 | 09/14 | 09/15 |
+|---|---|---|---|---|
+| Instagram | 2 | 2 | 5 | 5 |
+| TikTok | 7 | 4 | 4 | 3 |
+| Facebook | 4 | 4 | 3 | 3 |
+| YouTube Shorts | 3 | 3 | 2 | 3 |
+
+Instagram holding at target for a second day. Note the reach decline ran
+straight through the volume increase, in both directions, so volume is not
+tracking reach either way.
+
+## Tracking items
+
+1. **Trivia on Instagram:** Hocus Pocus 09/14 did **4 views**. Jack o lanterns
+   published 09/15 20:00, too new. The clean seasonal cards now read 1, 2, 3, 3,
+   4 against the 37 watermark baseline. Facebook band holding.
+2. **10,000 view Cesa breakout:** no, and moving away from it. Best is 1,592 on
+   09/11.
+3. **Volume:** Instagram on target 2 days running.
+4. **Watermarks and AI badges:** none new.
+5. **Product posts missing a SKU:** 2 open, the FALLFIT reel and the Wellness
+   Reset TikTok.
+
+## Follower count
+
+Still not updated. 188 manual on 09/12 against a 190 start, 8 days in. Needed
+from Amanda.
