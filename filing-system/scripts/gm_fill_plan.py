@@ -49,6 +49,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 
 import gm_board_snapshot as S  # noqa: E402
+import gm_cadence_check as C  # noqa: E402
 
 DATA = os.path.join(os.path.dirname(HERE), "data")
 MIN_GAP_DAYS = 4          # Amanda, 09/10/2026
@@ -110,8 +111,33 @@ def load_history(path, day=None):
     return items
 
 
-def load_inventory():
+def true_on(text, day):
+    """Whether a caption that states a countdown is true on this day.
+
+    A caption saying "Samhain is 5 nights out" is true on 1 date and false on
+    every other, so it is not fill material. On 09/16 this plan proposed that
+    exact reel for 09/24, 09/28 and 10/02, which would have published a
+    countdown that was wrong by a month. The number lives in the caption and
+    the date it counts to lives in campaign-targets.csv, so nothing here needs
+    a human to remember it.
+
+    A caption with no countdown is true on any day and passes straight through.
+    """
+    from datetime import date
+    stated = S.countdown_in(text)
+    if not stated:
+        return True
+    campaign = C.load_target()
+    if campaign is None:
+        return False          # a countdown with no campaign to check it against
+    n, inclusive = C.countdown_days(stated)
+    out = (date.fromisoformat(campaign["TargetDate"]) - date.fromisoformat(day)).days
+    return (out + 1 if inclusive else out) == n
+
+
+def load_inventory(day=None):
     inv = defaultdict(dict)
+    held = []
     with open(os.path.join(DATA, "staging-library.csv"), newline="") as fh:
         for r in csv.DictReader(fh):
             url = (r.get("MediaUrl") or "").strip()
@@ -119,10 +145,19 @@ def load_inventory():
                 continue
             if (r.get("Status") or "").strip() != "STAGED":
                 continue
-            if not (r.get("Text") or "").strip():
+            text = (r.get("Text") or "").strip()
+            if not text:
                 continue
-            inv[r["Slug"].strip()][r["Platform"].strip()] = (
-                url, r["Text"].replace("\\n", "\n"))
+            text = text.replace("\\n", "\n")
+            if day is not None and not true_on(text, day):
+                held.append(r["Slug"].strip())
+                continue
+            inv[r["Slug"].strip()][r["Platform"].strip()] = (url, text)
+    if held:
+        # stderr, not stdout: --json output is parsed by the caller and a
+        # note printed into it makes the whole plan unreadable.
+        print("held, the countdown they state is not true on %s: %s"
+              % (day, ", ".join(sorted(set(held)))), file=sys.stderr)
     return inv
 
 
@@ -269,7 +304,7 @@ def main():
     if isinstance(queue, dict):
         queue = queue.get("items", [])
     rows = plan_day(args.day, history, queue, S.load_register(),
-                    load_inventory(), load_cta_lines())
+                    load_inventory(args.day), load_cta_lines())
 
     if args.json:
         print(json.dumps(rows, indent=1))

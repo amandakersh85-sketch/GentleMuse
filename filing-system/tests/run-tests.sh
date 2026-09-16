@@ -1006,5 +1006,14 @@ if python3 "$HERE/staging_assert.py"; then
 else echo "FAIL  no staged caption stores a literal backslash-n"; fail=$((fail+1)); fi
 
 echo
+echo "== a countdown proposed for a day it is false on (Run 9, added 09/16) =="
+# gm_fill_plan proposed the Samhain trailer for 09/24, 09/28 and 10/02. It says
+# "5 nights out", which is true on 10/26. C04 would have caught it the next
+# night, after it was scheduled. This catches it before it is proposed.
+if python3 "$HERE/countdown_fill_assert.py" >/dev/null 2>&1; then
+  echo "PASS  a date-locked caption is held off every day but its own"; pass=$((pass+1))
+else echo "FAIL  a date-locked caption is held off every day but its own"; fail=$((fail+1)); fi
+
+echo
 echo "$pass passed, $fail failed"
 [ "$fail" = 0 ]
