@@ -1794,3 +1794,74 @@ tracking reach either way.
 
 Still not updated. 188 manual on 09/12 against a 190 start, 8 days in. Needed
 from Amanda.
+
+---
+
+# THE REPOST TEST — set up 09/16, reads 09/19
+
+Amanda's call: run it. Fresh reel against a re-run.
+
+Both arms were already in the Instagram queue for the evening of **Mon 09/16
+CT**, an hour apart, same account, same subject, same CTA. Nothing was moved or
+added. The only edit was matching the captions so footage is the variable.
+
+## Arm A, FRESH to Instagram
+
+**Blotato 4093134.** "She has opinions about how I pet her." 16 seconds.
+Media `2da183a1-2253-4e6e-b86b-7c0da8864e67.mp4`.
+**Publishes Tue 09/17 00:00 UTC (Mon 09/16 7:00 PM CT).**
+
+Checked against the full Instagram corpus back to 08/14. This footage and this
+caption have never run on Instagram.
+
+## Arm B, RE-RUN of published Instagram footage
+
+**Blotato 4059603.** "She picked the blanket with the gold on it." 8 seconds.
+Media `6f6d36a6-588d-4bd2-a581-e58574a79ce3.mp4`.
+**Publishes Tue 09/17 01:00 UTC (Mon 09/16 8:00 PM CT).**
+
+**The same file already published to Instagram**, as Blotato 6828293 on
+**09/07 16:30 UTC**, reel `Dc_iz4nHdCZ`, which did **445 views**. Byte
+identical media URL, verified against the published record, not inferred from
+the caption.
+
+## The 1 edit made
+
+Arm B's caption was rewritten to match Arm A's structure: hook line, 3
+descriptive lines, a "X seconds of" line, the same "Comment CESA and I'll send
+you her guide" CTA, the same "Follow along for more of her" line, and 5
+hashtags against Arm A's 5. Before the edit it had no hashtags and no follow
+line, which would have confounded discovery.
+
+It is also deliberately a different caption from the 09/07 run, so this is a
+genuine re-post as the queue intends, not a duplicate.
+
+## Confounds, named up front
+
+1. **Clip length differs.** Fresh is 16s, re-run is 8s. This cuts *against* the
+   re-run, so a re-run win would be strong evidence and a re-run loss is
+   partially explainable by length.
+2. **Order.** Fresh publishes first, re-run an hour later. The second run of
+   this test reverses that.
+3. **Cross-platform history.** Arm B also ran on Facebook and TikTok on 09/13.
+   Arm A's history on other platforms is not established.
+
+None of these are fatal. All of them are why this needs a second run before it
+becomes a rule.
+
+## How to read it, decided before the numbers exist
+
+Read at roughly 50 hours, in the 09/19 nightly scrub. Compare 3 ways:
+
+- **Against each other.** Within about 30% of each other means re-publishing is
+  not the mechanism and the account slide is.
+- **Arm B against its own 09/07 run of 445.** A re-run landing near 445 means
+  no penalty at all. Landing at a fraction of it, with the account slide
+  accounted for, means a penalty.
+- **Both against the day's other Instagram posts**, to net out the slide.
+
+**If the re-run is penalised, the queue is the problem.** It is heavy with
+re-runs, and that becomes a scheduling change, not a creative one.
+
+Writing the read criteria down now so the result cannot be fit to whichever
+story is convenient on Friday.
