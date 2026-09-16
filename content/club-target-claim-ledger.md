@@ -7,7 +7,7 @@ Amanda claims these herself on `club.target.com`. Claude cannot: the board is a
 JavaScript app behind a login and every URL returns the same empty shell to a
 non-browser client. Claude's job is to catch each publish and hand over the row.
 
-## Published and awaiting confirmation, 31 Aug to 14 Sep 2026
+## Published and awaiting confirmation, 31 Aug to 16 Sep 2026
 
 | Date (UTC) | Platform | Theme | Live URL |
 |---|---|---|---|
@@ -27,6 +27,9 @@ non-browser client. Claude's job is to catch each publish and hand over the row.
 | 11 Sep | TikTok | #TargetEverydayFavorites | https://www.tiktok.com/@thegentlemuse2026/video/7684060702042049806 |
 | 12 Sep | TikTok | #TargetWellnessReset | https://www.tiktok.com/@thegentlemuse2026/video/7684431735240559886 |
 | 14 Sep | TikTok | #TargetDenimEdit | https://www.tiktok.com/@thegentlemuse2026/video/7685421280316771598 |
+| 15 Sep | Instagram Reel | #TargetFallFits | https://www.instagram.com/reel/DdUJLHTlaM5/ |
+| 15 Sep | Instagram Story | #TargetFallFits | https://www.instagram.com/stories/thegentlemuse2026/3987018006551193598 |
+| 16 Sep | TikTok | #GameDayWithTarget | https://www.tiktok.com/@thegentlemuse2026/video/7686163382914911502 |
 
 One Facebook row failed and never went live: `688849`, 01 Sep,
 #TargetCatandJackSummer, "the video could not be processed". No post, no points.
@@ -56,3 +59,32 @@ disclosure rule was found. Sampled at 0.2s, 0.8s, 2.0s, the midpoint and the end
 
 This is what every Club Target video should look like from now on. If the board
 credits this one and not the earlier ones, the disclosure theory is confirmed.
+
+## 16 Sep: disclosure holding across all three new formats
+
+Checked every Club Target item published 15 to 16 Sep. All three carry
+`#TargetPartner` on screen from the opening frame.
+
+| Post | Format | Opening frame | End card |
+| --- | --- | --- | --- |
+| `7106508` Game Day | TikTok | yes | full tag set |
+| `7075828` Fall Fits | IG Reel | yes | full tag set |
+| `7084030` Fall Fits | **IG Story** | yes, and repeated on every frame | full tag set |
+
+The Story is worth noting. Its caption text is only "Fall fits from my Target run.
+Full reel's on my page", with no hashtags at all. On any other post that would be a
+disclosure failure. On a Story it is fine, because the Scope of Work asks for the
+disclosure **on screen and near the product**, and every frame carries it.
+
+So the rule for Stories is: **judge the frames, not the caption.** A Story caption
+with no tags is not evidence of anything.
+
+## Game Day: the corrected reading shipped
+
+The 7 Sep tile brief is "turn your tailgate must-haves into a packing checklist",
+with a cooler, a fan and Olipop in the artwork. Amanda shot sportswear on 12 Sep,
+which was the wrong read on its own.
+
+The published cut covers both: fan shop wall, then Oh Snap pickles and Lunchables,
+then Factor meals and deli sides. Caption is "half closet, half fridge". That
+satisfies the brief without wasting the apparel footage.
