@@ -211,6 +211,16 @@ Checked directly, not assumed. In the cloud session:
   Metricool, Blotato, Drive and Gmail connectors are all fine.
 - **Target's product API is captcha walled** to non-browser traffic. Product
   pages load through curl, the search API returns 403 with a captcha URL.
+- **Meta's in-app AI assistants cannot be connected to** (checked 09/17/2026).
+  Meta AI inside Instagram, Business Suite, or the business assistant products
+  have no public API and no MCP server. There is nothing to integrate with, so
+  do not promise a connection. The bridge is Amanda pasting what it tells her.
+- **The Meta Ads connector works** but does NOT reach Instagram content. Verified
+  09/17/2026: ad account 1646561496770076 "Amanda Kersh" is ACTIVE and queryable,
+  but `ads_get_ig_accounts` returns an empty list, so @thegentlemuse2026 is not
+  linked to the ad account for advertising. That means Meta is not available as a
+  third data source against the unreliable Metricool feed. Linking the IG account
+  in Meta Business Settings would open that path.
 
 If a task needs a browser, say so immediately and hand it to the laptop
 session. Do not spend Amanda's time working around it.
