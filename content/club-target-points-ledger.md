@@ -971,3 +971,68 @@ carries links only and the names live in tile images that still 403. Amanda has 
 Step 6 of this audit's own prompt says `obs.duel.me` is 403. **That is now stale.**
 It resolved on 13 Sep and served the Scope of Work PDF, which is where the
 disclosure rule came from. Prompt updated.
+
+---
+
+## Audit, 17 Sep 2026 00:08 UTC. Sun/Wed run.
+
+**Clean on every mechanical check. One judgment call worth her attention.**
+
+### 1. TikTok coverage: no gaps
+
+23 themes now appear across her Club Target posts, up from 18 on 14 Sep. **Every
+one has a TikTok row.** Second clean run in a row.
+
+New since the last audit: `#TargetDenimEdit`, `#TargetFallFits`,
+`#GameDayWithTarget`, `#HalloweenDecorAtTarget`, `#TargetPlayPicks`.
+
+### 2. Disclosure
+
+Nothing new published since the 16 Sep check, so no new frames to sample. The
+three items checked then (Game Day TikTok, Fall Fits Reel, Fall Fits Story) all
+carry `#TargetPartner` from the opening frame. Captions all pass.
+
+### 3. Duplicates: none
+
+178 scheduled rows on one fresh pull, zero exact duplicates.
+
+### 4. Failed posts: none in window
+
+No failures between 16 Sep and 16 Oct. The known `688849` Facebook loss is older
+and already logged.
+
+### 5. `#TargetFave` is about to be used a THIRD time
+
+This is the only thing in this run that needs a decision.
+
+| Date | Product | Status |
+| --- | --- | --- |
+| 21 Aug | NYX body line display | published |
+| 9 Sep | Tree Hut pink hibiscus scrub | published |
+| **17 Sep 16:00** | **FlavCity coffee endcap** | **scheduled, `4438227`** |
+
+The audit prompt has warned since 30 Aug that a repeated theme may credit 0. Two
+uses were already a risk. A third inside 4 weeks makes it likely that at least the
+later ones score nothing.
+
+**Not deleting it.** Blotato deletion is permanent and this is her call. Three
+readings are possible and only she can settle it:
+
+1. `#TargetFave` is a genuine repeatable, like Share a Target Find, in which case
+   all 3 are fine and this is a non-issue.
+2. It was a one-time August challenge, in which case 9 Sep and 17 Sep both score 0
+   and the FlavCity cut would be better retagged to an open challenge.
+3. It credits once per month, in which case 21 Aug and 9 Sep both counted and
+   17 Sep is fine.
+
+The portal shows which. Worth 30 points to check before 16:00 UTC today.
+
+**The FlavCity footage is strong either way.** It is the single best product
+close-up in the library and it would carry `#TargetFave` or a retag equally well.
+
+### Queue state
+
+4 Club Target rows scheduled, all TikTok, 17 to 20 Sep. **Then nothing through
+16 Oct.** The 12 Sep footage runs out Sunday. `content/run-sheet-beauty-studio.md`
+covers the next run, and Beauty Studio is still the only open challenge with no
+footage at all.
