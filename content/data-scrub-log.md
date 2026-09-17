@@ -1865,3 +1865,127 @@ re-runs, and that becomes a scheduling change, not a creative one.
 
 Writing the read criteria down now so the result cannot be fit to whichever
 story is convenient on Friday.
+
+---
+
+# Day 9 scrub — 2026-09-17 (02:30 UTC / 09-16 21:30 CT)
+
+Blotato analytics. Both repost test arms published on time: Arm A fresh
+`DdXhd9ciAjV` at 00:00:48 UTC, Arm B re-run `DdXoX1QjaBM` at 01:01:07 UTC with
+the matched caption. Nothing to read there yet, the 50 hour check-in is 09/19.
+
+## The repost test already ran by accident, one day early, and it went the other way
+
+**09/15 CT evening produced the exact structure of Monday's test without anyone
+setting it up:** 2 Cesa reels an hour apart, one fresh to Instagram, one a
+re-run.
+
+| Slot | Reel | Status | Views |
+|---|---|---|---|
+| 09/16 00:00 UTC | "Her seat. Her blanket. Her sunbeam." | **Fresh** | **152** |
+| 09/16 01:00 UTC | "She has her own seat and she yawns in it" | **Re-run** | **199** |
+
+**The re-run beat the fresh one.** Verified by media file, not caption: the
+re-run is `828d7b1c-...mp4`, the identical file Instagram published on 09/05 as
+reel `Dc6ZUa4Db1R`.
+
+## What the re-run evidence actually says now
+
+| Footage | First IG run | Re-run | Change |
+|---|---|---|---|
+| Walks out front | 09/03: 2,972 | 09/14: 60 | −98% |
+| Bath day | 09/10: 943 | 09/14: 137 | −85% |
+| Her own seat | 09/05: 449 | 09/16: **199** | −56% |
+| Blanket with gold | 09/07: 445 | 09/17: pending | — |
+
+Every re-run lands well below its own first run. **But no re-run has yet landed
+below a same-day fresh post.** The only night with both, the re-run won.
+
+Those 2 facts together point at a different reading than Day 8's: **the whole
+account came down, and re-runs are being measured against their own better
+days rather than being specially punished.** A 09/05 post earning 449 and its
+09/16 re-run earning 199 is the same shape as fresh posts falling from 1,592 to
+150 over the same stretch.
+
+That is not a finding yet. Monday's pre-registered test is still the one that
+decides it, and it has a cleaner control: Arm B's own 445 baseline from 09/07.
+Recording this because it is real evidence that arrived early, and because it
+cuts against the direction Day 8 was leaning. Better to have written that down
+before Friday than after.
+
+## The slide reversed
+
+| Date | Cesa Instagram reels |
+|---|---|
+| 09/11 | 1,592 |
+| 09/12 | 290 |
+| 09/13 | 166, 154 |
+| 09/14 | 137, 60 |
+| 09/15 | **152, 199** |
+
+Day 8 called this "monotonic decline every day since 09/11." It bottomed at 60
+and came back. Correcting that phrasing: it was a 4 day slide, not an ongoing
+collapse.
+
+## COMPLIANCE: this is now a pattern, not 3 incidents
+
+**A third Club Target post in 5 days names specific products and carries only
+the storefront link.**
+
+**TikTok 7106508, Game Day lineup, 09/16 16:00 UTC, `#GameDayWithTarget`.**
+Names **Oh Snap pickles, Lunchables, and Factor meals.** Link:
+`https://club.target.com/a/amanda.20`.
+
+The open list:
+
+| Post | Date | Products named | Link carried |
+|---|---|---|---|
+| Wellness Reset, TikTok | 09/12 | FlavCity instant coffee, Dr Teal's Calm and Serenity | storefront |
+| FALLFIT, IG Reel | 09/15 | ribbed knit dress, olive cardigan | **none at all** |
+| Game Day, TikTok | 09/16 | Oh Snap pickles, Lunchables, Factor meals | storefront |
+
+3 in 5 days, all multi-product hauls, all defaulting to the storefront. Whatever
+is writing these captions treats "several products" as "storefront case." It is
+not. The denim wall on 09/14 was the storefront case because nothing was named
+as an item. A haul that names 3 products needs 3 links.
+
+All 3 are challenge submissions, so these are the posts Target actually reads.
+
+**Needed from Amanda:** 7 SKUs. Target's search is captcha walled here.
+
+## The FALLFIT reel got 7 views
+
+`DdUJLHTlaM5`, published 09/15 16:30 UTC. **7 views, 4 reach, 0 likes.**
+
+A Club Target challenge submission on the growth platform, seen by 4 people,
+carrying a keyword promise that currently delivers the wrong link.
+
+1 detail worth keeping: its average watch time is **21.96 seconds**, the highest
+ever recorded on this account. That is off 4 people, so it is statistically
+noise, but it is the only evidence available and it says the people who saw it
+watched almost all of it. The problem is distribution, not the video.
+
+## Volume, 09/16
+
+| Platform | Posts | Target |
+|---|---|---|
+| Instagram | 6 | 3 to 4 |
+| TikTok | 5 | 3 to 4 |
+| Facebook | 3 | 3 to 4 |
+| YouTube Shorts | 3 | 3 to 4 |
+
+All 4 on or above target. Instagram 3 days running.
+
+## Tracking items
+
+1. **Trivia on Instagram:** Jack o lanterns 09/15 did **1 view**. Hocus Pocus
+   09/14 did 4. Clean seasonal cards now read 1, 1, 2, 3, 3, 4 against the 37
+   watermark baseline. On Facebook the same series holds 193 to 1,011.
+2. **10,000 view Cesa breakout:** no. Best remains 1,592 on 09/11.
+3. **Volume:** on target across all 4 platforms.
+4. **Watermarks and AI badges:** none new.
+5. **Product posts missing a SKU:** 3 open, listed above.
+
+## Follower count
+
+Still not updated. 188 manual on 09/12 against a 190 start, 9 days in.
