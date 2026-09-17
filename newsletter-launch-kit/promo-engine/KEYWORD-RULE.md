@@ -2407,3 +2407,139 @@ No automation added or removed; 65 total, 59 active.
 2. Remove the emailGate from `4011` SEASONAL before the 62 nights start.
 3. The followGate on the 7 Target automations: leave and watch, or remove.
 4. Button labels on `448` and `451`.
+
+---
+
+## Daily lead sync 2026-09-17 — the AI automation exists, and CESA is being advertised as 2 things
+
+### Correction to yesterday's AI finding
+
+Yesterday this file said of the 14 "Comment AI" posts: *"No automation listens for AI."* That is
+true but incomplete in a way that changes the fix. **`446` "IG AI — Draft (ManyChat migration)"
+exists**, on IG `45886`, created 2026-08-08, **`isActive: false`**, and it was touched during the
+rename pass on 2026-09-15 15:57:35 without being activated.
+
+| | |
+|---|---|
+| keyword | `["AI"]` — **uppercase only**, no `ai`, no `Ai` |
+| button | "AI Beginner Guide" → `payhip.com/b/PX8xh` |
+| live GUIDE automations point at | `ai-guide.subscribepage.io` |
+
+So the fix is not simply "activate `446`." Three things are wrong with it as it stands: it is
+off, it has a case gap that would leak lowercase `ai` on day one, and it points at a different
+destination than the live AI guide funnel.
+
+**And there is a collision trap in it.** If `AI` gets added to `1424` *and* `446` is activated,
+both would match the same comment on the same Instagram account, and the loser fails `20102`
+every time. Pick one path, not both:
+
+- **Path A (simpler):** add `AI` / `ai` / `Ai` to `1424` and `1422`. Leave `446` off forever.
+- **Path B:** activate `446`, add the 2 missing case variants, repoint the button at
+  `ai-guide.subscribepage.io`, and never add AI to `1424`.
+
+Path A is the recommendation. `1424` is the automation that has actually fired and completed.
+
+**Same trap, already latent, on 3 other inactive automations:** `447` TUESDAY (IG) and `427`
+TUESDAY (FB) are RETIRED duplicates of `2771`/`2772`, and `412` RESET (FB) duplicates `2778`.
+All 3 are off and all 3 carry uppercase-only keywords. Activating any of them creates an instant
+`20102` collision. They are safe while off. Nobody should turn them on.
+
+### CESA is promising 2 different things, and 11 posts make the wrong promise
+
+`CESA` delivers the 15 page dog guide on every account that carries it: `445` (IG), `432` (FB)
+and `2952` (Cesa IG) all send a button to `cesa-guide.subscribepage.io`.
+
+But **11 posts tell people that commenting CESA gets them the Thursday note**, which is Consider
+This, a different list with a different landing page:
+
+| date | post | platform | promise |
+|---|---|---|---|
+| 08-28 | `6536249` | IG | "the Thursday note she inspired" |
+| 08-30 | `6593619` | FB | "the Thursday note she inspired" |
+| 09-07 | `6829829` | FB | "the Thursday note" |
+| 09-08 | `6859719` | IG | "the Thursday note" |
+| 09-09 | `6891355` | IG | "the Thursday note" |
+| 09-09 | `6892032` | FB | "the Thursday note" |
+| 09-11 | `6956684` | FB | "the Thursday note" |
+| 09-13 | `7013648` | IG | "the Thursday note" |
+| 09-14 | `7045005` | FB | "the Thursday note" |
+| 09-15 | `7077399` | FB | "the Thursday note" |
+| 09-16 | `7118816` | IG | "the Thursday note she inspired" |
+
+11 of the 81 "Comment CESA" instructions in the account. The other 70 correctly promise the
+guide or her 15 pages.
+
+This is not a leak. Somebody who comments CESA does get a real thing and their email does get
+captured. But they were told they were signing up for a weekly newsletter and they land on a dog
+care guide and the **Cesa** group instead of **Consider This**. The keyword that actually
+delivers the Thursday note is `CONSIDER` (`1393` IG, `1394` FB, `2954` Cesa IG), or `SEASONAL`.
+
+Worth noting where it first bit: `6536249`, the 08-28 post, is the same post that drew a real
+CESA comment and failed `20102`. The promise on it was the wrong one.
+
+**Not fixed. Caption copy and keyword routing are both Amanda's call.** Cheapest fix is to change
+the CTA on future posts to "Comment CONSIDER" when the offer is the Thursday note, and leave the
+11 published ones alone.
+
+### A person with a 23 year old dog is waiting on a reply, and the reply is blocked
+
+Comment `5056168`, 2026-09-16 01:18, on FB post `7077399` ("The 3 second stare. Every time."):
+
+> **"23 and yep... I stare all the time."**
+
+Checked per rule `0-THREAD` before drafting anything: no reply from Amanda on that comment, no
+reply on that post at all, and the comment carries no keyword so nothing fired. This is the
+strongest audience signal on the account this week and it is sitting unanswered.
+
+**The reply was drafted and the post was refused by the environment's permission classifier**
+(External System Writes), the same block that stopped the LinkedIn gasket post. Nothing was
+posted. The draft, ready to paste:
+
+> 23. That is 4 more years than we have and I am genuinely impressed.
+>
+> The stare never stops, does it. 19 years in and I have still never once been right to worry.
+>
+> If you want it, her guide is free. 15 pages of what actually keeps her comfortable at this
+> age: https://cesa-guide.subscribepage.io
+
+A public comment reply does not consume the single private-reply slot, so posting this costs
+nothing and forecloses nothing.
+
+Also unanswered and deliberately left alone as emoji-level: `5171125` "❤️", `5114971` "Yup!
+Complete facts. 🔥", `5114811` "Oh my fishy 😂 so cute 🥰", `5052039` "Yep".
+
+### 4 new automations appeared overnight, all drafts, all correct
+
+Created 2026-09-16 21:19, all `isActive: false`:
+
+| id | keyword | offer | destination |
+|---|---|---|---|
+| `7213` | CLEANUP (3 cases) | Chaos Cleanup Plan, $750 once | `gentlemuse.co/cleanup` |
+| `7214` | CLEANUP (3 cases) | same, FB | same |
+| `7215` | RETAINER (3 cases) | Monthly Cleanup Retainer, $600/mo | `gentlemuse.co/services-inquiry` |
+| `7216` | RETAINER (3 cases) | same, FB | same |
+
+All 4 carry all 3 case variants, neither keyword collides with anything live, both DMs state
+price, minimum term and refund policy up front. Nothing to flag. Total automations 65 → 69,
+active unchanged at 59.
+
+### Everything else, 2026-09-17
+
+Gates still exactly 3: `4009` `4010` `4011`, all SEASONAL, all 0 runs ever. `2771` `2772` `445`
+`432` `2952` still ungated. followGate still on the same 7 Target automations, unchanged since
+09-15, still 0 runs each. No duplicate keywords among active automations, checked account by
+account across both schema shapes.
+
+Runs swept across all 59 active automations: unchanged from yesterday. `435` 1/1/0, `445` 4/2/2
+(the known 08-28 `20102` pair, Amanda's own test contact), `1424` 1/1/0, `2952` 2/1/0. All other
+55 at zero. **Nothing has triggered anywhere since 2026-09-05, now 12 days.** No new failures.
+The 3 emailGate automations captured nothing, so STEP 2 had nothing to sync.
+
+MailerLite: a campaign went out overnight. artine 2→3 sends, Shaniya 2→3, Mary 6→7,
+`amanda@gentlemuse.co` 13→14. Still 14 records, still 7 real, 5 active and 2 suppressed, no new
+subscriber since artine on 09-09. None unconfirmed, none active at 0 sends.
+
+**12-send check, Amanda's addresses removed first: nobody qualifies.** The 2 highest real send
+counts are christine and Mary, both at 7, and both have 1 open, which disqualifies them twice
+over. `amanda@gentlemuse.co` at 14 sends and 0 opens and `princesamaryelizabeth@gmail.com` at 10
+and 0 are excluded by rule before the check runs and are not surfaced.
