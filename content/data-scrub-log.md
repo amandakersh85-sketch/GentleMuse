@@ -1989,3 +1989,110 @@ All 4 on or above target. Instagram 3 days running.
 ## Follower count
 
 Still not updated. 188 manual on 09/12 against a 190 start, 9 days in.
+
+---
+
+# CORRECTION + the Remotion answer — 09/17
+
+## I was wrong about FALLFIT. Amanda fixed it and I reported stale state.
+
+Day 8 said the FALLFIT automation "currently points at the storefront." **It does
+not.** Checked live:
+
+**Blotato automation 2277, "IG FALLFIT — Universal Thread Crewneck Pullover."**
+Active. Button: `https://club.target.com/s/amanda.20/_/sku/94966870`.
+**Updated 2026-09-14 12:09 UTC**, a day before the reel published.
+
+She gave the direction, it landed, and I reported the 09/09 state without
+re-checking the live source. That is the same mistake as building the keyword
+list from published captions instead of Blotato. Re-check the live source before
+calling something broken.
+
+**What is actually still off, and it is much smaller:** the DM delivers the
+**cream Crewneck Pullover**. The video says she ended up in "the ribbed knit
+dress with the olive cardigan." The keyword works, it just sends a different
+sweater than the one on camera. And the reel did 7 views, so nobody hit it.
+
+## Also correcting the compliance picture
+
+A batch of automations was built 09/14 that I had not seen. Several carry real
+SKUs:
+
+| Automation | SKU |
+|---|---|
+| IG FLAVCITY — Coffee with Benefits Variety Pack | 95123340 |
+| IG DENIM — Universal Thread High-Rise Straight | 94332983 |
+| IG KUROMI — A-Sha Popping Boba | 1011093652 |
+| IG SPOOKY — Hyde & EEK! ceramic ghosts | 94895169 |
+| IG FALLFIT — Crewneck Pullover | 94966870 |
+
+**So the DM layer has the SKUs. The captions do not.** That is a narrower and
+more fixable problem than "3 violations." The links exist and are wired. The
+caption writer is not reaching for them.
+
+Still genuinely open: Dr Teal's Calm and Serenity, Oh Snap pickles, Lunchables,
+Factor meals, and the olive cardigan and ribbed knit dress have no automation and
+no SKU anywhere.
+
+## The queue: front-loaded 6 days, then empty
+
+**174 scheduled posts, 09/17 through 10/31.**
+
+| Platform | Scheduled |
+|---|---|
+| Instagram | 45 |
+| TikTok | 41 |
+| Facebook | 36 |
+| YouTube | 28 |
+| Pinterest | 13 |
+| LinkedIn | 8 |
+| Twitter | 3 |
+
+Instagram by day: 5, 5, 5, 4, 4 through 09/22. Then **3, 0, 1, 1, 1, 0, 1**, and
+about 1 a day the rest of the way.
+
+**The campaign ends 10/08. From 09/25 to 10/08 Instagram has 9 posts scheduled
+for 14 days.** The back half of the 1K campaign has no fuel in it.
+
+## The Remotion answer, tested rather than assumed
+
+**The footage exists and it is not on her phone. It is in Google Drive.** About
+25 face-to-camera clips, uploaded 2026-06-23, named by topic:
+
+70/30 Rule · 84 Posts · Patience Was The Fix · Verify It At The Source · The Test
+Was Wrong · 20 Links, Save Your Energy · 18 Posts AI Journey · Batch Pins · Away
+Mode · Away Mode 2 · AI Tool Stack Explanation · Prompt Library · Download Folder
+Scheduled Task · Episode 1 · Hook Titles · Business Phone Registration · AI Tools
+· Reset · Budget · Plan Budget · Paycheck Planner · Maya Angelo · Protect Peace ·
+UGC Ad Video
+
+**What works here, checked:**
+- Node v22.22.2, installed
+- ffmpeg, installed
+- Chromium, installed
+- HyperFrames and Remotion skills, installed
+
+**The single blocker, checked 3 ways:**
+
+1. The Drive connector returns file contents as **base64 into the conversation**.
+   One 5 MB clip is roughly 1.8 million tokens. Not viable for 1 clip, let alone 25.
+2. `curl https://drive.google.com/uc?export=download&id=<ID>` returns **HTTP 200
+   with a Google sign-in page**, 916 KB of HTML. The files are private, and curl
+   here has no Google auth.
+3. The connector's `share_file` only grants access **to a named email address**.
+   It cannot set "anyone with the link," so this session cannot unblock itself.
+
+**So the answer to "why has this never happened" is: the bytes cannot get into
+this box.** It was never a Remotion problem, a skill problem, or a tooling
+problem. Every handoff document written for this was solving the wrong step.
+
+**The unblock is 1 action on Amanda's end.** Put those clips in a folder and set
+that folder to **Anyone with the link, Viewer**. Then
+`https://drive.google.com/uc?export=download&id=<ID>` becomes fetchable by curl,
+and everything after that runs here: pull all 25, cut for a visual hook on frame
+1, designed on-screen text, per-platform captions and CTAs, upload to Blotato,
+schedule.
+
+**Do not share the Drive root.** Root holds everything, including the private
+lane. A new folder with only these clips in it. The OF file stays where it is and
+is never touched.
