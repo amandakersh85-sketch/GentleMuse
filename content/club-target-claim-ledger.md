@@ -7,7 +7,7 @@ Amanda claims these herself on `club.target.com`. Claude cannot: the board is a
 JavaScript app behind a login and every URL returns the same empty shell to a
 non-browser client. Claude's job is to catch each publish and hand over the row.
 
-## Published and awaiting confirmation, 31 Aug to 16 Sep 2026
+## Published and awaiting confirmation, 31 Aug to 17 Sep 2026
 
 | Date (UTC) | Platform | Theme | Live URL |
 |---|---|---|---|
@@ -30,6 +30,7 @@ non-browser client. Claude's job is to catch each publish and hand over the row.
 | 15 Sep | Instagram Reel | #TargetFallFits | https://www.instagram.com/reel/DdUJLHTlaM5/ |
 | 15 Sep | Instagram Story | #TargetFallFits | https://www.instagram.com/stories/thegentlemuse2026/3987018006551193598 |
 | 16 Sep | TikTok | #GameDayWithTarget | https://www.tiktok.com/@thegentlemuse2026/video/7686163382914911502 |
+| 17 Sep | TikTok | #TargetFave (3rd use) | https://www.tiktok.com/@thegentlemuse2026/video/7686534594920795405 |
 
 One Facebook row failed and never went live: `688849`, 01 Sep,
 #TargetCatandJackSummer, "the video could not be processed". No post, no points.
@@ -88,3 +89,30 @@ which was the wrong read on its own.
 The published cut covers both: fan shop wall, then Oh Snap pickles and Lunchables,
 then Factor meals and deli sides. Caption is "half closet, half fridge". That
 satisfies the brief without wasting the apparel footage.
+
+## 17 Sep: `#TargetFave` used a third time, and a small disclosure gap
+
+**`7139587`, FlavCity coffee endcap, TikTok, published 17 Sep 16:00.**
+
+This is the third `#TargetFave` post: 21 Aug with the NYX body line, 9 Sep with the
+Tree Hut scrub, now 17 Sep with FlavCity. It was flagged to Amanda the night before
+with the three possible readings and it went out as scheduled. Whether it credits
+is only visible in the portal.
+
+**Disclosure: passes the main rule, misses the repeat.**
+
+| Point in video | `#TargetPartner` on screen |
+| --- | --- |
+| opening frame | **yes** |
+| 35% | no |
+| 70% | no |
+| end card | yes, full tag set |
+
+The Scope of Work asks for the disclosure early AND **repeated in anything longer
+than roughly 15 seconds**. This runs 22.7 seconds with nothing in the middle.
+
+The important half is satisfied, so this is not the 0% failure mode the older
+videos had. But the middle of the video is bare and the rule explicitly asks for a
+repeat at this length. **Worth adding a midpoint disclosure to the template**, since
+most of her Club Target cuts run 22 to 31 seconds and all of them will have this
+same gap.
