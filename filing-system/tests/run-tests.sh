@@ -607,6 +607,130 @@ kill $STUB_PID 2>/dev/null
 trap 'rm -rf "$TMP"' EXIT
 
 
+# ---------------------------------------------------------------- Run 9
+# The offer ladder, and the price a caption is never allowed to carry.
+
+OFFER="$HERE/../scripts/gm_offer_check.py"
+OLADDER="$HERE/../data/offer-ladder.csv"
+
+ofr() { # name expected_exit mode arg [expected_code ...]
+  local name="$1" want="$2" mode="$3" arg="$4"; shift 4
+  local out; out="$(python3 "$OFFER" "$mode" "$arg" 2>&1)"; local got=$?
+  local ok=1
+  [ "$got" = "$want" ] || { ok=0; echo "  exit $got, wanted $want"; }
+  for code in "$@"; do
+    grep -q "$code" <<<"$out" || { ok=0; echo "  missing finding: $code"; }
+  done
+  if [ $ok = 1 ]; then echo "PASS  $name"; pass=$((pass+1))
+  else echo "FAIL  $name"; echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
+}
+
+echo
+echo "== offer ladder =="
+
+# The shipped ladder does not pass, and that is the point of shipping it. It
+# names the 2 products nobody can find and the 2 rungs that lead nowhere.
+ofr "the shipped ladder names its own gaps" 1 --ladder "$OLADDER" \
+    L04_UNVERIFIED_COMPONENT L05_NO_BRIDGE
+ofr "a reprice is held for Amanda, not failed" 1 --ladder "$OLADDER" H01_REPRICE_PENDING
+
+python3 - "$TMP" "$OLADDER" <<'PY9'
+import csv, os, sys
+tmp, src = sys.argv[1], sys.argv[2]
+rows = list(csv.DictReader(open(src, newline="", encoding="utf-8-sig")))
+cols = list(rows[0].keys())
+
+def dump(name, rs):
+    h = open(os.path.join(tmp, name), "w", newline="", encoding="utf-8")
+    w = csv.DictWriter(h, fieldnames=cols); w.writeheader(); w.writerows(rs)
+
+def find(rs, oid):
+    return next(r for r in rs if r["OfferID"] == oid)
+
+r = [dict(x) for x in rows]; find(r, "OF-002")["Evidence"] = ""
+dump("ladder-noevidence.csv", r)
+
+r = [dict(x) for x in rows]; find(r, "OF-002")["PriceStatus"] = "maybe"
+dump("ladder-badfield.csv", r)
+
+# two rungs answering to one comment
+r = [dict(x) for x in rows]; find(r, "OF-002")["Keyword"] = "BOTTLENECK"
+dump("ladder-collision.csv", r)
+
+# the same number on two rungs, which is how one price came to mean two things
+r = [dict(x) for x in rows]
+x = find(r, "OF-002"); x["Price"] = "750"; x["Unit"] = "once"
+dump("ladder-sameprice.csv", r)
+
+# a rung crediting toward something that is not on the ladder
+r = [dict(x) for x in rows]; find(r, "OF-002")["CreditsToward"] = "OF-999"
+dump("ladder-badref.csv", r)
+
+# live, with no keyword and no URL, so nobody can reach it
+r = [dict(x) for x in rows]
+x = find(r, "OF-002"); x["Keyword"] = ""; x["URL"] = ""
+dump("ladder-nopath.csv", r)
+PY9
+
+ofr "a rung with no evidence is refused"    1 --ladder "$TMP/ladder-noevidence.csv" L01_NO_EVIDENCE
+ofr "an unknown PriceStatus is refused"     1 --ladder "$TMP/ladder-badfield.csv"   L02_BAD_FIELD
+ofr "two rungs on one keyword are refused"  1 --ladder "$TMP/ladder-collision.csv"  L03_KEYWORD_COLLISION
+ofr "one price on two rungs is refused"     1 --ladder "$TMP/ladder-sameprice.csv"  L06_PRICE_COLLISION
+ofr "a reference that resolves to nothing"  1 --ladder "$TMP/ladder-badref.csv"     L07_UNKNOWN_REF
+ofr "a live rung with no way in is refused" 1 --ladder "$TMP/ladder-nopath.csv"     L08_NO_PATH
+
+echo
+echo "== the price a caption may not carry =="
+
+# The launch pack shipped a caption naming an hourly rate and an application
+# form naming a price that has never been published.
+ofr "the launch pack prices are refused" 1 --queue "$HERE/offer.launchpack.json" \
+    Q01_PRICE_IN_CAPTION Q02_UNAPPROVED_PRICE
+
+python3 - "$TMP" <<'PY9'
+import json, os, sys
+tmp = sys.argv[1]
+def w(name, rows): json.dump(rows, open(os.path.join(tmp, name), "w"))
+w("price-clean.json", [
+  {"id": "cap", "surface": "caption",
+   "text": "Comment BOTTLENECK and I will send the free check."},
+  {"id": "page", "surface": "page",
+   "text": "The Decision Map is $47, and you send voice notes instead of booking a call."}])
+w("price-onscreen.json", [
+  {"id": "vo", "surface": "voiceover", "text": "It is 47 dollars and it is worth it."}])
+w("price-unknown.json", [
+  {"id": "pg", "surface": "page", "text": "The Intensive is $2,400."}])
+w("price-surface.json", [
+  {"id": "odd", "surface": "billboard", "text": "Anything."}])
+PY9
+
+ofr "a live price on a page passes"        0 --queue "$TMP/price-clean.json"
+ofr "a price spoken aloud is refused"      1 --queue "$TMP/price-onscreen.json" Q01_PRICE_IN_CAPTION
+ofr "a price on no rung is refused"        1 --queue "$TMP/price-unknown.json" Q03_UNKNOWN_PRICE
+ofr "an undeclared surface is refused"     1 --queue "$TMP/price-surface.json" Q04_BAD_SURFACE
+
+echo
+echo "== the tables against the platform =="
+ofr "drift from live is caught" 1 --sync "$HERE/offer.sync-drift.json" \
+    S01_NOT_LIVE S03_ACCOUNT_DRIFT S04_PRICE_DRIFT S05_URL_DRIFT
+
+out="$(python3 "$OFFER" --sync "$HERE/offer.sync-drift.json" --scope GUIDE 2>&1)"
+if grep -q S03_ACCOUNT_DRIFT <<<"$out" && ! grep -q S05_URL_DRIFT <<<"$out"; then
+  echo "PASS  --scope narrows the comparison"; pass=$((pass+1))
+else echo "FAIL  --scope narrows the comparison"; echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
+
+echo
+echo "== a keyword that was never a keyword =="
+cta "comment WAITLIST is refused"      1 "$HERE/cta.waitlist.json" P10_INVENTED_KEYWORD
+cta "an unpublished keyword is refused" 1 "$HERE/cta.waitlist.json" P09_DRAFT_KEYWORD
+
+# the whole reason P10 exists: every other check here reads the map, so a word
+# that is in no map row was never looked at by anything.
+out="$(python3 "$CTA" --queue "$HERE/cta.waitlist.json" 2>&1)"
+if grep -q "WAITLIST is in no automation" <<<"$out"; then
+  echo "PASS  the invented keyword is named, not just counted"; pass=$((pass+1))
+else echo "FAIL  the invented keyword is named, not just counted"; fail=$((fail+1)); fi
+
 echo
 echo "$pass passed, $fail failed"
 [ "$fail" = 0 ]

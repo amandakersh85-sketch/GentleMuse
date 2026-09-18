@@ -24,6 +24,14 @@ ACTION = re.compile(r"\b(follow|share|save|like|subscribe|repost)\b", re.I)
 URL = re.compile(r"https?://[^\s<>\")]+")
 BIO = re.compile(r"\bin (?:my|the) bio\b|\blink in bio\b", re.I)
 
+# "comment WAITLIST" — a word handed to the reader as if it were a keyword.
+# The map only knew the keywords that exist, so a word that was never a keyword
+# was invisible to every check here.
+KEYWORD_CTA = re.compile(r"\bcomment(?:\s+the\s+word)?\s+([A-Z][A-Z0-9]{2,})\b")
+
+# Allcaps words that follow "comment" without being offered as keywords.
+NOT_A_KEYWORD = {"BELOW", "YES", "NO", "OK", "HERE", "THIS", "IT", "AND", "ME"}
+
 # queue-zones.csv defines the PAID zone as anything carrying one of these.
 PAID = re.compile(r"#ad\b|#TargetPartner\b", re.I)
 
@@ -37,6 +45,7 @@ def load_magnets(path):
                 continue
             r["_accounts"] = {a.strip() for a in (r.get("LiveAccountIds") or "").split("|") if a.strip()}
             r["_url"] = (r.get("URL") or "").strip().rstrip("/")
+            r["_status"] = (r.get("Status") or "live").strip().lower() or "live"
             out[kw] = r
     return out
 
@@ -85,6 +94,23 @@ def check(rows, magnets, platforms):
                     "says %s but no %s automation is live on %s (%s)"
                     % (kw, kw, plat["Handle"], plat["Platform"]))
 
+        # P09 the automation behind the keyword is not published, so the
+        # comment arrives and nothing answers it.
+        for kw in named:
+            if magnets[kw]["_status"] != "live":
+                add("P09_DRAFT_KEYWORD", row,
+                    "says %s, whose automation is %s and will not answer"
+                    % (kw, magnets[kw]["_status"]))
+
+        # P10 a word handed to the reader as a keyword that is not one. Every
+        # other check here reads the map, so a word absent from the map was
+        # never looked at. WAITLIST shipped in the launch pack this way.
+        for word in KEYWORD_CTA.findall(text):
+            if word in magnets or word in NOT_A_KEYWORD:
+                continue
+            add("P10_INVENTED_KEYWORD", row,
+                "tells the reader to comment %s, and %s is in no automation" % (word, word))
+
         # P02 keyword named, magnet link present, and they disagree
         for kw in named:
             want = magnets[kw]["_url"]
@@ -94,18 +120,31 @@ def check(rows, magnets, platforms):
                 add("P02_WRONG_LINK", row,
                     "says %s but links %s, which is a different magnet" % (kw, others[0]))
 
-        # P03 magnet link with no mention of that magnet anywhere in the caption
+        # P03 magnet link with no mention of that magnet anywhere in the caption.
+        # Asked per link, not per keyword. CESA and PRINCESS both deliver the
+        # senior dog guide, so naming either one accounts for that one URL.
+        # Per keyword, a caption that correctly says CESA was failed for not
+        # also saying PRINCESS.
+        by_url = {}
         for m in magnets.values():
-            u = m["_url"]
-            if not u or not any(u in x for x in urls):
+            if m["_url"]:
+                by_url.setdefault(m["_url"], []).append(m)
+        for u, sharing in by_url.items():
+            if not any(u in x for x in urls):
                 continue
-            kw = (m["Keyword"] or "").upper()
-            title = (m["Magnet"] or "").lower()
-            words = [w for w in re.split(r"[^a-z]+", title) if len(w) > 3]
-            mentioned = (kw in named) or any(w in text.lower() for w in words)
+            mentioned = False
+            for m in sharing:
+                kw = (m["Keyword"] or "").upper()
+                words = [w for w in re.split(r"[^a-z]+", (m["Magnet"] or "").lower())
+                         if len(w) > 3]
+                if kw in named or any(w in text.lower() for w in words):
+                    mentioned = True
+                    break
             if not mentioned:
                 add("P03_LINK_WITHOUT_MENTION", row,
-                    "carries the %s link but the caption never mentions %s" % (kw, m["Magnet"]))
+                    "carries the %s link but the caption never mentions %s"
+                    % ("/".join(sorted((m["Keyword"] or "").upper() for m in sharing)),
+                       sharing[0]["Magnet"]))
 
         # P04/P05 action platforms need an action ask and a reachable destination.
         # LinkClickable: yes = a caption URL works, bio = the link lives in the bio

@@ -1,6 +1,6 @@
 # Gentle Muse Filing System — Media Triage Modules
 
-Runs 3 through 7 of the 28-run Downloads Maintenance system.
+Runs 3 through 9 of the 28-run Downloads Maintenance system.
 
 These extend the existing filing engine (`asset_scanner.py`) to media.
 They do not replace it. `asset_scanner.py` already handles SHA-256 duplicate
@@ -23,15 +23,18 @@ video's duration, group a photo burst, or spot a sensitive document.
 | `data/holiday-fact-bank.csv` | Run 7. 50 sourced facts, each with the turn that makes it hers and what it needs on screen. |
 | `scripts/gm_teardown_check.py` | Run 8. The gate. Refuses a competitor nobody read, and a reel that asks without promising. |
 | `data/competitor-teardowns.csv` | Run 8. 8 accounts torn down from their own content, plus 3 leads held as unusable. |
+| `scripts/gm_offer_check.py` | Run 9. The gate. Refuses a price a caption may never carry, a price that has never shipped, and a ladder rung that leads nowhere. |
+| `data/offer-ladder.csv` | Run 9. 11 rungs, each carrying the evidence its price rests on. |
 | `sops/SOP_0819_video-triage-run-3.txt` | Run 3 SOP |
 | `sops/SOP_0819_photo-triage-run-4.txt` | Run 4 SOP |
 | `sops/SOP_0819_document-triage-run-5.txt` | Run 5 SOP |
 | `sops/SOP_0828_reel-caption-clip-binding.txt` | Run 6 SOP |
 | `sops/SOP_0829_holiday-caption-strategy.txt` | Run 7 SOP |
 | `sops/SOP_0901_competitor-teardowns.txt` | Run 8 SOP |
+| `sops/SOP_0918_handled-offer-ladder.txt` | Run 9 SOP |
 | `patches/video-factory-clip-binding.md` | Paste-in patch for the `gentle-muse-video-factory` skill |
 | `patches/holiday-caption-strategy.md` | Paste-in patch for the video factory, `content-coach` and `post-grader` |
-| `tests/run-tests.sh` | Regression suite for Runs 6 and 7, 29 cases |
+| `tests/run-tests.sh` | Regression suite for Runs 6 through 9, 106 cases |
 
 SOPs are `.txt` on purpose. GitHub renders plain text preformatted, which keeps
 the column alignment the house format uses.
@@ -128,7 +131,7 @@ Amanda's real library — the Shot descriptions don't exist yet, and writing the
 is step 3 of the Run 6 SOP.
 
 Run 7 written 08/29/2026, before the failure rather than after it. Executed here:
-`bash tests/run-tests.sh` now runs 29 cases across Runs 6 and 7, all passing,
+`bash tests/run-tests.sh` ran 29 cases across Runs 6 and 7 at the time, all passing,
 including a reproduction of the invented-fact failure. Both scripts are
 read-only and hold no delete command. The 50 seeded facts were written from
 standard reference works and each row names its source, but they have not been
@@ -155,3 +158,59 @@ from a name in somebody else's roundup, and will not let the second be cited as
 the first. Run 8 also taught the Run 6 binding gate to read the reel factory's
 payload shape, which it could not do before, so the ten built reels are checked
 for the first time.
+
+## Run 9 — the offer ladder and the price gate
+
+The pivot to HANDLED arrived as 3 prose handoffs, each carrying its own copy of
+the prices, the keywords and the offer names. The handoff that called itself the
+single source of truth was wrong about 5 standing facts on the day it was
+written: DECISION and FALLFIT were live and it said they did not exist, CESA was
+live on 3 accounts and it said the word was blocked, PRINCESS answers on 1
+account and it read as though it answered everywhere, and GUIDE and CONSIDER
+both answer on more accounts than it listed. It was right that WAITLIST is not a
+keyword, which did not stop the launch pack shipping a post that tells readers
+to comment it.
+
+Their fix for this is a rule: when one of us changes a standing fact, the others
+update every downstream artifact in the same turn. That is guidance, it governs
+judgment, and judgment is what already failed. So Run 9 adds the missing table
+and the check.
+
+The missing field is `PriceStatus`, and it is not anybody's memory of whether
+Amanda approved something. It is evidenced by where the price actually lives:
+`live` means a customer can see it on a published surface, `drafted` means it
+sits in an automation nobody published, `proposed` means it exists only in a
+document, and `unverified` means it was named in a document and found nowhere at
+all. Only `live` may reach a customer, because publishing is the only form of
+approval that leaves a trace.
+
+```
+python3 scripts/gm_offer_check.py --ladder
+python3 scripts/gm_offer_check.py --queue queue.json
+python3 scripts/gm_offer_check.py --sync automations.json
+python3 scripts/gm_offer_check.py --sync automations.json --scope BOTTLENECK
+```
+
+`--sync` reads a live Blotato automations export and reports every place the
+tables and the platform disagree, which is what keeps the CSVs from becoming
+another stale copy. Exit `0` pass, `1` fail, `2` hold.
+
+The shipped ladder does not pass its own audit, and that is why it ships in this
+state. It reports that HANDLED: The Method bundles 2 products that exist in no
+automation and no Payhip link, and that the $37 and $47 products both take money
+and credit toward nothing, which is the missing bridge. Both are Amanda's calls,
+named rather than quietly filled in.
+
+Run 9 also closed 2 holes in Run 6 and Run 8. `gm_cta_check.py` only ever
+checked keywords it already knew, so a caption handing the reader a word that
+was never a keyword passed clean; it now refuses one. And the daily pass filtered
+findings on `P0`, which would have silently dropped every finding numbered 10 or
+above.
+
+Run 9 written 09/18/2026. Executed here: `bash tests/run-tests.sh` now runs 106
+cases across Runs 6 through 9, all passing, including a reproduction of both
+failures this run exists for, the invented keyword and the priced caption. The
+automations were read live once, on 09/17, through the Blotato listing. Every
+script in this run reads. None of them writes to Blotato, Wix, Payhip or
+MailerLite, none of them holds a delete command, and nothing in it was
+published, sent, priced or approved.

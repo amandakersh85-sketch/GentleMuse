@@ -1,0 +1,166 @@
+{
+ "automations": [
+  {
+   "id": "9001",
+   "accountId": "45886",
+   "platform": "instagram",
+   "name": "BOTTLENECK test",
+   "isActive": false,
+   "publishedVersionId": null,
+   "buttons": [
+    {
+     "title": "Go",
+     "type": "url",
+     "url": "https://www.gentlemuse.co/business-bottleneck-check"
+    }
+   ],
+   "dmMessage": "Here it is.",
+   "triggers": [
+    {
+     "id": "t-9001",
+     "isActive": true,
+     "type": "comment-received",
+     "keywords": [
+      "BOTTLENECK",
+      "bottleneck"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "9002",
+   "accountId": "45886",
+   "platform": "instagram",
+   "name": "GUIDE test",
+   "isActive": true,
+   "publishedVersionId": "v-9002",
+   "buttons": [
+    {
+     "title": "Go",
+     "type": "url",
+     "url": "https://ai-guide.subscribepage.io"
+    }
+   ],
+   "dmMessage": "10 Hours Ahead, 59 pages.",
+   "triggers": [
+    {
+     "id": "t-9002",
+     "isActive": true,
+     "type": "comment-received",
+     "keywords": [
+      "GUIDE",
+      "guide"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "9003",
+   "accountId": "45886",
+   "platform": "instagram",
+   "name": "CONSIDER test",
+   "isActive": true,
+   "publishedVersionId": "v-9003",
+   "buttons": [
+    {
+     "title": "Go",
+     "type": "url",
+     "url": "https://wrong-newsletter.example.com"
+    }
+   ],
+   "dmMessage": "Here it is.",
+   "triggers": [
+    {
+     "id": "t-9003",
+     "isActive": true,
+     "type": "comment-received",
+     "keywords": [
+      "CONSIDER",
+      "consider"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "9004",
+   "accountId": "30840",
+   "platform": "facebook",
+   "name": "CONSIDER test",
+   "isActive": true,
+   "publishedVersionId": "v-9004",
+   "buttons": [
+    {
+     "title": "Go",
+     "type": "url",
+     "url": "https://wrong-newsletter.example.com"
+    }
+   ],
+   "dmMessage": "Here it is.",
+   "triggers": [
+    {
+     "id": "t-9004",
+     "isActive": true,
+     "type": "comment-received",
+     "keywords": [
+      "CONSIDER",
+      "consider"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "9005",
+   "accountId": "65540",
+   "platform": "instagram",
+   "name": "CONSIDER test",
+   "isActive": true,
+   "publishedVersionId": "v-9005",
+   "buttons": [
+    {
+     "title": "Go",
+     "type": "url",
+     "url": "https://wrong-newsletter.example.com"
+    }
+   ],
+   "dmMessage": "Here it is.",
+   "triggers": [
+    {
+     "id": "t-9005",
+     "isActive": true,
+     "type": "comment-received",
+     "keywords": [
+      "CONSIDER",
+      "consider"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "9006",
+   "accountId": "45886",
+   "platform": "instagram",
+   "name": "DECISION test",
+   "isActive": true,
+   "publishedVersionId": "v-9006",
+   "buttons": [
+    {
+     "title": "Go",
+     "type": "url",
+     "url": "https://payhip.com/b/upvAa"
+    }
+   ],
+   "dmMessage": "The Decision Map. It's $57.",
+   "triggers": [
+    {
+     "id": "t-9006",
+     "isActive": true,
+     "type": "comment-received",
+     "keywords": [
+      "DECISION",
+      "decision"
+     ]
+    }
+   ]
+  }
+ ]
+}

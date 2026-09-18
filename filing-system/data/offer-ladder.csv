@@ -1,0 +1,12 @@
+OfferID,Offer,Rung,Tier,Price,Unit,PriceStatus,Keyword,LiveAccountIds,URL,AutomationIDs,Status,Bundles,Repackages,CreditsToward,Evidence
+OF-001,Business Bottleneck Check,0,free,0,once,live,BOTTLENECK,45886|30840,https://www.gentlemuse.co/business-bottleneck-check,3994|3995,live,,,OF-004,"blotato automation 3994 (IG) 3995 (FB), active and published, read live 2026-09-17"
+OF-002,Done Reacting to Money,1,entry,37,once,live,BUDGET,45886,https://payhip.com/b/96U8s,448,live,,,,"blotato automation 448 (IG), active and published, dmMessage names $37, read live 2026-09-17"
+OF-003,The Decision Map,1,entry,47,once,live,DECISION,45886,https://payhip.com/b/upvAa,451,live,,,,"blotato automation 451 (IG), active and published, dmMessage names $47, read live 2026-09-17"
+OF-004,The Chaos Cleanup Plan,3,service,750,once,drafted,CLEANUP,45886|30840,https://www.gentlemuse.co/cleanup,7213|7214,draft,,,OF-005,"blotato automation 7213 (IG) 7214 (FB), present but inactive and unpublished, dmMessage names $750, read live 2026-09-17"
+OF-005,Monthly Cleanup Retainer,4,continuity,600,month,drafted,RETAINER,45886|30840,https://www.gentlemuse.co/services-inquiry,7215|7216,draft,,,,"blotato automation 7215 (IG) 7216 (FB), present but inactive and unpublished, dmMessage names $600 a month on a 3 month minimum, read live 2026-09-17"
+OF-006,HANDLED: The Method,2,bundle,297,once,proposed,,,,,proposed,OF-003|OF-002|OF-007|OF-008,,OF-009,"HANDLED AI team handoff 2026-09-17 section 1, which states PRICES ARE PROPOSED NOT FINAL"
+OF-007,Systems That Run Without You,1,entry,,once,unverified,,,,,unverified,,,,"named in the HANDLED AI team handoff 2026-09-17 section 1, and found in no automation, no payhip link and no repo artifact"
+OF-008,The Week You're Actually Having,1,entry,,once,unverified,,,,,unverified,,,,"named in the HANDLED AI team handoff 2026-09-17 section 1, and found in no automation, no payhip link and no repo artifact"
+OF-009,HANDLED: The Intensive,3,service,3000,once,proposed,,,,,proposed,,OF-004,OF-010,"HANDLED AI team handoff 2026-09-17 section 1, which states PRICES ARE PROPOSED NOT FINAL"
+OF-010,HANDLED Monthly,4,continuity,750,month,proposed,,,,,proposed,,OF-005,,"HANDLED AI team handoff 2026-09-17 section 1, which states PRICES ARE PROPOSED NOT FINAL"
+OF-011,Fixed-Fee Project Deposit,3,deposit,500,once,proposed,,,,,orphaned,,,OF-009,"HANDLED AI team handoff 2026-09-17 section 3, which names it an orphaned product on Wix to be repurposed as the deposit path"

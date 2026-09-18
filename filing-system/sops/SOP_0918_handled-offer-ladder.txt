@@ -1,0 +1,188 @@
+THE GENTLE MUSE — THE OFFER LADDER AND THE PRICE GATE, RUN 9 OF 28
+
+New. Created 09/18/2026. Written after a measured failure, not a suspected one.
+
+TOOLS: gm_offer_check.py, gm_cta_check.py (extended), gm_queue_daily.py (fixed)
+DATA:  data/offer-ladder.csv, data/magnet-map.csv (extended)
+Live with the filing engine. Companion to Run 6, Run 7 and Run 8.
+
+
+WHY THIS RUN EXISTS
+
+The pivot to HANDLED arrived as 3 prose handoffs. Each one carried its own copy
+of the prices, the keywords and the offer names, and each one called itself the
+source of truth. The handoff dated 09/17 closes with the rule that holds the
+whole arrangement together:
+
+  "When one of us changes a standing fact (price, keyword, URL), the others
+  update every downstream artifact in the same turn. No stale terms
+  resurfacing."
+
+That rule was already broken at the moment it was written. The automations were
+read live and compared against it. 5 of its standing facts were wrong:
+
+  It says DECISION does not exist in Blotato and must never be used as a call
+  to action. Automation 451 answers DECISION on the main Instagram account, is
+  active, is published, and sells The Decision Map at $47.
+
+  It says FALLFIT does not exist. Automation 2277 answers it.
+
+  It says CESA is blocked by a validation bug and that "comment CESA" must
+  never be written. Automations 445, 432 and 2952 all answer CESA, all 3 are
+  active and published. The real CESA failure is in the keyword audit and it is
+  a different failure: 2 of 4 runs returned "the comment you are trying to reply
+  to already has a reply", which is what happens when one comment is used twice.
+
+  It says PRINCESS replaces CESA. PRINCESS answers on 1 account, the senior dog
+  account, as 1 of 47 trigger phrases on automation 2952. It has never answered
+  on the main Instagram account or on Facebook. Telling a main account post to
+  say PRINCESS sends it to an automation that is not listening.
+
+  It says GUIDE is Instagram only and CONSIDER is the senior dog account only.
+  GUIDE answers on both main accounts. CONSIDER answers on all 3.
+
+It was right about WAITLIST. WAITLIST is in no automation, and the launch pack
+ships a post telling readers to comment it.
+
+The prices drifted the same way. The handoff proposes HANDLED Monthly at $750 a
+month. $750 is already the price of The Chaos Cleanup Plan, a different product,
+sitting in a drafted automation. The retainer that HANDLED Monthly repackages is
+drafted at $600 a month on a 3 month minimum. One number had come to mean 2
+things, and nothing in the chain could see it.
+
+
+WHY THIS IS A TABLE AND NOT A REMINDER
+
+Run 6 established the pattern. When the same failure lands twice, the fix is the
+missing field and a check that refuses to ship without it, because guidance
+governs judgment and judgment is what already failed.
+
+"Update every downstream artifact in the same turn" is guidance. It asks 3
+assistants to each remember the same 30 facts and to notice when one changes. It
+failed inside its own document.
+
+So the standing facts now live in 2 tables that are compared against the
+platform by a script, and the prose handoffs become what they should have been
+from the start, which is commentary.
+
+
+THE MISSING FIELD
+
+PriceStatus. It is not anybody's memory of whether Amanda approved a price. It
+is evidenced by where the price actually lives, which is checkable:
+
+  live        a customer can see this price right now, on a published surface
+  drafted     written into an automation that exists and is not published
+  proposed    exists only in a document
+  unverified  named in a document and found nowhere at all
+
+The handoffs say "never publish a price she has not approved" 3 times across 2
+files. That sentence has no machine meaning. PriceStatus does. Only live may
+appear on a customer facing surface, and live means it is already published,
+which is the only form of approval that leaves a trace.
+
+
+WHAT THE GATE REFUSES
+
+  Q01  a price in a caption, in on screen text, or in a voiceover. Amanda's
+       voice rule, never enforced anywhere before this. The launch pack's
+       caption 9 names an hourly rate twice.
+  Q02  a price on a page, form, DM or email whose PriceStatus is not live. The
+       application form names $3,000 for an offer that exists only in a
+       document.
+  Q03  a price that matches no rung on the ladder at all.
+  Q04  a surface the gate has no rule for, rather than guessing which rule
+       applies.
+  L01  a rung with no evidence behind its price and status.
+  L03  2 rungs claiming 1 keyword, which no comment can route.
+  L04  a bundle whose parts are unverified. HANDLED: The Method bundles 4
+       products. 2 of them, Systems That Run Without You and The Week You're
+       Actually Having, are named in the handoff and appear in no automation, no
+       Payhip link and no artifact in this repo. The Method cannot be priced
+       until somebody finds them or drops them.
+  L05  a paid rung that credits toward nothing. This is the Codie mechanic the
+       benchmark names: every tier lowers the risk of buying the next. The
+       Decision Map at $47 and Done Reacting to Money at $37 both take money and
+       lead nowhere. That is the missing bridge.
+  L06  1 price on 2 rungs.
+  L07  a reference to a rung that is not on the ladder.
+  L08  a live rung with no keyword and no URL, so there is no way in.
+  P09  a caption naming a keyword whose automation is not published. CLEANUP and
+       RETAINER are both drafted today.
+  P10  a caption handing the reader a word that is not a keyword. This is the
+       hole WAITLIST went through. Every other check in gm_cta_check.py reads
+       the magnet map, so a word absent from the map was invisible to all of
+       them. A caption saying "comment WAITLIST" with a link passed clean.
+
+H01 is a hold, not a failure. A proposed rung that reprices a real one is a
+decision, and Amanda makes it.
+
+
+THE LADDER AS IT STANDS
+
+  Rung  Offer                          Price       PriceStatus  Keyword
+  0     Business Bottleneck Check      free        live         BOTTLENECK
+  1     Done Reacting to Money         $37         live         BUDGET
+  1     The Decision Map               $47         live         DECISION
+  1     Systems That Run Without You   none        unverified   none
+  1     The Week You're Actually Having none       unverified   none
+  2     HANDLED: The Method            $297        proposed     none
+  3     The Chaos Cleanup Plan         $750        drafted      CLEANUP
+  3     HANDLED: The Intensive         $3,000      proposed     none
+  3     Fixed-Fee Project Deposit      $500        proposed     none
+  4     Monthly Cleanup Retainer       $600/month  drafted      RETAINER
+  4     HANDLED Monthly                $750/month  proposed     none
+
+The ladder does not pass its own audit, and that is why it ships. It names its
+own gaps instead of reading clean and hiding them.
+
+
+HOW TO RUN IT
+
+  python3 scripts/gm_offer_check.py --ladder
+  python3 scripts/gm_offer_check.py --queue queue.json
+  python3 scripts/gm_offer_check.py --sync automations.json
+  python3 scripts/gm_offer_check.py --sync automations.json --scope BOTTLENECK
+
+The sync export is whatever the Blotato automations listing returns, saved as
+JSON. Run it before any batch that names a price or a keyword, and after any
+change made in Blotato. It reports 5 kinds of disagreement between the tables
+and the platform: a keyword the map calls live that nothing answers, a keyword
+answering that the map calls draft, an account set that differs, a price in a
+DM that differs from the ladder, and a destination URL that differs from the map.
+
+Affiliate and PR automations are deliberately outside the magnet map. The sync
+lists them under their own heading and does not count them as findings. There
+are 38 of them.
+
+Exit 0 pass, 1 fail, 2 hold. Regression suite: bash filing-system/tests/run-tests.sh.
+
+
+WHAT IS NOT DECIDED, AND IS NOT THE GATE'S TO DECIDE
+
+  1. HANDLED Monthly at $750 a month, against the retainer drafted at $600 on a
+     3 month minimum. Both numbers are Amanda's. The gate holds, it does not pick.
+  2. HANDLED: The Intensive at $3,000, against The Chaos Cleanup Plan drafted at
+     $750 for what reads as the same engagement.
+  3. Whether Systems That Run Without You and The Week You're Actually Having
+     exist. Until they do, The Method has 2 parts, not 4, and $297 is priced
+     against something nobody can open.
+  4. Whether The Decision Map and Done Reacting to Money should credit toward
+     The Method or toward the Plan. Right now they credit toward nothing.
+  5. WAITLIST. It is not a keyword. Either it becomes one in Blotato, or the
+     waitlist post routes through BOTTLENECK, or it does not ship.
+
+
+LIMITS
+
+The automations were read once, live, on 09/17. The tables are a snapshot and
+the sync is the thing that keeps them honest, so run it rather than trusting the
+CSV on a later date.
+
+The gate reads prices as digits. A price written out in words is not caught, and
+the house voice rule against spelled out numbers is what keeps that from being a
+real gap. Run 7's E11_SPELLED_NUMBER catches the general case on holiday posts.
+
+Nothing here was published, sent, priced or approved. Every script in this run
+reads. None of them writes to Blotato, Wix, Payhip or MailerLite, and none of
+them holds a delete command.
