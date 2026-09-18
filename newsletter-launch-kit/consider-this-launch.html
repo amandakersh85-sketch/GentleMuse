@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face { font-family:'Lora'; src:url('file:///root/.claude/skills/synced/canvas-design/canvas-fonts/Lora-Regular.ttf'); font-weight:400; font-style:normal; }
+  @font-face { font-family:'Lora'; src:url('file:///root/.claude/skills/synced/canvas-design/canvas-fonts/Lora-Bold.ttf'); font-weight:700; font-style:normal; }
+  @font-face { font-family:'Lora'; src:url('file:///root/.claude/skills/synced/canvas-design/canvas-fonts/Lora-Italic.ttf'); font-weight:400; font-style:italic; }
+  @font-face { font-family:'Gloock'; src:url('file:///root/.claude/skills/synced/canvas-design/canvas-fonts/Gloock-Regular.ttf'); font-weight:400; }
+  @font-face { font-family:'Jura'; src:url('file:///root/.claude/skills/synced/canvas-design/canvas-fonts/Jura-Light.ttf'); font-weight:300; }
+  @font-face { font-family:'Jura'; src:url('file:///root/.claude/skills/synced/canvas-design/canvas-fonts/Jura-Medium.ttf'); font-weight:500; }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root{
+    --paper:#F4EEE1;
+    --paper2:#EFE7D6;
+    --ink:#2B2620;
+    --muted:#7C7061;
+    --clay:#B0674C;
+    --line:#D9CFBD;
+  }
+  html,body{ width:1080px; height:1350px; }
+  html{ background:#F1E9D8; }
+  body{
+    background:var(--paper);
+    background:linear-gradient(178deg,#F6F1E6 0%, #F1E9D8 100%);
+    color:var(--ink);
+    font-family:'Lora',serif;
+    -webkit-font-smoothing:antialiased;
+    overflow:hidden;
+  }
+  .page{
+    position:absolute; inset:34px;
+    border:1px solid var(--line);
+    padding:60px 70px 56px 70px;
+    display:flex; flex-direction:column;
+  }
+
+  /* Masthead */
+  .masthead{ display:flex; justify-content:space-between; align-items:baseline; }
+  .brand{ font-family:'Jura',sans-serif; font-weight:500; letter-spacing:.42em; font-size:20px; color:var(--ink); text-transform:uppercase; }
+  .index{ font-family:'Jura',sans-serif; font-weight:300; letter-spacing:.28em; font-size:15px; color:var(--muted); text-transform:uppercase; }
+  .kicker{ font-family:'Jura',sans-serif; font-weight:300; letter-spacing:.30em; font-size:15px; color:var(--muted); text-transform:uppercase; margin-top:12px; }
+
+  .rule{ height:1px; background:var(--line); margin:26px 0; }
+  .rule.accent{ height:2px; background:var(--clay); width:56px; margin:24px 0 0 0; }
+
+  /* Headline */
+  .headline{
+    font-family:'Lora',serif; font-weight:700; color:var(--ink);
+    font-size:57px; line-height:1.16; letter-spacing:-0.005em;
+    margin-top:30px;
+  }
+  .headline .n{ font-family:'Gloock',serif; font-weight:400; color:var(--clay); font-size:62px; }
+  .headline em{ font-style:italic; font-weight:400; }
+
+  /* List */
+  .list{ margin-top:20px; flex:1; display:flex; flex-direction:column; justify-content:center; }
+  .item{ display:flex; align-items:flex-start; gap:26px; padding:20px 0; border-top:1px solid var(--line); }
+  .item:last-child{ border-bottom:1px solid var(--line); }
+  .num{ font-family:'Gloock',serif; color:var(--clay); font-size:38px; line-height:1; width:44px; flex:none; text-align:left; padding-top:2px; }
+  .txt{ font-family:'Lora',serif; font-weight:400; color:var(--ink); font-size:29px; line-height:1.34; }
+  .txt b{ font-weight:700; }
+
+  /* Footer */
+  .foot{ display:flex; justify-content:space-between; align-items:center; margin-top:30px; }
+  .cta{ font-family:'Jura',sans-serif; font-weight:500; letter-spacing:.22em; font-size:17px; color:var(--clay); text-transform:uppercase; }
+  .sig{ font-family:'Lora',serif; font-style:italic; font-size:26px; color:var(--ink); }
+</style>
+</head>
+<body>
+  <div class="page">
+    <div class="masthead">
+      <div class="brand">Consider This</div>
+      <div class="index">No. 001</div>
+    </div>
+    <div class="kicker">A free weekly email</div>
+    <div class="rule accent"></div>
+
+    <div class="headline">
+      <span class="n">5</span> things in your house that aren&rsquo;t <em>doing what you think.</em>
+    </div>
+
+    <div class="list">
+      <div class="item"><div class="num">1</div><div class="txt">Your sponge isn&rsquo;t sanitized after you microwave it.</div></div>
+      <div class="item"><div class="num">2</div><div class="txt">Your lint screen is clean. The duct behind it isn&rsquo;t.</div></div>
+      <div class="item"><div class="num">3</div><div class="txt">Your highest-rated furnace filter might be the wrong one.</div></div>
+      <div class="item"><div class="num">4</div><div class="txt">Your towels aren&rsquo;t old. They&rsquo;re coated.</div></div>
+      <div class="item"><div class="num">5</div><div class="txt">Your pillow has an expiration date.</div></div>
+    </div>
+
+    <div class="foot">
+      <div class="cta">1 thing a week &middot; Link in bio</div>
+      <div class="sig">The Gentle Muse</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,232 @@
+QUEUE AUDIT + MUSEROOM RE-PAIRING — DRAFT FOR APPROVAL — 2026-09-10
+
+STATUS: NOTHING APPLIED. Nothing edited, moved, uploaded or committed to Avery.
+Per Amanda 09/09: "anything you do, before you do it, show me the draft."
+
+Audited all 181 scheduled posts from 09/10 to 10/31, every platform.
+
+=====================================================================
+PART 1 — WHAT IS BROKEN IN THE QUEUE
+=====================================================================
+
+### 1A. URGENT. A PAID #ad POST CARRIES A DEAD LINK, AND IT FIRES TODAY.
+
+Post `4285801`, TikTok, account 41488, fires **2026-09-10 15:00 UTC**.
+It is correctly flagged `isBrandedContent: true`. The disclosure line is present and correct.
+
+The link in it is dead:
+    https://club.target.com/s/amanda.20/_/sku/94430281
+
+Verified, not assumed. That URL returns HTTP 200 but serves Target's soft-404: the page is
+144,095 bytes and contains "not available" and "sorry". A live product page on the same
+storefront (`87824456`, the Lip Drip) is 874,200 bytes and contains neither.
+
+**This was already known about the neighbouring SKU and never carried across.** Automation
+`2277` is literally named "IG FALLFIT — NEEDS SKU, cardigan 94430282 is dead" and its DM copy
+was already rewritten to say *"Target moved this one, so here's my storefront while I track
+down the new link."* The queued post is one digit away, `94430281`, and is equally dead. The
+automation got fixed. The post did not.
+
+So a brand partner post goes out today pointing a paid audience at a "sorry" page.
+
+**Proposed caption. Dead link removed, disclosure kept, hashtags kept, no date change.**
+
+    #TargetPartner #ad the fall racks are already up and I did not walk past them.
+
+    sweaters in every color I actually wear, the rust floral dress, and the open stitch
+    cardigan I put on in the fitting room and did not want to take off.
+
+    I'm a Target partner, so I may earn rewards or commission when you shop my link, at no
+    extra cost to you.
+
+    Target moved the cardigan, so the whole fall run is on my storefront. Link's in my bio.
+
+    #ClubTarget #TargetFallCollage
+
+Storefront verified live: `https://club.target.com/a/amanda.20`, HTTP 200, 82,616 bytes,
+title "Storefront | Club Target", zero "sorry" or "not available" strings.
+
+Not putting the storefront URL in the caption body because TikTok caption links are not
+clickable; "link's in my bio" is the working CTA and is what the original said.
+
+**The #ad post is NOT being moved.** Standing rule: never move a post carrying #ad or
+#TargetPartner to a different date.
+
+### 1B. URGENT. TWO TIKTOKS ON THE SAME ACCOUNT AT THE SAME MINUTE, ALSO TODAY.
+
+Both on account `41488` @thegentlemuse2026, both at **2026-09-10 15:00:00 UTC exactly**:
+
+| id | what |
+|---|---|
+| `4285801` | the #TargetPartner #ad cardigan post above |
+| `4231002` | "If every AI explainer makes your eyes glaze over, this one won't." |
+
+That day's TikTok slots: 15:00, 15:00, 17:00, 23:00. So 15:00 is double-booked and there is a
+clear gap.
+
+**Proposed: move `4231002`, the non-ad post, from 15:00 to 19:00 the same day.** The ad post
+keeps its slot untouched. Moving the free post rather than the paid one respects the #ad rule
+and leaves 17:00 and 23:00 undisturbed.
+
+### 1C. NOT URGENT. PINTEREST IS RUNNING 20 POSTS OFF 5 CAPTIONS.
+
+| repeats | dates |
+|---|---|
+| x5 | 09-10, 09-13, 09-16, 09-21, 09-26 |
+| x5 | 09-11, 09-14, 09-17, 09-22, 09-29 |
+| x4 | 09-12, 09-15, 09-18, 09-25 |
+| x3 | 09-19, 09-23, 09-27 |
+| x3 | 09-20, 09-24, 09-28 |
+
+Pinterest tolerates repetition better than any other platform and these are evergreen search
+pins, so this may well be deliberate. Flagging it rather than calling it a fault. Amanda's
+call. Also 3 Facebook captions and 1 YouTube caption repeat twice each, 5 to 16 days apart,
+which is normal recycling.
+
+### 1D. THE CONTENT CLIFF IS 09-18, NOT 09-21.
+
+| window | posts per day |
+|---|---|
+| 09-10 to 09-18 | 17 to 21 |
+| 09-19 to 10-31 | **1**, and almost all of them are the repeated Pinterest pins |
+
+After 09-18 the queue is effectively empty: 1 recycled pin a day, plus the Facebook post
+scheduled 09-22, 2 on 09-30, 2 on 10-04 and 2 on 10-31. Every Just Another Tuesday send day
+from 09-29 onward still has no Instagram post at all.
+
+### 1E. WHAT IS CLEAN
+
+- **0 posts missing media** on a media-required platform, all 181 checked.
+- **Every URL in every caption resolves**: all 5 subscribepage funnels 200, payhip 200, the
+  Lip Drip SKU 200 and genuinely live. Only the cardigan SKU is dead.
+- **3 posts carry an affiliate or partner disclosure** and all 3 have it correctly worded.
+- **No other same-account collisions** anywhere in the 7-week window.
+
+**Coverage limit, stated rather than implied:** `blotato_list_posts` does not return
+`firstComment` or `accountId`, so first comments across all 181 posts were NOT audited. That
+would take 181 individual reads. The 4 posts I touched yesterday were verified individually.
+
+=====================================================================
+PART 2 — MUSEROOM PANELS PAIRED TO LEAD MAGNETS
+=====================================================================
+
+Re-pairing the 7 existing panels to offers instead of newsletter issues, per Amanda 09/09.
+
+Honest result: **4 of the 7 pair well. 3 do not. 5 offers have no panel at all.**
+
+### The 4 that work
+
+| Panel | Offer | Why it actually fits |
+|---|---|---|
+| **Day 5** | **Bottleneck Check** | Claude holds a Weekly Analytics Report, Amanda has her head in her hand: "Four weeks. Zero website clicks. That's the real problem." The Bottleneck Check's whole pitch is "5 things stall a business, this hands you the 1 holding the rest up." The panel IS that moment. |
+| **Day 6** | **AI Beginner's Guide** | Claude's Build Log at 1:03 AM, wall chart reading "10 Videos / 1 Engine", checklist of Workflow, Automations, Content Engine, Analytics. The guide is the plain-language version of that. |
+| **Day 7** | **Reset Guide** | "Filed the video library," chaos resolved into a calm labelled shelf. The Reset Guide's own origin line is "I made it when I had 13 browser tabs open and files on my phone I could no longer decode." Day 7 is that, after. |
+| **Day 1** | **Just Another Tuesday** | "Day one. I'm going to document everything," notebook reading 60-Day Documentation Project. JAT is that newsletter. |
+
+### The 3 that do not
+
+- **Day 2** (Cesa asleep, "affiliate groundwork, still humming"). Cesa is in it but it is not
+  about senior-dog care, so it cannot carry the Cesa guide. It is about systems running while
+  she rests, and no offer says that.
+- **Day 3** ("Three affiliate flows built", "money pipes"). Affiliate income plumbing. The
+  Paycheck Planner is household biweekly bills, which is a different thing. Forcing it would
+  misrepresent the product.
+- **Day 4** ("Fourteen thousand views", Friday Founder Post Plan). A win-report panel. No
+  offer matches, and it also has a spelled-out numeral baked into the art.
+
+### The 5 offers with no panel
+
+**Consider This**, **Press Play**, **Paycheck Planner**, **Decision Session**, and the
+**Cesa guide** itself. Consider This and the Cesa guide are two of the three funnels that have
+actually converted a real subscriber, so those gaps are the expensive ones.
+
+**Conclusion: pairing the existing set gets 4 offers covered and misrepresents anything past
+that.** Which is why Amanda's own fallback is the right call, and it is drafted in Part 3.
+
+=====================================================================
+PART 3 — DRAFT BRIEF TO AVERY (NOT SENT, NOT COMMITTED)
+=====================================================================
+
+Mechanism: Avery/Codex reads briefs committed into this repo. The precedent is
+`promo-engine/CONFERENCE-BRIEF-AVERY.md`, where Claude wrote questions and Avery answered
+into the same file. Division of labour already on record: **Avery owns the carousels and the
+generated visual assets, Claude owns single promo cards and copy.** So generated MuseRoom
+panels are squarely Avery's lane, and asking is a matter of committing the brief below.
+
+Proposed filename: `promo-engine/BRIEF-AVERY-0910-museroom-lead-magnet-panels.md`
+
+--- begin draft brief ---
+
+# Brief: MuseRoom panels for the lead magnets
+
+**From Claude, 2026-09-10. Amanda's idea and Amanda's approval pending on this file.**
+
+The 7 existing MuseRoom panels document the 60-day build. They work beautifully for that and
+4 of them map onto an offer. They were not made to sell the lead magnets, and 5 offers have no
+panel. Amanda wants panels built for the offers.
+
+## Keep the format exactly
+
+Every existing panel holds to this and it is why they read as a series:
+- 1024x1536 portrait, warm lamp-lit study, bookshelves, candle, floral mug, knit blanket.
+- Cast: **Amanda** (dark bob, cream sweater), **Avery** (curly dark hair, pink off-shoulder
+  knit), **Claude** (grey beard, glasses, tweed), **Cesa** (black and tan chihuahua, pink knit).
+- 2 to 4 speech bubbles, cream, thin dark outline, name in bold above the line.
+- **A notebook in the foreground carrying a short checklist.** This is the signature and it is
+  what makes each panel readable at thumbnail size.
+- Cesa gets the last word and it is usually dry.
+
+## Hard rules from Amanda's voice guide
+
+- **Digits, never spelled-out numbers.** Day 4 has "Fourteen thousand views" baked into the
+  art and cannot be fixed without a regenerate. Do not repeat that.
+- No em dashes. No hype. Nothing that reads as boss-babe or generic motivation.
+- Never invent a fact about Amanda's life, her house, her purchases or Cesa. Everything in the
+  notebook and the bubbles has to be true or generic.
+
+## The panels wanted, 1 per offer
+
+Each needs: the moment the offer solves, in this cast's hands.
+
+| # | Offer | The beat | Suggested notebook checklist |
+|---|---|---|---|
+| 1 | **Cesa guide** (free, 15pg) | Cesa mid-lap of the house at 19, Amanda watching. The guide is what keeps her comfortable, written from a living room and not a clinic. Cesa is the subject here, not the punchline. | Her Comfort: Floor traction / Door distance / Bladder timing / Bed height |
+| 2 | **Consider This** (weekly) | 1 thing in the home nobody notices any more, seen properly. Every issue ends with Cesa. | This Week: 1 thing you stopped seeing / then her |
+| 3 | **Press Play** (10 free audiobooks) | Hands busy, folding or driving, a book playing. Avery unimpressed by anyone's 50-book list. | 10 books. 5 free forever / 5 library card |
+| 4 | **Paycheck Planner** ($22) | The biweekly bills laid out and the panic gone. Calm, not scarcity. | Biweekly: Bills dated / Buffer / Business vs Personal |
+| 5 | **Decision Session** | Stuck between 2 choices at night. Claude does not pick for her, he lays them side by side. | 2 options. 1 page. Sleep on it. |
+
+Optional 6th if there is appetite: **AI Beginner's Guide** as a purpose-built panel, since
+Day 6 currently stands in for it and is really about the build log.
+
+## Format the output like this
+
+Same as the existing set: 1024x1536 PNG, filenames `MuseRoom_<offer-slug>.png`, dropped into
+Drive root beside `MuseRoomDay1.png` so Claude can pick them up and attach them.
+
+## What Claude will do with them
+
+Attach them to Instagram and Facebook posts carrying the matching keyword CTA. Instagram
+requires media and this is the blocker holding 6 drafted posts. Nothing gets scheduled without
+Amanda's approval on the pairing.
+
+## Questions for Avery
+
+1. Which tool generated the original 7, and can it hold the cast consistent across 5 new panels?
+2. Do you want the notebook lines exactly as above, or do you write them?
+3. Anything already in flight for the lead magnets that this would duplicate? Claude does not
+   want to step on the carousels.
+
+--- end draft brief ---
+
+=====================================================================
+PART 4 — ONE THING I COULD NOT PARSE
+=====================================================================
+
+From the 09/09 voice message: *"because I need to be stable symphony, assuming that it was
+smart enough to know the difference on how to post stuff. So I need to tell it to go in and
+fix"*.
+
+I cannot tell what "stable symphony" is, and there is no Symphony in this repo, in the
+automations, or in the connected tools. Rather than guess at a name and act on it, this is
+being asked plainly. The rest of that message parsed cleanly and is handled above.
