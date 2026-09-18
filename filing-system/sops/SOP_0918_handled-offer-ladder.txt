@@ -186,3 +186,70 @@ real gap. Run 7's E11_SPELLED_NUMBER catches the general case on holiday posts.
 Nothing here was published, sent, priced or approved. Every script in this run
 reads. None of them writes to Blotato, Wix, Payhip or MailerLite, and none of
 them holds a delete command.
+
+
+================================================================================
+AMENDMENT 09/18/2026 — THE BRIDGE, AND WHAT MAKES A CREDIT REAL
+================================================================================
+
+Amanda: "fix the bridge, credit the $37 and $47 toward the plan."
+
+Done, in both places it has to exist. The ladder now records it, and the buyer
+is now told about it, which are 2 different things and only the second one
+converts anybody.
+
+  OF-002  Done Reacting to Money  $37  credits toward OF-004
+  OF-003  The Decision Map        $47  credits toward OF-004
+
+Published into the live DMs, 1 line each, on 09/18:
+
+  448 BUDGET    "If you go on to the Chaos Cleanup Plan later, this $37 comes
+                 off it."
+  451 DECISION  "If you go on to the Chaos Cleanup Plan later, this $47 comes
+                 off it."
+
+Both automations are Instagram only, both stayed active and published through
+the edit, and both DMs are well inside the 640 character ceiling at 347 and 557.
+
+WHY THIS IS THE MECHANIC WORTH COPYING
+It is the 1 thing every account on the strategy bench that converts does, and
+it is the thing Amanda's ladder did not have. Contrarian Thinking credits a
+specific $2,000 toward the Academy. Hello Seven credits the $497 standard tier,
+and pointedly not the $997 VIP tier. Both were read at source on 09/18 and both
+are recorded in the teardown bank as verified.
+
+THE NEW FIELD: CreditStatus
+Adding CreditsToward to a CSV does not create a credit. It creates a term of
+sale that no customer has been told, which is the same shape of failure as a
+keyword that is live in a document and dead on the platform. Run 9 built
+PriceStatus for exactly that reason and it proved itself this morning when $750
+went live and the price gate changed behaviour with no rule edited.
+
+So a credit now carries the same kind of field:
+
+  live      the buyer is told, on a published surface
+  drafted   written into something unpublished
+  proposed  exists only in this table
+  none      the rung credits toward nothing
+
+H02_CREDIT_UNPUBLISHED holds a priced, real rung that names a credit at
+anything other than live. It fires once today, on OF-004: the ladder had the
+Plan crediting toward the Monthly Retainer, and it does not. The RETAINER DM
+recommends starting with the Plan, which is a recommendation and not a credit,
+and reading one as the other is how a term nobody promised ends up in a table.
+That is now recorded honestly and held for Amanda rather than quietly asserted.
+
+WHAT THE SUITE CAUGHT
+1 case failed the moment the bridge was fixed: the assertion that the shipped
+ladder names L05_NO_BRIDGE. It does not any more, because the bridge is there.
+L05 is now exercised against a synthesised ladder with the credits stripped
+back out, so the rule stays defended without pretending the real ladder is
+still broken.
+
+WHAT IS STILL OPEN ON THIS LADDER
+  OF-004 credits toward OF-005 and no buyer is told. Either publish it or clear
+  the field. 1 decision.
+  OF-006 The Method still bundles 2 products nobody can find.
+  OF-009 The Intensive at $3,000 is still proposed and still refused by the
+  price gate, correctly, because it appears on no published surface.
+  OF-005 RETAINER at $600 a month, automations 7215 and 7216, still drafts.

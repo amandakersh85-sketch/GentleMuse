@@ -25,7 +25,8 @@ evidenced by where the price actually lives:
 Three modes.
 
   --ladder    audits the ladder itself: references resolve, a bundle's parts
-              exist, a paid rung leads somewhere.
+              exist, a paid rung leads somewhere, and a credit the ladder
+              claims is one a buyer has actually been told about.
   --queue     reads the post queue. A caption may never carry a price at all.
               A surface that may carry one may only carry a live price.
               Keywords are gm_cta_check.py's job, not this one's.
@@ -51,6 +52,12 @@ LADDER = os.path.join(DATA, "offer-ladder.csv")
 MAGNETS = os.path.join(DATA, "magnet-map.csv")
 
 PRICE_STATUS = {"live", "drafted", "proposed", "unverified"}
+
+# A credit is only a credit when the buyer has been told about it. Recording
+# one in this table and nowhere else buys nothing: it is the ladder asserting a
+# term no customer can see, which is the same shape of failure as a keyword
+# that is live in a document and dead on the platform.
+CREDIT_STATUS = {"live", "drafted", "proposed", "none"}
 OFFER_STATUS = {"live", "draft", "proposed", "unverified", "orphaned"}
 
 # A price may appear on these. It may never appear on the others.
@@ -104,6 +111,7 @@ def load_ladder(path):
         r["_bundles"] = split_ids(r.get("Bundles"))
         r["_repack"] = split_ids(r.get("Repackages"))
         r["_credits"] = split_ids(r.get("CreditsToward"))
+        r["_cstatus"] = norm(r.get("CreditStatus")).lower() or "none"
         r["_accounts"] = set(split_ids(r.get("LiveAccountIds")))
     return rows
 
@@ -171,6 +179,20 @@ def audit_ladder(rows):
         # a live rung nobody can reach is not live
         if r["_status"] == "live" and not kw and not norm(r.get("URL")):
             add("L08_NO_PATH", oid, "%s is live with no keyword and no URL, so there is no way in" % name)
+
+        if r["_cstatus"] not in CREDIT_STATUS:
+            add("L02_BAD_FIELD", oid, "CreditStatus '%s' is not one of %s"
+                % (r.get("CreditStatus"), ", ".join(sorted(CREDIT_STATUS))))
+
+        # H02 a credit written down and never told to anybody. The rung is real
+        # and priced, so this is a gap a buyer walks into, not a draft.
+        if r["_credits"] and (r["_price"] or 0) > 0 \
+                and r["_status"] in ("live", "draft") and r["_cstatus"] != "live":
+            findings.append({
+                "code": "H02_CREDIT_UNPUBLISHED", "id": oid,
+                "msg": "%s says it credits toward %s and no buyer is told so. "
+                       "A credit nobody can see converts nobody."
+                       % (name, ", ".join(r["_credits"]))})
 
         # the Codie mechanic: every tier lowers the risk of buying the next.
         # A paid rung that credits toward nothing is where the ladder stops.

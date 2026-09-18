@@ -694,9 +694,12 @@ echo
 echo "== offer ladder =="
 
 # The shipped ladder does not pass, and that is the point of shipping it. It
-# names the 2 products nobody can find and the 2 rungs that lead nowhere.
+# named the 2 products nobody can find and the 2 rungs that led nowhere. The
+# 2 rungs were fixed on 09/18, so L05 is gone from the shipped ladder and is
+# exercised against a synthesised one below. What remains is the Method's
+# missing parts, and a credit on the Plan that no buyer has been told about.
 ofr "the shipped ladder names its own gaps" 1 --ladder "$OLADDER" \
-    L04_UNVERIFIED_COMPONENT L05_NO_BRIDGE
+    L04_UNVERIFIED_COMPONENT H02_CREDIT_UNPUBLISHED
 ofr "a reprice is held for Amanda, not failed" 1 --ladder "$OLADDER" H01_REPRICE_PENDING
 
 python3 - "$TMP" "$OLADDER" <<'PY9'
@@ -1048,6 +1051,64 @@ print(r['PriceStatus'], r['Status'])
 if [ "$liv" = "live live" ]; then
   echo "PASS  the ladder records the Plan as live"; pass=$((pass+1))
 else echo "FAIL  the ladder records the Plan as live (got: $liv)"; fail=$((fail+1)); fi
+
+# ------------------------------------------------------------ the bridge
+# Every account on the strategy bench that converts credits the first purchase
+# toward the next tier. Contrarian Thinking credits $2,000, Hello Seven credits
+# $497. Amanda's $37 and $47 credited toward nothing until 09/18.
+
+echo
+echo "== the bridge =="
+
+# the 2 entry products now lead somewhere, so L05 is silent on both
+out="$(python3 "$OFFER" --ladder "$OLADDER" 2>&1)"
+if ! grep -q "L05_NO_BRIDGE *OF-002" <<<"$out" && ! grep -q "L05_NO_BRIDGE *OF-003" <<<"$out"; then
+  echo "PASS  the \$37 and \$47 lead somewhere"; pass=$((pass+1))
+else echo "FAIL  the \$37 and \$47 lead somewhere"; echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
+
+# and the credit is one a buyer has actually been told about
+crd="$(python3 -c "
+import csv,sys
+rows={r['OfferID']:r for r in csv.DictReader(open(sys.argv[1],newline='',encoding='utf-8-sig'))}
+print(' '.join('%s:%s>%s' % (i, rows[i]['CreditStatus'], rows[i]['CreditsToward'])
+               for i in ('OF-002','OF-003')))
+" "$OLADDER")"
+if [ "$crd" = "OF-002:live>OF-004 OF-003:live>OF-004" ]; then
+  echo "PASS  both credits are published, not just recorded"; pass=$((pass+1))
+else echo "FAIL  both credits are published, not just recorded (got: $crd)"; fail=$((fail+1)); fi
+
+python3 - "$TMP" "$OLADDER" <<'PY13'
+import csv, os, sys
+tmp, src = sys.argv[1], sys.argv[2]
+rows = list(csv.DictReader(open(src, newline="", encoding="utf-8-sig")))
+cols = list(rows[0].keys())
+
+def dump(name, rs):
+    h = open(os.path.join(tmp, name), "w", newline="", encoding="utf-8")
+    w = csv.DictWriter(h, fieldnames=cols); w.writeheader(); w.writerows(rs)
+
+# a credit written into the table and told to nobody
+r = [dict(x) for x in rows]
+next(x for x in r if x["OfferID"] == "OF-002")["CreditStatus"] = "proposed"
+dump("ladder-creditunseen.csv", r)
+
+r = [dict(x) for x in rows]
+next(x for x in r if x["OfferID"] == "OF-002")["CreditStatus"] = "maybe"
+dump("ladder-badcredit.csv", r)
+
+# and the failure this whole run existed to clear
+r = [dict(x) for x in rows]
+for x in r:
+    if x["OfferID"] in ("OF-002", "OF-003"):
+        x["CreditsToward"] = ""; x["CreditStatus"] = "none"
+dump("ladder-nobridge.csv", r)
+PY13
+
+# exit 1, not 2: the shipped ladder also carries the Method's unverified parts,
+# which are a failure. H02 itself is a hold and the code has to appear.
+ofr "a credit nobody was told is named"  1 --ladder "$TMP/ladder-creditunseen.csv" H02_CREDIT_UNPUBLISHED
+ofr "an unknown CreditStatus is refused" 1 --ladder "$TMP/ladder-badcredit.csv"   L02_BAD_FIELD
+ofr "removing the bridge is caught"     1 --ladder "$TMP/ladder-nobridge.csv"     L05_NO_BRIDGE
 
 echo
 echo "$pass passed, $fail failed"
