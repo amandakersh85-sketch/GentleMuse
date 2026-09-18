@@ -38,7 +38,7 @@ video's duration, group a photo burst, or spot a sensitive document.
 | `sops/SOP_0918_position-and-lane.txt` | Run 10 SOP |
 | `patches/video-factory-clip-binding.md` | Paste-in patch for the `gentle-muse-video-factory` skill |
 | `patches/holiday-caption-strategy.md` | Paste-in patch for the video factory, `content-coach` and `post-grader` |
-| `tests/run-tests.sh` | Regression suite for Runs 6 through 10, 124 cases |
+| `tests/run-tests.sh` | Regression suite for Runs 6 through 11, 134 cases |
 
 SOPs are `.txt` on purpose. GitHub renders plain text preformatted, which keeps
 the column alignment the house format uses.
@@ -283,3 +283,21 @@ second brand.
 Run 10 written 09/18/2026. Executed here: `bash tests/run-tests.sh` runs 124
 cases across Runs 6 through 10, all passing. The gate reads. It does not post,
 schedule, publish or price, and no automation was turned on or off.
+
+Amended 09/18/2026. The keyword map now covers every keyword the platform
+answers, not the lead magnets alone: 49 rows across 4 kinds, 36 of which were
+live and invisible to every check here until today. An affiliate post was being
+reported as having no capture path, because the only table that knew about
+keywords had never heard of the one it used.
+
+That had to be fixed before a real defect could be. Run 9's invented-keyword
+rule matched the word "comment" case sensitively, so it caught the lowercase
+form and missed the capitalised one that starts most sentences. Making it case
+insensitive would have started refusing 23 live affiliate keywords as invented
+and blocked every brand deal, so the table came first and the regex second.
+
+Every rotation slot now also states the delivery it wants, face on all 7, and
+the filler it falls back to. `--week` counts what actually shipped against a
+floor, because filler is a fallback and a fallback nothing counts quietly
+becomes the plan. The same pass reports where the week's asks went by keyword
+kind, which is the money question stated as a number.

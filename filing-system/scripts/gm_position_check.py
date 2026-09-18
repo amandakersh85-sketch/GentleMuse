@@ -26,10 +26,20 @@ anything that ignores either.
                format that exists, and the positioning row it serves.
   --queue      reads the post queue and refuses a lane leak in either
                direction.
+  --week       counts a week by delivery and refuses one that fell below the
+               face floor, then reports where the calls to action actually went.
 
   python3 gm_position_check.py --position
   python3 gm_position_check.py --rotation
   python3 gm_position_check.py --queue queue.json
+  python3 gm_position_check.py --week week.json --face-floor 4
+
+The floor exists because "film more" is guidance. Amanda, 09/18: film face to
+camera as much as she can, and use the other content as filler when she is
+pressed for time. Filler is a fallback, and a fallback with nothing counting it
+quietly becomes the plan. 4 of 7 is a majority and it is deliberately
+reachable against a Sunday to Thursday shift and a Friday and Saturday filming
+window. Raise it when a week clears it comfortably.
 
 Exit 0 PASS, 1 FAIL, 2 HOLD. No third-party packages. Python 3.8+.
 """
@@ -58,7 +68,7 @@ CESA = {"65540", "55761"}
 CESA_LANE = "cesa"
 BUSINESS_LANES = {"build"}
 
-KEYWORD_CTA = re.compile(r"\bcomment(?:\s+the\s+word)?\s+([A-Z][A-Z0-9]{2,})\b")
+KEYWORD_CTA = re.compile(r"\b(?i:comment)(?:\s+the\s+word)?\s+([A-Z][A-Z0-9]{2,})\b")
 
 
 def norm(s):
@@ -188,6 +198,44 @@ def check_queue(rows, magnets):
     return findings
 
 
+# ------------------------------------------------------------------ the week
+
+def check_week(rows, magnets, floor):
+    """Did the week actually get filmed, and where did the asks go."""
+    findings, counts = [], {}
+    kind_of = {norm(m.get("Keyword")).upper(): norm(m.get("Kind")).lower() for m in magnets}
+
+    undeclared = []
+    for r in rows:
+        d = norm(r.get("delivery")).lower()
+        if not d:
+            undeclared.append(r.get("id", "?"))
+            continue
+        counts[d] = counts.get(d, 0) + 1
+
+    face = counts.get("face", 0)
+    # A week that declares nothing is a hold, not a failure. You cannot miss a
+    # floor you have no measurement for.
+    if counts and face < floor:
+        findings.append({"code": "W01_FACE_FLOOR", "id": "week",
+                         "msg": "%d of %d posts are face to camera, under the floor of %d. "
+                                "Filler is the fallback, not the plan."
+                                % (face, len(rows), floor)})
+    if undeclared:
+        findings.append({"code": "H03_NO_DELIVERY", "id": "week",
+                         "msg": "%d posts declare no delivery, so they cannot be counted: %s"
+                                % (len(undeclared), ", ".join(undeclared[:6]))})
+
+    routed = {}
+    for r in rows:
+        text = r.get("text") or ""
+        for kw, kind in kind_of.items():
+            if re.search(r"\b" + re.escape(kw) + r"\b", text):
+                routed[kind] = routed.get(kind, 0) + 1
+                break
+    return findings, counts, routed
+
+
 # ----------------------------------------------------------------------- cli
 
 def main():
@@ -195,6 +243,9 @@ def main():
     ap.add_argument("--position", action="store_true", help="audit the positioning table")
     ap.add_argument("--rotation", action="store_true", help="audit the weekday rotation")
     ap.add_argument("--queue", metavar="JSON", help="check a post queue for lane leaks")
+    ap.add_argument("--week", metavar="JSON", help="count a week by delivery")
+    ap.add_argument("--face-floor", type=int, default=4, metavar="N",
+                    help="how many of the week's posts must be face to camera, default 4")
     ap.add_argument("--position-file", default=POSITION)
     ap.add_argument("--rotation-file", default=ROTATION)
     ap.add_argument("--formats", default=FORMATS)
@@ -202,8 +253,8 @@ def main():
     ap.add_argument("--quiet", action="store_true")
     a = ap.parse_args()
 
-    if not (a.position or a.rotation or a.queue):
-        ap.error("nothing to check. Pass --position, --rotation or --queue.")
+    if not (a.position or a.rotation or a.queue or a.week):
+        ap.error("nothing to check. Pass --position, --rotation, --queue or --week.")
 
     try:
         position = load(a.position_file)
@@ -241,6 +292,24 @@ def main():
             print()
         worst = max(worst, report(check_queue(rows, magnets), a.quiet,
                                   "%d posts checked" % len(rows)))
+
+    if a.week:
+        try:
+            rows = json.load(open(a.week, encoding="utf-8"))
+        except (OSError, ValueError) as e:
+            print("cannot read the week: %s" % e)
+            return 2
+        if isinstance(rows, dict):
+            rows = rows.get("items") or rows.get("posts") or []
+        findings, counts, routed = check_week(rows, magnets, a.face_floor)
+        if not a.quiet and (a.position or a.rotation or a.queue):
+            print()
+        worst = max(worst, report(findings, a.quiet, "%d posts in the week" % len(rows)))
+        if not a.quiet:
+            print("\ndelivery: %s" % (", ".join("%s %d" % (k, v)
+                  for k, v in sorted(counts.items())) or "nothing declared"))
+            print("the asks went to: %s" % (", ".join("%s %d" % (k, v)
+                  for k, v in sorted(routed.items())) or "nothing"))
 
     return worst
 

@@ -177,3 +177,86 @@ SAFETY
 
 Propose-only. The gate reads. It does not post, schedule, publish or price.
 Nothing here was sent, and no automation was turned on or off.
+
+
+================================================================================
+AMENDMENT 09/18/2026 — BRAND DEALS ARE FIRST CLASS, AND THE WEEK GETS COUNTED
+================================================================================
+
+A DEFECT THIS RUN INTRODUCED AND HAS NOW FIXED
+
+Run 9 taught gm_cta_check.py to refuse a word handed to the reader as a keyword
+when that word is in no automation. It was right to. It was also wrong twice.
+
+First, it matched the word "comment" case sensitively. "comment WAITLIST" was
+caught and "Comment WAITLIST" was not, and the capitalised form is the one that
+starts a sentence, which is where a call to action usually sits. The rule was
+half a rule for a day.
+
+Second, and worse, the fix for that could not be applied safely. Making the
+match case insensitive would have started refusing BLOOM, BRACELET, BROW,
+BUTTER and 19 more, because the map held Amanda's lead magnets and nothing
+else. Those 23 affiliate keywords answer on live published automations. So does
+the 13 phrase PR screening set that catches inbound brand enquiries. Every one
+of them is a working capture path, and the gate would have called them invented
+and blocked the brand deals.
+
+Amanda, 09/18: "nothing wrong with some affiliate stuff, nothing wrong with
+brand deals. We can more than happily make branded content. That just improves
+our sales skills."
+
+So the map now covers every keyword the platform answers, not the lead magnets
+alone. 49 rows, and a Kind column that says what each one is.
+
+  magnet     9   a free thing that captures an email
+  offer      4   a paid rung on the ladder
+  affiliate  23  a product link Amanda earns on
+  screening  13  inbound phrases a brand comments, not a call to action
+
+36 of those 49 were live and invisible to every check in this repo until today.
+An affiliate post was being reported as having no capture path at all, because
+the only table that knew about keywords had never heard of the keyword it used.
+
+
+THE FACE FLOOR
+
+Amanda, 09/18: "what we need to double and triple down on is exactly what we're
+working towards right now, where I just start filming face to camera as much as
+I can. And when I'm pressed for time, we use my other content for filler."
+
+Filler is a fallback. A fallback with nothing counting it quietly becomes the
+plan, and that is how 2 of 7 slots ended up on a dog guide in the first place.
+So every rotation slot now states 2 things: the delivery it wants, which is
+face on all 7, and the filler it falls back to when the week gets away from her.
+
+  python3 gm_position_check.py --week week.json --face-floor 4
+
+W01 refuses a week that came in under the floor. 4 of 7 is a majority and it is
+deliberately reachable against a Sunday to Thursday shift with filming on
+Friday and Saturday. Raise it when a week clears it comfortably. A week that
+declares no delivery at all holds rather than fails, because a floor cannot be
+missed when nothing measured it.
+
+The same pass reports where the asks actually went, by keyword kind. That is
+the money question stated as a number. Amanda, 09/18: "the entire goal was to
+make money. We're not doing this just because it's fun." The current week
+routes 5 asks to free magnets and 2 to paid rungs. Nobody has decided what that
+ratio should be, so the gate reports it and does not judge it.
+
+The reason the count matters at all is Afnan's, and Amanda quoted it directly:
+the more often the contract and the call to action go out, the sooner the
+return arrives. Frequency is the mechanism. This is the thing that counts the
+frequency.
+
+
+WHAT DID NOT CHANGE
+
+The seasonal work. It stays, it keeps its own format, and F-SEASONAL's TIE beat
+is how it earns its place rather than running as a second brand. Amanda,
+09/18: "we've already done a lot of creation and planning for our seasonal
+angle, so I don't want to completely dismiss it because I feel like it's still
+getting us some reach."
+
+The lane split. Affiliate and screening keywords carry no lane restriction on
+purpose. Cesa can run pet brand deals on her own channel and Amanda can run
+hers, and neither is a leak.

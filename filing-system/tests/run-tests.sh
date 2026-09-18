@@ -915,6 +915,90 @@ if grep -q BUDGET <<<"$wk" && grep -q DECISION <<<"$wk" && ! grep -q CESA <<<"$w
   echo "PASS  the paid products are in the week and the dog guide is not"; pass=$((pass+1))
 else echo "FAIL  the paid products are in the week and the dog guide is not ($wk)"; fail=$((fail+1)); fi
 
+# ---------------------------------------------------------------- Run 11
+# Brand deals are first class, the capitalised keyword is caught, and the week
+# has to actually get filmed.
+
+echo
+echo "== every live keyword, not just the magnets =="
+
+python3 - "$TMP" <<'PY11'
+import json, os, sys
+tmp = sys.argv[1]
+def w(n, rows): json.dump(rows, open(os.path.join(tmp, n), "w"))
+
+# 23 affiliate keywords and 13 PR screening phrases are live capture paths.
+# Refusing them as invented would block every brand deal Amanda runs.
+w("kw-affiliate.json", [
+  {"id":"bloom","platform":"instagram","accountId":"45886","at":"2026-09-20T15:00:00Z",
+   "text":"#ad This is the one I actually keep buying. Comment BLOOM and I will send the link."},
+  {"id":"bracelet","platform":"facebook","accountId":"30840","at":"2026-09-20T19:00:00Z",
+   "text":"Comment BRACELET and I will send you the link."}])
+
+# The word comment starts most sentences, so it usually arrives capitalised.
+w("kw-case.json", [
+  {"id":"lower","platform":"instagram","accountId":"45886","at":"2026-09-20T15:00:00Z",
+   "text":"If that is you, comment WAITLIST and I will add you."},
+  {"id":"upper","platform":"instagram","accountId":"45886","at":"2026-09-20T17:00:00Z",
+   "text":"Comment WAITLIST and I will add you."}])
+
+base = [{"id":d,"accountId":"45886","delivery":"face",
+         "text":"Comment %s and I will send it." % k}
+        for d,k in (("mon","BOTTLENECK"),("tue","TUESDAY"),("wed","GUIDE"),
+                    ("thu","BUDGET"),("fri","DECISION"),("sat","RESET"),("sun","TUESDAY"))]
+filmed = [dict(r, delivery=("face" if r["id"] in ("mon","tue","wed","thu") else "text"))
+          for r in base]
+w("week-filmed.json", filmed)
+w("week-filler.json", [dict(r, delivery=("face" if r["id"]=="mon" else "text")) for r in base])
+w("week-silent.json", [{k:v for k,v in r.items() if k != "delivery"} for r in base])
+PY11
+
+cta "a live affiliate keyword passes"      0 "$TMP/kw-affiliate.json"
+cta "a capitalised invented keyword fails" 1 "$TMP/kw-case.json" P10_INVENTED_KEYWORD
+
+out="$(python3 "$CTA" --queue "$TMP/kw-case.json" 2>&1)"
+if [ "$(grep -c P10_INVENTED_KEYWORD <<<"$out")" = 2 ]; then
+  echo "PASS  both cases of comment are caught"; pass=$((pass+1))
+else echo "FAIL  both cases of comment are caught"; echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
+
+# Every keyword the platform answers should be in the table, with its kind.
+kinds="$(python3 -c "
+import csv,sys
+print(' '.join(sorted({r['Kind'] for r in csv.DictReader(open(sys.argv[1],newline='',encoding='utf-8-sig'))})))
+" "$HERE/../data/magnet-map.csv")"
+if grep -q magnet <<<"$kinds" && grep -q offer <<<"$kinds" \
+   && grep -q affiliate <<<"$kinds" && grep -q screening <<<"$kinds"; then
+  echo "PASS  the map knows all 4 kinds of keyword"; pass=$((pass+1))
+else echo "FAIL  the map knows all 4 kinds of keyword ($kinds)"; fail=$((fail+1)); fi
+
+echo
+echo "== the week has to get filmed =="
+pos "a filmed week passes"              0 --week "$TMP/week-filmed.json"
+pos "a week of filler is refused"       1 --week "$TMP/week-filler.json" -- W01_FACE_FLOOR
+pos "undeclared delivery holds"         2 --week "$TMP/week-silent.json" -- H03_NO_DELIVERY
+
+# the floor is a flag, and it has to actually move
+out="$(python3 "$POSGATE" --week "$TMP/week-filmed.json" --face-floor 7 2>&1)"
+if grep -q W01_FACE_FLOOR <<<"$out"; then
+  echo "PASS  --face-floor raises the bar"; pass=$((pass+1))
+else echo "FAIL  --face-floor raises the bar"; echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
+
+# the money question: where the asks actually went
+out="$(python3 "$POSGATE" --week "$TMP/week-filmed.json" 2>&1)"
+if grep -q "the asks went to" <<<"$out" && grep -q "offer" <<<"$out"; then
+  echo "PASS  the week reports where the asks went"; pass=$((pass+1))
+else echo "FAIL  the week reports where the asks went"; echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
+
+# every slot states what it prefers and what it falls back to
+nface="$(python3 -c "
+import csv,sys
+rows=list(csv.DictReader(open(sys.argv[1],newline='',encoding='utf-8-sig')))
+print(sum(1 for r in rows if r['Delivery']=='face' and r['Filler']))
+" "$HERE/../data/rotation-magnet.csv")"
+if [ "$nface" = 7 ]; then
+  echo "PASS  every slot prefers face and names its filler"; pass=$((pass+1))
+else echo "FAIL  every slot prefers face and names its filler"; fail=$((fail+1)); fi
+
 echo
 echo "$pass passed, $fail failed"
 [ "$fail" = 0 ]
