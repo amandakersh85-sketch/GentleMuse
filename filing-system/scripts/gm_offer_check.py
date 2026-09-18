@@ -32,6 +32,12 @@ Three modes.
               Keywords are gm_cta_check.py's job, not this one's.
   --sync      reads a live Blotato automations export and reports every place
               the tables and the platform disagree.
+  --urls      asks every live destination whether it actually answers. On
+              2026-09-18 the CLEANUP automation was published with a button
+              reading "See the $750 plan" pointing at /cleanup, and /cleanup
+              was a 404. --sync had passed it clean, because it only ever
+              checked that the map and the platform agreed on the URL. Both
+              agreed. Neither had asked the URL anything.
 
   python3 gm_offer_check.py --ladder
   python3 gm_offer_check.py --queue queue.json
@@ -101,6 +107,74 @@ def money(text):
     return out
 
 
+# A storefront refusing a script is not a dead page. Payhip and Target both
+# answer 403 to anything without a browser, and they sell fine to humans. Only
+# gone means gone. A check that is wrong 22 times out of 23 gets ignored inside
+# a week, which is the same reasoning that kept the paid-spacing rule narrow.
+GONE = {404, 410}
+REFUSED = {401, 403, 405, 429}
+
+
+def url_alive(url, timeout=15):
+    """('alive'|'gone'|'refused'|'error'|'server', detail)."""
+    import urllib.request
+    import urllib.error
+    req = urllib.request.Request(url, method="GET",
+                                 headers={"User-Agent": "gm-offer-check"})
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            return "alive", "HTTP %d" % r.status
+    except urllib.error.HTTPError as e:
+        if e.code in GONE:
+            return "gone", "HTTP %d" % e.code
+        if e.code in REFUSED:
+            return "refused", "HTTP %d" % e.code
+        if e.code >= 500:
+            return "server", "HTTP %d" % e.code
+        return "refused", "HTTP %d" % e.code
+    except Exception as e:                       # DNS, TLS, timeout, no network
+        return "error", "%s: %s" % (type(e).__name__, e)
+
+
+def check_urls(magnets, ladder):
+    """A destination nobody can reach is not a destination."""
+    findings = []
+    seen = {}
+
+    def want(url, who, kind):
+        url = norm(url).rstrip("/")
+        if url:
+            seen.setdefault(url, []).append("%s %s" % (kind, who))
+
+    for m in magnets:
+        if norm(m.get("Status")).lower() in ("", "live"):
+            want(m.get("URL"), norm(m.get("Keyword")).upper(), "keyword")
+    for r in ladder:
+        if r["_status"] == "live":
+            want(r.get("URL"), r["_id"], "rung")
+
+    refused, errored, alive = [], [], 0
+    for url, whos in sorted(seen.items()):
+        state, detail = url_alive(url)
+        who = ", ".join(sorted(set(whos)))
+        name = whos[0].split()[1]
+        if state == "gone":
+            findings.append({"code": "U01_DEAD_DESTINATION", "id": name,
+                             "msg": "%s sends people to %s and the page is gone (%s)"
+                                    % (who, url, detail)})
+        elif state == "server":
+            findings.append({"code": "H04_SERVER_ERROR", "id": name,
+                             "msg": "%s sends people to %s and it is erroring right now (%s)"
+                                    % (who, url, detail)})
+        elif state == "refused":
+            refused.append("%s (%s)" % (name, detail))
+        elif state == "error":
+            errored.append("%s (%s)" % (name, detail))
+        else:
+            alive += 1
+    return findings, refused, errored, alive
+
+
 def load_csv(path):
     with open(path, newline="", encoding="utf-8-sig") as fh:
         return list(csv.DictReader(fh))
@@ -117,6 +191,7 @@ def load_ladder(path):
         r["_repack"] = split_ids(r.get("Repackages"))
         r["_credits"] = split_ids(r.get("CreditsToward"))
         r["_cstatus"] = norm(r.get("CreditStatus")).lower() or "none"
+        r["_bridgenote"] = norm(r.get("BridgeNote"))
         r["_accounts"] = set(split_ids(r.get("LiveAccountIds")))
     return rows
 
@@ -214,11 +289,23 @@ def audit_ladder(rows):
 
         # the Codie mechanic: every tier lowers the risk of buying the next.
         # A paid rung that credits toward nothing is where the ladder stops.
+        #
+        # Silence is the failure, not the absence of a credit. The rule assumed
+        # every paid rung below the top is an upgrade path, and that is not
+        # always true: the only rung above the Chaos Cleanup Plan is continuity,
+        # and a monthly retainer is not a bigger version of a one-off audit. So
+        # a rung may credit upward OR say why it does not, the same way Run 8
+        # lets a reel name its keyword or state the gap.
         if (r["_price"] or 0) > 0 and not r["_credits"] \
                 and int(r.get("Rung") or 0) < top and r["_status"] in ("live", "draft"):
-            add("L05_NO_BRIDGE", oid,
-                "%s takes money and credits toward nothing, so a buyer here has no next step"
-                % name)
+            if not r["_bridgenote"]:
+                add("L05_NO_BRIDGE", oid,
+                    "%s takes money and credits toward nothing, and says nothing about why. "
+                    "Credit it upward, or record why there is nothing to credit." % name)
+            elif len(r["_bridgenote"].split()) < 8:
+                add("L05_NO_BRIDGE", oid,
+                    "%s explains its missing bridge in under 8 words, which explains nothing: '%s'"
+                    % (name, r["_bridgenote"]))
 
     for kw, ids in by_kw.items():
         if len(ids) > 1:
@@ -414,6 +501,8 @@ def main():
                     help="audit the offer ladder")
     ap.add_argument("--queue", metavar="JSON", help="check a post queue for prices and keywords")
     ap.add_argument("--sync", metavar="JSON", help="a live Blotato automations export")
+    ap.add_argument("--urls", action="store_true",
+                    help="ask every live destination whether it answers")
     ap.add_argument("--scope", metavar="KW,KW", default="",
                     help="limit --sync to these keywords, for checking one change")
     ap.add_argument("--ladder-file", default=LADDER)
@@ -421,8 +510,8 @@ def main():
     ap.add_argument("--quiet", action="store_true")
     a = ap.parse_args()
 
-    if not (a.ladder or a.queue or a.sync):
-        ap.error("nothing to check. Pass --ladder, --queue or --sync.")
+    if not (a.ladder or a.queue or a.sync or a.urls):
+        ap.error("nothing to check. Pass --ladder, --queue, --sync or --urls.")
 
     ladder_path = a.ladder if isinstance(a.ladder, str) else a.ladder_file
     try:
@@ -450,6 +539,17 @@ def main():
             print()
         worst = max(worst, report(check_queue(rows, ladder, magnets), a.quiet,
                                   "%d posts checked" % len(rows)))
+
+    if a.urls:
+        if not a.quiet and (a.ladder or a.queue):
+            print()
+        u_find, u_refused, u_err, u_alive = check_urls(magnets, ladder)
+        worst = max(worst, report(u_find, a.quiet, "live destinations asked"))
+        if not a.quiet:
+            print("\n%d answered. %d refused a script and say nothing either way: %s"
+                  % (u_alive, len(u_refused), ", ".join(u_refused) or "none"))
+            if u_err:
+                print("%d could not be reached at all: %s" % (len(u_err), ", ".join(u_err)))
 
     if a.sync:
         try:

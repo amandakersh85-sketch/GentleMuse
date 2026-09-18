@@ -699,7 +699,7 @@ echo "== offer ladder =="
 # exercised against a synthesised one below. What remains is the Method's
 # missing parts, and a credit on the Plan that no buyer has been told about.
 ofr "the shipped ladder names its own gaps" 1 --ladder "$OLADDER" \
-    L04_UNVERIFIED_COMPONENT H02_CREDIT_UNPUBLISHED
+    L04_UNVERIFIED_COMPONENT
 ofr "a reprice is held for Amanda, not failed" 1 --ladder "$OLADDER" H01_REPRICE_PENDING
 
 python3 - "$TMP" "$OLADDER" <<'PY9'
@@ -868,7 +868,7 @@ next(x for x in r if x["Weekday"] == "Monday")["Format"] = "F-FREESTYLE"
 dump("rot-noformat.csv", r, rcols)
 
 r = [dict(x) for x in rot]
-next(x for x in r if x["Weekday"] == "Monday")["Keyword"] = "RETAINER"
+next(x for x in r if x["Weekday"] == "Monday")["Keyword"] = "CLEANUP"
 dump("rot-draftkw.csv", r, rcols)
 PY10
 
@@ -1042,15 +1042,17 @@ if ! grep -q "plan-page" <<<"$out" && grep -q "Q02_UNAPPROVED_PRICE *intensive-p
 else echo "FAIL  a published price may ship and a proposed one may not"
      echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
 
-# the ladder should agree that the Plan is live
-liv="$(python3 -c "
+# The Plan's state moves. What must never drift is the 2 tables disagreeing
+# about whether it is shippable, which is how a paused offer keeps selling.
+agree="$(python3 -c "
 import csv,sys
-r=[x for x in csv.DictReader(open(sys.argv[1],newline='',encoding='utf-8-sig')) if x['OfferID']=='OF-004'][0]
-print(r['PriceStatus'], r['Status'])
-" "$HERE/../data/offer-ladder.csv")"
-if [ "$liv" = "live live" ]; then
-  echo "PASS  the ladder records the Plan as live"; pass=$((pass+1))
-else echo "FAIL  the ladder records the Plan as live (got: $liv)"; fail=$((fail+1)); fi
+L=[x for x in csv.DictReader(open(sys.argv[1],newline='',encoding='utf-8-sig')) if x['OfferID']=='OF-004'][0]
+M=[x for x in csv.DictReader(open(sys.argv[2],newline='',encoding='utf-8-sig')) if x['Keyword']=='CLEANUP'][0]
+print(('live' if L['PriceStatus']=='live' else 'not') == ('live' if M['Status']=='live' else 'not'))
+" "$HERE/../data/offer-ladder.csv" "$HERE/../data/magnet-map.csv")"
+if [ "$agree" = "True" ]; then
+  echo "PASS  the ladder and the map agree on whether the Plan ships"; pass=$((pass+1))
+else echo "FAIL  the ladder and the map agree on whether the Plan ships"; fail=$((fail+1)); fi
 
 # ------------------------------------------------------------ the bridge
 # Every account on the strategy bench that converts credits the first purchase
@@ -1143,7 +1145,7 @@ rows=[r for r in csv.DictReader(open(sys.argv[1],newline='',encoding='utf-8-sig'
       if r['Status'] in ('live','draft')]
 print(sum(1 for r in rows if r['Sells']), len(rows))
 " "$OLADDER")"
-if [ "$n" = "5 5" ]; then
+if [ "${n% *}" = "${n#* }" ] && [ "${n% *}" != "0" ]; then
   echo "PASS  every live rung names a solution, shortcut or feeling"; pass=$((pass+1))
 else echo "FAIL  every live rung names a solution, shortcut or feeling (got: $n)"; fail=$((fail+1)); fi
 
@@ -1152,6 +1154,48 @@ pos "the sells doctrine is in the message" 0 --position -- ""
 if grep -q "solution, a shortcut, or a feeling" "$HERE/../data/brand-position.csv"; then
   echo "PASS  the 3 things are written down, not remembered"; pass=$((pass+1))
 else echo "FAIL  the 3 things are written down, not remembered"; fail=$((fail+1)); fi
+
+# --------------------------------------------------- a destination that answers
+# 09/18: CLEANUP was published with a button reading "See the $750 plan" pointing
+# at /cleanup, and /cleanup was a 404. --sync passed it clean, because it only
+# ever checked that the map and the platform agreed on the URL. Both agreed.
+# Neither had asked the URL anything.
+
+echo
+echo "== the destination has to answer =="
+
+out="$(python3 -c "
+import sys; sys.path.insert(0, '$HERE/../scripts')
+import importlib.util
+spec = importlib.util.spec_from_file_location('g', '$HERE/../scripts/gm_offer_check.py')
+g = importlib.util.module_from_spec(spec); spec.loader.exec_module(g)
+print('gone', sorted(g.GONE))
+print('refused', sorted(g.REFUSED))
+")"
+if grep -q "gone \[404, 410\]" <<<"$out" && grep -q "403" <<<"$out"; then
+  echo "PASS  gone is refused and a bot block is not"; pass=$((pass+1))
+else echo "FAIL  gone is refused and a bot block is not"; echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
+
+# the pause is recorded in both tables, not just in Blotato
+st="$(python3 -c "
+import csv,sys
+L={r['OfferID']:r for r in csv.DictReader(open(sys.argv[1],newline='',encoding='utf-8-sig'))}
+M={r['Keyword']:r for r in csv.DictReader(open(sys.argv[2],newline='',encoding='utf-8-sig'))}
+print(L['OF-004']['Status'], M['CLEANUP']['Status'])
+" "$OLADDER" "$HERE/../data/magnet-map.csv")"
+if [ "$st" = "draft draft" ]; then
+  echo "PASS  a paused offer is drafted in every table"; pass=$((pass+1))
+else echo "FAIL  a paused offer is drafted in every table (got: $st)"; fail=$((fail+1)); fi
+
+# the deposit was recorded as a $500 proposed orphan and is a live $750 product
+dep="$(python3 -c "
+import csv,sys
+r=[x for x in csv.DictReader(open(sys.argv[1],newline='',encoding='utf-8-sig')) if x['OfferID']=='OF-011'][0]
+print(r['Price'], r['PriceStatus'], r['Status'], 'product-page' in r['URL'])
+" "$OLADDER")"
+if [ "$dep" = "750 live live True" ]; then
+  echo "PASS  the deposit is recorded as the live product it is"; pass=$((pass+1))
+else echo "FAIL  the deposit is recorded as the live product it is (got: $dep)"; fail=$((fail+1)); fi
 
 echo
 echo "$pass passed, $fail failed"

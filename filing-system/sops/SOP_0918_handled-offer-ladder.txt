@@ -253,3 +253,87 @@ WHAT IS STILL OPEN ON THIS LADDER
   OF-009 The Intensive at $3,000 is still proposed and still refused by the
   price gate, correctly, because it appears on no published surface.
   OF-005 RETAINER at $600 a month, automations 7215 and 7216, still drafts.
+
+
+================================================================================
+AWAY SESSION 09/18/2026 — A DESTINATION NOBODY ASKED
+================================================================================
+
+RETAINER went live. OF-005 PriceStatus drafted to live, automations 7215 and
+7216 activated and published on Amanda's pre-approval. $600 a month on a 3
+month minimum is now a price a customer can see.
+
+The OF-004 credit toward OF-005 was cleared, also pre-approved. The RETAINER DM
+recommends starting with the Plan and promises no credit, so the field had been
+asserting a term nobody was told.
+
+Clearing it turned a hold into a failure, and the rule was wrong rather than the
+data. L05 assumed every paid rung below the top is an upgrade path. The only
+rung above the Plan is continuity, and a monthly retainer is not a bigger
+version of a one-off audit. So a rung may now credit upward OR carry a
+BridgeNote saying why it does not, the same way Run 8 lets a reel name its
+keyword or state the gap. Silence is still refused, and so is a note under 8
+words.
+
+THE THING THIS SESSION ACTUALLY FOUND
+
+The CLEANUP automation was published this morning with a button reading "See
+the $750 plan" pointing at gentlemuse.co/cleanup. That page answers 404.
+Confirmed twice, by fetch and by curl, against the 3 sibling destinations which
+all answer 200.
+
+So between publishing and finding it, anybody commenting CLEANUP got a DM
+promising a plan and a button to nowhere.
+
+--sync had passed it clean every time it ran, and was right to by its own
+lights: it compares the URL in the map to the URL on the automation and reports
+when they disagree. Both agreed. Neither had ever asked the URL a question.
+
+That is the Run 6 pattern again. The missing check was not a better rule about
+URLs, it was asking the destination whether it answers.
+
+  python3 scripts/gm_offer_check.py --urls
+
+U01_DEAD_DESTINATION refuses a live keyword or rung whose destination is gone.
+The first version of this check reported 23 failures and 22 of them were wrong:
+Payhip and Target answer 403 to anything without a browser and sell fine to
+humans. A check that cries wolf 22 times out of 23 is ignored inside a week,
+which is the same reasoning that kept the paid-spacing rule narrow. So only 404
+and 410 fail. 401, 403, 405 and 429 are reported as refused-a-script and say
+nothing either way. 5xx holds. A network that cannot be reached holds.
+
+It now reports 1 failure and it is the real one.
+
+CLEANUP IS PAUSED, NOT REPOINTED
+
+Automations 7213 and 7214 were deactivated and renamed to say why. Reversible in
+1 call, the same mechanism used on CESA, and the DM copy is untouched.
+
+It was NOT repointed at the live $750 checkout, and that decision matters. The
+Wix store's only product is Fixed-Fee Project Deposit, $750, visible, with
+working Add to Cart and Buy Now. It is a different offer: "One project, 1 or 2
+freelancers, defined scope. We find the freelancer, hire them, manage them, and
+deliver the finished thing." The Chaos Cleanup Plan's own DM says "I don't do
+the fixes." Pointing an audit at a delivery product because the price matches is
+exactly the substitution house rule 5 forbids.
+
+THE LADDER WAS WRONG ABOUT THE DEPOSIT
+
+OF-011 was recorded as $500, proposed, orphaned. All 3 were wrong. It is $750,
+live, and the only product in the catalog, created 09/09 and reading 200 today.
+The deposit applies to the project total and is refundable in full if scope is
+not agreed within 14 days, so the credit mechanic is built into the product
+rather than bolted on.
+
+It is also, in substance, the managed-project offer Amanda described on 09/18:
+consult me, I will manage your project. That overlaps OF-009, which the ladder
+still carries at $3,000 proposed. Whether those are 1 offer or 2 is hers.
+
+THE METHOD, SETTLED AS FAR AS IT CAN BE
+
+Systems That Run Without You and The Week You're Actually Having appear in: no
+Blotato automation, no button URL on any automation live or draft, no page on
+gentlemuse.co that anything links to, the Wix Stores catalog (1 product, not
+them), and nowhere in this repo outside the rows that flag them as missing.
+Payhip's own store pages answer 403 to a script, so that surface could not be
+enumerated from here and is the one place left to look.
