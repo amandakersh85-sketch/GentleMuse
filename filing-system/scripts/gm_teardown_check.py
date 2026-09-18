@@ -56,6 +56,23 @@ ALL_CONFIDENCE = PULLED | {LISTED}
 
 PLACEHOLDER_HANDLES = {"", "unconfirmed", "unknown", "tbd", "n/a", "na", "-"}
 
+# Who is asserting the numbers in a row. A bank row can hold an audience figure
+# the creator publishes about themselves, a price a company lists, a figure a
+# reviewer reports, and a claim two sources contradict, and in plain prose all
+# 4 read identically to whoever opens the file next. Run 9 watched exactly that
+# happen to Amanda's own prices. ClaimStatus records the WEAKEST standard any
+# figure in the row rests on.
+CLAIM_STATUS = {
+    "official",      # the subject publishes it on their own surface
+    "thirdparty",    # a reviewer, outlet or aggregator reports it
+    "selfreported",  # the subject asserts it about themselves in content
+    "disputed",      # sources conflict, or it is publicly contested
+    "none",          # the row carries no audience or money figure
+}
+
+# A currency amount anywhere in the prose columns counts as a figure.
+CURRENCY = re.compile(r"\$\s?[\d,]+|\bKES\s?[\d,]+|\b[\d,]+\s*(?:SGD|USD|dollars)\b", re.I)
+
 # A contract has to promise something. These are requests wearing a promise's
 # clothes, and every one of them is what Amanda is currently shipping.
 GENERIC_CONTRACT = [
@@ -98,8 +115,8 @@ def request_openers(label, line):
 
 BANK_COLS = ["TeardownID", "Handle", "Platform", "Lane", "Followers",
              "ArtifactURL", "Views", "Likes", "EngRate", "Hook", "Structure",
-             "Contract", "MoneyPath", "StealThis", "Evidence", "Confidence",
-             "Verified"]
+             "Contract", "MoneyPath", "StealThis", "Evidence", "ClaimStatus",
+             "Confidence", "Verified"]
 
 
 def norm(s):
@@ -179,6 +196,22 @@ def check_bank(path):
                              "marked verified with no Contract. The whole point "
                              "of the teardown is naming the promise that earns "
                              "the follow."))
+
+        # T10/T11 a figure with nobody named as its source is how a
+        # reviewer's guess becomes next quarter's fact.
+        claim = lower(r.get("ClaimStatus"))
+        carries_figure = any(as_num(r.get(c)) for c in ("Followers", "Views", "Likes")) \
+            or any(CURRENCY.search(norm(r.get(c)))
+                   for c in ("MoneyPath", "StealThis", "Structure"))
+        if claim and claim not in CLAIM_STATUS:
+            findings.append(("T11_BAD_CLAIM_STATUS", tid,
+                             "ClaimStatus '%s' is not one of: %s"
+                             % (claim, ", ".join(sorted(CLAIM_STATUS)))))
+        elif carries_figure and not claim:
+            findings.append(("T10_NO_CLAIM_STATUS", tid,
+                             "carries an audience or money figure and does not "
+                             "say who is asserting it. Name the weakest standard "
+                             "any figure here rests on."))
 
         views, likes = as_num(r.get("Views")), as_num(r.get("Likes"))
         rate = as_num(r.get("EngRate"))

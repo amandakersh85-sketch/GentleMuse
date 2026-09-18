@@ -279,6 +279,71 @@ expect_exit "engagement rate must reconcile"      1 python3 "$TGATE" --bank "$TM
 expect_exit "verified row must name the promise"  1 python3 "$TGATE" --bank "$TMP/bank-nocontract.csv"
 expect_exit "a bank of leads only holds"          2 python3 "$TGATE" --bank "$TMP/bank-allleads.csv"
 
+# Run 9 taught the offer ladder that a number with nobody named as its source
+# becomes next quarter's fact. The same hole was open here: a reviewer's guess
+# at a competitor's price read exactly like a price the company publishes.
+python3 - "$TMP" "$TBANK" <<'PY8B'
+import csv, os, sys
+tmp, bank = sys.argv[1], sys.argv[2]
+rows = list(csv.DictReader(open(bank, newline="", encoding="utf-8-sig")))
+cols = list(rows[0].keys())
+
+def dump(name, rs):
+    h = open(os.path.join(tmp, name), "w", newline="", encoding="utf-8")
+    w = csv.DictWriter(h, fieldnames=cols); w.writeheader(); w.writerows(rs)
+
+def find(rs, tid):
+    return next(x for x in rs if x["TeardownID"] == tid)
+
+# CT-015 carries a $499 price and a third-party $8,500
+r = [dict(x) for x in rows]; find(r, "CT-015")["ClaimStatus"] = ""
+dump("bank-noclaim.csv", r)
+
+r = [dict(x) for x in rows]; find(r, "CT-015")["ClaimStatus"] = "probably true"
+dump("bank-badclaim.csv", r)
+
+# CT-005 carries no audience or money figure, so it may stay blank
+r = [dict(x) for x in rows]; find(r, "CT-005")["ClaimStatus"] = ""
+dump("bank-nofigure.csv", r)
+
+# the column itself going missing is a schema failure, not a silent pass
+r = [dict(x) for x in rows]
+c2 = [c for c in cols if c != "ClaimStatus"]
+h = open(os.path.join(tmp, "bank-noclaimcol.csv"), "w", newline="", encoding="utf-8")
+w = csv.DictWriter(h, fieldnames=c2, extrasaction="ignore")
+w.writeheader(); w.writerows(r)
+PY8B
+
+tb() { # name expected_exit bank [expected_code ...]
+  local name="$1" want="$2" bank="$3"; shift 3
+  local out; out="$(python3 "$TGATE" --bank "$bank" 2>&1)"; local got=$?
+  local ok=1
+  [ "$got" = "$want" ] || { ok=0; echo "  exit $got, wanted $want"; }
+  for code in "$@"; do
+    grep -q "$code" <<<"$out" || { ok=0; echo "  missing finding: $code"; }
+  done
+  if [ $ok = 1 ]; then echo "PASS  $name"; pass=$((pass+1))
+  else echo "FAIL  $name"; echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
+}
+
+tb "a figure with no named source is refused" 1 "$TMP/bank-noclaim.csv"    T10_NO_CLAIM_STATUS
+tb "an unknown ClaimStatus is refused"        1 "$TMP/bank-badclaim.csv"   T11_BAD_CLAIM_STATUS
+tb "a row with no figure may leave it blank"  0 "$TMP/bank-nofigure.csv"
+tb "the column going missing is caught"       1 "$TMP/bank-noclaimcol.csv" T09_SCHEMA
+
+# The research that drove the pivot is in the bank, graded rather than trusted.
+out="$(python3 "$TGATE" --bank "$TBANK" 2>&1)"
+if grep -q "13 of 22 rows are backed by an artifact somebody read" <<<"$out"; then
+  echo "PASS  the bank separates what was read from what was listed"; pass=$((pass+1))
+else echo "FAIL  the bank separates what was read from what was listed"
+     echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
+
+# Afnan is the row the whole pivot rests on, and her money claims are disputed.
+row="$(grep '^CT-012' "$TBANK")"
+if grep -q "disputed" <<<"$row" && grep -q "reported" <<<"$row"; then
+  echo "PASS  the pivot's source row is graded disputed"; pass=$((pass+1))
+else echo "FAIL  the pivot's source row is graded disputed"; fail=$((fail+1)); fi
+
 echo
 echo "== the contract on a reel =="
 python3 - "$TMP" <<'PY9'

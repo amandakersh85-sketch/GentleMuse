@@ -193,3 +193,86 @@ SAFETY
 Propose-only. Both scripts read and neither writes to anything outside a report
 file it was asked for. Nothing is deleted. Nothing is routed. A PASS is a
 proposal.
+
+
+================================================================================
+AMENDMENT 09/18/2026 — THE STRATEGY BENCH, AND WHO IS ASSERTING THE NUMBER
+================================================================================
+
+WHY THE BANK GREW
+The pivot to HANDLED rests on 2 research artifacts: a profile of Afnan Khalifa,
+and a benchmark of Codie Sanchez and 7 adjacent creators. Both were arriving as
+prose and being quoted as though settled. Run 8 already has the table for that,
+and the discipline it enforces is the one the pivot needed: an account somebody
+read is a finding, a name in somebody else's roundup is a lead, and the second
+may never be cited as the first.
+
+11 rows were added. 5 are verified, 6 are leads. The split is the useful part.
+
+WHAT WAS RE-READ HERE, AND WHAT WAS NOT
+Every price and promise in the new rows was fetched at source on 09/18 where a
+source could be reached. That changed 4 things the benchmark had recorded:
+
+  Contrarian Thinking credits a specific $2,000 toward the Academy. The
+  benchmark recorded only that the credit existed.
+
+  Hello Seven's credit applies to the $497 standard tier and NOT to the $997
+  VIP tier. The benchmark did not have the exclusion.
+
+  Nick Huber's start-here page does not carry the hook the benchmark quoted.
+  What it carries is a stance about Shark Tank culture, and 42,000+ newsletter
+  subscribers, which the benchmark did not record.
+
+  Anne Muhia's KES 1,999 early bird closed 08/15/2026, so KES 3,500 is the
+  current figure. The benchmark presented both as live.
+
+Two could not be reached and say so in their Evidence: the Inc. article
+reporting Contrarian Thinking as a $31M company returns HTTP 403, and Afnan
+Khalifa's flagship YouTube video returns no metadata to a fetch.
+
+THE AFNAN ROW IS THE ONE TO READ CAREFULLY
+Her handle was confirmed to exist. Her follower count was not agreed on: the
+research brief reports 2,349,902 read live, and 2 independent third-party
+sources in 2026 report 1.9M. The lower figure is recorded and the conflict is
+in the Evidence rather than resolved by picking.
+
+A third-party reviewer reports paying about $942.55 SGD for a Reels growth
+course, receiving a portal of locked upsells instead of the course, having a
+refund request ignored, and being refunded only after a public complaint
+reached 4,500 views. That is recorded as what a reviewer reports, not as fact.
+
+None of this stops her mechanics being worth adapting. It does stop her figures
+being repeated as though they were checked.
+
+THE NEW COLUMN: ClaimStatus
+A bank row can hold an audience figure a creator publishes about themselves, a
+price a company lists, a figure a reviewer guessed at, and a claim 2 sources
+contradict. In prose all 4 read identically to whoever opens the file next.
+
+Run 9 watched that exact failure happen to Amanda's own prices, where a monthly
+figure from a document became indistinguishable from a price sitting in a live
+automation. The same hole was open here, and the bank was about to take on 8
+competitor prices from mixed sources.
+
+So every row now names the WEAKEST standard any figure in it rests on:
+
+  official      the subject publishes it on their own surface
+  thirdparty    a reviewer, outlet or aggregator reports it
+  selfreported  the subject asserts it about themselves in content
+  disputed      sources conflict, or it is publicly contested
+  none          the row carries no audience or money figure
+
+The gate refuses a row that carries a figure and does not say who is asserting
+it (T10), and a ClaimStatus that is not one of the 5 (T11). A row with no
+figure may leave it blank.
+
+WHAT THE BENCH IS ACTUALLY FOR
+1 mechanic, repeated by everybody on it who converts, is missing from Amanda's
+ladder: the first purchase is credited toward the next tier. Contrarian
+Thinking credits $2,000. Hello Seven credits $497. Run 9's ladder audit already
+reports the other side of the same gap, that the $37 and $47 products credit
+toward nothing. The 2 findings are the same finding seen from both ends.
+
+SAFETY, UNCHANGED
+Propose-only. The gate reads. Nothing was posted, scheduled, published or paid
+for, and no competitor was contacted. A PASS is a proposal.

@@ -22,7 +22,7 @@ video's duration, group a photo burst, or spot a sensitive document.
 | `data/holiday-calendar.csv` | Run 7. 14 holidays, their date rules, slots and season windows. |
 | `data/holiday-fact-bank.csv` | Run 7. 50 sourced facts, each with the turn that makes it hers and what it needs on screen. |
 | `scripts/gm_teardown_check.py` | Run 8. The gate. Refuses a competitor nobody read, and a reel that asks without promising. |
-| `data/competitor-teardowns.csv` | Run 8. 8 accounts torn down from their own content, plus 3 leads held as unusable. |
+| `data/competitor-teardowns.csv` | Run 8. 22 rows: 13 torn down from their own content, 9 held as leads. Every row names who is asserting its numbers. |
 | `scripts/gm_offer_check.py` | Run 9. The gate. Refuses a price a caption may never carry, a price that has never shipped, and a ladder rung that leads nowhere. |
 | `data/offer-ladder.csv` | Run 9. 11 rungs, each carrying the evidence its price rests on. |
 | `sops/SOP_0819_video-triage-run-3.txt` | Run 3 SOP |
@@ -34,7 +34,7 @@ video's duration, group a photo burst, or spot a sensitive document.
 | `sops/SOP_0918_handled-offer-ladder.txt` | Run 9 SOP |
 | `patches/video-factory-clip-binding.md` | Paste-in patch for the `gentle-muse-video-factory` skill |
 | `patches/holiday-caption-strategy.md` | Paste-in patch for the video factory, `content-coach` and `post-grader` |
-| `tests/run-tests.sh` | Regression suite for Runs 6 through 9, 106 cases |
+| `tests/run-tests.sh` | Regression suite for Runs 6 through 9, 112 cases |
 
 SOPs are `.txt` on purpose. GitHub renders plain text preformatted, which keeps
 the column alignment the house format uses.
@@ -214,3 +214,25 @@ automations were read live once, on 09/17, through the Blotato listing. Every
 script in this run reads. None of them writes to Blotato, Wix, Payhip or
 MailerLite, none of them holds a delete command, and nothing in it was
 published, sent, priced or approved.
+
+Amended 09/18/2026. The 2 research artifacts the HANDLED pivot rests on, a
+profile of Afnan Khalifa and a benchmark of Codie Sanchez and 7 adjacent
+creators, went into the bank rather than staying as prose. 11 rows added, 5
+verified and 6 leads, and the split is the useful part.
+
+Re-reading the sources changed 4 things the benchmark had recorded, including
+that Contrarian Thinking credits a specific $2,000 toward its Academy and that
+Hello Seven's credit covers the standard tier and not VIP. Two sources could
+not be reached and say so in their own Evidence rather than being filled in.
+
+The bank also gained `ClaimStatus`, because a row can hold a price a company
+lists, a figure a reviewer guessed at, an audience number a creator claims about
+themselves, and a figure 2 sources contradict, and in prose all 4 read the same.
+Run 9 watched that failure happen to Amanda's own prices. Every row now names
+the weakest standard any figure in it rests on, and the gate refuses a figure
+with nobody named as its source.
+
+One mechanic shows up on every account on the bench that converts and is missing
+from Amanda's ladder: the first purchase is credited toward the next tier.
+Contrarian Thinking credits $2,000, Hello Seven credits $497. Run 9's ladder
+audit reports the same gap from the other end.
