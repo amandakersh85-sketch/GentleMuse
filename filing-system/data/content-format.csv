@@ -1,0 +1,14 @@
+FormatID,Format,Beat,Order,Seconds,What,Why
+F-OPERATOR,The operator,NAME THE MESS,1,0-3,"1 specific mess, named with a number or an object. Never a feeling, never a category.",CT-005: the concrete object carries the emotion and no adjective helps it.
+F-OPERATOR,The operator,ABSOLVE,2,3-8,Say plainly that this is not a competence problem. She is busy and her time is expensive.,POS-003 and POS-008. The line that separates her from every boss-babe account on the bench.
+F-OPERATOR,The operator,THE MOVE,3,8-25,"The actual order of operations. 1 management decision, in sequence, from work Amanda has really done.","The value that is currently missing. CT-014 owns what he recommends, CT-016 makes operator receipts the production value."
+F-OPERATOR,The operator,THE COST OF NOT,4,25-35,"What another month of doing it herself costs in hours, hires and tools.","POS-007. The reader prices time near money, so the comparison is the pitch."
+F-OPERATOR,The operator,ONE CTA,5,35-40,1 live keyword. Never 2.,"Afnan's mechanic, and gm_cta_check.py already refuses a keyword that cannot work."
+F-RECEIPT,Build in public,WHAT I DID,1,0-3,"The thing actually done this week, with the number in it.",POS-005. Teach from owned work. The business supplies the story.
+F-RECEIPT,Build in public,WHAT BROKE,2,3-12,"The part that failed, left in.",Just Another Tuesday already promises the mistakes left in. This is the receipt that earns the letter.
+F-RECEIPT,Build in public,WHAT IT TAUGHT,3,12-25,"The rule that came out of it, stated as a rule.",CT-015: name the process until it is ownable.
+F-RECEIPT,Build in public,ONE CTA,4,25-30,TUESDAY. This format always feeds the letter.,"1 owned destination. Codie: social is rented, email is owned."
+F-SEASONAL,Seasonal discovery,THE FACT,1,0-5,"The sourced fact from the holiday or daily bank, exactly as the bank carries it.",Run 7 already refuses a fact that is not in the bank. Nothing about that changes.
+F-SEASONAL,Seasonal discovery,THE TURN,2,5-15,The backbone. Why the fact matters.,Run 7's existing E09_NO_TURN rule. A fact reported without a turn is a trivia account.
+F-SEASONAL,Seasonal discovery,THE TIE,3,15-25,"1 line connecting the fact to order, chaos, or somebody's time.","Amanda's instruction 2026-09-18: keep the seasonal work, tie it to the message. This beat is the handoff that stops history being a second brand."
+F-SEASONAL,Seasonal discovery,ONE CTA,4,25-30,SEASONAL.,"Live on all 3 accounts, automations 4009 4010 4011."

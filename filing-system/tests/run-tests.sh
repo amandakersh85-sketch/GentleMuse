@@ -333,7 +333,7 @@ tb "the column going missing is caught"       1 "$TMP/bank-noclaimcol.csv" T09_S
 
 # The research that drove the pivot is in the bank, graded rather than trusted.
 out="$(python3 "$TGATE" --bank "$TBANK" 2>&1)"
-if grep -q "13 of 22 rows are backed by an artifact somebody read" <<<"$out"; then
+if grep -q "14 of 22 rows are backed by an artifact somebody read" <<<"$out"; then
   echo "PASS  the bank separates what was read from what was listed"; pass=$((pass+1))
 else echo "FAIL  the bank separates what was read from what was listed"
      echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
@@ -524,7 +524,7 @@ echo "== queue plan =="
 qplan "a day that matches the model passes" 0 "$HERE/queue.model.json" \
       "0 slots over, 0 slots under, 0 posts beyond"
 qplan "drift in every direction is caught"  1 "$HERE/queue.drift.json" \
-      "1 slots over" "2 slots under" "1 posts beyond" "1 on channels"
+      "1 slots over" "4 slots under" "1 posts beyond" "1 on channels"
 
 
 ANCH="$HERE/../scripts/gm_anchors.py"
@@ -694,9 +694,12 @@ echo
 echo "== offer ladder =="
 
 # The shipped ladder does not pass, and that is the point of shipping it. It
-# names the 2 products nobody can find and the 2 rungs that lead nowhere.
+# named the 2 products nobody can find and the 2 rungs that led nowhere. The
+# 2 rungs were fixed on 09/18, so L05 is gone from the shipped ladder and is
+# exercised against a synthesised one below. What remains is the Method's
+# missing parts, and a credit on the Plan that no buyer has been told about.
 ofr "the shipped ladder names its own gaps" 1 --ladder "$OLADDER" \
-    L04_UNVERIFIED_COMPONENT L05_NO_BRIDGE
+    L04_UNVERIFIED_COMPONENT
 ofr "a reprice is held for Amanda, not failed" 1 --ladder "$OLADDER" H01_REPRICE_PENDING
 
 python3 - "$TMP" "$OLADDER" <<'PY9'
@@ -795,6 +798,530 @@ out="$(python3 "$CTA" --queue "$HERE/cta.waitlist.json" 2>&1)"
 if grep -q "WAITLIST is in no automation" <<<"$out"; then
   echo "PASS  the invented keyword is named, not just counted"; pass=$((pass+1))
 else echo "FAIL  the invented keyword is named, not just counted"; fail=$((fail+1)); fi
+
+# ---------------------------------------------------------------- Run 10
+# The message as a table, and the lane as a field.
+
+POSGATE="$HERE/../scripts/gm_position_check.py"
+
+pos() { # name expected_exit mode [arg] -- greps
+  local name="$1" want="$2"; shift 2
+  local args=() greps=()
+  while [ $# -gt 0 ] && [ "$1" != "--" ]; do args+=("$1"); shift; done
+  [ "${1:-}" = "--" ] && shift
+  greps=("$@")
+  local out; out="$(python3 "$POSGATE" "${args[@]}" 2>&1)"; local got=$?
+  local ok=1
+  [ "$got" = "$want" ] || { ok=0; echo "  exit $got, wanted $want"; }
+  for code in "${greps[@]}"; do
+    grep -q "$code" <<<"$out" || { ok=0; echo "  missing finding: $code"; }
+  done
+  if [ $ok = 1 ]; then echo "PASS  $name"; pass=$((pass+1))
+  else echo "FAIL  $name"; echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
+}
+
+echo
+echo "== the message =="
+pos "the shipped positioning passes" 0 --position
+pos "the shipped rotation passes"    0 --rotation
+
+python3 - "$TMP" "$HERE/../data" <<'PY10'
+import csv, os, sys
+tmp, data = sys.argv[1], sys.argv[2]
+
+def dump(name, rows, cols):
+    h = open(os.path.join(tmp, name), "w", newline="", encoding="utf-8")
+    w = csv.DictWriter(h, fieldnames=cols); w.writeheader(); w.writerows(rows)
+
+pos = list(csv.DictReader(open(os.path.join(data, "brand-position.csv"),
+                               newline="", encoding="utf-8-sig")))
+pcols = list(pos[0].keys())
+
+r = [dict(x) for x in pos]
+next(x for x in r if x["PosID"] == "POS-004")["Source"] = ""
+dump("pos-nosource.csv", r, pcols)
+
+r = [dict(x) for x in pos]
+next(x for x in r if x["PosID"] == "POS-004")["Field"] = "vibes"
+dump("pos-badfield.csv", r, pcols)
+
+# the guarantee going missing is how a promise quietly stops being one
+r = [x for x in pos if x["PosID"] != "POS-004"]
+dump("pos-noguarantee.csv", r, pcols)
+
+rot = list(csv.DictReader(open(os.path.join(data, "rotation-magnet.csv"),
+                               newline="", encoding="utf-8-sig")))
+rcols = list(rot[0].keys())
+
+# the old week gave 2 of 7 slots to the dog guide
+r = [dict(x) for x in rot]
+sat = next(x for x in r if x["Weekday"] == "Saturday")
+sat["Keyword"] = "PRINCESS"; sat["Magnet"] = "19 Years Old, 10 of Them Mine"
+dump("rot-cesa.csv", r, rcols)
+
+r = [dict(x) for x in rot]
+next(x for x in r if x["Weekday"] == "Monday")["Serves"] = ""
+dump("rot-nomessage.csv", r, rcols)
+
+r = [dict(x) for x in rot]
+next(x for x in r if x["Weekday"] == "Monday")["Format"] = "F-FREESTYLE"
+dump("rot-noformat.csv", r, rcols)
+
+r = [dict(x) for x in rot]
+next(x for x in r if x["Weekday"] == "Monday")["Keyword"] = "CLEANUP"
+dump("rot-draftkw.csv", r, rcols)
+PY10
+
+pos "a claim with no source is refused"  1 --position --position-file "$TMP/pos-nosource.csv" -- M02_NO_SOURCE
+pos "an unknown field is refused"        1 --position --position-file "$TMP/pos-badfield.csv" -- M03_BAD_FIELD
+pos "losing the guarantee is caught"     1 --position --position-file "$TMP/pos-noguarantee.csv" -- M05_MISSING_FIELD
+
+echo
+echo "== the lane =="
+# The failure this run exists for: 2 of 7 slots pointed at a free dog guide
+# while the 2 products that take money had no slot at all.
+pos "a Cesa keyword in Amanda's week is refused" 1 --rotation \
+    --rotation-file "$TMP/rot-cesa.csv" -- R01_LANE_LEAK
+pos "a slot serving no message is refused"       1 --rotation \
+    --rotation-file "$TMP/rot-nomessage.csv" -- R03_NO_MESSAGE
+pos "a slot with no rails is refused"            1 --rotation \
+    --rotation-file "$TMP/rot-noformat.csv" -- R02_UNKNOWN_FORMAT
+pos "an unpublished keyword in the week is caught" 1 --rotation \
+    --rotation-file "$TMP/rot-draftkw.csv" -- R04_DEAD_KEYWORD
+
+python3 - "$TMP" <<'PY10B'
+import json, os, sys
+tmp = sys.argv[1]
+json.dump([
+ {"id": "leak-cesa", "accountId": "45886",
+  "text": "She is 19 today. Comment PRINCESS and I will send the guide."},
+ {"id": "leak-biz", "accountId": "65540",
+  "text": "Comment BOTTLENECK and I will send the free check."},
+ {"id": "ok-amanda", "accountId": "45886",
+  "text": "Comment BOTTLENECK and I will send the free check."},
+ {"id": "ok-cesa", "accountId": "65540",
+  "text": "Comment PRINCESS and I will send the guide."},
+], open(os.path.join(tmp, "lane.json"), "w"))
+PY10B
+
+pos "both directions of lane leak are caught" 1 --queue "$TMP/lane.json" -- Q01_LANE_LEAK
+
+out="$(python3 "$POSGATE" --queue "$TMP/lane.json" 2>&1)"
+if [ "$(grep -c Q01_LANE_LEAK <<<"$out")" = 2 ] \
+   && ! grep -q "ok-amanda" <<<"$out" && ! grep -q "ok-cesa" <<<"$out"; then
+  echo "PASS  a post in its own lane passes clean"; pass=$((pass+1))
+else echo "FAIL  a post in its own lane passes clean"; echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
+
+# Every weekday now names a live keyword and the 2 paid products finally have one.
+wk="$(cut -d, -f4 "$HERE/../data/rotation-magnet.csv" | tail -n +2 | sort -u | tr '\n' ' ')"
+if grep -q BUDGET <<<"$wk" && grep -q DECISION <<<"$wk" && ! grep -q CESA <<<"$wk"; then
+  echo "PASS  the paid products are in the week and the dog guide is not"; pass=$((pass+1))
+else echo "FAIL  the paid products are in the week and the dog guide is not ($wk)"; fail=$((fail+1)); fi
+
+# ---------------------------------------------------------------- Run 11
+# Brand deals are first class, the capitalised keyword is caught, and the week
+# has to actually get filmed.
+
+echo
+echo "== every live keyword, not just the magnets =="
+
+python3 - "$TMP" <<'PY11'
+import json, os, sys
+tmp = sys.argv[1]
+def w(n, rows): json.dump(rows, open(os.path.join(tmp, n), "w"))
+
+# 23 affiliate keywords and 13 PR screening phrases are live capture paths.
+# Refusing them as invented would block every brand deal Amanda runs.
+w("kw-affiliate.json", [
+  {"id":"bloom","platform":"instagram","accountId":"45886","at":"2026-09-20T15:00:00Z",
+   "text":"#ad This is the one I actually keep buying. Comment BLOOM and I will send the link."},
+  {"id":"bracelet","platform":"facebook","accountId":"30840","at":"2026-09-20T19:00:00Z",
+   "text":"Comment BRACELET and I will send you the link."}])
+
+# The word comment starts most sentences, so it usually arrives capitalised.
+w("kw-case.json", [
+  {"id":"lower","platform":"instagram","accountId":"45886","at":"2026-09-20T15:00:00Z",
+   "text":"If that is you, comment WAITLIST and I will add you."},
+  {"id":"upper","platform":"instagram","accountId":"45886","at":"2026-09-20T17:00:00Z",
+   "text":"Comment WAITLIST and I will add you."}])
+
+base = [{"id":d,"accountId":"45886","delivery":"face",
+         "text":"Comment %s and I will send it." % k}
+        for d,k in (("mon","BOTTLENECK"),("tue","TUESDAY"),("wed","GUIDE"),
+                    ("thu","BUDGET"),("fri","DECISION"),("sat","RESET"),("sun","TUESDAY"))]
+filmed = [dict(r, delivery=("face" if r["id"] in ("mon","tue","wed","thu") else "text"))
+          for r in base]
+w("week-filmed.json", filmed)
+w("week-filler.json", [dict(r, delivery=("face" if r["id"]=="mon" else "text")) for r in base])
+w("week-silent.json", [{k:v for k,v in r.items() if k != "delivery"} for r in base])
+PY11
+
+cta "a live affiliate keyword passes"      0 "$TMP/kw-affiliate.json"
+cta "a capitalised invented keyword fails" 1 "$TMP/kw-case.json" P10_INVENTED_KEYWORD
+
+out="$(python3 "$CTA" --queue "$TMP/kw-case.json" 2>&1)"
+if [ "$(grep -c P10_INVENTED_KEYWORD <<<"$out")" = 2 ]; then
+  echo "PASS  both cases of comment are caught"; pass=$((pass+1))
+else echo "FAIL  both cases of comment are caught"; echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
+
+# Every keyword the platform answers should be in the table, with its kind.
+kinds="$(python3 -c "
+import csv,sys
+print(' '.join(sorted({r['Kind'] for r in csv.DictReader(open(sys.argv[1],newline='',encoding='utf-8-sig'))})))
+" "$HERE/../data/magnet-map.csv")"
+if grep -q magnet <<<"$kinds" && grep -q offer <<<"$kinds" \
+   && grep -q affiliate <<<"$kinds" && grep -q screening <<<"$kinds"; then
+  echo "PASS  the map knows all 4 kinds of keyword"; pass=$((pass+1))
+else echo "FAIL  the map knows all 4 kinds of keyword ($kinds)"; fail=$((fail+1)); fi
+
+echo
+echo "== the week has to get filmed =="
+pos "a filmed week passes"              0 --week "$TMP/week-filmed.json"
+pos "a week of filler is refused"       1 --week "$TMP/week-filler.json" -- W01_FACE_FLOOR
+pos "undeclared delivery holds"         2 --week "$TMP/week-silent.json" -- H03_NO_DELIVERY
+
+# the floor is a flag, and it has to actually move
+out="$(python3 "$POSGATE" --week "$TMP/week-filmed.json" --face-floor 7 2>&1)"
+if grep -q W01_FACE_FLOOR <<<"$out"; then
+  echo "PASS  --face-floor raises the bar"; pass=$((pass+1))
+else echo "FAIL  --face-floor raises the bar"; echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
+
+# the money question: where the asks actually went
+out="$(python3 "$POSGATE" --week "$TMP/week-filmed.json" 2>&1)"
+if grep -q "the asks went to" <<<"$out" && grep -q "offer" <<<"$out"; then
+  echo "PASS  the week reports where the asks went"; pass=$((pass+1))
+else echo "FAIL  the week reports where the asks went"; echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
+
+# every slot states what it prefers and what it falls back to
+nface="$(python3 -c "
+import csv,sys
+rows=list(csv.DictReader(open(sys.argv[1],newline='',encoding='utf-8-sig')))
+print(sum(1 for r in rows if r['Delivery']=='face' and r['Filler']))
+" "$HERE/../data/rotation-magnet.csv")"
+if [ "$nface" = 7 ]; then
+  echo "PASS  every slot prefers face and names its filler"; pass=$((pass+1))
+else echo "FAIL  every slot prefers face and names its filler"; fail=$((fail+1)); fi
+
+# ------------------------------------------------- the 09/18 production change
+# CLEANUP was published at $750 and the CESA automations were retired from
+# Amanda's Instagram and Facebook, on her explicit approval. Cesa's own channel
+# was left alone. These cases exist so none of that drifts back silently.
+
+echo
+echo "== the split, as shipped =="
+
+python3 - "$TMP" <<'PY12'
+import json, os, sys
+tmp = sys.argv[1]
+def w(n, rows): json.dump(rows, open(os.path.join(tmp, n), "w"))
+
+w("shipped-cesa.json", [
+  {"id":"cesa-on-gm","platform":"instagram","accountId":"45886","at":"2026-09-20T15:00:00Z",
+   "text":"She turned 19 this week. Comment CESA and I will send the guide. https://cesa-guide.subscribepage.io"},
+  {"id":"cesa-on-hers","platform":"instagram","accountId":"65540","at":"2026-09-20T23:00:00Z",
+   "text":"She turned 19 this week. Comment CESA and I will send the guide. https://cesa-guide.subscribepage.io"}])
+
+w("shipped-price.json", [
+  {"id":"plan-page","surface":"page",
+   "text":"The Chaos Cleanup Plan is $750, paid once."},
+  {"id":"intensive-page","surface":"page",
+   "text":"The Intensive is $3,000."}])
+PY12
+
+out="$(python3 "$CTA" --queue "$TMP/shipped-cesa.json" 2>&1)"
+if grep -q "P01_DEAD_KEYWORD *cesa-on-gm" <<<"$out" \
+   && ! grep -q "cesa-on-hers" <<<"$out"; then
+  echo "PASS  CESA is dead on Amanda's channel and alive on Cesa's"; pass=$((pass+1))
+else echo "FAIL  CESA is dead on Amanda's channel and alive on Cesa's"
+     echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
+
+# $750 shipped, so it may appear on a page. $3,000 has not, so it may not.
+out="$(python3 "$OFFER" --queue "$TMP/shipped-price.json" 2>&1)"
+if ! grep -q "plan-page" <<<"$out" && grep -q "Q02_UNAPPROVED_PRICE *intensive-page" <<<"$out"; then
+  echo "PASS  a published price may ship and a proposed one may not"; pass=$((pass+1))
+else echo "FAIL  a published price may ship and a proposed one may not"
+     echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
+
+# The Plan's state moves. What must never drift is the 2 tables disagreeing
+# about whether it is shippable, which is how a paused offer keeps selling.
+agree="$(python3 -c "
+import csv,sys
+L=[x for x in csv.DictReader(open(sys.argv[1],newline='',encoding='utf-8-sig')) if x['OfferID']=='OF-004'][0]
+M=[x for x in csv.DictReader(open(sys.argv[2],newline='',encoding='utf-8-sig')) if x['Keyword']=='CLEANUP'][0]
+print(('live' if L['PriceStatus']=='live' else 'not') == ('live' if M['Status']=='live' else 'not'))
+" "$HERE/../data/offer-ladder.csv" "$HERE/../data/magnet-map.csv")"
+if [ "$agree" = "True" ]; then
+  echo "PASS  the ladder and the map agree on whether the Plan ships"; pass=$((pass+1))
+else echo "FAIL  the ladder and the map agree on whether the Plan ships"; fail=$((fail+1)); fi
+
+# ------------------------------------------------------------ the bridge
+# Every account on the strategy bench that converts credits the first purchase
+# toward the next tier. Contrarian Thinking credits $2,000, Hello Seven credits
+# $497. Amanda's $37 and $47 credited toward nothing until 09/18.
+
+echo
+echo "== the bridge =="
+
+# the 2 entry products now lead somewhere, so L05 is silent on both
+out="$(python3 "$OFFER" --ladder "$OLADDER" 2>&1)"
+if ! grep -q "L05_NO_BRIDGE *OF-002" <<<"$out" && ! grep -q "L05_NO_BRIDGE *OF-003" <<<"$out"; then
+  echo "PASS  the \$37 and \$47 lead somewhere"; pass=$((pass+1))
+else echo "FAIL  the \$37 and \$47 lead somewhere"; echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
+
+# and the credit is one a buyer has actually been told about
+crd="$(python3 -c "
+import csv,sys
+rows={r['OfferID']:r for r in csv.DictReader(open(sys.argv[1],newline='',encoding='utf-8-sig'))}
+print(' '.join('%s:%s>%s' % (i, rows[i]['CreditStatus'], rows[i]['CreditsToward'])
+               for i in ('OF-002','OF-003')))
+" "$OLADDER")"
+if [ "$crd" = "OF-002:live>OF-004 OF-003:live>OF-004" ]; then
+  echo "PASS  both credits are published, not just recorded"; pass=$((pass+1))
+else echo "FAIL  both credits are published, not just recorded (got: $crd)"; fail=$((fail+1)); fi
+
+python3 - "$TMP" "$OLADDER" <<'PY13'
+import csv, os, sys
+tmp, src = sys.argv[1], sys.argv[2]
+rows = list(csv.DictReader(open(src, newline="", encoding="utf-8-sig")))
+cols = list(rows[0].keys())
+
+def dump(name, rs):
+    h = open(os.path.join(tmp, name), "w", newline="", encoding="utf-8")
+    w = csv.DictWriter(h, fieldnames=cols); w.writeheader(); w.writerows(rs)
+
+# a credit written into the table and told to nobody
+r = [dict(x) for x in rows]
+next(x for x in r if x["OfferID"] == "OF-002")["CreditStatus"] = "proposed"
+dump("ladder-creditunseen.csv", r)
+
+r = [dict(x) for x in rows]
+next(x for x in r if x["OfferID"] == "OF-002")["CreditStatus"] = "maybe"
+dump("ladder-badcredit.csv", r)
+
+# and the failure this whole run existed to clear
+r = [dict(x) for x in rows]
+for x in r:
+    if x["OfferID"] in ("OF-002", "OF-003"):
+        x["CreditsToward"] = ""; x["CreditStatus"] = "none"
+dump("ladder-nobridge.csv", r)
+PY13
+
+# exit 1, not 2: the shipped ladder also carries the Method's unverified parts,
+# which are a failure. H02 itself is a hold and the code has to appear.
+ofr "a credit nobody was told is named"  1 --ladder "$TMP/ladder-creditunseen.csv" H02_CREDIT_UNPUBLISHED
+ofr "an unknown CreditStatus is refused" 1 --ladder "$TMP/ladder-badcredit.csv"   L02_BAD_FIELD
+ofr "removing the bridge is caught"     1 --ladder "$TMP/ladder-nobridge.csv"     L05_NO_BRIDGE
+
+# ------------------------------------------------------ what a rung is bought for
+# Nobody buys a product, a session or information. They buy a solution, a
+# shortcut or a feeling. A rung that cannot name which one is being sold as its
+# contents.
+
+echo
+echo "== what the rung is bought for =="
+
+python3 - "$TMP" "$OLADDER" <<'PY14'
+import csv, os, sys
+tmp, src = sys.argv[1], sys.argv[2]
+rows = list(csv.DictReader(open(src, newline="", encoding="utf-8-sig")))
+cols = list(rows[0].keys())
+def dump(name, rs):
+    h = open(os.path.join(tmp, name), "w", newline="", encoding="utf-8")
+    w = csv.DictWriter(h, fieldnames=cols); w.writeheader(); w.writerows(rs)
+
+r = [dict(x) for x in rows]; next(x for x in r if x["OfferID"] == "OF-003")["Sells"] = ""
+dump("ladder-sellsnothing.csv", r)
+r = [dict(x) for x in rows]; next(x for x in r if x["OfferID"] == "OF-003")["Sells"] = "information"
+dump("ladder-sellsinfo.csv", r)
+PY14
+
+ofr "a rung that names nothing is refused" 1 --ladder "$TMP/ladder-sellsnothing.csv" L10_SELLS_NOTHING
+ofr "selling information is refused"       1 --ladder "$TMP/ladder-sellsinfo.csv"    L10_SELLS_NOTHING
+
+# every live and draft rung knows what it is bought for
+n="$(python3 -c "
+import csv,sys
+rows=[r for r in csv.DictReader(open(sys.argv[1],newline='',encoding='utf-8-sig'))
+      if r['Status'] in ('live','draft')]
+print(sum(1 for r in rows if r['Sells']), len(rows))
+" "$OLADDER")"
+if [ "${n% *}" = "${n#* }" ] && [ "${n% *}" != "0" ]; then
+  echo "PASS  every live rung names a solution, shortcut or feeling"; pass=$((pass+1))
+else echo "FAIL  every live rung names a solution, shortcut or feeling (got: $n)"; fail=$((fail+1)); fi
+
+# the message table carries the doctrine, sourced
+pos "the sells doctrine is in the message" 0 --position -- ""
+if grep -q "solution, a shortcut, or a feeling" "$HERE/../data/brand-position.csv"; then
+  echo "PASS  the 3 things are written down, not remembered"; pass=$((pass+1))
+else echo "FAIL  the 3 things are written down, not remembered"; fail=$((fail+1)); fi
+
+# --------------------------------------------------- a destination that answers
+# 09/18: CLEANUP was published with a button reading "See the $750 plan" pointing
+# at /cleanup, and /cleanup was a 404. --sync passed it clean, because it only
+# ever checked that the map and the platform agreed on the URL. Both agreed.
+# Neither had asked the URL anything.
+
+echo
+echo "== the destination has to answer =="
+
+out="$(python3 -c "
+import sys; sys.path.insert(0, '$HERE/../scripts')
+import importlib.util
+spec = importlib.util.spec_from_file_location('g', '$HERE/../scripts/gm_offer_check.py')
+g = importlib.util.module_from_spec(spec); spec.loader.exec_module(g)
+print('gone', sorted(g.GONE))
+print('refused', sorted(g.REFUSED))
+")"
+if grep -q "gone \[404, 410\]" <<<"$out" && grep -q "403" <<<"$out"; then
+  echo "PASS  gone is refused and a bot block is not"; pass=$((pass+1))
+else echo "FAIL  gone is refused and a bot block is not"; echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
+
+# the pause is recorded in both tables, not just in Blotato
+st="$(python3 -c "
+import csv,sys
+L={r['OfferID']:r for r in csv.DictReader(open(sys.argv[1],newline='',encoding='utf-8-sig'))}
+M={r['Keyword']:r for r in csv.DictReader(open(sys.argv[2],newline='',encoding='utf-8-sig'))}
+print(L['OF-004']['Status'], M['CLEANUP']['Status'])
+" "$OLADDER" "$HERE/../data/magnet-map.csv")"
+if [ "$st" = "draft draft" ]; then
+  echo "PASS  a paused offer is drafted in every table"; pass=$((pass+1))
+else echo "FAIL  a paused offer is drafted in every table (got: $st)"; fail=$((fail+1)); fi
+
+# the deposit was recorded as a $500 proposed orphan and is a live $750 product
+dep="$(python3 -c "
+import csv,sys
+r=[x for x in csv.DictReader(open(sys.argv[1],newline='',encoding='utf-8-sig')) if x['OfferID']=='OF-011'][0]
+print(r['Price'], r['PriceStatus'], r['Status'], 'product-page' in r['URL'])
+" "$OLADDER")"
+if [ "$dep" = "750 live live True" ]; then
+  echo "PASS  the deposit is recorded as the live product it is"; pass=$((pass+1))
+else echo "FAIL  the deposit is recorded as the live product it is (got: $dep)"; fail=$((fail+1)); fi
+
+echo
+echo "== the rewritten launch pack =="
+
+# The old pack is kept as a refusal case above. This is the other half of the
+# same invariant: a pack written to the rules has to clear every gate that
+# refuses the old one. If a future rule change breaks this, the rules and the
+# published pack have drifted apart and one of them is wrong.
+LP2="$HERE/offer.launchpack-v2.json"
+lp2ok=1
+for g in "$CTA" "$OFFER" "$POSGATE"; do
+  out="$(python3 "$g" --queue "$LP2" 2>&1)" || { lp2ok=0; echo "  $(basename "$g")"; echo "$out" | sed 's/^/      /'; }
+done
+if [ $lp2ok = 1 ]; then
+  echo "PASS  the rewritten pack clears the cta, offer and position gates"; pass=$((pass+1))
+else echo "FAIL  the rewritten pack clears the cta, offer and position gates"; fail=$((fail+1)); fi
+
+# Every CTA in it resolves to a keyword that is live today. This is what the
+# WAITLIST caption failed, and it fails again the moment a keyword is paused.
+lp2kw="$(python3 -c "
+import csv,json,re,sys
+live={r['Keyword'] for r in csv.DictReader(open(sys.argv[2],newline='',encoding='utf-8-sig'))
+      if r['Status']=='live'}
+bad=[]
+for row in json.load(open(sys.argv[1])):
+    for kw in re.findall(r'\\b(?i:comment)\\s+([A-Z][A-Z0-9]{2,})\\b', row['text']):
+        if kw not in live: bad.append('%s:%s' % (row['id'], kw))
+print(' '.join(bad) or 'all-live')
+" "$LP2" "$HERE/../data/magnet-map.csv")"
+if [ "$lp2kw" = "all-live" ]; then
+  echo "PASS  every keyword the rewritten pack names is live"; pass=$((pass+1))
+else echo "FAIL  every keyword the rewritten pack names is live (dead: $lp2kw)"; fail=$((fail+1)); fi
+
+echo
+echo "== which channel a reel belongs on =="
+
+# 4 rendered reels called CESA in the comments while carrying the Gentle Muse
+# label, and nothing in the payload said they belonged on Cesa's channel.
+# Whoever rendered them next had to remember. The lane is a field now.
+python3 - "$TMP" <<'PY11'
+import json, os, sys
+tmp = sys.argv[1]
+def w(name, rows): json.dump(rows, open(os.path.join(tmp, name), "w"))
+w("reels-nolane.json", [{"id": "R-1", "keyword": "CESA"}])
+w("reels-mismatch.json", [{"id": "R-2", "keyword": "CESA", "lane": "history"}])
+w("reels-dead.json", [{"id": "R-3", "keyword": "WAITLIST", "lane": "build"}])
+w("reels-silent.json", [{"id": "R-4", "lane": "history"}])
+w("reels-ok.json", [{"id": "R-5", "keyword": "CESA", "lane": "cesa"},
+                    {"id": "R-6", "lane": "history",
+                     "keyword_gap": "No live keyword matches this lane yet."}])
+PY11
+
+pos "a reel with no lane is refused"        1 --reels "$TMP/reels-nolane.json"   -- V01_NO_LANE
+pos "a reel in the wrong lane is refused"   1 --reels "$TMP/reels-mismatch.json" -- V02_LANE_MISMATCH
+pos "a reel calling a dead keyword"         1 --reels "$TMP/reels-dead.json"     -- V04_DEAD_KEYWORD
+pos "a reel that forgot to ask is refused"  1 --reels "$TMP/reels-silent.json"   -- V05_NO_KEYWORD_NO_GAP
+pos "a declared, agreeing lane passes"      0 --reels "$TMP/reels-ok.json"       --
+
+# The invariant, not a snapshot: whatever is in reel-factory declares a lane
+# and that lane agrees with the keyword the reel actually calls out.
+shipped=("$HERE/../../reel-factory"/reels*.json)
+pos "every shipped reel declares an agreeing lane" 0 --reels "${shipped[@]}" --
+
+# The 4 Cesa reels are the ones that had no lane. They stay in Cesa's lane,
+# because Amanda kept those automations live and gave the dog her own channel.
+cl="$(python3 -c "
+import json,sys
+n=0
+for f in sys.argv[1:]:
+    for r in json.load(open(f)):
+        if (r.get('keyword') or '').upper()=='CESA' and r.get('lane')=='cesa': n+=1
+print(n)
+" "${shipped[@]}")"
+if [ "$cl" = "4" ]; then
+  echo "PASS  the 4 Cesa reels are recorded in Cesa's lane"; pass=$((pass+1))
+else echo "FAIL  the 4 Cesa reels are recorded in Cesa's lane (got: $cl)"; fail=$((fail+1)); fi
+
+echo
+echo "== the North Star, and the 2 lines it draws =="
+
+# Amanda's reason for building this is recorded 09/18. It is the why under the
+# work, not the subject of the work, and it carries 2 guardrails that are not
+# style preferences: nothing writes a disclosure she has not made herself, and
+# nothing tells a woman still inside an abusive situation that leaving is easy.
+python3 - "$TMP" <<'PY12'
+import json, os, sys
+tmp = sys.argv[1]
+def w(n, rows): json.dump(rows, open(os.path.join(tmp, n), "w"))
+w("ns-manufactured.json", [{"id": "N-1",
+  "text": "I survived an abusive marriage and it taught me systems. Comment BOTTLENECK."}])
+w("ns-reckless.json", [{"id": "N-2", "disclosure": "Amanda, spoken 09/18",
+  "text": "If you are in an abusive relationship, just leave him. It is simple."}])
+w("ns-hers.json", [{"id": "N-3", "disclosure": "Amanda, North Star handoff 2026-09-18",
+  "text": "I survived an abusive marriage. It does not own me. Comment BOTTLENECK."}])
+w("ns-ordinary.json", [
+  {"id": "N-4", "text": "Your revenue is trapped in a spreadsheet. Comment BOTTLENECK."},
+  {"id": "N-5", "text": "You have 5 things broken and are fixing all 5. Comment BOTTLENECK."}])
+PY12
+
+pos "a disclosure nobody made is refused"   1 --northstar "$TMP/ns-manufactured.json" -- D01_UNSOURCED_DISCLOSURE
+pos "telling her to just leave is refused"  1 --northstar "$TMP/ns-reckless.json"     -- D02_RECKLESS_SAFETY
+pos "her own sourced disclosure passes"     0 --northstar "$TMP/ns-hers.json"         --
+pos "ordinary business content is untouched" 0 --northstar "$TMP/ns-ordinary.json"    --
+
+# The check is worthless if it fires on the work already written. Everything
+# shipped so far has to pass it silently, or it gets ignored inside a week.
+nsq=1
+for f in "$HERE/offer.launchpack-v2.json" "$HERE/offer.launchpack.json" "$HERE/cta.waitlist.json"; do
+  python3 "$POSGATE" --northstar "$f" --quiet >/dev/null 2>&1 || { nsq=0; echo "  fired on $(basename "$f")"; }
+done
+if [ $nsq = 1 ]; then
+  echo "PASS  the North Star check is silent on every caption already written"; pass=$((pass+1))
+else echo "FAIL  the North Star check is silent on every caption already written"; fail=$((fail+1)); fi
+
+# The mission cannot be quietly deleted from the table.
+for f in why disclosure safety; do
+  python3 - "$TMP" "$HERE/../data/brand-position.csv" "$f" <<'PY13'
+import csv, os, sys
+tmp, src, drop = sys.argv[1], sys.argv[2], sys.argv[3]
+rows = [r for r in csv.DictReader(open(src, newline="", encoding="utf-8-sig"))
+        if r["Field"].strip().lower() != drop]
+with open(os.path.join(tmp, "pos-no-%s.csv" % drop), "w", newline="", encoding="utf-8") as fh:
+    w = csv.DictWriter(fh, fieldnames=list(rows[0].keys())); w.writeheader(); w.writerows(rows)
+PY13
+  pos "a table that forgets its $f is refused" 1 --position --position-file "$TMP/pos-no-$f.csv" -- M05_MISSING_FIELD
+done
 
 echo
 echo "$pass passed, $fail failed"

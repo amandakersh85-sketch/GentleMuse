@@ -1,0 +1,447 @@
+THE GENTLE MUSE — THE MESSAGE AND THE LANE, RUN 10 OF 28
+
+New. Created 09/18/2026. Written after 2 measured failures, not suspected ones.
+
+TOOLS: gm_position_check.py
+DATA:  data/brand-position.csv, data/content-format.csv,
+       data/rotation-magnet.csv (rewritten), data/slot-model.csv (split)
+Live with the filing engine. Companion to Runs 6 through 9.
+
+
+WHY THIS RUN EXISTS
+
+Two failures. They look different and they are the same shape.
+
+THE LANE. 30,671 views produced 13 email subscribers. Run 8 read that as a
+missing contract and added one, which was worth doing and was not the whole
+problem. The rest of it is arithmetic:
+
+  The weekday rotation gave 2 of 7 slots to a free senior dog guide.
+  It gave 0 slots to The Decision Map at $47 and 0 to Done Reacting to Money
+  at $37, both live, both selling, both absent from the week entirely.
+  slot-model.csv let Cesa take a third daily slot on Amanda's Instagram and a
+  second on her Facebook, on top of Saturday and Sunday.
+  6 of the 11 competitor teardowns were senior dog lane.
+
+So the reach was in the senior dog lane and the offer was in the business lane.
+A person who arrived for a 19 year old dog does not buy a $750 systems
+engagement, and no hook fixes that. It is not a writing problem.
+
+The keyword audit says the same thing from the other end. Across all 3 CESA
+automations: 5 firings, 2 distinct contacts, 2 of them failed on a reply reuse
+bug. Cesa was never the conversion point. She was the reach point, and those
+are not the same thing. Moving off her costs reach that was not converting.
+
+THE MESSAGE. Amanda, 09/18: "the gentle muse is not a clear enough purpose and
+call to action channel to hold its own." The brand thesis lived in her head and
+in 3 prose handoffs that each carried a different version of it. Run 9 already
+recorded what happens to a standing fact kept in prose. It drifts, and nothing
+can tell that it has.
+
+
+WHY THESE ARE TABLES AND NOT A REMINDER
+
+Run 6 established the pattern and Runs 7, 8 and 9 have each repeated it. When
+the same failure lands twice, add the missing field and a check that refuses to
+ship without it, because guidance governs judgment and judgment is what already
+failed.
+
+"Focus on Amanda, not Cesa" is guidance. It would be read by the same step that
+has been filling Saturday and Sunday with the dog for months.
+
+
+THE MISSING TABLES
+
+data/brand-position.csv. 10 rows, every one sourced, most of them Amanda's own
+words spoken 09/18. reader, promise, absolution, guarantee, proof, enemy, math,
+never, lane, face. The gate refuses a claim with no source, and refuses the
+table at all if it loses its reader, promise, guarantee, proof or never.
+
+  reader       Women 40+ with disposable income who price their time at close
+               to parity with money.
+  promise      You have a project, you have a goal. Consult me. I will manage
+               your project and bring order to your chaos.
+  absolution   Not because you are not smart enough, not because you are not
+               capable, but because you are too busy and you value your time.
+  guarantee    If I cannot do it, you do not pay me.
+  proof        A team lead brain run across multiple areas at a Walmart. 2 or
+               more people in a department means those people cover each
+               other's breaks. Real coverage, real constraints, real humans.
+  never        Never imply the reader is not smart or not capable. The problem
+               is her calendar, never her ability.
+
+The guarantee is not new exposure. The CLEANUP dmMessage Amanda already wrote
+says refunds happen only when she cannot deliver and never for changing your
+mind. The table records what was already her policy.
+
+data/content-format.csv. 13 beats across 3 formats. Amanda, 09/18: "I try to
+cut the camera on a freestyle, but it does not always click in my head what we
+need to do." That is not an idea shortage. It is a missing frame, so the frames
+are now written down and the rotation names which one each day uses.
+
+  F-OPERATOR   NAME THE MESS, ABSOLVE, THE MOVE, THE COST OF NOT, ONE CTA
+  F-RECEIPT    WHAT I DID, WHAT BROKE, WHAT IT TAUGHT, ONE CTA
+  F-SEASONAL   THE FACT, THE TURN, THE TIE, ONE CTA
+
+THE MOVE is the beat that carries the value Amanda says is missing. It is an
+order of operations from work she has really done, which is what CT-014 and
+CT-016 both do and what makes a lo-fi format read as authority instead of as a
+compromise.
+
+THE TIE exists because of a direct instruction: keep the seasonal work, and
+tie it to the message. Run 7's machinery is untouched. The fact still has to be
+in the bank and still has to be turned. The new beat is 1 line connecting it to
+order, chaos or somebody's time, which stops the history lane being a second
+brand with its own audience.
+
+
+THE NEW WEEK
+
+  Monday      The operator             BOTTLENECK  F-OPERATOR  POS-002
+  Tuesday     Build in public          TUESDAY     F-RECEIPT   POS-005
+  Wednesday   AI in plain language     GUIDE       F-OPERATOR  POS-007
+  Thursday    Money administration     BUDGET      F-OPERATOR  POS-002
+  Friday      Order of operations      DECISION    F-OPERATOR  POS-003
+  Saturday    Soft life, environment   RESET       F-RECEIPT   POS-006
+  Sunday      Build in public          TUESDAY     F-RECEIPT   POS-005
+
+Every slot now names a keyword that is live, a format that exists, and the line
+of the positioning it serves. BUDGET and DECISION have slots for the first
+time. CESA and CONSIDER are gone from Amanda's week.
+
+slot-model.csv slot 3 is Amanda on camera. Cesa gets slot 4, her own accounts,
+her own keywords, her own deals.
+
+
+WHAT THE GATE REFUSES
+
+  M01  a positioning row with no value
+  M02  a claim with no source
+  M03  a field outside the 10 the table knows
+  M05  the table losing its reader, promise, guarantee, proof or never
+  R01  a Cesa lane keyword in Amanda's rotation
+  R02  a slot naming a format that does not exist
+  R03  a slot that serves no line of the positioning
+  R04  a slot naming a keyword that is not live
+  Q01  a lane leak in a real queue, in either direction: a Cesa keyword on
+       Amanda's accounts, or a business keyword on Cesa's
+
+Q01 and gm_cta_check.py answer different questions on purpose. The CTA gate
+asks whether a keyword can work on that account. This asks whether it belongs
+there. CESA is still technically live on Amanda's Instagram and Facebook,
+automations 445 and 432, so the CTA gate passes it and this one refuses it.
+Retiring those 2 automations in Blotato is Amanda's call and the gate holds the
+line until she makes it.
+
+
+TWO CORRECTIONS THIS RUN MADE ELSEWHERE
+
+The ladder had HANDLED: The Intensive recorded as a repackage of The Chaos
+Cleanup Plan, which made a $750 audit look like it had been repriced to $3,000
+for the same work. It is not the same work. The Plan's own DM says "I don't do
+the fixes." The Intensive is Amanda managing the project. Different rungs,
+Repackages cleared, and the reprice hold it was raising is gone. The $3,000
+stays proposed because it appears on no published surface.
+
+Leila Hormozi was a lead in the teardown bank with nothing captured. Amanda
+named her 1 of 3 models on 09/18, so her row was filled from her own bio: her
+promise is scaling through flexible infrastructures and management systems that
+create good places to work. That is the nearest thing on the whole bench to
+Amanda's lane. The bank goes to 14 verified of 22.
+
+
+WHAT IS NOT DECIDED
+
+  1. Retiring CESA automations 445 and 432 from Amanda's Instagram and
+     Facebook. The gate refuses the usage. Only Amanda can turn them off.
+  2. The $3,000 price. She has the value argument now, which is that paying
+     once beats doing it herself plus 2 hires plus the tools. It is still
+     proposed until it is published.
+  3. Publishing CLEANUP at $750, which is written, drafted and 1 approval from
+     being the fastest real dollar in the system.
+  4. Whether Consider This becomes Cesa's list outright. It is live on all 3
+     accounts today and the new week does not use it.
+
+
+LIMITS
+
+The rotation is a plan, not a result. Nothing here has run for a week yet, and
+the measure that matters is the Friday number the cadence file already names:
+followers gained, not views.
+
+Amanda on camera is now the default in the table. That is a commitment she made
+on 09/18 and it is the one thing in this run no script can enforce.
+
+
+SAFETY
+
+Propose-only. The gate reads. It does not post, schedule, publish or price.
+Nothing here was sent, and no automation was turned on or off.
+
+
+================================================================================
+AMENDMENT 09/18/2026 — BRAND DEALS ARE FIRST CLASS, AND THE WEEK GETS COUNTED
+================================================================================
+
+A DEFECT THIS RUN INTRODUCED AND HAS NOW FIXED
+
+Run 9 taught gm_cta_check.py to refuse a word handed to the reader as a keyword
+when that word is in no automation. It was right to. It was also wrong twice.
+
+First, it matched the word "comment" case sensitively. "comment WAITLIST" was
+caught and "Comment WAITLIST" was not, and the capitalised form is the one that
+starts a sentence, which is where a call to action usually sits. The rule was
+half a rule for a day.
+
+Second, and worse, the fix for that could not be applied safely. Making the
+match case insensitive would have started refusing BLOOM, BRACELET, BROW,
+BUTTER and 19 more, because the map held Amanda's lead magnets and nothing
+else. Those 23 affiliate keywords answer on live published automations. So does
+the 13 phrase PR screening set that catches inbound brand enquiries. Every one
+of them is a working capture path, and the gate would have called them invented
+and blocked the brand deals.
+
+Amanda, 09/18: "nothing wrong with some affiliate stuff, nothing wrong with
+brand deals. We can more than happily make branded content. That just improves
+our sales skills."
+
+So the map now covers every keyword the platform answers, not the lead magnets
+alone. 49 rows, and a Kind column that says what each one is.
+
+  magnet     9   a free thing that captures an email
+  offer      4   a paid rung on the ladder
+  affiliate  23  a product link Amanda earns on
+  screening  13  inbound phrases a brand comments, not a call to action
+
+36 of those 49 were live and invisible to every check in this repo until today.
+An affiliate post was being reported as having no capture path at all, because
+the only table that knew about keywords had never heard of the keyword it used.
+
+
+THE FACE FLOOR
+
+Amanda, 09/18: "what we need to double and triple down on is exactly what we're
+working towards right now, where I just start filming face to camera as much as
+I can. And when I'm pressed for time, we use my other content for filler."
+
+Filler is a fallback. A fallback with nothing counting it quietly becomes the
+plan, and that is how 2 of 7 slots ended up on a dog guide in the first place.
+So every rotation slot now states 2 things: the delivery it wants, which is
+face on all 7, and the filler it falls back to when the week gets away from her.
+
+  python3 gm_position_check.py --week week.json --face-floor 4
+
+W01 refuses a week that came in under the floor. 4 of 7 is a majority and it is
+deliberately reachable against a Sunday to Thursday shift with filming on
+Friday and Saturday. Raise it when a week clears it comfortably. A week that
+declares no delivery at all holds rather than fails, because a floor cannot be
+missed when nothing measured it.
+
+The same pass reports where the asks actually went, by keyword kind. That is
+the money question stated as a number. Amanda, 09/18: "the entire goal was to
+make money. We're not doing this just because it's fun." The current week
+routes 5 asks to free magnets and 2 to paid rungs. Nobody has decided what that
+ratio should be, so the gate reports it and does not judge it.
+
+The reason the count matters at all is Afnan's, and Amanda quoted it directly:
+the more often the contract and the call to action go out, the sooner the
+return arrives. Frequency is the mechanism. This is the thing that counts the
+frequency.
+
+
+WHAT DID NOT CHANGE
+
+The seasonal work. It stays, it keeps its own format, and F-SEASONAL's TIE beat
+is how it earns its place rather than running as a second brand. Amanda,
+09/18: "we've already done a lot of creation and planning for our seasonal
+angle, so I don't want to completely dismiss it because I feel like it's still
+getting us some reach."
+
+The lane split. Affiliate and screening keywords carry no lane restriction on
+purpose. Cesa can run pet brand deals on her own channel and Amanda can run
+hers, and neither is a leak.
+
+
+================================================================================
+EXECUTED 09/18/2026 — THE PLAN IS LIVE AND THE LANE IS SPLIT ON THE PLATFORM
+================================================================================
+
+Amanda: "publish CLEANUP at $750 and kill the CESA automations on the gentle
+muse channels." Then, mid-run: "leave cesa's channel automations live, she gets
+her own lane." Both were done. 4 automations changed, all on her instruction.
+
+  7213  IG 45886  CLEANUP  activated and published.  $750 is now a live price.
+  7214  FB 30840  CLEANUP  activated and published.
+  445   IG 45886  CESA     deactivated and unpublished. Renamed RETIRED 09/18.
+  432   FB 30840  CESA     deactivated and unpublished. Renamed RETIRED 09/18.
+
+Cesa's own channel was not touched and was never going to be. 2952, 2954 and
+4011 on account 65540 are all still active and published, and 2952 still
+answers both CESA and PRINCESS among its 47 trigger phrases. The senior dog
+guide did not die. It stopped being Amanda's capture path and went back to
+being Cesa's.
+
+DEACTIVATED, NOT DELETED. "Kill" was read as stop it firing, because that is
+reversible and it achieves the whole point. The DM copy Amanda wrote is intact
+in both, and either can be switched back on in 1 call. Deleting them is a
+separate instruction and has not been given.
+
+WHAT CHANGED IN THE TABLES, AND WHY THAT IS THE POINT
+  offer-ladder.csv OF-004 PriceStatus drafted -> live, Status draft -> live.
+  magnet-map.csv   CLEANUP Status draft -> live.
+  magnet-map.csv   CESA LiveAccountIds 45886|30840|65540 -> 65540.
+
+PriceStatus was designed so that live is evidenced rather than remembered. A
+customer can now see $750 on a published surface, so it is live, and the price
+gate stops refusing it. $3,000 still appears on no published surface, so it is
+still proposed and still refused. Nothing about that rule had to be edited for
+either outcome. That is the field doing its job.
+
+gm_offer_check.py --sync against a fresh export returns 0. The tables and the
+platform agree exactly.
+
+WHAT THE TESTS CAUGHT, WHICH IS WORTH RECORDING
+4 cases failed immediately after the change, and every one of them was a
+fixture describing a world that had just ended:
+
+  2 used "Comment CESA" on Facebook as an example of a call to action that
+  works. It does not work there any more. Both now use GUIDE, which is live on
+  that account and carries a page count, so the promise check stays exercised.
+
+  2 used CLEANUP as the example of a keyword whose automation is unpublished.
+  It shipped. Both now use RETAINER, which is the one still sitting as a draft.
+
+None of the 4 was a gate misbehaving. The suite noticed a production change
+before anybody told it, which is the whole reason the tables are read by scripts
+instead of by memory. 3 new cases now defend the split: CESA must be dead on
+Amanda's channel and alive on Cesa's, a published price may ship while a
+proposed one may not, and the ladder has to agree the Plan is live.
+
+WHAT IS STILL OPEN
+  The $3,000 Intensive price. Proposed, unpublished, still refused.
+  The bridge. OF-002 at $37 and OF-003 at $47 still credit toward nothing, so
+  the ladder audit still fails on L05. That is 1 decision: which rung they
+  credit into.
+  RETAINER at $600 a month, 7215 and 7216, still drafts.
+  4 reel payloads in reel-factory still carry keyword CESA. They are Cesa
+  content and belong on her channel now. Nothing schedules them automatically,
+  so this is a note rather than a defect.
+
+
+================================================================================
+AMENDMENT 09/18/2026 — WHAT A RUNG IS BOUGHT FOR
+================================================================================
+
+Amanda, studying Paget Kegi: people buy 3 things. A solution, a shortcut, or a
+feeling, or a combination. Nobody buys a product, a session or information.
+
+Recorded as her studied source rather than as an independently verified claim,
+the same way the teardown bank grades anything it did not read at origin.
+
+3 rows added to brand-position.csv:
+
+  sells           the 3 things, and the rule that every rung names which one
+  transformation  sell the version of reality she wants to step into
+  generosity      the free teaching has to be good enough that she wonders what
+                  happens if she actually pays. Free content is the proof, not
+                  the leftovers.
+
+THE LADDER NOW SAYS WHAT EACH RUNG IS BOUGHT FOR
+
+  OF-001  Bottleneck Check    shortcut + feeling   1 answer instead of a list
+  OF-002  Done Reacting       feeling + solution   the name promises the feeling
+  OF-003  The Decision Map    shortcut             your next step without a call
+  OF-004  Chaos Cleanup Plan  solution             audit, call, roadmap
+  OF-005  Monthly Retainer    feeling + solution   it stays handled
+
+L10_SELLS_NOTHING refuses a live or draft rung that names none of the 3, or
+names something else. A rung that cannot say what it is bought for is being
+sold as its contents.
+
+THE FINDING THIS PRODUCED IMMEDIATELY
+
+Reading the 5 live rungs' own copy against the frame, 4 sell a transformation
+and 1 sells a file.
+
+  The Decision Map is the cleanest copy on the ladder. "Your next step, without
+  a call. No Zoom call to schedule. No slot to dress up for." That is a shortcut
+  sold as a shortcut, and the objection it removes is named out loud.
+
+  Done Reacting to Money is the exception. The name sells the feeling exactly,
+  and then the DM opens "My biweekly paycheck planner, 39 pages, fillable and
+  printable." 39 pages is a description of a file. It is the only rung whose
+  copy sells information, and it is recorded in its Evidence rather than
+  rewritten, because the copy is Amanda's.
+
+MINDSET COACH, OR PROJECT MANAGER
+
+Amanda: "I don't want to call myself a mindset coach. I prefer to remain project
+manager. But technically, I think I'm a mindset coach."
+
+The tables already answer this and they answer project manager. A mindset coach
+sells belief change and the client does the work. POS-002 says "I will manage
+your project." POS-004 says "if I cannot do it, you do not pay me." Neither is a
+promise a coach can make, because a coach is not the one delivering.
+
+POS-003 settles it from the other side. "Not because you are not smart enough,
+not because you are not capable." That sentence removes the need for mindset
+work rather than selling it. A mindset coach's whole offer is that the reader's
+thinking is the problem. Amanda's whole offer is that it is not.
+
+The mindset is how she delivers and what she teaches for free. It is not the
+thing she is paid for, and putting it in the title would price her against a
+crowded category she would have to out-shout rather than out-deliver. The bench
+says the same: CT-022's promise is management systems, not mindset, and she runs
+an $85M portfolio on it.
+
+So mindset is the generosity. Management is the offer. That distinction is now
+POS-013 and it is the reason the free content has a job.
+
+
+================================================================================
+EXECUTED 09/18/2026 — THE RUNG THAT SOLD A FILE NOW SELLS THE FEELING
+================================================================================
+
+Amanda: "yes rewrite the budget DM to sell the feeling."
+
+Automation 448, Done Reacting to Money, Instagram. Was:
+
+  "Here it is.
+   Done Reacting to Money. My biweekly paycheck planner, 39 pages, fillable and
+   printable. It's $37."
+
+39 pages is a description of a file. The name of the product already promised
+the feeling and then the first line sold the artifact, which is the exact
+failure L10 was written to catch. It was the only rung on the ladder doing it.
+
+Now:
+
+  "Money coming in and a low-grade hum of anxiety anyway. That's not
+   ingratitude. That's money with no jobs.
+   Here it is. Done Reacting to Money gives every paycheck a job before it
+   lands, so you stop checking the balance to find out how you're doing."
+
+The opening line is Amanda's own, from caption 8 of the launch pack. It names
+the feeling and absolves in the same breath, which is POS-003 and POS-008 doing
+their job: the problem is money with no system, never the reader's competence.
+
+WHAT THE GRADER CHANGED
+The first draft opened "Here it is." as all 8 other live DMs do, then went
+straight to the feeling. That scored 8.5. The weakness was structural rather
+than tonal: "Here it is" promises a thing, the next line hands over a feeling,
+and the product name does not arrive until line 3. A reader who just commented
+BUDGET is expecting delivery at that exact moment.
+
+Moving "Here it is" down 1 line fixed it and kept the house convention. The
+word "jobs" now hinges the halves together: money with no jobs, then every
+paycheck gets a job. 9 of 10, hook 4.5 and body 4.5, no auto-fails.
+
+WHAT DID NOT CHANGE
+The credit line, the price, the button, the trigger keywords and the compliance
+line are all untouched. 414 of 640 characters. Active and published throughout,
+verified against a fresh export after the write. --sync still returns 0.
+
+THE ARTIFACT DETAIL IS STILL THERE
+"39 fillable pages, $37" sits below the transformation rather than above it.
+Nobody buys information, and nobody buys blind either. The page count is
+reassurance, not the pitch.

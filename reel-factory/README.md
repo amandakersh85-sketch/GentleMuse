@@ -15,6 +15,7 @@ week when there is no time to film, and this is what ships them.
 | `build.mjs` | Renders frames at a fixed fps and encodes to MP4. |
 | `vo.py` | Generates a voiceover per beat and reports whether it fits. |
 | `reels.json` | The 4 October `text` scripts, 18s each. |
+| `reels-cesa*.json` | Cesa's lane. Rendered here, posted on her channel. |
 | `reels-vo.json` | One script retimed to measured speech instead of reading pace. |
 | `reel-footage.html` | The same composition with a real clip behind the type. |
 | `reels-footage.json` | A footage-backed payload. `clip.file`, `clip.start`, `clip.push`. |
@@ -73,6 +74,29 @@ Every external image host is blocked from the render environment, so a stock
 plate cannot be fetched. Drawing it has turned out better anyway: it is unique
 to the brand rather than the same library image everyone else is using, it
 carries no licence question, and it costs nothing per reel.
+
+## Every payload declares a lane
+
+A rendered reel carries no account id. Once the MP4 exists, nothing inside it
+says which channel it belongs on, and 4 of these payloads called `CESA in the
+comments` while carrying the `Gentle Muse` label. Whoever rendered them next
+had to remember that they go to Cesa's channel, not Amanda's.
+
+So `lane` is a required field on every payload, and it has to agree with the
+lane `magnet-map.csv` gives the keyword the reel actually calls out:
+
+```
+python3 ../filing-system/scripts/gm_position_check.py --reels reels*.json
+```
+
+Exit 1 if a payload declares no lane, declares a lane no keyword uses, declares
+a lane its own keyword contradicts, calls a keyword that is not live, or asks
+for nothing without saying why. Run it before `build.mjs`, the same way the
+binding gate runs before a footage render.
+
+Today that is 19 reels in `history` and 4 in `cesa`. The 4 are Cesa's and they
+stay hers: Amanda kept those automations live and gave the dog her own channel.
+Cesa may appear in Amanda's content. She may not carry the call to action there.
 
 ## What it does not do
 

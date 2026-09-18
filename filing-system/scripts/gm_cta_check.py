@@ -27,7 +27,14 @@ BIO = re.compile(r"\bin (?:my|the) bio\b|\blink in bio\b", re.I)
 # "comment WAITLIST" — a word handed to the reader as if it were a keyword.
 # The map only knew the keywords that exist, so a word that was never a keyword
 # was invisible to every check here.
-KEYWORD_CTA = re.compile(r"\bcomment(?:\s+the\s+word)?\s+([A-Z][A-Z0-9]{2,})\b")
+#
+# The word "comment" is matched in any case. It was case-sensitive when this
+# went in, which meant the capitalised form that starts most sentences, and
+# therefore most captions, walked straight past. Fixing that was only safe once
+# the map covered every live keyword rather than the lead magnets alone: the 23
+# affiliate keywords and the 13 PR screening phrases are real working capture
+# paths, and refusing them as invented would have blocked every brand deal.
+KEYWORD_CTA = re.compile(r"\b(?i:comment)(?:\s+the\s+word)?\s+([A-Z][A-Z0-9]{2,})\b")
 
 # Allcaps words that follow "comment" without being offered as keywords.
 NOT_A_KEYWORD = {"BELOW", "YES", "NO", "OK", "HERE", "THIS", "IT", "AND", "ME"}
