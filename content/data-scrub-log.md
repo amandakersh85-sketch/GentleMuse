@@ -2096,3 +2096,108 @@ schedule.
 **Do not share the Drive root.** Root holds everything, including the private
 lane. A new folder with only these clips in it. The OF file stays where it is and
 is never touched.
+
+---
+
+# Day 10 scrub — 2026-09-18 (02:31 UTC / 09-17 21:31 CT)
+
+## The repost test at 24 hours: the re-run won again
+
+Both arms read at a matched ~24 hours (Blotato fetched Arm A at 00:13 UTC, Arm B
+at 01:10 UTC on 09/18).
+
+| Arm | Reel | Views | Reach | Watch |
+|---|---|---|---|---|
+| **A, fresh to Instagram**, 16s | `DdXhd9ciAjV` | **150** | 139 | 3.25s |
+| **B, re-run of the 09/07 file**, 8s | `DdXoX1QjaBM` | **190** | 128 | **24.23s** |
+
+**That is 2 independent pairs now, both going the same way:**
+
+| Pair | Fresh | Re-run | Re-run margin |
+|---|---|---|---|
+| 09/15, accidental | 152 | 199 | +31% |
+| 09/16, designed test | 150 | 190 | +27% |
+
+The pre-registered criterion was: *"within about 30% of each other means
+re-publishing is not the mechanism."* Both pairs land inside that band, and the
+re-run is the one on top both times.
+
+**Reading it as written: re-published footage is not being penalised on
+Instagram.** The 50 hour check-in tomorrow confirms, but this is not a close
+call, and it reverses where Day 8 was heading.
+
+**What that means for the queue: nothing needs restructuring.** The re-run heavy
+Instagram queue was the thing this test was going to condemn. It is fine. That
+is a real result and it saves a lot of pointless rework.
+
+**What survives:** re-runs still land below their own first runs. This one went
+445 on 09/07 to 190 on 09/17, down 57%. But fresh posts fell by the same shape
+over the same stretch, so that is the account-wide decline, not a re-run tax.
+
+## 1 number I am flagging without explaining
+
+Arm B is an **8 second clip with 24.23 seconds of average watch time.** That is
+roughly 3 full loops per viewer. Arm A is a 16 second clip that held 3.25
+seconds, about 20%.
+
+The short loopable clip got rewatched. The longer one got abandoned. That is the
+opposite of the Day 7 "cut at 25 to 40 seconds" advice, which was already
+retracted on Day 8.
+
+**I am not calling a mechanism off this.** Day 6, 7 and 8 each proposed one and
+each was contradicted within 2 days. It goes in the log as a number to watch. If
+loop-driven watch time shows up again on short clips, it earns a test of its own
+and not before.
+
+## COMPLIANCE: the caption pattern corrected itself
+
+**TikTok 7139587, 09/17 16:00 UTC, the FlavCity post, carries the SKU:**
+
+> `FlavCity Single Serve Variety Pack Medium Roast Instant Coffee 9ct:`
+> `https://club.target.com/s/amanda.20/_/sku/95123340`
+
+That is the first multi-product Club Target caption in this campaign to reach
+for a real product link instead of defaulting to the storefront. The Day 9
+finding was that the DM layer had the SKUs and the captions were not using them.
+This caption used one.
+
+Still open: Dr Teal's Calm and Serenity (09/12 Wellness Reset), Oh Snap pickles,
+Lunchables and Factor meals (09/16 Game Day), and the olive cardigan and ribbed
+knit dress (09/15 FALLFIT).
+
+## Everything that is not Cesa is dead on Instagram
+
+| Post | Date | Views |
+|---|---|---|
+| FALLFIT reel, Club Target | 09/15 | **7** |
+| GUIDE reel, Amanda talking | 09/16 | **4** |
+| PLAY graphic | 09/16 | **4** |
+| GUIDE graphic | 09/16 | **3** |
+| Jack o lanterns, seasonal card | 09/15 | **1** |
+
+Cesa in the same window: 199, 190, 152, 150, 59. The gap is not narrowing.
+
+## Volume, 09/17
+
+| Platform | Posts | Target |
+|---|---|---|
+| Instagram | 7 | 3 to 4 |
+| TikTok | 4 | 3 to 4 |
+| Facebook | 4 | 3 to 4 |
+| YouTube Shorts | 3 | 3 to 4 |
+
+Instagram well over target, 4 days running now.
+
+## Tracking items
+
+1. **Trivia on Instagram:** Jack o lanterns 1 view. Clean seasonal cards now
+   read 1, 1, 1, 2, 3, 3, 4 against the 37 watermark baseline. Facebook band
+   unaffected.
+2. **10,000 view Cesa breakout:** no. Best remains 1,592 on 09/11.
+3. **Volume:** all 4 platforms on or over.
+4. **Watermarks and AI badges:** none new.
+5. **Product posts missing a SKU:** 3 open, 1 newly correct.
+
+## Follower count
+
+Still not updated. 188 manual on 09/12 against a 190 start, 10 days in.
