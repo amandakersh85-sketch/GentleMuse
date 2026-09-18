@@ -2543,3 +2543,112 @@ subscriber since artine on 09-09. None unconfirmed, none active at 0 sends.
 counts are christine and Mary, both at 7, and both have 1 open, which disqualifies them twice
 over. `amanda@gentlemuse.co` at 14 sends and 0 opens and `princesamaryelizabeth@gmail.com` at 10
 and 0 are excluded by rule before the check runs and are not surfaced.
+
+---
+
+## Daily lead sync 2026-09-18 — CESA was retired on both main accounts and 86 posts still ask for it
+
+Amanda worked on Blotato between 09-17 21:32 and 09-18 07:32. Most of it is good. One change
+needs attention before tomorrow morning.
+
+### THE ONE THAT MATTERS: CESA no longer fires on Amanda's own accounts
+
+| id | account | was | now |
+|---|---|---|---|
+| `445` | IG `45886` @thegentlemuse2026 | LIVE | **`isActive: false`**, renamed "CESA (IG) RETIRED 09/18 — lives on 2952, Cesa's channel", 03:54:44 |
+| `432` | FB `30840` | LIVE | **`isActive: false`**, same rename, 03:54:47 |
+| `2952` | IG `65540` @cesasgoldenyears | LIVE | still LIVE |
+
+The consolidation reads deliberate and the reasoning is sound: the guide belongs on her channel.
+The problem is the copy that is already out there and the copy that has not run yet.
+
+**86 posts in the account instruct people to comment CESA.**
+
+| platform | state | count | still works? |
+|---|---|---|---|
+| facebook | published | 25 | **no.** 1 FB account, `432` is off |
+| facebook | scheduled | 1 | **no.** `4498230`, due 2026-10-10 |
+| instagram | published | 53 | only the ones on `65540` |
+| instagram | scheduled | 7 | see below |
+
+**Resolved from source rather than guessed.** `blotato_list_posts` does not return an account id,
+so the Instagram posts were matched against `blotato_list_schedules`, which does. Two scheduled
+Instagram posts are on account **`45886`, @thegentlemuse2026**, not Cesa's channel:
+
+| post | fires | opening line |
+|---|---|---|
+| `4189715` | **2026-09-19 00:00 UTC** | "Halloweentown premiered on the Disney Channel in 1998." |
+| `4231043` | **2026-09-20 00:00 UTC** | "The floor changes in this. She doesn't." |
+
+Both end with "Comment CESA". Both will publish a CTA that nothing answers, the first of them
+tomorrow. Of the 8 scheduled posts carrying CESA, 5 already published on 09-16 and 09-17, before
+the retirement, so they were fine when they ran and are dead now.
+
+**Nothing changed.** Config and caption copy are both Amanda's call. The options:
+
+1. **Edit the 3 unpublished ones** (`4189715`, `4231043`, `4498230`) to say `CONSIDER` or
+   `SEASONAL`, whichever offer she actually wants behind them. Cheapest, and it stops the bleed
+   before tomorrow.
+2. **Turn `445` and `432` back on** and let CESA keep working everywhere. Costs the consolidation.
+3. **Leave it.** 26 published posts on FB plus whatever share of the 53 IG ones sit on `45886`
+   become permanent dead instructions in the back catalogue.
+
+Recommendation is 1, and it only has to happen for 2 posts before Saturday.
+
+Worth noting this supersedes yesterday's "CESA promises 2 things" finding on the main accounts.
+Those 11 posts promising the Thursday note behind CESA are not mis-routed any more. They are
+simply dead, along with the rest.
+
+And the live consequence: the "23 and yep... I stare all the time" comment from 09-16 sits on
+FB post `7077399`, whose CTA is "Comment CESA". If that person acts on it today, nothing happens
+at all. Still unanswered after 2 days, still no reply from anyone, and the drafted reply is
+still blocked by the environment's permission classifier.
+
+### A new keyword went in with a case gap, and it is the kind that matters most
+
+`2952` gained **`PRINCESS`**, uppercase only. No `princess`, no `Princess`.
+
+Every other natural-language phrase on that automation carries at least 2 cases: `mine is` and
+`Mine is`, `old bud` and `Old bud`, `miss her` and `Miss her`. `PRINCESS` is the exception.
+
+This is worse than a CTA gap, not better. `SEASONAL` in all caps works because the caption tells
+people to type it in all caps. `PRINCESS` is a listening keyword, meant to catch somebody
+describing their own dog in their own words, and **ALL CAPS is the one form nobody types
+naturally in a comment.** As written it will almost never match.
+
+Fix, if Amanda wants it: add `princess` and `Princess`. No post uses the word yet, so nothing is
+leaking while it sits.
+
+### The rest of the overnight work, all of it fine
+
+- **`7213` / `7214` CLEANUP went live.** Chaos Cleanup Plan, $750, to `gentlemuse.co/cleanup`.
+  All 3 case variants on both. No collision with anything.
+- **`7215` / `7216` RETAINER still drafts.** Correct, it is the ask-first offer.
+- **No post asks for CLEANUP or RETAINER yet.** That is the right order: automation first, copy
+  second. The opposite order is what produced the AI problem.
+- `2954` renamed "Weekly Note (cesasgoldenyears IG)", `2952` renamed "Senior Dog Guide
+  (cesasgoldenyears IG)". Keywords otherwise unchanged on both.
+- `451` and `448` DMs rewritten to credit the purchase against the Chaos Cleanup Plan later.
+  `448`'s new opening ("Money coming in and a low-grade hum of anxiety anyway. That's not
+  ingratitude. That's money with no jobs.") is a real improvement on what it replaced.
+- `2771` / `2772` TUESDAY republished with new trigger ids, keywords unchanged, **still no
+  emailGate**, which is the thing the routine says to watch.
+- `2952`'s DM now reads "with my girl, asleep on my left foot" rather than naming her.
+
+### Everything else, 2026-09-18
+
+Gates still exactly 3: `4009` `4010` `4011`, all SEASONAL, all 0 runs ever, and STEP 2 had
+nothing to sync because they have captured nothing. followGate still on the same 7 Target
+automations, unchanged since 09-15, still 0 runs each. No duplicate keywords among active
+automations, checked per account. 69 automations, 59 active, count unchanged because 2 went off
+as 2 came on.
+
+Runs swept across all 59 active: `435` 1/1/0, `1424` 1/1/0, `2952` 2/1/0, everything else zero.
+`445`'s 4 runs including the 2 known `20102` failures left the active set with it. No new
+failures anywhere. **Nothing has triggered since 2026-09-05, now 13 days.**
+
+MailerLite unchanged: 14 records, 7 real, 5 active and 2 suppressed, none unconfirmed, none
+active at 0 sends, no new subscriber since artine on 09-09. **12-send check with Amanda's
+addresses removed first: nobody.** christine and Mary both sit at 7 sends with 1 open each.
+`amanda@gentlemuse.co` at 14 and `princesamaryelizabeth@gmail.com` now at 11, both 0 opens, both
+excluded by rule before the check runs.
