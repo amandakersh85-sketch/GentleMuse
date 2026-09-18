@@ -1110,6 +1110,49 @@ ofr "a credit nobody was told is named"  1 --ladder "$TMP/ladder-creditunseen.cs
 ofr "an unknown CreditStatus is refused" 1 --ladder "$TMP/ladder-badcredit.csv"   L02_BAD_FIELD
 ofr "removing the bridge is caught"     1 --ladder "$TMP/ladder-nobridge.csv"     L05_NO_BRIDGE
 
+# ------------------------------------------------------ what a rung is bought for
+# Nobody buys a product, a session or information. They buy a solution, a
+# shortcut or a feeling. A rung that cannot name which one is being sold as its
+# contents.
+
+echo
+echo "== what the rung is bought for =="
+
+python3 - "$TMP" "$OLADDER" <<'PY14'
+import csv, os, sys
+tmp, src = sys.argv[1], sys.argv[2]
+rows = list(csv.DictReader(open(src, newline="", encoding="utf-8-sig")))
+cols = list(rows[0].keys())
+def dump(name, rs):
+    h = open(os.path.join(tmp, name), "w", newline="", encoding="utf-8")
+    w = csv.DictWriter(h, fieldnames=cols); w.writeheader(); w.writerows(rs)
+
+r = [dict(x) for x in rows]; next(x for x in r if x["OfferID"] == "OF-003")["Sells"] = ""
+dump("ladder-sellsnothing.csv", r)
+r = [dict(x) for x in rows]; next(x for x in r if x["OfferID"] == "OF-003")["Sells"] = "information"
+dump("ladder-sellsinfo.csv", r)
+PY14
+
+ofr "a rung that names nothing is refused" 1 --ladder "$TMP/ladder-sellsnothing.csv" L10_SELLS_NOTHING
+ofr "selling information is refused"       1 --ladder "$TMP/ladder-sellsinfo.csv"    L10_SELLS_NOTHING
+
+# every live and draft rung knows what it is bought for
+n="$(python3 -c "
+import csv,sys
+rows=[r for r in csv.DictReader(open(sys.argv[1],newline='',encoding='utf-8-sig'))
+      if r['Status'] in ('live','draft')]
+print(sum(1 for r in rows if r['Sells']), len(rows))
+" "$OLADDER")"
+if [ "$n" = "5 5" ]; then
+  echo "PASS  every live rung names a solution, shortcut or feeling"; pass=$((pass+1))
+else echo "FAIL  every live rung names a solution, shortcut or feeling (got: $n)"; fail=$((fail+1)); fi
+
+# the message table carries the doctrine, sourced
+pos "the sells doctrine is in the message" 0 --position -- ""
+if grep -q "solution, a shortcut, or a feeling" "$HERE/../data/brand-position.csv"; then
+  echo "PASS  the 3 things are written down, not remembered"; pass=$((pass+1))
+else echo "FAIL  the 3 things are written down, not remembered"; fail=$((fail+1)); fi
+
 echo
 echo "$pass passed, $fail failed"
 [ "$fail" = 0 ]

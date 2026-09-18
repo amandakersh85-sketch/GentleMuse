@@ -58,7 +58,7 @@ FORMATS = os.path.join(DATA, "content-format.csv")
 MAGNETS = os.path.join(DATA, "magnet-map.csv")
 
 FIELDS = {"reader", "promise", "absolution", "guarantee", "proof", "enemy",
-          "math", "never", "lane", "face"}
+          "math", "never", "lane", "face", "sells", "transformation", "generosity"}
 
 # The split, as account ids. Amanda's channels convert on Amanda.
 AMANDA = {"45886", "30840", "41488", "36129", "20723", "21430", "6328"}

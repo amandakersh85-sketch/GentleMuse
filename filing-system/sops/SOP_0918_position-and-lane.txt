@@ -326,3 +326,73 @@ WHAT IS STILL OPEN
   4 reel payloads in reel-factory still carry keyword CESA. They are Cesa
   content and belong on her channel now. Nothing schedules them automatically,
   so this is a note rather than a defect.
+
+
+================================================================================
+AMENDMENT 09/18/2026 — WHAT A RUNG IS BOUGHT FOR
+================================================================================
+
+Amanda, studying Paget Kegi: people buy 3 things. A solution, a shortcut, or a
+feeling, or a combination. Nobody buys a product, a session or information.
+
+Recorded as her studied source rather than as an independently verified claim,
+the same way the teardown bank grades anything it did not read at origin.
+
+3 rows added to brand-position.csv:
+
+  sells           the 3 things, and the rule that every rung names which one
+  transformation  sell the version of reality she wants to step into
+  generosity      the free teaching has to be good enough that she wonders what
+                  happens if she actually pays. Free content is the proof, not
+                  the leftovers.
+
+THE LADDER NOW SAYS WHAT EACH RUNG IS BOUGHT FOR
+
+  OF-001  Bottleneck Check    shortcut + feeling   1 answer instead of a list
+  OF-002  Done Reacting       feeling + solution   the name promises the feeling
+  OF-003  The Decision Map    shortcut             your next step without a call
+  OF-004  Chaos Cleanup Plan  solution             audit, call, roadmap
+  OF-005  Monthly Retainer    feeling + solution   it stays handled
+
+L10_SELLS_NOTHING refuses a live or draft rung that names none of the 3, or
+names something else. A rung that cannot say what it is bought for is being
+sold as its contents.
+
+THE FINDING THIS PRODUCED IMMEDIATELY
+
+Reading the 5 live rungs' own copy against the frame, 4 sell a transformation
+and 1 sells a file.
+
+  The Decision Map is the cleanest copy on the ladder. "Your next step, without
+  a call. No Zoom call to schedule. No slot to dress up for." That is a shortcut
+  sold as a shortcut, and the objection it removes is named out loud.
+
+  Done Reacting to Money is the exception. The name sells the feeling exactly,
+  and then the DM opens "My biweekly paycheck planner, 39 pages, fillable and
+  printable." 39 pages is a description of a file. It is the only rung whose
+  copy sells information, and it is recorded in its Evidence rather than
+  rewritten, because the copy is Amanda's.
+
+MINDSET COACH, OR PROJECT MANAGER
+
+Amanda: "I don't want to call myself a mindset coach. I prefer to remain project
+manager. But technically, I think I'm a mindset coach."
+
+The tables already answer this and they answer project manager. A mindset coach
+sells belief change and the client does the work. POS-002 says "I will manage
+your project." POS-004 says "if I cannot do it, you do not pay me." Neither is a
+promise a coach can make, because a coach is not the one delivering.
+
+POS-003 settles it from the other side. "Not because you are not smart enough,
+not because you are not capable." That sentence removes the need for mindset
+work rather than selling it. A mindset coach's whole offer is that the reader's
+thinking is the problem. Amanda's whole offer is that it is not.
+
+The mindset is how she delivers and what she teaches for free. It is not the
+thing she is paid for, and putting it in the title would price her against a
+crowded category she would have to out-shout rather than out-deliver. The bench
+says the same: CT-022's promise is management systems, not mindset, and she runs
+an $85M portfolio on it.
+
+So mindset is the generosity. Management is the offer. That distinction is now
+POS-013 and it is the reason the free content has a job.

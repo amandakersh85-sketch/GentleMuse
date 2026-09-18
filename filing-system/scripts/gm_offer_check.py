@@ -58,6 +58,11 @@ PRICE_STATUS = {"live", "drafted", "proposed", "unverified"}
 # term no customer can see, which is the same shape of failure as a keyword
 # that is live in a document and dead on the platform.
 CREDIT_STATUS = {"live", "drafted", "proposed", "none"}
+
+# Nobody buys a product, a session or information. They buy a solution, a
+# shortcut, or a feeling, or a combination. A rung that cannot name which one it
+# is bought for is being sold as its contents, which is the failure this names.
+SELLS = {"solution", "shortcut", "feeling"}
 OFFER_STATUS = {"live", "draft", "proposed", "unverified", "orphaned"}
 
 # A price may appear on these. It may never appear on the others.
@@ -193,6 +198,19 @@ def audit_ladder(rows):
                 "msg": "%s says it credits toward %s and no buyer is told so. "
                        "A credit nobody can see converts nobody."
                        % (name, ", ".join(r["_credits"]))})
+
+        # L10 a real rung has to know what it is bought for
+        sells = [x.strip().lower() for x in norm(r.get("Sells")).split("|") if x.strip()]
+        if r["_status"] in ("live", "draft"):
+            if not sells:
+                add("L10_SELLS_NOTHING", oid,
+                    "%s names no solution, shortcut or feeling, so it is being sold as its "
+                    "contents. Nobody buys contents." % name)
+            for x in sells:
+                if x not in SELLS:
+                    add("L10_SELLS_NOTHING", oid,
+                        "%s says it sells '%s', which is not a solution, a shortcut or a feeling"
+                        % (name, x))
 
         # the Codie mechanic: every tier lowers the risk of buying the next.
         # A paid rung that credits toward nothing is where the ladder stops.
