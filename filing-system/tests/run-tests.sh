@@ -1230,5 +1230,49 @@ if [ "$lp2kw" = "all-live" ]; then
 else echo "FAIL  every keyword the rewritten pack names is live (dead: $lp2kw)"; fail=$((fail+1)); fi
 
 echo
+echo "== which channel a reel belongs on =="
+
+# 4 rendered reels called CESA in the comments while carrying the Gentle Muse
+# label, and nothing in the payload said they belonged on Cesa's channel.
+# Whoever rendered them next had to remember. The lane is a field now.
+python3 - "$TMP" <<'PY11'
+import json, os, sys
+tmp = sys.argv[1]
+def w(name, rows): json.dump(rows, open(os.path.join(tmp, name), "w"))
+w("reels-nolane.json", [{"id": "R-1", "keyword": "CESA"}])
+w("reels-mismatch.json", [{"id": "R-2", "keyword": "CESA", "lane": "history"}])
+w("reels-dead.json", [{"id": "R-3", "keyword": "WAITLIST", "lane": "build"}])
+w("reels-silent.json", [{"id": "R-4", "lane": "history"}])
+w("reels-ok.json", [{"id": "R-5", "keyword": "CESA", "lane": "cesa"},
+                    {"id": "R-6", "lane": "history",
+                     "keyword_gap": "No live keyword matches this lane yet."}])
+PY11
+
+pos "a reel with no lane is refused"        1 --reels "$TMP/reels-nolane.json"   -- V01_NO_LANE
+pos "a reel in the wrong lane is refused"   1 --reels "$TMP/reels-mismatch.json" -- V02_LANE_MISMATCH
+pos "a reel calling a dead keyword"         1 --reels "$TMP/reels-dead.json"     -- V04_DEAD_KEYWORD
+pos "a reel that forgot to ask is refused"  1 --reels "$TMP/reels-silent.json"   -- V05_NO_KEYWORD_NO_GAP
+pos "a declared, agreeing lane passes"      0 --reels "$TMP/reels-ok.json"       --
+
+# The invariant, not a snapshot: whatever is in reel-factory declares a lane
+# and that lane agrees with the keyword the reel actually calls out.
+shipped=("$HERE/../../reel-factory"/reels*.json)
+pos "every shipped reel declares an agreeing lane" 0 --reels "${shipped[@]}" --
+
+# The 4 Cesa reels are the ones that had no lane. They stay in Cesa's lane,
+# because Amanda kept those automations live and gave the dog her own channel.
+cl="$(python3 -c "
+import json,sys
+n=0
+for f in sys.argv[1:]:
+    for r in json.load(open(f)):
+        if (r.get('keyword') or '').upper()=='CESA' and r.get('lane')=='cesa': n+=1
+print(n)
+" "${shipped[@]}")"
+if [ "$cl" = "4" ]; then
+  echo "PASS  the 4 Cesa reels are recorded in Cesa's lane"; pass=$((pass+1))
+else echo "FAIL  the 4 Cesa reels are recorded in Cesa's lane (got: $cl)"; fail=$((fail+1)); fi
+
+echo
 echo "$pass passed, $fail failed"
 [ "$fail" = 0 ]

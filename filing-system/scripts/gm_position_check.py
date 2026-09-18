@@ -28,11 +28,21 @@ anything that ignores either.
                direction.
   --week       counts a week by delivery and refuses one that fell below the
                face floor, then reports where the calls to action actually went.
+  --reels      reads reel-factory payloads and refuses one that does not say
+               which lane it belongs to, or says a lane its keyword contradicts.
 
   python3 gm_position_check.py --position
   python3 gm_position_check.py --rotation
   python3 gm_position_check.py --queue queue.json
   python3 gm_position_check.py --week week.json --face-floor 4
+  python3 gm_position_check.py --reels reel-factory/reels-cesa.json
+
+A reel payload had no lane field. 4 of them called CESA in the comments while
+carrying the Gentle Muse label, and nothing in the file said they belonged on
+Cesa's channel. Whoever rendered them next had to remember. That is the same
+shape as every other failure this repo has fixed, so the lane stops being
+something to remember and becomes a field that every payload declares and a
+check that refuses the ones that do not.
 
 The floor exists because "film more" is guidance. Amanda, 09/18: film face to
 camera as much as she can, and use the other content as filler when she is
@@ -198,6 +208,62 @@ def check_queue(rows, magnets):
     return findings
 
 
+# ----------------------------------------------------------------- the reels
+
+def check_reels(reels, magnets, source=""):
+    """A rendered reel has no account on it. Its lane is the only routing it
+    carries, so the lane has to be written down and has to agree with the
+    keyword the reel actually calls out."""
+    findings = []
+
+    def add(code, rid, msg):
+        findings.append({"code": code, "id": rid, "msg": msg})
+
+    lane_of = {norm(m.get("Keyword")).upper(): norm(m.get("Lane")).lower() for m in magnets}
+    status_of = {norm(m.get("Keyword")).upper(): norm(m.get("Status")).lower() for m in magnets}
+    known_lanes = {v for v in lane_of.values() if v}
+
+    for r in reels:
+        rid = "%s%s" % (source, norm(r.get("id")) or "?")
+        lane = norm(r.get("lane")).lower()
+        kw = norm(r.get("keyword")).upper()
+
+        if not lane:
+            add("V01_NO_LANE", rid,
+                "declares no lane. A rendered reel carries no account, so the lane "
+                "is the only thing saying which channel it belongs on.")
+        elif lane not in known_lanes:
+            add("V03_UNKNOWN_LANE", rid,
+                "declares lane '%s', which no keyword in magnet-map.csv uses. "
+                "Known lanes: %s." % (lane, ", ".join(sorted(known_lanes))))
+
+        if not kw:
+            if not norm(r.get("keyword_gap")):
+                add("V05_NO_KEYWORD_NO_GAP", rid,
+                    "names no keyword and does not say why. A reel that asks for "
+                    "nothing is allowed. A reel that forgot to ask is not.")
+            continue
+
+        if kw not in lane_of:
+            add("V04_DEAD_KEYWORD", rid,
+                "calls %s, which is in no row of magnet-map.csv. A viewer who "
+                "comments it gets silence." % kw)
+            continue
+
+        if status_of.get(kw) != "live":
+            add("V04_DEAD_KEYWORD", rid,
+                "calls %s, which is %s rather than live. A viewer who comments it "
+                "gets silence." % (kw, status_of.get(kw) or "unrecorded"))
+
+        if lane and lane in known_lanes and lane_of[kw] != lane:
+            add("V02_LANE_MISMATCH", rid,
+                "declares lane '%s' and calls %s, which magnet-map.csv puts in "
+                "lane '%s'. One of the 2 is wrong and the render cannot tell "
+                "which." % (lane, kw, lane_of[kw]))
+
+    return findings
+
+
 # ------------------------------------------------------------------ the week
 
 def check_week(rows, magnets, floor):
@@ -244,6 +310,8 @@ def main():
     ap.add_argument("--rotation", action="store_true", help="audit the weekday rotation")
     ap.add_argument("--queue", metavar="JSON", help="check a post queue for lane leaks")
     ap.add_argument("--week", metavar="JSON", help="count a week by delivery")
+    ap.add_argument("--reels", metavar="JSON", nargs="+",
+                    help="check reel-factory payloads for a declared, agreeing lane")
     ap.add_argument("--face-floor", type=int, default=4, metavar="N",
                     help="how many of the week's posts must be face to camera, default 4")
     ap.add_argument("--position-file", default=POSITION)
@@ -253,8 +321,8 @@ def main():
     ap.add_argument("--quiet", action="store_true")
     a = ap.parse_args()
 
-    if not (a.position or a.rotation or a.queue or a.week):
-        ap.error("nothing to check. Pass --position, --rotation, --queue or --week.")
+    if not (a.position or a.rotation or a.queue or a.week or a.reels):
+        ap.error("nothing to check. Pass --position, --rotation, --queue, --week or --reels.")
 
     try:
         position = load(a.position_file)
@@ -292,6 +360,29 @@ def main():
             print()
         worst = max(worst, report(check_queue(rows, magnets), a.quiet,
                                   "%d posts checked" % len(rows)))
+
+    if a.reels:
+        reels, bad = [], False
+        for path in a.reels:
+            try:
+                rows = json.load(open(path, encoding="utf-8"))
+            except (OSError, ValueError) as e:
+                print("cannot read %s: %s" % (path, e))
+                bad = True
+                continue
+            if isinstance(rows, dict):
+                rows = rows.get("reels") or rows.get("items") or []
+            tag = "%s " % os.path.basename(path) if len(a.reels) > 1 else ""
+            reels.append((rows, tag))
+        if bad:
+            return 2
+        findings = []
+        for rows, tag in reels:
+            findings += check_reels(rows, magnets, tag)
+        total = sum(len(rows) for rows, _ in reels)
+        if not a.quiet and (a.position or a.rotation or a.queue):
+            print()
+        worst = max(worst, report(findings, a.quiet, "%d reels checked" % total))
 
     if a.week:
         try:
