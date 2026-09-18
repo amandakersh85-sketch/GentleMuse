@@ -1,6 +1,6 @@
 # Gentle Muse Filing System — Media Triage Modules
 
-Runs 3 through 9 of the 28-run Downloads Maintenance system.
+Runs 3 through 10 of the 28-run Downloads Maintenance system.
 
 These extend the existing filing engine (`asset_scanner.py`) to media.
 They do not replace it. `asset_scanner.py` already handles SHA-256 duplicate
@@ -25,6 +25,9 @@ video's duration, group a photo burst, or spot a sensitive document.
 | `data/competitor-teardowns.csv` | Run 8. 22 rows: 13 torn down from their own content, 9 held as leads. Every row names who is asserting its numbers. |
 | `scripts/gm_offer_check.py` | Run 9. The gate. Refuses a price a caption may never carry, a price that has never shipped, and a ladder rung that leads nowhere. |
 | `data/offer-ladder.csv` | Run 9. 11 rungs, each carrying the evidence its price rests on. |
+| `scripts/gm_position_check.py` | Run 10. The gate. Refuses content that carries no message, and a lane leak in either direction. |
+| `data/brand-position.csv` | Run 10. The brand thesis as 10 sourced rows, most of them Amanda's own words. |
+| `data/content-format.csv` | Run 10. 13 beats across 3 formats. The rails a freestyle runs inside. |
 | `sops/SOP_0819_video-triage-run-3.txt` | Run 3 SOP |
 | `sops/SOP_0819_photo-triage-run-4.txt` | Run 4 SOP |
 | `sops/SOP_0819_document-triage-run-5.txt` | Run 5 SOP |
@@ -32,9 +35,10 @@ video's duration, group a photo burst, or spot a sensitive document.
 | `sops/SOP_0829_holiday-caption-strategy.txt` | Run 7 SOP |
 | `sops/SOP_0901_competitor-teardowns.txt` | Run 8 SOP |
 | `sops/SOP_0918_handled-offer-ladder.txt` | Run 9 SOP |
+| `sops/SOP_0918_position-and-lane.txt` | Run 10 SOP |
 | `patches/video-factory-clip-binding.md` | Paste-in patch for the `gentle-muse-video-factory` skill |
 | `patches/holiday-caption-strategy.md` | Paste-in patch for the video factory, `content-coach` and `post-grader` |
-| `tests/run-tests.sh` | Regression suite for Runs 6 through 9, 112 cases |
+| `tests/run-tests.sh` | Regression suite for Runs 6 through 10, 124 cases |
 
 SOPs are `.txt` on purpose. GitHub renders plain text preformatted, which keeps
 the column alignment the house format uses.
@@ -236,3 +240,46 @@ One mechanic shows up on every account on the bench that converts and is missing
 from Amanda's ladder: the first purchase is credited toward the next tier.
 Contrarian Thinking credits $2,000, Hello Seven credits $497. Run 9's ladder
 audit reports the same gap from the other end.
+
+## Run 10 — the message and the lane
+
+Two failures, same shape.
+
+The lane is arithmetic. The weekday rotation gave 2 of 7 slots to a free senior
+dog guide and 0 slots to the 2 products that actually take money, The Decision
+Map at $47 and Done Reacting to Money at $37, both live and both absent from the
+week. `slot-model.csv` let Cesa take a third daily slot on Amanda's Instagram on
+top of that. So the reach sat in the senior dog lane while the offer sat in the
+business lane, which is the other half of Run 8's 30,671 views to 13
+subscribers. The keyword audit agrees from the other end: across all 3 CESA
+automations, 5 firings and 2 distinct contacts. Cesa was the reach point, never
+the conversion point, so moving off her costs reach that was not converting.
+
+The message is Amanda's own sentence, 09/18: "the gentle muse is not a clear
+enough purpose and call to action channel to hold its own." The thesis lived in
+her head and in 3 handoffs that each carried a different version of it.
+
+So `brand-position.csv` holds the thesis as 10 sourced rows, `content-format.csv`
+holds the 3 beat structures a freestyle runs inside, and every rotation slot now
+names a live keyword, a format that exists, and the line of the positioning it
+serves.
+
+```
+python3 scripts/gm_position_check.py --position
+python3 scripts/gm_position_check.py --rotation
+python3 scripts/gm_position_check.py --queue queue.json
+```
+
+`--queue` and `gm_cta_check.py` answer different questions on purpose. The CTA
+gate asks whether a keyword can work on that account. This one asks whether it
+belongs there. CESA is still technically live on Amanda's Instagram and
+Facebook, so the CTA gate passes it and this one refuses it.
+
+Run 7's seasonal machinery is untouched. The fact still has to be in the bank
+and still has to be turned. `F-SEASONAL` adds 1 beat, THE TIE, which connects
+the fact to order, chaos or somebody's time, so the history lane stops being a
+second brand.
+
+Run 10 written 09/18/2026. Executed here: `bash tests/run-tests.sh` runs 124
+cases across Runs 6 through 10, all passing. The gate reads. It does not post,
+schedule, publish or price, and no automation was turned on or off.

@@ -333,7 +333,7 @@ tb "the column going missing is caught"       1 "$TMP/bank-noclaimcol.csv" T09_S
 
 # The research that drove the pivot is in the bank, graded rather than trusted.
 out="$(python3 "$TGATE" --bank "$TBANK" 2>&1)"
-if grep -q "13 of 22 rows are backed by an artifact somebody read" <<<"$out"; then
+if grep -q "14 of 22 rows are backed by an artifact somebody read" <<<"$out"; then
   echo "PASS  the bank separates what was read from what was listed"; pass=$((pass+1))
 else echo "FAIL  the bank separates what was read from what was listed"
      echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
@@ -524,7 +524,7 @@ echo "== queue plan =="
 qplan "a day that matches the model passes" 0 "$HERE/queue.model.json" \
       "0 slots over, 0 slots under, 0 posts beyond"
 qplan "drift in every direction is caught"  1 "$HERE/queue.drift.json" \
-      "1 slots over" "2 slots under" "1 posts beyond" "1 on channels"
+      "1 slots over" "4 slots under" "1 posts beyond" "1 on channels"
 
 
 ANCH="$HERE/../scripts/gm_anchors.py"
@@ -795,6 +795,125 @@ out="$(python3 "$CTA" --queue "$HERE/cta.waitlist.json" 2>&1)"
 if grep -q "WAITLIST is in no automation" <<<"$out"; then
   echo "PASS  the invented keyword is named, not just counted"; pass=$((pass+1))
 else echo "FAIL  the invented keyword is named, not just counted"; fail=$((fail+1)); fi
+
+# ---------------------------------------------------------------- Run 10
+# The message as a table, and the lane as a field.
+
+POSGATE="$HERE/../scripts/gm_position_check.py"
+
+pos() { # name expected_exit mode [arg] -- greps
+  local name="$1" want="$2"; shift 2
+  local args=() greps=()
+  while [ $# -gt 0 ] && [ "$1" != "--" ]; do args+=("$1"); shift; done
+  [ "${1:-}" = "--" ] && shift
+  greps=("$@")
+  local out; out="$(python3 "$POSGATE" "${args[@]}" 2>&1)"; local got=$?
+  local ok=1
+  [ "$got" = "$want" ] || { ok=0; echo "  exit $got, wanted $want"; }
+  for code in "${greps[@]}"; do
+    grep -q "$code" <<<"$out" || { ok=0; echo "  missing finding: $code"; }
+  done
+  if [ $ok = 1 ]; then echo "PASS  $name"; pass=$((pass+1))
+  else echo "FAIL  $name"; echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
+}
+
+echo
+echo "== the message =="
+pos "the shipped positioning passes" 0 --position
+pos "the shipped rotation passes"    0 --rotation
+
+python3 - "$TMP" "$HERE/../data" <<'PY10'
+import csv, os, sys
+tmp, data = sys.argv[1], sys.argv[2]
+
+def dump(name, rows, cols):
+    h = open(os.path.join(tmp, name), "w", newline="", encoding="utf-8")
+    w = csv.DictWriter(h, fieldnames=cols); w.writeheader(); w.writerows(rows)
+
+pos = list(csv.DictReader(open(os.path.join(data, "brand-position.csv"),
+                               newline="", encoding="utf-8-sig")))
+pcols = list(pos[0].keys())
+
+r = [dict(x) for x in pos]
+next(x for x in r if x["PosID"] == "POS-004")["Source"] = ""
+dump("pos-nosource.csv", r, pcols)
+
+r = [dict(x) for x in pos]
+next(x for x in r if x["PosID"] == "POS-004")["Field"] = "vibes"
+dump("pos-badfield.csv", r, pcols)
+
+# the guarantee going missing is how a promise quietly stops being one
+r = [x for x in pos if x["PosID"] != "POS-004"]
+dump("pos-noguarantee.csv", r, pcols)
+
+rot = list(csv.DictReader(open(os.path.join(data, "rotation-magnet.csv"),
+                               newline="", encoding="utf-8-sig")))
+rcols = list(rot[0].keys())
+
+# the old week gave 2 of 7 slots to the dog guide
+r = [dict(x) for x in rot]
+sat = next(x for x in r if x["Weekday"] == "Saturday")
+sat["Keyword"] = "PRINCESS"; sat["Magnet"] = "19 Years Old, 10 of Them Mine"
+dump("rot-cesa.csv", r, rcols)
+
+r = [dict(x) for x in rot]
+next(x for x in r if x["Weekday"] == "Monday")["Serves"] = ""
+dump("rot-nomessage.csv", r, rcols)
+
+r = [dict(x) for x in rot]
+next(x for x in r if x["Weekday"] == "Monday")["Format"] = "F-FREESTYLE"
+dump("rot-noformat.csv", r, rcols)
+
+r = [dict(x) for x in rot]
+next(x for x in r if x["Weekday"] == "Monday")["Keyword"] = "CLEANUP"
+dump("rot-draftkw.csv", r, rcols)
+PY10
+
+pos "a claim with no source is refused"  1 --position --position-file "$TMP/pos-nosource.csv" -- M02_NO_SOURCE
+pos "an unknown field is refused"        1 --position --position-file "$TMP/pos-badfield.csv" -- M03_BAD_FIELD
+pos "losing the guarantee is caught"     1 --position --position-file "$TMP/pos-noguarantee.csv" -- M05_MISSING_FIELD
+
+echo
+echo "== the lane =="
+# The failure this run exists for: 2 of 7 slots pointed at a free dog guide
+# while the 2 products that take money had no slot at all.
+pos "a Cesa keyword in Amanda's week is refused" 1 --rotation \
+    --rotation-file "$TMP/rot-cesa.csv" -- R01_LANE_LEAK
+pos "a slot serving no message is refused"       1 --rotation \
+    --rotation-file "$TMP/rot-nomessage.csv" -- R03_NO_MESSAGE
+pos "a slot with no rails is refused"            1 --rotation \
+    --rotation-file "$TMP/rot-noformat.csv" -- R02_UNKNOWN_FORMAT
+pos "an unpublished keyword in the week is caught" 1 --rotation \
+    --rotation-file "$TMP/rot-draftkw.csv" -- R04_DEAD_KEYWORD
+
+python3 - "$TMP" <<'PY10B'
+import json, os, sys
+tmp = sys.argv[1]
+json.dump([
+ {"id": "leak-cesa", "accountId": "45886",
+  "text": "She is 19 today. Comment PRINCESS and I will send the guide."},
+ {"id": "leak-biz", "accountId": "65540",
+  "text": "Comment BOTTLENECK and I will send the free check."},
+ {"id": "ok-amanda", "accountId": "45886",
+  "text": "Comment BOTTLENECK and I will send the free check."},
+ {"id": "ok-cesa", "accountId": "65540",
+  "text": "Comment PRINCESS and I will send the guide."},
+], open(os.path.join(tmp, "lane.json"), "w"))
+PY10B
+
+pos "both directions of lane leak are caught" 1 --queue "$TMP/lane.json" -- Q01_LANE_LEAK
+
+out="$(python3 "$POSGATE" --queue "$TMP/lane.json" 2>&1)"
+if [ "$(grep -c Q01_LANE_LEAK <<<"$out")" = 2 ] \
+   && ! grep -q "ok-amanda" <<<"$out" && ! grep -q "ok-cesa" <<<"$out"; then
+  echo "PASS  a post in its own lane passes clean"; pass=$((pass+1))
+else echo "FAIL  a post in its own lane passes clean"; echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
+
+# Every weekday now names a live keyword and the 2 paid products finally have one.
+wk="$(cut -d, -f4 "$HERE/../data/rotation-magnet.csv" | tail -n +2 | sort -u | tr '\n' ' ')"
+if grep -q BUDGET <<<"$wk" && grep -q DECISION <<<"$wk" && ! grep -q CESA <<<"$wk"; then
+  echo "PASS  the paid products are in the week and the dog guide is not"; pass=$((pass+1))
+else echo "FAIL  the paid products are in the week and the dog guide is not ($wk)"; fail=$((fail+1)); fi
 
 echo
 echo "$pass passed, $fail failed"

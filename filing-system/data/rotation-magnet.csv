@@ -1,8 +1,8 @@
-Weekday,Slot,Register,Keyword,Magnet,Why
-Monday,Mindset / Reflection,reflective,TUESDAY,Just Another Tuesday,"The letter lands Tuesday morning. Monday introduces it, Tuesday delivers it."
-Tuesday,Product / Lifestyle,plain,CONSIDER,Consider This,"The newsletter that already promises to say when something is overpriced. That is a review contract."
-Wednesday,Life Story / Lessons,plain,GUIDE,Beginner's Guide to AI Tools,"A thing learned the hard way pairs with the guide written after learning it."
-Thursday,Soft Life / Environment,tender,RESET,Gentle Self-Reset Checklist,"Environment and overwhelm. This is the only lane the Reset Guide actually belongs to."
-Friday,Flirtatious Feminine,warm,CONSIDER,Consider This,"Soft and specific, not a pitch. The weekly note is the lightest possible ask."
-Saturday,Relaxed Lifestyle,quiet,CESA,"19 Years Old, 10 of Them Mine","Weekend is her lane. No filming day needed to refill it."
-Sunday,Relaxed Lifestyle,quiet,CESA,"19 Years Old, 10 of Them Mine",Same as Saturday.
+Weekday,Slot,Register,Keyword,Magnet,Format,Serves,Why
+Monday,The operator,direct,BOTTLENECK,Business Bottleneck Check,F-OPERATOR,POS-002,"The week opens on the skill. 1 of the 5 stalls, named and solved in order."
+Tuesday,Build in public,plain,TUESDAY,Just Another Tuesday,F-RECEIPT,POS-005,The letter lands Tuesday morning and this is the receipt that earns it.
+Wednesday,AI in plain language,plain,GUIDE,10 Hours Ahead,F-OPERATOR,POS-007,Time bought back is the product. AI is the cheapest hour she can hand somebody.
+Thursday,Money administration,plain,BUDGET,Done Reacting to Money,F-OPERATOR,POS-002,Money admin is chaos with a dollar sign on it. The $37 product had no slot in the old week.
+Friday,Order of operations,direct,DECISION,The Decision Map,F-OPERATOR,POS-003,"What to do first is the whole offer in miniature, and the $47 product had no slot in the old week."
+Saturday,Soft life and environment,tender,RESET,The Reset That Survives Wednesday,F-RECEIPT,POS-006,"The softer register, still hers. Undersystemed, not undisciplined."
+Sunday,Build in public,warm,TUESDAY,Just Another Tuesday,F-RECEIPT,POS-005,Weekend receipts. The week she actually had.

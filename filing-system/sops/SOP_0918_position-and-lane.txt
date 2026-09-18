@@ -1,0 +1,179 @@
+THE GENTLE MUSE — THE MESSAGE AND THE LANE, RUN 10 OF 28
+
+New. Created 09/18/2026. Written after 2 measured failures, not suspected ones.
+
+TOOLS: gm_position_check.py
+DATA:  data/brand-position.csv, data/content-format.csv,
+       data/rotation-magnet.csv (rewritten), data/slot-model.csv (split)
+Live with the filing engine. Companion to Runs 6 through 9.
+
+
+WHY THIS RUN EXISTS
+
+Two failures. They look different and they are the same shape.
+
+THE LANE. 30,671 views produced 13 email subscribers. Run 8 read that as a
+missing contract and added one, which was worth doing and was not the whole
+problem. The rest of it is arithmetic:
+
+  The weekday rotation gave 2 of 7 slots to a free senior dog guide.
+  It gave 0 slots to The Decision Map at $47 and 0 to Done Reacting to Money
+  at $37, both live, both selling, both absent from the week entirely.
+  slot-model.csv let Cesa take a third daily slot on Amanda's Instagram and a
+  second on her Facebook, on top of Saturday and Sunday.
+  6 of the 11 competitor teardowns were senior dog lane.
+
+So the reach was in the senior dog lane and the offer was in the business lane.
+A person who arrived for a 19 year old dog does not buy a $750 systems
+engagement, and no hook fixes that. It is not a writing problem.
+
+The keyword audit says the same thing from the other end. Across all 3 CESA
+automations: 5 firings, 2 distinct contacts, 2 of them failed on a reply reuse
+bug. Cesa was never the conversion point. She was the reach point, and those
+are not the same thing. Moving off her costs reach that was not converting.
+
+THE MESSAGE. Amanda, 09/18: "the gentle muse is not a clear enough purpose and
+call to action channel to hold its own." The brand thesis lived in her head and
+in 3 prose handoffs that each carried a different version of it. Run 9 already
+recorded what happens to a standing fact kept in prose. It drifts, and nothing
+can tell that it has.
+
+
+WHY THESE ARE TABLES AND NOT A REMINDER
+
+Run 6 established the pattern and Runs 7, 8 and 9 have each repeated it. When
+the same failure lands twice, add the missing field and a check that refuses to
+ship without it, because guidance governs judgment and judgment is what already
+failed.
+
+"Focus on Amanda, not Cesa" is guidance. It would be read by the same step that
+has been filling Saturday and Sunday with the dog for months.
+
+
+THE MISSING TABLES
+
+data/brand-position.csv. 10 rows, every one sourced, most of them Amanda's own
+words spoken 09/18. reader, promise, absolution, guarantee, proof, enemy, math,
+never, lane, face. The gate refuses a claim with no source, and refuses the
+table at all if it loses its reader, promise, guarantee, proof or never.
+
+  reader       Women 40+ with disposable income who price their time at close
+               to parity with money.
+  promise      You have a project, you have a goal. Consult me. I will manage
+               your project and bring order to your chaos.
+  absolution   Not because you are not smart enough, not because you are not
+               capable, but because you are too busy and you value your time.
+  guarantee    If I cannot do it, you do not pay me.
+  proof        A team lead brain run across multiple areas at a Walmart. 2 or
+               more people in a department means those people cover each
+               other's breaks. Real coverage, real constraints, real humans.
+  never        Never imply the reader is not smart or not capable. The problem
+               is her calendar, never her ability.
+
+The guarantee is not new exposure. The CLEANUP dmMessage Amanda already wrote
+says refunds happen only when she cannot deliver and never for changing your
+mind. The table records what was already her policy.
+
+data/content-format.csv. 13 beats across 3 formats. Amanda, 09/18: "I try to
+cut the camera on a freestyle, but it does not always click in my head what we
+need to do." That is not an idea shortage. It is a missing frame, so the frames
+are now written down and the rotation names which one each day uses.
+
+  F-OPERATOR   NAME THE MESS, ABSOLVE, THE MOVE, THE COST OF NOT, ONE CTA
+  F-RECEIPT    WHAT I DID, WHAT BROKE, WHAT IT TAUGHT, ONE CTA
+  F-SEASONAL   THE FACT, THE TURN, THE TIE, ONE CTA
+
+THE MOVE is the beat that carries the value Amanda says is missing. It is an
+order of operations from work she has really done, which is what CT-014 and
+CT-016 both do and what makes a lo-fi format read as authority instead of as a
+compromise.
+
+THE TIE exists because of a direct instruction: keep the seasonal work, and
+tie it to the message. Run 7's machinery is untouched. The fact still has to be
+in the bank and still has to be turned. The new beat is 1 line connecting it to
+order, chaos or somebody's time, which stops the history lane being a second
+brand with its own audience.
+
+
+THE NEW WEEK
+
+  Monday      The operator             BOTTLENECK  F-OPERATOR  POS-002
+  Tuesday     Build in public          TUESDAY     F-RECEIPT   POS-005
+  Wednesday   AI in plain language     GUIDE       F-OPERATOR  POS-007
+  Thursday    Money administration     BUDGET      F-OPERATOR  POS-002
+  Friday      Order of operations      DECISION    F-OPERATOR  POS-003
+  Saturday    Soft life, environment   RESET       F-RECEIPT   POS-006
+  Sunday      Build in public          TUESDAY     F-RECEIPT   POS-005
+
+Every slot now names a keyword that is live, a format that exists, and the line
+of the positioning it serves. BUDGET and DECISION have slots for the first
+time. CESA and CONSIDER are gone from Amanda's week.
+
+slot-model.csv slot 3 is Amanda on camera. Cesa gets slot 4, her own accounts,
+her own keywords, her own deals.
+
+
+WHAT THE GATE REFUSES
+
+  M01  a positioning row with no value
+  M02  a claim with no source
+  M03  a field outside the 10 the table knows
+  M05  the table losing its reader, promise, guarantee, proof or never
+  R01  a Cesa lane keyword in Amanda's rotation
+  R02  a slot naming a format that does not exist
+  R03  a slot that serves no line of the positioning
+  R04  a slot naming a keyword that is not live
+  Q01  a lane leak in a real queue, in either direction: a Cesa keyword on
+       Amanda's accounts, or a business keyword on Cesa's
+
+Q01 and gm_cta_check.py answer different questions on purpose. The CTA gate
+asks whether a keyword can work on that account. This asks whether it belongs
+there. CESA is still technically live on Amanda's Instagram and Facebook,
+automations 445 and 432, so the CTA gate passes it and this one refuses it.
+Retiring those 2 automations in Blotato is Amanda's call and the gate holds the
+line until she makes it.
+
+
+TWO CORRECTIONS THIS RUN MADE ELSEWHERE
+
+The ladder had HANDLED: The Intensive recorded as a repackage of The Chaos
+Cleanup Plan, which made a $750 audit look like it had been repriced to $3,000
+for the same work. It is not the same work. The Plan's own DM says "I don't do
+the fixes." The Intensive is Amanda managing the project. Different rungs,
+Repackages cleared, and the reprice hold it was raising is gone. The $3,000
+stays proposed because it appears on no published surface.
+
+Leila Hormozi was a lead in the teardown bank with nothing captured. Amanda
+named her 1 of 3 models on 09/18, so her row was filled from her own bio: her
+promise is scaling through flexible infrastructures and management systems that
+create good places to work. That is the nearest thing on the whole bench to
+Amanda's lane. The bank goes to 14 verified of 22.
+
+
+WHAT IS NOT DECIDED
+
+  1. Retiring CESA automations 445 and 432 from Amanda's Instagram and
+     Facebook. The gate refuses the usage. Only Amanda can turn them off.
+  2. The $3,000 price. She has the value argument now, which is that paying
+     once beats doing it herself plus 2 hires plus the tools. It is still
+     proposed until it is published.
+  3. Publishing CLEANUP at $750, which is written, drafted and 1 approval from
+     being the fastest real dollar in the system.
+  4. Whether Consider This becomes Cesa's list outright. It is live on all 3
+     accounts today and the new week does not use it.
+
+
+LIMITS
+
+The rotation is a plan, not a result. Nothing here has run for a week yet, and
+the measure that matters is the Friday number the cadence file already names:
+followers gained, not views.
+
+Amanda on camera is now the default in the table. That is a commitment she made
+on 09/18 and it is the one thing in this run no script can enforce.
+
+
+SAFETY
+
+Propose-only. The gate reads. It does not post, schedule, publish or price.
+Nothing here was sent, and no automation was turned on or off.
