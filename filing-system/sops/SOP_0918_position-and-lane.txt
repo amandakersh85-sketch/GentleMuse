@@ -260,3 +260,69 @@ getting us some reach."
 The lane split. Affiliate and screening keywords carry no lane restriction on
 purpose. Cesa can run pet brand deals on her own channel and Amanda can run
 hers, and neither is a leak.
+
+
+================================================================================
+EXECUTED 09/18/2026 — THE PLAN IS LIVE AND THE LANE IS SPLIT ON THE PLATFORM
+================================================================================
+
+Amanda: "publish CLEANUP at $750 and kill the CESA automations on the gentle
+muse channels." Then, mid-run: "leave cesa's channel automations live, she gets
+her own lane." Both were done. 4 automations changed, all on her instruction.
+
+  7213  IG 45886  CLEANUP  activated and published.  $750 is now a live price.
+  7214  FB 30840  CLEANUP  activated and published.
+  445   IG 45886  CESA     deactivated and unpublished. Renamed RETIRED 09/18.
+  432   FB 30840  CESA     deactivated and unpublished. Renamed RETIRED 09/18.
+
+Cesa's own channel was not touched and was never going to be. 2952, 2954 and
+4011 on account 65540 are all still active and published, and 2952 still
+answers both CESA and PRINCESS among its 47 trigger phrases. The senior dog
+guide did not die. It stopped being Amanda's capture path and went back to
+being Cesa's.
+
+DEACTIVATED, NOT DELETED. "Kill" was read as stop it firing, because that is
+reversible and it achieves the whole point. The DM copy Amanda wrote is intact
+in both, and either can be switched back on in 1 call. Deleting them is a
+separate instruction and has not been given.
+
+WHAT CHANGED IN THE TABLES, AND WHY THAT IS THE POINT
+  offer-ladder.csv OF-004 PriceStatus drafted -> live, Status draft -> live.
+  magnet-map.csv   CLEANUP Status draft -> live.
+  magnet-map.csv   CESA LiveAccountIds 45886|30840|65540 -> 65540.
+
+PriceStatus was designed so that live is evidenced rather than remembered. A
+customer can now see $750 on a published surface, so it is live, and the price
+gate stops refusing it. $3,000 still appears on no published surface, so it is
+still proposed and still refused. Nothing about that rule had to be edited for
+either outcome. That is the field doing its job.
+
+gm_offer_check.py --sync against a fresh export returns 0. The tables and the
+platform agree exactly.
+
+WHAT THE TESTS CAUGHT, WHICH IS WORTH RECORDING
+4 cases failed immediately after the change, and every one of them was a
+fixture describing a world that had just ended:
+
+  2 used "Comment CESA" on Facebook as an example of a call to action that
+  works. It does not work there any more. Both now use GUIDE, which is live on
+  that account and carries a page count, so the promise check stays exercised.
+
+  2 used CLEANUP as the example of a keyword whose automation is unpublished.
+  It shipped. Both now use RETAINER, which is the one still sitting as a draft.
+
+None of the 4 was a gate misbehaving. The suite noticed a production change
+before anybody told it, which is the whole reason the tables are read by scripts
+instead of by memory. 3 new cases now defend the split: CESA must be dead on
+Amanda's channel and alive on Cesa's, a published price may ship while a
+proposed one may not, and the ladder has to agree the Plan is live.
+
+WHAT IS STILL OPEN
+  The $3,000 Intensive price. Proposed, unpublished, still refused.
+  The bridge. OF-002 at $37 and OF-003 at $47 still credit toward nothing, so
+  the ladder audit still fails on L05. That is 1 decision: which rung they
+  credit into.
+  RETAINER at $600 a month, 7215 and 7216, still drafts.
+  4 reel payloads in reel-factory still carry keyword CESA. They are Cesa
+  content and belong on her channel now. Nothing schedules them automatically,
+  so this is a note rather than a defect.

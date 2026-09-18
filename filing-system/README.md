@@ -38,7 +38,7 @@ video's duration, group a photo burst, or spot a sensitive document.
 | `sops/SOP_0918_position-and-lane.txt` | Run 10 SOP |
 | `patches/video-factory-clip-binding.md` | Paste-in patch for the `gentle-muse-video-factory` skill |
 | `patches/holiday-caption-strategy.md` | Paste-in patch for the video factory, `content-coach` and `post-grader` |
-| `tests/run-tests.sh` | Regression suite for Runs 6 through 11, 134 cases |
+| `tests/run-tests.sh` | Regression suite for Runs 6 through 11, 137 cases |
 
 SOPs are `.txt` on purpose. GitHub renders plain text preformatted, which keeps
 the column alignment the house format uses.

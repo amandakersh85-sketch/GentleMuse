@@ -865,7 +865,7 @@ next(x for x in r if x["Weekday"] == "Monday")["Format"] = "F-FREESTYLE"
 dump("rot-noformat.csv", r, rcols)
 
 r = [dict(x) for x in rot]
-next(x for x in r if x["Weekday"] == "Monday")["Keyword"] = "CLEANUP"
+next(x for x in r if x["Weekday"] == "Monday")["Keyword"] = "RETAINER"
 dump("rot-draftkw.csv", r, rcols)
 PY10
 
@@ -998,6 +998,56 @@ print(sum(1 for r in rows if r['Delivery']=='face' and r['Filler']))
 if [ "$nface" = 7 ]; then
   echo "PASS  every slot prefers face and names its filler"; pass=$((pass+1))
 else echo "FAIL  every slot prefers face and names its filler"; fail=$((fail+1)); fi
+
+# ------------------------------------------------- the 09/18 production change
+# CLEANUP was published at $750 and the CESA automations were retired from
+# Amanda's Instagram and Facebook, on her explicit approval. Cesa's own channel
+# was left alone. These cases exist so none of that drifts back silently.
+
+echo
+echo "== the split, as shipped =="
+
+python3 - "$TMP" <<'PY12'
+import json, os, sys
+tmp = sys.argv[1]
+def w(n, rows): json.dump(rows, open(os.path.join(tmp, n), "w"))
+
+w("shipped-cesa.json", [
+  {"id":"cesa-on-gm","platform":"instagram","accountId":"45886","at":"2026-09-20T15:00:00Z",
+   "text":"She turned 19 this week. Comment CESA and I will send the guide. https://cesa-guide.subscribepage.io"},
+  {"id":"cesa-on-hers","platform":"instagram","accountId":"65540","at":"2026-09-20T23:00:00Z",
+   "text":"She turned 19 this week. Comment CESA and I will send the guide. https://cesa-guide.subscribepage.io"}])
+
+w("shipped-price.json", [
+  {"id":"plan-page","surface":"page",
+   "text":"The Chaos Cleanup Plan is $750, paid once."},
+  {"id":"intensive-page","surface":"page",
+   "text":"The Intensive is $3,000."}])
+PY12
+
+out="$(python3 "$CTA" --queue "$TMP/shipped-cesa.json" 2>&1)"
+if grep -q "P01_DEAD_KEYWORD *cesa-on-gm" <<<"$out" \
+   && ! grep -q "cesa-on-hers" <<<"$out"; then
+  echo "PASS  CESA is dead on Amanda's channel and alive on Cesa's"; pass=$((pass+1))
+else echo "FAIL  CESA is dead on Amanda's channel and alive on Cesa's"
+     echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
+
+# $750 shipped, so it may appear on a page. $3,000 has not, so it may not.
+out="$(python3 "$OFFER" --queue "$TMP/shipped-price.json" 2>&1)"
+if ! grep -q "plan-page" <<<"$out" && grep -q "Q02_UNAPPROVED_PRICE *intensive-page" <<<"$out"; then
+  echo "PASS  a published price may ship and a proposed one may not"; pass=$((pass+1))
+else echo "FAIL  a published price may ship and a proposed one may not"
+     echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
+
+# the ladder should agree that the Plan is live
+liv="$(python3 -c "
+import csv,sys
+r=[x for x in csv.DictReader(open(sys.argv[1],newline='',encoding='utf-8-sig')) if x['OfferID']=='OF-004'][0]
+print(r['PriceStatus'], r['Status'])
+" "$HERE/../data/offer-ladder.csv")"
+if [ "$liv" = "live live" ]; then
+  echo "PASS  the ladder records the Plan as live"; pass=$((pass+1))
+else echo "FAIL  the ladder records the Plan as live (got: $liv)"; fail=$((fail+1)); fi
 
 echo
 echo "$pass passed, $fail failed"
