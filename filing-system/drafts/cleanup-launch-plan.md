@@ -104,85 +104,118 @@ rewritten too. Payhip keeps 1 fewer thing in motion.
 
 ---
 
-## Her time, totalled
+## Her time: about 4.5 hours, and none of it tomorrow
 
-| Day | Her hours | What she is doing |
+Revised 09/18 on Amanda's correction. **Saturday 09/19 is cleaning and healing.
+Nothing is scheduled on it.** She also corrected the assumption underneath the
+first draft: being on shift Sunday to Thursday does not mean she cannot work at
+home. So the decision hour splits into 5 small sessions instead of 1 sitting.
+
+| Day | Her time | What |
 |---|---|---|
-| Sat 09/19 | **2.5** | Every decision, then film 7 |
-| Sun 09/20 to Thu 09/24 | **0.25/day** | Approvals only, evening, 15 min |
-| Fri 09/25 | **2.0** | Film 7, final approval, publish |
-| Sat 09/26 | **0.5** | Confirm it takes money |
-| | **~6 hours over 8 days** | |
+| Sat 09/19 | **0** | Cleaning and healing. Nothing. |
+| Sun 09/20 | 20 min | Create the product |
+| Mon 09/21 | 15 min | Bookings service |
+| Tue 09/22 | 15 min | The 3 contradictions |
+| Wed 09/23 | 15 min | Mark up the page copy |
+| Thu 09/24 | 10 min | Approve and publish. **Sellable from here.** |
+| Fri 09/25 | 2 hr | Film 7, day off |
+| Sat 09/26 | 30 min | Buy her own offer and confirm |
+| | **~4.5 hours** | |
 
-**Plus the hour that is already hers.** `posting-cadence.csv` records 1 hour of
-real engagement daily, before posting: 131 followers the week that happened, 4
-the week it did not. That is not launch work and it is not optional. It is the
-single largest line in her week and the only variable no tool here can see.
+Plus the hour that was already hers. `posting-cadence.csv` records 1 hour of
+real engagement daily before posting: 131 followers the week that happened, 4
+the week it did not. Not launch work, not optional, and the largest line in her
+week.
 
-So the honest total is 6 launch hours on top of 7 engagement hours, and the
-engagement hours were already committed.
+**Splitting the hour is better than concentrating it, not just easier.** Each
+session answers 1 question and each answer unblocks the build I do that night.
+1 sitting would have meant 4 answers arriving together and 4 days of building
+behind them. Split, the building happens alongside, and the offer goes live
+Thursday instead of the weekend.
+
+---
+
+## The feed does not go quiet while this happens
+
+7 finished reels are already rendered in `reel-factory/out/`, all history lane,
+all SEASONAL, all needing nothing filmed: afraid of the dark, goosebumps 1992,
+labor day september, labor first parade, nightmare touchstone, samhain the turn,
+the mare.
+
+That is Sunday through Thursday covered with 2 spare. The week between now and
+the launch runs on assets that already exist, and the first filming day is
+Friday, which is a day off and which `posting-cadence.csv` already calls the
+filming window.
+
+Her own rule stands: filming is days off only. If she wants a weekday session
+anyway the scripts are ready and everything moves up. That is her call, not an
+assumption I will make while she is sick.
 
 ---
 
 ## Day by day
 
-### Saturday 09/19: the leverage day
+### Saturday 09/19: nothing
 
-Her only full day off before the 25th. **Everything that blocks me happens here
-or the week stalls.** 1 sitting, roughly an hour, then filming.
+Cleaning and healing. The plan does not touch this day.
 
-**Her, 1 hour, one sitting:**
-1. Payhip or Wix Stores. 5 min.
-2. Create the $750 product. Title, description from `/services`, price, delivery
-   note. Send me the URL. 20 min.
-3. Wix Bookings: 1 service, "Chaos Cleanup Plan call". Length and the windows
-   she will actually take it in. 15 min.
-4. The 3 contradictions. Credit window, stacking, retainer notice. 15 min.
-5. Read `cleanup-page-copy.md` and mark what is wrong. 20 min.
+### Sunday 09/20, 20 minutes: the product
 
-**Her, 90 minutes, filming:** the 7 scripts in `week-01-face-scripts.md`. She
-also decides there whether Walmart gets named out loud, and whether Sunday's
-script ships, since it says publicly that an offer was briefly broken.
+The session that unblocks every other one. Decide Payhip or Wix Stores, make the
+$750 product, send me the URL.
 
-**Me, same day:** build `/cleanup` against her answers, reconcile the DM and the
-page so no surface contradicts another, update the ladder and the map, run the
-suite.
+**Recommendation: Payhip.** Not because it is better, but because `/services`
+already tells buyers to *"email me your Payhip order"* for the credit. Wix
+Stores makes that sentence wrong and adds a rewrite. The description is already
+written on `/services`, so she can paste it.
 
-> **If only one thing happens on Saturday, make it 1 and 2.** With a product URL
-> in hand the offer can be sellable by Sunday. Everything else improves it.
+**Me that night:** build `/cleanup` against the real product URL.
 
-### Sunday 09/20 to Thursday 09/24: she works, I build
+### Monday 09/21, 15 minutes: the call
 
-She is on shift Sunday through Thursday. Nothing on these days needs more than
-15 minutes of her in an evening.
+1 Wix Bookings service, "Chaos Cleanup Plan call". How long, and the windows she
+will actually take it in. `/book-online` says nothing to book right now and the
+offer promises a live call.
 
-| Day | Hers, 15 min | Mine |
-|---|---|---|
-| Sun 09/20 | Approve `/cleanup`, then publish it | Reactivate 7213 and 7214 once it answers 200. **The offer is sellable from here.** |
-| Mon 09/21 | Approve Monday's post | Week 1 captions graded to 8+, queued |
-| Tue 09/22 | Approve Tuesday's | Reconcile every live surface against the settled terms |
-| Wed 09/23 | Approve Wednesday's | Draft week 2 scripts against what week 1's numbers say |
-| Thu 09/24 | Approve Thursday's | Prep Friday's filming list |
+**Me:** wire the booking into the page, grade week 1 captions to 8 or better.
 
-Posting runs on the existing cadence: 1 reel at 10:00 Central, the TikTok repost
-at 10:00, Facebook at 14:00. Not 2 reels. Her own data says 15 in a day produced
-1,330 views and a single good one produced 7,726.
+### Tuesday 09/22, 15 minutes: the contradictions
 
-### Friday 09/25: day off, second build
+The credit window, whether the credits stack, the retainer's exit. 5 minutes
+each. These are 2 live surfaces disagreeing and only she can say which is true.
 
-**Her, 2 hours:** film week 2, then read the Friday number. Followers gained
-this week. Not views, not likes.
+**Me:** reconcile every live surface against her answers.
 
-**Me:** week 2 queued, and the first read on whether CLEANUP is converting now
-that it has somewhere to land.
+### Wednesday 09/23, 15 minutes: the copy
 
-### Saturday 09/26: the target
+Read `cleanup-page-copy.md` and mark what is wrong. It is her voice, so the
+corrections are hers.
 
-**Her, 30 minutes:** buy her own offer. All the way through, card and all, then
-refund herself. A checkout nobody has walked is not a checkout.
+**Me:** rebuild the page against her marks.
 
-By this day: the page answers, the automation is on, the booking exists, a full
-week of face-to-camera has run, and every live surface says the same thing.
+### Thursday 09/24, 10 minutes: publish
+
+Look at the built page, say yes, publish.
+
+**Me:** confirm it answers 200 rather than 404, reactivate 7213 and 7214, update
+the ladder and the map, run the suite.
+
+> **The offer is sellable from Thursday night**, a day before her day off rather
+> than a day after it.
+
+### Friday 09/25, 2 hours: film
+
+Her day off, and the offer is already taking money while she films. The 7
+scripts in `week-01-face-scripts.md`. She also decides whether Walmart gets
+named out loud, and whether Sunday's script ships, since it says publicly that
+an offer was briefly broken. Then the Friday number: followers gained. Not
+views, not likes.
+
+### Saturday 09/26, 30 minutes: walk it
+
+Buy her own offer. All the way through, card and all, then refund herself. A
+checkout nobody has walked is not a checkout.
 
 ---
 

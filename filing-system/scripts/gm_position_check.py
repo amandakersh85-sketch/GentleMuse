@@ -30,6 +30,9 @@ anything that ignores either.
                face floor, then reports where the calls to action actually went.
   --reels      reads reel-factory payloads and refuses one that does not say
                which lane it belongs to, or says a lane its keyword contradicts.
+  --northstar  refuses content that writes a disclosure Amanda has not made, and
+               content that tells a woman still inside an abusive situation that
+               leaving is simple.
 
   python3 gm_position_check.py --position
   python3 gm_position_check.py --rotation
@@ -68,7 +71,10 @@ FORMATS = os.path.join(DATA, "content-format.csv")
 MAGNETS = os.path.join(DATA, "magnet-map.csv")
 
 FIELDS = {"reader", "promise", "absolution", "guarantee", "proof", "enemy",
-          "math", "never", "lane", "face", "sells", "transformation", "generosity"}
+          "math", "never", "lane", "face", "sells", "transformation", "generosity",
+          # The North Star, recorded 09/18. The reason under the work, and the
+          # 2 guardrails that stop it becoming the subject of the work.
+          "why", "stages", "ambition", "disclosure", "safety", "alignment"}
 
 # The split, as account ids. Amanda's channels convert on Amanda.
 AMANDA = {"45886", "30840", "41488", "36129", "20723", "21430", "6328"}
@@ -126,7 +132,12 @@ def audit_position(rows):
                 % (field, ", ".join(sorted(FIELDS))))
 
     have = {norm(r.get("Field")).lower() for r in rows}
-    for must in ("reader", "promise", "guarantee", "proof", "never"):
+    # why, disclosure and safety join the required set because losing one of
+    # them is not a degradation, it is a harm. A table that forgets the reason
+    # writes content for its own sake. A table that forgets the 2 guardrails
+    # writes a trauma hook, or tells a woman still inside it to just leave.
+    for must in ("reader", "promise", "guarantee", "proof", "never",
+                 "why", "disclosure", "safety"):
         if must not in have:
             add("M05_MISSING_FIELD", "-",
                 "the table names no %s. Without it the message is not decidable." % must)
@@ -205,6 +216,61 @@ def check_queue(rows, magnets):
                 add("Q01_LANE_LEAK", row,
                     "routes %s, a business keyword, on Cesa's account (%s). Her audience "
                     "came for the dog and does not buy the ladder." % (kw, aid))
+    return findings
+
+
+# ------------------------------------------------------- the North Star lines
+
+# POS-017 and POS-018. Amanda may write about what she survived whenever she
+# chooses. Nothing here may write it for her, and nothing here may tell a woman
+# who is still inside it that leaving is simple.
+#
+# These 2 rules are the reason this check exists rather than a paragraph in an
+# SOP. A paragraph governs judgment, and the judgment in question belongs to
+# whichever assistant is drafting at 2am against a content quota.
+SURVIVOR = re.compile(
+    r"\b(?:abus(?:e|ed|er|ive)|domestic\s+violence|coercive\s+control|narcissist\w*"
+    r"|restraining\s+order|women'?s\s+shelter|my\s+(?:ex[\s-]?)?husband"
+    r"|my\s+marriage|the\s+marriage\s+I\s+left|survivor\s+of)\b", re.I)
+
+# Directive language aimed at somebody's exit. Safe when Amanda is describing
+# her own past. Never safe as advice to a reader.
+RECKLESS = re.compile(
+    r"\b(?:just\s+leave(?:\s+him)?|leave\s+him\s+(?:today|now|tonight)"
+    r"|confront\s+(?:him|them|your\s+\w+)|tell\s+him\s+(?:you'?re\s+)?(?:done|leaving)"
+    r"|walk\s+out\s+(?:today|now|tonight)|it'?s\s+simple|all\s+you\s+have\s+to\s+do"
+    r"|stand\s+up\s+to\s+him)\b", re.I)
+
+
+def check_northstar(rows, source=""):
+    """Refuse a disclosure nobody made, and refuse advice that could get
+    somebody hurt. Quiet on everything else."""
+    findings = []
+
+    def add(code, rid, msg):
+        findings.append({"code": code, "id": rid, "msg": msg})
+
+    for r in rows:
+        rid = "%s%s" % (source, r.get("id", "?"))
+        text = " ".join(str(r.get(k) or "") for k in ("text", "caption", "script", "html"))
+        if not text.strip():
+            continue
+
+        hit = SURVIVOR.search(text)
+        wild = RECKLESS.search(text)
+
+        if hit and not norm(r.get("disclosure")):
+            add("D01_UNSOURCED_DISCLOSURE", rid,
+                "writes about what Amanda survived ('%s') and names no disclosure she "
+                "already made. She says this when she chooses to. Nothing here says it "
+                "for her." % hit.group(0))
+
+        if hit and wild:
+            add("D02_RECKLESS_SAFETY", rid,
+                "pairs the survivor theme with '%s'. A woman still inside it may read "
+                "this. Leaving is the most dangerous moment and this sentence treats it "
+                "as a decision she simply has not made yet." % wild.group(0))
+
     return findings
 
 
@@ -312,6 +378,8 @@ def main():
     ap.add_argument("--week", metavar="JSON", help="count a week by delivery")
     ap.add_argument("--reels", metavar="JSON", nargs="+",
                     help="check reel-factory payloads for a declared, agreeing lane")
+    ap.add_argument("--northstar", metavar="JSON",
+                    help="refuse an unsourced disclosure or reckless safety advice")
     ap.add_argument("--face-floor", type=int, default=4, metavar="N",
                     help="how many of the week's posts must be face to camera, default 4")
     ap.add_argument("--position-file", default=POSITION)
@@ -321,8 +389,9 @@ def main():
     ap.add_argument("--quiet", action="store_true")
     a = ap.parse_args()
 
-    if not (a.position or a.rotation or a.queue or a.week or a.reels):
-        ap.error("nothing to check. Pass --position, --rotation, --queue, --week or --reels.")
+    if not (a.position or a.rotation or a.queue or a.week or a.reels or a.northstar):
+        ap.error("nothing to check. Pass --position, --rotation, --queue, --week, "
+                 "--reels or --northstar.")
 
     try:
         position = load(a.position_file)
@@ -383,6 +452,19 @@ def main():
         if not a.quiet and (a.position or a.rotation or a.queue):
             print()
         worst = max(worst, report(findings, a.quiet, "%d reels checked" % total))
+
+    if a.northstar:
+        try:
+            rows = json.load(open(a.northstar, encoding="utf-8"))
+        except (OSError, ValueError) as e:
+            print("cannot read %s: %s" % (a.northstar, e))
+            return 2
+        if isinstance(rows, dict):
+            rows = rows.get("items") or rows.get("posts") or []
+        if not a.quiet and (a.position or a.rotation or a.queue or a.reels):
+            print()
+        worst = max(worst, report(check_northstar(rows), a.quiet,
+                                  "%d posts checked against the North Star" % len(rows)))
 
     if a.week:
         try:

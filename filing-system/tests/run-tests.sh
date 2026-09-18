@@ -1274,5 +1274,55 @@ if [ "$cl" = "4" ]; then
 else echo "FAIL  the 4 Cesa reels are recorded in Cesa's lane (got: $cl)"; fail=$((fail+1)); fi
 
 echo
+echo "== the North Star, and the 2 lines it draws =="
+
+# Amanda's reason for building this is recorded 09/18. It is the why under the
+# work, not the subject of the work, and it carries 2 guardrails that are not
+# style preferences: nothing writes a disclosure she has not made herself, and
+# nothing tells a woman still inside an abusive situation that leaving is easy.
+python3 - "$TMP" <<'PY12'
+import json, os, sys
+tmp = sys.argv[1]
+def w(n, rows): json.dump(rows, open(os.path.join(tmp, n), "w"))
+w("ns-manufactured.json", [{"id": "N-1",
+  "text": "I survived an abusive marriage and it taught me systems. Comment BOTTLENECK."}])
+w("ns-reckless.json", [{"id": "N-2", "disclosure": "Amanda, spoken 09/18",
+  "text": "If you are in an abusive relationship, just leave him. It is simple."}])
+w("ns-hers.json", [{"id": "N-3", "disclosure": "Amanda, North Star handoff 2026-09-18",
+  "text": "I survived an abusive marriage. It does not own me. Comment BOTTLENECK."}])
+w("ns-ordinary.json", [
+  {"id": "N-4", "text": "Your revenue is trapped in a spreadsheet. Comment BOTTLENECK."},
+  {"id": "N-5", "text": "You have 5 things broken and are fixing all 5. Comment BOTTLENECK."}])
+PY12
+
+pos "a disclosure nobody made is refused"   1 --northstar "$TMP/ns-manufactured.json" -- D01_UNSOURCED_DISCLOSURE
+pos "telling her to just leave is refused"  1 --northstar "$TMP/ns-reckless.json"     -- D02_RECKLESS_SAFETY
+pos "her own sourced disclosure passes"     0 --northstar "$TMP/ns-hers.json"         --
+pos "ordinary business content is untouched" 0 --northstar "$TMP/ns-ordinary.json"    --
+
+# The check is worthless if it fires on the work already written. Everything
+# shipped so far has to pass it silently, or it gets ignored inside a week.
+nsq=1
+for f in "$HERE/offer.launchpack-v2.json" "$HERE/offer.launchpack.json" "$HERE/cta.waitlist.json"; do
+  python3 "$POSGATE" --northstar "$f" --quiet >/dev/null 2>&1 || { nsq=0; echo "  fired on $(basename "$f")"; }
+done
+if [ $nsq = 1 ]; then
+  echo "PASS  the North Star check is silent on every caption already written"; pass=$((pass+1))
+else echo "FAIL  the North Star check is silent on every caption already written"; fail=$((fail+1)); fi
+
+# The mission cannot be quietly deleted from the table.
+for f in why disclosure safety; do
+  python3 - "$TMP" "$HERE/../data/brand-position.csv" "$f" <<'PY13'
+import csv, os, sys
+tmp, src, drop = sys.argv[1], sys.argv[2], sys.argv[3]
+rows = [r for r in csv.DictReader(open(src, newline="", encoding="utf-8-sig"))
+        if r["Field"].strip().lower() != drop]
+with open(os.path.join(tmp, "pos-no-%s.csv" % drop), "w", newline="", encoding="utf-8") as fh:
+    w = csv.DictWriter(fh, fieldnames=list(rows[0].keys())); w.writeheader(); w.writerows(rows)
+PY13
+  pos "a table that forgets its $f is refused" 1 --position --position-file "$TMP/pos-no-$f.csv" -- M05_MISSING_FIELD
+done
+
+echo
 echo "$pass passed, $fail failed"
 [ "$fail" = 0 ]
