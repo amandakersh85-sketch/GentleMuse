@@ -396,3 +396,52 @@ an $85M portfolio on it.
 
 So mindset is the generosity. Management is the offer. That distinction is now
 POS-013 and it is the reason the free content has a job.
+
+
+================================================================================
+EXECUTED 09/18/2026 — THE RUNG THAT SOLD A FILE NOW SELLS THE FEELING
+================================================================================
+
+Amanda: "yes rewrite the budget DM to sell the feeling."
+
+Automation 448, Done Reacting to Money, Instagram. Was:
+
+  "Here it is.
+   Done Reacting to Money. My biweekly paycheck planner, 39 pages, fillable and
+   printable. It's $37."
+
+39 pages is a description of a file. The name of the product already promised
+the feeling and then the first line sold the artifact, which is the exact
+failure L10 was written to catch. It was the only rung on the ladder doing it.
+
+Now:
+
+  "Money coming in and a low-grade hum of anxiety anyway. That's not
+   ingratitude. That's money with no jobs.
+   Here it is. Done Reacting to Money gives every paycheck a job before it
+   lands, so you stop checking the balance to find out how you're doing."
+
+The opening line is Amanda's own, from caption 8 of the launch pack. It names
+the feeling and absolves in the same breath, which is POS-003 and POS-008 doing
+their job: the problem is money with no system, never the reader's competence.
+
+WHAT THE GRADER CHANGED
+The first draft opened "Here it is." as all 8 other live DMs do, then went
+straight to the feeling. That scored 8.5. The weakness was structural rather
+than tonal: "Here it is" promises a thing, the next line hands over a feeling,
+and the product name does not arrive until line 3. A reader who just commented
+BUDGET is expecting delivery at that exact moment.
+
+Moving "Here it is" down 1 line fixed it and kept the house convention. The
+word "jobs" now hinges the halves together: money with no jobs, then every
+paycheck gets a job. 9 of 10, hook 4.5 and body 4.5, no auto-fails.
+
+WHAT DID NOT CHANGE
+The credit line, the price, the button, the trigger keywords and the compliance
+line are all untouched. 414 of 640 characters. Active and published throughout,
+verified against a fresh export after the write. --sync still returns 0.
+
+THE ARTIFACT DETAIL IS STILL THERE
+"39 fillable pages, $37" sits below the transformation rather than above it.
+Nobody buys information, and nobody buys blind either. The page count is
+reassurance, not the pitch.
