@@ -7,7 +7,7 @@ Amanda claims these herself on `club.target.com`. Claude cannot: the board is a
 JavaScript app behind a login and every URL returns the same empty shell to a
 non-browser client. Claude's job is to catch each publish and hand over the row.
 
-## Published and awaiting confirmation, 31 Aug to 17 Sep 2026
+## Published and awaiting confirmation, 31 Aug to 18 Sep 2026
 
 | Date (UTC) | Platform | Theme | Live URL |
 |---|---|---|---|
@@ -31,6 +31,7 @@ non-browser client. Claude's job is to catch each publish and hand over the row.
 | 15 Sep | Instagram Story | #TargetFallFits | https://www.instagram.com/stories/thegentlemuse2026/3987018006551193598 |
 | 16 Sep | TikTok | #GameDayWithTarget | https://www.tiktok.com/@thegentlemuse2026/video/7686163382914911502 |
 | 17 Sep | TikTok | #TargetFave (3rd use) | https://www.tiktok.com/@thegentlemuse2026/video/7686534594920795405 |
+| 18 Sep | TikTok | #HalloweenDecorAtTarget | https://www.tiktok.com/@thegentlemuse2026/video/7686905679298268429 |
 
 One Facebook row failed and never went live: `688849`, 01 Sep,
 #TargetCatandJackSummer, "the video could not be processed". No post, no points.
@@ -116,3 +117,32 @@ videos had. But the middle of the video is bare and the rule explicitly asks for
 repeat at this length. **Worth adding a midpoint disclosure to the template**, since
 most of her Club Target cuts run 22 to 31 seconds and all of them will have this
 same gap.
+
+## 18 Sep: correcting yesterday's midpoint-disclosure claim
+
+Yesterday's entry said the FlavCity cut had no midpoint disclosure and concluded
+that **"most of her Club Target cuts run 22 to 31 seconds and all of them will have
+this same gap"**, recommending a template change.
+
+**That conclusion was wrong.** It generalized from one video.
+
+`7172713`, the Halloween Decor TikTok published today, was sampled at 0.2s, 35%,
+55%, 75% and 96% of a 20.7 second runtime:
+
+| Point | `#TargetPartner` on screen |
+| --- | --- |
+| opening frame | **yes** |
+| 35% | no |
+| **55%** | **yes** |
+| 75% | no |
+| end card | yes, full tag set |
+
+So it carries the midpoint repeat the Scope of Work asks for. The gap is **per cut,
+not a template defect**. No template change is needed.
+
+What is actually true: the opening-frame disclosure is consistent across every cut
+built since 14 Sep, which is the half that matters. The midpoint repeat is present
+in some and absent in others. Worth checking per video, not worth a blanket fix.
+
+The shelf tag reading `5.00` is in frame and that is fine. Prices are a TikTok Shop
+rule and do not touch Club Target.
