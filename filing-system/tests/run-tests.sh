@@ -1198,5 +1198,37 @@ if [ "$dep" = "750 live live True" ]; then
 else echo "FAIL  the deposit is recorded as the live product it is (got: $dep)"; fail=$((fail+1)); fi
 
 echo
+echo "== the rewritten launch pack =="
+
+# The old pack is kept as a refusal case above. This is the other half of the
+# same invariant: a pack written to the rules has to clear every gate that
+# refuses the old one. If a future rule change breaks this, the rules and the
+# published pack have drifted apart and one of them is wrong.
+LP2="$HERE/offer.launchpack-v2.json"
+lp2ok=1
+for g in "$CTA" "$OFFER" "$POSGATE"; do
+  out="$(python3 "$g" --queue "$LP2" 2>&1)" || { lp2ok=0; echo "  $(basename "$g")"; echo "$out" | sed 's/^/      /'; }
+done
+if [ $lp2ok = 1 ]; then
+  echo "PASS  the rewritten pack clears the cta, offer and position gates"; pass=$((pass+1))
+else echo "FAIL  the rewritten pack clears the cta, offer and position gates"; fail=$((fail+1)); fi
+
+# Every CTA in it resolves to a keyword that is live today. This is what the
+# WAITLIST caption failed, and it fails again the moment a keyword is paused.
+lp2kw="$(python3 -c "
+import csv,json,re,sys
+live={r['Keyword'] for r in csv.DictReader(open(sys.argv[2],newline='',encoding='utf-8-sig'))
+      if r['Status']=='live'}
+bad=[]
+for row in json.load(open(sys.argv[1])):
+    for kw in re.findall(r'\\b(?i:comment)\\s+([A-Z][A-Z0-9]{2,})\\b', row['text']):
+        if kw not in live: bad.append('%s:%s' % (row['id'], kw))
+print(' '.join(bad) or 'all-live')
+" "$LP2" "$HERE/../data/magnet-map.csv")"
+if [ "$lp2kw" = "all-live" ]; then
+  echo "PASS  every keyword the rewritten pack names is live"; pass=$((pass+1))
+else echo "FAIL  every keyword the rewritten pack names is live (dead: $lp2kw)"; fail=$((fail+1)); fi
+
+echo
 echo "$pass passed, $fail failed"
 [ "$fail" = 0 ]
