@@ -94,7 +94,7 @@ def main():
     # 4 calls to action
     gate = subprocess.run([sys.executable, os.path.join(HERE, "gm_cta_check.py"),
                            "--queue", a.queue], capture_output=True, text=True)
-    bad = [l for l in gate.stdout.splitlines() if l.startswith("P0")]
+    bad = [l for l in gate.stdout.splitlines() if l.startswith("P")]
     print("\nCALLS TO ACTION  %d that cannot work" % len(bad))
     for l in bad[:6]:
         print("  " + l)
