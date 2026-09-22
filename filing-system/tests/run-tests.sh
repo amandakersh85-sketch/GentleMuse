@@ -1015,5 +1015,15 @@ if python3 "$HERE/countdown_fill_assert.py" >/dev/null 2>&1; then
 else echo "FAIL  a date-locked caption is held off every day but its own"; fail=$((fail+1)); fi
 
 echo
+echo "== a night the campaign promised and the board never filled (Run 9, added 09/22) =="
+# The 09/19 announcement said 43 nights, no dark days. 26 of them were dark and
+# every rule passed the board, because a night full of Club Target posts is not
+# starved, not silent and not a repeat. The promise was in a caption and nowhere
+# else, so there was nothing to check it against.
+if python3 "$HERE/promise_assert.py"; then
+  echo "PASS  a dark night is found under a day that looks full"; pass=$((pass+1))
+else echo "FAIL  a dark night is found under a day that looks full"; fail=$((fail+1)); fi
+
+echo
 echo "$pass passed, $fail failed"
 [ "$fail" = 0 ]

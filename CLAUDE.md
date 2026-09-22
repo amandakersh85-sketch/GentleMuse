@@ -107,6 +107,21 @@ dead keyword is worse than no call to action, because somebody comments the
 word and waits. Refresh the registry from Blotato whenever an automation
 changes.
 
+What a campaign promised out loud is data, not memory. The nightly Halloween
+run was announced on Instagram on 09/19/2026: 1 true thing about the season
+every night, 43 nights, no dark days. Nothing in the repo recorded that, so
+26 of the 43 nights went dark and every gate passed the board, because a
+night holding 4 Club Target posts is not starved, not silent and not a
+repeat. The promise now lives in `filing-system/data/campaign-targets.csv`
+as StartDate, Accounts, PromisedOn and PerNight, and
+`staging-library.csv` carries a Campaign column so a board row can be joined
+to the campaign it belongs to. `C13_PROMISE_DARK` refuses a night the
+campaign owes and has not filled, and `C14_PROMISE_FLOOD` refuses more than
+PerNight in a day, because 3 in 1 night is 2 nights taken off the end.
+PerNight is a floor and a ceiling, and it is the number the announcement
+stated, not a preference. When a campaign is announced, write the promise
+into the CSV before anything is scheduled against it.
+
 Variety is the point of the volume. A day should not be 5 of the same lane.
 The lanes are: holiday fact, Cesa, Club Target, food review, lead magnet
 carousel, Amanda on camera, trivia.

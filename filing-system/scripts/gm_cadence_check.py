@@ -31,6 +31,10 @@ count of 1.
                       no group and every other rule skips it in silence.
   C12_RUNWAY_END      slots held on the far side of a hole 5 days or longer,
                       while the near days are the empty ones
+  C13_PROMISE_DARK    a night inside a live campaign's run with nothing from
+                      that campaign on an account the campaign runs on
+  C14_PROMISE_FLOOD   more of a campaign in 1 day on 1 account than the
+                      campaign said it would run
 
 Fill the fact column from what the caption *opens* with, not from the whole
 caption. The CTA, the link and the hashtags are identical across a lane and
@@ -60,7 +64,13 @@ import os
 import re
 import sys
 from collections import defaultdict
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+# The plate table lives with the snapshot that writes the slugs, so that a
+# second copy of it here cannot drift away from the one in use.
+from gm_board_snapshot import FAMILY  # noqa: E402
 
 ANCHOR_DEFAULT = "15:00"
 
@@ -215,18 +225,66 @@ CAMPAIGNS = os.path.join(
     "data", "campaign-targets.csv")
 
 
-def load_target(path=CAMPAIGNS):
+def load_target(path=None):
     """The date the live countdown campaign is counting down to.
 
     C04 used to need --target on the command line, which meant it ran only
     when somebody remembered to pass it, which was never. The date belongs in
     the data next to everything else the gate reads.
     """
+    # Bound at call time, not at def time, so a test can point the gate at a
+    # fixture campaign and still exercise the real loader rather than a stub.
+    path = path or CAMPAIGNS
     if not os.path.exists(path):
         return None
     with open(path, newline="", encoding="utf-8") as fh:
         live = [r for r in csv.DictReader(fh) if r["Live"] == "yes"]
     return live[0] if live else None
+
+
+STAGING = os.path.join(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+    "data", "staging-library.csv")
+
+
+def load_campaign_slugs(campaign, path=None):
+    """The fact slugs a campaign is made of, read off the staging library.
+
+    The board says what a post is about, as a slug. The library says which
+    campaign a slug was built for. Joining those 2 is the only way a gate can
+    tell a campaign post from any other post on the same night, and the
+    Campaign column that makes the join possible is the one that did not
+    exist while 26 nights of a 43 night promise went dark. Every rule below
+    counted posts. None of them could count the *right* posts.
+
+    Plates fold the same way they fold everywhere else. coffinbell-tall-3 and
+    coffinbell are 1 fact, so slugs go through the same family table the
+    snapshot writes with rather than a second copy of it that can drift.
+    """
+    path = path or STAGING
+    if not campaign or not os.path.exists(path):
+        return set()
+    slugs = set()
+    with open(path, newline="", encoding="utf-8") as fh:
+        for r in csv.DictReader(fh):
+            if (r.get("Campaign") or "").strip() != campaign:
+                continue
+            slug = (r.get("Slug") or "").strip().lower()
+            if slug:
+                slugs.add(FAMILY.get(slug, slug))
+    return slugs
+
+
+def campaign_accounts(cell):
+    """"instagram:45886|facebook:30840" as [(platform, account), ...]."""
+    out = []
+    for part in (cell or "").split("|"):
+        part = part.strip()
+        if not part:
+            continue
+        platform, _, account = part.partition(":")
+        out.append((platform.strip().lower(), account.strip()))
+    return out
 
 
 def posting_window(rows):
@@ -490,6 +548,87 @@ def check(rows, anchor=ANCHOR_DEFAULT, target=None):
                                  r["day"]),
                     "ids": [r["id"]],
                 })
+
+    # Nothing above this line can see a broken promise.
+    #
+    # A night with 4 Club Target posts and no Halloween fact is not starved,
+    # not silent, not a collision and not a repeat. Every rule passes it. It
+    # is still a night Amanda told 43 nights' worth of people she would post
+    # and did not. The promise was in a caption and nowhere else, so there was
+    # nothing to check it against, and 26 of the 43 nights went dark with the
+    # board reporting clean the whole way. Writing the promise into
+    # campaign-targets.csv is what makes it checkable; these 2 rules are what
+    # check it.
+    if campaign and campaign.get("StartDate") and campaign.get("Accounts"):
+        slugs = load_campaign_slugs(campaign["Campaign"])
+        try:
+            per_night = int(campaign.get("PerNight") or 1)
+        except ValueError:
+            per_night = 1
+        promised = set(campaign_accounts(campaign.get("PromisedOn") or ""))
+        days = sorted({r["day"] for r in rows})
+
+        # These 2 rules answer for a board that is carrying this campaign and
+        # reaches into its run. Without that, every unrelated board gets read
+        # as 43 dark nights: a 2 row YouTube fixture from 09/08 is not a
+        # campaign in trouble, it is a different board. A board with no fact
+        # column has no campaign posts by definition and is skipped the same
+        # way, which is C10's finding to make, not this one's.
+        carries = bool(slugs) and any(r["fact"] in slugs for r in rows)
+        overlaps = bool(days) and (days[0] <= campaign["TargetDate"]
+                                   and days[-1] >= campaign["StartDate"])
+
+        if carries and overlaps:
+            # The run starts at the campaign's start or at the board's first
+            # day, whichever is later, and always ends at the target date. A
+            # board that stops on the 6th has not covered a campaign that runs
+            # to the 31st. It has 25 dark nights, and that is the finding, not
+            # a reason to stop looking at the 6th.
+            cur = date.fromisoformat(max(campaign["StartDate"], days[0]))
+            last = date.fromisoformat(campaign["TargetDate"])
+            run = []
+            while cur <= last:
+                run.append(cur.isoformat())
+                cur += timedelta(days=1)
+
+            for platform, account in campaign_accounts(campaign["Accounts"]):
+                mine = defaultdict(list)
+                for r in rows:
+                    if (r["platform"] == platform and r["account"] == account
+                            and r["fact"] in slugs):
+                        mine[r["day"]].append(r)
+
+                where = "%s %s" % (platform, account)
+                said = (", where the promise was published"
+                        if (platform, account) in promised else "")
+
+                dark = [d for d in run if not mine.get(d)]
+                if dark:
+                    findings.append({
+                        "rule": "C13_PROMISE_DARK",
+                        "day": dark[0],
+                        "detail": "%s runs on %s and is dark on %d of the %d "
+                                  "nights left in it%s: %s"
+                                  % (campaign["Campaign"], where, len(dark),
+                                     len(run), said, " ".join(dark)),
+                        "ids": [],
+                    })
+
+                for day in run:
+                    got = mine.get(day, [])
+                    if len(got) > per_night:
+                        findings.append({
+                            "rule": "C14_PROMISE_FLOOD",
+                            "day": day,
+                            "detail": "%d %s posts on %s in 1 day. It runs %d "
+                                      "a night, which is a floor and a ceiling. "
+                                      "%d spent here is %d %s taken off the end."
+                                      % (len(got), campaign["Campaign"], where,
+                                         per_night, len(got), len(got) - per_night,
+                                         "night" if len(got) - per_night == 1
+                                         else "nights"),
+                            "ids": [p["id"] for p in got],
+                        })
 
     return findings
 

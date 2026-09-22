@@ -1,0 +1,8 @@
+Slug,FactID,Platform,AccountId,SlotUTC,Status,MediaUrl,Text,Waiting,Campaign
+alpha,TST-001,instagram,45886,,STAGED,https://example.invalid/a.mp4,Alpha.,,test-nightly
+bravo,TST-002,instagram,45886,,STAGED,https://example.invalid/b.mp4,Bravo.,,test-nightly
+charlie,TST-003,instagram,45886,,STAGED,https://example.invalid/c.mp4,Charlie.,,test-nightly
+delta,TST-004,instagram,45886,,STAGED,https://example.invalid/d.mp4,Delta.,,test-nightly
+echo,TST-005,instagram,45886,,STAGED,https://example.invalid/e.mp4,Echo.,,test-nightly
+nbc-crt,TST-006,instagram,45886,,STAGED,https://example.invalid/f.mp4,A plate.,,test-nightly
+outsider,OTH-001,instagram,45886,,STAGED,https://example.invalid/g.mp4,Not this campaign.,,some-other-run
