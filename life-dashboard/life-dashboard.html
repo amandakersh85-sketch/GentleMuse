@@ -119,62 +119,11 @@ body.gentle .gentle-only{display:flex}
   </section>
 
   <section>
-    <div class="sechead"><h2>Your routines</h2><span class="muted small">Checked Sep 22, 1:45 PM</span></div>
-    <div class="health">
-      <div><b>19</b><span>routines</span></div>
-      <div><b>11</b><span>running fine</span></div>
-      <div><b style="color:var(--bad)">4</b><span>failed this week</span></div>
-      <div><b style="color:var(--soft)">4</b><span>paused</span></div>
-    </div>
-    <p class="note bad"><b>Why 4 failed:</b> your weekly Claude limit ran out on Monday morning. The Monday checks at 9:15, 9:25 and 9:30 never started. The Blotato top-up started at 1:14 AM today and has been stuck for 12 hours. The limit reset at 6 AM today, so they will try again next time.</p>
-    <p class="note"><b>Why the limit ran out:</b> 10 of your routines report into 3 very long conversations (474k, 658k and 659k tokens of history). Every time one fires, it rereads that whole history. That is most of your usage, and it grows every day.</p>
-
-    <details class="gentle-hide">
-      <summary>Needs you (2)</summary>
-      <div class="rt"><span>Sign in to Gmail again</span><span class="pill bad">blocking</span><span class="when">Claude settings, then Connectors, then Gmail. Your morning digest, lead triage and Monday challenge drop all read Gmail.</span></div>
-      <div class="rt"><span>1 Club Target TikTok post failed</span><span class="pill warn">when you can</span><span class="when">TikTok rejected the video file (error 400). It needs a fresh upload and a new time.</span></div>
-    </details>
-    <details class="gentle-hide">
-      <summary>Every day</summary>
-      <div class="rt"><span>Blotato queue top-up</span><span class="pill bad">stuck</span><span class="when">1:00 AM</span></div>
-      <div class="rt"><span>Morning email digest</span><span class="pill ok">ok</span><span class="when">6:00 AM</span></div>
-      <div class="rt"><span>Freelance lead triage</span><span class="pill ok">ok</span><span class="when">7:00 AM</span></div>
-      <div class="rt"><span>DM email sync and keyword sweep</span><span class="pill ok">ok</span><span class="when">8:00 AM, reports into a long conversation</span></div>
-      <div class="rt"><span>Club Target claim watch</span><span class="pill ok">ok</span><span class="when">11:00 AM, reports into a long conversation</span></div>
-      <div class="rt"><span>1K campaign nightly scrub</span><span class="pill ok">ok</span><span class="when">9:30 PM, reports into a long conversation</span></div>
-    </details>
-    <details class="gentle-hide">
-      <summary>Weekly and monthly</summary>
-      <div class="rt"><span>Club Target challenge drop</span><span class="pill ok">ok</span><span class="when">Mon 8:40 AM</span></div>
-      <div class="rt"><span>Grant deadline check</span><span class="pill bad">failed</span><span class="when">Mon 9:15 AM, limit ran out</span></div>
-      <div class="rt"><span>MailerLite health</span><span class="pill bad">failed</span><span class="when">Mon 9:25 AM, limit ran out</span></div>
-      <div class="rt"><span>Meta Pixel check</span><span class="pill bad">failed</span><span class="when">Mon 9:30 AM, limit ran out</span></div>
-      <div class="rt"><span>Monday scoreboard</span><span class="pill ok">ok</span><span class="when">Mon 10:00 AM</span></div>
-      <div class="rt"><span>Breakout watcher</span><span class="pill ok">ok</span><span class="when">Tue and Fri 9:00 AM</span></div>
-      <div class="rt"><span>Club Target audit</span><span class="pill ok">ok</span><span class="when">Sun and Wed 7:00 PM</span></div>
-      <div class="rt"><span>Payhip link audit</span><span class="pill ok">ok</span><span class="when">1st of the month, 9:00 AM</span></div>
-      <div class="rt"><span>Consider This runway warning</span><span class="pill ok">scheduled</span><span class="when">Once, Thu Sep 24, 9:00 AM</span></div>
-    </details>
-    <details class="gentle-hide">
-      <summary>Paused (4)</summary>
-      <div class="rt"><span>Comment replies</span><span class="pill off">off</span><span class="when">since Sep 9</span></div>
-      <div class="rt"><span>Funnel watch</span><span class="pill off">off</span><span class="when">since Sep 9</span></div>
-      <div class="rt"><span>500 campaign data scrub</span><span class="pill off">off</span><span class="when">replaced by the 1K scrub</span></div>
-      <div class="rt"><span>TikTok redistribution</span><span class="pill off">off</span><span class="when">since Jul 11</span></div>
-    </details>
+    <div class="sechead"><h2>Your routines</h2><span class="muted small" id="rtStamp"></span></div>
+    <div id="rtBox" style="display:flex;flex-direction:column;gap:12px"></div>
   </section>
 
-  <section class="fix gentle-hide">
-    <h2>What I would change</h2>
-    <p class="muted small">Nothing moves until you say yes. 1 yes covers all 3.</p>
-    <ol>
-      <li><b>Give the 10 routines a fresh start each time.</b> Same jobs, same times, but each run starts clean instead of rereading months of history. This is the fix for the limit.</li>
-      <li><b>Fold the 4 Monday checks into 1.</b> Grant deadlines, MailerLite, Meta Pixel and the scoreboard become one Monday report at 10 AM.</li>
-      <li><b>Turn the morning digest into your morning brief.</b> It already reads Gmail at 6 AM. Add your calendar and the one thing, under 200 words.</li>
-    </ol>
-  </section>
-
-  <p class="muted small" id="foot">Calendar and Gmail are read live each time you open this page. Routines are a snapshot from Sep 22.</p>
+  <p class="muted small" id="foot">Calendar and Gmail are read live each time you open this page. Your routines report here twice a day, at 6:15 AM and 4:00 PM.</p>
 </div>
 
 <script>
@@ -316,6 +265,37 @@ body.gentle .gentle-only{display:flex}
     });
     if (!shown) list.appendChild(row("","Nobody real is waiting on a reply from the last 7 days."));
   }
+
+
+  var SEED = {"checkedAt": "2026-09-22T18:45:00Z", "source": "Audit by Claude", "counts": {"total": 20, "ok": 12, "failed": 4, "paused": 4}, "notes": [{"tone": "bad", "title": "Why 4 failed", "text": "Your weekly Claude limit ran out on Monday morning. The Monday checks at 9:15, 9:25 and 9:30 never started. The Blotato top-up started at 1:14 AM today and has been stuck since. The limit reset at 6 AM today, so they try again next time."}, {"tone": "info", "title": "Why the limit runs out", "text": "10 routines report into 3 very long conversations (474k, 658k and 659k tokens of history). Every run rereads that whole history first."}], "needs": [{"title": "Sign in to Gmail again", "detail": "Claude settings, then Connectors, then Gmail. Your morning digest, lead triage and Monday challenge drop all read Gmail.", "level": "blocking"}, {"title": "1 Club Target TikTok post failed", "detail": "TikTok rejected the video file (error 400). It needs a fresh upload and a new time.", "level": "soon"}], "groups": [{"name": "Every day", "items": [{"name": "Blotato queue top-up", "state": "stuck", "when": "1:00 AM"}, {"name": "Morning email digest", "state": "ok", "when": "6:00 AM"}, {"name": "Life dashboard refresh", "state": "scheduled", "when": "6:15 AM and 4:00 PM, updates this page"}, {"name": "Freelance lead triage", "state": "ok", "when": "7:00 AM"}, {"name": "DM email sync and keyword sweep", "state": "ok", "when": "8:00 AM"}, {"name": "Club Target claim watch", "state": "ok", "when": "11:00 AM"}, {"name": "1K campaign nightly scrub", "state": "ok", "when": "9:30 PM"}]}, {"name": "Weekly and monthly", "items": [{"name": "Club Target challenge drop", "state": "ok", "when": "Mon 8:40 AM"}, {"name": "Grant deadline check", "state": "failed", "when": "Mon 9:15 AM, limit ran out"}, {"name": "MailerLite health", "state": "failed", "when": "Mon 9:25 AM, limit ran out"}, {"name": "Meta Pixel check", "state": "failed", "when": "Mon 9:30 AM, limit ran out"}, {"name": "Monday scoreboard", "state": "ok", "when": "Mon 10:00 AM"}, {"name": "Breakout watcher", "state": "ok", "when": "Tue and Fri 9:00 AM"}, {"name": "Club Target audit", "state": "ok", "when": "Sun and Wed 7:00 PM"}, {"name": "Payhip link audit", "state": "ok", "when": "1st of the month, 9:00 AM"}, {"name": "Consider This runway warning", "state": "scheduled", "when": "Once, Thu Sep 24, 9:00 AM"}]}, {"name": "Paused", "items": [{"name": "Comment replies", "state": "off", "when": "since Sep 9"}, {"name": "Funnel watch", "state": "off", "when": "since Sep 9"}, {"name": "500 campaign data scrub", "state": "off", "when": "replaced by the 1K scrub"}, {"name": "TikTok redistribution", "state": "off", "when": "since Jul 11"}]}]};
+  var STATE_PILL = {ok:["ok","ok"],failed:["bad","failed"],stuck:["bad","stuck"],off:["off","off"],scheduled:["ok","scheduled"],late:["warn","late"]};
+  function renderRoutines(st){
+    var box=document.getElementById("rtBox"); box.textContent="";
+    if (st.checkedAt){ var d=new Date(st.checkedAt); document.getElementById("rtStamp").textContent="Checked "+new Intl.DateTimeFormat("en-US",{timeZone:TZ,month:"short",day:"numeric"}).format(d)+", "+fmtTime(d); }
+    var c=st.counts||{}, h=el("div","health");
+    [[c.total,"routines",""],[c.ok,"running fine",""],[c.failed,"failed this week","var(--bad)"],[c.paused,"paused","var(--soft)"]].forEach(function(x){
+      var d=el("div"); var b=el("b",null,x[0]==null?"":String(x[0])); if(x[2])b.style.color=x[2]; d.appendChild(b); d.appendChild(el("span",null,x[1])); h.appendChild(d);
+    });
+    box.appendChild(h);
+    (st.notes||[]).forEach(function(n){ var p=el("p","note gentle-hide"+(n.tone==="bad"?" bad":"")); var b=el("b",null,(n.title||"")+": "); p.appendChild(b); p.appendChild(document.createTextNode(n.text||"")); box.appendChild(p); });
+    var needs=st.needs||[];
+    if (needs.length){
+      var dn=el("details","gentle-hide"); dn.open=true; var sm=el("summary",null,"Needs you ("+needs.length+")"); dn.appendChild(sm);
+      needs.forEach(function(n){ var r=el("div","rt"); r.appendChild(el("span",null,n.title)); r.appendChild(el("span","pill "+(n.level==="blocking"?"bad":"warn"),n.level==="blocking"?"blocking":"when you can")); r.appendChild(el("span","when",n.detail||"")); dn.appendChild(r); });
+      box.appendChild(dn);
+    }
+    (st.groups||[]).forEach(function(g){
+      var dg=el("details","gentle-hide"); dg.appendChild(el("summary",null,g.name+" ("+(g.items||[]).length+")"));
+      (g.items||[]).forEach(function(it){ var pp=STATE_PILL[it.state]||["warn",it.state||"unknown"]; var r=el("div","rt"); r.appendChild(el("span",null,it.name)); r.appendChild(el("span","pill "+pp[0],pp[1])); r.appendChild(el("span","when",it.when||"")); dg.appendChild(r); });
+      box.appendChild(dg);
+    });
+  }
+  renderRoutines(SEED);
+  var dbP = window.claude && window.claude.use ? window.claude.use("db") : Promise.resolve(null);
+  dbP.then(function(db){
+    if (!db) return;
+    db.doc("status/current").onSnapshot(function(snap){ if (snap.exists) renderRoutines(snap.data()); }, function(){});
+  });
 
   var mcpP = window.claude && window.claude.use ? window.claude.use("mcp") : Promise.resolve(null);
   mcpP.then(function(mcp){
