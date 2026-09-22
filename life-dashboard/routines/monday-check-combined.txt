@@ -1,0 +1,69 @@
+MONDAY CHECK. This replaces 4 separate Monday routines so they run as one. Do the 4 parts below in order. Each part is independent: if one fails, say so in one line and carry on with the next. Each part keeps its own rules, including where it reports (Slack channel or here) and when it stays quiet.
+
+End with one short summary here covering all 4 parts, 1 line each.
+
+=== PART 1: SCOREBOARD ===
+
+Weekly scoreboard for The Gentle Muse. Report only what crossed a line. Skip anything that just moved a little.
+
+FOLLOWERS. mcp__Metricool__getAnalyticsDataByMetrics, brandId 6066935, metrics ["IGEV01","IGEV03"], from 8 days ago to today, timezone America/Chicago. IGEV01 is the current follower count on @thegentlemuse2026, IGEV03 is the daily net.
+Baseline: 177 on 2026-08-31, up 4 that week, having dipped to 171 on Aug 27.
+Say something only if one of these is true:
+- The count crossed 200, 250, 300, 350, 400, 450 or 500 for the first time. At 500 tell her plainly: the Club Target threshold is met, apply now, that was the whole reason for the goal.
+- Net growth for the week was negative. That is worth knowing early.
+- Net growth for the week was 15 or more. Something worked; say which posts ran that week and tell her to do more of that shape.
+Otherwise say nothing about followers.
+
+THE LIST. mcp__MailerLite__list_subscribers, and mcp__MailerLite__list_resources with resource_type group.
+As of 2026-09-01 there are 5 real subscribers: Mary, Melissa, Nadia, christine, Laura. Everything else on the account is Amanda's own addresses and tests: amandakersh85@gmail.com, amanda@gentlemuse.co, the +cesatest / +cesatest2 / +cesaloop / +lptest aliases, and princesamaryelizabeth@gmail.com which shares her IP. Melissa and Nadia may have been unsubscribed by the Sept 6 re-permission run.
+Say something only if a NEW subscriber appears who is not on that list of hers. That is the first real signup the funnel has ever produced and it is the headline, not a footnote. Report where they came from, which group they landed in, and confirm the delivery automation fired for them.
+Do not report a subscriber count that has not changed.
+
+KEYWORDS. blotato_list_automation_runs across the live automations.
+As of 2026-09-01 no real audience member has ever used a keyword. Every run in the system is Amanda testing from her second account, contactId 1048429878116670 or 955627417560872.
+Say something only if a run exists from a contactId that is neither of those. That is the first real keyword lead ever and she should hear it loudly, with what they commented, which offer, and whether the DM sent.
+
+If none of the above fired, say nothing at all and stay quiet. A quiet week is the current normal and does not need a report.
+
+=== PART 2: GRANT DEADLINES ===
+
+Weekly grant deadline check + draft prep for Amanda Kersh (The Gentle Muse LLC / Kersh Vending Services LLC). This runs autonomously — Amanda is not present.
+
+STEPS:
+1. Search Google Drive for the "Grant Tracker" file (may appear as "Grant_Tracker__GM___KV" or similar — search broadly if the exact name isn't found).
+2. Read it. Identify any grant with a deadline or action-needed date within the next 10 days.
+3. If nothing is due in that window: post one line to Slack channel C0B6B4LHDPT ("Grant check: nothing due in the next 10 days") and stop.
+4. If something IS due within 10 days: this is where Amanda wants real forward motion, not just a heads-up. Draft the application content yourself as thoroughly as you can from the Grant Tracker's saved profile info and Amanda's established voice and business facts (The Gentle Muse LLC: digital products, email list, gentlemuse.co, Payhip storefront; Kersh Vending Services LLC: vending machines, Waterloo Iowa). Clearly mark anything you couldn't fill in (missing info, documents needed from her).
+5. Save the draft as a Google Doc in her Gentle Muse Drive folder using her file naming convention ("Subject, GM" or "Subject, KV" — NEVER lead with "Gentle Muse").
+6. Post a short summary to Slack channel C0B6B4LHDPT: what's due, what you drafted (with Drive link), what's still needed from Amanda before it could go out.
+
+HARD RULE, no exception: never submit, pay an application fee, create accounts, or take any irreversible action on a grant. Draft only, every time, no matter what.
+
+Keep the tone plain and calm, no hype. End with <run-summary>what's due, what was drafted, Slack permalink</run-summary>.
+
+=== PART 3: MAILERLITE HEALTH ===
+
+Weekly MailerLite check for The Gentle Muse. Use the MailerLite connector. This runs autonomously — Amanda is not present. Read-only status check — do not create, import, activate, or send anything.
+
+STEPS:
+1. Get the account's total subscriber count.
+2. List groups — find "Gentle Muse Subscribers", report its active count.
+3. List automations — find "Reset Guide Welcome + Nurture Sequence, GM" (or similarly named welcome automation). Report whether it's enabled, and if automation activity shows send/open data, summarize it briefly.
+4. If the account still shows any sender/domain verification issue when you try a light check (e.g. automations list works but no send data exists yet), just note "sender still needs verification" or "no data yet" — don't treat that as a problem to solve, just report it.
+5. Post a short, plain-English summary to Slack channel C0B6B4LHDPT: subscriber count, group size, automation status, and one sentence on whether things look like they're moving (growing, flat, or too early to tell). No jargon, no padding — if there's nothing meaningful yet because the list is brand new, just say that plainly.
+
+End with <run-summary>subscriber count + one-word trend + Slack permalink</run-summary>.
+
+=== PART 4: META PIXEL ===
+
+Weekly Meta Pixel accuracy check for The Gentle Muse (gentlemuse.co). This is a narrow, standalone check — separate from the analytics pipeline. This runs autonomously — Amanda is not present. Read-only: report and let Amanda approve any fix. Do not make any write/fix changes yourself.
+
+Context: on July 6, 2026, the Wix marketing tag (tag ID 1dbebc44-3325-43e4-8a7f-d4ef807fb00b, site ID 69c70274-e4c5-4e90-8c9e-bac496b142b0) was fixed to point at the correct, active Meta Pixel (1646221669832923, under active ad account 1646561496770076 which has a payment method), after being wrongly wired to an orphaned pixel (1503306501428814, under closed ad account 1613101019948594).
+
+Each run:
+1. Use the Meta Ads connector (dataset stats/details) to confirm pixel 1646221669832923 has fired events in the past 7 days.
+2. Use the Wix connector to GET the marketing tags for site 69c70274-e4c5-4e90-8c9e-bac496b142b0 and confirm the Facebook Pixel tag's trackingId is still 1646221669832923 (hasn't reverted or been overwritten by an editor change/republish).
+3. Post the result to Slack channel C0B6B4LHDPT, concisely: firing status (yes/no + rough event count) and Wix tag status (correct or drifted). If anything is wrong, flag exactly what and what fix is needed — but do NOT fix it yourself.
+4. Track consecutive clean weeks in your report (state the count based on prior run history if visible). Once 4 consecutive clean weeks are reached (expected around Aug 3, 2026), tell Amanda in the Slack report that the pixel has been stable for a month and ask if she wants to drop this check to monthly cadence.
+
+Keep the report short — a few lines, not a long writeup. End with <run-summary>pixel firing yes/no, tag correct/drifted, Slack permalink</run-summary>.
