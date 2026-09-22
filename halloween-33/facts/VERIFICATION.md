@@ -24,3 +24,17 @@ Every fact gets 2 independent checks: the researcher's, then a second fetch of t
 | leaves-hidden-yellow | raw page fetch, US Forest Service | confirmed verbatim |
 | pumpkin-ancient-fruit | FAILED as written: cited page had no 9,000 year or origin claim | REWRITTEN on Smith 1997, Science (10,000 to 8,000 years, Oaxaca); fruit claim confirmed on Texas A&M page |
 | owl-silent-feathers | raw page fetch, Audubon | confirmed verbatim |
+| great-pumpkin-candy-mail | raw page fetch, TheWrap | confirmed verbatim |
+| myers-mask-captain-kirk | raw page fetch, Fox News | confirmed verbatim (Wallace's own words) |
+| halloween-shot-in-spring | raw page fetch, LA Magazine | confirmed verbatim; budget $300,000 (LA Mag) vs $325,000 (Fox), fact says "about $300,000" |
+| thriller-film-registry | WebFetch CBS News | confirmed: 2009, first music video, 1 of 25 |
+| monster-mash-banned-bbc | raw page fetch, HISTORY | confirmed verbatim |
+| scary-stories-most-challenged | WebFetch ALA list | confirmed: No. 1 for 1990 to 1999 |
+| ghostbusters-library | WebFetch CBS News | confirmed: Dec 16 2015, Reitman quote |
+| blair-witch-missing-flyers | raw page fetch, Pitt | confirmed verbatim |
+| treehouse-raven | raw page fetch, Ultimate Classic Rock | confirmed verbatim; secondary source, marked medium |
+| practical-magic-hollow-house | raw page fetch, HistoryLink | confirmed verbatim |
+
+## Result
+
+30 of 30 facts confirmed on their sources. 1 (pumpkin) was rewritten because its first source did not carry the claim.
