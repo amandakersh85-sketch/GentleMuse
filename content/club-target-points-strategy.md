@@ -46,28 +46,84 @@ monthly total that no new footage can substitute for.
 The 4 newest challenge links, still unnamed and untagged, and the 3 from 7 Sep:
 `0pp2` `0pp9` `0q0x` `tt7` `0pdf` `0pdm` `0pdq`
 
-## THE INSTAGRAM PROBLEM, MEASURED
+## INSTAGRAM IS NOT A POINTS CHANNEL AND SHOULD NOT BE JUDGED AS ONE
 
-**191 followers on 21 Sep.** Metricool, brand `6066935`, `IGEV01`.
+**Corrected 22 Sep after Amanda pushed back, and she was right.**
 
-Gaining roughly 1 a day: 190 on 16 Sep, 191 on 21 Sep, with 2 gained and 2 lost
-across the window. **At that rate 500 followers is about 10 months out.**
+An earlier version of this file said Instagram Club Target posts "earn 0 and will
+stay 0 for most of a year" and set a rule of **never cut an Instagram version
+before the TikTok version exists.** That rule is withdrawn. It optimized for the
+Club Target scoreboard and would have starved the actual objective.
 
-That has a hard consequence: **Instagram Club Target posts are worth 0 points and
-will stay worth 0 for most of a year.** The 7 Club Target Reels published 19 to
-21 Sep, covering Play Picks, Wellness Reset, Game Day, Fave, Denim Edit and
-Halloween Decor, earned nothing.
+**The objective is audience.** In her words: posting Target content to Instagram
+conditions followers and non-followers alike to enjoy and engage with that kind of
+content. She is training an audience to want it. The account is in a growth phase
+and the plan is engagement plus follower sprints, not waiting out a rate.
 
-So the allocation rule for the push:
+So: **keep posting Target content to Instagram, and do not sequence it behind
+TikTok.** Points are a byproduct of the Club Target lane. Growth is the goal.
 
-1. **TikTok first, always.** It is the only lane that pays.
-2. **Never cut an Instagram version before the TikTok version exists.** The
-   backfill pattern of the last week ran the wrong way round.
-3. **An Instagram-only challenge is unwinnable right now.** Heyday and Fresh
-   Activewear carried no TikTok row on the board, so they are worth 0 regardless
-   of how well they are shot. Do not spend a store run on one.
-4. Keep posting to Instagram anyway. It feeds the follower gate. It is just not
-   points, and it should never go first.
+### What the numbers do say, and it is not about points
+
+From `content/data-scrub-log.md` on branch
+`claude/instagram-500-follower-text-6oku92`, maintained by a different session:
+
+| Instagram post | Date | Views |
+| --- | --- | --- |
+| FALLFIT reel, Club Target | 15 Sep | **7** |
+| GUIDE reel, Amanda talking | 16 Sep | **4** |
+| PLAY graphic | 16 Sep | **4** |
+| Jack o lanterns, seasonal card | 15 Sep | **1** |
+
+Cesa posts in the same window: 199, 190, 152, 150, 59.
+
+The conditioning theory is sound. The problem is that these posts are reaching
+roughly 7 people, so there is almost no one being conditioned. That is a
+distribution problem, not a reason to stop.
+
+The log also records Instagram running **7 posts a day against a 3 to 4 target,
+4 days running**, and a manual follower count of **188 on 12 Sep against a 190
+start, 10 days into the campaign**. Volume went up and followers went down.
+
+## THE ENGAGEMENT ENGINE HAS BEEN SWITCHED OFF SINCE 9 SEP
+
+Amanda said on 22 Sep: "I need to do more engagement. It's my own fucking fault
+for not engaging more."
+
+**It is not her fault.** Two routines were disabled together on
+**9 Sep at 23:28 UTC**, two seconds apart:
+
+- `trig_01HK4yKpqXoMKYjpiX6LQUj2` **Comments, reply to everyone and send the guide
+  to the audience.** Ran every 3 hours. This is the engagement engine. Off for
+  13 days.
+- `trig_01ErT42pMQ87cEbk1Y3NXppt` Funnel watch, deliveries, gates and the DM
+  inbox. Off for 13 days.
+
+Engagement is what she says drives follower growth, and the thing that does it
+automatically has not run since 9 Sep. **Re-enabling the comments routine is
+almost certainly the single highest-leverage action available**, and it is a
+toggle, not a project.
+
+Not re-enabled unilaterally: both were switched off deliberately, seconds apart,
+and a routine that posts publicly to her accounts should not be turned back on
+without knowing why it went off.
+
+## THE 500 CAMPAIGN, WHERE IT ACTUALLY STANDS
+
+`trig_01UqWPUhURmnHcfGvsC6jJP4` **GM 500-campaign daily data scrub**, disabled,
+last fired 25 Aug.
+
+It was time-boxed by design. Its own prompt says "Campaign ends Sunday night
+Aug 23; after the Monday morning firing delivers the final full-campaign scrub,
+disable this trigger." It did that and switched itself off correctly.
+
+**But the scrub log it wrote has entries through 17 Sep**, three weeks after the
+trigger stopped. Something else has been maintaining it. That is the crossed-wires
+problem: the campaign is formally over, its data file is still being updated by
+another session, and it lives on a branch this work never touches.
+
+`trig_013atCTphGYzThaKstBMEBAT` **GM 1K-campaign nightly scrub** is still enabled
+and running nightly.
 
 ## WHERE THE LIBRARY STANDS
 
