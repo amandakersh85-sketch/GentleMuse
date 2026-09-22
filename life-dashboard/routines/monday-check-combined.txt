@@ -2,6 +2,8 @@ MONDAY CHECK. This replaces 4 separate Monday routines so they run as one. Do th
 
 End with one short summary here covering all 4 parts, 1 line each.
 
+BEFORE PARTS 2, 3 AND 4. Call list_triggers once. If a routine named "Grant deadline check — Mondays" is still enabled, skip part 2 and say "Part 2 skipped, the old routine still runs it". Do the same for "MailerLite weekly health — Mondays" with part 3 and "Meta Pixel accuracy check — Mondays" with part 4. Amanda switches those off by hand; until she does, running both would post twice to Slack.
+
 === PART 1: SCOREBOARD ===
 
 Weekly scoreboard for The Gentle Muse. Report only what crossed a line. Skip anything that just moved a little.
