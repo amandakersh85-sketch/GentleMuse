@@ -579,12 +579,22 @@ def check(rows, anchor=ANCHOR_DEFAULT, target=None):
                                    and days[-1] >= campaign["StartDate"])
 
         if carries and overlaps:
-            # The run starts at the campaign's start or at the board's first
-            # day, whichever is later, and always ends at the target date. A
-            # board that stops on the 6th has not covered a campaign that runs
-            # to the 31st. It has 25 dark nights, and that is the finding, not
-            # a reason to stop looking at the 6th.
-            cur = date.fromisoformat(max(campaign["StartDate"], days[0]))
+            # The run ends at the target date, always. A board that stops on
+            # the 6th has not covered a campaign that runs to the 31st. It has
+            # 25 dark nights, and that is the finding, not a reason to stop
+            # looking at the 6th.
+            #
+            # It starts the day after the board does, when the campaign was
+            # already running. A queue's first day is a partial night: its
+            # early slots have already published and are not in the queue any
+            # more, so judging it reads every run of the gate as 1 dark night
+            # tonight. A rule that cries wolf on the day it is run is a rule
+            # somebody switches off, and it is not a night the queue can still
+            # fill either way.
+            first = days[0]
+            if campaign["StartDate"] < first:
+                first = (date.fromisoformat(first) + timedelta(days=1)).isoformat()
+            cur = date.fromisoformat(max(campaign["StartDate"], first))
             last = date.fromisoformat(campaign["TargetDate"])
             run = []
             while cur <= last:

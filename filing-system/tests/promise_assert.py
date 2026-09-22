@@ -75,6 +75,17 @@ if flood:
     want(flood[0]["day"], "2026-03-01", "the flooded night is named")
     want(sorted(flood[0]["ids"]), ["1", "2", "3"], "every post in the pile is named")
 
+# The queue's own first day is a partial night. Its early slots have already
+# published and left the queue, so judging it reports a dark night every time
+# the gate runs. promise.today.csv opens on 03/02, mid campaign, with nothing
+# from the campaign on 03/02 or on 03/03.
+today = rules_on("promise.today.csv")
+want([f["rule"] for f in today], ["C13_PROMISE_DARK"], "only the real dark night")
+if today:
+    want("2026-03-01" in today[0]["detail"], False, "a night before the queue is not judged")
+    want("2026-03-02" in today[0]["detail"], False, "the night the queue opens on is not judged")
+    want("2026-03-03" in today[0]["detail"], True, "the first whole night in the queue is")
+
 # Scope. The 2 rules answer for a board that carries this campaign and reaches
 # into its run. Everything else is a different board, and reading it as 5 dark
 # nights would bury the real finding under noise on every fixture in the suite.
