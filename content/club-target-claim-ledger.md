@@ -7,7 +7,7 @@ Amanda claims these herself on `club.target.com`. Claude cannot: the board is a
 JavaScript app behind a login and every URL returns the same empty shell to a
 non-browser client. Claude's job is to catch each publish and hand over the row.
 
-## Published and awaiting confirmation, 31 Aug to 18 Sep 2026
+## Published and awaiting confirmation, 31 Aug to 22 Sep 2026
 
 | Date (UTC) | Platform | Theme | Live URL |
 |---|---|---|---|
@@ -32,6 +32,14 @@ non-browser client. Claude's job is to catch each publish and hand over the row.
 | 16 Sep | TikTok | #GameDayWithTarget | https://www.tiktok.com/@thegentlemuse2026/video/7686163382914911502 |
 | 17 Sep | TikTok | #TargetFave (3rd use) | https://www.tiktok.com/@thegentlemuse2026/video/7686534594920795405 |
 | 18 Sep | TikTok | #HalloweenDecorAtTarget | https://www.tiktok.com/@thegentlemuse2026/video/7686905679298268429 |
+| 19 Sep | TikTok | #TargetFallFits | https://www.tiktok.com/@thegentlemuse2026/video/7687276959503568141 |
+| 19 Sep | Instagram | #TargetPlayPicks | https://www.instagram.com/reel/Ddefy9vHKvg/ |
+| 19 Sep | Instagram | #TargetWellnessReset | https://www.instagram.com/reel/Dde7QHeDfYF/ |
+| 20 Sep | TikTok | #TargetPlayPicks | https://www.tiktok.com/@thegentlemuse2026/video/7687647755711433998 |
+| 20 Sep | Instagram | #GameDayWithTarget | https://www.instagram.com/reel/DdhEoxWDtWR/ |
+| 20 Sep | Instagram | #TargetFave | https://www.instagram.com/reel/DdhgDI3Cs49/ |
+| 21 Sep | Instagram | #TargetDenimEdit | https://www.instagram.com/reel/DdjpY2LkzzR/ |
+| 21 Sep | Instagram | #HalloweenDecorAtTarget | https://www.instagram.com/reel/DdkE2UdCpbt/ |
 
 One Facebook row failed and never went live: `688849`, 01 Sep,
 #TargetCatandJackSummer, "the video could not be processed". No post, no points.
@@ -146,3 +154,59 @@ in some and absent in others. Worth checking per video, not worth a blanket fix.
 
 The shelf tag reading `5.00` is in frame and that is fine. Prices are a TikTok Shop
 rule and do not touch Club Target.
+
+## 22 Sep: catch-up after a 4 day idle gap
+
+Six routine firings queued between 19 and 22 Sep while the session sat idle. Run
+as one pass rather than six reports.
+
+**9 Club Target posts published 18 to 21 Sep.** Two on TikTok, the only placement
+that pays:
+
+- 19 Sep, `#TargetFallFits`
+- 20 Sep, `#TargetPlayPicks`
+
+The other 7 are Instagram Reels, no Club Target credit below 500 followers. The
+Instagram lane ran a full backfill across 19 to 21 Sep: Play Picks, Wellness
+Reset, Game Day, Fave, Denim Edit and Halloween Decor, all mirroring TikToks that
+had already published. Good for the follower gate, worth nothing in points.
+
+**No failures.** **No duplicates** across 115 live scheduled rows.
+
+### The TikTok pipeline is dry as of tomorrow
+
+3 Club Target rows remain scheduled, **all Instagram**:
+
+| When | Platform | Theme |
+| --- | --- | --- |
+| 22 Sep 17:00 | Instagram | `#TargetxKuromixKATSEYE` |
+| 22 Sep 21:00 | Instagram | `#TargetFallFits` |
+| 23 Sep 17:00 | Instagram | `#TargetEverydayFavorites` |
+
+**Zero TikTok Club Target rows scheduled.** After tomorrow nothing earns points.
+The 12 Sep footage is spent.
+
+`#TargetxKuromixKATSEYE` has not appeared before and matches the Kuromi drop
+Amanda mentioned in early September. Instagram only, so no points, but it confirms
+Kuromi footage exists that has never been cut for TikTok. **That is the cheapest
+30 points available right now: same media, new TikTok row.**
+
+### The local checkout had drifted, worth recording
+
+The container was rebuilt during the idle gap and `/home/user/GentleMuse` came
+back on a branch of the same name carrying unrelated work (brand-deal and
+paid-post commits already merged to `main`), with no `content/` directory at all.
+The first write attempt failed with file-not-found.
+
+The remote branch was intact the whole time, 25 files under `content/`, head at
+the 18 Sep commit. Recovered with `git reset --hard` after confirming the stale
+local commits were already ancestors of `origin/main` and nothing was uncommitted.
+
+**Check `git log --oneline -1` against the remote before writing, after any gap.**
+A same-named branch is not proof the checkout is the right one.
+
+### Blocked
+
+**Gmail needs re-authentication.** The 21 Sep Monday challenge drop could not be
+pulled, so a week of new challenge names and links is missing from the board.
+Amanda re-authorizes in her claude.ai connector settings.
