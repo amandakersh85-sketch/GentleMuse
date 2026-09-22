@@ -29,5 +29,6 @@ switched on, so nothing posts twice while Amanda switches those 3 off by hand.
 The refresh flags any runner over 300k tokens. When that happens, start a fresh
 runner and move its routines, the same way.
 
-Still running on their own, unchanged: Blotato queue top-up, morning email
+Blotato refill runs on its own every 2 days on Sonnet, with placement done by
+`blotato-refill/refill.py`. Still running on their own, unchanged: morning email
 digest, freelance lead triage, Payhip link audit.
