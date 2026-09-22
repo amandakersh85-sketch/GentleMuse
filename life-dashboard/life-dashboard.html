@@ -1,0 +1,348 @@
+<title>Amanda's Day</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Figtree:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#EEF0F2; --paper:#FAFBFC; --ink:#23262E; --soft:#5D6270; --faint:#8C919C;
+  --line:#D9DCE2; --accent:#4F6199; --accent-soft:#E2E6F2; --rose:#B86A74; --rose-soft:#F4E5E7;
+  --ok:#3F7D5C; --ok-soft:#E1EFE7; --warn:#A06A1C; --warn-soft:#F5EBD9; --bad:#B0453F; --bad-soft:#F5E0DE;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  color-scheme:dark;
+  --ground:#16181D; --paper:#1E2128; --ink:#E7E9EE; --soft:#A7ACB8; --faint:#7C8190;
+  --line:#2E323C; --accent:#9AAAE0; --accent-soft:#262C40; --rose:#E0A0A8; --rose-soft:#3A2629;
+  --ok:#86C7A3; --ok-soft:#1E3128; --warn:#E0B36E; --warn-soft:#3A2F1C; --bad:#EE958F; --bad-soft:#3D2220;
+}}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --ground:#16181D; --paper:#1E2128; --ink:#E7E9EE; --soft:#A7ACB8; --faint:#7C8190;
+  --line:#2E323C; --accent:#9AAAE0; --accent-soft:#262C40; --rose:#E0A0A8; --rose-soft:#3A2629;
+  --ok:#86C7A3; --ok-soft:#1E3128; --warn:#E0B36E; --warn-soft:#3A2F1C; --bad:#EE958F; --bad-soft:#3D2220;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font:15px/1.55 var(--sans);padding-inline:16px;padding-block:20px 48px}
+.wrap{max-width:680px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+h1,h2{font-family:var(--serif);font-weight:500;text-wrap:balance;margin:0}
+h1{font-size:30px;line-height:1.15}
+h2{font-size:21px}
+.eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);font-weight:600}
+p{margin:0}
+.muted{color:var(--soft)}
+.small{font-size:13px}
+header{display:flex;flex-direction:column;gap:12px}
+.toggle{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:6px 14px 6px 6px;cursor:pointer;font:500 14px var(--sans);color:var(--ink)}
+.toggle .knob{width:34px;height:20px;border-radius:999px;background:var(--line);position:relative;transition:background .2s}
+.toggle .knob::after{content:"";position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:var(--paper);transition:transform .2s}
+.toggle[aria-pressed="true"] .knob{background:var(--rose)}
+.toggle[aria-pressed="true"] .knob::after{transform:translateX(14px)}
+.toggle:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.one{background:var(--paper);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:8px;box-shadow:0 1px 2px rgba(20,24,40,.06),0 8px 24px rgba(20,24,40,.05)}
+body.gentle .one{background:var(--rose-soft)}
+.one .big{font-family:var(--serif);font-size:24px;line-height:1.3}
+section{display:flex;flex-direction:column;gap:12px}
+.sechead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.list{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:76px 1fr;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.row .t{font-variant-numeric:tabular-nums;color:var(--soft);font-size:14px}
+.row .w{min-width:0;overflow-wrap:anywhere}
+.row.past{opacity:.5}
+.row.focus .w{color:var(--accent);font-style:italic}
+.row a{color:inherit;text-decoration:none}
+.row a:hover{text-decoration:underline}
+.day{font-weight:600;font-size:13px;padding-top:14px;color:var(--soft)}
+.note{font-size:13px;color:var(--soft);padding:10px 12px;border-radius:10px;background:var(--paper);border:1px solid var(--line)}
+.note.bad{background:var(--bad-soft);border-color:transparent;color:var(--ink)}
+.pill{display:inline-block;font-size:12px;font-weight:600;padding:2px 9px;border-radius:999px;white-space:nowrap}
+.pill.ok{background:var(--ok-soft);color:var(--ok)}
+.pill.warn{background:var(--warn-soft);color:var(--warn)}
+.pill.bad{background:var(--bad-soft);color:var(--bad)}
+.pill.off{background:var(--line);color:var(--soft)}
+.health{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.health div{background:var(--paper);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column}
+.health b{font-size:22px;font-variant-numeric:tabular-nums;font-weight:600}
+.health span{font-size:12px;color:var(--soft)}
+@media (max-width:460px){.health{grid-template-columns:repeat(2,1fr)}}
+.rt{display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.rt .when{grid-column:1/-1;font-size:13px;color:var(--soft)}
+details{border-top:1px solid var(--line)}
+summary{cursor:pointer;padding:12px 0;font-weight:600;list-style:none;display:flex;justify-content:space-between}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--faint)}
+details[open] summary::after{content:"\2212"}
+.fix{display:flex;flex-direction:column;gap:10px;background:var(--accent-soft);border-radius:14px;padding:18px}
+.fix ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px}
+.gentle-hide{}
+body.gentle .gentle-hide{display:none}
+.gentle-only{display:none}
+body.gentle .gentle-only{display:flex}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow" id="dateline">Tuesday, September 22</div>
+    <h1 id="greet">Today, gently.</h1>
+    <button class="toggle" id="gentleBtn" type="button" aria-pressed="true"><span class="knob"></span><span>Low energy day</span></button>
+  </header>
+
+  <div class="one" aria-live="polite">
+    <div class="eyebrow">The one thing</div>
+    <p class="big" id="oneThing">Get to work and get home. That is the whole job today.</p>
+    <p class="muted small" id="oneWhy">Everything below is running without you. Nothing on this page needs you before tomorrow.</p>
+  </div>
+
+  <section class="gentle-only" style="flex-direction:column;gap:10px">
+    <h2>What today actually asks</h2>
+    <div class="list">
+      <div class="row"><span class="t">Now</span><span class="w">Water, something warm, and whatever pain relief works for you.</span></div>
+      <div class="row"><span class="t">Work</span><span class="w">Go. Do the shift. Nothing else is owed.</span></div>
+      <div class="row"><span class="t">After</span><span class="w">Skip the engagement hour tomorrow if you need to. 1 missed day does not undo 131.</span></div>
+    </div>
+  </section>
+
+  <section id="todaySec">
+    <div class="sechead"><h2>Today</h2><span class="muted small" id="calStamp">Loading your calendar</span></div>
+    <div class="list" id="todayList"></div>
+  </section>
+
+  <section id="replySec" class="gentle-hide">
+    <div class="sechead"><h2>Might be waiting on you</h2><span class="muted small" id="mailStamp">Loading Gmail</span></div>
+    <div class="list" id="replyList"></div>
+  </section>
+
+  <section id="weekSec" class="gentle-hide">
+    <div class="sechead"><h2>The next 6 days</h2></div>
+    <div class="list" id="weekList"></div>
+  </section>
+
+  <section>
+    <div class="sechead"><h2>Your routines</h2><span class="muted small">Checked Sep 22, 1:45 PM</span></div>
+    <div class="health">
+      <div><b>19</b><span>routines</span></div>
+      <div><b>11</b><span>running fine</span></div>
+      <div><b style="color:var(--bad)">4</b><span>failed this week</span></div>
+      <div><b style="color:var(--soft)">4</b><span>paused</span></div>
+    </div>
+    <p class="note bad"><b>Why 4 failed:</b> your weekly Claude limit ran out on Monday morning. The Monday checks at 9:15, 9:25 and 9:30 never started. The Blotato top-up started at 1:14 AM today and has been stuck for 12 hours. The limit reset at 6 AM today, so they will try again next time.</p>
+    <p class="note"><b>Why the limit ran out:</b> 10 of your routines report into 3 very long conversations (474k, 658k and 659k tokens of history). Every time one fires, it rereads that whole history. That is most of your usage, and it grows every day.</p>
+
+    <details class="gentle-hide">
+      <summary>Needs you (2)</summary>
+      <div class="rt"><span>Sign in to Gmail again</span><span class="pill bad">blocking</span><span class="when">Claude settings, then Connectors, then Gmail. Your morning digest, lead triage and Monday challenge drop all read Gmail.</span></div>
+      <div class="rt"><span>1 Club Target TikTok post failed</span><span class="pill warn">when you can</span><span class="when">TikTok rejected the video file (error 400). It needs a fresh upload and a new time.</span></div>
+    </details>
+    <details class="gentle-hide">
+      <summary>Every day</summary>
+      <div class="rt"><span>Blotato queue top-up</span><span class="pill bad">stuck</span><span class="when">1:00 AM</span></div>
+      <div class="rt"><span>Morning email digest</span><span class="pill ok">ok</span><span class="when">6:00 AM</span></div>
+      <div class="rt"><span>Freelance lead triage</span><span class="pill ok">ok</span><span class="when">7:00 AM</span></div>
+      <div class="rt"><span>DM email sync and keyword sweep</span><span class="pill ok">ok</span><span class="when">8:00 AM, reports into a long conversation</span></div>
+      <div class="rt"><span>Club Target claim watch</span><span class="pill ok">ok</span><span class="when">11:00 AM, reports into a long conversation</span></div>
+      <div class="rt"><span>1K campaign nightly scrub</span><span class="pill ok">ok</span><span class="when">9:30 PM, reports into a long conversation</span></div>
+    </details>
+    <details class="gentle-hide">
+      <summary>Weekly and monthly</summary>
+      <div class="rt"><span>Club Target challenge drop</span><span class="pill ok">ok</span><span class="when">Mon 8:40 AM</span></div>
+      <div class="rt"><span>Grant deadline check</span><span class="pill bad">failed</span><span class="when">Mon 9:15 AM, limit ran out</span></div>
+      <div class="rt"><span>MailerLite health</span><span class="pill bad">failed</span><span class="when">Mon 9:25 AM, limit ran out</span></div>
+      <div class="rt"><span>Meta Pixel check</span><span class="pill bad">failed</span><span class="when">Mon 9:30 AM, limit ran out</span></div>
+      <div class="rt"><span>Monday scoreboard</span><span class="pill ok">ok</span><span class="when">Mon 10:00 AM</span></div>
+      <div class="rt"><span>Breakout watcher</span><span class="pill ok">ok</span><span class="when">Tue and Fri 9:00 AM</span></div>
+      <div class="rt"><span>Club Target audit</span><span class="pill ok">ok</span><span class="when">Sun and Wed 7:00 PM</span></div>
+      <div class="rt"><span>Payhip link audit</span><span class="pill ok">ok</span><span class="when">1st of the month, 9:00 AM</span></div>
+      <div class="rt"><span>Consider This runway warning</span><span class="pill ok">scheduled</span><span class="when">Once, Thu Sep 24, 9:00 AM</span></div>
+    </details>
+    <details class="gentle-hide">
+      <summary>Paused (4)</summary>
+      <div class="rt"><span>Comment replies</span><span class="pill off">off</span><span class="when">since Sep 9</span></div>
+      <div class="rt"><span>Funnel watch</span><span class="pill off">off</span><span class="when">since Sep 9</span></div>
+      <div class="rt"><span>500 campaign data scrub</span><span class="pill off">off</span><span class="when">replaced by the 1K scrub</span></div>
+      <div class="rt"><span>TikTok redistribution</span><span class="pill off">off</span><span class="when">since Jul 11</span></div>
+    </details>
+  </section>
+
+  <section class="fix gentle-hide">
+    <h2>What I would change</h2>
+    <p class="muted small">Nothing moves until you say yes. 1 yes covers all 3.</p>
+    <ol>
+      <li><b>Give the 10 routines a fresh start each time.</b> Same jobs, same times, but each run starts clean instead of rereading months of history. This is the fix for the limit.</li>
+      <li><b>Fold the 4 Monday checks into 1.</b> Grant deadlines, MailerLite, Meta Pixel and the scoreboard become one Monday report at 10 AM.</li>
+      <li><b>Turn the morning digest into your morning brief.</b> It already reads Gmail at 6 AM. Add your calendar and the one thing, under 200 words.</li>
+    </ol>
+  </section>
+
+  <p class="muted small" id="foot">Calendar and Gmail are read live each time you open this page. Routines are a snapshot from Sep 22.</p>
+</div>
+
+<script>
+(function(){
+  var TZ = "America/Chicago", ME = "amandakersh85@gmail.com";
+  var body = document.body, btn = document.getElementById("gentleBtn");
+  var gentle = true;
+  try { var s = localStorage.getItem("gentle"); if (s !== null) gentle = s === "1"; } catch(e) {}
+  function applyGentle(){
+    body.classList.toggle("gentle", gentle);
+    btn.setAttribute("aria-pressed", gentle ? "true" : "false");
+    document.getElementById("greet").textContent = gentle ? "Today, gently." : "Here is your day.";
+    renderOne();
+  }
+  btn.addEventListener("click", function(){ gentle = !gentle; try{localStorage.setItem("gentle", gentle?"1":"0")}catch(e){} applyGentle(); });
+
+  function partsIn(d){
+    var f = new Intl.DateTimeFormat("en-CA",{timeZone:TZ,year:"numeric",month:"2-digit",day:"2-digit"});
+    return f.format(d);
+  }
+  var now = new Date(), todayKey = partsIn(now);
+  document.getElementById("dateline").textContent = new Intl.DateTimeFormat("en-US",{timeZone:TZ,weekday:"long",month:"long",day:"numeric"}).format(now);
+  function fmtTime(d){ return new Intl.DateTimeFormat("en-US",{timeZone:TZ,hour:"numeric",minute:"2-digit"}).format(d).replace(" AM","a").replace(" PM","p"); }
+  function fmtDay(d){ return new Intl.DateTimeFormat("en-US",{timeZone:TZ,weekday:"long",month:"short",day:"numeric"}).format(d); }
+  function addDays(key,n){ var d=new Date(key+"T12:00:00Z"); d.setUTCDate(d.getUTCDate()+n); return d.toISOString().slice(0,10); }
+  function el(tag, cls, text){ var e=document.createElement(tag); if(cls)e.className=cls; if(text!=null)e.textContent=text; return e; }
+  function row(t, w, cls, href){
+    var r=el("div","row"+(cls?" "+cls:"")); r.appendChild(el("span","t",t));
+    var s=el("span","w"); if(href){var a=el("a",null,w);a.href=href;a.target="_blank";a.rel="noopener";s.appendChild(a);} else s.textContent=w;
+    r.appendChild(s); return r;
+  }
+  function stamp(id, result){
+    var at = result && result.cache && result.cache.storedAt ? new Date(result.cache.storedAt) : new Date();
+    document.getElementById(id).textContent = "Updated " + fmtTime(at);
+  }
+  var todayEvents = [];
+
+  function renderOne(){
+    var one=document.getElementById("oneThing"), why=document.getElementById("oneWhy");
+    if (gentle){
+      one.textContent="Get to work and get home. That is the whole job today.";
+      why.textContent="Everything below is running without you. Nothing on this page needs you before tomorrow.";
+      return;
+    }
+    var next = todayEvents.filter(function(e){return e.start > new Date();})[0];
+    if (next){
+      one.textContent = next.title + " at " + fmtTime(next.start) + ".";
+      why.textContent = "It is the next thing on your calendar today. Everything else can wait until it is done.";
+    } else {
+      one.textContent = "Sign in to Gmail again.";
+      why.textContent = "Your calendar is clear for the rest of today, and 3 routines stop working until Gmail is reconnected.";
+    }
+  }
+
+  function errText(err, server){
+    var c = err && err.code;
+    if (c==="needs_reauth") return server+" needs you to sign in again. Claude settings, then Connectors.";
+    if (c==="server_not_connected") return "Add "+server+" in Claude settings, then Connectors.";
+    if (c==="not_in_manifest") return server+" is turned off for this page.";
+    if (c==="server_unavailable") return server+" is not answering right now. Reopen the page in a minute.";
+    if (c==="not_granted"||c==="capability_disabled"||c==="capability_removed") return "This view cannot read "+server+" live. Open the page in the Claude app.";
+    return server+" could not be read: "+((err&&err.message)||"unknown error")+".";
+  }
+
+  function toEvent(e){
+    var s=e.start||{}, en=e.end||{};
+    var allDay = !s.dateTime;
+    var st = new Date(s.dateTime || (s.date+"T00:00:00"));
+    var et = new Date(en.dateTime || (en.date+"T00:00:00"));
+    return {title:e.summary||"(no title)", start:st, end:et, allDay:allDay, where:e.location||"", link:e.htmlLink, recurring:!!e.recurringEventId};
+  }
+
+  function renderCalendar(events){
+    var list=document.getElementById("todayList"), week=document.getElementById("weekList");
+    list.textContent=""; week.textContent="";
+    var evs=events.filter(function(e){return e.status!=="cancelled";}).map(toEvent).sort(function(a,b){return a.start-b.start;});
+    todayEvents = evs.filter(function(e){return partsIn(e.start)===todayKey;});
+    // Day window 8a to 9p, focus blocks of 90 min or more
+    var dayStart, dayEnd;
+    var off = new Date(new Date().toLocaleString("en-US",{timeZone:TZ})) - new Date(new Date().toLocaleString("en-US",{timeZone:"UTC"}));
+    dayStart = new Date(Date.UTC(+todayKey.slice(0,4),+todayKey.slice(5,7)-1,+todayKey.slice(8,10),8) - off);
+    dayEnd = new Date(Date.UTC(+todayKey.slice(0,4),+todayKey.slice(5,7)-1,+todayKey.slice(8,10),21) - off);
+    var timed = todayEvents.filter(function(e){return !e.allDay;});
+    var cursor = dayStart, items=[];
+    timed.forEach(function(e){
+      if (e.start - cursor >= 90*60000) items.push({focus:true,start:cursor,end:e.start});
+      items.push(e); if (e.end>cursor) cursor=e.end;
+    });
+    if (dayEnd - cursor >= 90*60000) items.push({focus:true,start:cursor,end:dayEnd});
+    todayEvents.filter(function(e){return e.allDay;}).forEach(function(e){ list.appendChild(row("All day", e.title, null, e.link)); });
+    var nowD = new Date();
+    items.forEach(function(it){
+      if (it.focus){
+        var hrs = Math.round((it.end-it.start)/360000)/10;
+        list.appendChild(row(fmtTime(it.start), "Open, "+hrs+" hours until "+fmtTime(it.end), "focus"+(it.end<nowD?" past":"")));
+      } else {
+        list.appendChild(row(fmtTime(it.start), it.title+(it.where?" · "+it.where:""), it.end<nowD?"past":null, it.link));
+      }
+    });
+    if (!items.length && !todayEvents.length) list.appendChild(row("", "Nothing on your calendar today."));
+    // next 6 days, daily repeats folded into one line
+    var repeats={}, byDay={};
+    evs.forEach(function(e){
+      var k=partsIn(e.start); if (k<=todayKey || k>addDays(todayKey,6)) return;
+      if (e.recurring){ var rk=e.title+"|"+fmtTime(e.start); repeats[rk]=(repeats[rk]||0)+1; if(repeats[rk]>1)return; }
+      (byDay[k]=byDay[k]||[]).push(e);
+    });
+    Object.keys(repeats).forEach(function(rk){ if(repeats[rk]>=4){ var p=rk.split("|"); week.appendChild(row(p[1], p[0]+", every day")); }});
+    Object.keys(byDay).sort().forEach(function(k){
+      var dayEvs = byDay[k].filter(function(e){ return !(e.recurring && repeats[e.title+"|"+fmtTime(e.start)]>=4); });
+      if(!dayEvs.length) return;
+      week.appendChild(el("div","day",fmtDay(dayEvs[0].start)));
+      dayEvs.forEach(function(e){ week.appendChild(row(e.allDay?"All day":fmtTime(e.start), e.title+(e.where?" · "+e.where:""), null, e.link)); });
+    });
+    if (!week.children.length) week.appendChild(row("","Nothing else this week."));
+    renderOne();
+  }
+
+  function senderOf(m){
+    var s = m.sender || m.from || "";
+    if (typeof s === "object") s = s.name || s.email || s.emailAddress || "";
+    return String(s);
+  }
+  function renderMail(payload){
+    var list=document.getElementById("replyList"); list.textContent="";
+    var threads = (payload && (payload.threads || payload.items)) || [];
+    var shown=0;
+    threads.forEach(function(t){
+      var msgs = t.messages || t.relatedMessages || [];
+      var last = msgs[msgs.length-1] || t;
+      var from = senderOf(last);
+      if (!from || from.toLowerCase().indexOf(ME)>=0) return;
+      if (/no-?reply|notifications?@|newsletter|mailer|support@|info@|hello@/i.test(from)) return;
+      var name = from.replace(/<.*>/,"").replace(/"/g,"").trim() || from;
+      var subj = last.subject || (msgs[0]&&msgs[0].subject) || t.snippet || "(no subject)";
+      var d = last.date ? new Date(last.date) : null;
+      list.appendChild(row(d && !isNaN(d) ? new Intl.DateTimeFormat("en-US",{timeZone:TZ,month:"short",day:"numeric"}).format(d) : "", name+" · "+subj, null, t.viewUrl || last.viewUrl));
+      shown++;
+    });
+    if (!shown) list.appendChild(row("","Nobody real is waiting on a reply from the last 7 days."));
+  }
+
+  var mcpP = window.claude && window.claude.use ? window.claude.use("mcp") : Promise.resolve(null);
+  mcpP.then(function(mcp){
+    if (!mcp){
+      document.getElementById("calStamp").textContent="Not live in this view";
+      document.getElementById("mailStamp").textContent="Not live in this view";
+      document.getElementById("todayList").appendChild(el("p","note","Open this page in the Claude app to see your calendar live."));
+      document.getElementById("replyList").appendChild(el("p","note","Open this page in the Claude app to see your inbox live."));
+      document.getElementById("weekList").appendChild(el("p","note","Your week shows here when the calendar is live."));
+      renderOne(); return;
+    }
+    mcp.watchTool("Google Calendar","list_events",{
+      startTime: todayKey+"T00:00:00", endTime: addDays(todayKey,7)+"T00:00:00",
+      timeZone: TZ, orderBy:"startTime", pageSize:100
+    }, function(ev){
+      if (ev.type==="data"){ var p=ev.result.payload||{}; renderCalendar(p.events||[]); stamp("calStamp", ev.result); }
+      else { var l=document.getElementById("todayList"); l.textContent=""; l.appendChild(el("p","note bad",errText(ev.error,"Google Calendar"))); document.getElementById("calStamp").textContent="Not updated"; }
+    }, {refetchInterval: 10*60000});
+    mcp.watchTool("Gmail","search_threads",{
+      query:"in:inbox newer_than:7d -category:promotions -category:social -category:updates -category:forums -from:me",
+      pageSize:25
+    }, function(ev){
+      if (ev.type==="data"){ renderMail(ev.result.payload); stamp("mailStamp", ev.result); }
+      else { var l=document.getElementById("replyList"); l.textContent=""; l.appendChild(el("p","note bad",errText(ev.error,"Gmail"))); document.getElementById("mailStamp").textContent="Not updated"; }
+    }, {refetchInterval: 15*60000});
+  });
+
+  applyGentle();
+})();
+</script>
