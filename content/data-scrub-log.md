@@ -2201,3 +2201,131 @@ Instagram well over target, 4 days running now.
 ## Follower count
 
 Still not updated. 188 manual on 09/12 against a 190 start, 10 days in.
+
+---
+
+# CATCH-UP: Days 11 to 14 — 2026-09-22
+
+**This session was idle 09/18 through 09/22.** 5 triggers fired into an inactive
+session: the repost test 50 hour read and 4 nightly scrubs. Writing 4 separate
+nightly entries after the fact would be dishonest, so this is 1 consolidated
+catch-up over the whole window, with the gap stated plainly.
+
+## First, what happened to this repo
+
+The checkout came back on a different lineage. `content/` was gone and CLAUDE.md
+had been replaced with filing-system house rules.
+
+**Nothing was lost.** The repo has forked into 2 lives from common ancestor
+`ba9a172`:
+
+| Lineage | Head | Contains |
+|---|---|---|
+| **Campaign** (`origin/claude/instagram-500-follower-text-6oku92`) | `e68fae6` | `content/`, this log, the campaign CLAUDE.md |
+| **Filing system** (`origin/main`) | `e82d37a` | `reel-factory`, `.github`, PRs #10 and #11, a new CLAUDE.md |
+
+The local branch pointer was sitting on main's head. Reset it to `e68fae6`,
+which is what origin already had. `e82d37a` is preserved on main, so nothing was
+discarded either way.
+
+**The thing to know: main's CLAUDE.md does not contain the campaign rules.** The
+product-link hard rule, the Club Target mechanics, the platform split, the
+Metricool reconciliation rule and the voice rules live only on this branch. Any
+session that starts from `main` will not have them.
+
+## The repost test: final read, confirming Day 10
+
+Both arms are final (Blotato stopped updating them 09/18).
+
+| Arm | Views | Reach | Watch |
+|---|---|---|---|
+| A, fresh to Instagram, 16s | **150** | 139 | 3.25s |
+| B, re-run of the 09/07 file, 8s | **190** | 128 | 24.23s |
+
+Read against the criteria written before the numbers existed: the arms are
+within 30% of each other, and the re-run is ahead. **Re-published footage is not
+penalised on Instagram.** That holds across both pairs now, the accidental 09/15
+one (152 vs 199) and this designed one.
+
+**Consequence for the queue: no restructuring needed.** The re-run heavy
+Instagram queue is fine. That question is closed.
+
+## The corpus has compressed into a narrow band
+
+Every Instagram post 09/16 to 09/22, by views:
+
+| Post | Date | Views | Watch |
+|---|---|---|---|
+| Cesa, 3 second stare | 09/17 | 208 | 4.77s |
+| Cesa, her own seat (re-run) | 09/16 | 199 | 4.73s |
+| Cesa, blanket with gold (re-run) | 09/17 | 190 | 24.23s |
+| **Amanda, Women over 40** | **09/21** | **165** | 5.59s |
+| Cesa, her seat her sunbeam | 09/16 | 152 | 3.64s |
+| Cesa, opinions about how I pet her | 09/17 | 150 | 3.25s |
+| Cesa, the floor changes | 09/20 | 113 | 3.96s |
+| Cesa, slow mornings | 09/16 | 59 | 6.31s |
+| Club Target GAMEDAY | 09/20 | 33 | 4.55s |
+| Club Target GAMENIGHT | 09/19 | 24 | 2.31s |
+| Home maintenance, dryer duct | 09/18 | 17 | 1.36s |
+| Club Target DENIM | 09/21 | 16 | 1.28s |
+| Seasonal, Nightmare/mare | 09/18 | 14 | 3.35s |
+| Seasonal, SNICK | 09/17 | 13 | 2.71s |
+| Club Target FLAVCITY | 09/20 | 12 | 3.04s |
+| Seasonal, season sells you fear | 09/19 | 11 | 4.46s |
+| Amanda, unhinged gratitude | 09/20 | 10 | 5.44s |
+
+**Nothing has cleared 208 in 11 days.** The 09/11 peak of 1,592 is now the only
+thing in the corpus above 300 since 09/06.
+
+1 bright spot worth naming: **"Women over 40" at 165 is Amanda's best
+face-to-camera result of the campaign**, and it beat 4 Cesa reels in the same
+window. Her face is not the problem.
+
+## Club Target moved onto Instagram, and that is correct
+
+7 Club Target posts went to Instagram in this window against 4 on TikTok. That
+looks like it breaks the platform split rule, and it does not.
+
+**The 09/09 board analysis found 26 of 35 point-bearing challenges are
+Instagram.** Instagram Club Target posts earn points. 12 to 33 views on a
+challenge submission is fine, because **points do not care about reach.** Noting
+this so a future scrub does not flag it as a failure.
+
+## FLAG: a TikTok post failed to publish today
+
+**09/22 17:28 UTC, a Club Target TikTok: `Failed to fetch media URL: 400 Bad
+Request`.**
+
+That is a dead media URL, the same class of fault caught on 09/09. The post did
+not go out, which means a challenge submission did not happen and the points were
+not claimable. Needs the media re-uploaded and rescheduled.
+
+## Volume, 09/18 to 09/22
+
+| Platform | 18 | 19 | 20 | 21 | 22 | Target |
+|---|---|---|---|---|---|---|
+| Instagram | 5 | 7 | 7 | 6 | 3 | 3 to 4 |
+| TikTok | 3 | 3 | 3 | 4 | 3 | 3 to 4 |
+| Facebook | 4 | 3 | 3 | 2 | 2 | 3 to 4 |
+| YouTube | 3 | 3 | 3 | 0 | 1 | 3 to 4 |
+
+Instagram consistently over. YouTube dropped to 0 on 09/21 and 1 on 09/22.
+
+## Tracking items
+
+1. **Trivia on Instagram:** 11, 13, 14 in this window against the 37 watermark
+   baseline. Still the dead tier, 7 straight days.
+2. **10,000 view Cesa breakout:** no. Best in 11 days is 208.
+3. **Volume:** Instagram over, YouTube slipping.
+4. **Watermarks and AI badges:** none found.
+5. **Product posts missing a SKU:** the Instagram Club Target posts now route
+   through comment keywords rather than caption links. DENIM and FLAVCITY
+   keywords deliver real SKUs (94332983 and 95123340). GAMEDAY and GAMENIGHT
+   deliver the storefront while naming Oh Snap pickles, Lunchables and Factor
+   meals. That one is still open.
+
+## Follower count
+
+**Still not updated since 188 manual on 09/12.** The campaign is 14 days in of
+30, against a 190 start and a 1,000 goal. This is the number the whole
+experiment is about and the log has not had it in 10 days.
