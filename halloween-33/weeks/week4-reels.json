@@ -221,7 +221,7 @@
    {
     "in": 7.6,
     "out": 12.4,
-    "html": "A fire where bones were burned.<br>That sense was gone by the 1700s.",
+    "html": "A fire for burning bones.<br>Forgotten by the 1700s.",
     "cta": null
    },
    {
@@ -276,13 +276,13 @@
    {
     "in": 12.4,
     "out": 15.4,
-    "html": "<span class='em'>A cartoon handed a generation</span>",
+    "html": "<span class='em'>A cartoon gave kids</span>",
     "cta": null
    },
    {
     "in": 15.4,
     "out": 17.8,
-    "html": "its first Poe.",
+    "html": "their first Poe.",
     "cta": null
    }
   ],
