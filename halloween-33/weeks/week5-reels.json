@@ -1,0 +1,198 @@
+[
+ {
+  "id": "N29",
+  "slug": "n29-soul-cakes-souling",
+  "seed": 129,
+  "duration": 18.0,
+  "label": "Gentle Muse · Night 29 of 33",
+  "source": "Source: Britannica; Clemson Extension",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.2,
+    "html": "Before candy,<br>there were soul cakes.",
+    "cta": null
+   },
+   {
+    "in": 3.2,
+    "out": 7.6,
+    "html": "Small spiced cakes,<br>marked with a cross.",
+    "cta": null
+   },
+   {
+    "in": 7.6,
+    "out": 12.4,
+    "html": "The poor went door to door<br>and were given the cakes.",
+    "cta": null
+   },
+   {
+    "in": 12.4,
+    "out": 15.4,
+    "html": "<span class='em'>Asking at the door</span>",
+    "cta": null
+   },
+   {
+    "in": 15.4,
+    "out": 17.8,
+    "html": "began as feeding the poor.",
+    "cta": null
+   }
+  ],
+  "clip": {
+   "file": "plates/trackA-porch.jpg",
+   "push": 0.07,
+   "clip_id": "trackA-porch",
+   "match_reason": "lit porch, candy bowl"
+  }
+ },
+ {
+  "id": "N30",
+  "slug": "n30-practical-magic-hollow-house",
+  "seed": 130,
+  "duration": 18.0,
+  "label": "Gentle Muse · Night 30 of 33",
+  "source": "Source: HistoryLink.org",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.2,
+    "html": "The Owens house<br>in Practical Magic<br>was mostly hollow.",
+    "cta": null
+   },
+   {
+    "in": 3.2,
+    "out": 7.6,
+    "html": "It was built on bare land<br>in Washington state.",
+    "cta": null
+   },
+   {
+    "in": 7.6,
+    "out": 12.4,
+    "html": "It came down the day after<br>filming wrapped.",
+    "cta": null
+   },
+   {
+    "in": 12.4,
+    "out": 15.4,
+    "html": "<span class='em'>The house we all wanted</span>",
+    "cta": null
+   },
+   {
+    "in": 15.4,
+    "out": 17.8,
+    "html": "only stood for a season.",
+    "cta": null
+   }
+  ],
+  "clip": {
+   "file": "plates/casper-c4d2ca45.jpg",
+   "push": 0.07,
+   "clip_id": "casper-c4d2ca45",
+   "match_reason": "grand staircase, empty house"
+  }
+ },
+ {
+  "id": "N31",
+  "slug": "n31-dia-de-muertos-roots",
+  "seed": 131,
+  "duration": 18.0,
+  "label": "Gentle Muse · Night 31 of 33",
+  "source": "Source: Britannica",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.2,
+    "html": "Day of the Dead grew<br>from 2 sets of roots.",
+    "cta": null
+   },
+   {
+    "in": 3.2,
+    "out": 7.6,
+    "html": "Aztec, Toltec, Olmec and Maya<br>traditions saw death<br>as life continuing.",
+    "cta": null
+   },
+   {
+    "in": 7.6,
+    "out": 12.4,
+    "html": "Those rituals blended with<br>All Saints and All Souls.",
+    "cta": null
+   },
+   {
+    "in": 12.4,
+    "out": 15.4,
+    "html": "<span class='em'>Death as a continuation,</span>",
+    "cta": null
+   },
+   {
+    "in": 15.4,
+    "out": 17.8,
+    "html": "not an ending.",
+    "cta": null
+   }
+  ],
+  "clip": {
+   "file": "plates/new-dia-de-muertos-roots.jpg",
+   "push": 0.07,
+   "clip_id": "new-dia-de-muertos-roots",
+   "match_reason": "marigold petals and a lit candle on a small home altar"
+  }
+ },
+ {
+  "id": "N32",
+  "slug": "n32-all-souls-odilo",
+  "seed": 132,
+  "duration": 18.0,
+  "label": "Gentle Muse · Night 32 of 33",
+  "source": "Source: Britannica",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.2,
+    "html": "A French abbot gave the dead<br>their own day.",
+    "cta": null
+   },
+   {
+    "in": 3.2,
+    "out": 7.6,
+    "html": "Odilo of Cluny set<br>November 2 for prayer<br>for all the dead.",
+    "cta": null
+   },
+   {
+    "in": 7.6,
+    "out": 12.4,
+    "html": "By the late 1200s it was kept<br>almost everywhere<br>in the Western church.",
+    "cta": null
+   },
+   {
+    "in": 12.4,
+    "out": 15.4,
+    "html": "<span class='em'>Remembering the dead</span>",
+    "cta": null
+   },
+   {
+    "in": 15.4,
+    "out": 17.8,
+    "html": "became a shared act.",
+    "cta": null
+   }
+  ],
+  "clip": {
+   "file": "plates/nightmare-be-ab9dee9d.jpg",
+   "push": 0.07,
+   "clip_id": "nightmare-be-ab9dee9d",
+   "match_reason": "cemetery gate in fog"
+  }
+ }
+]

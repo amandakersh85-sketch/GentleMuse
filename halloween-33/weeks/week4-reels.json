@@ -1,0 +1,296 @@
+[
+ {
+  "id": "N22",
+  "slug": "n22-burns-halloween-poem",
+  "seed": 122,
+  "duration": 18.0,
+  "label": "Gentle Muse · Night 22 of 33",
+  "source": "Source: Robert Burns Birthplace Museum",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.2,
+    "html": "Robert Burns explained<br>Halloween fortune telling<br>in 16 footnotes.",
+    "cta": null
+   },
+   {
+    "in": 3.2,
+    "out": 7.6,
+    "html": "His poem Halloween<br>was published in 1786.",
+    "cta": null
+   },
+   {
+    "in": 7.6,
+    "out": 12.4,
+    "html": "Pulling kail stalks eyes shut.<br>An apple before a mirror<br>by candlelight.",
+    "cta": null
+   },
+   {
+    "in": 12.4,
+    "out": 15.4,
+    "html": "<span class='em'>He wrote the rituals down</span>",
+    "cta": null
+   },
+   {
+    "in": 15.4,
+    "out": 17.8,
+    "html": "so they would not be lost.",
+    "cta": null
+   }
+  ],
+  "clip": {
+   "file": "plates/trackA-shelley.jpg",
+   "push": 0.07,
+   "clip_id": "trackA-shelley",
+   "match_reason": "candle, open book, window"
+  }
+ },
+ {
+  "id": "N23",
+  "slug": "n23-halloween-shot-in-spring",
+  "seed": 123,
+  "duration": 18.0,
+  "label": "Gentle Muse · Night 23 of 33",
+  "source": "Source: Los Angeles Magazine",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.2,
+    "html": "Halloween's autumn town<br>was filmed in a<br>Los Angeles spring.",
+    "cta": null
+   },
+   {
+    "in": 3.2,
+    "out": 7.6,
+    "html": "Haddonfield was built<br>from Los Angeles locations<br>in spring 1978.",
+    "cta": null
+   },
+   {
+    "in": 7.6,
+    "out": 12.4,
+    "html": "With about $300,000,<br>they could not travel<br>to find real autumn.",
+    "cta": null
+   },
+   {
+    "in": 12.4,
+    "out": 15.4,
+    "html": "<span class='em'>The fall you remember</span>",
+    "cta": null
+   },
+   {
+    "in": 15.4,
+    "out": 17.8,
+    "html": "was made in sunshine.",
+    "cta": null
+   }
+  ],
+  "clip": {
+   "file": "plates/new-halloween-shot-in-spring.jpg",
+   "push": 0.07,
+   "clip_id": "new-halloween-shot-in-spring",
+   "match_reason": "a handful of dry brown leaves scattered on a sunny sidewalk under a green palm shadow"
+  }
+ },
+ {
+  "id": "N24",
+  "slug": "n24-goosebumps-fur-reflex",
+  "seed": 124,
+  "duration": 18.0,
+  "label": "Gentle Muse · Night 24 of 33",
+  "source": "Source: Harvard Gazette",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.2,
+    "html": "Your goosebumps are built<br>for fur you no longer have.",
+    "cta": null
+   },
+   {
+    "in": 3.2,
+    "out": 7.6,
+    "html": "Thick fur traps warmth.<br>Humans barely benefit.",
+    "cta": null
+   },
+   {
+    "in": 7.6,
+    "out": 12.4,
+    "html": "In mice, the same cells<br>help regrow hair.",
+    "cta": null
+   },
+   {
+    "in": 12.4,
+    "out": 15.4,
+    "html": "<span class='em'>A leftover reflex</span>",
+    "cta": null
+   },
+   {
+    "in": 15.4,
+    "out": 17.8,
+    "html": "that still has work to do.",
+    "cta": null
+   }
+  ],
+  "clip": {
+   "file": "plates/mare-nightma-9df21ca1.jpg",
+   "push": 0.07,
+   "clip_id": "mare-nightma-9df21ca1",
+   "match_reason": "four-poster bed"
+  }
+ },
+ {
+  "id": "N25",
+  "slug": "n25-blair-witch-missing-flyers",
+  "seed": 125,
+  "duration": 18.0,
+  "label": "Gentle Muse · Night 25 of 33",
+  "source": "Source: University of Pittsburgh",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.2,
+    "html": "In 1999, theaters handed out<br>missing person flyers.",
+    "cta": null
+   },
+   {
+    "in": 3.2,
+    "out": 7.6,
+    "html": "The filmmakers asked audiences<br>for information about<br>the 3 students.",
+    "cta": null
+   },
+   {
+    "in": 7.6,
+    "out": 12.4,
+    "html": "Those materials are now held<br>by a university library.",
+    "cta": null
+   },
+   {
+    "in": 12.4,
+    "out": 15.4,
+    "html": "<span class='em'>The scare began</span>",
+    "cta": null
+   },
+   {
+    "in": 15.4,
+    "out": 17.8,
+    "html": "before the lights went down.",
+    "cta": null
+   }
+  ],
+  "clip": {
+   "file": "plates/new-blair-witch-missing-flyers.jpg",
+   "push": 0.07,
+   "clip_id": "new-blair-witch-missing-flyers",
+   "match_reason": "a photocopied paper flyer pinned to a bare tree trunk in a gray autumn forest"
+  }
+ },
+ {
+  "id": "N27",
+  "slug": "n27-bonfire-bone-fire",
+  "seed": 127,
+  "duration": 18.0,
+  "label": "Gentle Muse · Night 27 of 33",
+  "source": "Source: Etymonline",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.2,
+    "html": "A bonfire was once,<br>quite literally, a bone fire.",
+    "cta": null
+   },
+   {
+    "in": 3.2,
+    "out": 7.6,
+    "html": "In the late 1300s it was<br>bonfir or banefire.",
+    "cta": null
+   },
+   {
+    "in": 7.6,
+    "out": 12.4,
+    "html": "A fire where bones were burned.<br>That sense was gone by the 1700s.",
+    "cta": null
+   },
+   {
+    "in": 12.4,
+    "out": 15.4,
+    "html": "<span class='em'>The word began</span>",
+    "cta": null
+   },
+   {
+    "in": 15.4,
+    "out": 17.8,
+    "html": "as bone plus fire.",
+    "cta": null
+   }
+  ],
+  "clip": {
+   "file": "plates/afraidark-d2e115f7.jpg",
+   "push": 0.07,
+   "clip_id": "afraidark-d2e115f7",
+   "match_reason": "campfire in the woods"
+  }
+ },
+ {
+  "id": "N28",
+  "slug": "n28-treehouse-raven",
+  "seed": 128,
+  "duration": 18.0,
+  "label": "Gentle Muse · Night 28 of 33",
+  "source": "Source: Ultimate Classic Rock",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.2,
+    "html": "The first Treehouse of Horror<br>ended with Edgar Allan Poe.",
+    "cta": null
+   },
+   {
+    "in": 3.2,
+    "out": 7.6,
+    "html": "October 25, 1990.<br>An earnest telling<br>of The Raven.",
+    "cta": null
+   },
+   {
+    "in": 7.6,
+    "out": 12.4,
+    "html": "James Earl Jones narrated.<br>Bart was the bird.",
+    "cta": null
+   },
+   {
+    "in": 12.4,
+    "out": 15.4,
+    "html": "<span class='em'>A cartoon handed a generation</span>",
+    "cta": null
+   },
+   {
+    "in": 15.4,
+    "out": 17.8,
+    "html": "its first Poe.",
+    "cta": null
+   }
+  ],
+  "clip": {
+   "file": "plates/countdown-door-clean.jpg",
+   "push": 0.07,
+   "clip_id": "countdown-door-clean",
+   "match_reason": "stone doorway, raven"
+  }
+ }
+]
