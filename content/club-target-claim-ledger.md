@@ -7,7 +7,7 @@ Amanda claims these herself on `club.target.com`. Claude cannot: the board is a
 JavaScript app behind a login and every URL returns the same empty shell to a
 non-browser client. Claude's job is to catch each publish and hand over the row.
 
-## Published and awaiting confirmation, 31 Aug to 22 Sep 2026
+## Published and awaiting confirmation, 31 Aug to 23 Sep 2026
 
 | Date (UTC) | Platform | Theme | Live URL |
 |---|---|---|---|
@@ -40,6 +40,9 @@ non-browser client. Claude's job is to catch each publish and hand over the row.
 | 20 Sep | Instagram | #TargetFave | https://www.instagram.com/reel/DdhgDI3Cs49/ |
 | 21 Sep | Instagram | #TargetDenimEdit | https://www.instagram.com/reel/DdjpY2LkzzR/ |
 | 21 Sep | Instagram | #HalloweenDecorAtTarget | https://www.instagram.com/reel/DdkE2UdCpbt/ |
+| 22 Sep | Instagram | #TargetxKuromixKATSEYE | https://www.instagram.com/reel/DdmOKvOifU-/ |
+| 22 Sep | Instagram | #TargetFallFits | https://www.instagram.com/reel/DdmppWCjSci/ |
+| 23 Sep | TikTok | #TargetxKuromixKATSEYE | https://www.tiktok.com/@thegentlemuse2026/video/7688761350826364174 |
 
 One Facebook row failed and never went live: `688849`, 01 Sep,
 #TargetCatandJackSummer, "the video could not be processed". No post, no points.
@@ -210,3 +213,78 @@ A same-named branch is not proof the checkout is the right one.
 **Gmail needs re-authentication.** The 21 Sep Monday challenge drop could not be
 pulled, so a week of new challenge names and links is missing from the board.
 Amanda re-authorizes in her claude.ai connector settings.
+
+## 23 Sep: claim watch, 36 hour sweep
+
+3 Club Target posts published in the window, 1 failed, and the forward queue is
+no longer empty.
+
+### Claim these
+
+| Date (UTC) | Platform | Theme | Live URL |
+|---|---|---|---|
+| 23 Sep | TikTok | `#TargetxKuromixKATSEYE` | https://www.tiktok.com/@thegentlemuse2026/video/7688761350826364174 |
+| 22 Sep | Instagram | `#TargetFallFits` | https://www.instagram.com/reel/DdmppWCjSci/ |
+| 22 Sep | Instagram | `#TargetxKuromixKATSEYE` | https://www.instagram.com/reel/DdmOKvOifU-/ |
+
+Both Instagram rows are under the 500 follower line, so no credit yet. The TikTok
+row is the one that earns.
+
+`#TargetxKuromixKATSEYE` is now published on both platforms. It is the first use
+of that theme, so it is a fresh 30 points.
+
+### 1 failure, 1 lost theme
+
+`724143`, TikTok, 22 Sep 17:28 UTC, `#TargetBudgetFinds`.
+Error: "Failed to fetch media URL: 400 Bad Request". It never went live, so there
+is nothing to claim.
+
+`#TargetBudgetFinds` is not lost though. `4714245` is scheduled on TikTok for
+24 Sep 16:00 UTC carrying the same theme, so the points are still in reach if
+that media file resolves. The 400 was on the media fetch, not the caption, so the
+file behind `4714245` is worth confirming before it runs.
+
+### Disclosure: the Kuromi video is end-card only
+
+The Kuromi media file, `6877b4da`, went out twice: Instagram `7298580` on 22 Sep
+and TikTok `7330161` today. It does not meet the on-screen rule.
+
+Sampled at 0.1, 0.3, 1, 2, 3, 5, 7, 10, 12, 15, 20 and 24.5 seconds of a 25.2
+second video:
+
+- `#TargetPartner` appears **only in the closing frames**, on a black bar at
+  24.5s reading `#TargetPartner #ClubTarget #TargetxKuromixKATSEYE`.
+- The early title card at 1 to 3 seconds reads "NEW & ONLY AT TARGET" and
+  "KUROMI X KATSEYE". No partner tag anywhere in it.
+- Nothing carries the tag through the middle, and the video runs well past the
+  15 second mark where the rule wants it repeated.
+
+That is the exact pattern the 13 Sep sample flagged. The fix that landed on
+14 Sep did not carry over to this build.
+
+Silent b-roll of the endcap, no voiceover, Amanda not on camera, red and white
+text overlay cards. Nothing wrong with the footage. The tag placement is the
+only gap.
+
+By contrast the fall layers media `6830882f` (Instagram `7305109`) **passes**.
+`#TargetPartner` sits in a red chip at lower left from 0.3s, next to the product
+rack, alongside the "TARGET RUN / FALL LAYERS" card.
+
+### The forward queue has refilled
+
+5 Club Target rows scheduled through 14 Oct, from a single fresh pull:
+
+| When (UTC) | Platform | Theme |
+|---|---|---|
+| 23 Sep 17:00 | Instagram | `#TargetEverydayFavorites` |
+| 24 Sep 16:00 | TikTok | `#TargetBudgetFinds` |
+| 24 Sep 21:30 | TikTok | `#TargetCareRoutine` |
+| 06 Oct 18:30 | Instagram | `#TargetEverydayFavorites` |
+| 06 Oct 21:30 | TikTok | `#TargetEverydayFavorites` |
+
+3 TikTok rows, so the pipeline that actually earns is running again. The 13 Sep
+"queue is empty" finding is closed.
+
+Gap worth naming: there is nothing scheduled between 24 Sep and 06 Oct, an 11 day
+hole. And `#TargetEverydayFavorites` has already been used on 11 Sep, so 2 of the
+3 October rows are repeats of a theme that has likely already paid out.
