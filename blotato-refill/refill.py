@@ -309,7 +309,8 @@ def write_report(path, rep, loaded, failed_new, executed):
         L.append(f'- {rid} is a HOLD row due {central(when)}. It waits for you.')
     for f in failed_new:
         loud = 'TIKTOK, costs points. ' if f.get('platform') == 'tiktok' else ''
-        L.append(f'- FAILED {loud}{f.get("platform")} {f.get("postTime", "")}: {f.get("errorMessage", "")}')
+        err = (f.get('state') or {}).get('errorMessage') or f.get('errorMessage', '')
+        L.append(f'- FAILED {loud}{f.get("platform")} {central(f["postTime"][:16]) if f.get("postTime") else ""}: {err}')
     text = '\n'.join(L) + '\n'
     if path:
         os.makedirs(os.path.dirname(path) or '.', exist_ok=True)

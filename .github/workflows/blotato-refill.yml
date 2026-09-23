@@ -1,0 +1,62 @@
+name: Blotato refill
+
+# Blotato queue top-up with no Claude session and no usage cost.
+# Needs the repository secret BLOTATO_API_KEY. Rules: blotato-refill/README.md
+on:
+  schedule:
+    - cron: '30 11 */2 * *'  # every 2 days, 6:30 AM Central in daylight time
+  workflow_dispatch:
+    inputs:
+      execute:
+        description: 'Send posts to Blotato (leave off to only propose)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: blotato-refill
+  cancel-in-progress: false
+
+jobs:
+  refill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/club-target-game-plan-9xs2du
+          path: ct
+      - name: Test the script
+        run: python3 blotato-refill/tests/test_refill.py
+      - name: Refill
+        env:
+          BLOTATO_API_KEY: ${{ secrets.BLOTATO_API_KEY }}
+          EXECUTE: ${{ github.event_name == 'schedule' || inputs.execute }}
+        run: |
+          if [ -z "$BLOTATO_API_KEY" ]; then
+            echo "BLOTATO_API_KEY is not set. Add it under Settings, Secrets and variables, Actions." | tee -a "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+          mkdir -p ct/content/refill-reports
+          report="ct/content/refill-reports/$(date -u +%F).md"
+          flag=""
+          if [ "$EXECUTE" = "true" ]; then flag="--execute"; fi
+          python3 blotato-refill/refill.py apply --lib ct --report "$report" $flag
+          cp "$report" ct/content/refill-reports/latest.md
+          cat "$report" >> "$GITHUB_STEP_SUMMARY"
+      - name: Save the load log
+        if: ${{ github.event_name == 'schedule' || inputs.execute }}
+        run: |
+          cd ct
+          git add content/wave1-loaded.log content/wave2-loaded.log content/refill-reports
+          if git diff --cached --quiet; then exit 0; fi
+          git -c user.email=noreply@anthropic.com -c user.name="Blotato refill" commit -m "Blotato refill $(date -u +%F)"
+          for i in 1 2 3; do
+            if git push origin HEAD:claude/club-target-game-plan-9xs2du; then exit 0; fi
+            git pull --rebase origin claude/club-target-game-plan-9xs2du
+          done
+          echo "PUSH FAILED. The next run would load these rows twice." | tee -a "$GITHUB_STEP_SUMMARY"
+          exit 1
