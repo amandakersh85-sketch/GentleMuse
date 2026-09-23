@@ -18,8 +18,11 @@ CAP = 200
 
 def api(method, path, key, body=None, query=None):
     url = API + path + ('?' + urllib.parse.urlencode(query) if query else '')
+    headers = {'blotato-api-key': key}
+    if body is not None:  # Blotato rejects a JSON content type with no body (DELETE)
+        headers['Content-Type'] = 'application/json'
     req = urllib.request.Request(url, method=method, data=json.dumps(body).encode() if body is not None else None,
-                                 headers={'blotato-api-key': key, 'Content-Type': 'application/json'})
+                                 headers=headers)
     try:
         with urllib.request.urlopen(req, timeout=60) as r:
             raw = r.read()
@@ -88,7 +91,11 @@ def main():
         for old in p.get('replaces', []):
             if old in live:
                 if a.execute:
-                    api('DELETE', f'/schedules/{old}', key)
+                    try:
+                        api('DELETE', f'/schedules/{old}', key)
+                    except RuntimeError as e:
+                        problems.append(f"remove {old}: {e}")
+                        continue
                 live.pop(old)
                 count -= 1
                 removed.append(old)
@@ -109,7 +116,11 @@ def main():
         x = live.get(r['id'])
         if x and x['scheduledAt'][:16] != r['scheduledTime'][:16]:
             if a.execute:
-                api('PATCH', f"/schedules/{r['id']}", key, body={'patch': {'scheduledTime': r['scheduledTime']}})
+                try:
+                    api('PATCH', f"/schedules/{r['id']}", key, body={'patch': {'scheduledTime': r['scheduledTime']}})
+                except RuntimeError as e:
+                    problems.append(f"{r['key']}: {e}")
+                    continue
             retimed.append(r['key'])
 
     L.append(f"# Halloween 33 Nights loader, {now:%Y-%m-%d}")

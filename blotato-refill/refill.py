@@ -109,7 +109,10 @@ def validate(lib):
 
 def api(method, path, key, body=None, query=None):
     url = API + path + ('?' + urllib.parse.urlencode(query, doseq=True) if query else '')
-    req = urllib.request.Request(url, method=method, headers={'blotato-api-key': key, 'Content-Type': 'application/json'},
+    headers = {'blotato-api-key': key}
+    if body is not None:  # Blotato rejects a JSON content type with no body
+        headers['Content-Type'] = 'application/json'
+    req = urllib.request.Request(url, method=method, headers=headers,
                                  data=json.dumps(body).encode() if body is not None else None)
     try:
         with urllib.request.urlopen(req, timeout=60) as r:

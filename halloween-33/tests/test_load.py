@@ -114,5 +114,26 @@ class Loader(unittest.TestCase):
         self.assertEqual(nights, set(range(1, 34)))
 
 
+class Requests(unittest.TestCase):
+    def test_delete_sends_no_json_content_type(self):
+        seen = {}
+
+        def fake_open(req, timeout=0):
+            seen.update(method=req.get_method(), ctype=req.get_header('Content-type'), data=req.data)
+            class R:
+                def __enter__(s): return s
+                def __exit__(s, *x): pass
+                def read(s): return b''
+            return R()
+        with mock.patch('urllib.request.urlopen', fake_open):
+            load.api('DELETE', '/schedules/1', 'k')
+        self.assertEqual(seen['method'], 'DELETE')
+        self.assertIsNone(seen['ctype'])
+        self.assertIsNone(seen['data'])
+        with mock.patch('urllib.request.urlopen', fake_open):
+            load.api('POST', '/posts', 'k', body={'a': 1})
+        self.assertEqual(seen['ctype'], 'application/json')
+
+
 if __name__ == '__main__':
     unittest.main(verbosity=1)
