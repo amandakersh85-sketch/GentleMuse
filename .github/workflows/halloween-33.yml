@@ -1,0 +1,39 @@
+name: Halloween 33 Nights
+
+# Loads the countdown into Blotato 7 days ahead, every day, so it fits the
+# 200-post queue as room opens. No Claude session. Rules: halloween-33/load.py
+on:
+  schedule:
+    - cron: '0 12 * * *'   # 7:00 AM Central
+  workflow_dispatch:
+    inputs:
+      execute:
+        description: 'Send to Blotato (leave off to only propose)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: blotato-queue
+  cancel-in-progress: false
+
+jobs:
+  load:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    if: ${{ github.event_name == 'workflow_dispatch' || vars.HALLOWEEN_33_OFF != 'true' }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test the loader
+        run: python3 halloween-33/tests/test_load.py
+      - name: Load the next 7 days
+        env:
+          BLOTATO_API_KEY: ${{ secrets.BLOTATO_API_KEY }}
+          EXECUTE: ${{ github.event_name == 'schedule' || inputs.execute }}
+        run: |
+          flag=""
+          if [ "$EXECUTE" = "true" ]; then flag="--execute"; fi
+          python3 halloween-33/load.py $flag --report report.md
+          cat report.md >> "$GITHUB_STEP_SUMMARY"

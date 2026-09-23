@@ -1,0 +1,345 @@
+[
+ {
+  "id": "N01",
+  "slug": "n01-halloween-saints-eve",
+  "seed": 101,
+  "duration": 18.0,
+  "label": "Gentle Muse · Night 1 of 33",
+  "source": "Source: Etymonline",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.2,
+    "html": "Halloween is a<br>shortened Scottish phrase.",
+    "cta": null
+   },
+   {
+    "in": 3.2,
+    "out": 7.6,
+    "html": "All Hallows even.<br>The evening before<br>All Saints Day.",
+    "cta": null
+   },
+   {
+    "in": 7.6,
+    "out": 12.4,
+    "html": "Hallow is an old word<br>for a saint. The short form<br>shows up in the 1560s.",
+    "cta": null
+   },
+   {
+    "in": 12.4,
+    "out": 15.4,
+    "html": "<span class='em'>Halloween means</span>",
+    "cta": null
+   },
+   {
+    "in": 15.4,
+    "out": 17.8,
+    "html": "the evening before<br>the saints' day.",
+    "cta": null
+   }
+  ],
+  "clip": {
+   "file": "plates/mare-nightma-804338b6.jpg",
+   "push": 0.07,
+   "clip_id": "mare-nightma-804338b6",
+   "match_reason": "bedroom by candlelight"
+  }
+ },
+ {
+  "id": "N02",
+  "slug": "n02-great-pumpkin-candy-mail",
+  "seed": 102,
+  "duration": 18.0,
+  "label": "Gentle Muse · Night 2 of 33",
+  "source": "Source: TheWrap",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.2,
+    "html": "Kids mailed real candy<br>to a cartoon boy.",
+    "cta": null
+   },
+   {
+    "in": 3.2,
+    "out": 7.6,
+    "html": "In 1966, Charlie Brown<br>got a rock at every house.",
+    "cta": null
+   },
+   {
+    "in": 7.6,
+    "out": 12.4,
+    "html": "Viewers felt so bad<br>they mailed piles of candy<br>to CBS.",
+    "cta": null
+   },
+   {
+    "in": 12.4,
+    "out": 15.4,
+    "html": "<span class='em'>A whole country</span>",
+    "cta": null
+   },
+   {
+    "in": 15.4,
+    "out": 17.8,
+    "html": "tried to fix<br>1 bad Halloween.",
+    "cta": null
+   }
+  ],
+  "clip": {
+   "file": "plates/trackA-porch.jpg",
+   "push": 0.07,
+   "clip_id": "trackA-porch",
+   "match_reason": "lit porch, candy bowl"
+  }
+ },
+ {
+  "id": "N03",
+  "slug": "n03-leaves-hidden-yellow",
+  "seed": 103,
+  "duration": 18.0,
+  "label": "Gentle Muse · Night 3 of 33",
+  "source": "Source: US Forest Service",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.2,
+    "html": "Autumn yellow was<br>in the leaf all summer.",
+    "cta": null
+   },
+   {
+    "in": 3.2,
+    "out": 7.6,
+    "html": "Green chlorophyll covers it<br>through the growing season.",
+    "cta": null
+   },
+   {
+    "in": 7.6,
+    "out": 12.4,
+    "html": "As nights lengthen,<br>the green breaks down<br>and the yellow shows.",
+    "cta": null
+   },
+   {
+    "in": 12.4,
+    "out": 15.4,
+    "html": "<span class='em'>Fall color</span>",
+    "cta": null
+   },
+   {
+    "in": 15.4,
+    "out": 17.8,
+    "html": "is what remains<br>when the green fades.",
+    "cta": null
+   }
+  ],
+  "clip": {
+   "file": "plates/new-leaves-hidden-yellow.jpg",
+   "push": 0.07,
+   "clip_id": "new-leaves-hidden-yellow",
+   "match_reason": "a single maple leaf, half green and half gold"
+  }
+ },
+ {
+  "id": "N04",
+  "slug": "n04-guising-scotland-ireland",
+  "seed": 104,
+  "duration": 18.0,
+  "label": "Gentle Muse · Night 4 of 33",
+  "source": "Source: Smithsonian Magazine",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.2,
+    "html": "Scottish children went<br>door to door by the 1500s.",
+    "cta": null
+   },
+   {
+    "in": 3.2,
+    "out": 7.6,
+    "html": "It was called guising.<br>They went out in disguise.",
+    "cta": null
+   },
+   {
+    "in": 7.6,
+    "out": 12.4,
+    "html": "Neighbors gave them treats<br>to ward off harmful spirits.",
+    "cta": null
+   },
+   {
+    "in": 12.4,
+    "out": 15.4,
+    "html": "<span class='em'>The costume came first,</span>",
+    "cta": null
+   },
+   {
+    "in": 15.4,
+    "out": 17.8,
+    "html": "as quiet protection.",
+    "cta": null
+   }
+  ],
+  "clip": {
+   "file": "plates/trickortreat-326e2898.jpg",
+   "push": 0.07,
+   "clip_id": "trickortreat-326e2898",
+   "match_reason": "open doorway, lantern"
+  }
+ },
+ {
+  "id": "N05",
+  "slug": "n05-ghostbusters-library",
+  "seed": 105,
+  "duration": 18.0,
+  "label": "Gentle Muse · Night 5 of 33",
+  "source": "Source: CBS News",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.2,
+    "html": "Ghostbusters opens<br>in a library.",
+    "cta": null
+   },
+   {
+    "in": 3.2,
+    "out": 7.6,
+    "html": "In 2015 it was added<br>to the Library of Congress<br>film registry.",
+    "cta": null
+   },
+   {
+    "in": 7.6,
+    "out": 12.4,
+    "html": "The director pointed out<br>it begins with a ghost<br>in a library.",
+    "cta": null
+   },
+   {
+    "in": 12.4,
+    "out": 15.4,
+    "html": "<span class='em'>Full circle,</span>",
+    "cta": null
+   },
+   {
+    "in": 15.4,
+    "out": 17.8,
+    "html": "right back to the stacks.",
+    "cta": null
+   }
+  ],
+  "clip": {
+   "file": "plates/goosebumps-ea746655.jpg",
+   "push": 0.07,
+   "clip_id": "goosebumps-ea746655",
+   "match_reason": "paperback rack, green lamp"
+  }
+ },
+ {
+  "id": "N06",
+  "slug": "n06-werewolf-man-wolf",
+  "seed": 106,
+  "duration": 18.0,
+  "label": "Gentle Muse · Night 6 of 33",
+  "source": "Source: Etymonline",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.2,
+    "html": "The wer in werewolf<br>is an old word for man.",
+    "cta": null
+   },
+   {
+    "in": 3.2,
+    "out": 7.6,
+    "html": "Old English werewulf.<br>Wer, man. Wulf, wolf.",
+    "cta": null
+   },
+   {
+    "in": 7.6,
+    "out": 12.4,
+    "html": "The word faded after the 1600s<br>and came back in the 1800s.",
+    "cta": null
+   },
+   {
+    "in": 12.4,
+    "out": 15.4,
+    "html": "<span class='em'>Word for word,</span>",
+    "cta": null
+   },
+   {
+    "in": 15.4,
+    "out": 17.8,
+    "html": "a man wolf.",
+    "cta": null
+   }
+  ],
+  "clip": {
+   "file": "plates/nightmare-be-659ed73b.jpg",
+   "push": 0.07,
+   "clip_id": "nightmare-be-659ed73b",
+   "match_reason": "full moon, bare tree"
+  }
+ },
+ {
+  "id": "N07",
+  "slug": "n07-apple-bobbing-courtship",
+  "seed": 107,
+  "duration": 18.0,
+  "label": "Gentle Muse · Night 7 of 33",
+  "source": "Source: University of Missouri Extension",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.2,
+    "html": "Bobbing for apples<br>was a way to find a spouse.",
+    "cta": null
+   },
+   {
+    "in": 3.2,
+    "out": 7.6,
+    "html": "The first to pull out an apple<br>would marry first.",
+    "cta": null
+   },
+   {
+    "in": 7.6,
+    "out": 12.4,
+    "html": "Some slept with the apple<br>under the pillow, to dream<br>of who it would be.",
+    "cta": null
+   },
+   {
+    "in": 12.4,
+    "out": 15.4,
+    "html": "<span class='em'>A party game</span>",
+    "cta": null
+   },
+   {
+    "in": 15.4,
+    "out": 17.8,
+    "html": "with a real question in it.",
+    "cta": null
+   }
+  ],
+  "clip": {
+   "file": "plates/new-apple-bobbing-courtship.jpg",
+   "push": 0.07,
+   "clip_id": "new-apple-bobbing-courtship",
+   "match_reason": "red apples floating in a wooden tub of water"
+  }
+ }
+]
