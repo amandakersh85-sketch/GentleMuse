@@ -62,25 +62,25 @@
    {
     "in": 0.0,
     "out": 3.2,
-    "html": "A Minnesota town answered<br>Halloween pranks with a parade.",
+    "html": "One town answered<br>pranks with a parade.",
     "cta": null
    },
    {
     "in": 3.2,
     "out": 7.6,
-    "html": "Soaped windows. Tipped outhouses.<br>Cows loose on Main Street.",
+    "html": "Soaped windows.<br>Tipped outhouses.<br>Cows on Main Street.",
     "cta": null
    },
    {
     "in": 7.6,
     "out": 12.4,
-    "html": "In 1920 Anoka gave its kids<br>a parade, a bonfire<br>and bags of candy.",
+    "html": "In 1920, Anoka, Minnesota<br>gave its kids a parade<br>and a bonfire.",
     "cta": null
    },
    {
     "in": 12.4,
     "out": 15.4,
-    "html": "<span class='em'>It has held it every year since,</span>",
+    "html": "<span class='em'>Every year since,</span>",
     "cta": null
    },
    {
@@ -135,7 +135,7 @@
    {
     "in": 15.4,
     "out": 17.8,
-    "html": "farmed plants in the Americas.",
+    "html": "crops in the Americas.",
     "cta": null
    }
   ],
