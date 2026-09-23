@@ -1,0 +1,41 @@
+{
+  "checkedAt": "2026-09-22T18:45:00Z",
+  "source": "Audit by Claude",
+  "counts": {"total": 20, "ok": 12, "failed": 4, "paused": 4},
+  "notes": [
+    {"tone": "bad", "title": "Why 4 failed", "text": "Your weekly Claude limit ran out on Monday morning. The Monday checks at 9:15, 9:25 and 9:30 never started. The Blotato top-up started at 1:14 AM today and has been stuck since. The limit reset at 6 AM today, so they try again next time."},
+    {"tone": "info", "title": "Why the limit runs out", "text": "10 routines report into 3 very long conversations (474k, 658k and 659k tokens of history). Every run rereads that whole history first."}
+  ],
+  "needs": [
+    {"title": "Sign in to Gmail again", "detail": "Claude settings, then Connectors, then Gmail. Your morning digest, lead triage and Monday challenge drop all read Gmail.", "level": "blocking"},
+    {"title": "1 Club Target TikTok post failed", "detail": "TikTok rejected the video file (error 400). It needs a fresh upload and a new time.", "level": "soon"}
+  ],
+  "groups": [
+    {"name": "Every day", "items": [
+      {"name": "Blotato queue top-up", "state": "stuck", "when": "1:00 AM"},
+      {"name": "Morning email digest", "state": "ok", "when": "6:00 AM"},
+      {"name": "Life dashboard refresh", "state": "scheduled", "when": "6:15 AM and 4:00 PM, updates this page"},
+      {"name": "Freelance lead triage", "state": "ok", "when": "7:00 AM"},
+      {"name": "DM email sync and keyword sweep", "state": "ok", "when": "8:00 AM"},
+      {"name": "Club Target claim watch", "state": "ok", "when": "11:00 AM"},
+      {"name": "1K campaign nightly scrub", "state": "ok", "when": "9:30 PM"}
+    ]},
+    {"name": "Weekly and monthly", "items": [
+      {"name": "Club Target challenge drop", "state": "ok", "when": "Mon 8:40 AM"},
+      {"name": "Grant deadline check", "state": "failed", "when": "Mon 9:15 AM, limit ran out"},
+      {"name": "MailerLite health", "state": "failed", "when": "Mon 9:25 AM, limit ran out"},
+      {"name": "Meta Pixel check", "state": "failed", "when": "Mon 9:30 AM, limit ran out"},
+      {"name": "Monday scoreboard", "state": "ok", "when": "Mon 10:00 AM"},
+      {"name": "Breakout watcher", "state": "ok", "when": "Tue and Fri 9:00 AM"},
+      {"name": "Club Target audit", "state": "ok", "when": "Sun and Wed 7:00 PM"},
+      {"name": "Payhip link audit", "state": "ok", "when": "1st of the month, 9:00 AM"},
+      {"name": "Consider This runway warning", "state": "scheduled", "when": "Once, Thu Sep 24, 9:00 AM"}
+    ]},
+    {"name": "Paused", "items": [
+      {"name": "Comment replies", "state": "off", "when": "since Sep 9"},
+      {"name": "Funnel watch", "state": "off", "when": "since Sep 9"},
+      {"name": "500 campaign data scrub", "state": "off", "when": "replaced by the 1K scrub"},
+      {"name": "TikTok redistribution", "state": "off", "when": "since Jul 11"}
+    ]}
+  ]
+}
