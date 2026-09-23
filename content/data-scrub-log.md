@@ -2329,3 +2329,140 @@ Instagram consistently over. YouTube dropped to 0 on 09/21 and 1 on 09/22.
 **Still not updated since 188 manual on 09/12.** The campaign is 14 days in of
 30, against a 190 start and a 1,000 goal. This is the number the whole
 experiment is about and the log has not had it in 10 days.
+
+---
+
+# Day 15 scrub — 2026-09-23 (02:31 UTC / 09-22 21:31 CT)
+
+Full corpus pulled, Blotato, 09/08 to now. Instagram 64 posts, Facebook 49
+posts. Frames pulled from all 12 Instagram videos published 09/21 and 09/22,
+because the trivia question needed eyes on it rather than another inference.
+
+## The 09/21 batch changed 2 things
+
+These posts were unread at the last scrub. Their first numbers are in.
+
+| Post | Format | Views | Reach |
+|---|---|---|---|
+| **Women over 40** | Amanda humor | **165** | 110 |
+| **Club Target, Halloween endcap** | Club Target | **145** | 125 |
+| **The glow up** | Amanda talking | **129** | 103 |
+| Club Target, DENIM | Club Target | 16 | 15 |
+| The washer that never gets clean | Home utility | 5 | 2 |
+| Goosebumps, critics | Seasonal | **0** | 0 |
+
+**Club Target at 145 is 4 times its own best Instagram result of the campaign.**
+Every prior Club Target post on Instagram sat at 8 to 33. The Halloween endcap
+opens on a wall of jack o lanterns, real footage, product already filling the
+frame. The 12 to 33 tier all open on a red "TARGET RUN" label card. Same
+program, same account, same week. The opener is the variable.
+
+**Amanda is now 2 of the top 3 posts on the day.** 165 and 129, against a Cesa
+median of about 155 across the whole campaign. Her face is not a fallback
+format any more, it is competitive on its own.
+
+## Trivia on Instagram: the watermark fix worked and the format still died
+
+Frames checked on all 12 recent Instagram videos. **No TikTok badge, no AI
+label, no watermark of any kind.** The export rule is being followed. That
+part is fixed and should stay fixed.
+
+Instagram seasonal and trivia posts, every one since 09/19: 0, 2, 2, 3, 3, 3,
+4, 5, 5, 6, 11, 14. Against the 37 view watermarked baseline. **8 straight
+days below the number the badge was blamed for.**
+
+The frames say why, and it is not the badge. Frame 1 on every seasonal post is
+a dark atmospheric image, a house at dusk, a foggy graveyard, an empty bedroom,
+carrying a small "GENTLE MUSE · FALL" label in the top left and a source line
+at the bottom. **No fact text. No hook. Nothing at any readable size.** The
+plan banned exactly this on 09/08: frame 1 carries the fact's most surprising
+3 to 5 words, large, already on screen, and no category label in the first 2
+seconds. The badge got fixed and the opener never did.
+
+Two explanations still fit: the format is weak on Instagram regardless, or the
+opener is starving it. They separate cleanly. **Test: run 2 seasonal posts with
+the fact's 3 to 5 most surprising words on frame 1, large, no label.** If they
+still land under 20, the protocol's answer stands and Instagram drops the
+format. Facebook keeps it either way.
+
+Facebook, same format, same window: 182, 195, 216, 220, 228, 258, 294. Working,
+but sitting at the bottom of the 230 to 577 band and drifting down. 2 outliers
+earlier in the corpus, 1013 on 09/09 and 1001 on 09/15.
+
+## Format ranking, Instagram, full campaign corpus
+
+| Format | Range | Median |
+|---|---|---|
+| Cesa organic | 44 to 1,749 | ~155 |
+| Amanda face to camera | 26 to 165 | 129 |
+| Club Target | 6 to 145 | 16 |
+| Seasonal / trivia | 0 to 14 | 4 |
+| Home / utility carousels | 2 to 61 | 6 |
+
+Cesa still owns the ceiling, 1,749 and 1,514 on 09/11 and 09/12, and nothing
+has come near since. But the Cesa floor and the Amanda ceiling now overlap.
+
+## FLAG: on-screen disclosure lands too late on the Kuromi post
+
+Club Target Instagram, 09/22 17:00, Kuromi x KATSEYE. The video runs 25.2s.
+**The #TargetPartner badge does not appear on screen until about 21.4s**, in
+the last 15% of the reel. The Scope of Work requires the on-screen disclosure
+early and near the link or product, and says the caption placement alone does
+not carry it.
+
+The caption is correct, #TargetPartner is on line 1. The other 3 Club Target
+posts in this window, Halloween endcap, Fall Layers and Denim, all carry the
+badge on screen from frame 1. This 1 is the outlier. Fix: move the badge to
+the open, same as the other 3.
+
+## FLAG: the 09/22 TikTok is still failed, and its caption breaks the link rule
+
+`Failed to fetch media URL: 400 Bad Request`, 09/22 17:28, NYX Thick It Stick
+It. Unchanged since last night. 2 problems, not 1:
+
+1. Dead media URL, needs re-upload and reschedule. No post, no challenge
+   submission, no points.
+2. **The caption names a specific product and carries only the storefront
+   link.** That is the hard rule. Get the NYX Thick It Stick It SKU before it
+   goes back in the queue, not after.
+
+Still open from last night: the KUROMI and FALLFIT comment keywords need to
+deliver specific SKUs rather than the storefront.
+
+## Volume, 09/19 to 09/22
+
+| Platform | 19 | 20 | 21 | 22 | Target |
+|---|---|---|---|---|---|
+| Instagram | 7 | 7 | 6 | 6 | 3 to 4 |
+| TikTok | 3 | 3 | 4 | 4 | 3 to 4 |
+| Facebook | 3 | 3 | 2 | 2 | 3 to 4 |
+| YouTube | 3 | 3 | 0 | 1 | 3 to 4 |
+
+TikTok is the only platform on target. Instagram runs 50 to 75% over every
+day, and most of the overage is the seasonal tier that reads 0 to 14. Facebook
+and YouTube are both under, and Facebook is where this content actually works.
+**The allocation is backwards: volume is going to the platform where the
+format fails.**
+
+## Tracking items
+
+1. **Trivia on Instagram:** 0 to 14 for 8 days, against the 37 baseline. Clean
+   exports confirmed by frame. Opener is the untested variable, test named
+   above.
+2. **10,000 view Cesa breakout:** no. Campaign best is still 1,749 on 09/12.
+   Best in the last 6 days is 208.
+3. **Volume:** TikTok on target, Instagram over, Facebook and YouTube under.
+4. **Watermarks and AI badges:** none, 12 frames checked.
+5. **Product posts missing a SKU:** the failed NYX TikTok, named above. Club
+   Target keyword routing still unverified.
+
+## Data gaps, stated rather than filled
+
+- **09/22 Instagram has no metrics.** Blotato fetches roughly 24 hours after
+  publish and has not read that day yet. That is a gap, not a zero, and it
+  covers 6 posts including the Kuromi and Fall Layers Club Target reels.
+- **Follower count is still 188 manual from 09/12, now 11 days stale.** The
+  campaign is 15 days into 30 against a 190 start and a 1,000 goal, and the
+  number the whole experiment is about has not been read in over a third of
+  it. Metricool is not an acceptable substitute for it. Amanda has to check
+  the app.
