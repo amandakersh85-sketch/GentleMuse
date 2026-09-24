@@ -136,3 +136,45 @@ first 2 lines. The Scope of Work names "disclosure hidden at the end of captions
 as something that does not count. The overlay now covers the on-screen half of
 the rule, but the caption half is still failing on both. Not changed, she only
 asked for the overlay.
+
+### REVERSED the same day. The video was never a Target piece.
+
+Amanda: "it wasn't made for target, it was originally just a piece for tiktok."
+
+The Club Target tags had been attached to a video that has nothing to do with
+Target. No product named, no link, and the partner disclosure sentence that every
+other Club Target caption carries was missing from both rows. That was the real
+signal, and the audit should have caught it before the overlay went on.
+
+**A `#TargetPartner` overlay on a non-partnership post is worse than no overlay.**
+It declares a paid relationship that does not apply to that video. So it came off.
+
+Both rows are now back on the clean original, md5 `d9c231f442b98f50156af17325d34b6f`,
+verified by download, and the Club Target tags are gone:
+
+| Row | Platform | Caption tags now |
+| --- | --- | --- |
+| `4726792` | Instagram Reel, 06 Oct 18:30 | `#gentlemuse #learninginpublic` |
+| `4726804` | TikTok, 06 Oct 21:30 | none |
+
+The TikTok row has no hashtags left at all. Worth giving it a couple before it runs.
+
+Note: both rows now point at `a0fe13f0-f271-4585-8e5e-1ba40e20489c.mp4`. The
+Instagram row previously pointed at `75caa1aa-5c29-4235-a8e5-6d0578e65c33.mp4`,
+which was a byte-identical copy of the same file, so nothing changed on screen.
+
+### The check this adds to the audit
+
+A Club Target row is only real if it names a Target product AND carries the
+`club.target.com` link AND carries the partner disclosure sentence. A row with the
+tags but none of those 3 is probably a mis-tag, not a compliance problem to fix.
+**Check that before doing any work to make a row compliant.**
+
+Checked the rest of the forward queue on 24 Sep. The only other tagged rows are
+the 20 Oct NYX block, and all 5 carry the link and the disclosure sentence, so
+those are genuine. Their problem is the missing theme hashtag, which is separate.
+
+### Points impact
+
+None. `#TargetEverydayFavorites` already has a published TikTok from 11 Sep, so
+dropping these 2 rows does not open a coverage gap. The running total stays at 904.

@@ -1157,3 +1157,52 @@ that pays.
 **COVERAGE CLEAN**, 27 of 27 themes carry a TikTok.
 **2 FIXABLE LOSSES** sitting in the queue: the 24 Sep on-screen disclosure and the
 20 Oct missing theme tag. Both need her, neither has published.
+
+---
+
+## Correction, 24 Sep 2026: the 6 Oct pair was never a Target post
+
+This morning's audit flagged `4726792` and `4726804` for a caption disclosure
+problem and I later put an on-screen overlay on them. Both were wrong headed.
+Amanda says the video was made for TikTok and had nothing to do with Target.
+
+The tags are off, the overlay is reverted, and the rows will run as ordinary
+posts. Full detail in `content/canon/disclosure-rule.md`.
+
+**Coverage and points are unaffected.** `#TargetEverydayFavorites` already has a
+published TikTok from 11 Sep. Running total stays at 904.
+
+Corrected queue figure: **7 Club Target rows** scheduled, not 9. 2 published
+24 Sep, and the 20 Oct NYX block of 5 remains, still missing its theme hashtag.
+
+### What the audit missed
+
+It checked whether `#TargetPartner` sat in the first 2 lines. It never asked
+whether the post was a Target post at all. Neither 6 Oct caption named a product,
+carried the `club.target.com` link, or carried the "I'm a Target partner" sentence
+that every genuine Club Target caption has. 3 signals, all absent, and the audit
+went straight to fixing tag placement.
+
+New rule added to the canon: confirm a row is genuinely a Target post before
+doing any work to make it compliant.
+
+## Hold, 24 Sep 2026: all Club Target routines paused
+
+Amanda hit a 429 on club.target.com and asked that nothing touch it until at
+least Saturday 26 Sep.
+
+All 3 routines disabled:
+
+| Trigger | What it does | Was firing |
+| --- | --- | --- |
+| `trig_01HqPSbL1R8nVHgUT8tKz6Fc` | claim watch | daily 16:00 UTC |
+| `trig_01D9xY3yas3jespHQHVcpmxM` | audit | Sun/Wed |
+| `trig_01N12SB2dZ2gSVJA6FYcUSaq` | Monday challenge drop | Mondays 13:40 UTC |
+
+Check-in set for Sat 26 Sep 22:00 UTC, `trig_01DufabsxxVgD1mWyWFbpDv5`, to ask
+her before anything resumes. Nothing re-enables without her.
+
+**Worth knowing: none of these 3 routines request club.target.com.** The claim
+watch reads Blotato, the audit reads Blotato and Metricool, the Monday drop reads
+Gmail. The portal is only ever opened by Amanda in a browser. So whatever drew the
+429, it is not these, and pausing them will not make it settle any faster.
