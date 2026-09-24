@@ -186,14 +186,22 @@ That 20 degree difference does 2 things. It is the difference between hot water 
 that scalds a child or an older adult faster than they can pull their hand back, and it is
 heat you pay to maintain in a tank all day whether anyone showers or not.
 
-On an electric heater the dial is behind an access panel, sometimes 2, and you cut power at
-the breaker before you open anything. On a gas heater it is usually a dial on the control
-valve at the bottom front, often marked with letters or hash marks rather than numbers.
+Do not go looking for the dial yet. Find out your number first, because most people guess
+high and a lot of tanks are already fine.
 
-If yours is unmarked, run the hot tap at the kitchen sink for 2 minutes, fill a cup, and put
-a cooking thermometer in it. That reading is your answer.
+Run the hot tap at the kitchen sink for 2 minutes, fill a cup, and put a cooking thermometer
+in it. That reading is your answer. Nothing to open, nothing to shut off.
 
-Turn it down in small moves and live with it for a few days before you decide.
+If it comes back near 120, you are done and you can stop reading.
+
+If it comes back near 140, the adjustment depends on what you have. Gas heaters usually have a
+dial right on the control valve at the bottom front, marked with letters or hash marks, and
+turning it down a notch is a thing you can do standing there. Electric heaters keep the
+thermostat behind a screwed-on access panel, and that panel has live wiring behind it, so that
+one is a call to a plumber or an electrician, not a Saturday project. There is no shame in the
+call. It is 1 visit and it is permanent.
+
+Either way, change it in small steps and live with it a few days before deciding again.
 
 2 exceptions worth knowing. Households with someone immunocompromised sometimes keep a higher
 setting on medical advice, because bacteria grow more readily in warm standing water. And if
@@ -319,10 +327,12 @@ OPEN ITEMS FOR AMANDA
    wrong to Amanda, it is the section to rewrite first, because it is the part only she can
    verify.
 
-4. TOPIC 13 CAVEAT. The water heater issue is the only one that sends a reader near a gas
-   valve or an electrical panel. The copy says to cut the breaker first. If Amanda wants that
-   issue to stay read-only, the fix is to cut the adjustment instructions and keep the
-   thermometer test, which tells her reader the number without touching anything.
+4. TOPIC 13, RESOLVED 09/24. Amanda's call was "whatever's safe and advisable," so the issue
+   was rewritten to the safe version. The reader measures with a thermometer at the tap and
+   touches nothing. Gas dial adjustment stays, because that dial is on the outside of the unit
+   and is meant to be turned. Electric thermostat adjustment was cut and replaced with a plain
+   recommendation to call a plumber or electrician, because that panel has live wiring behind
+   it. No instruction in this issue now sends a reader into a breaker box or an access panel.
 
 5. RUNWAY AFTER THIS. With these 6 approved, Consider This is covered to 11/26 and the next
    cliff is 12/03. The runway watcher should be re-pointed at that date once they load.

@@ -13,6 +13,13 @@ rides along, it does not carry the load.
 
 ## The rule
 
+**SUPERSEDED AND WIDENED 2026-09-24 by Amanda, by voice.** Send days alone were too thin. The
+rule is now a standing rotation: **a newsletter promo goes out at least every other day,
+carousels only, recycling the sets that already exist.** The cycle, the asset inventory and the
+2 open blockers are in **[`NEWSLETTER-ROTATION.md`](NEWSLETTER-ROTATION.md)**. Read that first.
+
+What is below still holds underneath it. Send days are the floor, not the plan.
+
 **No Consider This or Just Another Tuesday send day goes out with an empty queue on the
 channels that promote it.** Whoever holds the posting project fills those days as part of
 ordinary refill, the same as any other slot. Nobody needs to ask for it first.
@@ -48,6 +55,8 @@ Cliff after 10/27.
 
 ## What a send day post has to carry
 
+- **A carousel, never a single image.** Single-image newsletter promos are retired as of
+  2026-09-24. Do not schedule another one.
 - The specific hook, never the word "newsletter." People sign up for the towels, the sponge,
   the pillow. Nobody signs up for a newsletter. This is finding 3 in `../STRATEGY.md` and it
   has not changed.

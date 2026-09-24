@@ -33,6 +33,15 @@ channels that promote it.** Whoever holds the posting project fills those days a
 refill. Nobody has to ask first. This already went wrong once: on 2026-09-09, 6 of 7 JAT send
 days had no posts at all, so the newsletter went unpromoted on the exact mornings it sent.
 
+**WIDENED 2026-09-24, same day, by Amanda by voice.** Send days were the floor, not the plan.
+The standing rule is now a rotation: **at least 1 newsletter promo every other day, carousels
+only, recycling the sets already built.** Single-image newsletter promos are retired. Consider
+This and Just Another Tuesday are the 2 that matter, because signups are the point.
+
+The cycle, the asset count, and the 2 blockers she has to decide on (Instagram carousels cannot
+be given music through any API, and the queue is at 184 of 200) are in
+**[`NEWSLETTER-ROTATION.md`](NEWSLETTER-ROTATION.md)**.
+
 The send-day table, what a promo post has to carry, and what this rule does NOT authorize are
 in **[`NEWSLETTER-PROMO-STANDING.md`](NEWSLETTER-PROMO-STANDING.md)**. Read it before filling
 a send day. It does not override the ladder, the render ratio, the LinkedIn rule, the 200 post
