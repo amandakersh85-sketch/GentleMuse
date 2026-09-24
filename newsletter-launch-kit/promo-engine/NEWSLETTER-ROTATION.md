@@ -159,7 +159,7 @@ and the AI Guide are all 4 of those things. Seasonal stays carved out, as always
 **8 scheduled posts across 26 days, 09/25 through 10/20.** For the account she calls her huge
 thing, Just Another Tuesday had exactly 1 post on it and the AI Guide had none.
 
-## 2 defects found in the existing LinkedIn queue. NOT fixed, because they are not mine to rewrite.
+## 3 defects found in the existing LinkedIn queue. ALL FIXED 2026-09-24 on Amanda's say-so.
 
 1. **Posts `4716080` (10/15) and `4716102` (10/20) carry the wrong link.** The copy is the
    Consider This towels piece, the CTA says comment CONSIDER, and the link at the bottom is
@@ -225,3 +225,55 @@ and already uploaded, so they are a 2 minute job the moment there is room.
 
 Until then, **every new post is a trade against an existing one.** Anyone filling slots should
 say what they are displacing.
+
+
+---
+
+# Fixes applied 2026-09-24, on Amanda's instruction
+
+She read the defect list and said fix all three and load the two that bounced. Done, all of it.
+`blotato_update_schedule` edits a scheduled post in place, so none of this cost a cap slot.
+
+| Post | Was | Now |
+|---|---|---|
+| `4716080` 10/15 | Towels copy, CONSIDER keyword CTA, link pointed at `ai-guide.subscribepage.io`, 1 image | Towels, correct `consider-this.subscribepage.io`, keyword CTA removed, full 6 slide carousel |
+| `4716102` 10/20 | Byte for byte duplicate of the above, same wrong link, same dead CTA | Rebuilt as the sponge carousel, correct link, no keyword CTA, 6 slides. The duplicate is gone |
+| `4726815` 10/16 | Flagged because `thegentlemuse.subscribepage.io` was not on the verified table | **Not broken.** Fetched 2026-09-24, returns 200. Post left exactly as it was. Add the link to the verified table |
+| `4498292` 10/13 | Found during verification, not in the original list. Duct copy with **no image at all**, `mediaUrls` empty | Full 6 slide duct carousel attached, copy tightened, correct link |
+
+**The keyword CTA removal is the important one.** Blotato runs comment-to-DM on Instagram and
+Facebook only. "Comment CONSIDER and I'll send it" on LinkedIn promises something that nothing
+is listening for, so every person who followed that instruction got silence. LinkedIn posts
+carry the link in the post. That is now true of all of them.
+
+## Both bounced posts loaded
+
+3 slots had freed by drain, so no pruning was needed and nothing was deleted.
+
+| Date | Set | Offer |
+|---|---|---|
+| 10/07 | jat-doors | Just Another Tuesday |
+| 10/09 | guide-behind | AI Guide |
+
+## The LinkedIn lane as it now stands
+
+11 posts, 09/29 through 10/20. Just Another Tuesday 3, AI Guide 3, Consider This 3, business 2.
+It was 8 posts with 1 JAT and 0 AI Guide this morning.
+
+| Date | Offer |
+|---|---|
+| 09/29 | Just Another Tuesday, the automations that all said enabled |
+| 10/01 | AI Guide, the one I needed 60 days ago |
+| 10/02 | Business, funnels and follow up |
+| 10/03 | Just Another Tuesday, the number ignored for 3 weeks |
+| 10/05 | AI Guide, 10 hours not 10 years |
+| 10/07 | Just Another Tuesday, 4 front doors |
+| 10/09 | AI Guide, most advice starts 3 steps past you |
+| 10/13 | Consider This, the duct |
+| 10/15 | Consider This, the towels |
+| 10/16 | Business, who I build for |
+| 10/20 | Consider This, the sponge |
+
+**Cap after all of this: 199 of 200.** Still the binding constraint, and the 3 ways to get room
+above still stand. `carousel-jat-obedient-*`, `carousel-jat-permission-*`, `carousel-jat-923-*`
+and `carousel-guide-explorer-*` are built and waiting on slots.

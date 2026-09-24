@@ -207,6 +207,16 @@ she did not build a single one by hand.
 | Reset Guide (free) | https://payhip.com/b/9FE2U |
 | Essentials | https://www.gentlemuse.co/tiktok |
 | Cesa | instagram.com/cesasgoldenyears (landing page not built yet) |
+| The Gentle Muse, general | https://thegentlemuse.subscribepage.io |
+
+`thegentlemuse.subscribepage.io` was added 2026-09-24 after a scheduled LinkedIn post was found
+using it while it was on no list. It was fetched that day and returns 200, so it is live and
+usable. It had simply never been written down.
+
+**LinkedIn has no comment-to-DM automation.** Blotato runs keywords on Instagram and Facebook
+only. Never write "comment KEYWORD and I'll send it" on a LinkedIn post: nothing is listening
+and the reader gets silence. LinkedIn posts carry the link in the post itself. 3 scheduled
+posts had this defect and were corrected on 2026-09-24.
 
 ### TUESDAY keyword destination, corrected 2026-08-27
 
