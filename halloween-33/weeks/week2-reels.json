@@ -1,0 +1,345 @@
+[
+ {
+  "id": "N08",
+  "slug": "n08-monster-mash-banned-bbc",
+  "seed": 108,
+  "duration": 18.0,
+  "label": "Gentle Muse · Night 8 of 33",
+  "source": "Source: HISTORY",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.2,
+    "html": "Monster Mash hit No. 1<br>in October 1962.",
+    "cta": null
+   },
+   {
+    "in": 3.2,
+    "out": 7.6,
+    "html": "The BBC banned it<br>as too morbid.",
+    "cta": null
+   },
+   {
+    "in": 7.6,
+    "out": 12.4,
+    "html": "It climbed the charts again<br>in 1970 and in 1973.",
+    "cta": null
+   },
+   {
+    "in": 12.4,
+    "out": 15.4,
+    "html": "<span class='em'>A silly song</span>",
+    "cta": null
+   },
+   {
+    "in": 15.4,
+    "out": 17.8,
+    "html": "kept finding its way home.",
+    "cta": null
+   }
+  ],
+  "clip": {
+   "file": "plates/trackA-radio.jpg",
+   "push": 0.07,
+   "clip_id": "trackA-radio",
+   "match_reason": "old radio, armchair"
+  }
+ },
+ {
+  "id": "N09",
+  "slug": "n09-fear-sweet-spot",
+  "seed": 109,
+  "duration": 18.0,
+  "label": "Gentle Muse · Night 9 of 33",
+  "source": "Source: Association for Psychological Science",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.2,
+    "html": "The best scare<br>sits in the middle.",
+    "cta": null
+   },
+   {
+    "in": 3.2,
+    "out": 7.6,
+    "html": "Researchers put heart monitors<br>on 110 visitors<br>to a haunted attraction.",
+    "cta": null
+   },
+   {
+    "in": 7.6,
+    "out": 12.4,
+    "html": "Fun peaked at moderate fear,<br>and dropped when it was<br>too little or too much.",
+    "cta": null
+   },
+   {
+    "in": 12.4,
+    "out": 15.4,
+    "html": "<span class='em'>Fear turns into fun</span>",
+    "cta": null
+   },
+   {
+    "in": 15.4,
+    "out": 17.8,
+    "html": "inside a narrow window.",
+    "cta": null
+   }
+  ],
+  "clip": {
+   "file": "plates/casper-c4d2ca45.jpg",
+   "push": 0.07,
+   "clip_id": "casper-c4d2ca45",
+   "match_reason": "grand staircase, empty house"
+  }
+ },
+ {
+  "id": "N10",
+  "slug": "n10-candy-corn-1880s",
+  "seed": 110,
+  "duration": 18.0,
+  "label": "Gentle Muse · Night 10 of 33",
+  "source": "Source: Smithsonian Magazine",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.2,
+    "html": "Candy corn began<br>in the 1880s.",
+    "cta": null
+   },
+   {
+    "in": 3.2,
+    "out": 7.6,
+    "html": "In 1898 it was sold<br>as Chicken Feed.",
+    "cta": null
+   },
+   {
+    "in": 7.6,
+    "out": 12.4,
+    "html": "Each colored layer<br>was once poured by hand.",
+    "cta": null
+   },
+   {
+    "in": 12.4,
+    "out": 15.4,
+    "html": "<span class='em'>A seasonal sweet</span>",
+    "cta": null
+   },
+   {
+    "in": 15.4,
+    "out": 17.8,
+    "html": "began as a nod to farm life.",
+    "cta": null
+   }
+  ],
+  "clip": {
+   "file": "plates/new-candy-corn-1880s.jpg",
+   "push": 0.07,
+   "clip_id": "new-candy-corn-1880s",
+   "match_reason": "a small glass dish of candy corn on a linen napkin"
+  }
+ },
+ {
+  "id": "N11",
+  "slug": "n11-myers-mask-captain-kirk",
+  "seed": 111,
+  "duration": 18.0,
+  "label": "Gentle Muse · Night 11 of 33",
+  "source": "Source: Fox News",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.2,
+    "html": "The scariest mask of 1978<br>started as Captain Kirk.",
+    "cta": null
+   },
+   {
+    "in": 3.2,
+    "out": 7.6,
+    "html": "It was a William Shatner mask,<br>painted white.",
+    "cta": null
+   },
+   {
+    "in": 7.6,
+    "out": 12.4,
+    "html": "The sideburns came off.<br>The eyeholes were cut wider.",
+    "cta": null
+   },
+   {
+    "in": 12.4,
+    "out": 15.4,
+    "html": "<span class='em'>A hero's face, emptied out,</span>",
+    "cta": null
+   },
+   {
+    "in": 15.4,
+    "out": 17.8,
+    "html": "became the fear.",
+    "cta": null
+   }
+  ],
+  "clip": {
+   "file": "plates/nightmare-be-c515317f.jpg",
+   "push": 0.07,
+   "clip_id": "nightmare-be-c515317f",
+   "match_reason": "empty theater"
+  }
+ },
+ {
+  "id": "N12",
+  "slug": "n12-owl-silent-feathers",
+  "seed": 112,
+  "duration": 18.0,
+  "label": "Gentle Muse · Night 12 of 33",
+  "source": "Source: Audubon",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.2,
+    "html": "An owl's feathers<br>are shaped to erase sound.",
+    "cta": null
+   },
+   {
+    "in": 3.2,
+    "out": 7.6,
+    "html": "Comb-like edges break up<br>the air behind the wing.",
+    "cta": null
+   },
+   {
+    "in": 7.6,
+    "out": 12.4,
+    "html": "A soft, velvety surface<br>absorbs what is left.",
+    "cta": null
+   },
+   {
+    "in": 12.4,
+    "out": 15.4,
+    "html": "<span class='em'>Silence</span>",
+    "cta": null
+   },
+   {
+    "in": 15.4,
+    "out": 17.8,
+    "html": "is built into the feather.",
+    "cta": null
+   }
+  ],
+  "clip": {
+   "file": "plates/trackA-salem.jpg",
+   "push": 0.07,
+   "clip_id": "trackA-salem",
+   "match_reason": "field at dusk"
+  }
+ },
+ {
+  "id": "N13",
+  "slug": "n13-mischief-night-1790",
+  "seed": 113,
+  "duration": 18.0,
+  "label": "Gentle Muse · Night 13 of 33",
+  "source": "Source: TIME",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.2,
+    "html": "Mischief Night first shows up<br>in writing at Oxford, 1790.",
+    "cta": null
+   },
+   {
+    "in": 3.2,
+    "out": 7.6,
+    "html": "It was May Day eve then.<br>Shop signs got swapped.",
+    "cta": null
+   },
+   {
+    "in": 7.6,
+    "out": 12.4,
+    "html": "Now it is Cabbage Night<br>in parts of New England,<br>Devil's Night in Detroit.",
+    "cta": null
+   },
+   {
+    "in": 12.4,
+    "out": 15.4,
+    "html": "<span class='em'>The urge to prank</span>",
+    "cta": null
+   },
+   {
+    "in": 15.4,
+    "out": 17.8,
+    "html": "just changed dates.",
+    "cta": null
+   }
+  ],
+  "clip": {
+   "file": "plates/trackA-press.jpg",
+   "push": 0.07,
+   "clip_id": "trackA-press",
+   "match_reason": "print shop, 1 candle"
+  }
+ },
+ {
+  "id": "N14",
+  "slug": "n14-scary-stories-most-challenged",
+  "seed": 114,
+  "duration": 18.0,
+  "label": "Gentle Muse · Night 14 of 33",
+  "source": "Source: American Library Association",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.2,
+    "html": "The book you traded at recess<br>topped a banned list.",
+    "cta": null
+   },
+   {
+    "in": 3.2,
+    "out": 7.6,
+    "html": "Scary Stories was<br>the most challenged book<br>of the 1990s.",
+    "cta": null
+   },
+   {
+    "in": 7.6,
+    "out": 12.4,
+    "html": "It ranked above<br>every other title<br>for the decade.",
+    "cta": null
+   },
+   {
+    "in": 12.4,
+    "out": 15.4,
+    "html": "<span class='em'>What scared the adults most</span>",
+    "cta": null
+   },
+   {
+    "in": 15.4,
+    "out": 17.8,
+    "html": "was the book itself.",
+    "cta": null
+   }
+  ],
+  "clip": {
+   "file": "plates/mare-nightma-997ba4ff.jpg",
+   "push": 0.07,
+   "clip_id": "mare-nightma-997ba4ff",
+   "match_reason": "candle on a nightstand"
+  }
+ }
+]

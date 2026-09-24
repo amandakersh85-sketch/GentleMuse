@@ -9,11 +9,13 @@ This is the check that reads that map and refuses.
 
   python3 gm_cta_check.py --queue queue.json
   python3 gm_cta_check.py --queue queue.json --magnets M.csv --platforms P.csv
+  python3 gm_cta_check.py --queue queue.json --paid-window 120
 
 Each queue row needs: id, platform, accountId, text. Optional: at, magnet.
 Exit 0 PASS, 1 FAIL, 2 HOLD.
 """
 import argparse, csv, json, os, re, sys
+from datetime import datetime
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(HERE, "..", "data")
@@ -21,6 +23,9 @@ DATA = os.path.join(HERE, "..", "data")
 ACTION = re.compile(r"\b(follow|share|save|like|subscribe|repost)\b", re.I)
 URL = re.compile(r"https?://[^\s<>\")]+")
 BIO = re.compile(r"\bin (?:my|the) bio\b|\blink in bio\b", re.I)
+
+# queue-zones.csv defines the PAID zone as anything carrying one of these.
+PAID = re.compile(r"#ad\b|#TargetPartner\b", re.I)
 
 
 def load_magnets(path):
@@ -147,11 +152,69 @@ def check(rows, magnets, platforms):
     return findings
 
 
+def when(row):
+    """Parse a row's run time, or None when it has none to parse."""
+    at = (row.get("at") or "").strip()
+    if not at:
+        return None
+    try:
+        return datetime.fromisoformat(at.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+
+
+def paid_stacking(rows, window_min):
+    """Two paid posts too close on one account is a delivery failure.
+
+    On 2026-08-21 four paid and promotional posts published to Instagram at
+    22:59, 23:00, 23:01 and 23:01. They took 2, 0, 0 and 0 likes. A brand deal
+    carries a delivery window and the whole point of the window is reach, so
+    stacking them buries the one thing on the queue that was actually sold.
+    The spacing rule in posting-cadence.csv already said 2 hours. Nothing read
+    it at ship time, which is why this is a check and not a line in a file.
+
+    Paid against paid only. Paid against organic buries the ad too, but at 7
+    to 13 posts a day a paid post is almost always within 2 hours of
+    something, so that rule would fire on nearly every ad and be ignored
+    inside a week. Volume has to come down before that one is worth writing.
+    """
+    findings = []
+    byacct = {}
+    for row in rows:
+        if not PAID.search(row.get("text") or ""):
+            continue
+        aid = str(row.get("accountId") or "").strip()
+        t = when(row)
+        if t is None:
+            findings.append({"code": "H02_PAID_NO_TIME", "id": row.get("id", "?"),
+                             "platform": row.get("platform", "?"), "at": "",
+                             "msg": "carries #ad or #TargetPartner and has no run time, "
+                                    "so its spacing cannot be checked"})
+            continue
+        byacct.setdefault(aid, []).append((t, row))
+
+    for aid, items in byacct.items():
+        items.sort(key=lambda x: x[0])
+        for (t1, r1), (t2, r2) in zip(items, items[1:]):
+            gap = (t2 - t1).total_seconds() / 60
+            if gap < window_min:
+                findings.append({
+                    "code": "P08_PAID_STACKED", "id": r2.get("id", "?"),
+                    "platform": r2.get("platform", "?"),
+                    "at": r2.get("at", ""),
+                    "msg": "lands %d min after paid post %s on the same account, "
+                           "under the %d min minimum"
+                           % (round(gap), r1.get("id", "?"), window_min)})
+    return findings
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--queue", required=True)
     ap.add_argument("--magnets", default=os.path.join(DATA, "magnet-map.csv"))
     ap.add_argument("--platforms", default=os.path.join(DATA, "platform-cta.csv"))
+    ap.add_argument("--paid-window", type=int, default=120, metavar="MIN",
+                    help="minutes of clear air a paid post needs, default 120")
     ap.add_argument("--quiet", action="store_true")
     a = ap.parse_args()
 
@@ -159,6 +222,7 @@ def main():
     if isinstance(rows, dict):
         rows = rows.get("items") or rows.get("posts") or []
     findings = check(rows, load_magnets(a.magnets), load_platforms(a.platforms))
+    findings += paid_stacking(rows, a.paid_window)
 
     fails = [f for f in findings if not f["code"].startswith("H")]
     holds = [f for f in findings if f["code"].startswith("H")]

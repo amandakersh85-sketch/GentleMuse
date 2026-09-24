@@ -1,0 +1,113 @@
+[
+ {
+  "slug": "halloween-saints-eve",
+  "lane": "words",
+  "hook": "Halloween is a shortened Scottish phrase about saints.",
+  "fact": "The word Halloween began as a Scottish shortening of All Hallows even, meaning the evening before All Hallows, or All Saints Day. Hallow is an old word for a holy person or saint, and the short form is recorded from the 1560s.",
+  "backbone": "Halloween means the evening before the saints' day.",
+  "source": "Etymonline, Halloween: https://www.etymonline.com/word/Halloween",
+  "quote": "1560s, in a Scottish context, a Scottish shortening of All Hallowen, Allhallowe'en, All Hallows even, etc., mid-15c., \"the evening before All-Hallows.\"",
+  "visual": "a candlelit window on a dark October evening",
+  "confidence": "high"
+ },
+ {
+  "slug": "bonfire-bone-fire",
+  "lane": "words",
+  "hook": "A bonfire was once, quite literally, a bone fire.",
+  "fact": "Bonfire appears in English in the late 1300s as bonfir or banefire, meaning a fire in which bones are burned. That original sense faded and was forgotten by the 1700s. By the mid 1500s the word already meant a large open air fire for celebration.",
+  "backbone": "The word began as bone plus fire.",
+  "source": "Etymonline, bonfire: https://www.etymonline.com/word/bonfire",
+  "quote": "late 14c., bonfir, banefire, \"a fire in which bones are burned;\" see bone (n.) + fire (n.).",
+  "visual": "a bonfire at dusk, sparks rising",
+  "confidence": "high"
+ },
+ {
+  "slug": "werewolf-man-wolf",
+  "lane": "words",
+  "hook": "The wer in werewolf is an old word for man.",
+  "fact": "Werewolf comes from late Old English werewulf, joining wer, meaning man, with wulf, meaning wolf. The word grew rare after the 1600s and was broadly revived in the early 1800s through folklore studies.",
+  "backbone": "A werewolf is, word for word, a man wolf.",
+  "source": "Etymonline, werewolf: https://www.etymonline.com/word/werewolf",
+  "quote": "from wer \"man, male person\" (from PIE root *wi-ro- \"man\") + wulf",
+  "visual": "a full moon over a dark treeline",
+  "confidence": "high"
+ },
+ {
+  "slug": "haunt-to-visit-often",
+  "lane": "words",
+  "hook": "To haunt a place first meant to visit it often.",
+  "fact": "Haunt entered English in the early 1200s from Old French hanter, to frequent or visit regularly, and in Middle English to haunte scole meant to attend school. The ghostly sense of a spirit returning to the house where it had lived appears in Shakespeare, in A Midsummer Night's Dream around 1590.",
+  "backbone": "A ghost haunts a house the way a regular haunts a cafe.",
+  "source": "Etymonline, haunt: https://www.etymonline.com/word/haunt",
+  "quote": "Use of the verb in reference to a spirit or ghost returning to the house where it had lived is in Shakespeare's plays (1590 in \"A Midsummer Night's Dream\").",
+  "visual": "an empty chair by a window in an old house",
+  "confidence": "high"
+ },
+ {
+  "slug": "goosebumps-fur-reflex",
+  "lane": "science",
+  "hook": "Your goosebumps are built for fur you no longer have.",
+  "fact": "Goosebumps may help animals with thick fur stay warm, but humans do not seem to benefit much from the reaction. Harvard researchers found in mice that the cells behind goosebumps also help regulate the stem cells that regrow hair. Research suggests the reflex stayed because it quietly does a second job.",
+  "backbone": "A leftover reflex that still has work to do.",
+  "source": "Harvard Gazette, The hair-raising reason for goosebumps is revealed (2020): https://news.harvard.edu/gazette/story/2020/07/the-hair-raising-reason-for-goosebumps-is-revealed/",
+  "quote": "In a new study, Harvard University scientists have discovered the reason: the cell types that cause goosebumps are also important for regulating the stem cells that regenerate the hair follicle and hair.",
+  "visual": "a close up of goosebumps on a forearm in cool light",
+  "confidence": "medium"
+ },
+ {
+  "slug": "pareidolia-male-faces",
+  "lane": "science",
+  "hook": "Most faces we see in objects read as male.",
+  "fact": "Seeing faces in outlets, clouds or carved pumpkins is called face pareidolia. In a 2022 study of 3,815 adults, people readily gave these illusory faces an emotion, an age and a gender. 90% of the images had an average rating of male, and only 9% female.",
+  "backbone": "The brain assigns a whole personality to a pattern.",
+  "source": "Wardle et al., PNAS (2022), via PubMed Central: https://pmc.ncbi.nlm.nih.gov/articles/PMC8812520/",
+  "quote": "Most strikingly, we observed a strong bias to perceive illusory faces as male rather than female.",
+  "visual": "a wall socket that looks like a surprised face",
+  "confidence": "high"
+ },
+ {
+  "slug": "fear-sweet-spot",
+  "lane": "science",
+  "hook": "The most enjoyable scare sits in the middle.",
+  "fact": "Aarhus University researchers fitted 110 visitors to a haunted attraction in Denmark with heart rate monitors. Enjoyment peaked at a moderate level of fear and dropped when people were barely scared or too scared. Research suggests fear feels good when it moves the body just far enough from its normal state, much like play.",
+  "backbone": "Fear turns into fun inside a narrow window.",
+  "source": "Association for Psychological Science, Haunted House Researchers Investigate Playing with Fear (2020): https://www.psychologicalscience.org/observer/playing-with-fear",
+  "quote": "\"If people are not very scared, they do not enjoy the attraction as much, and the same happens if they are too scared,\" said Andersen.",
+  "visual": "a dim hallway with a single lantern at the far end",
+  "confidence": "high"
+ },
+ {
+  "slug": "leaves-hidden-yellow",
+  "lane": "nature",
+  "hook": "Autumn yellow was hiding in the leaf all summer.",
+  "fact": "Chlorophyll gives leaves their green color and powers photosynthesis through the growing season. As nights lengthen in autumn, chlorophyll production slows and the pigment is destroyed. That unmasks the yellow and orange carotenoids and red anthocyanins in the leaf.",
+  "backbone": "Fall color is what remains when the green fades.",
+  "source": "US Forest Service, The Joy and Science of Fall Colors: https://www.fs.usda.gov/visit/fall-colors/joy-and-science",
+  "quote": "The carotenoids and anthocyanin that are present in the leaf are then unmasked and begin to show their colors.",
+  "visual": "a single maple leaf, half green and half gold",
+  "confidence": "high"
+ },
+ {
+  "slug": "pumpkin-ancient-fruit",
+  "lane": "nature",
+  "hook": "The pumpkin's family was farmed in Mexico 10,000 years ago.",
+  "fact": "Botanically, a pumpkin is a fruit, because anything that starts from a single flower is classed as a simple fruit. Seeds and rind of Cucurbita pepo, the species most carving pumpkins belong to, were found in Guila Naquitz cave in Oaxaca, Mexico. Researchers dated that cultivation to between 10,000 and 8,000 years ago, earlier than maize or beans.",
+  "backbone": "The porch pumpkin comes from one of the oldest farmed plants in the Americas.",
+  "source": "Smith, The Initial Domestication of Cucurbita pepo in the Americas 10,000 Years Ago, Science (1997): https://www.science.org/doi/10.1126/science.276.5314.932 ; Texas A&M Stories (fruit classification): https://stories.tamu.edu/news/2024/10/23/is-a-pumpkin-a-fruit-or-a-vegetable/",
+  "quote": "pumpkins are a fruit because anything that starts from a single flower is classified botanically as a simple fruit (Texas A&M). Cultivation of C. pepo at Guila Naquitz occurred between 10,000 and 8000 calendar years ago (Smith 1997, Science abstract).",
+  "visual": "a pumpkin on a vine in a field at golden hour",
+  "confidence": "high",
+  "note": "Rewritten by the main session: the original 9,000 year claim was not on its cited page."
+ },
+ {
+  "slug": "owl-silent-feathers",
+  "lane": "nature",
+  "hook": "An owl's wing feathers are shaped to erase sound.",
+  "fact": "Owl flight feathers carry comb-like serrations on their leading edge that break up the turbulent air behind a wing's usual swoosh. A velvety feather surface and a soft fringe on the trailing edge dampen what is left. Together they streamline the airflow and absorb the sound of flight.",
+  "backbone": "Silence is built into the shape of the feather.",
+  "source": "Audubon, The Silent Flight of Owls, Explained: https://www.audubon.org/magazine/silent-flight-of-owls-explained",
+  "quote": "Comb-like serrations on the leading edge of wing feathers break up the turbulent air that typically creates a swooshing sound.",
+  "visual": "a barn owl gliding low over a moonlit field",
+  "confidence": "high"
+ }
+]

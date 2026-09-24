@@ -1,0 +1,386 @@
+<title>33 Nights Approval</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F2F0F3;--panel:#FFFFFF;--ink:#1F1A26;--muted:#655E70;--line:#DCD6E1;
+  --accent:#AD4F17;--accent-soft:#F6E6DA;--ok:#3C6A44;--ok-soft:#E2EEE3;--warn:#8C600E;--warn-soft:#F5EBD4;
+  --music:#AD4F17;--vo:#6E6485;
+  --display:"IM Fell English",Georgia,"Times New Roman",serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  color-scheme:dark;--ground:#141117;--panel:#1D1922;--ink:#EDE7F1;--muted:#A69EB0;--line:#322B38;
+  --accent:#E58B4E;--accent-soft:#3A2519;--ok:#86B791;--ok-soft:#1E2E22;--warn:#DDB05A;--warn-soft:#352B17;
+  --music:#E58B4E;--vo:#9C92B6;}}
+:root[data-theme="dark"]{
+  color-scheme:dark;--ground:#141117;--panel:#1D1922;--ink:#EDE7F1;--muted:#A69EB0;--line:#322B38;
+  --accent:#E58B4E;--accent-soft:#3A2519;--ok:#86B791;--ok-soft:#1E2E22;--warn:#DDB05A;--warn-soft:#352B17;
+  --music:#E58B4E;--vo:#9C92B6;}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font:15px/1.55 var(--body);padding-inline:16px;padding-block:28px 96px}
+.wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:44px}
+h1,h2{font-family:var(--display);font-weight:400;text-wrap:balance;margin:0}
+h1{font-size:clamp(40px,8vw,64px);line-height:1}
+h2{font-size:30px;line-height:1.15}
+h3{font-size:15px;margin:0;font-weight:600}
+p{margin:0;max-width:66ch}
+a{color:var(--accent)}
+.eyebrow{font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.muted{color:var(--muted)}
+header{display:flex;flex-direction:column;gap:14px}
+header .lede{font-size:17px}
+.status{display:inline-flex;align-items:center;gap:8px;font:500 13px var(--mono);padding:6px 12px;border-radius:999px;background:var(--warn-soft);color:var(--warn);align-self:flex-start}
+.status.approved{background:var(--ok-soft);color:var(--ok)}
+.status.changes{background:var(--accent-soft);color:var(--accent)}
+.checks{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.check{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:8px;text-decoration:none;color:inherit}
+.check:hover{border-color:var(--accent)}
+.check .q{font-size:13px;color:var(--muted)}
+.check .a{font-family:var(--display);font-size:22px;line-height:1.15}
+.check .n{font:12px var(--mono);color:var(--muted)}
+section{display:flex;flex-direction:column;gap:18px;scroll-margin-top:20px}
+.sechead{display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--line);padding-top:22px}
+.chip{display:inline-flex;align-items:center;font:500 11px/1 var(--mono);letter-spacing:.04em;padding:4px 7px;border-radius:5px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.chip.ok{color:var(--ok);background:var(--ok-soft);border-color:transparent}
+.chip.warn{color:var(--warn);background:var(--warn-soft);border-color:transparent}
+.chip.new{color:var(--accent);background:var(--accent-soft);border-color:transparent}
+.chip.on{color:var(--ink);border-color:var(--ink)}
+.chip.off{opacity:.35}
+.callout{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.callout.warn{border-color:var(--warn)}
+.two{display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:700px){.two{grid-template-columns:1fr}}
+video{width:100%;max-width:260px;aspect-ratio:9/16;border-radius:10px;background:#000;display:block}
+.plates{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:10px}
+.plate{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--muted)}
+.plate img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:6px;display:block}
+.plate b{font:500 11px var(--mono);color:var(--ink)}
+.newlist{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:8px 20px;padding:0;margin:0;list-style:none}
+.newlist li{display:flex;gap:10px;font-size:14px}
+.newlist .mono{color:var(--muted);flex:none;width:52px}
+.bars{display:flex;flex-direction:column;gap:5px}
+.bar{display:grid;grid-template-columns:128px minmax(0,1fr) 44px;gap:10px;align-items:center;font-size:13px}
+.bar .track{height:14px;position:relative}
+.bar .fill{height:100%;border-radius:0 3px 3px 0;background:var(--music)}
+.bar.vo .fill{background:var(--vo)}
+.bar .v{font:12px var(--mono);text-align:right;color:var(--muted)}
+.legend{display:flex;gap:16px;font-size:13px;color:var(--muted);flex-wrap:wrap}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.medians{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.medians div{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px}
+.medians .big{font:500 28px var(--mono);display:block}
+.day{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.day div{background:var(--panel);padding:12px;display:flex;flex-direction:column;gap:4px;font-size:13px}
+.day div.here{background:var(--accent-soft)}
+@media (max-width:700px){.day{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.sched{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--panel)}
+tr:last-child td{border-bottom:0}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filters button,.btn{font:500 13px var(--body);padding:8px 14px;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer}
+.filters button[aria-pressed="true"]{border-color:var(--ink)}
+.btn.primary{background:var(--ink);color:var(--ground);border-color:var(--ink)}
+.btn:disabled{opacity:.5;cursor:default}
+button:focus-visible,a:focus-visible,summary:focus-visible,textarea:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.nights{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:10px;background:var(--panel);overflow:hidden}
+details.night{border-bottom:1px solid var(--line)}
+details.night:last-child{border-bottom:0}
+details.night.flagged{background:var(--accent-soft)}
+summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:44px 58px minmax(0,1fr) auto;gap:14px;align-items:center;padding:10px 14px}
+summary::-webkit-details-marker{display:none}
+summary img,.noimg{width:44px;height:58px;object-fit:cover;border-radius:5px;display:block}
+.noimg{border:1px dashed var(--accent);display:grid;place-items:center;font:500 10px var(--mono);color:var(--accent);text-align:center}
+.nnum{font:500 13px var(--mono);display:flex;flex-direction:column;line-height:1.3}
+.nnum small{font-size:11px;color:var(--muted);font-weight:400}
+.hook{display:flex;flex-direction:column;gap:5px;min-width:0}
+.hook .t{font-weight:500}
+.meta{display:flex;gap:5px;flex-wrap:wrap}
+.plats{display:flex;gap:4px}
+@media (max-width:640px){summary{grid-template-columns:44px minmax(0,1fr);}summary .nnum{grid-column:2;grid-row:1}summary .hook{grid-column:1 / -1}summary .plats{grid-column:1 / -1}}
+.body{padding:4px 14px 18px 14px;display:flex;flex-direction:column;gap:12px;margin-left:calc(44px + 14px)}
+@media (max-width:640px){.body{margin-left:0}}
+blockquote{margin:0;padding-left:12px;border-left:2px solid var(--line);color:var(--muted);font-style:italic;max-width:66ch}
+.srcs{display:flex;flex-direction:column;gap:3px;font-size:13px}
+.rowact{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.approve{position:sticky;bottom:0;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:12px;box-shadow:0 -6px 24px rgba(0,0,0,.08);margin-bottom:env(safe-area-inset-bottom,0px)}
+textarea{width:100%;min-height:64px;font:14px var(--body);color:var(--ink);background:var(--ground);border:1px solid var(--line);border-radius:8px;padding:10px}
+.radios{display:flex;flex-direction:column;gap:6px;font-size:14px}
+.radios label{display:flex;gap:8px;align-items:flex-start}
+.saved{font:12px var(--mono);color:var(--muted)}
+@media (prefers-reduced-motion:no-preference){.check,.btn{transition:border-color .15s,opacity .15s}}
+</style>
+
+<div class="wrap">
+<header>
+  <span class="eyebrow">Gentle Muse · Halloween countdown · for Amanda</span>
+  <h1>33 Nights</h1>
+  <p class="lede">Sep 29 to Oct 31. 30 new facts, each checked twice against its source, plus your 3 best performers. Music under every reel. Evenings only. Nothing is scheduled until you approve at the bottom of this page.</p>
+  <span class="status" id="status">Waiting on your approval</span>
+</header>
+
+<nav class="checks" aria-label="Your 4 questions">
+  <a class="check" href="#facts"><span class="q">1. Are the facts factual?</span><span class="a">30 of 30 confirmed</span><span class="n">3 marked medium, reasons below</span></a>
+  <a class="check" href="#graphics"><span class="q">2. Can we reuse the graphics?</span><span class="a">24 nights, yes</span><span class="n">9 need a new image · about 450 credits</span></a>
+  <a class="check" href="#audio"><span class="q">3. Music or voiceover?</span><span class="a">Music</span><span class="n">FB median 224 music vs 216 VO</span></a>
+  <a class="check" href="#schedule"><span class="q">4. The whole schedule</span><span class="a">6:00 PM nightly</span><span class="n">IG + TT 33 nights · FB + YT 17</span></a>
+</nav>
+
+<section id="facts">
+  <div class="sechead">
+    <span class="eyebrow">Question 1</span>
+    <h2>Are the new facts factual?</h2>
+    <p>Yes. Each fact was found by one researcher, then its source page was fetched again separately and the claim matched to the page's own words. 30 of 30 held. The pumpkin fact failed the first time because its page did not say what we claimed, so it was rewritten on a stronger source (Smith, 1997, in the journal Science). Every fact, its source quote and its links are inside each night below.</p>
+  </div>
+  <div class="callout warn">
+    <h3>The 3 marked medium, and why</h3>
+    <p><b>All Souls and Odilo.</b> The history is solid, but it rests on 1 encyclopedia entry.</p>
+    <p><b>Goosebumps and fur.</b> The finding comes from a mouse study at Harvard. True as written, but it is 1 study.</p>
+    <p><b>Treehouse of Horror and Poe.</b> Confirmed, but on a music site rather than a primary source.</p>
+    <p class="muted">None of the 3 is wrong. Flag any of them below if you would rather swap it out.</p>
+  </div>
+</section>
+
+<section id="graphics">
+  <div class="sechead">
+    <span class="eyebrow">Question 2</span>
+    <h2>Can we reuse the graphics you liked?</h2>
+    <p>Yes, for 24 of the 33 nights. The sample reel is a real render from tonight: the soul cakes fact on your porch plate, with music. Every new fact is built the same way. No plate runs twice within 5 nights. Plates tied to one story, like Lugnano or the Goosebumps set, stay with their own posts.</p>
+  </div>
+  <div class="two">
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <video id="sample" src="sample-soulcakes.mp4" poster="poster.jpg" controls playsinline preload="none"></video>
+      <span class="muted" style="font-size:13px">Sample, 18 seconds. Press play for sound.</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <h3>Your plates in this plan</h3>
+      <div class="plates" id="plates"></div>
+    </div>
+  </div>
+  <div class="callout">
+    <h3>9 facts need a new image</h3>
+    <p>For these, nothing you already have shows the right thing, and I will not force a close match. A Blotato image is about 50 credits (the documented rate). 9 is about 450 of the 2,974 you have, so no new money. I will make 1 first, read the real charge, then tell you before the other 8.</p>
+    <ul class="newlist" id="newlist"></ul>
+  </div>
+</section>
+
+<section id="audio">
+  <div class="sechead">
+    <span class="eyebrow">Question 3</span>
+    <h2>Does the data support music over voiceover?</h2>
+    <p>It supports it, but honestly: voiceover did not do better. On Facebook, where these reels actually get seen, music-only reels had a median of 224 views and voiceover reels had 216. Your top 3 Halloween reels there were all music. Music costs nothing and needs no HeyGen credits, and no reel is ever silent.</p>
+  </div>
+  <div class="medians">
+    <div><span class="big" style="color:var(--music)">224</span>median views, music only<br><span class="muted mono">23 reels</span></div>
+    <div><span class="big" style="color:var(--vo)">216</span>median views, voiceover<br><span class="muted mono">5 reels</span></div>
+    <div><span class="big">1,013</span>the trailer, music only<br><span class="muted mono">Facebook</span></div>
+  </div>
+  <div class="callout">
+    <div class="legend"><span><i style="background:var(--music)"></i>Music only</span><span><i style="background:var(--vo)"></i>Voiceover</span><span class="mono">Facebook views per reel, best airing</span></div>
+    <div class="bars" id="bars"></div>
+  </div>
+  <div class="callout warn">
+    <h3>1 thing to know</h3>
+    <p>On Instagram, Halloween facts get about 5 views each, while Cesa gets about 199 there. Facebook and TikTok carry this series. Instagram stays in the plan because it costs nothing extra, but do not judge the countdown by Instagram numbers.</p>
+    <p>There is only 1 music bed right now. 33 nights on 1 track will feel repetitive, so I will add 2 or 3 royalty-free beds in the same calm tone and rotate them.</p>
+  </div>
+</section>
+
+<section id="schedule">
+  <div class="sechead">
+    <span class="eyebrow">Question 4</span>
+    <h2>The schedule across every platform</h2>
+    <p>Halloween lives in the evening, so your mornings and days stay free for the rest of your work. All times are Central.</p>
+  </div>
+  <div class="day" aria-label="Your day">
+    <div><span class="eyebrow">Morning</span><b>Business</b><span class="muted">Gentle Muse posts</span></div>
+    <div><span class="eyebrow">Daytime</span><b>Face to camera</b><span class="muted">your local pipeline</span></div>
+    <div class="here"><span class="eyebrow">Evening</span><b>Halloween</b><span class="muted">6:00 and 6:30 PM</span></div>
+    <div><span class="eyebrow">Her own channels</span><b>Cesa</b><span class="muted">not on yours</span></div>
+  </div>
+  <div class="sched"><table>
+    <thead><tr><th>Platform</th><th>When</th><th>Posts</th></tr></thead>
+    <tbody>
+      <tr><td>All 4</td><td class="mono">Mon Sep 28 · 6:00 PM</td><td>Trailer reposted: "33 nights. It starts tomorrow."</td></tr>
+      <tr><td>Instagram + TikTok</td><td class="mono">Every night · 6:00 PM</td><td class="mono">33</td></tr>
+      <tr><td>Facebook + YouTube</td><td class="mono">Every other night · 6:30 PM</td><td class="mono">17 <span class="muted">(odd nights, ending on Samhain)</span></td></tr>
+      <tr><td>Pinterest</td><td class="mono">as already scheduled</td><td class="muted">unchanged</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout">
+    <h3>Old repeats come out as the new nights go in</h3>
+    <p>The older Halloween posts still queued from Sep 29 on are backed up. Each one is removed only after the new post for that night is scheduled, so no night is ever empty.</p>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div class="filters" role="group" aria-label="Filter nights">
+      <button type="button" data-f="all" aria-pressed="true">All 33</button>
+      <button type="button" data-f="new">New image</button>
+      <button type="button" data-f="medium">Medium</button>
+      <button type="button" data-f="reused">Reposts</button>
+      <button type="button" data-f="fb">On FB + YT</button>
+      <button type="button" data-f="flagged">Flagged</button>
+    </div>
+    <p class="muted" style="font-size:13px">Tap a night to read the fact, the quote from its source, and the links. Use Flag on anything you want changed.</p>
+  </div>
+  <div class="nights" id="nights"></div>
+</section>
+
+<section id="decide">
+  <div class="sechead">
+    <span class="eyebrow">Before you approve</span>
+    <h2>1 choice</h2>
+    <p>"Samhain is 5 nights out" is already queued for Oct 26 at 10:00 AM on Instagram and TikTok. Mornings are for business now, and that night already has its own fact.</p>
+  </div>
+  <div class="radios" role="radiogroup" aria-label="Samhain 5 nights out post">
+    <label><input type="radio" name="cdn" id="cdn-move" value="move" checked> Move it to 7:30 PM Oct 26, after that night's fact (my pick)</label>
+    <label><input type="radio" name="cdn" id="cdn-keep" value="keep"> Keep it at 10:00 AM</label>
+    <label><input type="radio" name="cdn" id="cdn-drop" value="drop"> Remove it (backed up first)</label>
+  </div>
+</section>
+
+<div class="approve" id="approve">
+  <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline">
+    <h3 id="flagcount">No nights flagged</h3>
+    <span class="saved" id="saved"></span>
+  </div>
+  <label for="note" class="muted" style="font-size:13px">Anything to change? (optional)</label>
+  <textarea id="note" placeholder="For example: swap night 14, or no to the new image for candy corn"></textarea>
+  <div class="rowact">
+    <button class="btn primary" id="btn-approve" type="button">Approve the plan</button>
+    <button class="btn" id="btn-changes" type="button">Send back with changes</button>
+  </div>
+  <p class="muted" style="font-size:13px" id="approve-help">Approving lets me render the 30 reels, make the 9 images, and schedule. Nothing posts before Sep 28.</p>
+</div>
+</div>
+
+<script>
+const NIGHTS = [{"night":1,"date":"2026-09-29","slug":"halloween-saints-eve","left":32,"ig_tt":"23:00Z","fb_yt":"23:30Z","lane":"words","hook":"Halloween is a shortened Scottish phrase about saints.","fact":"The word Halloween began as a Scottish shortening of All Hallows even, meaning the evening before All Hallows, or All Saints Day. Hallow is an old word for a holy person or saint, and the short form is recorded from the 1560s.","backbone":"Halloween means the evening before the saints' day.","quote":"1560s, in a Scottish context, a Scottish shortening of All Hallowen, Allhallowe'en, All Hallows even, etc., mid-15c., \"the evening before All-Hallows.\"","confidence":"high","sources":[{"name":"Etymonline, Halloween","url":"https://www.etymonline.com/word/Halloween"}],"reused":false,"plate":"mare-nightma-804338b6.jpg","plate_desc":"bedroom by candlelight"},{"night":2,"date":"2026-09-30","slug":"great-pumpkin-candy-mail","left":31,"ig_tt":"23:00Z","fb_yt":null,"lane":"nostalgia","hook":"Kids mailed real candy to a cartoon boy.","fact":"It's the Great Pumpkin, Charlie Brown debuted on CBS in 1966, and in it Charlie Brown gets a rock at every house while trick or treating. Young viewers felt so bad for him that they mailed piles of candy to CBS.","backbone":"A whole country tried to fix a single bad Halloween.","quote":"When the half-hour television special debuted in 1966, the sequence had young fans feeling so bad for Charlie, they mailed piles of candy to CBS.","confidence":"high","sources":[{"name":"TheWrap, \"It's the Great Pumpkin, Charlie Brown\" at 50","url":"https://www.thewrap.com/great-pumpkin-charlie-brown-50th-daughter-schulz-peanuts-creator-halloween-rocks/"}],"reused":false,"plate":"trackA-porch.jpg","plate_desc":"lit porch, candy bowl"},{"night":3,"date":"2026-10-01","slug":"leaves-hidden-yellow","left":30,"ig_tt":"23:00Z","fb_yt":"23:30Z","lane":"nature","hook":"Autumn yellow was hiding in the leaf all summer.","fact":"Chlorophyll gives leaves their green color and powers photosynthesis through the growing season. As nights lengthen in autumn, chlorophyll production slows and the pigment is destroyed. That unmasks the yellow and orange carotenoids and red anthocyanins in the leaf.","backbone":"Fall color is what remains when the green fades.","quote":"The carotenoids and anthocyanin that are present in the leaf are then unmasked and begin to show their colors.","confidence":"high","sources":[{"name":"US Forest Service, The Joy and Science of Fall Colors","url":"https://www.fs.usda.gov/visit/fall-colors/joy-and-science"}],"reused":false,"plate":null,"new_image":"a single maple leaf, half green and half gold"},{"night":4,"date":"2026-10-02","slug":"guising-scotland-ireland","left":29,"ig_tt":"23:00Z","fb_yt":null,"lane":"folklore","hook":"Children in Scotland were going door to door by the 1500s.","fact":"By the 16th century, guising was common in Scotland and Ireland on All Hallows' Eve. Children in disguise made the rounds of their neighbors and were given treats, which were meant to ward off harmful spirits.","backbone":"The costume came first, as a quiet form of protection.","quote":"By the 16th century, 'guising' was common in Scotland and Ireland on All Hallows' Eve: Children, disguised as ghouls, made the rounds, receiving treats to ward off malign spirits.","confidence":"high","sources":[{"name":"Smithsonian Magazine, The Celtic Origins of Trick or Treating","url":"https://www.smithsonianmag.com/history/celtic-origins-trick-treating-halloween-180984916/"}],"reused":false,"plate":"trickortreat-326e2898.jpg","plate_desc":"open doorway, lantern"},{"night":5,"date":"2026-10-03","slug":"ghostbusters-library","left":28,"ig_tt":"23:00Z","fb_yt":"23:30Z","lane":"nostalgia","hook":"A movie that opens in a library is now shelved there.","fact":"Ghostbusters (1984) was added to the Library of Congress National Film Registry in December 2015. Director Ivan Reitman noted that the film begins with a ghost in a library.","backbone":"The story came full circle, right back to the stacks.","quote":"It's an honor to know that a movie that begins with a ghost in a library, now has a spot on the shelves of the Library of Congress.","confidence":"high","sources":[{"name":"CBS News, \"Shawshank Redemption,\" \"Ghostbusters\" added to National Film Registry","url":"https://www.cbsnews.com/news/shawshank-redemption-ghostbusters-added-to-national-film-registry-2/"}],"reused":false,"plate":"goosebumps-ea746655.jpg","plate_desc":"paperback rack, green lamp"},{"night":6,"date":"2026-10-04","slug":"werewolf-man-wolf","left":27,"ig_tt":"23:00Z","fb_yt":null,"lane":"words","hook":"The wer in werewolf is an old word for man.","fact":"Werewolf comes from late Old English werewulf, joining wer, meaning man, with wulf, meaning wolf. The word grew rare after the 1600s and was broadly revived in the early 1800s through folklore studies.","backbone":"A werewolf is, word for word, a man wolf.","quote":"from wer \"man, male person\" (from PIE root *wi-ro- \"man\") + wulf","confidence":"high","sources":[{"name":"Etymonline, werewolf","url":"https://www.etymonline.com/word/werewolf"}],"reused":false,"plate":"nightmare-be-659ed73b.jpg","plate_desc":"full moon, bare tree"},{"night":7,"date":"2026-10-05","slug":"apple-bobbing-courtship","left":26,"ig_tt":"23:00Z","fb_yt":"23:30Z","lane":"folklore","hook":"Bobbing for apples was once a way to find a spouse.","fact":"In the British courting game behind apple bobbing, the first to pull out a fruit was said to find love and marry first. In another custom, a young woman slept with her bobbed apple under her pillow, expecting her dreams to show her future spouse.","backbone":"A party game once carried a real question about the future.","quote":"In one variant, the first to retrieve some fruit would find her love and marry first.","confidence":"high","sources":[{"name":"University of Missouri Extension, Apple bobbing: British game of sweet, sour or rotten courting","url":"https://extension.missouri.edu/news/apple-bobbing-british-game-of-sweet-sour-or-rotten-courting"}],"reused":false,"plate":null,"new_image":"red apples floating in a wooden tub of water"},{"night":8,"date":"2026-10-06","slug":"monster-mash-banned-bbc","left":25,"ig_tt":"23:00Z","fb_yt":null,"lane":"nostalgia","hook":"Monster Mash hit No. 1 here and got banned in Britain.","fact":"Monster Mash reached No. 1 on the Billboard Hot 100 on October 20, 1962, just before Halloween. BBC Radio banned it as too morbid, and the song came back onto the charts in 1970 and again in 1973.","backbone":"A silly song kept finding its way home.","quote":"BBC Radio banned it, saying it was 'too morbid' to play on the air.","confidence":"high","sources":[{"name":"HISTORY, \"Monster Mash\" hits No. 1 on the Billboard Hot 100 chart","url":"https://www.history.com/this-day-in-history/october-20/monster-mash-hits-number-one"}],"reused":false,"plate":"trackA-radio.jpg","plate_desc":"old radio, armchair"},{"night":9,"date":"2026-10-07","slug":"fear-sweet-spot","left":24,"ig_tt":"23:00Z","fb_yt":"23:30Z","lane":"science","hook":"The most enjoyable scare sits in the middle.","fact":"Aarhus University researchers fitted 110 visitors to a haunted attraction in Denmark with heart rate monitors. Enjoyment peaked at a moderate level of fear and dropped when people were barely scared or too scared. Research suggests fear feels good when it moves the body just far enough from its normal state, much like play.","backbone":"Fear turns into fun inside a narrow window.","quote":"\"If people are not very scared, they do not enjoy the attraction as much, and the same happens if they are too scared,\" said Andersen.","confidence":"high","sources":[{"name":"Association for Psychological Science, Haunted House Researchers Investigate Playing with Fear (2020)","url":"https://www.psychologicalscience.org/observer/playing-with-fear"}],"reused":false,"plate":"casper-c4d2ca45.jpg","plate_desc":"grand staircase, empty house"},{"night":10,"date":"2026-10-08","slug":"candy-corn-1880s","left":23,"ig_tt":"23:00Z","fb_yt":null,"lane":"folklore","hook":"Candy corn began in the 1880s, later sold as Chicken Feed.","fact":"Candy corn was invented in the 1880s by George Renninger, who worked for the Wunderle Candy Company. In 1898 the Goelitz Confectionery Company, now Jelly Belly, bought the recipe and sold it as Chicken Feed, a nod to the country's farming roots. Each colored layer was once poured by hand into a kernel shaped mold.","backbone":"A seasonal sweet began as a tribute to farm life.","quote":"It was invented in the 1880s by a man named George Renninger, who worked for the Wunderle Candy Company.","confidence":"high","sources":[{"name":"Smithsonian Magazine, Candy Corn Hasn't Changed Since the 19th Century","url":"https://www.smithsonianmag.com/smart-news/candy-corn-hasnt-changed-19th-century-180957107/"}],"reused":false,"plate":null,"new_image":"a small glass dish of candy corn on a linen napkin"},{"night":11,"date":"2026-10-09","slug":"myers-mask-captain-kirk","left":22,"ig_tt":"23:00Z","fb_yt":"23:30Z","lane":"nostalgia","hook":"The scariest mask of 1978 started as Captain Kirk.","fact":"The mask worn by Michael Myers in Halloween (1978) began as a William Shatner Captain Kirk mask. Production designer Tommy Lee Wallace painted it white, pulled off the sideburns, and cut the eyeholes wider.","backbone":"A hero's face, emptied out, became the fear.","quote":"I had, meanwhile, modified the Kirk mask a little - painted it dead white, yanked off the sideburns, opened up the eyeholes more, mussed the hair and darkened it.","confidence":"high","sources":[{"name":"Fox News, Halloween at 45","url":"https://www.foxnews.com/entertainment/halloween-45-jamie-lee-curtis-200-wardrobe-budget-inspiration-scary-michael-myers-mask"}],"reused":false,"plate":"nightmare-be-c515317f.jpg","plate_desc":"empty theater"},{"night":12,"date":"2026-10-10","slug":"owl-silent-feathers","left":21,"ig_tt":"23:00Z","fb_yt":null,"lane":"nature","hook":"An owl's wing feathers are shaped to erase sound.","fact":"Owl flight feathers carry comb-like serrations on their leading edge that break up the turbulent air behind a wing's usual swoosh. A velvety feather surface and a soft fringe on the trailing edge dampen what is left. Together they streamline the airflow and absorb the sound of flight.","backbone":"Silence is built into the shape of the feather.","quote":"Comb-like serrations on the leading edge of wing feathers break up the turbulent air that typically creates a swooshing sound.","confidence":"high","sources":[{"name":"Audubon, The Silent Flight of Owls, Explained","url":"https://www.audubon.org/magazine/silent-flight-of-owls-explained"}],"reused":false,"plate":"trackA-salem.jpg","plate_desc":"field at dusk"},{"night":13,"date":"2026-10-11","slug":"mischief-night-1790","left":20,"ig_tt":"23:00Z","fb_yt":"23:30Z","lane":"folklore","hook":"Mischief Night first shows up in writing at Oxford, 1790.","fact":"The earliest known use of the term Mischief Night comes from Oxford in 1790. It then meant the night before May Day, when young people switched shop signs and overturned water tubs. Parts of New England now call the night before Halloween Cabbage Night, and Detroit calls it Devil's Night.","backbone":"The urge to prank has simply moved around the calendar.","quote":"The oldest uses of the term 'Mischief Night' were in Britain, not the U.S., with the first known instance at Oxford in 1790.","confidence":"high","sources":[{"name":"TIME, Mischief Night and Halloween: A Brief History of the Term","url":"https://time.com/4093505/mischief-night-history/"}],"reused":false,"plate":"trackA-press.jpg","plate_desc":"print shop, 1 candle"},{"night":14,"date":"2026-10-12","slug":"scary-stories-most-challenged","left":19,"ig_tt":"23:00Z","fb_yt":null,"lane":"nostalgia","hook":"The book you traded at recess topped a banned list.","fact":"The Scary Stories series by Alvin Schwartz ranked No. 1 on the American Library Association's list of the 100 most frequently challenged books of 1990 to 1999. It placed above every other title on that list for the decade.","backbone":"What scared the adults most was the book itself.","quote":"1. Scary Stories (series), by Alvin Schwartz","confidence":"high","sources":[{"name":"American Library Association, Top 100 Most Frequently Challenged Books: 1990-1999","url":"https://www.ala.org/advocacy/bbooks/100-most-frequently-challenged-books-1990%E2%80%931999"}],"reused":false,"plate":"mare-nightma-997ba4ff.jpg","plate_desc":"candle on a nightstand"},{"night":15,"date":"2026-10-13","slug":"haunt-to-visit-often","left":18,"ig_tt":"23:00Z","fb_yt":"23:30Z","lane":"words","hook":"To haunt a place first meant to visit it often.","fact":"Haunt entered English in the early 1200s from Old French hanter, to frequent or visit regularly, and in Middle English to haunte scole meant to attend school. The ghostly sense of a spirit returning to the house where it had lived appears in Shakespeare, in A Midsummer Night's Dream around 1590.","backbone":"A ghost haunts a house the way a regular haunts a cafe.","quote":"Use of the verb in reference to a spirit or ghost returning to the house where it had lived is in Shakespeare's plays (1590 in \"A Midsummer Night's Dream\").","confidence":"high","sources":[{"name":"Etymonline, haunt","url":"https://www.etymonline.com/word/haunt"}],"reused":false,"plate":"mare-nightma-d0141171.jpg","plate_desc":"rocking chair, empty room"},{"night":16,"date":"2026-10-14","slug":"anoka-1920","left":17,"ig_tt":"23:00Z","fb_yt":null,"lane":"folklore","hook":"A Minnesota town answered Halloween pranks with a parade.","fact":"After years of soaped windows, tipped outhouses and cows loose on Main Street, civic leaders in Anoka, Minnesota, proposed a large Halloween celebration in 1920. That first year brought a parade, a bonfire at Bridge Square, and bags of popcorn, candy and peanuts for the children. The town has held it every year since, except 1942 and 1943 during World War II.","backbone":"A town chose to give its restless kids something to belong to.","quote":"In 1920, George Green and other Anoka civic leaders suggested the idea of a giant celebration.","confidence":"high","sources":[{"name":"Anoka Halloween Inc., The History of Anoka Halloween","url":"https://anokahalloween.com/history/"}],"reused":false,"plate":null,"new_image":"a small town main street at dusk with a bonfire glow"},{"night":17,"date":"2026-10-15","slug":"REUSE-goosebumps","left":16,"ig_tt":"23:00Z","fb_yt":"23:30Z","lane":"nostalgia","hook":"Goosebumps, the series that ran the book fair.","note":"Your best Halloween post: over 2,000 views on TikTok. Reposted once, mid-run.","reused":true,"plate":"goosebumps-df7810a2.jpg","plate_desc":"existing reel"},{"night":18,"date":"2026-10-16","slug":"pumpkin-ancient-fruit","left":15,"ig_tt":"23:00Z","fb_yt":null,"lane":"nature","hook":"The pumpkin's family was farmed in Mexico 10,000 years ago.","fact":"Botanically, a pumpkin is a fruit, because anything that starts from a single flower is classed as a simple fruit. Seeds and rind of Cucurbita pepo, the species most carving pumpkins belong to, were found in Guila Naquitz cave in Oaxaca, Mexico. Researchers dated that cultivation to between 10,000 and 8,000 years ago, earlier than maize or beans.","backbone":"The porch pumpkin comes from one of the oldest farmed plants in the Americas.","quote":"pumpkins are a fruit because anything that starts from a single flower is classified botanically as a simple fruit (Texas A&M). Cultivation of C. pepo at Guila Naquitz occurred between 10,000 and 8000 calendar years ago (Smith 1997, Science abstract).","confidence":"high","sources":[{"name":"Smith, The Initial Domestication of Cucurbita pepo in the Americas 10,000 Years Ago, Science (1997)","url":"https://www.science.org/doi/10.1126/science.276.5314.932"},{"name":"Texas A&M Stories (fruit classification)","url":"https://stories.tamu.edu/news/2024/10/23/is-a-pumpkin-a-fruit-or-a-vegetable/"}],"reused":false,"plate":null,"new_image":"a pumpkin on a vine in a field at golden hour"},{"night":19,"date":"2026-10-17","slug":"wwii-sugar-rationing","left":14,"ig_tt":"23:00Z","fb_yt":"23:30Z","lane":"folklore","hook":"Wartime Halloween ran on popcorn balls and cider.","fact":"Sugar was among the first groceries rationed in the United States during World War II. Halloween hosts leaned on ration friendly recipes that newspapers printed before the holiday, from popcorn balls to donuts, cider and spiced cookies.","backbone":"People kept the holiday by changing what they baked.","quote":"When it comes to Halloween, sugar is king and that was one of the first grocery items rationed during the war years.","confidence":"high","sources":[{"name":"The National WWII Museum, Halloween on the Home Front","url":"https://www.nationalww2museum.org/war/articles/halloween-in-1940s-home-front"}],"reused":false,"plate":"trackA-radio.jpg","plate_desc":"old radio, armchair"},{"night":20,"date":"2026-10-18","slug":"thriller-film-registry","left":13,"ig_tt":"23:00Z","fb_yt":null,"lane":"nostalgia","hook":"Thriller was the first music video the Library of Congress kept.","fact":"In 2009, Michael Jackson's Thriller became the first music video named to the National Film Registry of the Library of Congress. The 1983 video, directed by John Landis, was 1 of 25 films chosen that year for preservation.","backbone":"The graveyard dance is now officially history.","quote":"It's the first music video named to the registry.","confidence":"high","sources":[{"name":"CBS News, \"Thriller,\" Muppets in U.S. Film Registry","url":"https://www.cbsnews.com/news/thriller-muppets-in-us-film-registry/"}],"reused":false,"plate":"snick-7c6dbfec.jpg","plate_desc":"living room, old TV"},{"night":21,"date":"2026-10-19","slug":"pareidolia-male-faces","left":12,"ig_tt":"23:00Z","fb_yt":"23:30Z","lane":"science","hook":"Most faces we see in objects read as male.","fact":"Seeing faces in outlets, clouds or carved pumpkins is called face pareidolia. In a 2022 study of 3,815 adults, people readily gave these illusory faces an emotion, an age and a gender. 90% of the images had an average rating of male, and only 9% female.","backbone":"The brain assigns a whole personality to a pattern.","quote":"Most strikingly, we observed a strong bias to perceive illusory faces as male rather than female.","confidence":"high","sources":[{"name":"Wardle et al., PNAS (2022), via PubMed Central","url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC8812520/"}],"reused":false,"plate":null,"new_image":"a wall socket that looks like a surprised face"},{"night":22,"date":"2026-10-20","slug":"burns-halloween-poem","left":11,"ig_tt":"23:00Z","fb_yt":null,"lane":"folklore","hook":"Robert Burns explained Halloween fortune telling in 16 footnotes.","fact":"Robert Burns wrote his poem Halloween in 1785 and published it in 1786. He added 16 long notes explaining the customs in it, such as pulling kail stalks with eyes shut and eating an apple before a mirror by candlelight to glimpse a future spouse.","backbone":"A poet wrote down the quiet rituals so they would not be lost.","quote":"The poem itself was written in 1785 and published in 1786 within Poems, Chiefly in the Scottish Dialect.","confidence":"high","sources":[{"name":"Robert Burns Birthplace Museum blog (National Trust for Scotland), Halloween","url":"https://burnsmuseum.wordpress.com/2018/10/24/halloween/"}],"reused":false,"plate":"trackA-shelley.jpg","plate_desc":"candle, open book, window"},{"night":23,"date":"2026-10-21","slug":"halloween-shot-in-spring","left":10,"ig_tt":"23:00Z","fb_yt":"23:30Z","lane":"nostalgia","hook":"Halloween's autumn town was filmed in a Los Angeles spring.","fact":"The fictional town of Haddonfield in Halloween (1978) was built entirely from Los Angeles locations in the spring of 1978. With a budget of about $300,000, the production could not afford to leave Los Angeles to find a storybook autumn.","backbone":"The fall you remember was made in sunshine.","quote":"The small, fictional town of Haddonfield, which was named after the historic New Jersey town where Debra Hill grew up, was created completely with practical L.A. locations during the spring of 1978.","confidence":"high","sources":[{"name":"Los Angeles Magazine, Every Famous Filming Location from John Carpenter's Halloween","url":"https://lamag.com/film/halloween-locations-40/"}],"reused":false,"plate":null,"new_image":"a handful of dry brown leaves scattered on a sunny sidewalk under a green palm shadow"},{"night":24,"date":"2026-10-22","slug":"goosebumps-fur-reflex","left":9,"ig_tt":"23:00Z","fb_yt":null,"lane":"science","hook":"Your goosebumps are built for fur you no longer have.","fact":"Goosebumps may help animals with thick fur stay warm, but humans do not seem to benefit much from the reaction. Harvard researchers found in mice that the cells behind goosebumps also help regulate the stem cells that regrow hair. Research suggests the reflex stayed because it quietly does a second job.","backbone":"A leftover reflex that still has work to do.","quote":"In a new study, Harvard University scientists have discovered the reason: the cell types that cause goosebumps are also important for regulating the stem cells that regenerate the hair follicle and hair.","confidence":"medium","sources":[{"name":"Harvard Gazette, The hair-raising reason for goosebumps is revealed (2020)","url":"https://news.harvard.edu/gazette/story/2020/07/the-hair-raising-reason-for-goosebumps-is-revealed/"}],"reused":false,"plate":"mare-nightma-9df21ca1.jpg","plate_desc":"four-poster bed"},{"night":25,"date":"2026-10-23","slug":"blair-witch-missing-flyers","left":8,"ig_tt":"23:00Z","fb_yt":"23:30Z","lane":"nostalgia","hook":"In 1999, theaters handed out missing person flyers.","fact":"At screenings of The Blair Witch Project, the filmmakers handed out missing person flyers for the 3 students in the film and asked audiences for information. The film's website added fake historical documents and news interviews, and those materials are now held by the University of Pittsburgh Library System.","backbone":"The scare began before the lights went down.","quote":"During 'The Blair Witch Project' screenings, the filmmakers would go as far as to distribute missing person flyers of the three students, which are included in the ULS collection, asking audience members to come forward if they knew any information about the students.","confidence":"high","sources":[{"name":"University of Pittsburgh, Pittwire, The Blair Witch Project archive has joined Pitt's Horror Studies Collection","url":"https://www.pittwire.pitt.edu/features-articles/2025/02/25/blair-witch-project-horror-studies-archive"}],"reused":false,"plate":null,"new_image":"a photocopied paper flyer pinned to a bare tree trunk in a gray autumn forest"},{"night":26,"date":"2026-10-24","slug":"REUSE-turnips","left":7,"ig_tt":"23:00Z","fb_yt":null,"lane":"folklore","hook":"The first jack-o-lanterns were turnips.","note":"Top Facebook Halloween reel: 470 and 246 views. Reposted once.","reused":true,"plate":"turnip-2fc8b92d.jpg","plate_desc":"existing reel"},{"night":27,"date":"2026-10-25","slug":"bonfire-bone-fire","left":6,"ig_tt":"23:00Z","fb_yt":"23:30Z","lane":"words","hook":"A bonfire was once, quite literally, a bone fire.","fact":"Bonfire appears in English in the late 1300s as bonfir or banefire, meaning a fire in which bones are burned. That original sense faded and was forgotten by the 1700s. By the mid 1500s the word already meant a large open air fire for celebration.","backbone":"The word began as bone plus fire.","quote":"late 14c., bonfir, banefire, \"a fire in which bones are burned;\" see bone (n.) + fire (n.).","confidence":"high","sources":[{"name":"Etymonline, bonfire","url":"https://www.etymonline.com/word/bonfire"}],"reused":false,"plate":"afraidark-d2e115f7.jpg","plate_desc":"campfire in the woods"},{"night":28,"date":"2026-10-26","slug":"treehouse-raven","left":5,"ig_tt":"23:00Z","fb_yt":null,"lane":"nostalgia","hook":"The first Treehouse of Horror ended with Edgar Allan Poe.","fact":"The Simpsons aired its first Treehouse of Horror on October 25, 1990. Its final segment was an earnest retelling of Poe's The Raven, narrated by James Earl Jones, with Bart animated as the bird.","backbone":"A cartoon handed a generation its first Poe.","quote":"The third and final vignette of the first \"Treehouse of Horror\" was \"The Raven,\" an earnest retelling of the famous Edgar Allan Poe poem.","confidence":"medium","sources":[{"name":"Ultimate Classic Rock, 'The Simpsons' Airs its First 'Treehouse of Horror'","url":"https://ultimateclassicrock.com/simpsons-treehouse-of-horror-anniversary/"}],"reused":false,"plate":"countdown-door-clean.jpg","plate_desc":"stone doorway, raven"},{"night":29,"date":"2026-10-27","slug":"soul-cakes-souling","left":4,"ig_tt":"23:00Z","fb_yt":"23:30Z","lane":"folklore","hook":"Before candy, there were soul cakes at the door.","fact":"Soul cakes were small spiced cakes, often marked with a cross of dried fruit or a cut in the top. Poorer neighbors went to the doors of wealthier households around All Hallows, singing and performing, and were given the cakes. Britannica notes that trick or treat is thought to have come from this British custom of letting the poor beg for soul cakes.","backbone":"Asking at the door began as a way of feeding the poor.","quote":"Celebrants wear masks and costumes for parties and for trick or treat, a ritual thought to have derived from the British practice of allowing the poor to beg for food called 'soul cakes.'","confidence":"high","sources":[{"name":"Britannica, Halloween","url":"https://www.britannica.com/topic/Halloween"},{"name":"Clemson Cooperative Extension HGIC, Soul Cakes and the Origins of Trick or Treating","url":"https://hgic.clemson.edu/soul-cakes-and-the-origins-of-trick-or-treating/"}],"reused":false,"plate":"trackA-porch.jpg","plate_desc":"lit porch, candy bowl"},{"night":30,"date":"2026-10-28","slug":"practical-magic-hollow-house","left":3,"ig_tt":"23:00Z","fb_yt":null,"lane":"nostalgia","hook":"The Owens house in Practical Magic was mostly hollow.","fact":"The Owens family house in Practical Magic (1998) was built on bare land in San Juan County Park in Washington state, and it was largely a hollow shell. The studio promised to take it down, and it was dismantled the day after filming wrapped.","backbone":"The house we all wanted only stood for a season.","quote":"The reality is that the house, constructed on a bare piece of land in San Juan County Park, about six miles due west across San Juan Island from Friday Harbor, was largely a hollow shell.","confidence":"high","sources":[{"name":"HistoryLink.org, Filming of movie Practical Magic begins on Whidbey Island on April 6, 1998","url":"https://www.historylink.org/File/11238"}],"reused":false,"plate":"casper-c4d2ca45.jpg","plate_desc":"grand staircase, empty house"},{"night":31,"date":"2026-10-29","slug":"dia-de-muertos-roots","left":2,"ig_tt":"23:00Z","fb_yt":"23:30Z","lane":"folklore","hook":"Day of the Dead grew from Mesoamerican and Catholic roots.","fact":"The Day of the Dead comes from the traditions of Indigenous peoples of Mesoamerica, including the Aztecs, Toltecs, Olmecs and Maya, who saw death as a continuation of life. It blends those rituals with All Saints' Day and All Souls' Day, which Spanish colonizers introduced.","backbone":"Death is treated as a continuation, not an ending.","quote":"The Day of the Dead originates from the ancient traditions and beliefs of Indigenous peoples of Mesoamerica, particularly the Aztecs, Toltecs, Olmecs, and Maya, who saw death as a continuation of life.","confidence":"high","sources":[{"name":"Britannica, What is the origin of the Day of the Dead?","url":"https://www.britannica.com/question/What-is-the-origin-of-the-Day-of-the-Dead"}],"reused":false,"plate":null,"new_image":"marigold petals and a lit candle on a small home altar"},{"night":32,"date":"2026-10-30","slug":"all-souls-odilo","left":1,"ig_tt":"23:00Z","fb_yt":null,"lane":"folklore","hook":"A French abbot gave the dead their own day.","fact":"The November 2 day of prayer for all the dead is credited to Odilo, abbot of Cluny in France, who died in 1048. The date was chosen to follow All Saints' Day, and by the end of the 13th century it was observed almost everywhere in the Western church.","backbone":"Remembering the dead became a shared act instead of a private grief.","quote":"The institution of a day for a general intercession on November 2 is due to Odilo, abbot of Cluny (died 1048).","confidence":"medium","sources":[{"name":"Britannica, All Souls' Day","url":"https://www.britannica.com/topic/All-Souls-Day-Christianity"}],"reused":false,"plate":"nightmare-be-ab9dee9d.jpg","plate_desc":"cemetery gate in fog"},{"night":33,"date":"2026-10-31","slug":"REUSE-samhain","left":0,"ig_tt":"23:00Z","fb_yt":"23:30Z","lane":"folklore","hook":"Samhain: the night the year turns.","note":"Already scheduled for Oct 31 on Instagram and TikTok. Stays as the finale.","reused":true,"plate":"samhain-48be37e1.jpg","plate_desc":"existing reel"}];
+const FB = [["Trailer","m",1013],["Turnips","m",470],["SNICK","m",454],["Casper","m",433],["Afraid of the Dark","m",305],["Salem","v",294],["Goosebumps","m",260],["Lugnano","m",258],["Mare","m",256],["Witch","v",220],["War of the Worlds","v",216],["Shelley","v",212],["Hocus Pocus","m",208],["Trick or treat","m",205],["Samhain","m",198],["Nightmare","m",196],["Candy","v",192],["Coffin bell","m",176]];
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmtDate = iso => new Date(iso + "T12:00:00").toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric"});
+const lanes = {folklore:"Folklore",words:"Words",science:"Science",nature:"Nature",nostalgia:"Nostalgia"};
+
+let flags = new Set(), filter = "all";
+
+// Plates grid
+(() => {
+  const use = {};
+  NIGHTS.forEach(n => { if (n.plate && !n.reused) (use[n.plate] ||= {desc:n.plate_desc, nights:[]}).nights.push(n.night); });
+  $("#plates").innerHTML = Object.entries(use).map(([f,u]) =>
+    `<div class="plate"><img src="plates/${esc(f)}" alt="${esc(u.desc)}" loading="lazy"><b>Night ${u.nights.join(", ")}</b>${esc(u.desc)}</div>`).join("");
+  $("#newlist").innerHTML = NIGHTS.filter(n => !n.plate).map(n =>
+    `<li><span class="mono">Night ${n.night}</span><span>${esc(n.new_image)}</span></li>`).join("");
+})();
+
+// Facebook bars
+(() => {
+  const max = 1013;
+  $("#bars").innerHTML = FB.map(([t,k,v]) =>
+    `<div class="bar ${k==="v"?"vo":""}"><span>${esc(t)}</span><span class="track"><span class="fill" style="width:${(v/max*100).toFixed(1)}%;display:block"></span></span><span class="v">${v.toLocaleString("en-US")}</span></div>`).join("");
+})();
+
+function renderNights(){
+  const rows = NIGHTS.filter(n => filter==="all" || (filter==="new" && !n.plate) || (filter==="medium" && n.confidence==="medium") ||
+    (filter==="reused" && n.reused) || (filter==="fb" && n.fb_yt) || (filter==="flagged" && flags.has(n.slug)));
+  const open = new Set([...document.querySelectorAll("details.night[open]")].map(d => d.dataset.slug));
+  $("#nights").innerHTML = rows.length ? rows.map(n => {
+    const thumb = n.plate ? `<img src="plates/${esc(n.plate)}" alt="${esc(n.plate_desc)}" loading="lazy">` : `<span class="noimg">new<br>image</span>`;
+    const chips = [
+      `<span class="chip">${lanes[n.lane]||n.lane}</span>`,
+      n.reused ? `<span class="chip ok">repost</span>` : (n.confidence==="high" ? `<span class="chip ok">verified</span>` : `<span class="chip warn">medium</span>`),
+      !n.plate ? `<span class="chip new">new image</span>` : "",
+      flags.has(n.slug) ? `<span class="chip new">flagged</span>` : ""
+    ].join("");
+    const plats = `<span class="plats"><span class="chip on">IG</span><span class="chip on">TT</span><span class="chip ${n.fb_yt?"on":"off"}">FB</span><span class="chip ${n.fb_yt?"on":"off"}">YT</span></span>`;
+    const body = n.reused
+      ? `<p>${esc(n.note)}</p><p class="muted">This is the existing reel, reposted as is.</p>`
+      : `<p>${esc(n.fact)}</p><p><b>${esc(n.backbone)}</b></p><blockquote>"${esc(n.quote)}"</blockquote>
+         <div class="srcs"><span class="eyebrow">Sources</span>${n.sources.map(s => s.url ? `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a>` : `<span>${esc(s.name)}</span>`).join("")}</div>
+         ${n.plate ? `<p class="muted">Background: ${esc(n.plate_desc)}</p>` : `<p class="muted">New image: ${esc(n.new_image)}</p>`}`;
+    const times = `<p class="mono muted" style="font-size:13px">IG + TT 6:00 PM${n.fb_yt ? " · FB + YT 6:30 PM" : ""}</p>`;
+    return `<details class="night${flags.has(n.slug)?" flagged":""}" data-slug="${esc(n.slug)}"${open.has(n.slug)?" open":""}>
+      <summary>${thumb}<span class="nnum">${n.night}<small>${fmtDate(n.date)}</small></span>
+        <span class="hook"><span class="t">${esc(n.hook)}</span><span class="meta">${chips}</span></span>${plats}</summary>
+      <div class="body">${body}${times}<div class="rowact"><button type="button" class="btn" data-flag="${esc(n.slug)}">${flags.has(n.slug)?"Unflag":"Flag this night"}</button></div></div>
+    </details>`;
+  }).join("") : `<p style="padding:16px" class="muted">Nothing here yet.</p>`;
+  const c = flags.size;
+  $("#flagcount").textContent = c ? `${c} night${c>1?"s":""} flagged` : "No nights flagged";
+}
+
+document.querySelectorAll(".filters button").forEach(b => b.addEventListener("click", () => {
+  filter = b.dataset.f;
+  document.querySelectorAll(".filters button").forEach(x => x.setAttribute("aria-pressed", String(x===b)));
+  renderNights();
+}));
+$("#nights").addEventListener("click", e => {
+  const s = e.target.closest("[data-flag]")?.dataset.flag; if (!s) return;
+  flags.has(s) ? flags.delete(s) : flags.add(s);
+  renderNights(); queueDraft();
+});
+renderNights();
+
+// Shared record: approval/current in the page database
+let doc = null, draftTimer = null, docExists = false;
+function paintStatus(d){
+  const el = $("#status");
+  if (!d || !d.decision){ el.className="status"; el.textContent="Waiting on your approval"; return; }
+  const when = d.at ? new Date(d.at).toLocaleString("en-US",{month:"short",day:"numeric",hour:"numeric",minute:"2-digit"}) : "";
+  el.className = "status " + (d.decision==="approved" ? "approved" : "changes");
+  el.textContent = (d.decision==="approved" ? "Approved " : "Sent back with changes ") + when;
+}
+function currentChoice(){ return document.querySelector('input[name="cdn"]:checked')?.value || "move"; }
+function payload(decision){
+  return { decision, flags:[...flags], note: $("#note").value.trim(), oct26: currentChoice(), at: new Date().toISOString() };
+}
+function queueDraft(){
+  if (!doc) return;
+  clearTimeout(draftTimer);
+  draftTimer = setTimeout(() => {
+    const draft = { flags:[...flags], note: $("#note").value, oct26: currentChoice() };
+    (docExists ? doc.update({ draft }) : doc.set({ draft })).then(() => { docExists = true; }).catch(()=>{});
+  }, 800);
+}
+$("#note").addEventListener("input", queueDraft);
+document.querySelectorAll('input[name="cdn"]').forEach(r => r.addEventListener("change", queueDraft));
+
+async function decide(decision){
+  const saved = $("#saved");
+  if (!doc){ saved.textContent = "Saving is not available in this view. Tell me in chat instead."; return; }
+  for (const b of document.querySelectorAll("#approve .btn")) b.disabled = true;
+  try {
+    const p = payload(decision);
+    await doc.set({ ...p, draft: { flags:p.flags, note:p.note, oct26:p.oct26 } });
+    saved.textContent = decision==="approved" ? "Approved. Saved for Claude." : "Sent back. Saved for Claude.";
+    paintStatus(p);
+  } catch (err) {
+    saved.textContent = "Did not save: " + (err?.message || "try again") + ". You can also tell me in chat.";
+  } finally { for (const b of document.querySelectorAll("#approve .btn")) b.disabled = false; }
+}
+$("#btn-approve").addEventListener("click", () => decide("approved"));
+$("#btn-changes").addEventListener("click", () => decide("changes"));
+
+(async () => {
+  const db = await window.claude?.use?.("db");
+  if (!db){ $("#saved").textContent = "Read only here. Tell me your decision in chat."; return; }
+  doc = db.doc("approval/current");
+  let first = true;
+  doc.onSnapshot(s => {
+    docExists = !!s?.exists;
+    const d = docExists ? s.data() : null;
+    paintStatus(d);
+    if (first && d?.draft){
+      flags = new Set(d.draft.flags || []);
+      if (d.draft.note) $("#note").value = d.draft.note;
+      const r = document.getElementById("cdn-" + (d.draft.oct26 || "move")); if (r) r.checked = true;
+      renderNights();
+    }
+    first = false;
+  }, () => {});
+})();
+</script>

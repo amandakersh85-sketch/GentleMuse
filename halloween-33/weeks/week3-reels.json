@@ -1,0 +1,296 @@
+[
+ {
+  "id": "N15",
+  "slug": "n15-haunt-to-visit-often",
+  "seed": 115,
+  "duration": 18.0,
+  "label": "Gentle Muse · Night 15 of 33",
+  "source": "Source: Etymonline",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.2,
+    "html": "To haunt a place<br>first meant to visit it often.",
+    "cta": null
+   },
+   {
+    "in": 3.2,
+    "out": 7.6,
+    "html": "From Old French hanter,<br>to frequent.",
+    "cta": null
+   },
+   {
+    "in": 7.6,
+    "out": 12.4,
+    "html": "The ghostly sense shows up<br>in Shakespeare, around 1590.",
+    "cta": null
+   },
+   {
+    "in": 12.4,
+    "out": 15.4,
+    "html": "<span class='em'>A ghost haunts a house</span>",
+    "cta": null
+   },
+   {
+    "in": 15.4,
+    "out": 17.8,
+    "html": "the way a regular<br>haunts a cafe.",
+    "cta": null
+   }
+  ],
+  "clip": {
+   "file": "plates/mare-nightma-d0141171.jpg",
+   "push": 0.07,
+   "clip_id": "mare-nightma-d0141171",
+   "match_reason": "rocking chair, empty room"
+  }
+ },
+ {
+  "id": "N16",
+  "slug": "n16-anoka-1920",
+  "seed": 116,
+  "duration": 18.0,
+  "label": "Gentle Muse · Night 16 of 33",
+  "source": "Source: Anoka Halloween Inc.",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.2,
+    "html": "One town answered<br>pranks with a parade.",
+    "cta": null
+   },
+   {
+    "in": 3.2,
+    "out": 7.6,
+    "html": "Soaped windows.<br>Tipped outhouses.<br>Cows on Main Street.",
+    "cta": null
+   },
+   {
+    "in": 7.6,
+    "out": 12.4,
+    "html": "In 1920, Anoka, Minnesota<br>gave its kids a parade<br>and a bonfire.",
+    "cta": null
+   },
+   {
+    "in": 12.4,
+    "out": 15.4,
+    "html": "<span class='em'>Every year since,</span>",
+    "cta": null
+   },
+   {
+    "in": 15.4,
+    "out": 17.8,
+    "html": "except 1942 and 1943.",
+    "cta": null
+   }
+  ],
+  "clip": {
+   "file": "plates/new-anoka-1920.jpg",
+   "push": 0.07,
+   "clip_id": "new-anoka-1920",
+   "match_reason": "a small town main street at dusk with a bonfire glow"
+  }
+ },
+ {
+  "id": "N18",
+  "slug": "n18-pumpkin-ancient-fruit",
+  "seed": 118,
+  "duration": 18.0,
+  "label": "Gentle Muse · Night 18 of 33",
+  "source": "Source: Smith, Science (1997); Texas A&M",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.2,
+    "html": "Your porch pumpkin's family<br>was farmed 10,000 years ago.",
+    "cta": null
+   },
+   {
+    "in": 3.2,
+    "out": 7.6,
+    "html": "Seeds and rind were found<br>in a cave in Oaxaca, Mexico.",
+    "cta": null
+   },
+   {
+    "in": 7.6,
+    "out": 12.4,
+    "html": "Farmed earlier<br>than maize or beans.<br>And yes, it is a fruit.",
+    "cta": null
+   },
+   {
+    "in": 12.4,
+    "out": 15.4,
+    "html": "<span class='em'>One of the oldest</span>",
+    "cta": null
+   },
+   {
+    "in": 15.4,
+    "out": 17.8,
+    "html": "crops in the Americas.",
+    "cta": null
+   }
+  ],
+  "clip": {
+   "file": "plates/new-pumpkin-ancient-fruit.jpg",
+   "push": 0.07,
+   "clip_id": "new-pumpkin-ancient-fruit",
+   "match_reason": "a pumpkin on a vine in a field at golden hour"
+  }
+ },
+ {
+  "id": "N19",
+  "slug": "n19-wwii-sugar-rationing",
+  "seed": 119,
+  "duration": 18.0,
+  "label": "Gentle Muse · Night 19 of 33",
+  "source": "Source: The National WWII Museum",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.2,
+    "html": "Wartime Halloween ran on<br>popcorn balls and cider.",
+    "cta": null
+   },
+   {
+    "in": 3.2,
+    "out": 7.6,
+    "html": "Sugar was among the first<br>groceries rationed<br>in World War II.",
+    "cta": null
+   },
+   {
+    "in": 7.6,
+    "out": 12.4,
+    "html": "Newspapers printed<br>ration friendly recipes<br>before the holiday.",
+    "cta": null
+   },
+   {
+    "in": 12.4,
+    "out": 15.4,
+    "html": "<span class='em'>People kept the holiday</span>",
+    "cta": null
+   },
+   {
+    "in": 15.4,
+    "out": 17.8,
+    "html": "by changing what they baked.",
+    "cta": null
+   }
+  ],
+  "clip": {
+   "file": "plates/trackA-radio.jpg",
+   "push": 0.07,
+   "clip_id": "trackA-radio",
+   "match_reason": "old radio, armchair"
+  }
+ },
+ {
+  "id": "N20",
+  "slug": "n20-thriller-film-registry",
+  "seed": 120,
+  "duration": 18.0,
+  "label": "Gentle Muse · Night 20 of 33",
+  "source": "Source: CBS News",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.2,
+    "html": "Thriller was the first<br>music video the Library<br>of Congress kept.",
+    "cta": null
+   },
+   {
+    "in": 3.2,
+    "out": 7.6,
+    "html": "It joined the National<br>Film Registry in 2009.",
+    "cta": null
+   },
+   {
+    "in": 7.6,
+    "out": 12.4,
+    "html": "1 of 25 films<br>chosen that year<br>for preservation.",
+    "cta": null
+   },
+   {
+    "in": 12.4,
+    "out": 15.4,
+    "html": "<span class='em'>The graveyard dance</span>",
+    "cta": null
+   },
+   {
+    "in": 15.4,
+    "out": 17.8,
+    "html": "is officially history.",
+    "cta": null
+   }
+  ],
+  "clip": {
+   "file": "plates/snick-7c6dbfec.jpg",
+   "push": 0.07,
+   "clip_id": "snick-7c6dbfec",
+   "match_reason": "living room, old TV"
+  }
+ },
+ {
+  "id": "N21",
+  "slug": "n21-pareidolia-male-faces",
+  "seed": 121,
+  "duration": 18.0,
+  "label": "Gentle Muse · Night 21 of 33",
+  "source": "Source: Wardle et al., PNAS (2022)",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.2,
+    "html": "Most faces we see<br>in objects read as male.",
+    "cta": null
+   },
+   {
+    "in": 3.2,
+    "out": 7.6,
+    "html": "Faces in outlets, clouds<br>and pumpkins have a name.<br>Face pareidolia.",
+    "cta": null
+   },
+   {
+    "in": 7.6,
+    "out": 12.4,
+    "html": "In a study of 3,815 adults,<br>90% of these faces<br>were rated male.",
+    "cta": null
+   },
+   {
+    "in": 12.4,
+    "out": 15.4,
+    "html": "<span class='em'>The brain gives a pattern</span>",
+    "cta": null
+   },
+   {
+    "in": 15.4,
+    "out": 17.8,
+    "html": "a whole personality.",
+    "cta": null
+   }
+  ],
+  "clip": {
+   "file": "plates/new-pareidolia-male-faces.jpg",
+   "push": 0.07,
+   "clip_id": "new-pareidolia-male-faces",
+   "match_reason": "a wall socket that looks like a surprised face"
+  }
+ }
+]
