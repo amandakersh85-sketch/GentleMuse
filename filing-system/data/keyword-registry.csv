@@ -1,19 +1,19 @@
 AutomationID,Keyword,Platform,AccountId,Handle,Active,Kind,Delivers,Destination,Note
 439,BROW,instagram,45886,thegentlemuse2026,yes,product,NYX Thick It Stick It Brow Gel Brunette,https://club.target.com/s/amanda.20/_/sku/83347380,
 423,BROW,facebook,30840,The Gentle Muse,yes,product,NYX Thick It Stick It Brow Gel,https://club.target.com/s/amanda.20/_/sku/83347380,
-440,LIPDRIP,instagram,45886,thegentlemuse2026,yes,product,NYX Fat Oil Lip Drip in Missed Call,https://club.target.com/s/amanda.20/_/sku/87824456,
+440,LIPDRIP,instagram,45886,thegentlemuse2026,no,product,NYX Fat Oil Lip Drip in Missed Call,https://club.target.com/s/amanda.20/_/sku/87824456,paused 09/24 per Amanda ManyChat migration draft LIPDRIP still live on FB 6021
 6021,LIPDRIP,facebook,30840,The Gentle Muse,yes,product,NYX Fat Oil Lip Drip in Missed Call,https://club.target.com/s/amanda.20/_/sku/87824456,
 443,BUTTER,instagram,45886,thegentlemuse2026,yes,product,Tree Hut Moroccan Rose Whipped Body Butter 8.4 oz,https://club.target.com/s/amanda.20/_/sku/83245016,
 6020,BUTTER,facebook,30840,The Gentle Muse,yes,product,Tree Hut Moroccan Rose Whipped Body Butter 8.4 oz,https://club.target.com/s/amanda.20/_/sku/83245016,
-444,SCRUB,instagram,45886,thegentlemuse2026,yes,product,Tree Hut Moroccan Rose Shea Sugar Scrub 18 oz,https://club.target.com/s/amanda.20/_/sku/51693591,
-428,SCRUB,facebook,30840,The Gentle Muse,yes,product,Tree Hut Moroccan Rose Shea Sugar Scrub 18 oz,https://club.target.com/s/amanda.20/_/sku/51693591,
+444,SCRUB,instagram,45886,thegentlemuse2026,no,product,Tree Hut Moroccan Rose Shea Sugar Scrub 18 oz,https://club.target.com/s/amanda.20/_/sku/51693591,paused 09/24 per Amanda ManyChat migration draft SCRUB now off on IG and FB
+428,SCRUB,facebook,30840,The Gentle Muse,no,product,Tree Hut Moroccan Rose Shea Sugar Scrub 18 oz,https://club.target.com/s/amanda.20/_/sku/51693591,paused 09/24 per Amanda ManyChat migration draft SCRUB now off on IG and FB
 434,HIBISCUS,instagram,45886,thegentlemuse2026,yes,product,Tree Hut Pink Hibiscus Scrub,https://club.target.com/s/amanda.20/_/sku/89094549,mist discontinued at Target the DM redirects to the scrub
 420,HIBISCUS,facebook,30840,The Gentle Muse,yes,product,Tree Hut Pink Hibiscus Scrub,https://club.target.com/s/amanda.20/_/sku/89094549,mist discontinued at Target the DM redirects to the scrub
-436,SOAK,instagram,45886,thegentlemuse2026,yes,product,Dr Teal's Calm and Serenity Rose Epsom Soak 3 lb,https://club.target.com/s/amanda.20/_/sku/76858934,
+436,SOAK,instagram,45886,thegentlemuse2026,no,product,Dr Teal's Calm and Serenity Rose Epsom Soak 3 lb,https://club.target.com/s/amanda.20/_/sku/76858934,paused 09/24 per Amanda ManyChat migration draft SOAK still live on FB 419
 419,SOAK,facebook,30840,The Gentle Muse,yes,product,Dr Teal's Calm and Serenity Rose Epsom Soak 3 lb,https://club.target.com/s/amanda.20/_/sku/76858934,
-441,SOOTHE,instagram,45886,thegentlemuse2026,yes,product,Raw Sugar Green Tea and Aloe Soother Body Wash 20 oz,https://club.target.com/s/amanda.20/_/sku/94837564,
+441,SOOTHE,instagram,45886,thegentlemuse2026,no,product,Raw Sugar Green Tea and Aloe Soother Body Wash 20 oz,https://club.target.com/s/amanda.20/_/sku/94837564,paused 09/24 per Amanda ManyChat migration draft SOOTHE still live on FB 424
 424,SOOTHE,facebook,30840,The Gentle Muse,yes,product,Raw Sugar Green Tea and Aloe Soother Body Wash 20 oz,https://club.target.com/s/amanda.20/_/sku/94837564,
-442,NATIVE,instagram,45886,thegentlemuse2026,yes,product,Native Sensitive Deodorant Cotton and Lily,https://club.target.com/s/amanda.20/_/sku/76612085,
+442,NATIVE,instagram,45886,thegentlemuse2026,no,product,Native Sensitive Deodorant Cotton and Lily,https://club.target.com/s/amanda.20/_/sku/76612085,paused 09/24 per Amanda ManyChat migration draft NATIVE still live on FB 426
 426,NATIVE,facebook,30840,The Gentle Muse,yes,product,Native Sensitive Deodorant Cotton and Lily,https://club.target.com/s/amanda.20/_/sku/76612085,
 438,NECKLACE,instagram,45886,thegentlemuse2026,yes,product,Adornia 14k Gold Plated Black Clover Station Necklace,https://club.target.com/s/amanda.20/_/sku/1005653750,
 418,NECKLACE,facebook,30840,The Gentle Muse,yes,product,Adornia 14k Gold Plated Black Clover Station Necklace,https://club.target.com/s/amanda.20/_/sku/1005653750,
@@ -30,6 +30,8 @@ AutomationID,Keyword,Platform,AccountId,Handle,Active,Kind,Delivers,Destination,
 2277,FALLFIT,instagram,45886,thegentlemuse2026,yes,product,Universal Thread Open Stitch Cozy Cardigan,https://club.target.com/a/amanda.20,BROKEN sku 94430282 is dead the DM falls back to the storefront
 453,MASK,facebook,30840,The Gentle Muse,yes,product,medicube Kojic Acid Turmeric Jelly Gel Mask,https://club.target.com/a/amanda.20,BROKEN no sku the DM falls back to the storefront
 451,SESSION,instagram,45886,thegentlemuse2026,yes,own-product,Decision Session,https://payhip.com/b/upvAa,
+8552,PRIORITY,instagram,45886,thegentlemuse2026,yes,own-product,The Decision Map,https://payhip.com/b/upvAa,created 09/24 comment to DM on any post
+8553,PRIORITY,facebook,30840,The Gentle Muse,yes,own-product,The Decision Map,https://payhip.com/b/upvAa,created 09/24 comment to DM on any post
 448,BUDGET,instagram,45886,thegentlemuse2026,yes,own-product,Paycheck Planner,https://payhip.com/b/96U8s,her own product so the price in the DM is allowed
 1424,GUIDE,instagram,45886,thegentlemuse2026,yes,magnet,Beginner's Guide to AI Tools 59 page PDF,https://ai-guide.subscribepage.io,
 1422,GUIDE,facebook,30840,The Gentle Muse,yes,magnet,Beginner's Guide to AI Tools 59 page PDF,https://ai-guide.subscribepage.io,
@@ -40,8 +42,8 @@ AutomationID,Keyword,Platform,AccountId,Handle,Active,Kind,Delivers,Destination,
 2778,RESET,facebook,30840,The Gentle Muse,yes,magnet,Gentle Self-Reset Checklist,https://payhip.com/b/9FE2U,
 2771,TUESDAY,instagram,45886,thegentlemuse2026,yes,magnet,Just Another Tuesday weekly newsletter,https://just-another-tuesday-gm.subscribepage.io,
 2772,TUESDAY,facebook,30840,The Gentle Muse,yes,magnet,Just Another Tuesday weekly newsletter,https://just-another-tuesday-gm.subscribepage.io,
-445,CESA,instagram,45886,thegentlemuse2026,yes,magnet,19 Years Old 10 of Them Mine 15 page PDF,https://cesa-guide.subscribepage.io,
-432,CESA,facebook,30840,The Gentle Muse,yes,magnet,19 Years Old 10 of Them Mine 15 page PDF,https://cesa-guide.subscribepage.io,
+445,CESA,instagram,45886,thegentlemuse2026,no,magnet,19 Years Old 10 of Them Mine 15 page PDF,https://cesa-guide.subscribepage.io,retired 09/18 CESA lives on 2952 cesasgoldenyears registry synced 09/24
+432,CESA,facebook,30840,The Gentle Muse,no,magnet,19 Years Old 10 of Them Mine 15 page PDF,https://cesa-guide.subscribepage.io,retired 09/18 CESA lives on 2952 cesasgoldenyears registry synced 09/24
 2952,CESA,instagram,65540,cesasgoldenyears,yes,magnet,19 Years Old 10 of Them Mine 15 page PDF,https://cesa-guide.subscribepage.io,
 1019,PLAY,instagram,45886,thegentlemuse2026,yes,magnet,Press Play 10 free audiobooks,https://press-play.subscribepage.io,
 1020,PLAY,facebook,30840,The Gentle Muse,yes,magnet,Press Play 10 free audiobooks,https://press-play.subscribepage.io,
