@@ -140,3 +140,88 @@ with no pressure.
 - 1 render per fact. The rotation reuses `mediaUrls`, it does not re-upload per post.
 - Verified links only: `https://consider-this.subscribepage.io` and
   `https://just-another-tuesday-gm.subscribepage.io`.
+
+---
+
+# The LinkedIn lane
+
+**Set by Amanda 2026-09-24, by voice, same session.** Her words: make sure we are blowing
+LinkedIn up with Just Another Tuesday and the AI Guide, those are the huge thing, smack the
+hell out of LinkedIn with it.
+
+**This does not conflict with the LinkedIn rule, it is the LinkedIn rule.** `AGENT-CONTRACT.md`
+says LinkedIn gets what she learned building the business, AI in plain language, systems and
+automation failures with the mistake left in, and the free lead magnets. Just Another Tuesday
+and the AI Guide are all 4 of those things. Seasonal stays carved out, as always.
+
+## What LinkedIn looked like before this, counted 2026-09-24
+
+**8 scheduled posts across 26 days, 09/25 through 10/20.** For the account she calls her huge
+thing, Just Another Tuesday had exactly 1 post on it and the AI Guide had none.
+
+## 2 defects found in the existing LinkedIn queue. NOT fixed, because they are not mine to rewrite.
+
+1. **Posts `4716080` (10/15) and `4716102` (10/20) carry the wrong link.** The copy is the
+   Consider This towels piece, the CTA says comment CONSIDER, and the link at the bottom is
+   `https://ai-guide.subscribepage.io`. Towels copy pointing at the AI Guide page. Both are
+   duplicates of each other, 5 days apart.
+2. **Those same 2 posts use a comment-to-DM CTA on a platform that has no comment-to-DM
+   automation.** Blotato runs keywords on Instagram and Facebook only. On LinkedIn, "comment
+   CONSIDER and I'll send it" promises something nothing is listening for. LinkedIn posts have
+   to carry the link itself.
+
+Also worth a look: `4726815` (10/16) links to `https://thegentlemuse.subscribepage.io`, which
+is not on the verified link table in `AGENT-CONTRACT.md`. It may be fine, it is just unverified.
+
+## AI Guide carousels, built 2026-09-24
+
+The AI Guide had no carousel either, only the retired single-page `promo-ai-guide.png`, so it
+could not be posted under the carousels-only rule. 4 sets built by `gen_aiguide_carousels.py`,
+same structure and type system as Consider This and JAT, COOL palette, which is what the
+retired AI Guide single-pager already used.
+
+| Set | Hook |
+|---|---|
+| `carousel-guide-needed-*` | I wrote the AI guide I needed 60 days ago |
+| `carousel-guide-hours-*` | You do not need to be 10 years ahead on AI |
+| `carousel-guide-behind-*` | Most AI advice starts 3 steps past you |
+| `carousel-guide-explorer-*` | I stopped calling myself an AI expert |
+
+The CTA slide carries no keyword on purpose, because LinkedIn has no automation. The caption
+carries the link there, and the keyword CTA gets added in the caption on IG and FB.
+
+## Live on LinkedIn as of 2026-09-24
+
+4 posts, alternating the 2 offers, 13:30 UTC to match the existing LinkedIn pattern:
+
+| Date | Set | Offer |
+|---|---|---|
+| 09/29 | jat-enabled | Just Another Tuesday |
+| 10/01 | guide-needed | AI Guide |
+| 10/03 | jat-number | Just Another Tuesday |
+| 10/05 | guide-hours | AI Guide |
+
+Long-form business register, link in the post, no keyword CTA, no hashtags, matching what
+already performs on that account.
+
+## THE CAP IS NOW THE BINDING CONSTRAINT. This is the thing to fix.
+
+**The queue is at 200 of 200 and Blotato is refusing new posts.** Confirmed, not predicted:
+2 further LinkedIn posts were rejected with
+
+> `You have reached the maximum number of scheduled posts (200) for your plan.` code `20010`
+
+The 2 that did not land are 10/07 `jat-doors` and 10/09 `guide-behind`. Both sets are built
+and already uploaded, so they are a 2 minute job the moment there is room.
+
+**3 ways to get room, all Amanda's call:**
+
+- **Prune.** There are cheap posts in the queue that could go. The `Full reel on my page.`
+  Instagram one-liners are the obvious candidates. Nobody should delete another session's
+  scheduled posts without her say-so, which is why this is written down instead of done.
+- **Let it drain.** October publishes several posts a day, so room appears daily on its own.
+  The rotation then refills as slots open, which is what the standing rule already says.
+- **Upgrade the plan.** The cap is a plan limit, not a platform limit.
+
+Until then, **every new post is a trade against an existing one.** Anyone filling slots should
+say what they are displacing.
