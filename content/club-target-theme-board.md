@@ -119,6 +119,12 @@ input from her. This is the cheapest source of a hashtag there is.
 | Labor Day Find | `#TargetLaborDayFind` | published 5 Sep |
 | Little Finds | `#TargetLittleFinds` | published 3 Sep |
 | Cat and Jack Summer | `#TargetCatandJackSummer` | published 2 Sep |
+| Kuromi x KATSEYE | `#TargetxKuromixKATSEYE` | published 22 Sep IG, 23 Sep TikTok |
+| Care Routine | `#TargetCareRoutine` | scheduled 24 Sep TikTok |
+| Play Picks | `#TargetPlayPicks` | published 19 Sep IG, 20 Sep TikTok |
+| Fall Fits | `#TargetFallFits` | published 15 Sep IG, 19 Sep TikTok |
+| Halloween Decor | `#HalloweenDecorAtTarget` | published 18 Sep TikTok, 21 Sep IG |
+| Game Day | `#GameDayWithTarget` | published 16 Sep TikTok, 20 Sep IG |
 
 `#TargetDenimEdit` most likely claims **Find Your Denim**, which closes 23 Sep. It
 could instead be read against **The Fall Outfit Edit** from 14 Sep. Amanda's call,
@@ -184,3 +190,26 @@ was at work and could not make a store run. Exact hashtags were never confirmed.
 | --- | --- | --- |
 | Cat and Jack Summer | #TargetCatandJackSummer | 2 Sep, 10 AM Central |
 | Little Finds, Adornia | #TargetLittleFinds | 3 Sep, 10 AM Central |
+
+## Link to hashtag, matched 24 Sep 2026
+
+Read from her own captions against the tile briefs already on this board. No
+guessing, and nothing invented.
+
+| Link | Challenge name | Hashtag she used |
+| --- | --- | --- |
+| `t/0q0x` | Set the Halloween Vibe | `#HalloweenDecorAtTarget` |
+| `t/0pp9` | The Fall Outfit Edit | `#TargetFallFits` |
+| `t/0pdm` | Game Day Lineup | `#GameDayWithTarget` |
+| `t/0pdq` | Family Game Night Finds | `#TargetPlayPicks` |
+| `t/tt7` | Share your budget finds | `#TargetBudgetFinds` |
+
+`t/tt7` is the monthly evergreen. She used it 21 Aug and it is queued again for
+24 Sep, 34 days later, so the window has reopened.
+
+**Still unmatched:** `t/0pp2` Meet Target Beauty Studio has no footage and no tag.
+It is the only challenge on this board with neither.
+
+`#TargetxKuromixKATSEYE` and `#TargetCareRoutine` do not map to any link on this
+board. Either they came from a week whose email was not pulled, the 21 Sep drop
+that Gmail could not reach, or Amanda found them in the portal directly.

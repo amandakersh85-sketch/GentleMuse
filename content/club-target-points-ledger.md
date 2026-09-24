@@ -1036,3 +1036,124 @@ close-up in the library and it would carry `#TargetFave` or a retag equally well
 16 Oct.** The 12 Sep footage runs out Sunday. `content/run-sheet-beauty-studio.md`
 covers the next run, and Beauty Studio is still the only open challenge with no
 footage at all.
+
+---
+
+## Audit, 24 Sep 2026 00:05 UTC. Sun/Wed run.
+
+**Two fixable problems, both on scheduled rows, both worth 30 points each.**
+
+### 1. Publishing in 16 hours with no on-screen disclosure
+
+`4714245`, TikTok, `#TargetBudgetFinds`, **24 Sep 16:00 UTC, 11 AM Central**.
+Confirmed with `blotato_get_schedule`: `scheduledAt` matches, account `41488`
+@thegentlemuse2026. The media URL resolves, so it will publish.
+
+Sampled at 0.3, 3 and 9 seconds of a 32.2 second video. **No `#TargetPartner`
+anywhere on screen in the first 9 seconds.** She's on camera at home, brow
+product in hand, no text overlay at all in that stretch. The caption is clean,
+`#TargetPartner #ad` leads line 1.
+
+A 32 second video needs the tag early AND repeated. Right now it has neither in
+the opening third. This is the same failure that has the board reading 0%.
+
+`4732178`, TikTok, `#TargetCareRoutine`, 24 Sep 21:30 UTC, **passes the early
+half**: `#TargetPartner` sits in yellow at the top from 0.3s with the Tree Hut jar
+in frame. It's gone by 9s and the video runs 17.6 seconds, just over the 15 second
+line where the rule wants a repeat. Minor next to `4714245`, but worth a second
+chip in the back half.
+
+### 2. The 20 Oct block carries no theme hashtag. 5 rows.
+
+The NYX Fat Oil Lip Drip set is scheduled across 5 placements on 20 Oct and **not
+one of them carries a challenge tag.** Wide regex applied, `#TargetPartner` and
+`#ClubTarget` dropped, nothing left.
+
+| Id | Platform | Time UTC |
+| --- | --- | --- |
+| `4727179` | Facebook | 15:30 |
+| `4727181` | Instagram | 18:30 |
+| `4727184` | YouTube | 19:45 |
+| `4728077` | Instagram | 20:15 |
+| **`4727187`** | **TikTok** | **21:30** |
+
+`4727187` confirmed with `blotato_get_schedule`, account `41488`, `scheduledAt`
+21:30. Its frame at 0.3s is a "NYX or NYX? Tell me how you say it" title card
+with no `#TargetPartner` on it either.
+
+This is the `6776722` and `6837551` pattern again, except these have not published
+yet. **Still fixable, unlike the other two.** 30 points on the TikTok row.
+
+### 3. `#TargetPartner` sits at the bottom on the 6 Oct pair
+
+`4726804` (TikTok, 6 Oct 21:30) and `4726792` (Instagram, 6 Oct 18:30), both
+`#TargetEverydayFavorites`. The tag is in the closing hashtag block, not in the
+first 2 lines. Every other Club Target caption in the account leads with it.
+Confirmed `4726804` with `blotato_get_schedule`, account `41488`.
+
+### 4. TikTok coverage: no gaps
+
+27 themes across published history and the forward queue. **Every one carries a
+TikTok row.** Third clean coverage run.
+
+New since the 17 Sep audit: `#TargetxKuromixKATSEYE` (published both platforms),
+`#TargetCareRoutine` (TikTok scheduled 24 Sep).
+
+`#TargetBudgetFinds` is back on 24 Sep after 21 Aug. That is the `t/tt7` evergreen,
+explicitly repeatable once a month, and 34 days have passed. It should credit.
+
+### 5. Duplicates: none
+
+190 scheduled rows on **one fresh pull**, zero sharing media and caption.
+
+### 6. Failed: 1 new, and it is a Club Target loss
+
+`724143`, TikTok, 22 Sep 17:28 UTC, `#TargetBudgetFinds`.
+"Failed to fetch media URL: 400 Bad Request". Its media URL still returns 400.
+Already logged in the claim ledger on 23 Sep.
+
+The replacement `4714245` uses a **different** file, and that one returns 206. So
+the theme is not lost, only delayed, and 24 Sep is still inside the monthly window.
+
+The 11 Twitter media failures and the 26 Aug TikTok URL-verification failure are
+the known older set. Nothing new there.
+
+### 7. Points
+
+4 first-time themes published on TikTok since the 17 Sep audit:
+
+| Date | Theme | Points |
+| --- | --- | --- |
+| 18 Sep | `#HalloweenDecorAtTarget` | 30 |
+| 19 Sep | `#TargetFallFits` | 30 |
+| 20 Sep | `#TargetPlayPicks` | 30 |
+| 23 Sep | `#TargetxKuromixKATSEYE` | 30 |
+| **Total** | | **120** |
+
+**Running total 904**, carrying 784 forward from 10 Sep.
+
+Two caveats on that number, both already open:
+
+- 754 instead if `#TargetFave` turns out to be a spent one-time theme. It ran a
+  third time on 17 Sep.
+- The 14 Sep `#TargetDenimEdit` and 16 Sep `#GameDayWithTarget` TikToks were never
+  explicitly banked in a ledger entry. If the 784 does not already include them,
+  the real figure is up to 60 higher. The portal settles it.
+
+Metricool brand `6066935` returned **zero** scheduled posts, so nothing is being
+scheduled outside Blotato. That call covers scheduled rows only, not native phone
+posts already published.
+
+### Queue
+
+190 rows scheduled through 31 Oct, 9 of them Club Target across 4 dates:
+24 Sep (2 TikTok), 6 Oct (1 TikTok, 1 Instagram), 20 Oct (1 TikTok, 4 others).
+**Nothing between 24 Sep and 6 Oct.** An 11 day hole in the only placement
+that pays.
+
+### Verdict
+
+**+120 BANKED**, running total 904.
+**COVERAGE CLEAN**, 27 of 27 themes carry a TikTok.
+**2 FIXABLE LOSSES** sitting in the queue: the 24 Sep on-screen disclosure and the
+20 Oct missing theme tag. Both need her, neither has published.
