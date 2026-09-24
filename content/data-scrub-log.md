@@ -2672,3 +2672,57 @@ Until that is answered, treat the per format Instagram rankings in the Day 15
 and Day 16 entries as provisional. The Club Target opener finding and the Amanda
 face to camera lift are unaffected, because Club Target and Amanda content only
 ever ran on @thegentlemuse2026.
+
+## RESOLVED, same day: Cesa's channels route through Blotato, and their queue is empty
+
+Amanda confirmed Cesa's posts go through Blotato to her own channels, same as
+everything else. That closes the ambiguity in the correction above, and it
+closes it the bad way.
+
+**If Cesa's channels run through Blotato, then Blotato can see them, and Blotato
+shows nothing.** Pulled every Instagram and TikTok post, published and scheduled,
+09/20 through 10/01:
+
+- **Last Cesa subject post anywhere: 09/20 00:01**, the "floor changes in this,
+  she doesn't" reel, 113 views, comment CESA CTA.
+- **Nothing Cesa since.** Not published, not failed, not scheduled.
+- **The queue through 10/01 is entirely Gentle Muse content.** Reset lead magnet,
+  bottleneck check, the 33 nights Halloween run starting 09/29, Target, the mom
+  said my content is boring reel. 0 Cesa posts queued on either account.
+
+So this is not an attribution artifact and it is not the reroute working
+quietly. **Cesa's Instagram and TikTok have been dark for 4 days with an empty
+forward queue.**
+
+### Account attribution, partially recovered
+
+TikTok post URLs carry the handle. Every published TikTok in the window,
+09/20 to 09/24, is `@thegentlemuse2026`. **0 posts on @cesasgoldenyears.**
+Instagram reel URLs do not carry the handle, so Instagram attribution stays
+unresolved, but the 09/23 story URL reads
+`instagram.com/stories/thegentlemuse2026/`, so at least that one is placed.
+
+The methodology hole in the correction above still stands for the historical
+Instagram numbers: 1,749 and 1,514 cannot be assigned to an account from this
+feed. Worth Amanda checking which account those 2 reels live on, because the
+whole "1 breakout Cesa reel" path in the plan depends on the answer.
+
+### FLAG: a Cesa CTA shipped on a Gentle Muse seasonal TikTok
+
+09/21 20:01, TikTok, the Halloweentown photo carousel. The caption runs the
+Halloweentown fact, then: "She's 19 and she has never once been worried about
+it. Follow for the real one, every season. **Her 15 pages are in my bio.**"
+
+That is Cesa's lead magnet CTA welded onto a seasonal trivia post on the Gentle
+Muse account. It reads as 2 posts spliced together. Given the reroute was being
+set up in exactly this window, the likely cause is Cesa content merging into the
+wrong queue rather than a writing error. Worth looking at whichever automation
+assembles these captions.
+
+### What this means for the campaign
+
+The plan calls Cesa organic the engine and the highest priority daily slot, and
+names a Cesa post above 10,000 views as the single number that makes 1,000
+followers reachable. **That slot has been empty for 4 days and is empty for the
+next 8 in the queue.** Whatever else the schedule is doing, it is not running
+the format the campaign's own math depends on.
