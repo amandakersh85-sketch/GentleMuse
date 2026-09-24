@@ -2466,3 +2466,141 @@ format fails.**
   number the whole experiment is about has not been read in over a third of
   it. Metricool is not an acceptable substitute for it. Amanda has to check
   the app.
+
+---
+
+# Day 16 scrub — 2026-09-24 (02:36 UTC / 09-23 21:36 CT)
+
+Full corpus, Blotato, since 09/08. Instagram 70 posts, Facebook 51 posts.
+09/22 Instagram metrics have landed since last night. 09/23 has not been
+fetched yet.
+
+## The Club Target opener pattern held a second day, and it is now 4 for 4
+
+| Post | Date | Opens on | Views |
+|---|---|---|---|
+| Halloween endcap | 09/21 | product, wall of jack o lanterns | **145** |
+| Kuromi x KATSEYE | 09/22 | product, the endcap shelf | **112** |
+| Fall layers | 09/22 | red "FALL LAYERS" label card | 27 |
+| Denim | 09/21 | red "TARGET DENIM" label card | 16 |
+
+Same program, same account, same 2 days, same caption structure. The 2 that
+open on product ran 4 to 9 times the 2 that open on a label card. Last night
+this was 1 post and a hypothesis. It is now a clean 2 and 2 split with nothing
+else varying.
+
+**Recommendation: kill the red label card opener on Club Target content.**
+Open on the product, on the shelf, in the aisle. The label card can live at
+second 2 if it is wanted for branding, but frame 1 belongs to the thing being
+sold.
+
+## Amanda's floor has lifted, and it is the most durable change in the corpus
+
+Her last 4 Instagram posts: 165, 144, 129, 94. Before 09/21 her face to camera
+band outside 1 outlier was 26 to 61.
+
+| Post | Date | Views |
+|---|---|---|
+| Women over 40 | 09/21 | 165 |
+| 10 seconds on my brows | 09/22 | 144 |
+| The glow up | 09/21 | 129 |
+| Nobody tells you how many reps | 09/22 | 94 |
+
+4 consecutive posts between 94 and 165, against a whole campaign Cesa median of
+about 155. This is no longer 1 humor outlier. Her worst post in 4 days beat
+every Club Target label card post and every trivia post on the account.
+
+## FLAG: Cesa has been off Instagram for 3 days
+
+Last Cesa reel published to Instagram: **09/20 00:01, 113 views.** Nothing since
+on 09/21, 09/22, or 09/23.
+
+Cesa is the only format on this account that has ever produced a 4 digit
+Instagram number, 1,749 and 1,514 on 09/11 and 09/12. The plan names it the
+engine and the highest priority daily slot, and names a Cesa post above 10,000
+as the single number that makes 1,000 followers reachable.
+
+**The slate filled up without it.** Those 3 days carried 6, 6 and 3 posts, made
+of Club Target, seasonal and Amanda. The 1 format with a demonstrated 4 digit
+ceiling got 0 slots while the format that reads 0 to 14 got 6.
+
+This is not a content quality finding. It is a scheduling finding, and it is
+the most consequential thing in tonight's pull.
+
+## Trivia on Instagram: day 9, and the test has not been run
+
+09/22 seasonal posts: **1 and 2 views.** Against the 37 view watermarked
+baseline. 9 straight days in the dead tier.
+
+The test named last night, frame 1 carrying the fact's 3 to 5 most surprising
+words at large size, has not shipped. The 09/22 posts use the same dark
+atmospheric opener with a "GENTLE MUSE · FALL" label and no fact text. Nothing
+separates the 2 explanations yet because nothing changed.
+
+Facebook, same format, 09/22: 239. Still inside the 230 to 577 band at the
+bottom. Facebook keeps working. Instagram keeps not.
+
+## FLAG: the NYX TikTok never went back to TikTok
+
+The 09/22 17:28 TikTok that failed on `Failed to fetch media URL: 400 Bad
+Request` is **still failed and was never rescheduled to TikTok.**
+
+The content did ship, to Instagram, 09/23 17:00, recut with a BROW comment
+keyword. That is a reasonable recovery for reach. It does nothing for points.
+**TikTok is the points engine.** A Club Target challenge submission that moves
+to Instagram is not a TikTok challenge submission, and the tier progress is the
+reason the post exists.
+
+## FLAG: the Kuromi TikTok published with a storefront link only
+
+09/23 16:01, TikTok. The caption names specific products, popping boba and
+dreamy boba tea at 1.99 a can, mochi bites, the freeze dried candy, the ramen
+bowls, and carries `https://club.target.com/a/amanda.20`, the storefront.
+
+That is the hard rule: a video that names a product carries that product's own
+link. This one published. The Instagram version of the same content routes
+through a KUROMI comment keyword, which may or may not deliver a SKU, still
+unverified.
+
+Also unresolved from 2 nights ago: the on-screen #TargetPartner badge on this
+video does not appear until about 21.4s of 25.2s.
+
+## Volume, 09/20 to 09/23
+
+| Platform | 20 | 21 | 22 | 23* | Target |
+|---|---|---|---|---|---|
+| Instagram | 7 | 6 | 6 | 3 | 3 to 4 |
+| TikTok | 3 | 4 | 4 | 2 | 3 to 4 |
+| Facebook | 3 | 2 | 2 | 1 | 3 to 4 |
+| YouTube | 3 | 0 | 1 | 1 | 3 to 4 |
+
+*09/23 is partial. The pull ran at 02:36 UTC and the last post it saw was
+21:30 UTC, where prior days ran to 23:01. Treat 09/23 as incomplete, not as a
+collapse.
+
+The Instagram overage has corrected itself. Facebook and YouTube are still
+short, on the platform where the seasonal format actually earns 180 to 470.
+
+## Tracking items
+
+1. **Trivia on Instagram:** 1 and 2 on 09/22. 9 days below the 37 baseline.
+   Opener test still not run.
+2. **10,000 view Cesa breakout:** no, and no Cesa post at all for 3 days.
+   Campaign best is still 1,749 on 09/12.
+3. **Volume:** Instagram corrected to target, TikTok near, Facebook and YouTube
+   under.
+4. **Watermarks and AI badges:** none found. 12 frames were checked last night
+   across 09/21 and 09/22 and all were clean. No new frame checks tonight.
+5. **Product posts missing a SKU:** the Kuromi TikTok, published with the
+   storefront link while naming products. The NYX TikTok, still failed. The
+   KUROMI, FALLFIT and BROW comment keywords, still unverified.
+
+## Data gaps, stated rather than filled
+
+- **No watch time in this pull.** Blotato's analytics payload carries views,
+  reach, likes and comments, not average watch. Metricool is the only other
+  source and the standing rule says an Instagram number never gets reported
+  from Metricool alone. Watch time is a gap tonight rather than a guess.
+- **09/23 has no metrics yet** and the day's post list is partial.
+- **Follower count is still 188 manual from 09/12, now 12 days stale.** Day 16
+  of 30. The campaign's own headline number has gone unread for 40% of it.
