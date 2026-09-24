@@ -24,6 +24,11 @@ Usage
   See what still needs describing:
     python3 gm_clip_library.py --audit clip-library.csv
 
+  Fix dates on a Drive pull before auditing it (a phone names files with the
+  date it captured them; Drive's own createdTime is only when it got uploaded,
+  which can lag the recording by weeks and bury how far back the backlog goes):
+    python3 gm_clip_library.py --derive-dates clip-library-drive.csv
+
 Exit codes
   0  done, or audit clean
   1  audit found undescribed clips, duplicate IDs, or a broken schema
@@ -33,6 +38,7 @@ No third-party packages. Python 3.8+.
 
 import argparse
 import csv
+import datetime
 import os
 import re
 import sys
@@ -69,6 +75,64 @@ def category_of(row):
 def read_csv(path):
     with open(path, newline="", encoding="utf-8-sig") as handle:
         return list(csv.DictReader(handle))
+
+
+_VID_PREFIX = re.compile(r"VID_(\d{4})(\d{2})(\d{2})_")
+_LEADING_DATE = re.compile(r"^(\d{4})-(\d{2})-(\d{2})[-_]")
+_TRAILING_STAMP = re.compile(r"(\d{4})(\d{2})(\d{2})\d{6}(?:\.\w+)?$")
+
+
+def derive_captured(clip_id, file_name):
+    """A phone names its own files with the date it captured them
+    (VID_20260409_..., 2026-04-08-..., ..._20260509132226.mp4). Pull that date
+    back out where the filename encodes one, rather than trusting Drive's own
+    createdTime, which is only when the file reached Drive and can lag the
+    actual recording by weeks."""
+    for text in (clip_id or "", file_name or ""):
+        for pattern in (_VID_PREFIX, _LEADING_DATE, _TRAILING_STAMP):
+            m = pattern.search(text)
+            if not m:
+                continue
+            year, month, day = (int(g) for g in m.groups())
+            try:
+                return datetime.date(year, month, day).isoformat()
+            except ValueError:
+                continue
+    return None
+
+
+def derive_dates(path, out_path):
+    rows = read_csv(path)
+    with open(path, newline="", encoding="utf-8-sig") as handle:
+        fieldnames = list(csv.DictReader(handle).fieldnames or [])
+    for column in ("Captured", "DateSource"):
+        if column not in fieldnames:
+            fieldnames.append(column)
+
+    from_filename = from_upload = 0
+    for row in rows:
+        if (row.get("Captured") or "").strip():
+            continue
+        found = derive_captured(row.get("ClipID"), row.get("File"))
+        if found:
+            row["Captured"], row["DateSource"] = found, "filename"
+            from_filename += 1
+        else:
+            row["Captured"] = (row.get("Created") or "").strip()
+            row["DateSource"] = "drive-upload" if row["Captured"] else ""
+            from_upload += 1
+
+    with open(out_path, "w", newline="", encoding="utf-8") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(rows)
+
+    print("GM-Clip-Library dates")
+    print("  file      : %s" % out_path)
+    print("  rows      : %d" % len(rows))
+    print("  captured date read from the filename itself : %d" % from_filename)
+    print("  no date in the filename, kept Drive's upload time : %d" % from_upload)
+    return 0
 
 
 def build(triage_path, out_path, merge):
@@ -166,7 +230,12 @@ def audit(path):
         shot = (row.get("Shot") or "").strip()
         flag = (row.get("Described") or "").strip().lower()
         if len(shot) < 12 or flag in ("no", "false", "0"):
-            undescribed.append(clip_id)
+            undescribed.append({
+                "id": clip_id,
+                "when": (row.get("Captured") or row.get("Created") or "").strip(),
+                "lane": (row.get("Lane") or "").strip(),
+                "file": (row.get("File") or "").strip(),
+            })
         try:
             if float(row.get("DurationSec") or 0) <= 0:
                 problems.append(("NO_DURATION", 'clip "%s" has no duration' % clip_id))
@@ -174,17 +243,38 @@ def audit(path):
             problems.append(("BAD_DURATION",
                              'clip "%s" duration is not a number' % clip_id))
 
+    # Oldest first: a human works through these by hand, and the ones sitting
+    # longest unsorted are the ones most likely to get lost entirely.
+    undescribed.sort(key=lambda r: (r["when"], r["id"]))
+
     print("GM-Clip-Library audit")
     print("  file      : %s" % path)
     print("  clips     : %d" % len(rows))
     print("  described : %d" % (len(rows) - len(undescribed)))
     print("")
     if undescribed:
-        print("UNDESCRIBED — unusable until a Shot line is written (%d)" % len(undescribed))
-        for clip_id in undescribed[:40]:
-            print("  %s" % clip_id)
+        print("UNDESCRIBED — unusable until a Shot line is written (%d), oldest first"
+              % len(undescribed))
+        for u in undescribed[:40]:
+            print("  %-34s %-11s %-9s %s"
+                  % (u["id"], u["when"] or "?", u["lane"] or "?", u["file"]))
         if len(undescribed) > 40:
             print("  ... and %d more" % (len(undescribed) - 40))
+        print("")
+
+    # Origin: real footage, a HeyGen generation, or not yet known. A trailing
+    # "?" is a machine proposal from naming and timing evidence; house rule 4:
+    # Amanda confirms, the CSV records.
+    if "SourceKind" in header:
+        kinds = {}
+        for row in rows:
+            k = (row.get("SourceKind") or "unknown").strip() or "unknown"
+            kinds[k] = kinds.get(k, 0) + 1
+        unconfirmed = sum(v for k, v in kinds.items()
+                          if k == "unknown" or k.endswith("?"))
+        print("ORIGIN  %d of %d rows unconfirmed (a ? is a proposal, Amanda confirms)"
+              % (unconfirmed, len(rows)))
+        print("        " + "  ".join("%s %d" % (k, kinds[k]) for k in sorted(kinds)))
         print("")
     if problems:
         print("PROBLEMS (%d)" % len(problems))
@@ -202,17 +292,22 @@ def audit(path):
 def main():
     parser = argparse.ArgumentParser(description="Build or audit clip-library.csv.")
     parser.add_argument("--from-triage", help="video-triage.csv from Run 3")
-    parser.add_argument("--out", default="clip-library.csv", help="output CSV")
+    parser.add_argument("--out", help="output CSV (default: overwrite the input)")
     parser.add_argument("--merge", action="store_true",
                         help="keep Shot descriptions already written")
     parser.add_argument("--audit", help="audit an existing clip-library.csv")
+    parser.add_argument("--derive-dates",
+                        help="fill in Captured/DateSource on a Drive-pull CSV "
+                             "from filename patterns, in place unless --out is given")
     args = parser.parse_args()
 
     if args.audit:
         return audit(args.audit)
+    if args.derive_dates:
+        return derive_dates(args.derive_dates, args.out or args.derive_dates)
     if args.from_triage:
-        return build(args.from_triage, args.out, args.merge)
-    parser.error("pass --from-triage or --audit")
+        return build(args.from_triage, args.out or "clip-library.csv", args.merge)
+    parser.error("pass --from-triage, --derive-dates, or --audit")
 
 
 if __name__ == "__main__":
