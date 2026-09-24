@@ -7,7 +7,7 @@ Amanda claims these herself on `club.target.com`. Claude cannot: the board is a
 JavaScript app behind a login and every URL returns the same empty shell to a
 non-browser client. Claude's job is to catch each publish and hand over the row.
 
-## Published and awaiting confirmation, 31 Aug to 23 Sep 2026
+## Published and awaiting confirmation, 31 Aug to 24 Sep 2026
 
 | Date (UTC) | Platform | Theme | Live URL |
 |---|---|---|---|
@@ -43,6 +43,8 @@ non-browser client. Claude's job is to catch each publish and hand over the row.
 | 22 Sep | Instagram | #TargetxKuromixKATSEYE | https://www.instagram.com/reel/DdmOKvOifU-/ |
 | 22 Sep | Instagram | #TargetFallFits | https://www.instagram.com/reel/DdmppWCjSci/ |
 | 23 Sep | TikTok | #TargetxKuromixKATSEYE | https://www.tiktok.com/@thegentlemuse2026/video/7688761350826364174 |
+| 23 Sep | Instagram | #TargetEverydayFavorites | https://www.instagram.com/reel/Ddoy9_tm6YV/ |
+| 24 Sep | TikTok | #TargetBudgetFinds | https://www.tiktok.com/@thegentlemuse2026/video/7689132256362876174 |
 
 One Facebook row failed and never went live: `688849`, 01 Sep,
 #TargetCatandJackSummer, "the video could not be processed". No post, no points.
@@ -288,3 +290,51 @@ rack, alongside the "TARGET RUN / FALL LAYERS" card.
 Gap worth naming: there is nothing scheduled between 24 Sep and 06 Oct, an 11 day
 hole. And `#TargetEverydayFavorites` has already been used on 11 Sep, so 2 of the
 3 October rows are repeats of a theme that has likely already paid out.
+
+## 24 Sep: claim watch, 36 hour sweep
+
+2 new Club Target posts. No failures.
+
+### Claim these
+
+| Date (UTC) | Platform | Theme | Live URL |
+|---|---|---|---|
+| 24 Sep | TikTok | `#TargetBudgetFinds` | https://www.tiktok.com/@thegentlemuse2026/video/7689132256362876174 |
+| 23 Sep | Instagram | `#TargetEverydayFavorites` | https://www.instagram.com/reel/Ddoy9_tm6YV/ |
+
+The Instagram row is under the 500 follower line, no credit yet. The TikTok row
+is the one that earns.
+
+`#TargetBudgetFinds` is the `t/tt7` monthly evergreen. Last claimed 21 Aug, so
+34 days have passed and the window has reopened. It should credit.
+
+### The brow video went out with the disclosure gap
+
+Both rows use the same file, `748604db-8d2a`. That is the one flagged in this
+morning's audit: sampled at 0.3, 3 and 9 seconds of a 32.2 second video and
+`#TargetPartner` is nowhere on screen in the first 9 seconds. She's on camera at
+home with the NYX brow product, no text overlay in that stretch. The caption is
+clean on both.
+
+It published before she could act on the flag. Nothing to do about these 2 now,
+but it is the same gap that has the board reading 0%, and it is now 3 published
+videos carrying it (Kuromi twice, this one twice).
+
+### 1 media file, 2 different themes
+
+`748604db-8d2a` carries `#TargetEverydayFavorites` on the 23 Sep Instagram row and
+`#TargetBudgetFinds` on the 24 Sep TikTok row. Same brow footage, 2 challenges.
+Worth watching whether the portal accepts that or reads it as a reused asset.
+
+### Forward queue
+
+3 Club Target rows scheduled through 15 Oct, from one fresh pull:
+
+| When (UTC) | Platform | Theme |
+|---|---|---|
+| 24 Sep 21:30 | TikTok | `#TargetCareRoutine` |
+| 06 Oct 18:30 | Instagram | `#TargetEverydayFavorites` |
+| 06 Oct 21:30 | TikTok | `#TargetEverydayFavorites` |
+
+2 TikTok rows, so the queue is not empty. Still an 11 day hole between tonight
+and 6 Oct.
