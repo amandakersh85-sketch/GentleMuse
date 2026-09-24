@@ -1,0 +1,11 @@
+[
+  {"id": "S3", "platform": "instagram", "postTime": "2026-09-13T20:00:00Z",
+   "text": "Nightmare used to name one specific thing.\n\nComment SEASONAL and I'll send you the weekly note.",
+   "mediaUrls": ["https://cdn.example/mare-original.mp4"]},
+  {"id": "S4", "platform": "tiktok", "postTime": "2026-09-14T17:00:00Z",
+   "text": "Goosebumps started in 1992.",
+   "mediaUrls": ["https://cdn.example/goosebumps.mp4"]},
+  {"id": "S5", "platform": "tiktok", "postTime": "2026-09-18T17:00:00Z",
+   "text": "Goosebumps started in 1992.",
+   "mediaUrls": ["https://cdn.example/goosebumps.mp4"]}
+]

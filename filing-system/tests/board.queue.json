@@ -1,0 +1,70 @@
+[
+ {
+  "id": "q1",
+  "scheduledAt": "2026-09-08T14:30:00.000Z",
+  "draft": {
+   "target": {
+    "targetType": "youtube"
+   },
+   "accountId": "36129",
+   "content": {
+    "platform": "youtube",
+    "mediaUrls": [
+     "https://x/a.mp4"
+    ],
+    "text": "Disney would not put its own name on it.\n\nThe Nightmare Before Christmas came out under Touchstone in 1993.\n\nComment SEASONAL and I'll send you the weekly note. Every holiday carries a fact somebody softened and I post the real one before the day arrives.\n\nhttps://consider-this.subscribepage.io\n\n#gentlemuse #halloween #shorts"
+   }
+  }
+ },
+ {
+  "id": "q2",
+  "scheduledAt": "2026-09-12T14:30:00.000Z",
+  "draft": {
+   "target": {
+    "targetType": "youtube"
+   },
+   "accountId": "36129",
+   "content": {
+    "platform": "youtube",
+    "mediaUrls": [
+     "https://x/b.mp4"
+    ],
+    "text": "Disney would not put its own name on it.\n\nIt came out under Touchstone in 1993 because the studio thought it too dark.\n\nComment SEASONAL and I'll send you the weekly note.\n\nhttps://consider-this.subscribepage.io\n\n#gentlemuse #halloween #shorts"
+   }
+  }
+ },
+ {
+  "id": "q3",
+  "scheduledAt": "2026-09-08T17:20:00.000Z",
+  "draft": {
+   "target": {
+    "targetType": "youtube"
+   },
+   "accountId": "36129",
+   "content": {
+    "platform": "youtube",
+    "mediaUrls": [
+     "https://x/c.mp4"
+    ],
+    "text": "Jack o lanterns were turnips.\n\nIreland and Scotland carved them out of turnips for centuries.\n\nComment SEASONAL and I'll send you the weekly note.\n\nhttps://consider-this.subscribepage.io"
+   }
+  }
+ },
+ {
+  "id": "q4",
+  "scheduledAt": "2026-09-08T20:20:00.000Z",
+  "draft": {
+   "target": {
+    "targetType": "youtube"
+   },
+   "accountId": "36129",
+   "content": {
+    "platform": "youtube",
+    "mediaUrls": [
+     "https://x/d.mp4"
+    ],
+    "text": "She picked the blanket with the gold on it.\n\nBlack and gold, bunched up on the floor.\n\nComment CESA and I'll send you her 15 pages."
+   }
+  }
+ }
+]

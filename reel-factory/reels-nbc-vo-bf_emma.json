@@ -1,0 +1,47 @@
+[
+ {
+  "id": "HAL-010",
+  "slug": "nbc-vo-bf_emma",
+  "seed": 146,
+  "duration": 19.69,
+  "label": "Gentle Muse \u00b7 Fall",
+  "source": "Source: Disney corporate history; Touchstone Pictures \u00b7 HAL-010",
+  "contract": "Every holiday carries a fact somebody softened. I post the real one before the day arrives.",
+  "delivery": "text",
+  "keyword": "SEASONAL",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.46,
+    "html": "Disney would not put<br>its name on<br>The Nightmare Before Christmas.",
+    "cta": null
+   },
+   {
+    "in": 3.46,
+    "out": 7.06,
+    "html": "It came out in 1993<br>under Touchstone.",
+    "cta": null
+   },
+   {
+    "in": 7.06,
+    "out": 10.69,
+    "html": "They thought it was<br>too dark and too strange<br>for the Disney label.",
+    "cta": null
+   },
+   {
+    "in": 10.69,
+    "out": 14.09,
+    "html": "<span class='em'>It is now the thing<br>they sell you<br>every single October.</span>",
+    "cta": null
+   },
+   {
+    "in": 14.09,
+    "out": 19.29,
+    "html": "Somebody you know is<br>hiding the strange one.<br><span class='em'>That is usually the good one.</span>",
+    "cta": "The real one"
+   }
+  ],
+  "keyword_delivers": "Consider This weekly note via SEASONAL comment-to-DM, live on IG 4009, FB 4010, cesasgoldenyears IG 4011, all with an email gate",
+  "look": "moon"
+ }
+]

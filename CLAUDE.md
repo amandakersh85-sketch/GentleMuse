@@ -51,6 +51,138 @@ they test. `bash filing-system/tests/run-tests.sh`.
 5. **No substitution.** When the right input is missing, say so and stop. Do
    not reach for the nearest thing that fits the slot.
 
+## The posting board, which does not get re-litigated
+
+Set 09/08/2026. This is the whole cadence in one place, because it has been
+explained more times than it should have been.
+
+| Channel | Per day | What goes there | Call to action |
+|---|---|---|---|
+| Instagram | 3 to 5 | everything | comment keyword to DM |
+| Facebook | 3 to 5 | everything, same cadence as Instagram | comment keyword to DM |
+| TikTok | 3 to 5 | everything | link in bio, never the keyword |
+| YouTube | 3 to 5 | everything. Shorts for reels, long form for food reviews | link in description |
+| LinkedIn | 1 | business only. Just Another Tuesday, or the free AI guide | link |
+| X | 0 | dropped 09/08, it was not serving | none |
+
+The 3 to 5 is per account per day, not per platform: the 2 Instagram
+accounts are 2 audiences. Instagram and Facebook are a pair and move
+together because both carry the keyword comment to DM. TikTok never gets
+the comment keyword, its call to action is the bio link. A food review goes
+to YouTube as long form, not as a Short.
+
+LinkedIn runs on a rotation: 2 days of promo links, then 1 editorial
+business post. The editorial is written from Amanda's newsletters, made
+cohesive and on brand, and it has to read like business advice she would
+actually give someone. Recycling promo there is fine and she has said so.
+`press-play`, `consider-this` and `just-another-tuesday` are all valid
+LinkedIn links. Pinterest is parked on purpose, not forgotten.
+
+Prefer a HyperFrames motion text video over a still wherever there is a
+choice. One video covers every platform; a still does not.
+
+**Reuse before generating.** The budget does not stretch to regenerating
+what already exists and works. Every free lead magnet carousel is evergreen
+and reusable, and there is enough variation in them to keep running until
+the volume target is met or the data says otherwise. New sets lead because
+they are the best quality; an older one goes in now and then to keep the
+mix fresh.
+
+Pinterest runs 1 recycled pin a day off that same evergreen pool, to keep
+the account warm rather than dry. A pin is a bookmark, so repinning the
+same image is how the platform works and does not count as re-wearing
+media. Everywhere else the no re-wear rule stands.
+
+The rule lives in `filing-system/data/channel-rules.csv` and
+`gm_cadence_check.py` enforces it. Change the CSV, not the gate, and never
+a prose note instead of either.
+
+Which keyword each account can actually answer lives in
+`filing-system/data/keyword-registry.csv`, and `gm_keyword_check.py` refuses a
+caption that asks for one the account cannot. That file is the full copy of
+what is live in Blotato, not a sample. On 09/11 the old partial file said BROW
+was not a keyword. It had been live on 2 accounts since 08/08, and 20 YouTube
+posts were queued asking for a comment keyword YouTube has no listener for. A
+dead keyword is worse than no call to action, because somebody comments the
+word and waits. Refresh the registry from Blotato whenever an automation
+changes.
+
+What a campaign promised out loud is data, not memory. The nightly Halloween
+run was announced on Instagram on 09/19/2026: 1 true thing about the season
+every night, 43 nights, no dark days. Nothing in the repo recorded that, so
+26 of the 43 nights went dark and every gate passed the board, because a
+night holding 4 Club Target posts is not starved, not silent and not a
+repeat. The promise now lives in `filing-system/data/campaign-targets.csv`
+as StartDate, Accounts, PromisedOn and PerNight, and
+`staging-library.csv` carries a Campaign column so a board row can be joined
+to the campaign it belongs to. `C13_PROMISE_DARK` refuses a night the
+campaign owes and has not filled, and `C14_PROMISE_FLOOD` refuses more than
+PerNight in a day, because 3 in 1 night is 2 nights taken off the end.
+PerNight is a floor and a ceiling, and it is the number the announcement
+stated, not a preference. When a campaign is announced, write the promise
+into the CSV before anything is scheduled against it.
+
+## The day's shape, set 09/24/2026
+
+Amanda, sick and between sessions, describing what she already has running:
+"I've got the seasonal stuff going out every evening. I've got something of
+myself going out at some point every single day. I've got the club targets
+going out, and I need this to go out." The 4 lanes are not a proposal. They are
+the day, and a day missing one of them is the finding.
+
+| Lane | Per day | Who owns it |
+|---|---|---|
+| seasonal fact | 1, every evening | the Halloween nightly run |
+| Amanda herself | 1, face to camera or UGC | her own footage |
+| Club Target | as the partnership lands | sponsored, holds its times |
+| newsletter signup | 1 every 2 days, minimum | the carousel rotation |
+
+The newsletter lane is the one that goes missing, and it is the one she says
+matters most: "those are the two most important things, getting people to sign
+up for the newsletters. Just keep rotating them." Just Another Tuesday and
+Consider This. The rules live in
+`filing-system/data/newsletter-rotation.csv`:
+
+- at least 1 newsletter promo every 2 days, rotating between the 2
+- the 1 page lead magnet posts are cut. Only the carousels run here
+- a carousel goes out as a video with a music bed, never a still. A still
+  cannot carry sound, and she asked for music on them specifically
+- the rotation recycles carousels that already exist. Nothing new is generated
+  for this lane
+
+On 09/24 the board had Just Another Tuesday on 2 days out of 38, and 22 of
+those 38 days carried neither newsletter, including 11 days in a row from
+10/21 to 10/31, straight through Halloween.
+
+Leave the number 1 slot on Thanksgiving morning alone. It is there on purpose.
+
+**One board, not one per session.** Amanda, 09/24: "all I want is every piece
+of information I've been screaming at different sessions to come together, stop
+battling each other. Get one sensible, cohesive schedule out." That is what
+this file is for. A ruling she gives one session is written here, in the data,
+on the same day. A session that learns something and keeps it in its own
+transcript has not recorded it.
+
+Variety is the point of the volume. A day should not be 5 of the same lane.
+The lanes are: holiday fact, Cesa, Club Target, food review, lead magnet
+carousel, Amanda on camera, trivia.
+
+Re-airing is fine after 4 days. Amanda, 09/10/2026. There is no cap on how
+many times a fact runs on a channel, only on how close together, because
+the board holds about 17 distinct video facts and filling a day is almost
+always a re-air. Twice on 1 channel in 1 day is still refused and always
+was. `gm_fill_plan.py` proposes the fills and `C09` enforces the gap; both
+read the spacing from 1 constant, so change it there.
+
+The trivia lane is scoped to AI, automation and the creator economy. Set
+09/08/2026. General trivia fills the same slot at the same cost while
+diluting the positioning the account is there to carry, so the scope lives
+in the Topic column of `filing-system/data/trivia-fact-bank.csv` and the
+bank refuses anything else. A newsletter is where a fact was found, never
+what makes it true: FoundIn and Source are 2 columns and the gate refuses a
+row where they are the same. Facts that move get re-checked every 90 days.
+`SOP_0909_trivia-pipeline.txt` is the whole procedure.
+
 ## Voice
 
 Anything written for Amanda's audience follows the Gentle Muse voice: calm,

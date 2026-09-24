@@ -1,0 +1,6 @@
+id,postTimeUTC,countdown,platform,accountId,fact,factGuess,roster
+c1,2026-09-19T23:00,43n,instagram,45886,,trailer,facebook|instagram
+c2,2026-09-20T15:00,43n,instagram,45886,,trailer-moved,facebook|instagram
+c3,2026-09-18T15:00,43d,instagram,45886,,days-out,facebook|instagram
+c4,2026-09-19T15:00,43d,instagram,45886,,days-out-moved,facebook|instagram
+c5,2026-09-19T18:00,,instagram,45886,,no-countdown,facebook|instagram

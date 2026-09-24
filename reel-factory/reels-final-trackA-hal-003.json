@@ -1,0 +1,66 @@
+[
+ {
+  "id": "HAL-003",
+  "slug": "trackA-hal-003",
+  "seed": 35,
+  "duration": 24.61,
+  "label": "Gentle Muse · Halloween",
+  "source": "Source: Salem Witch Museum; Encyclopaedia Britannica · HAL-003",
+  "beats": [
+   {
+    "in": 0.3,
+    "out": 2.91,
+    "html": "Nobody was burned at Salem.",
+    "cta": null,
+    "vo_in": 0.3,
+    "vo_dur": 2.194
+   },
+   {
+    "in": 2.91,
+    "out": 6.83,
+    "html": "20 people were executed in 1692.",
+    "cta": null,
+    "vo_in": 2.91,
+    "vo_dur": 3.5
+   },
+   {
+    "in": 6.83,
+    "out": 9.58,
+    "html": "19 were hanged.",
+    "cta": null,
+    "vo_in": 6.83,
+    "vo_dur": 2.325
+   },
+   {
+    "in": 9.58,
+    "out": 15.07,
+    "html": "1, Giles Corey, was pressed<br>to death under stones.",
+    "cta": null,
+    "vo_in": 9.58,
+    "vo_dur": 5.068
+   },
+   {
+    "in": 15.07,
+    "out": 21.03,
+    "html": "The burning is the detail<br>everyone repeats, and it is<br>the one detail that is wrong.",
+    "cta": null,
+    "vo_in": 15.07,
+    "vo_dur": 5.538
+   },
+   {
+    "in": 21.03,
+    "out": 24.06,
+    "html": "<span class='em'>Worth asking what else<br>you are repeating.</span>",
+    "cta": null,
+    "vo_in": 21.03,
+    "vo_dur": 2.612
+   }
+  ],
+  "clip": {
+   "file": "plates/trackA-salem.jpg",
+   "push": 0.07,
+   "clip_id": "trackA-salem",
+   "match_reason": "Giles Corey was pressed to death under stones, and the plate is an open New England hillside in late autumn with those same loose field stones lying in the grass under bare oaks."
+  }
+ }
+]

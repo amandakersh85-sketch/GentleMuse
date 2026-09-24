@@ -1,0 +1,75 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="fonts.css">
+<!-- Still-slide sibling of reel-footage.html. Same plate treatment and the
+     same two faces, so a swipe reads as a paused frame of the films. The
+     stage height is set by the shot script: 1350 for carousel slides,
+     1920 for the slideshow cut. -->
+<style>
+  html,body{margin:0;padding:0;background:#0B0910;overflow:hidden}
+  #stage{position:relative;width:1080px;height:1350px;background:#0B0910;
+    overflow:hidden;color:#FAF6F0}
+  #plate{position:absolute;inset:0;overflow:hidden}
+  #plate img{position:absolute;left:50%;top:50%;min-width:100%;min-height:100%;
+    width:100%;height:100%;transform:translate(-50%,-50%) scale(var(--push,1));
+    transform-origin:center center;object-fit:cover}
+  #grade{position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;
+    background:linear-gradient(180deg,#4a3040 0%,#2e2230 55%,#1e1620 100%);opacity:.26}
+  #warm{position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;
+    background:radial-gradient(ellipse at 50% 44%,rgba(196,104,64,.22) 0%,rgba(196,104,64,0) 62%)}
+  #scrim{position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(180deg,rgba(11,9,16,.22) 0%,rgba(11,9,16,.48) 36%,
+      rgba(11,9,16,.54) 64%,rgba(11,9,16,.24) 84%,rgba(11,9,16,.48) 100%)}
+  #grain{position:absolute;inset:0;opacity:.045;pointer-events:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>")}
+  #vig{position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(ellipse at 50% 46%,rgba(0,0,0,0) 40%,rgba(0,0,0,.52) 100%)}
+  .label{position:absolute;left:72px;top:76px;font-family:"IBM Plex Mono",monospace;
+    font-size:21px;letter-spacing:.28em;text-transform:uppercase;color:#C8BAAE}
+  .page{position:absolute;right:72px;top:76px;font-family:"IBM Plex Mono",monospace;
+    font-size:21px;letter-spacing:.18em;color:#9C8F84}
+  .line{position:absolute;left:72px;right:72px;top:50%;transform:translateY(-54%);
+    font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:78px;
+    line-height:1.16;letter-spacing:-.012em;text-shadow:0 2px 28px rgba(0,0,0,.55)}
+  .line.em{font-style:italic;color:#F5BEA0}
+  .line.hook{font-size:88px}
+  .mark{position:absolute;right:72px;bottom:86px;font-family:"IBM Plex Mono",monospace;
+    font-size:20px;letter-spacing:.26em;text-transform:uppercase;color:#F5BEA0;
+    white-space:nowrap}
+  .src{position:absolute;left:72px;right:340px;bottom:86px;font-family:"IBM Plex Mono",monospace;
+    font-size:18px;letter-spacing:.08em;color:#9C8F84;line-height:1.5}
+  .src.hidden{display:none}
+</style></head>
+<body>
+<div id="stage">
+  <div id="plate"><img id="img" src=""></div>
+  <div id="grade"></div><div id="warm"></div><div id="scrim"></div>
+  <div id="grain"></div><div id="vig"></div>
+  <div class="label" id="label"></div>
+  <div class="page" id="page"></div>
+  <div class="line" id="line"></div>
+  <div class="src" id="src"></div>
+  <div class="mark" id="mark" style="display:none">Gentle Muse</div>
+</div>
+<script>
+  // The shot script drives this via window.setSlide(opts).
+  window.setSlide = function (o) {
+    const stage = document.getElementById('stage');
+    stage.style.height = (o.height || 1350) + 'px';
+    document.getElementById('img').src = o.plate;
+    document.getElementById('img').style.setProperty('--push', o.push || 1);
+    document.getElementById('label').textContent = o.label || '';
+    document.getElementById('page').textContent = o.page || '';
+    const line = document.getElementById('line');
+    line.innerHTML = o.text || '';
+    line.className = 'line' + (o.em ? ' em' : '') + (o.hook ? ' hook' : '');
+    document.getElementById('src').textContent = o.src || '';
+    document.getElementById('src').style.display = o.src ? 'block' : 'none';
+    document.getElementById('mark').style.display = o.mark ? 'block' : 'none';
+    return document.fonts.ready.then(() => new Promise(r => {
+      const img = document.getElementById('img');
+      if (img.complete) r(); else img.onload = () => r();
+    }));
+  };
+</script>
+</body></html>

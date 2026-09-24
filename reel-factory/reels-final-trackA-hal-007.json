@@ -1,0 +1,58 @@
+[
+ {
+  "id": "HAL-007",
+  "slug": "trackA-hal-007",
+  "seed": 35,
+  "duration": 26.25,
+  "label": "Gentle Muse · Halloween",
+  "source": "Source: Pooley and Socolow, research on the 1938 broadcast, 2013 · HAL-007",
+  "beats": [
+   {
+    "in": 0.3,
+    "out": 3.99,
+    "html": "The panic was a story<br>about a story.",
+    "cta": null,
+    "vo_in": 0.3,
+    "vo_dur": 3.265
+   },
+   {
+    "in": 3.99,
+    "out": 9.94,
+    "html": "In 1938 Orson Welles read<br>War of the Worlds on the radio.",
+    "cta": null,
+    "vo_in": 3.99,
+    "vo_dur": 5.538
+   },
+   {
+    "in": 9.94,
+    "out": 16.16,
+    "html": "America supposedly lost<br>its mind. It did not.<br>The audience was small.",
+    "cta": null,
+    "vo_in": 9.94,
+    "vo_dur": 5.799
+   },
+   {
+    "in": 16.16,
+    "out": 23.14,
+    "html": "Newspapers were losing<br>advertising to radio, and had<br>every reason to make radio<br>look dangerous.",
+    "cta": null,
+    "vo_in": 16.16,
+    "vo_dur": 6.557
+   },
+   {
+    "in": 23.14,
+    "out": 25.7,
+    "html": "<span class='em'>So they wrote the panic.</span>",
+    "cta": null,
+    "vo_in": 23.14,
+    "vo_dur": 2.142
+   }
+  ],
+  "clip": {
+   "file": "plates/trackA-radio.jpg",
+   "push": 0.07,
+   "clip_id": "trackA-radio",
+   "match_reason": "The fact is the 1938 War of the Worlds broadcast, and the plate is a 1938 cabinet radio with the dial lit warm and the armchair beside it empty, which is the small audience the fact is about."
+  }
+ }
+]

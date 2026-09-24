@@ -1,0 +1,58 @@
+[
+ {
+  "id": "HAL-004",
+  "slug": "trackA-hal-004",
+  "seed": 35,
+  "duration": 23.93,
+  "label": "Gentle Muse · Halloween",
+  "source": "Source: Encyclopaedia Britannica, Mary Shelley · HAL-004",
+  "beats": [
+   {
+    "in": 0.3,
+    "out": 2.21,
+    "html": "She was 18.",
+    "cta": null,
+    "vo_in": 0.3,
+    "vo_dur": 1.489
+   },
+   {
+    "in": 2.21,
+    "out": 8.17,
+    "html": "Mary Shelley started<br>Frankenstein in 1816, the<br>year without a summer.",
+    "cta": null,
+    "vo_in": 2.21,
+    "vo_dur": 5.538
+   },
+   {
+    "in": 8.17,
+    "out": 13.13,
+    "html": "Ash from a volcano on the<br>other side of the world<br>kept Europe under cloud.",
+    "cta": null,
+    "vo_in": 8.17,
+    "vo_dur": 4.545
+   },
+   {
+    "in": 13.13,
+    "out": 20.11,
+    "html": "Stuck indoors, bad weather,<br>nothing going right.<br>She invented a genre anyway.",
+    "cta": null,
+    "vo_in": 13.13,
+    "vo_dur": 6.557
+   },
+   {
+    "in": 20.11,
+    "out": 23.38,
+    "html": "<span class='em'>The conditions were never<br>the requirement.</span>",
+    "cta": null,
+    "vo_in": 20.11,
+    "vo_dur": 2.847
+   }
+  ],
+  "clip": {
+   "file": "plates/trackA-shelley.jpg",
+   "push": 0.07,
+   "clip_id": "trackA-shelley",
+   "match_reason": "The fact is Frankenstein begun in 1816 with Europe held under volcanic cloud, and the plate is a candlelit writing desk with an open journal and a quill, storm weather over the lake through the window."
+  }
+ }
+]

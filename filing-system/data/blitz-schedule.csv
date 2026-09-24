@@ -1,0 +1,202 @@
+Date,TimeUTC,Lane,Platform,Account,FactID,Media,Status,SubmissionId
+2026-09-13,20:00,september-swap,instagram,45886,HAL-010,nbc-theater,media swapped on live schedule 4059588,
+2026-09-13,17:00,september-swap,tiktok,41488,HAL-010,nbc-cemetery,media swapped on live schedule 4059593,
+2026-09-14,17:00,september-swap,tiktok,41488,HAL-014,gb-paperbacks,media swapped on live schedule 4059760,
+2026-09-16,15:00,september-swap,instagram,45886,HAL-017,mare-bedroom,media swapped on live schedule 4059647,
+2026-09-16,17:00,september-swap,tiktok,41488,HAL-017,mare-nightstand,media swapped on live schedule 4059657,
+2026-09-30,15:00,club,instagram,45886,HAL-008,trickortreat,scheduled,d513064a-1dad-4eeb-afe9-b1f26b45b7ec
+2026-09-30,15:00,club,tiktok,41488,HAL-008,trickortreat,scheduled,a6d6094a-a336-44ab-be72-ec381e1ca88d
+2026-10-01,15:00,club,instagram,45886,HAL-002,turnip,scheduled,3168835c-171b-446f-a2b4-ae9e18d3733b
+2026-10-01,15:00,club,tiktok,41488,HAL-002,turnip,scheduled,a173416d-dafa-4ba5-8bc0-00c195e3bcc5
+2026-10-02,15:00,club,instagram,45886,HAL-015,snick,scheduled,04739032-dc0d-4887-84f4-f913a9c237e9
+2026-10-02,15:00,club,tiktok,41488,HAL-015,snick,scheduled,4633cab5-fc08-46fe-9799-8b26a99d3dac
+2026-10-03,15:00,club,instagram,45886,HAL-011,afraidark,scheduled,a6db0c3d-384e-4f10-b762-982efa768f95
+2026-10-03,15:00,club,tiktok,41488,HAL-011,afraidark,scheduled,a2bcdc99-33b4-4118-911f-8e2f34ce6847
+2026-10-04,15:00,club,instagram,45886,HAL-014,gb-paperbacks,scheduled,461c15b4-760c-41be-be9e-2f1ee5606804
+2026-10-04,15:00,club,tiktok,41488,HAL-014,gb-fort,scheduled,8817d237-37f8-44be-9ff0-bf9e0b7ff3fa
+2026-10-06,15:00,club,instagram,45886,HAL-012,casper,scheduled,f66e08d1-668e-452a-acdc-7e5769dda5bc
+2026-10-06,15:00,club,tiktok,41488,HAL-012,casper,scheduled,592ad732-98ef-41ff-841a-304de4dd56be
+2026-10-07,15:00,club,instagram,45886,HAL-014,gb-fort,scheduled,2b20b1c2-8af2-47c9-bd75-510b5708fe8a
+2026-10-07,15:00,club,tiktok,41488,HAL-014,gb-paperbacks,scheduled,902c2de1-e6fb-43e4-9500-7fbba4d2773b
+2026-10-08,15:00,club,instagram,45886,HAL-010,nbc-cemetery,scheduled,fa8e2895-ba6b-4bc4-b429-c0244d26fe14
+2026-10-08,15:00,club,tiktok,41488,HAL-010,nbc-theater,scheduled,62790aca-82eb-4ddc-b7ae-983017796197
+2026-10-10,15:00,club,instagram,45886,HAL-009,hocus-bed,"scheduled, bed swapped in Sep 6 on Amanda call",c39667bc-76f3-4804-9ccb-ce7bf3f60e97
+2026-10-10,15:00,club,tiktok,41488,HAL-009,hocus-bed,"scheduled, bed swapped in Sep 6 on Amanda call",5e4c2584-3af9-40a9-bf7a-7d85b5dc9c5d
+2026-10-11,15:00,club,instagram,45886,HAL-010,nbc-theater,scheduled,0d733b6e-47f9-4154-a14b-ee1f4be4461e
+2026-10-11,15:00,club,tiktok,41488,HAL-010,nbc-cemetery,scheduled,00d7f6e6-3cba-4dd1-8928-fe661f12f9b6
+2026-10-15,15:00,club,instagram,45886,HAL-017,mare-nightstand,scheduled,c573ff65-86d9-44f0-acb3-902758df1c77
+2026-10-15,15:00,club,tiktok,41488,HAL-017,mare-bedroom,scheduled,d059c36f-3a11-459d-9fbb-7f51f5a52197
+2026-10-17,15:00,club,instagram,45886,HAL-005,coffinbell,scheduled,3e43a7eb-3c98-4d5c-ad11-c3f519cd28b1
+2026-10-17,15:00,club,tiktok,41488,HAL-005,coffinbell,scheduled,166862f8-3aed-4b38-8b90-b77826c050b6
+2026-10-18,15:00,club,instagram,45886,HAL-017,mare-bedroom,scheduled,7361ea52-1c98-4c8b-a980-48208339ea34
+2026-10-18,15:00,club,tiktok,41488,HAL-017,mare-nightstand,scheduled,bfe6f4f0-5bd0-4dee-8c1b-a9b134d503de
+2026-10-25,15:00,club,instagram,45886,HAL-018,lugnano,scheduled,133e2260-d65a-4293-a13a-d3adc249d4b1
+2026-10-25,15:00,club,tiktok,41488,HAL-018,lugnano,scheduled,00d26514-9efb-43b2-87c1-e5b2ce40f8d3
+2026-10-30,15:00,club,instagram,45886,HAL-016,winchester-bed,"scheduled, bed swapped in Sep 6 on Amanda call",2b26b8f4-593f-489f-b6b4-fa7d9f2ef571
+2026-10-30,15:00,club,tiktok,41488,HAL-016,winchester-bed,"scheduled, bed swapped in Sep 6 on Amanda call",5aaf3487-718c-4de9-92a7-223f8c7c4ef5
+2026-10-31,15:00,club,instagram,45886,HAL-001,samhain,scheduled,e3ebdac2-ae86-430d-b187-6951527b7258
+2026-10-31,15:00,club,tiktok,41488,HAL-001,samhain,scheduled,c8bdb409-2143-4f13-b1ae-51393fbd97b0
+2026-09-30,19:00,echo,youtube,36129,HAL-010,nbc-theater,scheduled,1c79adc5-06cc-4337-979c-fd2918a001ad
+2026-09-30,19:00,echo,facebook,30840,HAL-010,nbc-cemetery,scheduled,7c77a5e6-3436-479a-aaec-fdee1a0479b9
+2026-10-01,19:00,echo,youtube,36129,HAL-017,mare-bedroom,scheduled,e9418981-7a1b-4f8d-9711-415ce6d6dbfb
+2026-10-01,19:00,echo,facebook,30840,HAL-017,mare-nightstand,scheduled,b61658b1-c41c-4be0-8c95-65b9e6869108
+2026-10-02,19:00,echo,youtube,36129,HAL-014,gb-paperbacks,scheduled,9fea41cc-f818-40f8-9293-20240ea75f29
+2026-10-02,19:00,echo,facebook,30840,HAL-014,gb-fort,scheduled,d0b687d9-a518-438e-8f00-c015aa21c473
+2026-10-03,19:00,echo,youtube,36129,HAL-009,hocus-bed,"scheduled, bed swapped in Sep 6 on Amanda call",ee49f2da-601a-4ca5-b087-a06740f891ea
+2026-10-03,19:00,echo,facebook,30840,HAL-009,hocus-bed,"scheduled, bed swapped in Sep 6 on Amanda call",90a6ff0c-4e97-4696-af59-74f0682c9efe
+2026-10-04,19:00,echo,youtube,36129,HAL-008,trickortreat,scheduled,0f5b9ced-3be9-417d-a593-022fae827eb4
+2026-10-04,19:00,echo,facebook,30840,HAL-008,trickortreat,scheduled,87fa59b1-af1d-4e9f-b268-fdf625f640ff
+2026-10-05,19:00,echo,youtube,36129,HAL-002,turnip,scheduled,81043fc7-10e4-41a7-a298-0a42eb238b36
+2026-10-05,19:00,echo,facebook,30840,HAL-002,turnip,scheduled,3706711e-4df4-411d-81b1-a04dd4b936cc
+2026-10-06,19:00,echo,youtube,36129,HAL-015,snick,scheduled,274b7812-ef93-4fec-ac57-470ee9a1930c
+2026-10-06,19:00,echo,facebook,30840,HAL-015,snick,scheduled,b32666f2-c8e3-44f9-9886-6521cab4f4c7
+2026-10-07,19:00,echo,youtube,36129,HAL-011,afraidark,scheduled,d3f7232c-0ee0-41d1-9ec3-a8e5847f98e3
+2026-10-07,19:00,echo,facebook,30840,HAL-011,afraidark,scheduled,75b99fcd-7215-4dbe-9fbe-ee4026a90060
+2026-10-08,19:00,echo,youtube,36129,HAL-014,gb-fort,scheduled,0c9eebc0-c7d3-4b93-afaf-5cbe0274d8e0
+2026-10-08,19:00,echo,facebook,30840,HAL-014,gb-paperbacks,scheduled,6ec9196a-54ca-46f8-95aa-04b207a3a4eb
+2026-10-10,19:00,echo,youtube,36129,HAL-012,casper,scheduled,b5f814d7-8670-4ede-a6a7-e1b48c1eb9d5
+2026-10-10,19:00,echo,facebook,30840,HAL-012,casper,scheduled,8cb9531d-31c3-4a75-95d1-c871a75e93fd
+2026-10-12,19:00,echo,youtube,36129,HAL-010,nbc-cemetery,scheduled,73a6972e-033b-4c2a-af2e-e1243c4cabf6
+2026-10-12,19:00,echo,facebook,30840,HAL-010,nbc-theater,scheduled,5e82abed-3855-482d-9040-03f38227382d
+2026-10-19,19:00,echo,youtube,36129,HAL-017,mare-nightstand,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-19,19:00,echo,facebook,30840,HAL-017,mare-bedroom,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-21,19:00,echo,youtube,36129,HAL-005,coffinbell,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-21,19:00,echo,facebook,30840,HAL-005,coffinbell,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-29,19:00,echo,youtube,36129,HAL-018,lugnano,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-29,19:00,echo,facebook,30840,HAL-018,lugnano,"held 09/09, Oct row behind the Sep 19 hole",
+2026-09-29,15:00,club,instagram,45886,TRL-001,trailer,scheduled,86849af0-9995-49b1-97ff-d9d6b70b397e
+2026-09-29,15:00,club,tiktok,41488,TRL-001,trailer,scheduled,89491cb6-7b82-4afc-98fe-e1df4b9a8ae7
+2026-09-29,19:00,echo,youtube,36129,TRL-001,trailer,scheduled,63e2d271-3d76-4cac-98f7-d1b3595a84e7
+2026-09-29,19:00,echo,facebook,30840,TRL-001,trailer,scheduled,e027c5ec-c50b-446c-be86-9a1377919a63
+2026-10-05,15:00,club,instagram,45886,HAL-002,carousel turnip slides 1-5,scheduled,63431131-a387-492b-af97-72959d1bdee1
+2026-10-05,15:00,club,tiktok,41488,HAL-002,carousel turnip slides 1-5,scheduled,ba470e6c-48b1-4710-a48a-1f1b5fd92759
+2026-10-09,15:00,club,instagram,45886,HAL-015,carousel snick slides 1-5,scheduled,694dceb7-4479-4652-88df-9d0bbb02a504
+2026-10-09,15:00,club,tiktok,41488,HAL-015,carousel snick slides 1-5,scheduled,762fb875-62a6-4880-be51-4b6494577d87
+2026-10-09,19:00,echo,youtube,36129,HAL-002,SLIDES-turnip.mp4,scheduled,893077c6-cc13-4459-a870-8ebcc4134e97
+2026-10-09,19:00,echo,facebook,30840,HAL-002,carousel turnip slides 1-5,scheduled,5e03c581-b6aa-4aec-a2f9-32e129dbc163
+2026-10-12,15:00,club,instagram,45886,HAL-012,carousel casper slides 1-5,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-12,15:00,club,tiktok,41488,HAL-012,carousel casper slides 1-5,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-13,15:00,club,instagram,45886,HAL-013,halloweentown-v2 kitchen cut,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-13,15:00,club,tiktok,41488,HAL-013,halloweentown-v2 kitchen cut,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-13,19:00,echo,youtube,36129,HAL-015,SLIDES-snick.mp4,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-13,19:00,echo,facebook,30840,HAL-015,carousel snick slides 1-5,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-14,15:00,club,instagram,45886,HAL-014,gb-bike,scheduled,cb18d966-b128-4e2e-9965-5e9717a46db0
+2026-10-14,15:00,club,tiktok,41488,HAL-014,gb-rack,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-16,15:00,club,instagram,45886,HAL-010,nbc-oak,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-16,15:00,club,tiktok,41488,HAL-010,nbc-crt,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-16,19:00,echo,youtube,36129,HAL-012,SLIDES-casper.mp4,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-16,19:00,echo,facebook,30840,HAL-012,carousel casper slides 1-5,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-17,19:00,echo,youtube,36129,HAL-013,halloweentown-v2 kitchen cut,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-17,19:00,echo,facebook,30840,HAL-013,halloweentown-v2 kitchen cut,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-20,15:00,club,instagram,45886,HAL-005,carousel coffinbell slides 1-5,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-20,15:00,club,tiktok,41488,HAL-005,carousel coffinbell slides 1-5,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-22,15:00,club,instagram,45886,HAL-017,mare-weighted,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-22,15:00,club,tiktok,41488,HAL-017,mare-rocking,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-24,19:00,echo,youtube,36129,HAL-005,SLIDES-coffinbell.mp4,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-24,19:00,echo,facebook,30840,HAL-005,carousel coffinbell slides 1-5,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-26,15:00,club,instagram,45886,CDN-001,countdown-ig doorway,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-26,15:00,club,tiktok,41488,CDN-001,countdown-tt pyre,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-28,15:00,club,instagram,45886,HAL-018,carousel lugnano slides 1-5,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-28,15:00,club,tiktok,41488,HAL-018,carousel lugnano slides 1-5,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-30,19:00,echo,youtube,36129,CDN-001,countdown-tt pyre,"held 09/09, Oct row behind the Sep 19 hole",
+2026-10-30,19:00,echo,facebook,30840,CDN-001,countdown-ig doorway,"held 09/09, Oct row behind the Sep 19 hole",
+2026-09-08,20:00,halloween,instagram,45886,HAL-003,trackA-hal-003,scheduled,a88e2a6a-7824-4922-9771-28ec33ab2492
+2026-09-08,20:00,halloween,tiktok,41488,HAL-020,trackA-hal-020,scheduled,e79ac95c-dc73-4c8e-8225-2b3a8597ad2c
+2026-09-08,19:30,halloween,facebook,30840,HAL-006,trackA-hal-006,"expired, the date passed while it was cap-blocked",
+2026-09-08,14:30,halloween,youtube,36129,,24d5f596-4539-49a4-8d6e-493b04d40bf0.mp4,scheduled-refill,
+2026-09-08,20:20,soft,youtube,36129,,53be24ff-3114-45d9-b7cd-d090702a519f.mp4,scheduled-refill,
+2026-09-08,14:00,soft,facebook,30840,,329c16e4-319b-4199-b4b4-91e2b0f2c5a7.mp4,scheduled-refill,
+2026-09-08,19:30,home,facebook,30840,,1fbfb282-6516-4486-b8d4-d87d41129a79.png,scheduled-refill,
+2026-09-08,15:00,halloween,tiktok,41488,,3f87bdbb-4816-46cc-b7b7-536698238dc1.mp4,scheduled-refill,
+2026-09-08,23:00,book,instagram,45886,,007d6b00-d0a8-4280-ba0e-3ac99f5554f0.jpeg,scheduled-refill,
+2026-09-08,13:30,ai,linkedin,20723,,72d18e2e-9bf2-4cbc-82c3-215face1d902.jpeg,scheduled-refill,
+2026-09-09,20:20,halloween,youtube,36129,,ffc4cd7c-3570-401f-92b8-f5631c3ed7ef.mp4,scheduled-refill,
+2026-09-09,23:20,book,youtube,36129,,50917a59-ca12-4a3d-a178-474e9122fc0c.mp4,scheduled-refill,
+2026-09-09,14:00,halloween,facebook,30840,,96de86f7-1e94-404c-afc0-461e8d0e1b40.mp4,scheduled-refill,
+2026-09-09,19:30,book,facebook,30840,,1d84a8ec-11bb-4504-b846-f41e09235acb.jpeg,scheduled-refill,
+2026-09-09,15:00,book,tiktok,41488,,18bee17d-ff27-4cd6-a6bb-bfb40bfb16fd.jpeg,scheduled-refill,
+2026-09-09,20:00,soft,tiktok,41488,,5d5c9ae5-abfd-42f7-9d0e-c8a064c2470e.mp4,scheduled-refill,
+2026-09-09,23:00,ai,instagram,45886,,208a364b-1b12-4b9d-90ef-2a5c7ea8182a.jpeg,scheduled-refill,
+2026-09-10,14:30,soft,youtube,36129,,69c88c15-cb08-470b-8cc3-5bb61953b6f9.mp4,scheduled-refill,
+2026-09-10,17:20,halloween,youtube,36129,,d4d28cf4-c3d0-4380-952a-0a7d24bde412.mp4,scheduled-refill,
+2026-09-10,20:20,book,youtube,36129,,c8348e88-b9f2-42dc-92a2-63ac0b0763d8.mp4,scheduled-refill,
+2026-09-10,23:20,halloween,youtube,36129,,2cc47705-9688-451e-9054-b9c9c6a228a8.mp4,scheduled-refill,
+2026-09-10,14:00,food,facebook,30840,,2b0d0f4c-f0b5-43a3-95ad-6cfa6d633679.mp4,scheduled-refill,
+2026-09-10,19:30,halloween,facebook,30840,,fea20a18-d60f-400d-a32f-9e6ccbd78b12.mp4,scheduled-refill,
+2026-09-10,15:00,ai,tiktok,41488,,7fd5b3ca-1982-40a9-83d1-50d94bc20a64.jpeg,scheduled-refill,
+2026-09-10,20:00,halloween,instagram,45886,,6e2a688c-ff90-43f1-a8e4-a1a94efc3397.mp4,scheduled-refill,
+2026-09-11,17:20,halloween,youtube,36129,,6a740ccc-159e-460c-8f68-78f4451d93f3.mp4,scheduled-refill,
+2026-09-11,20:20,book,youtube,36129,,1d19d8c8-10a2-48eb-9f90-e6121f6d12d9.mp4,scheduled-refill,
+2026-09-11,23:20,halloween,youtube,36129,,60bdb82a-0b74-4d2d-9702-e4f16f0ba9b8.mp4,scheduled-refill,
+2026-09-11,14:00,soft,facebook,30840,,46fda242-6a84-45a4-bd42-4f28e7c437ae.mp4,scheduled-refill,
+2026-09-11,19:30,halloween,facebook,30840,,e4b3adcd-25ea-4df2-b974-3162e5d0c552.mp4,scheduled-refill,
+2026-09-11,15:00,halloween,tiktok,41488,,4f537510-6799-4271-8b6c-3cce29ff4eba.mp4,scheduled-refill,
+2026-09-11,20:00,book,tiktok,41488,,1f2b99da-bd73-45e7-83b1-71a874c5da72.jpeg,scheduled-refill,
+2026-09-11,18:00,cesa,instagram,45886,,941b1b26-e700-4ed4-a6c3-bb25e9dba571.mp4,scheduled-refill,
+2026-09-11,23:00,other,instagram,45886,,432a7329-c61f-4000-ba67-cfce4b4509e7.png,scheduled-refill,
+2026-09-12,14:30,book,youtube,36129,,5cdbc7b5-774b-4219-a167-10a4c743fd3e.mp4,scheduled-refill,
+2026-09-12,17:20,halloween,youtube,36129,,e9b19be8-f471-4e5d-a0e6-c4303c8c5d4e.mp4,scheduled-refill,
+2026-09-12,20:20,halloween,youtube,36129,,1a0b6741-360c-4d43-b1f0-40ccee2c92b6.mp4,scheduled-refill,
+2026-09-12,23:20,book,youtube,36129,,4b3c1214-d19b-42ca-b959-a5e6715aadda.mp4,scheduled-refill,
+2026-09-12,14:00,halloween,facebook,30840,,3a6f1d40-4dd0-4c91-8391-07e269dc2b91.mp4,scheduled-refill,
+2026-09-12,19:30,halloween,facebook,30840,,96b8d49c-72de-4bda-ace1-f22bd0039255.mp4,scheduled-refill,
+2026-09-12,15:00,halloween,tiktok,41488,,aed8e495-1911-4f8e-817d-0e54c31a3b4e.mp4,scheduled-refill,
+2026-09-12,20:00,book,tiktok,41488,,44dfb547-58ea-4d73-9d58-e3f0c464e779.jpeg,scheduled-refill,
+2026-09-12,18:00,beauty,instagram,45886,,295d9891-6f03-4381-ba08-03aa8ae11596.mp4,scheduled-refill,
+2026-09-13,14:30,book,youtube,36129,,df0b933e-e59b-42c0-a52c-494bcc45f264.mp4,scheduled-refill,
+2026-09-13,17:20,halloween,youtube,36129,,88cd06ee-bdb0-4b3f-878f-c119fdb6dea3.mp4,scheduled-refill,
+2026-09-13,20:20,halloween,youtube,36129,,849afc11-dd23-40df-92c3-e9317c316218.mp4,scheduled-refill,
+2026-09-13,14:00,halloween,facebook,30840,,8d6aac24-f1c4-472f-81f2-91bb7cc0f972.mp4,scheduled-refill,
+2026-09-13,19:30,halloween,facebook,30840,,416dfc67-0500-465b-860d-cba522db4ee1.mp4,scheduled-refill,
+2026-09-13,15:00,halloween,tiktok,41488,,bb92031b-0140-4e88-82dd-26f1be778d3c.mp4,scheduled-refill,
+2026-09-13,20:00,halloween,tiktok,41488,,a1e67109-ab91-4216-b281-a629e33193ed.jpeg,scheduled-refill,
+2026-09-13,15:00,home,instagram,45886,,7e69add9-5f5e-4ceb-a2d1-ac9e36d32ac7.jpeg,scheduled-refill,
+2026-09-14,14:30,book,youtube,36129,,b6ce81de-93ca-46d8-bbd8-b901dadb979c.mp4,scheduled-refill,
+2026-09-14,17:20,halloween,youtube,36129,,24b21333-ca41-4507-9272-9ce711669ae6.mp4,scheduled-refill,
+2026-09-14,20:20,halloween,youtube,36129,,8106a27f-60d0-41ba-a7fc-d06815dfc0fb.mp4,scheduled-refill,
+2026-09-14,14:00,halloween,facebook,30840,,65ab6fc2-727c-4747-94c5-ac314d35552e.jpeg,scheduled-refill,
+2026-09-14,15:00,halloween,tiktok,41488,,5db74704-0cd3-457f-ae96-5331d919ada4.mp4,scheduled-refill,
+2026-09-14,20:00,halloween,tiktok,41488,,c9eb8917-3fcb-48f2-ad85-aa69c5453e87.mp4,scheduled-refill,
+2026-09-15,14:30,halloween,youtube,36129,,e6925be5-2d88-43a6-90e3-08e17f88bbca.mp4,scheduled-refill,
+2026-09-15,20:20,halloween,youtube,36129,,e3dabeff-51c5-4806-89c8-0c182aa5ea96.mp4,scheduled-refill,
+2026-09-15,14:00,book,facebook,30840,,a0f0b17e-153f-4b21-9b7a-2e1d05168840.mp4,scheduled-refill,
+2026-09-15,19:30,halloween,facebook,30840,,6087064f-871b-4f82-80e0-2580df3ce8d4.mp4,scheduled-refill,
+2026-09-15,15:00,halloween,tiktok,41488,,5c08e30f-cc25-4318-a855-dbd2305e12fb.jpeg,scheduled-refill,
+2026-09-15,20:00,halloween,tiktok,41488,,2b43817d-de39-4a09-bff9-2e4bcab344ef.mp4,scheduled-refill,
+2026-09-15,15:00,soft,instagram,45886,,2581279a-1cf5-42f5-b151-3c4de6f29a6e.mp4,scheduled-refill,
+2026-09-15,20:00,halloween,instagram,45886,,afe4cff5-2d64-40f2-a4a8-6a30a74b6a48.mp4,scheduled-refill,
+2026-09-16,14:30,halloween,youtube,36129,,89a0a844-57c9-4684-b4ea-0693e441e5f1.mp4,scheduled-refill,
+2026-09-16,17:20,halloween,youtube,36129,,18870ce2-8486-49df-9015-517c70f50602.mp4,scheduled-refill,
+2026-09-16,14:00,book,facebook,30840,,5cea1b57-765a-40d0-a152-65b2a0604e26.mp4,scheduled-refill,
+2026-09-16,19:30,halloween,facebook,30840,,7a9055ef-bf78-4bb5-9710-16e22dbc7ec8.mp4,scheduled-refill,
+2026-09-16,15:00,halloween,tiktok,41488,,8eff48e7-30ca-4d13-9a28-cdc8afa39dc0.mp4,scheduled-refill,
+2026-09-16,20:00,halloween,tiktok,41488,,03a4043b-c8e1-47f2-b483-80542d9ecec0.mp4,scheduled-refill,
+2026-09-16,15:00,book,instagram,45886,,017df435-be70-4c89-9cd3-d8b9998ff865.jpeg,scheduled-refill,
+2026-09-16,18:00,ai,instagram,45886,,78f47745-103d-4c38-8515-af55b0b924cf.jpeg,scheduled-refill,
+2026-09-17,14:30,halloween,youtube,36129,,0d48faf3-12cc-4951-a900-e7b208bc006e.mp4,scheduled-refill,
+2026-09-17,17:20,halloween,youtube,36129,,95bf6cb5-08f6-4d0d-b67d-89142c6c5f73.mp4,scheduled-refill,
+2026-09-17,14:00,halloween,facebook,30840,,cb8ece67-05e0-4138-aa55-0b2e702dbe7f.mp4,scheduled-refill,
+2026-09-17,17:00,halloween,facebook,30840,,7dbd793c-0fe3-47e5-8efa-a07d0d371c2b.mp4,scheduled-refill,
+2026-09-17,15:00,book,tiktok,41488,,9214f68e-db0e-4979-823a-e431ffd0d629.mp4,scheduled-refill,
+2026-09-17,20:00,halloween,tiktok,41488,,f117809c-2f14-442a-bc31-d383a428e609.mp4,scheduled-refill,
+2026-09-17,15:00,cesa,instagram,45886,,4465b71a-a149-4ce9-a745-64c1037ad26a.mp4,scheduled-refill,
+2026-09-17,18:00,halloween,instagram,45886,,180e5fa3-2c74-4546-af83-a6da86bb1c99.mp4,scheduled-refill,
+2026-09-17,23:00,book,instagram,45886,,08dff3fb-2525-4530-9c21-0a7635c629e9.jpeg,scheduled-refill,
+2026-09-18,14:30,halloween,youtube,36129,,bf73ffda-5994-4c4f-b60a-10e1344a7ccc.mp4,scheduled-refill,
+2026-09-18,20:20,halloween,youtube,36129,,631c061c-94ce-4685-8630-a154d5d08a3d.mp4,scheduled-refill,
+2026-09-18,14:00,halloween,facebook,30840,,e3ff6b99-2576-438d-973b-a86376d44dee.mp4,scheduled-refill,
+2026-09-18,17:00,halloween,facebook,30840,,59c775d0-67f6-4b12-869a-4ef33aa6ece7.mp4,scheduled-refill,
+2026-09-18,15:00,book,tiktok,41488,,873be3f0-ae9c-4841-93e6-58c1a0d03008.mp4,scheduled-refill,
+2026-09-18,20:00,halloween,tiktok,41488,,0e9d2345-c126-4eeb-9488-432f8c7cf4d1.mp4,scheduled-refill,
+2026-09-18,23:00,halloween,tiktok,41488,,bd7f6736-0d34-4855-9906-836cd66d702a.mp4,scheduled-refill,
+2026-09-18,20:00,ai,instagram,45886,,eda8cee2-891a-4175-91bd-93500812211e.jpeg,scheduled-refill,
+2026-09-16,20:20,halloween,youtube,36129,,d135e026-db63-432e-8f91-4613e186b251.mp4,scheduled-refill,
+2026-09-17,19:30,halloween,facebook,30840,,61382cad-b1e8-4107-a772-9de73c36ced3.mp4,scheduled-refill,
+2026-09-17,20:20,halloween,youtube,36129,,2acb99e6-c069-4ece-980d-9ed0569ca477.mp4,scheduled-refill,
+2026-09-18,19:30,halloween,facebook,30840,,1c247fa9-edeb-48aa-a2fe-298efe46722e.mp4,scheduled-refill,
+2026-09-10,13:30,editorial,linkedin,20723,,text-only,scheduled-refill,b03cf3b6
+2026-09-13,13:30,editorial,linkedin,20723,,text-only,scheduled-refill,dcc97286
+2026-09-16,13:30,editorial,linkedin,20723,,text-only,scheduled-refill,e5ee14fa
+2026-09-15,13:30,promo,linkedin,20723,,aeef98fe towels,scheduled-refill,f5f75dfb
+2026-09-17,13:30,promo,linkedin,20723,,b801f364 bookmarking,scheduled 09/09 backfill,4244707
+2026-09-18,13:30,promo,linkedin,20723,,55bdef6b nightmare,scheduled 09/09 backfill,4244712

@@ -439,6 +439,27 @@ if grep -q P08_PAID_STACKED <<<"$out"; then
   echo "PASS  --paid-window widens the rule"; pass=$((pass+1))
 else echo "FAIL  --paid-window widens the rule"; echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
 
+REPOST="$HERE/../scripts/gm_repost_media_check.py"
+
+repost() { # name expected_exit queue_file [expected_code ...]
+  local name="$1" want="$2" q="$3"; shift 3
+  local out; out="$(python3 "$REPOST" --queue "$q" --published "$HERE/repost-published.json" \
+                    --campaigns "$HERE/repost-campaigns.csv" 2>&1)"; local got=$?
+  local ok=1
+  [ "$got" = "$want" ] || { ok=0; echo "  exit $got, wanted $want"; }
+  for pat in "$@"; do
+    grep -q "$pat" <<<"$out" || { ok=0; echo "  missing: $pat"; }
+  done
+  if [ $ok = 1 ]; then echo "PASS  $name"; pass=$((pass+1))
+  else echo "FAIL  $name"; echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
+}
+
+echo
+echo "== repost media check =="
+repost "fresh media on a repeat and a campaign carousel both pass" 0 "$HERE/repost.clean.json"
+repost "a repeat wearing its worn media and a scheduled twin are caught" 1 "$HERE/repost.broken.json" \
+    R01_WORN_MEDIA_REPOST R02_TWIN_IN_SCHEDULE
+
 
 PLAN="$HERE/../scripts/gm_queue_plan.py"
 
@@ -606,6 +627,532 @@ else echo "FAIL  the token never reaches the terminal"; fail=$((fail+1)); fi
 kill $STUB_PID 2>/dev/null
 trap 'rm -rf "$TMP"' EXIT
 
+
+echo
+echo "== cadence gate, 3 to 5 a day =="
+CAD="$HERE/../scripts/gm_cadence_check.py"
+
+if python3 "$CAD" "$HERE/cadence.clean.csv" >/dev/null 2>&1; then
+  echo "PASS  4 posts spaced 2 hours apart passes clean"; pass=$((pass+1))
+else echo "FAIL  4 posts spaced 2 hours apart passes clean"; fail=$((fail+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.overloaded.csv" 2>/dev/null | grep -q C01_DAY_OVER; then
+  echo "PASS  a 6th post in a day is refused"; pass=$((pass+1))
+else echo "FAIL  a 6th post in a day is refused"; fail=$((fail+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.overloaded.csv" 2>/dev/null | grep -q C01_DAY_STARVED; then
+  echo "PASS  a day under 3 posts is flagged as starved"; pass=$((pass+1))
+else echo "FAIL  a day under 3 posts is flagged as starved"; fail=$((fail+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.overloaded.csv" 2>/dev/null | grep -q C06_DEAD_HOUR; then
+  echo "PASS  a post in the dead hours is caught"; pass=$((pass+1))
+else echo "FAIL  a post in the dead hours is caught"; fail=$((fail+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.clean.csv" 2>/dev/null | grep -q C06_DEAD_HOUR; then
+  echo "FAIL  19:00 Central is prime time, not a dead hour"; fail=$((fail+1))
+else echo "PASS  19:00 Central is prime time, not a dead hour"; pass=$((pass+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.collision.csv" 2>/dev/null | grep -q C02_SLOT_COLLISION; then
+  echo "PASS  2 posts in the same minute are caught"; pass=$((pass+1))
+else echo "FAIL  2 posts in the same minute are caught"; fail=$((fail+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.tooclose.csv" 2>/dev/null | grep -q C05_TOO_CLOSE; then
+  echo "PASS  2 posts inside 2 hours are caught"; pass=$((pass+1))
+else echo "FAIL  2 posts inside 2 hours are caught"; fail=$((fail+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.countdown.csv" --target 2026-10-31 2>/dev/null | grep -q "D2"; then
+  echo "PASS  a countdown that drifted off its date is caught"; pass=$((pass+1))
+else echo "FAIL  a countdown that drifted off its date is caught"; fail=$((fail+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.board.csv" 2>/dev/null | grep -q "cadence clean"; then
+  echo "PASS  4 platforms at 4 a day is a full board, not an overload"; pass=$((pass+1))
+else echo "FAIL  4 platforms at 4 a day is a full board, not an overload"
+     python3 "$CAD" "$HERE/cadence.board.csv" 2>&1 | sed 's/^/      /'; fail=$((fail+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.board.csv" 2>/dev/null | grep -q "C02_SLOT_COLLISION"; then
+  echo "FAIL  2 platforms at the same minute is not a collision"; fail=$((fail+1))
+else echo "PASS  2 platforms at the same minute is not a collision"; pass=$((pass+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.twoaccounts.csv" 2>/dev/null | grep -q "cadence clean"; then
+  echo "PASS  2 accounts on 1 platform are counted apart"; pass=$((pass+1))
+else echo "FAIL  2 accounts on 1 platform are counted apart"
+     python3 "$CAD" "$HERE/cadence.twoaccounts.csv" 2>&1 | sed 's/^/      /'; fail=$((fail+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.board.csv" 2>/dev/null | grep -q "instagram .*4.0 a day"; then
+  echo "PASS  the summary reports each platform, not one total"; pass=$((pass+1))
+else echo "FAIL  the summary reports each platform, not one total"; fail=$((fail+1)); fi
+
+echo
+echo "== channel rules (added 09/08) =="
+# 3 to 5 is not the rule everywhere. LinkedIn is 1 a day and always
+# business. X was dropped. The rule lives in data/channel-rules.csv so it
+# can be read and changed without touching the gate.
+if python3 "$CAD" "$HERE/cadence.channels.csv" 2>/dev/null | grep -q "cadence clean"; then
+  echo "PASS  LinkedIn at 1 a day is clean, not starved"; pass=$((pass+1))
+else echo "FAIL  LinkedIn at 1 a day is clean, not starved"
+     python3 "$CAD" "$HERE/cadence.channels.csv" 2>&1 | sed 's/^/      /'; fail=$((fail+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.channels-broken.csv" 2>/dev/null | grep -q "C01_DAY_OVER.*linkedin"; then
+  echo "PASS  a 2nd LinkedIn post in a day is caught"; pass=$((pass+1))
+else echo "FAIL  a 2nd LinkedIn post in a day is caught"; fail=$((fail+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.channels-broken.csv" 2>/dev/null | grep -q "C07_RETIRED_CHANNEL"; then
+  echo "PASS  scheduling to a dropped channel is caught"; pass=$((pass+1))
+else echo "FAIL  scheduling to a dropped channel is caught"; fail=$((fail+1)); fi
+
+if grep -q "^twitter,.*,0,0," "$HERE/../data/channel-rules.csv"; then
+  echo "PASS  X is recorded as dropped, in data not prose"; pass=$((pass+1))
+else echo "FAIL  X is recorded as dropped, in data not prose"; fail=$((fail+1)); fi
+
+echo
+echo "== a channel with nothing on it (added 09/08) =="
+# Every rule above groups the rows it was given, so a channel with no rows
+# makes no group and gets no finding. Pinterest sat at 0 posts for 11 days
+# and the board reported clean, while Amanda could see the empty channel
+# with her own eyes. Absence has to be checked against the roster, not the
+# file.
+if python3 "$CAD" "$HERE/cadence.silent.csv" 2>/dev/null | grep -q "C11_CHANNEL_SILENT.*pinterest"; then
+  echo "PASS  a channel scheduled to post and holding nothing is caught"; pass=$((pass+1))
+else echo "FAIL  a channel scheduled to post and holding nothing is caught"
+     python3 "$CAD" "$HERE/cadence.silent.csv" 2>&1 | sed 's/^/      /'; fail=$((fail+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.silent.csv" 2>/dev/null | grep -q "C11_CHANNEL_SILENT.*linkedin"; then
+  echo "PASS  a 1 a day channel missing a single day is caught"; pass=$((pass+1))
+else echo "FAIL  a 1 a day channel missing a single day is caught"; fail=$((fail+1)); fi
+
+# A channel that is posting its full cadence is not silent.
+if python3 "$CAD" "$HERE/cadence.silent.csv" 2>/dev/null | grep -q "C11_CHANNEL_SILENT.*youtube"; then
+  echo "FAIL  a channel posting every day is not called silent"; fail=$((fail+1))
+else echo "PASS  a channel posting every day is not called silent"; pass=$((pass+1)); fi
+
+# 1 post held for Halloween must not make every channel look silent for the
+# 6 weeks in between. The window ends at the first real gap.
+if python3 "$CAD" "$HERE/cadence.tail.csv" 2>/dev/null | grep -q "of the 1 days"; then
+  echo "PASS  a lone post far out does not stretch the window"; pass=$((pass+1))
+else echo "FAIL  a lone post far out does not stretch the window"
+     python3 "$CAD" "$HERE/cadence.tail.csv" 2>&1 | grep C11 | sed 's/^/      /'; fail=$((fail+1)); fi
+
+# X is set to 0 a day. Silence there is the point, not a finding.
+if python3 "$CAD" "$HERE/cadence.silent.csv" 2>/dev/null | grep -q "C11_CHANNEL_SILENT.*twitter"; then
+  echo "FAIL  a retired channel is not called silent"; fail=$((fail+1))
+else echo "PASS  a retired channel is not called silent"; pass=$((pass+1)); fi
+
+echo
+echo "== filling an empty day without repeating too soon (added 09/10) =="
+# The board holds about 17 distinct video facts, so filling an empty day is
+# almost always a re-air. Amanda, 09/10: "re-air is fine after 4+ days".
+# The picker is only as good as the history it checks, and a history that
+# cannot be read produces a confident wrong answer rather than an error.
+FP="$HERE/../scripts/gm_fill_plan.py"
+
+if python3 "$FP" --day 2026-09-20 --history "$HERE/fill.history.json" \
+     --queue "$HERE/../data/queue-2026-09-10-backfill.json" >/dev/null 2>&1; then
+  echo "PASS  an empty day is filled from a readable history"; pass=$((pass+1))
+else echo "FAIL  an empty day is filled from a readable history"
+     python3 "$FP" --day 2026-09-20 --history "$HERE/fill.history.json" \
+       --queue "$HERE/../data/queue-2026-09-10-backfill.json" 2>&1 | sed 's/^/      /'; fail=$((fail+1)); fi
+
+# The 09/10 near miss: a dump that had lost its caption text made every fact
+# read as never aired, and the plan put a fact on YouTube 1 day after it runs.
+if python3 "$FP" --day 2026-09-20 --history "$HERE/fill.history-blind.json" \
+     --queue "$HERE/../data/queue-2026-09-10-backfill.json" 2>&1 | grep -q "carry no text"; then
+  echo "PASS  a history with no captions is refused, not guessed at"; pass=$((pass+1))
+else echo "FAIL  a history with no captions is refused, not guessed at"; fail=$((fail+1)); fi
+
+# The same failure 1 step along: a history that stops before the day being
+# filled cannot see what was scheduled in between.
+if python3 "$FP" --day 2026-09-25 --history "$HERE/fill.history.json" \
+     --queue "$HERE/../data/queue-2026-09-10-backfill.json" 2>&1 | grep -q "history stops at"; then
+  echo "PASS  a history that stops short of the day is refused"; pass=$((pass+1))
+else echo "FAIL  a history that stops short of the day is refused"; fail=$((fail+1)); fi
+
+echo
+echo "== where the board runs dry (added 09/09) =="
+# The cap is a fixed number of slots, so a post held for Halloween owns its
+# slot for 7 weeks. That filled the queue on 09/08 while the next 11 days
+# starved, and the nightly backfill tried it again on 09/09: every row left
+# in the backlog was dated Oct 12 or later while the board was about to go
+# dark on Sep 19. Scheduling oldest first is what does it, because the
+# oldest waiting row is the furthest from useful.
+if python3 "$CAD" "$HERE/cadence.runway.csv" 2>/dev/null | grep -q "51 empty day"; then
+  echo "PASS  the hole between the board and its tail is measured"; pass=$((pass+1))
+else echo "FAIL  the hole between the board and its tail is measured"
+     python3 "$CAD" "$HERE/cadence.runway.csv" 2>&1 | grep C12 | sed 's/^/      /'; fail=$((fail+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.runway.csv" 2>/dev/null | grep -q "1 slot(s) are held past the hole"; then
+  echo "PASS  slots held on the far side of the hole are counted"; pass=$((pass+1))
+else echo "FAIL  slots held on the far side of the hole are counted"; fail=$((fail+1)); fi
+
+# Running dry is information, not a defect. A board with no tail must not
+# fail the gate for simply having an end.
+if python3 "$CAD" "$HERE/cadence.runway-notail.csv" 2>/dev/null | grep -q "runway ends 2026-09-09"; then
+  echo "PASS  a board with no tail reports its runway without failing"; pass=$((pass+1))
+else echo "FAIL  a board with no tail reports its runway without failing"; fail=$((fail+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.runway-notail.csv" 2>/dev/null | grep -q "C12_RUNWAY_END"; then
+  echo "FAIL  running dry with nothing held past it is not a finding"; fail=$((fail+1))
+else echo "PASS  running dry with nothing held past it is not a finding"; pass=$((pass+1)); fi
+
+echo
+echo "== fact repeats (added 09/08, after the queue ran 1 fact 6 times) =="
+# The board counted posts and called itself healthy while YouTube carried
+# the same Disney reel on 6 of 11 days and TikTok ran 1 fact twice in a day.
+# Nothing recorded what a post was about, so nothing could see it. The fix
+# is the fact column and these 3 rules, not a reminder to vary the queue.
+if python3 "$CAD" "$HERE/cadence.facts.csv" 2>/dev/null | grep -q "cadence clean"; then
+  echo "PASS  a board with spaced facts is clean"; pass=$((pass+1))
+else echo "FAIL  a board with spaced facts is clean"
+     python3 "$CAD" "$HERE/cadence.facts.csv" 2>&1 | sed 's/^/      /'; fail=$((fail+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.facts-broken.csv" 2>/dev/null | grep -q "C08_FACT_TWICE"; then
+  echo "PASS  the same fact twice on 1 channel in 1 day is caught"; pass=$((pass+1))
+else echo "FAIL  the same fact twice on 1 channel in 1 day is caught"; fail=$((fail+1)); fi
+
+# Amanda, 09/10: "re-air is fine after 4+ days". Spacing is the rule and the
+# count is not capped, so a 3rd airing 5 days out is correct, not a finding.
+if python3 "$CAD" "$HERE/cadence.thrice.csv" 2>/dev/null | grep -qE "^C09"; then
+  echo "FAIL  a 3rd airing spaced 5 days is allowed"; fail=$((fail+1))
+else echo "PASS  a 3rd airing spaced 5 days is allowed"; pass=$((pass+1)); fi
+
+if python3 "$CAD" "$HERE/cadence.facts-broken.csv" 2>/dev/null | grep -q "Minimum is 4 days"; then
+  echo "PASS  2 airings closer than 4 days is caught"; pass=$((pass+1))
+else echo "FAIL  2 airings closer than 4 days is caught"
+     python3 "$CAD" "$HERE/cadence.facts-broken.csv" 2>&1 | grep C09 | sed 's/^/      /'; fail=$((fail+1)); fi
+
+# A check that quietly skips the rows it cannot read is worse than no check.
+if python3 "$CAD" "$HERE/cadence.facts-broken.csv" 2>/dev/null | grep -q "C10_FACT_UNLABELLED"; then
+  echo "PASS  a row with no fact fails rather than passing unchecked"; pass=$((pass+1))
+else echo "FAIL  a row with no fact fails rather than passing unchecked"; fail=$((fail+1)); fi
+
+# Pinterest is the 1 channel where repeating is the mechanism. A pin is a
+# bookmark, so repinning the same image is how the platform works, and the
+# gate flagging it was enforcing a rule the house policy already exempts.
+if python3 "$CAD" "$HERE/cadence.exempt.csv" 2>/dev/null | grep -qE "^C0[89]"; then
+  echo "FAIL  a repeat-exempt channel is not flagged for repeating"; fail=$((fail+1))
+else echo "PASS  a repeat-exempt channel is not flagged for repeating"; pass=$((pass+1)); fi
+
+# And the exemption is per channel, not a hole in the rule.
+if python3 "$CAD" "$HERE/cadence.notexempt.csv" 2>/dev/null | grep -q "C08_FACT_TWICE"; then
+  echo "PASS  a channel that is not exempt still fails on a same day repeat"; pass=$((pass+1))
+else echo "FAIL  a channel that is not exempt still fails on a same day repeat"; fail=$((fail+1)); fi
+
+# Read as CSV, not with grep: the Why column is a long quoted string that
+# spans physical lines, so a line-oriented match never sees the record.
+if python3 "$HERE/trivia_assert.py" pinterest-exempt; then
+  echo "PASS  the exemption lives in the CSV, not in the gate"; pass=$((pass+1))
+else echo "FAIL  the exemption lives in the CSV, not in the gate"; fail=$((fail+1)); fi
+
+# Boards written before the column existed must not start failing for it.
+if python3 "$CAD" "$HERE/cadence.board.csv" 2>/dev/null | grep -q "cadence clean"; then
+  echo "PASS  a board with no fact column is still checked as before"; pass=$((pass+1))
+else echo "FAIL  a board with no fact column is still checked as before"; fail=$((fail+1)); fi
+
+echo
+echo "== filling the fact column from a queue dump (added 09/08) =="
+# The queue carries a caption, not a fact. This is the step in between, and
+# it is where the 09/08 miss actually happened: matched on the whole caption,
+# a correct pair scored 0.21 and Hocus Pocus came out as 2 facts.
+SNAP="$HERE/../scripts/gm_board_snapshot.py"
+OUT="$(mktemp)"
+python3 "$SNAP" "$HERE/board.queue.json" "$OUT" --register "$HERE/board.register.csv" >/dev/null 2>&1
+
+# The CTA, the link and the hashtags are the same on every post in a lane.
+# Only the opening says what the post is about.
+if [ "$(grep -c ',nbc,' "$OUT")" = "2" ]; then
+  echo "PASS  a fact buried under a long CTA is still found"; pass=$((pass+1))
+else echo "FAIL  a fact buried under a long CTA is still found"
+     cat "$OUT" | sed 's/^/      /'; fail=$((fail+1)); fi
+
+# 2 plates of 1 fact are 1 fact. The plate is the reel; the fact is what
+# the person scrolling sees twice.
+if [ "$(awk -F, '$6=="nbc"' "$OUT" | wc -l)" = "2" ] && grep -q "^q2,.*,nbc," "$OUT"; then
+  echo "PASS  2 plates of 1 fact collapse to 1 fact"; pass=$((pass+1))
+else echo "FAIL  2 plates of 1 fact collapse to 1 fact"; fail=$((fail+1)); fi
+
+# A guess that looks like an answer is worse than a blank.
+if grep -q "^q4,[^,]*,,youtube,36129,," "$OUT"; then
+  echo "PASS  a row the register does not cover gets no fact, not a guess"; pass=$((pass+1))
+else echo "FAIL  a row the register does not cover gets no fact, not a guess"
+     grep "^q4," "$OUT" | sed 's/^/      /'; fail=$((fail+1)); fi
+
+# The guess is still written down, in a column the gate does not read, so
+# whoever fills the register has somewhere to start.
+if grep -q "^q4,.*she-picked-the-blanket-with-the-gold" "$OUT"; then
+  echo "PASS  the guess is kept beside it for whoever fills the register"; pass=$((pass+1))
+else echo "FAIL  the guess is kept beside it for whoever fills the register"; fail=$((fail+1)); fi
+
+# End to end: the snapshot feeds the gate, and the gate says the board is
+# not fully checked rather than passing it.
+if python3 "$CAD" "$OUT" 2>/dev/null | grep -q "C10_FACT_UNLABELLED"; then
+  echo "PASS  the gate reads the snapshot and reports the unchecked rows"; pass=$((pass+1))
+else echo "FAIL  the gate reads the snapshot and reports the unchecked rows"; fail=$((fail+1)); fi
+
+# The roster travels in the file, not in somebody remembering a flag. A
+# snapshot that does not carry it cannot be checked for a silent channel,
+# and the 1 time that mattered was the 1 time it would have been forgotten.
+if head -1 "$OUT" | grep -q "roster"; then
+  echo "PASS  the snapshot carries the roster so silence can be checked"; pass=$((pass+1))
+else echo "FAIL  the snapshot carries the roster so silence can be checked"; fail=$((fail+1)); fi
+
+if awk -F, 'NR==2' "$OUT" | grep -q "pinterest"; then
+  echo "PASS  the roster names every channel that owes a post"; pass=$((pass+1))
+else echo "FAIL  the roster names every channel that owes a post"
+     awk -F, 'NR==2' "$OUT" | sed 's/^/      /'; fail=$((fail+1)); fi
+rm -f "$OUT"
+
+echo
+echo "== trivia fact bank and caption gate (Run 8, added 09/09) =="
+# The trivia lane is the one where a language model can do the most damage:
+# a confident invented number, in her voice, to an audience that follows her
+# partly because she gets this right. 2 failures the holiday lane does not
+# have: a fact sourced to the newsletter it was found in, and a moving fact
+# repeated after it stopped being true.
+TB="$HERE/../scripts/gm_trivia_bank.py"
+TC="$HERE/../scripts/gm_trivia_check.py"
+
+if python3 "$TB" --bank "$HERE/trivia.bank.csv" --audit 2>/dev/null | grep -q "is a newsletter"; then
+  echo "PASS  a fact sourced to the newsletter it came from is held"; pass=$((pass+1))
+else echo "FAIL  a fact sourced to the newsletter it came from is held"; fail=$((fail+1)); fi
+
+if python3 "$TB" --bank "$HERE/trivia.bank.csv" --audit 2>/dev/null | grep -q "past the 90 day window"; then
+  echo "PASS  a moving fact checked too long ago is held"; pass=$((pass+1))
+else echo "FAIL  a moving fact checked too long ago is held"; fail=$((fail+1)); fi
+
+python3 "$TC" --post "$HERE/trivia.clean.json" --bank "$HERE/trivia.bank.csv" >/dev/null 2>&1
+if [ $? -eq 0 ]; then
+  echo "PASS  a caption traced to a checked fact passes"; pass=$((pass+1))
+else echo "FAIL  a caption traced to a checked fact passes"
+     python3 "$TC" --post "$HERE/trivia.clean.json" --bank "$HERE/trivia.bank.csv" 2>&1 | sed 's/^/      /'; fail=$((fail+1)); fi
+
+# The rule that does the most work. Extra numbers are the whole risk.
+python3 "$TC" --post "$HERE/trivia.invented.json" --bank "$HERE/trivia.bank.csv" >/dev/null 2>&1
+if [ $? -eq 1 ] && python3 "$TC" --post "$HERE/trivia.invented.json" --bank "$HERE/trivia.bank.csv" 2>/dev/null | grep -q "T03_NUMBER_NOT_IN_BANK"; then
+  echo "PASS  a number the bank does not carry is refused"; pass=$((pass+1))
+else echo "FAIL  a number the bank does not carry is refused"; fail=$((fail+1)); fi
+
+python3 "$TC" --post "$HERE/trivia.noturn.json" --bank "$HERE/trivia.bank.csv" >/dev/null 2>&1
+if [ $? -eq 1 ]; then
+  echo "PASS  a caption that reports the fact and never turns it is refused"; pass=$((pass+1))
+else echo "FAIL  a caption that reports the fact and never turns it is refused"; fail=$((fail+1)); fi
+
+python3 "$TC" --post "$HERE/trivia.secondary.json" --bank "$HERE/trivia.bank.csv" >/dev/null 2>&1
+if [ $? -eq 1 ]; then
+  echo "PASS  a post built on a newsletter sourced fact is refused"; pass=$((pass+1))
+else echo "FAIL  a post built on a newsletter sourced fact is refused"; fail=$((fail+1)); fi
+
+# No fact is HOLD, not FAIL, and never the nearest fact that fits.
+python3 "$TC" --post "$HERE/trivia.nofact.json" --bank "$HERE/trivia.bank.csv" >/dev/null 2>&1
+if [ $? -eq 2 ]; then
+  echo "PASS  a post naming no fact holds rather than guessing one"; pass=$((pass+1))
+else echo "FAIL  a post naming no fact holds rather than guessing one"; fail=$((fail+1)); fi
+
+# Approving a reading list is only half a rule. Without this check a session
+# could mine any newsletter in the inbox and bank it, and FoundIn would
+# quietly say so while every other rule passed.
+if python3 "$TB" --bank "$HERE/trivia.bank.csv" --sources "$HERE/trivia.sources.csv" --audit 2>/dev/null \
+   | grep -q 'FoundIn "amn@mail.beehiiv.com" is not an approved source'; then
+  echo "PASS  a fact mined from a parked newsletter is held"; pass=$((pass+1))
+else echo "FAIL  a fact mined from a parked newsletter is held"; fail=$((fail+1)); fi
+
+# And the rule is "not approved", not "has a FoundIn at all".
+if python3 "$HERE/trivia_assert.py" approved-passes; then
+  echo "PASS  a fact found in an approved newsletter still passes"; pass=$((pass+1))
+else echo "FAIL  a fact found in an approved newsletter still passes"; fail=$((fail+1)); fi
+
+# Amanda's real list, so a bad edit to it shows up here rather than in a post.
+if python3 "$HERE/trivia_assert.py" live-list; then
+  echo "PASS  the live list is her 09/09 answer, tier 1 and 3, tier 2 parked"; pass=$((pass+1))
+else echo "FAIL  the live list is her 09/09 answer, tier 1 and 3, tier 2 parked"; fail=$((fail+1)); fi
+
+# The live bank ships unverified on purpose. Nothing was marked checked that
+# was not actually opened and read.
+if python3 "$TB" --audit 2>/dev/null | grep -q "0 usable"; then
+  echo "PASS  the shipped bank holds every row until somebody verifies it"; pass=$((pass+1))
+else echo "FAIL  the shipped bank holds every row until somebody verifies it"; fail=$((fail+1)); fi
+
+echo
+echo "== media reachability (Run 6, added 09/08) =="
+# A clip row can be complete and still be unusable: the footage is on a
+# machine the renderer has never seen. Describing a shot is not having it.
+MR="$HERE/media-reach.library.csv"
+MRROOT="$HERE/media-reach-root"
+expect_exit "a local plate that is on disk passes" 0 \
+  env GM_MEDIA_ROOT="$MRROOT" python3 "$GATE" --render "$HERE/media-reach.present.json"  --library "$MR" --quiet
+expect_exit "a local plate that is not on disk is refused" 1 \
+  env GM_MEDIA_ROOT="$MRROOT" python3 "$GATE" --render "$HERE/media-reach.missing.json"  --library "$MR" --quiet
+expect_exit "footage that only exists on the phone is refused" 1 \
+  env GM_MEDIA_ROOT="$MRROOT" python3 "$GATE" --render "$HERE/media-reach.offline.json"  --library "$MR" --quiet
+expect_exit "a clip with no MediaState passes with a note" 0 \
+  env GM_MEDIA_ROOT="$MRROOT" python3 "$GATE" --render "$HERE/media-reach.unstated.json" --library "$MR" --quiet
+
+if env GM_MEDIA_ROOT="$MRROOT" python3 "$GATE" --render "$HERE/media-reach.offline.json" \
+     --library "$MR" 2>&1 | grep -q E11_MEDIA_UNREACHABLE; then
+  echo "PASS  unreachable footage is named by rule, not just refused"; pass=$((pass+1))
+else echo "FAIL  unreachable footage is named by rule, not just refused"; fail=$((fail+1)); fi
+
+if env GM_MEDIA_ROOT="$MRROOT" python3 "$GATE" --render "$HERE/media-reach.offline.json" \
+     --library "$MR" 2>&1 | grep -q "D:.Phone Backup"; then
+  echo "PASS  the refusal says where the footage actually is"; pass=$((pass+1))
+else echo "FAIL  the refusal says where the footage actually is"; fail=$((fail+1)); fi
+
+echo
+echo "== a composition that ignores the plate (Run 6, added 09/08) =="
+# reel.html draws embers and no footage. A payload that binds a clip must
+# not render there: it succeeds, and the missing footage looks deliberate.
+RF="$HERE/../../reel-factory"
+if grep -q "__consumes_plate = false" "$RF/reel.html"; then
+  echo "PASS  the typography cut declares it draws no footage"; pass=$((pass+1))
+else echo "FAIL  the typography cut declares it draws no footage"; fail=$((fail+1)); fi
+
+if grep -q "__consumes_plate = true" "$RF/reel-footage.html"; then
+  echo "PASS  the footage cut declares it draws footage"; pass=$((pass+1))
+else echo "FAIL  the footage cut declares it draws footage"; fail=$((fail+1)); fi
+
+if grep -q "declaresClip && !state.consumesPlate" "$RF/build.mjs"; then
+  echo "PASS  the build refuses a bound clip on a plateless composition"; pass=$((pass+1))
+else echo "FAIL  the build refuses a bound clip on a plateless composition"; fail=$((fail+1)); fi
+
+echo
+echo "== a beat that wrapped past its own line breaks (Run 6, added 09/08) =="
+# 11 of 26 beats shipped with an orphaned word on its own line. The words
+# were right, the card was not, and only looking at it caught that.
+if grep -q "__overflow" "$RF/reel-footage.html"; then
+  echo "PASS  the composition counts drawn lines against asked lines"; pass=$((pass+1))
+else echo "FAIL  the composition counts drawn lines against asked lines"; fail=$((fail+1)); fi
+
+if grep -q "wrapped past their own line breaks" "$RF/build.mjs"; then
+  echo "PASS  the build refuses a beat that wrapped"; pass=$((pass+1))
+else echo "FAIL  the build refuses a beat that wrapped"; fail=$((fail+1)); fi
+
+if grep -q "shorten the line, or move the break" -i "$RF/build.mjs"; then
+  echo "PASS  the refusal says what to do about it"; pass=$((pass+1))
+else echo "FAIL  the refusal says what to do about it"; fail=$((fail+1)); fi
+
+echo
+echo "== a keyword the account cannot answer (Run 9, added 09/11) =="
+# 09/11: keyword-audit.csv listed 13 automations. Blotato had 57. Reading the
+# repo said BROW was not a keyword. It had been live on 2 accounts since 08/08.
+KG="$HERE/../scripts/gm_keyword_check.py"
+KR="$HERE/keyword.registry.csv"
+
+if python3 "$KG" --posts "$HERE/keyword.clean.json" --registry "$KR" >/dev/null 2>&1; then
+  echo "PASS  a live keyword on the right account passes"; pass=$((pass+1))
+else echo "FAIL  a live keyword on the right account passes"; fail=$((fail+1)); fi
+
+if python3 "$KG" --posts "$HERE/keyword.dead.json" --registry "$KR" 2>&1 | grep -q K01_KEYWORD_DEAD; then
+  echo "PASS  a keyword with no automation on that account is refused"; pass=$((pass+1))
+else echo "FAIL  a keyword with no automation on that account is refused"; fail=$((fail+1)); fi
+
+if python3 "$KG" --posts "$HERE/keyword.dead.json" --registry "$KR" 2>&1 | grep -q "live on instagram 45886"; then
+  echo "PASS  the refusal says which account does answer it"; pass=$((pass+1))
+else echo "FAIL  the refusal says which account does answer it"; fail=$((fail+1)); fi
+
+if python3 "$KG" --posts "$HERE/keyword.tiktok.json" --registry "$KR" 2>&1 | grep -q K02_KEYWORD_NO_LISTENER; then
+  echo "PASS  a keyword CTA on TikTok is refused"; pass=$((pass+1))
+else echo "FAIL  a keyword CTA on TikTok is refused"; fail=$((fail+1)); fi
+
+if python3 "$KG" --posts "$HERE/keyword.broken.json" --registry "$KR" 2>&1 | grep -q K03_KEYWORD_BROKEN; then
+  echo "PASS  a live keyword whose link is dead is refused"; pass=$((pass+1))
+else echo "FAIL  a live keyword whose link is dead is refused"; fail=$((fail+1)); fi
+
+if python3 "$KG" --posts "$HERE/keyword.nodisclosure.json" --registry "$KR" 2>&1 | grep -q K04_NO_DISCLOSURE; then
+  echo "PASS  an affiliate keyword with no disclosure in the caption is refused"; pass=$((pass+1))
+else echo "FAIL  an affiliate keyword with no disclosure in the caption is refused"; fail=$((fail+1)); fi
+
+if python3 "$KG" --posts "$HERE/keyword.price.json" --registry "$KR" 2>&1 | grep -q K05_PRICE_ON_AFFILIATE; then
+  echo "PASS  a price on affiliate content is refused"; pass=$((pass+1))
+else echo "FAIL  a price on affiliate content is refused"; fail=$((fail+1)); fi
+
+# The question that started this. The registry has to answer it off the repo,
+# with no network, or the next session reads the stale file and says no.
+if python3 "$KG" --keyword BROW --platform instagram --account 45886 \
+     --registry "$HERE/../data/keyword-registry.csv" 2>&1 | grep -q "automation 439"; then
+  echo "PASS  the registry answers is BROW live on IG without a network call"; pass=$((pass+1))
+else echo "FAIL  the registry answers is BROW live on IG without a network call"; fail=$((fail+1)); fi
+
+if python3 "$KG" --keyword BROW --platform tiktok \
+     --registry "$HERE/../data/keyword-registry.csv" >/dev/null 2>&1; then
+  echo "FAIL  the registry claims BROW works on TikTok"; fail=$((fail+1))
+else echo "PASS  the registry does not claim BROW works on TikTok"; pass=$((pass+1)); fi
+
+if python3 "$HERE/keyword_assert.py"; then
+  echo "PASS  every live Target keyword in Blotato has a registry row"; pass=$((pass+1))
+else echo "FAIL  every live Target keyword in Blotato has a registry row"; fail=$((fail+1)); fi
+
+echo
+echo "== a countdown moved to a day where its number is wrong (Run 9, added 09/11) =="
+# Rescheduling a trailer to clear a slot collision silently turned a correct
+# "43 nights" into a wrong one. C04 existed and could not see it: it read a
+# label column the snapshot had stopped writing, and it only ran when someone
+# passed --target, which nobody did.
+GATE="$HERE/../scripts/gm_cadence_check.py"
+
+if python3 "$GATE" --board "$HERE/cadence.countdown-drift.csv" 2>&1 | grep -q C04_COUNTDOWN_DRIFT; then
+  echo "PASS  C04 runs without anyone passing a target"; pass=$((pass+1))
+else echo "FAIL  C04 runs without anyone passing a target"; fail=$((fail+1)); fi
+
+if python3 "$GATE" --board "$HERE/cadence.countdown-drift.csv" 2>&1 | grep -q "c2"; then
+  echo "PASS  a nights trailer on the wrong day is refused"; pass=$((pass+1))
+else echo "FAIL  a nights trailer on the wrong day is refused"; fail=$((fail+1)); fi
+
+if python3 "$GATE" --board "$HERE/cadence.countdown-drift.csv" 2>&1 | grep -q "c4"; then
+  echo "PASS  a days-out caption on the wrong day is refused"; pass=$((pass+1))
+else echo "FAIL  a days-out caption on the wrong day is refused"; fail=$((fail+1)); fi
+
+# c1 and c3 sit on the day their own number is true, under the 2 different
+# counting conventions. Flagging either would make the rule noise.
+if python3 "$GATE" --board "$HERE/cadence.countdown-drift.csv" 2>&1 | grep C04 | grep -qE "\bc1\b|\bc3\b"; then
+  echo "FAIL  a correct countdown is left alone under both conventions"; fail=$((fail+1))
+else echo "PASS  a correct countdown is left alone under both conventions"; pass=$((pass+1)); fi
+
+if python3 "$HERE/countdown_assert.py"; then
+  echo "PASS  the countdown reader tells a countdown from a number"; pass=$((pass+1))
+else echo "FAIL  the countdown reader tells a countdown from a number"; fail=$((fail+1)); fi
+
+echo
+echo "== a caption reused on a channel that cannot answer its ask (Run 9, added 09/11) =="
+# gm_fill_plan copies a caption from whichever channel last ran the fact. The
+# body travels. The ask does not, and neither do the hashtags.
+if python3 "$HERE/recaption_assert.py"; then
+  echo "PASS  a reused caption is re-asked for the channel it lands on"; pass=$((pass+1))
+else echo "FAIL  a reused caption is re-asked for the channel it lands on"; fail=$((fail+1)); fi
+
+echo
+echo "== a caption whose line breaks are not line breaks (Run 9, added 09/13) =="
+# 84 of 256 staged rows stored paragraph breaks as backslash-n. Posting one
+# puts backslash-n in a live caption. Worse, it blinded the keyword gate: in
+# "children.\\nComment SEASONAL" the n and the C are both word characters, so
+# the word boundary the ask needs never exists and 10 dead YouTube CTAs read
+# as clean.
+KG="$HERE/../scripts/gm_keyword_check.py"
+KR="$HERE/keyword.registry.csv"
+
+if python3 "$KG" --posts "$HERE/keyword.escaped.json" --registry "$KR" 2>&1 | grep -q K02_KEYWORD_NO_LISTENER; then
+  echo "PASS  a dead ask is caught even when the line breaks are escaped"; pass=$((pass+1))
+else echo "FAIL  a dead ask is caught even when the line breaks are escaped"; fail=$((fail+1)); fi
+
+if python3 "$HERE/staging_assert.py"; then
+  echo "PASS  no staged caption stores a literal backslash-n"; pass=$((pass+1))
+else echo "FAIL  no staged caption stores a literal backslash-n"; fail=$((fail+1)); fi
+
+echo
+echo "== a countdown proposed for a day it is false on (Run 9, added 09/16) =="
+# gm_fill_plan proposed the Samhain trailer for 09/24, 09/28 and 10/02. It says
+# "5 nights out", which is true on 10/26. C04 would have caught it the next
+# night, after it was scheduled. This catches it before it is proposed.
+if python3 "$HERE/countdown_fill_assert.py" >/dev/null 2>&1; then
+  echo "PASS  a date-locked caption is held off every day but its own"; pass=$((pass+1))
+else echo "FAIL  a date-locked caption is held off every day but its own"; fail=$((fail+1)); fi
+
+echo
+echo "== a night the campaign promised and the board never filled (Run 9, added 09/22) =="
+# The 09/19 announcement said 43 nights, no dark days. 26 of them were dark and
+# every rule passed the board, because a night full of Club Target posts is not
+# starved, not silent and not a repeat. The promise was in a caption and nowhere
+# else, so there was nothing to check it against.
+if python3 "$HERE/promise_assert.py"; then
+  echo "PASS  a dark night is found under a day that looks full"; pass=$((pass+1))
+else echo "FAIL  a dark night is found under a day that looks full"; fail=$((fail+1)); fi
 
 echo
 echo "$pass passed, $fail failed"

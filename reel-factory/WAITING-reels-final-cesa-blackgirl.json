@@ -1,0 +1,55 @@
+[
+ {
+  "id": "HAL-021",
+  "slug": "cesa-blackgirl",
+  "seed": 21,
+  "duration": 24.0,
+  "label": "Gentle Muse \u00b7 Halloween",
+  "source": "Source: British maritime tradition; Edo period folklore \u00b7 HAL-021",
+  "beats": [
+   {
+    "in": 0.0,
+    "out": 3.2,
+    "html": "Black cats were<br>good luck first.",
+    "cta": null
+   },
+   {
+    "in": 3.2,
+    "out": 8.0,
+    "html": "British sailors kept a black<br>ship's cat for safe passage.<br>Their wives kept one at home.",
+    "cta": null
+   },
+   {
+    "in": 8.0,
+    "out": 12.2,
+    "html": "In Edo period Japan a black cat<br>warded off evil and drew fortune.",
+    "cta": null
+   },
+   {
+    "in": 12.2,
+    "out": 15.8,
+    "html": "The bad luck version is<br>the newer, narrower story.",
+    "cta": null
+   },
+   {
+    "in": 15.8,
+    "out": 19.8,
+    "html": "She's not a cat. But the black girls<br>have always been the good luck here.",
+    "cta": null
+   },
+   {
+    "in": 19.8,
+    "out": 23.6,
+    "html": "<span class='em'>19 years old, 10 of them mine.<br>15 pages of what keeps her<br>comfortable. Free, and yours.</span>",
+    "cta": null
+   }
+  ],
+  "clip": {
+   "file": "clips/cesa-grass-1.mp4",
+   "push": 0.0,
+   "clip_id": "cesa-grass-1",
+   "override": true,
+   "match_reason": "The fact rehabilitates a black animal's reputation and the closer hands it to the black and tan girl in daylight, tongue out, walking toward camera. She is the good luck, shown not argued."
+  }
+ }
+]

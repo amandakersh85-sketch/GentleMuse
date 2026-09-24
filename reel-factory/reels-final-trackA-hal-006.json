@@ -1,0 +1,58 @@
+[
+ {
+  "id": "HAL-006",
+  "slug": "trackA-hal-006",
+  "seed": 35,
+  "duration": 23.14,
+  "label": "Gentle Muse · Halloween",
+  "source": "Source: Encyclopaedia Britannica, witchcraft · HAL-006",
+  "beats": [
+   {
+    "in": 0.3,
+    "out": 3.23,
+    "html": "The witch trials<br>were not medieval.",
+    "cta": null,
+    "vo_in": 0.3,
+    "vo_dur": 2.508
+   },
+   {
+    "in": 3.23,
+    "out": 7.98,
+    "html": "The worst of them ran through<br>the 1500s and 1600s.",
+    "cta": null,
+    "vo_in": 3.23,
+    "vo_dur": 4.336
+   },
+   {
+    "in": 7.98,
+    "out": 13.18,
+    "html": "The same years as the<br>printing press and the<br>beginnings of modern science.",
+    "cta": null,
+    "vo_in": 7.98,
+    "vo_dur": 4.78
+   },
+   {
+    "in": 13.18,
+    "out": 20.63,
+    "html": "Progress and panic were not<br>separate eras. They ran side<br>by side, in the same rooms.",
+    "cta": null,
+    "vo_in": 13.18,
+    "vo_dur": 7.027
+   },
+   {
+    "in": 20.63,
+    "out": 22.59,
+    "html": "<span class='em'>They usually do.</span>",
+    "cta": null,
+    "vo_in": 20.63,
+    "vo_dur": 1.541
+   }
+  ],
+  "clip": {
+   "file": "plates/trackA-press.jpg",
+   "push": 0.07,
+   "clip_id": "trackA-press",
+   "match_reason": "The turn of the fact is that the printing press and the witch trials ran in the same years, and the plate is a working 16th century press room with the sheets already stacked and the candles still lit."
+  }
+ }
+]
