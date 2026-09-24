@@ -1,0 +1,328 @@
+CONSIDER THIS — ISSUES 10 THROUGH 15 — v1
+
+Drafted 09/24/2026. Covers the 6 Thursdays after #009: 10/22, 10/29, 11/05, 11/12, 11/19, 11/26.
+Status: DRAFT. Nothing loaded to MailerLite. Nothing scheduled. Nothing sent.
+Nothing goes into MailerLite until Amanda reads and approves the copy.
+
+WHY THESE EXIST. Verified against the live MailerLite campaign list on 09/24/2026. 3 Consider
+This issues are queued and nothing follows them:
+
+  #007  Shower head scale     10/01 07:00  "Your water pressure didn't drop"
+  #008  Pillow expired        10/08 07:00  "Your pillow expired"
+  #009  Floor traction        10/15 07:00  "That rug is making it worse"
+
+After 10/15 the newsletter goes silent. These 6 carry it to 11/26.
+
+SEND DAY. Every live Consider This issue sends Thursday at 07:00, taken from the campaign
+records, not from an older draft doc. The 6 below keep that cadence with no gaps.
+
+FORMAT. The established one. 1 overlooked thing in the home per issue, the reason it is
+overlooked, what to actually do about it, and Cesa at the end. Cesa's section is hers: the
+specific real detail, not sentiment.
+
+TOPICS ARE NEW. Checked against every issue already written and against the carousel library
+in promo-engine. Already used and deliberately avoided here: towels, sponge, dryer duct,
+appliance gasket, furnace filter, pillow, shower head scale, floor traction.
+
+VOICE CHECK. Digits throughout, no em dashes, no hype, no generic motivation. Every claim
+below is a plain maintenance fact, not a study finding, so nothing here needs a citation
+Amanda would have to defend. Where a claim depends on her specific model or house, the copy
+says so instead of asserting it.
+
+=====================================================================
+ISSUE 10 — Thursday, October 22, 2026, 07:00
+=====================================================================
+
+SUBJECT: Your dishwasher has a filter
+PREVIEW TEXT: Most people have never taken it out.
+
+---
+
+If your dishwasher was made in roughly the last 15 years, there is a filter in the floor of
+it, under the bottom rack, and it comes out by hand.
+
+Older machines ground food up with a small motor. Newer ones are quieter and use less water,
+and the tradeoff is that they catch food in a filter instead. The filter is usually a plastic
+cylinder you twist a quarter turn to release, sometimes over a flat screen that lifts out
+with it.
+
+Nobody tells you this at delivery. So the filter fills, water starts moving through a layer
+of old food on its way to the spray arms, and the machine begins doing the opposite of its
+job. The signs arrive one at a time and none of them look like a filter: glasses that dry
+cloudy, grit on the inside of a bowl, a smell that comes back 2 days after you clean the door
+seal.
+
+Do this once, tonight, with the machine empty.
+
+Pull out the bottom rack. Find the round piece in the middle of the floor. Twist, lift, take
+it to the sink, rinse it under hot water with an old toothbrush. Put it back and turn it
+until it seats. It takes 3 minutes.
+
+Then do it monthly if you rinse plates, every 2 weeks if you do not.
+
+If there is no cylinder down there, you have the older grinding kind and this one is not
+yours. Check the manual before you go looking for a part that was never installed.
+
+---
+
+Cesa is 19 and she has worked out that the dishwasher door, once it drops open, is a warm
+shelf at exactly her height. She does not get on it. She stands next to it with her chin on
+the edge and waits to see what I am going to do about it.
+
+Nothing, usually. She has earned the warm air.
+
+See you Thursday.
+
+Amanda
+
+=====================================================================
+ISSUE 11 — Thursday, October 29, 2026, 07:00
+=====================================================================
+
+SUBJECT: Your smoke alarm has an expiration date
+PREVIEW TEXT: It is printed on the back. The battery is not the part that expires.
+
+INTERNAL: Placed here on purpose. Clocks go back Sunday 11/01, and the whole country is
+already being told to change the batteries that weekend. This issue is the part that message
+leaves out.
+
+---
+
+Everyone knows to change the battery when the clocks change. Almost nobody knows the alarm
+itself expires.
+
+The sensor inside degrades whether it ever sees smoke or not. 10 years from the date of
+manufacture and the unit is done, and a fresh battery does not restore anything. It just
+means a dead sensor now has power.
+
+The date is printed on the back of the alarm, on the flat side against the ceiling. Not the
+front. You have to take it down to read it.
+
+So this weekend, when you are already on the step stool:
+
+Twist the alarm off the bracket. Turn it over. Find the manufacture date. If it is 2016 or
+older, that alarm is finished and the replacement is the whole unit, not a battery. Write the
+date you replaced it on the new one in marker before you install it, because in 10 years you
+will not remember either.
+
+While you are holding it, press the test button. If the sound is weak or it takes a moment to
+start, that is the same conversation.
+
+Carbon monoxide alarms expire faster, usually 5 to 10 years, and theirs is printed the same
+way. Combination units follow the shorter clock.
+
+This is the least interesting thing in your house and it is the only item on this list where
+being 2 years late has a consequence you cannot undo.
+
+---
+
+Cesa sleeps through the test button. She sleeps through the vacuum, the doorbell and the
+smoke alarm, and she wakes up from a dead sleep if a bag of anything opens 2 rooms away.
+
+19 years of hearing, allocated exactly where she wanted it.
+
+See you Thursday.
+
+Amanda
+
+=====================================================================
+ISSUE 12 — Thursday, November 5, 2026, 07:00
+=====================================================================
+
+SUBJECT: Your fridge is running longer than it used to
+PREVIEW TEXT: There is a dusty part underneath doing all the work.
+
+---
+
+The refrigerator has a set of coils that dump heat out of the box and into your kitchen.
+Depending on the model they are behind a removable grille at the bottom front, or flat
+against the back.
+
+They are the one part of the appliance that is designed to be dirty, and they collect
+everything: dust, hair, whatever the dog contributes. A coated coil cannot release heat as
+well, so the compressor runs longer to hit the same temperature. Nothing breaks. It just
+works harder, every hour, for years.
+
+The tell is not a warm fridge. It is a fridge you can hear more often than you used to, and a
+kitchen floor that is warm in one spot.
+
+Once or twice a year, and twice if you have pets:
+
+Unplug it. Pull off the bottom grille, which usually snaps or unclips rather than unscrews.
+Vacuum what you can reach with the crevice tool, then go in with a coil brush, which is a
+long thin brush that costs a few dollars and exists for this exact job. Vacuum up what the
+brush pulls forward. Plug it back in.
+
+If your coils are on the back, you will have to walk the fridge out to reach them. Do that on
+a day you were already cleaning behind it.
+
+Wipe the door gasket while you are there, but do not confuse the 2 jobs. The gasket is about
+what gets in. The coils are about how hard the motor has to work to fix it.
+
+---
+
+Cesa has 3 feet of floor in front of the refrigerator that she considers hers, and the reason
+is the warm spot I just described. She found it years before I understood what was making it.
+
+She was not maintaining the appliance. She was using it correctly.
+
+See you Thursday.
+
+Amanda
+
+=====================================================================
+ISSUE 13 — Thursday, November 12, 2026, 07:00
+=====================================================================
+
+SUBJECT: Check the number on your water heater
+PREVIEW TEXT: It probably left the factory hotter than it needs to be.
+
+---
+
+Water heaters commonly ship set around 140 degrees. The Department of Energy recommends 120
+for most households.
+
+That 20 degree difference does 2 things. It is the difference between hot water and water
+that scalds a child or an older adult faster than they can pull their hand back, and it is
+heat you pay to maintain in a tank all day whether anyone showers or not.
+
+On an electric heater the dial is behind an access panel, sometimes 2, and you cut power at
+the breaker before you open anything. On a gas heater it is usually a dial on the control
+valve at the bottom front, often marked with letters or hash marks rather than numbers.
+
+If yours is unmarked, run the hot tap at the kitchen sink for 2 minutes, fill a cup, and put
+a cooking thermometer in it. That reading is your answer.
+
+Turn it down in small moves and live with it for a few days before you decide.
+
+2 exceptions worth knowing. Households with someone immunocompromised sometimes keep a higher
+setting on medical advice, because bacteria grow more readily in warm standing water. And if
+your dishwasher has no internal heater, very low settings can leave dishes poorly washed.
+
+While you are down there, look at the age. Most tanks last 8 to 12 years, and the date is
+usually encoded in the serial number on the label. A tank you are not sure about is worth
+knowing the age of before a cold January morning tells you.
+
+---
+
+Cesa gets a warm towel out of the dryer after a bath, not a warm one out of the tap, because
+at 19 she has opinions about water temperature that no thermostat setting has ever satisfied.
+
+The towel is the part she stays for.
+
+See you Thursday.
+
+Amanda
+
+=====================================================================
+ISSUE 14 — Thursday, November 19, 2026, 07:00
+=====================================================================
+
+SUBJECT: Hold a square of toilet paper to your bathroom fan
+PREVIEW TEXT: If it falls, the fan is decoration.
+
+---
+
+Here is a 10 second test.
+
+Turn the bathroom fan on. Tear off 1 square of toilet paper and hold it flat against the
+grille. A working fan holds it there. A fan that lets it drop is spinning, making noise and
+moving almost nothing.
+
+The 2 usual reasons are both out of sight. The duct above the ceiling has come loose from the
+fan housing or the roof cap, which happens more often than anyone expects, and the fan is
+politely venting your shower into the attic. Or the exterior flap is stuck shut with paint,
+lint or a nest.
+
+The second thing people get wrong is the timing. The fan's job is not to run during the
+shower, it is to run after it. Give it 15 to 20 minutes once you are out. A basic timer
+switch handles that for you and costs less than the paint job the moisture ruins.
+
+What failure looks like, in order: the mirror takes longer to clear than it used to, the
+paint near the ceiling starts to look soft, then the corner above the shower goes gray and
+you are cleaning the same spot every month and blaming the cleaner.
+
+If the square drops, put a flashlight in the attic before you buy a new fan. The fan is
+usually fine.
+
+---
+
+Cesa will not come in the bathroom while the fan is on, and she will lie down directly across
+the doorway so she can supervise from outside it.
+
+19 years old and she has never once let me close a door between us on principle.
+
+See you Thursday.
+
+Amanda
+
+=====================================================================
+ISSUE 15 — Thursday, November 26, 2026, 07:00
+=====================================================================
+
+SUBJECT: Your range hood filter goes in the dishwasher
+PREVIEW TEXT: Today of all days.
+
+INTERNAL: This lands on Thanksgiving morning. That is deliberate and the copy leans on it,
+but lightly. If Amanda would rather it not send on a holiday, move it to 12/03 and the run
+just ends 1 week later.
+
+---
+
+You are about to run that hood harder than any other day of the year, so take 2 minutes
+before the oven goes on.
+
+The metal mesh panels under the range hood slide or unclip out by hand. They are grease
+filters, they are almost always dishwasher safe, and they are meant to be washed. A saturated
+mesh stops catching grease and starts shedding it, which is how the underside of the hood and
+the cabinet doors beside the stove end up sticky without anyone spilling anything.
+
+Pull them, run them on the top rack, put them back. If they come out heavy and amber, soak
+them first in hot water with dish soap and a scoop of baking soda.
+
+Now the part most people never learn. Hoods come in 2 kinds. A vented hood pushes air
+outside. A recirculating hood pulls air through a charcoal filter and blows it back into the
+kitchen, and that charcoal filter is not washable. It is replaced, roughly every 6 months
+with normal cooking, and there are kitchens running 5 year old charcoal that is doing nothing
+at all.
+
+To find out which you have, turn the fan on high and check whether air is leaving the house
+at the vent outside. No exterior vent means recirculating, which means there is a charcoal
+filter behind or above the mesh, and it has a model number on it.
+
+The mesh is today's job. The charcoal is the thing to order this weekend.
+
+---
+
+Cesa is 19 and she has 17 nicknames, and on Thanksgiving she answers to every one of them,
+because every one of them is being said by somebody holding food.
+
+She has never worked harder in her life.
+
+See you Thursday.
+
+Amanda
+
+=====================================================================
+OPEN ITEMS FOR AMANDA
+=====================================================================
+
+1. APPROVAL. Nothing above is in MailerLite. On her go, these load as 6 campaigns filtered to
+   the Consider This group, 195832544509298574, Thursdays at 07:00, matching #007 through
+   #009 exactly.
+
+2. ISSUE 15 SENDS ON THANKSGIVING. Kept because the topic earns the date. 1 word from her
+   moves it to 12/03.
+
+3. CESA SECTIONS. Every one is built from details already recorded in this repo: the 3 feet
+   of floor, the 17 nicknames, her age. Nothing invented about her. If any of the 6 reads
+   wrong to Amanda, it is the section to rewrite first, because it is the part only she can
+   verify.
+
+4. TOPIC 13 CAVEAT. The water heater issue is the only one that sends a reader near a gas
+   valve or an electrical panel. The copy says to cut the breaker first. If Amanda wants that
+   issue to stay read-only, the fix is to cut the adjustment instructions and keep the
+   thermometer test, which tells her reader the number without touching anything.
+
+5. RUNWAY AFTER THIS. With these 6 approved, Consider This is covered to 11/26 and the next
+   cliff is 12/03. The runway watcher should be re-pointed at that date once they load.

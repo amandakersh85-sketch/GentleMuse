@@ -22,6 +22,22 @@ consume the single private-reply slot. A backlog waiting when she gets back is n
 **The one real deadline is approval**, because only she can approve copy. Get batches to her
 before she is hard to reach, as a courtesy, not as risk mitigation.
 
+## 0-PROMO. THE NEWSLETTERS GET PROMOTED EVERY SEND DAY. SET BY AMANDA 2026-09-24. PERMANENT.
+
+Her instruction, on the day the Consider This runway warning fired: we need to keep promoting
+the newsletters. Writing issues is not the work. An issue that sends to a list nobody was
+invited to join is the same as not sending it.
+
+**No Consider This or Just Another Tuesday send day goes out with an empty queue on the
+channels that promote it.** Whoever holds the posting project fills those days as ordinary
+refill. Nobody has to ask first. This already went wrong once: on 2026-09-09, 6 of 7 JAT send
+days had no posts at all, so the newsletter went unpromoted on the exact mornings it sent.
+
+The send-day table, what a promo post has to carry, and what this rule does NOT authorize are
+in **[`NEWSLETTER-PROMO-STANDING.md`](NEWSLETTER-PROMO-STANDING.md)**. Read it before filling
+a send day. It does not override the ladder, the render ratio, the LinkedIn rule, the 200 post
+cap, or the fact that the posting lead schedules and everyone else drafts.
+
 ## 0-RATIO. ONE RENDER PER FACT. SET BY AMANDA 2026-09-10. PERMANENT.
 
 Her words: *"fix the ratio ... anything that you see we haven't used, from all of what we have
