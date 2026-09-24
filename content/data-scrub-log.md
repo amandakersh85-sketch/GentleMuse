@@ -2604,3 +2604,71 @@ short, on the platform where the seasonal format actually earns 180 to 470.
 - **09/23 has no metrics yet** and the day's post list is partial.
 - **Follower count is still 188 manual from 09/12, now 12 days stale.** Day 16
   of 30. The campaign's own headline number has gone unread for 40% of it.
+
+---
+
+# CORRECTION to the Day 16 Cesa finding — 2026-09-24
+
+Amanda asked which channels the 3 day Cesa gap was on, hers or Cesa's, because
+the schedule was deliberately rerouted so each account carries its own content.
+
+**I cannot tell from Blotato, and I should not have written that finding the
+way I did.**
+
+## What is verified
+
+Blotato has **9 connected accounts, including 2 Instagram and 2 TikTok:**
+
+| Platform | Account |
+|---|---|
+| Instagram | @thegentlemuse2026 (45886) |
+| Instagram | **@cesasgoldenyears (65540)** |
+| TikTok | @thegentlemuse2026 (41488) |
+| TikTok | **@cesasgoldenyears (55761)** |
+| Facebook | The Gentle Muse page |
+| YouTube, LinkedIn, Pinterest, Twitter | 1 each |
+
+So the reroute is real and it is wired up. Cesa has her own Instagram and her
+own TikTok.
+
+## The methodology hole
+
+**Neither `blotato_list_top_posts` nor `blotato_list_posts` returns an account
+id.** Item keys are content, createdAt, id, latestMetrics, mediaUrls,
+metricsHistory, platform, postUrl. Nothing names which of the 2 Instagram
+accounts a post went to, and the tools take no account filter.
+
+Consequence: **every "Instagram corpus" number in this log is an undifferentiated
+blend of both Instagram accounts.** That includes the 1,749 and the 1,514 on
+09/11 and 09/12, the 2 biggest numbers in the campaign, which are Cesa reels and
+may well have been published to Cesa's account rather than to the 1K campaign
+account. The campaign counts followers on @thegentlemuse2026. If those reels ran
+on @cesasgoldenyears, they were never campaign numbers at all, and the
+"1 breakout Cesa reel gets us to 1,000" path in the plan is measuring the wrong
+account.
+
+I could not resolve it independently. Instagram serves a login wall to curl, and
+per the standing note a real browser cannot reach the internet from the cloud
+session, so post authorship cannot be read from the public page here.
+
+## What the Day 16 entry should have said
+
+Not "Cesa has been off Instagram for 3 days." The accurate statement:
+
+**No Cesa subject content appears anywhere in the Blotato feed after 09/20, on
+any platform, published or scheduled.** Nothing is queued on either Instagram or
+either TikTok through 09/26. That is either the reroute working with Cesa's
+channels posted outside Blotato, or Cesa's channels having genuinely gone quiet.
+Those 2 look identical from here.
+
+## The question that settles it
+
+Are @cesasgoldenyears posts scheduled through Blotato, or posted natively from
+the phone? If natively, then Cesa's channel is invisible to every scrub in this
+log and the format ranking needs rebuilding per account, by hand, with Amanda
+reading the numbers off each app.
+
+Until that is answered, treat the per format Instagram rankings in the Day 15
+and Day 16 entries as provisional. The Club Target opener finding and the Amanda
+face to camera lift are unaffected, because Club Target and Amanda content only
+ever ran on @thegentlemuse2026.
