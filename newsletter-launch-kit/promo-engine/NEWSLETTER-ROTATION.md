@@ -24,25 +24,62 @@ rotation is the 4th lane and it is the one that was missing.
 
 ## What exists to rotate, counted 2026-09-24
 
-**Consider This: 6 finished carousel sets, 6 slides each, 36 PNGs** in `carousels/`.
+**Consider This: 6 finished carousel sets, 6 slides each** in `carousels/`.
 
-| Set | Hook | Issue it promotes |
+| Set | Hook |
+|---|---|
+| `carousel-towels-*` | Your towels aren't old, they're coated |
+| `carousel-sponge-*` | Microwaving your sponge isn't sanitizing it |
+| `carousel-duct-*` | Your lint screen is clean, the duct behind it isn't |
+| `carousel-gasket-*` | The part of your washer that never gets clean |
+| `carousel-filter-*` | The highest-rated filter might be the wrong one |
+| `carousel-pillow-*` | Your pillow has an expiration date |
+
+**Just Another Tuesday: 6 finished carousel sets, built 2026-09-24** by
+`../promo-engine/gen_jat_carousels.py`, to Amanda's instruction that JAT had to be as good
+as the Consider This sets. Same 6 slide structure, same type system, same 1080x1350. The one
+deliberate difference is palette: Consider This runs WARM, JAT runs COOL, which is the split
+the retired single-page promos already used.
+
+| Set | Hook | Source |
 |---|---|---|
-| `carousel-towels-01` to `-06` | Your towels aren't old, they're coated | sent |
-| `carousel-sponge-01` to `-06` | Your sponge isn't sanitized after microwaving | sent |
-| `carousel-duct-01` to `-06` | Your lint screen is clean, the duct behind it isn't | sent |
-| `carousel-gasket-01` to `-06` | The seal nobody wipes | sent |
-| `carousel-filter-01` to `-06` | Your highest-rated furnace filter may be wrong for your house | sent |
-| `carousel-pillow-01` to `-06` | Your pillow has an expiration date | 10/08 |
+| `carousel-jat-enabled-*` | 6 automations had stopped, all 6 still said enabled | promo-tuesday copy |
+| `carousel-jat-number-*` | I found my number 1 problem, then ignored it 3 weeks | JAT #006 |
+| `carousel-jat-doors-*` | I had 4 front doors, they were all the same door | JAT #007 |
+| `carousel-jat-obedient-*` | The algorithm was not broken, it was obedient | JAT #008 |
+| `carousel-jat-923-*` | I chased down $9.23, it found the real problem | JAT #009 |
+| `carousel-jat-permission-*` | My first robot asked permission before it moved | JAT #010 |
 
-**Just Another Tuesday: 0 carousel sets.** It has `promo-tuesday.png`, `promo-tuesday-1x.png`
-and `JAT_promo_visual_pairings.jpg`, all single images, all retired by rule 2. **JAT cannot
-enter the rotation until 6 carousel sets are built for it.** The copy to build them from is
-already written and approved in `../DRAFT_0909_jat-send-day-promo-posts.txt` and
-`../DRAFT_0909_just-another-tuesday-issues-6-10-v1.txt`.
+Every beat traces to approved copy in `../DRAFT_0909_just-another-tuesday-issues-6-10-v1.txt`
+or the promo page it replaces. Nothing invented.
 
-So today the rotation is Consider This only, on a 6 set cycle. It becomes a 12 set cycle,
-alternating CT and JAT, the day the JAT sets exist.
+**The single-image promos are retired.** `promo-tuesday.png`, `promo-tuesday-1x.png` and
+`JAT_promo_visual_pairings.jpg` stay in the repo as history. Do not schedule them.
+
+## Live in the queue as of 2026-09-24
+
+Amanda picked option B: **TikTok carries the music via `autoAddMusic`, Instagram runs silent.**
+8 posts scheduled, 4 drops, alternating the 2 newsletters.
+
+| Date | Set | Instagram 13:00 UTC | TikTok 17:00 UTC |
+|---|---|---|---|
+| 09/26 | jat-enabled | silent carousel, TUESDAY CTA | autoAddMusic on |
+| 09/28 | towels | silent carousel, CONSIDER CTA | autoAddMusic on |
+| 09/30 | jat-number | silent carousel, TUESDAY CTA | autoAddMusic on |
+| 10/02 | sponge | silent carousel, CONSIDER CTA | autoAddMusic on |
+
+**Times were chosen against the ladder, not on top of it.** 13:00 UTC is 8:00 AM Central, a
+clear 2 hours before the 15:00 seasonal slot, so Instagram's 10:00 AM Central primary stays
+reserved. 17:00 UTC is TikTok's stated second slot, 12:00 PM Central, and is 2 hours clear of
+everything already on that account. Nothing was moved and nothing was displaced.
+
+**Queue went from 184 to 192 of the 200 cap. 8 slots left on purpose.** The rest of the
+rotation loads on refill as October publishes and frees room. November is wide open.
+
+**Note on media URLs.** Blotato mints a fresh storage URL every time media is attached, so the
+URLs on these 8 posts do not match each other or the upload response. That is expected and is
+already recorded in `AGENT-CONTRACT.md` under the render ratio rule. URL count is not file
+count. The 12 slides behind these 8 posts are 12 files, not 48.
 
 ## The cycle
 
@@ -79,10 +116,10 @@ API path to it, so no scheduling tool can do it, including this one.
 - **C. Amanda posts the IG carousels by hand** and picks the audio herself. Best sound, worst
   use of her time, and it breaks the point of the queue.
 
-**Recommendation: B now, A for the sets that earn it.** B gets the rotation running this week.
-A is worth the 6 renders once she sees which hooks pull.
+**RESOLVED 2026-09-24. Amanda chose B, and it is live.** TikTok carries the music, Instagram
+runs silent. A stays on the table for whichever sets earn it once she sees which hooks pull.
 
-### 2. The queue is at 184 of 200
+### 2. The queue is at 192 of 200 (was 184 before this rotation loaded)
 
 37 days scheduled, 09/24 through 10/31, and the plan cap is 200. **16 slots free right now.**
 An every-other-day rotation from 09/26 to 11/26 needs about 31 posts, so it cannot all be
