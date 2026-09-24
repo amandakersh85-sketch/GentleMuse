@@ -122,6 +122,47 @@ PerNight is a floor and a ceiling, and it is the number the announcement
 stated, not a preference. When a campaign is announced, write the promise
 into the CSV before anything is scheduled against it.
 
+## The day's shape, set 09/24/2026
+
+Amanda, sick and between sessions, describing what she already has running:
+"I've got the seasonal stuff going out every evening. I've got something of
+myself going out at some point every single day. I've got the club targets
+going out, and I need this to go out." The 4 lanes are not a proposal. They are
+the day, and a day missing one of them is the finding.
+
+| Lane | Per day | Who owns it |
+|---|---|---|
+| seasonal fact | 1, every evening | the Halloween nightly run |
+| Amanda herself | 1, face to camera or UGC | her own footage |
+| Club Target | as the partnership lands | sponsored, holds its times |
+| newsletter signup | 1 every 2 days, minimum | the carousel rotation |
+
+The newsletter lane is the one that goes missing, and it is the one she says
+matters most: "those are the two most important things, getting people to sign
+up for the newsletters. Just keep rotating them." Just Another Tuesday and
+Consider This. The rules live in
+`filing-system/data/newsletter-rotation.csv`:
+
+- at least 1 newsletter promo every 2 days, rotating between the 2
+- the 1 page lead magnet posts are cut. Only the carousels run here
+- a carousel goes out as a video with a music bed, never a still. A still
+  cannot carry sound, and she asked for music on them specifically
+- the rotation recycles carousels that already exist. Nothing new is generated
+  for this lane
+
+On 09/24 the board had Just Another Tuesday on 2 days out of 38, and 22 of
+those 38 days carried neither newsletter, including 11 days in a row from
+10/21 to 10/31, straight through Halloween.
+
+Leave the number 1 slot on Thanksgiving morning alone. It is there on purpose.
+
+**One board, not one per session.** Amanda, 09/24: "all I want is every piece
+of information I've been screaming at different sessions to come together, stop
+battling each other. Get one sensible, cohesive schedule out." That is what
+this file is for. A ruling she gives one session is written here, in the data,
+on the same day. A session that learns something and keeps it in its own
+transcript has not recorded it.
+
 Variety is the point of the volume. A day should not be 5 of the same lane.
 The lanes are: holiday fact, Cesa, Club Target, food review, lead magnet
 carousel, Amanda on camera, trivia.
