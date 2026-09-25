@@ -2726,3 +2726,126 @@ names a Cesa post above 10,000 views as the single number that makes 1,000
 followers reachable. **That slot has been empty for 4 days and is empty for the
 next 8 in the queue.** Whatever else the schedule is doing, it is not running
 the format the campaign's own math depends on.
+
+---
+
+# Day 17 scrub — 2026-09-25 (02:36 UTC / 09-24 21:36 CT)
+
+Full corpus, Blotato, since 09/08. Instagram 73 posts, Facebook 52. 09/23
+Instagram metrics have landed. 09/24 has not been fetched yet.
+
+## Cesa is back, on her own channels, and Instagram blocked her
+
+The question from the last 2 entries is answered. Cesa content resumed
+**09/25 00:10 UTC** and it went where Amanda said it would:
+
+`https://www.tiktok.com/@cesasgoldenyears/video/7689258414374948110`
+
+New voice too, written first person as Cesa. "i have concerns about the water.
+it refills itself. i have never once seen who does it." That is a real format
+change, not a repost.
+
+**The paired Instagram post failed:**
+
+> 09/25 00:00, post 730765
+> `Could not publish on Instagram: The Instagram account is restricted.`
+
+That is not a dead media URL or a 400. It is an **account level block on
+@cesasgoldenyears.** Same media, same minute, published fine to TikTok.
+
+**This will keep happening.** The 09/26 pair is already queued, 00:00 Instagram
+and 00:10 TikTok, "something is going on in this house." The TikTok will go. The
+Instagram will hit the same wall unless the restriction is cleared first.
+
+Amanda has to open the Instagram app on @cesasgoldenyears and look at the
+account status notice. That needs a login and a real browser, so it cannot be
+done from here. Until it is cleared, every Cesa Instagram slot is a guaranteed
+failure, and the campaign's highest ceiling format has no Instagram outlet at
+all.
+
+## CORRECTION: the Amanda lift did not hold
+
+Day 16 called 4 consecutive posts between 94 and 165 "the most durable change in
+the corpus." 09/23 landed and it does not support that.
+
+| Post | Date | Views |
+|---|---|---|
+| Women over 40 | 09/21 | 165 |
+| 10 seconds on my brows | 09/22 | 144 |
+| The glow up | 09/21 | 129 |
+| The next upload | 09/22 | 94 |
+| **Nobody tells you how many reps** | **09/23** | **6** |
+| Club Target BROW | 09/23 | 12 |
+| Story, full reel on my page | 09/23 | 3 |
+
+4 posts is not a trend, and I called it one a day too early. The honest read is
+that Instagram reach on this account swings between roughly 0 and 165 with no
+stable floor, and 4 good ones in a row was a run, not a lift.
+
+## The same video: 6 on Instagram, 230 on Facebook
+
+"Nobody tells you how many reps it takes" published to both on 09/23.
+
+| Platform | Views |
+|---|---|
+| Instagram | **6** |
+| Facebook | **230** |
+
+Same day, same footage, same script. **38 times the reach on Facebook.** This is
+the same shape as the trivia split, and it is now showing up on Amanda's own
+face to camera content, which was supposed to be the Instagram format.
+
+That is 2 formats where Facebook outperforms Instagram by more than an order of
+magnitude on identical files. The platform split doctrine says Instagram is the
+growth engine and Facebook is secondary. **The data has been saying the opposite
+for 2 weeks.**
+
+## FLAG: 2 more Club Target posts published with storefront links only
+
+Both name specific products and carry `https://club.target.com/a/amanda.20`:
+
+- **09/24 21:31 TikTok**, Tree Hut Moroccan Rose shea sugar scrub.
+- **09/24 16:01 TikTok**, NYX Thick It Stick It. This is the 09/22 post that
+  failed on a dead media URL, re-uploaded and published. The media got fixed.
+  The missing SKU did not.
+
+That is now 3 published TikToks in 3 days naming a product without its link,
+counting the Kuromi post from 09/23. The re-upload was a chance to add the SKU
+and it went out unchanged.
+
+## Minor: a TikTok published with no video id
+
+09/24 23:50, the Amigo's review. Blotato recorded its postUrl as
+`https://www.tiktok.com/@thegentlemuse2026`, the profile, with no video path.
+Every other TikTok in the window carries a full `/video/{id}` URL. Worth a look
+at whether that post actually landed, since a Club Target claim needs a real
+post URL to paste onto the board.
+
+## Volume, 09/21 to 09/24
+
+| Platform | 21 | 22 | 23 | 24 | Target |
+|---|---|---|---|---|---|
+| Instagram | 6 | 6 | 3 | 1 +1 failed | 3 to 4 |
+| TikTok | 4 | 4 | 2 | 3 | 3 to 4 |
+| Facebook | 2 | 2 | 1 | 1 | 3 to 4 |
+| YouTube | 0 | 1 | 1 | 1 | 3 to 4 |
+
+Instagram has fallen from 50% over target to 75% under it in 3 days. Facebook
+and YouTube have been under every single day this week, and Facebook is where
+the numbers actually are.
+
+## Tracking items
+
+1. **Trivia on Instagram:** 09/22 read 1 and 2. Facebook the same day, 239.
+   10 days below the 37 baseline. The opener test still has not shipped.
+2. **10,000 view Cesa breakout:** no. Cesa's Instagram is restricted, so there
+   is currently no channel for it to happen on.
+3. **Volume:** every platform under target on 09/24.
+4. **Watermarks and AI badges:** no frame checks run tonight. Last check was
+   09/24 across 12 videos, all clean.
+5. **Product posts missing a SKU:** Tree Hut and NYX, both 09/24 TikTok, plus
+   Kuromi on 09/23. All 3 published.
+
+## Follower count
+
+**Still 188 manual from 09/12, now 13 days stale.** Day 17 of 30.
