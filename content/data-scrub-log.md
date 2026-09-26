@@ -2849,3 +2849,105 @@ the numbers actually are.
 ## Follower count
 
 **Still 188 manual from 09/12, now 13 days stale.** Day 17 of 30.
+
+---
+
+# Day 18 scrub — 2026-09-26 (02:37 UTC / 09-25 21:37 CT)
+
+Full corpus, Blotato, since 09/08. Instagram 74 posts, Facebook 53.
+
+## The Instagram restriction cleared
+
+Last night's hard flag is resolved. After the 09/25 00:00 failure, both
+subsequent Cesa Instagram posts went out:
+
+| Post | Time | Result |
+|---|---|---|
+| i have concerns about the water | 09/25 00:00 | **failed, account restricted** |
+| i'm not holding her hand | 09/25 17:30 | published, `/reel/Ddt__R0EYIu/` |
+| something is going on in this house | 09/26 00:01 | published, `/reel/DdusqcBjlZW/` |
+
+1 failure, then 2 clean publishes 17 hours later. I cannot tell from here
+whether Amanda cleared it in the app or whether it was a transient block that
+lifted on its own. Worth knowing which, because a transient restriction that
+recurs will quietly eat Cesa slots, and the failure is only visible in Blotato.
+
+## Cesa is running a real cadence now
+
+2 posts a day, both channels, same pairs: roughly 17:30 and 00:00 on Instagram,
+17:40 and 00:10 on TikTok. 4 posts in the last 26 hours. Written first person
+throughout, and the voice is consistent.
+
+No metrics yet on any of them. First numbers land tomorrow. That is the number
+worth watching, because it is the first clean read on whether the format carries
+its own audience or was living on the Gentle Muse account's reach.
+
+## A third identical-content pair, same answer
+
+| Content | Date | Instagram | Facebook | Ratio |
+|---|---|---|---|---|
+| Disney, Touchstone | 09/22 | 1 | 239 | 239x |
+| Nobody tells you how many reps | 09/23 | 6 | 230 | 38x |
+| **Amigo's in Waterloo** | **09/24** | **27** | **299** | **11x** |
+
+3 pairs now, 3 formats, 3 consecutive days. Seasonal trivia, Amanda face to
+camera, and a local review. Same files, same days, Facebook wins every time and
+never by less than an order of magnitude.
+
+Facebook's floor across the whole campaign is roughly 180. Instagram's is 0.
+This is no longer a format finding. **The account is the variable.**
+
+## The thing that needs a decision before Monday
+
+**The 33 night seasonal run starts 09/28 and 09/29**, queued on both Instagram
+and TikTok, 1 post every night through Halloween.
+
+On Instagram that format currently reads 0 to 14, against a 37 view watermarked
+baseline it has been under for 10 days. On Facebook the same content reads 180
+to 470 and occasionally 1,000.
+
+As queued, that is **33 consecutive Instagram posts into a format the account
+does not serve**, while the platform that does serve it gets 1 a day at most.
+The opener test named on Day 15 was meant to settle whether the opener or the
+format is the problem, and it still has not shipped. There is no longer time to
+run a 2 post test before the run starts.
+
+The cheap move is to not wait for the test: fix the opener on the first 3 nights
+anyway, since the current one violates the plan's own rule, and put the seasonal
+volume on Facebook where it earns 180 plus.
+
+## Volume, 09/22 to 09/25
+
+Now split by account, because there are 2 Instagram and 2 TikTok channels and
+the 3 to 4 target was written for 1 of each.
+
+| Channel | 22 | 23 | 24 | 25 |
+|---|---|---|---|---|
+| IG @thegentlemuse2026 | 6 | 3 | 1 | 2 |
+| IG @cesasgoldenyears | 0 | 0 | 0 +1 failed | 1 |
+| TikTok @thegentlemuse2026 | 4 | 2 | 3 | 1 |
+| TikTok @cesasgoldenyears | 0 | 0 | 1 | 1 |
+| Facebook | 2 | 1 | 1 | 1 |
+| YouTube | 1 | 1 | 1 | 1 |
+
+Every channel is under the 3 to 4 target. The main Instagram account has gone
+6, 3, 1, 2 in 4 days. Facebook has been at 1 or 2 all week, on the platform
+carrying every number above 200.
+
+## Tracking items
+
+1. **Trivia on Instagram:** no new seasonal posts 09/24 or 09/25. The 33 night
+   run starts 09/28. Opener unchanged, test never run.
+2. **10,000 view Cesa breakout:** no. Cesa is publishing again on both channels
+   and no metrics have landed yet.
+3. **Volume:** every channel under target, on both accounts.
+4. **Watermarks and AI badges:** no frame checks tonight. The new Cesa reels
+   have not been looked at yet and should be before the cadence sets, since a
+   new channel is exactly where a bad export would go unnoticed.
+5. **Product posts missing a SKU:** no Club Target posts published 09/25.
+   The 3 flagged on Day 17 stand uncorrected.
+
+## Follower count
+
+**Still 188 manual from 09/12, now 14 days stale.** Day 18 of 30. The campaign
+has 12 days left and its headline number has not been read since day 4.
