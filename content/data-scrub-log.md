@@ -2951,3 +2951,118 @@ carrying every number above 200.
 
 **Still 188 manual from 09/12, now 14 days stale.** Day 18 of 30. The campaign
 has 12 days left and its headline number has not been read since day 4.
+
+---
+
+# Day 19 scrub — 2026-09-27 (02:36 UTC / 09-26 21:36 CT)
+
+Full corpus, Blotato, since 09/08. Instagram 78 posts, Facebook 54.
+
+## Cesa's own Instagram account is the best thing on Instagram right now
+
+First numbers on @cesasgoldenyears, a channel that is 2 days old:
+
+| Post | Time | Views | Reach |
+|---|---|---|---|
+| i'm not holding her hand | 09/25 17:30 | **240** | 205 |
+| something is going on in this house | 09/26 00:01 | **207** | 192 |
+
+**Those are the 2 best Instagram numbers on anything since 09/12.** From a
+standing start, on an account with essentially no followers, against a main
+account that has cleared 200 exactly twice in 3 weeks.
+
+The Gentle Muse account the same day: the bottleneck reel, 139. Cesa's brand new
+account beat it by 73%.
+
+The first-person voice is working. Whatever else is true, this format does not
+need the main account's reach to perform.
+
+## FLAG, and I called this wrong last night: the restriction did not clear
+
+Day 18 reported the Instagram restriction as resolved. **It is not. It came
+back tonight.**
+
+| Post | Time | Result |
+|---|---|---|
+| i have concerns about the water | 09/25 00:00 | **failed, restricted** |
+| i'm not holding her hand | 09/25 17:30 | published, 240 views |
+| something is going on in this house | 09/26 00:01 | published, 207 views |
+| **i know this sidewalk by heart** | **09/27 00:00** | **failed, restricted** |
+
+Same error string both times: `Could not publish on Instagram: The Instagram
+account is restricted.`
+
+**2 of 4 Cesa Instagram posts have failed.** A 50% loss rate, on the format that
+is currently producing the best Instagram numbers on the whole account roster.
+
+I wrote last night that a recurring transient block "will quietly eat Cesa
+slots." It is doing exactly that, and I should have said unresolved rather than
+cleared off 2 successes.
+
+This is the single highest value thing to fix. Every failed post is a 200 plus
+view reel that never existed, and the failure is invisible unless somebody reads
+the Blotato queue. Amanda needs to open the Instagram app on @cesasgoldenyears
+and read the account status notice, which needs a login and cannot be done here.
+
+## CORRECTION: the platform pattern is not "Facebook always wins"
+
+Day 18 said the account is the variable, off 3 identical-content pairs. A 4th
+pair landed and it goes the other way.
+
+| Content | Date | Instagram | Facebook | Winner |
+|---|---|---|---|---|
+| Disney, Touchstone | 09/22 | 1 | 239 | FB, 239x |
+| Nobody tells you how many reps | 09/23 | 6 | 230 | FB, 38x |
+| Amigo's in Waterloo | 09/24 | 27 | 299 | FB, 11x |
+| **Business Bottleneck Check** | **09/25** | **139** | **28** | **IG, 5x** |
+
+So "Facebook wins by an order of magnitude on identical files" was 3 posts, not
+a law, and I generalised a day early for the second time this week. The honest
+version: **both accounts have a wide floor-to-ceiling spread and neither is
+reliably ahead.** Instagram's spread this week is 1 to 240. Facebook's is 28 to
+299.
+
+What survives from the 3 pair finding: seasonal trivia specifically still does
+far better on Facebook, and that gap has held for 2 weeks across many posts, not
+3. The broader claim does not survive.
+
+## Volume, 09/23 to 09/26
+
+| Channel | 23 | 24 | 25 | 26 |
+|---|---|---|---|---|
+| IG @thegentlemuse2026 | 3 | 1 | 2 | 3 |
+| IG @cesasgoldenyears | 0 | 0 +1 failed | 1 | 1 +1 failed |
+| TikTok @thegentlemuse2026 | 2 | 3 | 1 | 2 |
+| TikTok @cesasgoldenyears | 0 | 1 | 1 | 1 |
+| Facebook | 1 | 1 | 1 | 1 |
+| YouTube | 1 | 1 | 1 | 1 |
+
+Cesa dropped from 2 posts a day to 1 on 09/26. Facebook and YouTube have been
+pinned at exactly 1 a day for 4 straight days against a 3 to 4 target.
+
+## The 33 night run starts tomorrow
+
+Still queued unchanged for 09/28 and 09/29 on Instagram and TikTok. The opener
+is the same dark image with a category label and no fact text. Nothing in the
+last 24 hours changed it.
+
+Instagram seasonal is at 1 to 14 views. This is the last scrub before the run
+starts.
+
+## Tracking items
+
+1. **Trivia on Instagram:** no new seasonal posts 09/26. 33 night run begins
+   09/28 with the opener unchanged.
+2. **10,000 view Cesa breakout:** no, but Cesa hit 240 and 207 on a 2 day old
+   account, which is the strongest signal the format has given since 09/12.
+3. **Volume:** Cesa halved, Facebook and YouTube flat at 1 a day.
+4. **Watermarks and AI badges:** no frame checks tonight. The Cesa reels still
+   have not been looked at and they are now the best performing content on the
+   roster, so they are worth a frame pull before the cadence hardens.
+5. **Product posts missing a SKU:** no Club Target posts published 09/26. The 3
+   flagged on Day 17 stand uncorrected.
+
+## Follower count
+
+**Still 188 manual from 09/12, now 15 days stale.** Day 19 of 30. Half the
+campaign has run without a single reading of the number it is measured by.
