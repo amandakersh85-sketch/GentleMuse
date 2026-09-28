@@ -1,0 +1,35 @@
+name: Tests
+
+# Runs every test suite in the repo on each pull request, so the PR page shows
+# a real pass or fail before anything reaches main. CLAUDE.md: anything shipped
+# here is run before it is called done. Nothing here sends, posts or reads a
+# secret. It only reads the checkout.
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      # Each suite runs even when the one before it failed, so 1 run shows
+      # every failure at once.
+      - name: Filing system
+        run: bash filing-system/tests/run-tests.sh
+      - name: Blotato refill
+        if: ${{ !cancelled() }}
+        run: python3 blotato-refill/tests/test_refill.py
+      - name: Halloween 33 Nights loader
+        if: ${{ !cancelled() }}
+        run: python3 halloween-33/tests/test_load.py
