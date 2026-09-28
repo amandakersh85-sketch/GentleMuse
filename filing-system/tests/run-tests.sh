@@ -964,11 +964,13 @@ if python3 "$HERE/trivia_assert.py" live-list; then
   echo "PASS  the live list is her 09/09 answer, tier 1 and 3, tier 2 parked"; pass=$((pass+1))
 else echo "FAIL  the live list is her 09/09 answer, tier 1 and 3, tier 2 parked"; fail=$((fail+1)); fi
 
-# The live bank ships unverified on purpose. Nothing was marked checked that
-# was not actually opened and read.
-if python3 "$TB" --audit 2>/dev/null | grep -q "0 usable"; then
-  echo "PASS  the shipped bank holds every row until somebody verifies it"; pass=$((pass+1))
-else echo "FAIL  the shipped bank holds every row until somebody verifies it"; fail=$((fail+1)); fi
+# The live bank shipped unverified on purpose on 09/09, so nothing was marked
+# checked that had not been opened and read. Verifying rows is the job, and the
+# 3 seeded rows were verified on 09/28, so the rule that lasts is the record: a
+# row marked verified says the day its source was read.
+if python3 "$HERE/trivia_assert.py" verified-dated; then
+  echo "PASS  every verified row in the live bank says when it was checked"; pass=$((pass+1))
+else echo "FAIL  every verified row in the live bank says when it was checked"; fail=$((fail+1)); fi
 
 echo
 echo "== media reachability (Run 6, added 09/08) =="
