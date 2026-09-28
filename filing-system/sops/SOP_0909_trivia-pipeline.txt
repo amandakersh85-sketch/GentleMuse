@@ -80,8 +80,8 @@ Two failures this lane has that the holiday lane does not:
 
   7  APPROVE    Amanda. Every time. See section 5.
 
-When the n8n workflow runs steps 5 and 6, a fact enters it through
-gm_trivia_trigger.py and nowhere else. Section 8.
+The daily job runs steps 5 and 6 on its own and stops at step 7: it opens
+a pull request, and Amanda's merge is the approval. Section 8.
 
 ────────────────────────────────────────────────────────────────────────
 4. THE GATE, RULE BY RULE
@@ -170,127 +170,54 @@ First production job: open the 3 URLs, read them, and set Verified=yes and
 VerifiedOn only for the ones that hold up.
 
 ────────────────────────────────────────────────────────────────────────
-8. THE N8N TRIGGER (added 09/28/2026)
+8. THE DAILY JOB (added 09/28/2026)
 ────────────────────────────────────────────────────────────────────────
 
-The lane is being automated in n8n: a webhook, then OpenAI for the script,
-HeyGen for the render, Blotato for the schedule. The webhook design that
-arrived on 09/28 broke 4 rules this SOP already states.
+The lane runs itself every morning as 2 free GitHub jobs. The whole
+procedure, rule by rule, is daily-trivia/README.md. In short:
 
-  It took a topic.     The example was "World History - Forgotten
-                       Inventions". That is outside the lane, and a topic
-                       handed to a model asks the model to supply the
-                       facts. Section 2 is why that cannot happen.
-  It had no key.       The setup table recommended Header Auth and the
-                       node JSON left it off. Run on n8n 2.40.7, the node
-                       as given answered a call with no key at all, HTTP
-                       200, and started the workflow. That is a HeyGen
-                       spend and a post in her name for whoever finds the
-                       URL.
-  It answered first.   With the default Respond setting the caller hears
-                       "Workflow was started" before anything has looked
-                       at what was sent, so nothing can refuse it.
-  It ended at Blotato. Section 5. The render goes to HOLD. Amanda
-                       releases it.
+  1  7:30 AM Central, daily-trivia/make.py picks the next verified fact
+     (scripts/gm_trivia_pick.py), writes its 4 captions from the Fact and
+     the Backbone and each platform's ask in data/trivia-cta.csv, runs
+     every caption through this SOP's gate (T00 to T06) and the keyword
+     gate, has HeyGen make the video in her voice as 1 of her 2 podcast
+     looks, and opens a pull request with the video and the captions.
+  2  Amanda merges it, or closes it to skip the fact.
+  3  The merge runs daily-trivia/schedule.py, which puts the 4 posts into
+     the next open daytime slots, each with a time, 2 hours clear of her
+     other posts, leaving 10 queue slots free for the Halloween countdown.
 
-It also named 2 platforms and a placeholder voice. The lane is 4
-platforms, and the voice is hers.
+Why it looks like this
 
-What was built instead
+A design for this lane arrived on 09/28 as an n8n workflow: a webhook,
+OpenAI for the script, HeyGen for the video, Blotato to publish. It broke
+4 rules this SOP already states.
 
-  n8n/daily-trivia-trigger.json   the workflow to import. A webhook, POST,
-                                  path daily-trivia-trigger, Header Auth
-                                  on. Then the check, then the answer to
-                                  the caller, then a gate that lets only
-                                  an accepted fact go on.
-  n8n/trivia-payload-check.js     the check. Anything that is not 1
-                                  checked fact for the 4 platforms in her
-                                  voice gets HTTP 422 and every reason.
-  scripts/gm_trivia_trigger.py    the sender. Picks the fact, builds the
-                                  payload, proposes, sends under --send.
+  It took a topic.     "World History - Forgotten Inventions". Outside the
+                       lane, and a topic handed to a model asks the model
+                       to supply the facts. Section 2 is why that cannot
+                       happen. The daily job takes 1 verified row and writes
+                       only what the row says.
+  It had no key.       Run on n8n 2.40.7, the node as given started the
+                       workflow for anyone who called it.
+  It answered first.   The caller heard "Workflow was started" before
+                       anything had looked at the call.
+  It ended at Blotato. Section 5. The daily job stops at a pull request.
 
-The workflow file is built, not written. gm_trivia_trigger.py --workflow
---write reads the lane from gm_trivia_bank.py and the platforms from
-channel-rules.csv. A rule changed there reaches the webhook once the file
-is rebuilt and imported again, and the test suite fails for as long as the
-committed file is out of date with the rules.
+An n8n version that fixed all 4 was built and tested the same day (commit
+e09d237 holds it). It was set aside because n8n Cloud has no free plan and
+Amanda chose free, on GitHub, the way the Blotato refill and the Halloween
+loader already run.
 
-The payload
+What it needs, once
 
-  fact_id, topic, fact, backbone,    the bank row, only when the bank says
-  source, source_url, as_of,         it can carry a post on the day it airs
-  verified_on, delivery
-  publish_date                       the day, YYYY-MM-DD. Not a time. Each
-                                     platform's time comes from its slot
-                                     when it is scheduled
-  target_platform, accounts          channel-rules.csv: the channels that
-                                     carry everything, main accounts only
-  cta                                per platform. The keyword where an
-                                     automation answers it, the link where
-                                     a link is clickable. TikTok gets
-                                     neither, its ask is the bio
-  voice_id, voice_speed, avatar_id   her voice at 0.92, 1 of the 2 podcast
-                                     looks, rotated by day
+  HEYGEN_API_KEY as a repository secret. Until it is there the morning job
+  says "Not set up yet" and makes nothing. The key spends HeyGen API
+  credits.
+  Actions allowed to open pull requests, in the repository's Actions
+  settings.
+  Verified rows. Each fact is made once, so the hunt in section 3 sets the
+  pace. With nothing left the morning job fails and says so, rather than
+  going quiet.
 
-Setting it up, once
-
-  1  In n8n, import filing-system/n8n/daily-trivia-trigger.json.
-  2  On the webhook node, Credential for Header Auth, create new. Name
-     X-Trivia-Key. Value a long random string. The value never goes in
-     this repo.
-  3  Publish the workflow, or switch it Active in older n8n. Copy the
-     production URL, the one with /webhook/ in it, not /webhook-test/.
-  4  Where the sender runs, set N8N_TRIVIA_URL to that URL and
-     N8N_TRIVIA_KEY to the value from step 2.
-
-Until step 2 is done the webhook refuses every call with HTTP 500, "No
-authentication data defined on node!". That is the safe way round.
-
-Sending
-
-  python3 scripts/gm_trivia_trigger.py --next           proposes
-  python3 scripts/gm_trivia_trigger.py --next --send    sends
-  python3 scripts/gm_trivia_trigger.py --fact TRV-004   a named fact
-
---next takes the bank's pull order, passes over facts already sent and
-motion-text facts, and names each one it passes. It stops at a fact it
-cannot send rather than skipping to one it can.
-
-Every accepted send is written to data/trivia-trigger-log.csv. Commit that
-line. It is what stops a fact rendering twice, and a second render of a
-fact that already has one is regenerating what exists. --resend is only
-for a run that failed after it was accepted.
-
-Exit 0 proposed or accepted, 1 refused, 2 nothing sent or nothing
-confirmed.
-
-Built, and not built, on 09/28
-
-Built and run on n8n 2.40.7: the webhook, the key, the check, the answer
-and the gate. An accepted fact reaches a placeholder node, "Next: script
-from the fact". A refused one stops before it.
-
-Not built: the OpenAI, HeyGen, HOLD and Blotato nodes. Whoever builds them
-holds to 4 things.
-
-  The script is written from payload.fact and payload.backbone and nothing
-  else. The pasted {{ $json.body.topic }} now carries only the lane word.
-  Every number in the script has to be in the fact, which is T03. n8n
-  cannot run gm_trivia_check.py itself, so how the captions reach that
-  check is the first thing to settle, before any HeyGen node exists.
-
-  HeyGen renders payload.avatar_id speaking with payload.voice_id at
-  payload.voice_speed.
-
-  The workflow stops at HOLD. Amanda approves the render and the captions
-  before any Blotato node runs.
-
-  Blotato posts to payload.accounts with payload.cta per platform, at each
-  platform's own slot, inside the 200 slot cap, and through the cadence
-  gates in HANDOFF_0909 section 7.
-
-Not turned on: any daily schedule. It comes after the nodes past the gate
-exist. The trigger only ever sends a verified fact, so the bank sets the
-pace: the 3 seeded rows were read against their sources on 09/28 (PR #27),
-and each fact sent is logged and not sent again, so the hunt in section 3
-has to keep adding verified rows.
+The links for both settings are in daily-trivia/README.md.

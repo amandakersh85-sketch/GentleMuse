@@ -1155,34 +1155,24 @@ if python3 "$HERE/promise_assert.py"; then
 else echo "FAIL  a dark night is found under a day that looks full"; fail=$((fail+1)); fi
 
 echo
-echo "== the n8n trivia trigger (Run 8, added 09/28) =="
-# The webhook design this lane was handed took a free topic, "World History -
-# Forgotten Inventions", for a model to write about, with no key on the node.
-# The trigger sends 1 fact from the bank instead, and the workflow's first node
-# refuses anything else. SOP_0909 section 8.
-TRIG="$HERE/../scripts/gm_trivia_trigger.py"
-TBANK="$HERE/trivia-trigger.bank.csv"
-TLOG="$TMP/trigger-log.csv"
-TPORT=8974
+echo "== the daily trivia job (Run 8, added 09/28) =="
+# The design this lane was handed on 09/28 had a model write about a free topic,
+# "World History - Forgotten Inventions". The daily job takes 1 fact from the
+# bank instead, writes nothing the bank does not hold, and makes nothing without
+# Amanda merging it. daily-trivia/README.md and SOP_0909 section 8.
+PICK="$HERE/../scripts/gm_trivia_pick.py"
+PBANK="$HERE/trivia-pick.bank.csv"
+NOAPPROVED="$TMP/no-approved"
 
-python3 "$HERE/trivia-trigger-stub.py" "$TPORT" >/dev/null 2>&1 &
-TSTUB_PID=$!
-trap 'kill $TSTUB_PID 2>/dev/null; rm -rf "$TMP"' EXIT
-for _ in $(seq 1 30); do
-  python3 -c "import socket,sys;s=socket.socket();sys.exit(s.connect_ex(('127.0.0.1',$TPORT)))" && break
-  sleep 0.2
-done
-
-trig() { # name expected_exit webhook_path key args... ; greps come after a --
-  local name="$1" want="$2" upath="$3" tok="$4"; shift 4
+pick() { # name expected_exit args... ; greps come after a --
+  local name="$1" want="$2"; shift 2
   local args=() greps=()
   while [ $# -gt 0 ] && [ "$1" != "--" ]; do args+=("$1"); shift; done
   [ "${1:-}" = "--" ] && shift
   greps=("$@")
   local out
-  out="$(N8N_TRIVIA_URL="${upath:+http://127.0.0.1:$TPORT/webhook/$upath}" N8N_TRIVIA_KEY="$tok" \
-         python3 "$TRIG" --bank "$TBANK" --sources "$HERE/trivia.sources.csv" --log "$TLOG" \
-         --date 2099-01-01 "${args[@]}" 2>&1)"
+  out="$(python3 "$PICK" --bank "$PBANK" --sources "$HERE/trivia.sources.csv" \
+         --approved "$NOAPPROVED" --date 2026-09-30 "${args[@]}" 2>&1)"
   local got=$?
   local ok=1
   [ "$got" = "$want" ] || { ok=0; echo "  exit $got, wanted $want"; }
@@ -1193,103 +1183,48 @@ trig() { # name expected_exit webhook_path key args... ; greps come after a --
   else echo "FAIL  $name"; echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
 }
 
-logged() { # name pattern ; the log file holds a line matching it, or none at all with ""
-  if { [ -z "$2" ] && [ ! -s "$TLOG" ]; } || { [ -n "$2" ] && grep -q -e "$2" "$TLOG" 2>/dev/null; }; then
-    echo "PASS  $1"; pass=$((pass+1))
-  else echo "FAIL  $1"; cat "$TLOG" 2>/dev/null | sed 's/^/      /'; fail=$((fail+1)); fi
-}
+pick "the next fact comes with 4 captions that passed the gates" 0 --next -- \
+     '"factId": "TRV-001"' '"platform": "instagram"' '"platform": "facebook"' \
+     '"platform": "tiktok"' '"platform": "youtube"' "Comment TUESDAY"
+pick "a fact nobody verified is refused"            1 --fact TRV-005 -- "REFUSED" "not Verified"
+pick "a fact not in the bank is refused"            1 --fact TRV-999 -- "not in the bank"
+pick "motion-text does not go to HeyGen"            1 --fact TRV-004 -- "reel factory"
+pick "a fact routed to another keyword is refused"  1 --fact TRV-006 -- \
+     "instagram asks for TUESDAY and this fact routes to NOPE"
+# TUESDAY switched off on the main Instagram: somebody would comment and wait.
+python3 - "$HERE/../data/keyword-registry.csv" "$TMP/registry-dead.csv" <<'PY'
+import csv, sys
+rows = list(csv.DictReader(open(sys.argv[1], newline="", encoding="utf-8")))
+for r in rows:
+    if r["Keyword"] == "TUESDAY" and r["AccountId"] == "45886":
+        r["Active"] = "no"
+w = csv.DictWriter(open(sys.argv[2], "w", newline="", encoding="utf-8"), fieldnames=list(rows[0]))
+w.writeheader(); w.writerows(rows)
+PY
+pick "a keyword nothing answers is refused"         1 --next --registry "$TMP/registry-dead.csv" -- \
+     "TUESDAY is not live on instagram 45886" "nothing would answer"
+pick "declined facts are passed over, and named"    0 --next --skip TRV-001 -- \
+     "passed over TRV-001" '"factId": "TRV-002"'
+pick "an empty bank holds, it does not reach"       2 --next --skip TRV-001,TRV-002,TRV-006 -- \
+     "Nothing to send" "Do not reach for the nearest fact"
 
-# rule 1, propose only. The proposal shows every platform's own ask.
-trig "nothing is sent without --send"             0 daily-trivia-trigger tok-trivia \
-     --fact TRV-001 -- "PROPOSED" "Nothing was sent" "instagram comment TUESDAY" \
-     "tiktok link in bio" "youtube link in description"
+if python3 - "$HERE" <<'PY'
+import sys, os
+sys.path.insert(0, os.path.join(sys.argv[1], "..", "scripts"))
+import gm_trivia_pick as P
+# The 4 channels that carry everything, at the main accounts HANDOFF_0909 names.
+# If channel-rules.csv reorders its account ids, this says so.
+sys.exit(0 if P.load_lane_channels() == {"instagram": "45886", "facebook": "30840",
+                                         "tiktok": "41488", "youtube": "36129"} else 1)
+PY
+then echo "PASS  the lane is the board's 4 channels at their main accounts"; pass=$((pass+1))
+else echo "FAIL  the lane is the board's 4 channels at their main accounts"; fail=$((fail+1)); fi
 
-# rule 5, no substitution. Every one of these stops before the network.
-trig "a fact nobody verified is refused"          1 daily-trivia-trigger tok-trivia \
-     --fact TRV-005 --send -- "REFUSED" "not Verified" "Nothing was sent"
-trig "a fact not in the bank is refused"          1 daily-trivia-trigger tok-trivia \
-     --fact TRV-999 --send -- "not in the bank"
-trig "motion-text does not go to HeyGen"          1 daily-trivia-trigger tok-trivia \
-     --fact TRV-004 --send -- "reel factory"
-trig "a keyword nothing answers is refused"       1 daily-trivia-trigger tok-trivia \
-     --fact TRV-006 --send -- "NOPE is not live on instagram 45886" "NOPE is not live on facebook 30840"
-trig "no address stops instead of guessing"       2 "" tok-trivia \
-     --fact TRV-001 --send -- "N8N_TRIVIA_URL is not set" "Nothing was sent"
-trig "no key stops instead of sending unsigned"   2 daily-trivia-trigger "" \
-     --fact TRV-001 --send -- "N8N_TRIVIA_KEY is not set" "Nothing was sent"
-trig "a day already past is refused"              2 daily-trivia-trigger tok-trivia \
-     --fact TRV-001 --date 2000-01-01 -- "already past"
-trig "a time is not a day"                        2 daily-trivia-trigger tok-trivia \
-     --fact TRV-001 --date 2026-09-29T08:00:00Z -- "is not a day"
-
-# What n8n answered on 09/28, each read for what it means.
-trig "a wrong key is named, not retried"          2 daily-trivia-trigger wrong-key \
-     --fact TRV-001 --send -- "HTTP 403" "X-Trivia-Key"
-trig "nothing listening says why"                 2 nothing-here tok-trivia \
-     --fact TRV-001 --send -- "HTTP 404" "not published"
-trig "a node with no credential says so"          2 nocred tok-trivia \
-     --fact TRV-001 --send -- "HTTP 500" "no credential chosen"
-trig "the workflow's refusal comes with reasons"  1 refuse tok-trivia \
-     --fact TRV-001 --send -- "REFUSED by the workflow" "outside the lane"
-logged "a refused or failed send logs nothing"    ""
-
-# Reuse before generating. A sent fact has a render, so it is not sent twice.
-trig "an accepted fact is logged"                 0 daily-trivia-trigger tok-trivia \
-     --fact TRV-001 --send -- "ACCEPTED" "execution 41"
-logged "the log holds the fact, the day, the run" ",TRV-001,2099-01-01,41$"
-trig "a sent fact is not sent twice"              1 daily-trivia-trigger tok-trivia \
-     --fact TRV-001 --send -- "already sent" "Reuse that one"
-trig "--resend is the only way round it"          0 daily-trivia-trigger tok-trivia \
-     --fact TRV-001 --send --resend -- "ACCEPTED"
-trig "--next passes over what was sent"           0 daily-trivia-trigger tok-trivia \
-     --next -- "passed over TRV-001, already sent" "TRV-002, automation"
-trig "--next sends the next one"                  0 daily-trivia-trigger tok-trivia \
-     --next --send -- "ACCEPTED. The workflow's check passed TRV-002"
-trig "--next stops at a fact it cannot send"      1 daily-trivia-trigger tok-trivia \
-     --next -- "passed over TRV-004, motion-text" "REFUSED. TRV-006" "NOPE is not live"
-echo "2026-09-28,TRV-006,2099-01-01,43" >> "$TLOG"
-trig "an empty bank holds, it does not reach"     2 daily-trivia-trigger tok-trivia \
-     --next -- "Nothing to send" "Do not reach for the nearest fact"
-
-# The node as first pasted answers before anything checks the call. The
-# sender cannot stop what has started, so it says so and logs it.
-TLOG="$TMP/trigger-log-2.csv"
-trig "a webhook that answers unchecked is caught" 2 started tok-trivia \
-     --fact TRV-001 --send -- "without running the check" "Logged as unchecked"
-logged "and it is logged so it is not sent twice" ",TRV-001,2099-01-01,unchecked$"
-
-# the key must never reach the terminal, on any path.
-leak=0
-for p in daily-trivia-trigger refuse leaky nocred; do
-  out="$(N8N_TRIVIA_URL="http://127.0.0.1:$TPORT/webhook/$p" N8N_TRIVIA_KEY="s3cr3t-trivia-key" \
-         python3 "$TRIG" --bank "$TBANK" --sources "$HERE/trivia.sources.csv" \
-         --log "$TMP/trigger-log-3.csv" --date 2099-01-01 --fact TRV-001 --send --resend 2>&1)"
-  grep -q "s3cr3t-trivia-key" <<<"$out" && { leak=1; echo "  leaked on: $p"; }
-done
-if [ $leak = 0 ]; then echo "PASS  the key never reaches the terminal"; pass=$((pass+1))
-else echo "FAIL  the key never reaches the terminal"; fail=$((fail+1)); fi
-
-kill $TSTUB_PID 2>/dev/null
-trap 'rm -rf "$TMP"' EXIT
-
-# The workflow Amanda imports, built from the same rules the sender reads.
-for c in "lane:the lane is the board's 4 channels at their main accounts" \
-         "shape:the webhook is POST, keyed, and answers after the check" \
-         "drift-caught:a rule changed without a rebuild is caught" \
-         "rotates:the 2 podcast looks rotate by day"; do
-  if python3 "$HERE/trivia_trigger_assert.py" "${c%%:*}"; then echo "PASS  ${c#*:}"; pass=$((pass+1))
-  else echo "FAIL  ${c#*:}"; fail=$((fail+1)); fi
-done
-expect_exit "the committed workflow matches its rules" 0 python3 "$TRIG" --workflow --check
-
-# The Code node itself, run from the committed file the way n8n runs it.
-for c in "accepts:the workflow accepts what the sender builds" \
-         "refuses-paste:the workflow refuses the design as it was pasted" \
-         "refuses-each:the workflow refuses each thing the board rules out"; do
-  if ! command -v node >/dev/null 2>&1; then echo "SKIP  ${c#*:} (node is not installed)"; continue; fi
-  if python3 "$HERE/trivia_trigger_assert.py" "${c%%:*}"; then echo "PASS  ${c#*:}"; pass=$((pass+1))
-  else echo "FAIL  ${c#*:}"; fail=$((fail+1)); fi
-done
+# The whole day with a fake HeyGen and a fake Blotato: render, host, package,
+# schedule. Nothing spends, nothing posts.
+if out="$(python3 "$HERE/../../daily-trivia/tests/test_daily_trivia.py" 2>&1)"; then
+  echo "PASS  the daily job, end to end against stand-ins ($(grep -o 'Ran [0-9]* tests' <<<"$out"))"; pass=$((pass+1))
+else echo "FAIL  the daily job, end to end against stand-ins"; echo "$out" | tail -30 | sed 's/^/      /'; fail=$((fail+1)); fi
 
 echo
 echo "$pass passed, $fail failed"

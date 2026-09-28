@@ -1,0 +1,43 @@
+name: Daily trivia, schedule approved
+
+# Runs when Amanda merges a daily trivia pull request. The merge is her
+# approval, and this puts its 4 posts into Blotato, each with a time, in the
+# next open daytime slots. Rules: daily-trivia/README.md
+on:
+  push:
+    branches: [main]
+    paths: ['daily-trivia/approved/**']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# The same group as the Halloween loader and the refill, so the 3 never race
+# each other for the 200 queue slots.
+concurrency:
+  group: blotato-queue
+  cancel-in-progress: false
+
+jobs:
+  schedule:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: Test the job
+        run: python3 daily-trivia/tests/test_daily_trivia.py
+      - name: Schedule what was approved
+        env:
+          BLOTATO_API_KEY: ${{ secrets.BLOTATO_API_KEY }}
+          BEFORE: ${{ github.event.before }}
+        run: |
+          files=()
+          if [ "$GITHUB_EVENT_NAME" = "push" ] && [ -n "$BEFORE" ] && [ "$BEFORE" != "0000000000000000000000000000000000000000" ]; then
+            mapfile -t files < <(git diff --name-only --diff-filter=A "$BEFORE" "$GITHUB_SHA" -- 'daily-trivia/approved/*.json')
+          fi
+          code=0
+          python3 daily-trivia/schedule.py --execute --report report.md "${files[@]}" || code=$?
+          cat report.md >> "$GITHUB_STEP_SUMMARY"
+          exit $code

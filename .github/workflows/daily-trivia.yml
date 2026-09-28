@@ -1,0 +1,120 @@
+name: Daily trivia
+
+# Makes the day's trivia and opens a pull request for Amanda: 1 checked fact,
+# 1 HeyGen video in her voice, 4 captions. Merging it is the approval, and the
+# merge schedules the posts (daily-trivia-schedule.yml). Closing it skips the
+# fact. Nothing posts without the merge. Rules: daily-trivia/README.md
+on:
+  schedule:
+    - cron: '30 12 * * *'   # 7:30 AM Central in daylight time
+  workflow_dispatch:
+    inputs:
+      fact:
+        description: 'Make this fact instead of the next one, for example TRV-002'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+concurrency:
+  group: daily-trivia
+  cancel-in-progress: false
+
+jobs:
+  make:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    if: ${{ github.event_name == 'workflow_dispatch' || vars.DAILY_TRIVIA_OFF != 'true' }}
+    steps:
+      - uses: actions/checkout@v5
+      - name: Test the job
+        run: python3 daily-trivia/tests/test_daily_trivia.py
+
+      - name: Set up yet?
+        id: ready
+        env:
+          HEYGEN_API_KEY: ${{ secrets.HEYGEN_API_KEY }}
+        run: |
+          if [ -z "$HEYGEN_API_KEY" ]; then
+            echo "Not set up yet. Add the HEYGEN_API_KEY secret and this starts the next morning." | tee -a "$GITHUB_STEP_SUMMARY"
+            echo "go=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "go=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: One day at a time
+        id: queue
+        if: steps.ready.outputs.go == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          open=$(gh pr list --label daily-trivia --state open --json number --jq '.[0].number // empty')
+          if [ -n "$open" ]; then
+            echo "The last trivia is still waiting for you in #$open, so nothing new was made. Merge it to post it, or close it to skip it." | tee -a "$GITHUB_STEP_SUMMARY"
+            echo "go=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          # A day made on an earlier run whose pull request never opened: open it, make nothing new.
+          for b in $(git ls-remote --heads origin 'refs/heads/daily-trivia/*' | awk '{print $2}' | sed 's#^refs/heads/##'); do
+            if [ -z "$(gh pr list --head "$b" --state all --json number --jq '.[0].number // empty')" ]; then
+              echo "retry=$b" >> "$GITHUB_OUTPUT"
+              break
+            fi
+          done
+          # A fact she closed without merging is not made again.
+          declined=$(gh pr list --label daily-trivia --state closed --limit 300 --json title,mergedAt \
+            --jq '[.[] | select(.mergedAt == null) | .title | capture("(?<id>TRV-[0-9]+)").id] | join(",")')
+          echo "declined=$declined" >> "$GITHUB_OUTPUT"
+          echo "go=true" >> "$GITHUB_OUTPUT"
+
+      - name: Install the HeyGen CLI
+        if: steps.queue.outputs.go == 'true' && steps.queue.outputs.retry == ''
+        run: |
+          curl -fsSL https://static.heygen.ai/cli/install.sh | bash
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Make the day
+        id: make
+        if: steps.queue.outputs.go == 'true' && steps.queue.outputs.retry == ''
+        env:
+          HEYGEN_API_KEY: ${{ secrets.HEYGEN_API_KEY }}
+          BLOTATO_API_KEY: ${{ secrets.BLOTATO_API_KEY }}
+          FACT: ${{ inputs.fact }}
+          DECLINED: ${{ steps.queue.outputs.declined }}
+        run: |
+          args=(--execute --out out --skip "$DECLINED")
+          if [ -n "$FACT" ]; then args+=(--fact "$FACT"); fi
+          code=0
+          python3 daily-trivia/make.py "${args[@]}" > make.log 2>&1 || code=$?
+          cat make.log
+          { echo '```'; cat make.log; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          exit $code
+
+      - name: Open the pull request
+        if: steps.make.outputs.made == 'true' || steps.queue.outputs.retry != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          MADE: ${{ steps.make.outputs.made }}
+          BRANCH: ${{ steps.make.outputs.branch || steps.queue.outputs.retry }}
+          TITLE: ${{ steps.make.outputs.title }}
+        run: |
+          if [ "$MADE" = "true" ]; then
+            git switch -q -c "$BRANCH"
+            git add daily-trivia/approved
+            git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+              commit -q -m "$TITLE"
+            git push -q origin "$BRANCH"
+          else
+            git fetch -q origin "$BRANCH"
+            git switch -q "$BRANCH"
+            TITLE=$(git log -1 --format=%s)
+            python3 daily-trivia/make.py --out out --pr-body "daily-trivia/approved/${BRANCH#daily-trivia/}.json"
+          fi
+          gh label create daily-trivia --color 7057ff --description "Daily trivia waiting for Amanda" 2>/dev/null || true
+          if ! gh pr create --base main --head "$BRANCH" --title "$TITLE" --body-file out/pr-body.md --label daily-trivia; then
+            echo "The video is made and saved on branch $BRANCH, but GitHub would not let this job open the pull request. Turn on Settings, Actions, General, Workflow permissions, Allow GitHub Actions to create and approve pull requests. Then run this job again: it opens the pull request without making a new video." | tee -a "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
