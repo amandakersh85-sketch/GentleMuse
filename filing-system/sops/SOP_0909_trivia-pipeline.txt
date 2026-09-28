@@ -289,7 +289,8 @@ holds to 4 things.
   platform's own slot, inside the 200 slot cap, and through the cadence
   gates in HANDOFF_0909 section 7.
 
-Not turned on: any daily schedule. On 09/28 the bank has 0 usable facts,
-every row waiting on a person to read its source, so a daily run would
-have nothing to send. Verify rows first. A schedule comes after the nodes
-past the gate exist.
+Not turned on: any daily schedule. It comes after the nodes past the gate
+exist. The trigger only ever sends a verified fact, so the bank sets the
+pace: the 3 seeded rows were read against their sources on 09/28 (PR #27),
+and each fact sent is logged and not sent again, so the hunt in section 3
+has to keep adding verified rows.
