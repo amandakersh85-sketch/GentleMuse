@@ -3066,3 +3066,109 @@ starts.
 
 **Still 188 manual from 09/12, now 15 days stale.** Day 19 of 30. Half the
 campaign has run without a single reading of the number it is measured by.
+
+---
+
+# Day 20 scrub — 2026-09-28 (02:36 UTC / 09-27 21:36 CT)
+
+Full corpus, Blotato, since 09/08. Instagram 80 posts, Facebook 55.
+
+## The restriction is still live. 3 of 6 now.
+
+| Post | Time | Result |
+|---|---|---|
+| i have concerns about the water | 09/25 00:00 | **failed** |
+| i'm not holding her hand | 09/25 17:30 | published, 240 |
+| something is going on in this house | 09/26 00:01 | published, 207 |
+| i know this sidewalk by heart | 09/27 00:00 | **failed** |
+| she's got my whole face again | 09/27 17:30 | **failed** |
+| she sat down, that was her mistake | 09/28 00:00 | published |
+
+Same error every time: `The Instagram account is restricted.`
+
+**3 failures in 6 posts, and 09/27 lost both slots.** The pattern is not a time
+of day and not a specific video, it is intermittent at roughly half. 4 days
+running now, unchanged since it first appeared.
+
+This is the 3rd night I have flagged it and the 2nd night it has been the
+highest value item in the scrub. Cesa's Instagram is the best performing channel
+on the roster and half of it is being thrown away.
+
+## Instagram's 2 accounts are 2 different worlds right now
+
+Same platform, overlapping days, 6 posts:
+
+| Account | Post | Date | Views |
+|---|---|---|---|
+| @cesasgoldenyears | i'm not holding her hand | 09/25 | **240** |
+| @cesasgoldenyears | something is going on in this house | 09/26 | **207** |
+| @thegentlemuse2026 | Business Bottleneck Check | 09/25 | 139 |
+| @thegentlemuse2026 | Full reel story | 09/25 | 4 |
+| @thegentlemuse2026 | 6 automations that stopped | 09/26 | **2** |
+| @thegentlemuse2026 | The Reset That Survives Wednesday | 09/26 | **7** |
+
+A 3 day old account with no follower base is outrunning the main account by 30
+to 100 times on its own platform.
+
+Stated carefully, because I have over-read small samples twice this week: this
+is 2 posts on 1 side and 4 on the other, over 2 days. It is not a proven law.
+It is, however, the largest gap in the corpus and it points the same direction
+as everything else this week.
+
+## Pair 5, and Facebook takes it back
+
+| Content | Date | Instagram | Facebook | Winner |
+|---|---|---|---|---|
+| Disney, Touchstone | 09/22 | 1 | 239 | FB |
+| Nobody tells you how many reps | 09/23 | 6 | 230 | FB |
+| Amigo's in Waterloo | 09/24 | 27 | 299 | FB |
+| Business Bottleneck Check | 09/25 | 139 | 28 | IG |
+| **The Reset That Survives Wednesday** | **09/26** | **7** | **292** | **FB, 42x** |
+
+5 pairs, Facebook 4, Instagram 1. Facebook's range across the 5 is 28 to 299.
+Instagram's is 1 to 139. The bottleneck reel remains the only Instagram win and
+it is starting to look like the outlier rather than the counterexample, but 1 in
+5 is not noise either. Worth continuing to log per pair rather than collapsing
+it into a rule.
+
+## The 33 night run has not started yet
+
+"The season sells you fear" is queued for 09/28 23:00, Night 1 for 09/29 23:00.
+Nothing seasonal published 09/27, so the opener question is still open and there
+is 1 day left to change it.
+
+Facebook the same week ran 230 to 299 on non-seasonal content. Instagram ran 2
+to 7 on the main account. Putting 33 consecutive nights of a format that reads
+1 to 14 onto the weaker of those 2 accounts is the single largest allocation
+decision left in the campaign.
+
+## Volume, 09/24 to 09/27
+
+| Channel | 24 | 25 | 26 | 27 |
+|---|---|---|---|---|
+| IG @thegentlemuse2026 | 1 | 2 | 3 | 2 |
+| IG @cesasgoldenyears | 0 +1 failed | 1 | 1 +1 failed | 0 +2 failed |
+| TikTok @thegentlemuse2026 | 3 | 1 | 2 | 1 |
+| TikTok @cesasgoldenyears | 1 | 1 | 1 | 1 |
+| Facebook | 1 | 1 | 1 | 1 |
+| YouTube | 1 | 1 | 1 | 1 |
+
+Facebook and YouTube have now been at exactly 1 a day for 6 consecutive days
+against a 3 to 4 target. Cesa's Instagram published 0 times on 09/27 and failed
+twice.
+
+## Tracking items
+
+1. **Trivia on Instagram:** no seasonal posts since 09/22. The 33 night run
+   starts 09/28 23:00 with the opener unchanged.
+2. **10,000 view Cesa breakout:** no. Best is 240 on 09/25.
+3. **Volume:** Facebook and YouTube flat at 1 for 6 days. Cesa's Instagram
+   losing half its slots to the restriction.
+4. **Watermarks and AI badges:** no frame checks tonight. The Cesa reels remain
+   unexamined and are now the best content on the roster.
+5. **Product posts missing a SKU:** no Club Target posts published 09/26 or
+   09/27. The 3 flagged on Day 17 stand uncorrected.
+
+## Follower count
+
+**Still 188 manual from 09/12, now 16 days stale.** Day 20 of 30, 10 days left.
