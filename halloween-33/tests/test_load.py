@@ -113,6 +113,12 @@ class Loader(unittest.TestCase):
         nights = {p['night'] for p in SCHED['posts'] if p['night']}
         self.assertEqual(nights, set(range(1, 34)))
 
+    def test_facebook_and_youtube_carry_every_night_the_trailer_promised(self):
+        for plat in ('facebook', 'youtube'):
+            nights = {p['night'] for p in SCHED['posts'] if p['platform'] == plat and p['night']}
+            self.assertEqual(nights, set(range(1, 34)), plat)
+        self.assertTrue(all(p.get('mediaUrl') for p in SCHED['posts']))
+
 
 class Requests(unittest.TestCase):
     def test_delete_sends_no_json_content_type(self):
