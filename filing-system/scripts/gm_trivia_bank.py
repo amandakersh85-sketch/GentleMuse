@@ -69,6 +69,11 @@ TOPICS = ("ai", "automation", "creator")
 # How long a moving fact stays good before it has to be checked again.
 DECAY_DAYS = 90
 
+# Under these a Fact is not a claim and a Backbone is not a turn. The n8n
+# trigger's check reads the same 2 numbers, so they live here once.
+MIN_FACT = 20
+MIN_BACKBONE = 15
+
 # Words that mean a Source cell was filled in without pointing at anything.
 EMPTY_SOURCE = ("", "-", "n/a", "na", "none", "tbd", "unknown", "?")
 
@@ -149,10 +154,10 @@ def usable_problems(fact, today=None, approved=None):
     """Every reason this row cannot carry a post yet. Empty list means usable."""
     problems = []
 
-    if len(_clean(fact, "Fact")) < 20:
+    if len(_clean(fact, "Fact")) < MIN_FACT:
         problems.append("no Fact line")
 
-    if len(_clean(fact, "Backbone")) < 15:
+    if len(_clean(fact, "Backbone")) < MIN_BACKBONE:
         problems.append("no Backbone, so it is trivia with no turn")
 
     topic = _clean(fact, "Topic").lower()
