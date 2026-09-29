@@ -3172,3 +3172,139 @@ twice.
 ## Follower count
 
 **Still 188 manual from 09/12, now 16 days stale.** Day 20 of 30, 10 days left.
+
+---
+
+# Day 21 scrub — 2026-09-29 (02:36 UTC / 09-28 21:36 CT)
+
+Full corpus, Blotato, since 09/08. Instagram 82 posts, Facebook 56.
+
+## Cesa broke 1,000
+
+| Post | Account | Views | Reach | Watch |
+|---|---|---|---|---|
+| **she sat down, that was her mistake** | @cesasgoldenyears | **1,104** | 898 | **7.31s** |
+| i'm not holding her hand | @cesasgoldenyears | 240 | 205 | 5.13s |
+| something is going on in this house | @cesasgoldenyears | 207 | 192 | 5.19s |
+
+**First 4 digit Instagram result since 09/12**, on an account that is 4 days old.
+The same clip on Cesa's TikTok did 374. Instagram carried it 3 times better.
+
+The progression is 240, 207, 1,104. A 7.31s average watch on a reel that
+length is a strong retention number by this account's history, and it came with
+24 likes and 898 reach, so the distribution followed the retention rather than
+the follower count.
+
+Still short of the 10,000 the plan names, but this is the first post in 17 days
+that looks like it could get there.
+
+## The attribution hole from 09/24 is closed
+
+The correction logged on 09/24 said Blotato returns no account id, so every
+Instagram number in this log was a blend of 2 accounts. **That is no longer
+true.** `blotato_list_posts` now returns an `account` object with id and name,
+and its analytics now include `reachCount`, `savesCount`, `sharesCount` and
+`watchTimeMsAvg`.
+
+Caveat: `blotato_list_top_posts` still has no account field, checked tonight,
+0 of 82 items. So the method is: pull rankings from top_posts, pull attribution
+and watch time from list_posts over the same window, join on time and content.
+Every number in this entry is attributed that way.
+
+The historical question stands unanswered for now: the 1,749 and 1,514 on 09/11
+and 09/12 predate @cesasgoldenyears existing, so they were almost certainly on
+the main account, but list_posts refused the 09/08 to 09/22 window as too large
+in 1 call and I have not yet paged it. Worth doing before the wrap.
+
+## NEW: the main account's reach is bimodal, and format does not explain it
+
+Every @thegentlemuse2026 post 09/22 to 09/28, by reach:
+
+| Post | Views | Reach | Watch |
+|---|---|---|---|
+| Consider This, Thursday | 176 | 151 | **9.17s** |
+| 10 seconds on my brows | 144 | 118 | 4.72s |
+| Business Bottleneck Check | 139 | 120 | 6.53s |
+| Kuromi endcap | 112 | 108 | 3.42s |
+| The next upload | 94 | 86 | 4.24s |
+| — gap — | | | |
+| Fall layers | 27 | 25 | 1.89s |
+| Amigo's in Waterloo | 27 | 22 | 5.04s |
+| Club Target BROW | 12 | 9 | 4.66s |
+| Nobody tells you how many reps | 6 | 6 | 2.74s |
+| The Reset That Survives Wednesday | 7 | **2** | 6.16s |
+| Nightmare named a specific thing | 2 | 2 | 2.32s |
+| Disney, Touchstone | 1 | 2 | 1.08s |
+| 6 automations that stopped | 2 | **1** | n/a |
+
+**Nothing lands between 25 and 86.** 5 posts above, 8 below, an empty band in
+the middle.
+
+Format does not separate them. 2 lead magnet reels sit on opposite sides,
+bottleneck at 120 reach and reset at 2. Watch time does not separate them
+either: the reset reel held 6.16s, better than the Kuromi post that reached 108.
+
+So the split is not the content and not retention. It looks like the same class
+of thing as Cesa's restriction, distribution being withheld from some posts on
+the main account. I am naming it as an observation rather than a conclusion,
+because 13 posts is small and I have over-read a small sample twice this week.
+
+**The test that separates it:** if it is account level throttling, the low reach
+posts should cluster by publish time or by day rather than by topic. Worth
+tabulating reach against publish hour over the whole campaign before the wrap.
+
+## The restriction stayed quiet for 1 day
+
+No Instagram failures on 09/28. All 3 Cesa Instagram posts went out, including
+the 09/27 17:30 one that failed and was republished 09/29 00:00.
+
+Lifetime: **3 failures in 7 posts.** 1 clean day is not a fix, and the pattern
+has been intermittent from the start, so this stays open.
+
+## The 33 night run launched
+
+The teaser published 09/28 23:00 to Instagram and TikTok and 23:30 to Facebook
+and YouTube. Night 1 runs tonight, 09/29 23:00.
+
+It went out on all 4 platforms, so the allocation question raised on Day 18 and
+Day 20 was answered by shipping it everywhere rather than by moving it. No
+metrics on the teaser yet. The first real read lands tomorrow.
+
+## Pair 6
+
+| Content | Date | Instagram | Facebook | Winner |
+|---|---|---|---|---|
+| Consider This, Thursday | 09/27 | 176 | 244 | FB, 1.4x |
+
+Closest pair yet. Running tally: Facebook 5, Instagram 1. The margin has come
+down from 239x to 1.4x as the Instagram side has climbed.
+
+## Volume, 09/25 to 09/28
+
+| Channel | 25 | 26 | 27 | 28 |
+|---|---|---|---|---|
+| IG @thegentlemuse2026 | 2 | 3 | 2 | **4** |
+| IG @cesasgoldenyears | 1 | 1 | 0 +2 failed | 2 |
+| TikTok @thegentlemuse2026 | 1 | 2 | 1 | **3** |
+| TikTok @cesasgoldenyears | 1 | 1 | 1 | 1 |
+| Facebook | 1 | 1 | 1 | **2** |
+| YouTube | 1 | 1 | 1 | **2** |
+
+09/28 is the first day this week at target on the main Instagram account, and
+the first day Facebook and YouTube cleared 1 in 7 days.
+
+## Tracking items
+
+1. **Trivia on Instagram:** the 33 night run started 09/28 23:00. Opener
+   unchanged. First numbers tomorrow.
+2. **10,000 view Cesa breakout:** not yet, but **1,104** on 09/28 is the
+   closest the campaign has come and the first 4 digit post in 17 days.
+3. **Volume:** recovered on 09/28 across every channel.
+4. **Watermarks and AI badges:** no frame checks tonight.
+5. **Product posts missing a SKU:** no Club Target posts published 09/28.
+
+## Follower count
+
+**Still 188 manual from 09/12, now 17 days stale.** Day 21 of 30, 9 days left.
+A 1,104 view reel is exactly the event that moves this number, and there is no
+way to see whether it did.
