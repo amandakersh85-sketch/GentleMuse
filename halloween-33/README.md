@@ -22,7 +22,7 @@ Approved plan: https://claude.ai/artifact/FwBepNEF5t6sovQi3z16t9
 - Facebook and YouTube ran odd nights only until 09/28. The trailer on both says
   "every night from tomorrow to Halloween. 33 nights", so Amanda added the 16 even
   nights that day: the same videos and the captions already written for them. 134
-  posts in all.
+  posts in all. `approval/plan.json` books them too, so rebuilding the weeks keeps them.
 - To stop it: set the repository variable `HALLOWEEN_33_OFF` to `true`.
 
 Tests: `python3 halloween-33/tests/test_load.py`
