@@ -70,7 +70,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 # The plate table lives with the snapshot that writes the slugs, so that a
 # second copy of it here cannot drift away from the one in use.
-from gm_board_snapshot import FAMILY  # noqa: E402
+from gm_board_snapshot import FAMILY, load_plans, plan_nights  # noqa: E402
 
 ANCHOR_DEFAULT = "15:00"
 
@@ -245,6 +245,9 @@ def load_target(path=None):
 STAGING = os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
     "data", "staging-library.csv")
+PLANS = os.path.join(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+    "data", "campaign-plans.csv")
 
 
 def load_campaign_slugs(campaign, path=None):
@@ -273,6 +276,32 @@ def load_campaign_slugs(campaign, path=None):
             if slug:
                 slugs.add(FAMILY.get(slug, slug))
     return slugs
+
+
+def load_campaign_plan(campaign, path=None):
+    """(slugs, {date: accounts it owes}) for a campaign that ships from a plan.
+
+    load_campaign_slugs above joins the board to the staging library, which
+    only knows the posts a person staged. The 33 Nights loader places its own,
+    off its own plan, and those slugs are in no library. C13 could see 11 of
+    the campaign's posts on the 09/30 board and called the other 27 nights
+    dark, on all 4 accounts, while the loader had in fact missed nothing.
+
+    The dates matter as much as the slugs. Facebook and YouTube run on
+    alternate nights, so half their nights are empty because the plan says so,
+    not because anybody forgot. Reading which nights owe which accounts off
+    the plan is what tells those 2 apart.
+    """
+    slugs, owes = set(), {}
+    for row in load_plans(path or PLANS):
+        if (row.get("Campaign") or "").strip() != campaign:
+            continue
+        for day, slug, _hook, accounts in plan_nights(row):
+            if slug:
+                slugs.add(slug)
+            if accounts:
+                owes.setdefault(day, set()).update(accounts)
+    return slugs, owes
 
 
 def campaign_accounts(cell):
@@ -561,6 +590,8 @@ def check(rows, anchor=ANCHOR_DEFAULT, target=None):
     # check it.
     if campaign and campaign.get("StartDate") and campaign.get("Accounts"):
         slugs = load_campaign_slugs(campaign["Campaign"])
+        plan_slugs, owes = load_campaign_plan(campaign["Campaign"])
+        slugs |= plan_slugs
         try:
             per_night = int(campaign.get("PerNight") or 1)
         except ValueError:
@@ -601,6 +632,24 @@ def check(rows, anchor=ANCHOR_DEFAULT, target=None):
                 run.append(cur.isoformat())
                 cur += timedelta(days=1)
 
+            # A night nobody has loaded yet is not a dark night. The 33 Nights
+            # loader books 7 days out and runs again tomorrow, so the far end
+            # of the run is empty by design on every single run, and reporting
+            # it reads as 27 broken nights on a campaign that has not missed
+            # one. LoadHorizonDays is how far ahead the job that fills this
+            # campaign has actually booked. Past that edge C13 has nothing to
+            # say yet. C14 still judges the whole run, because a night already
+            # overfilled is overfilled now.
+            booked, edge = run, ""
+            try:
+                ahead = int(campaign.get("LoadHorizonDays") or 0)
+            except ValueError:
+                ahead = 0
+            if ahead > 0:
+                edge = (date.fromisoformat(days[0])
+                        + timedelta(days=ahead)).isoformat()
+                booked = [d for d in run if d <= edge]
+
             for platform, account in campaign_accounts(campaign["Accounts"]):
                 mine = defaultdict(list)
                 for r in rows:
@@ -612,15 +661,24 @@ def check(rows, anchor=ANCHOR_DEFAULT, target=None):
                 said = (", where the promise was published"
                         if (platform, account) in promised else "")
 
-                dark = [d for d in run if not mine.get(d)]
+                # A night the plan never booked on this account is not a
+                # night it owes. Facebook and YouTube carry the run on
+                # alternate nights, so 16 of their 33 are empty on purpose,
+                # and charging them for those buries the 1 night that is
+                # really missing under 30 that are not.
+                dark = [d for d in booked
+                        if not mine.get(d)
+                        and (not owes or (platform, account) in owes.get(d, ()))]
                 if dark:
+                    reach = ("nights loaded so far, through %s" % edge
+                             if booked is not run else "nights left in it")
                     findings.append({
                         "rule": "C13_PROMISE_DARK",
                         "day": dark[0],
                         "detail": "%s runs on %s and is dark on %d of the %d "
-                                  "nights left in it%s: %s"
+                                  "%s%s: %s"
                                   % (campaign["Campaign"], where, len(dark),
-                                     len(run), said, " ".join(dark)),
+                                     len(booked), reach, said, " ".join(dark)),
                         "ids": [],
                     })
 

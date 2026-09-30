@@ -1,0 +1,2 @@
+Campaign,TargetDate,StartDate,Live,CountsFrom,PerNight,Accounts,PromisedOn,Announcement,AnnouncedOn,AnnouncementPostId,Why,WhyCountdown,LoadHorizonDays,WhyStart,WhyHorizon
+plan-nightly,2026-03-10,2026-03-01,yes,inclusive,1,instagram:100|facebook:200,instagram:100,10 nights. No dark days.,2026-03-01,1,"A 10 night fixture that ships from a plan file, so the gate can be checked against a campaign whose posts are placed by a job rather than staged by hand.",,5,,5 so the fixture judges 03/01 to 03/06 and leaves 03/07 to 03/10 as not loaded yet.

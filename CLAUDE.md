@@ -122,6 +122,20 @@ PerNight is a floor and a ceiling, and it is the number the announcement
 stated, not a preference. When a campaign is announced, write the promise
 into the CSV before anything is scheduled against it.
 
+A campaign a job places needs 1 more file. The 33 nights are loaded by
+`.github/workflows/halloween-33.yml`, which reads its own plan and writes
+straight to the queue, so none of its slugs reach `staging-library.csv` and
+C13 could see 11 of 153 board rows and called a run that had missed nothing
+dark on 27 nights, every run, for 5 nights.
+`filing-system/data/campaign-plans.csv` says where a campaign's plan lives,
+and the gate reads the slug, the caption's opening line and which accounts
+each night books out of the plan itself. Facebook and YouTube run alternate
+nights and the plan already says so, so it is not restated anywhere. Add the
+row when a campaign starts shipping from a plan, and change the plan, never a
+copy of it. `LoadHorizonDays` on the campaign row is how far ahead its loader
+has actually booked, because a night nobody has loaded yet is not a dark
+night.
+
 ## The day's shape, set 09/24/2026
 
 Amanda, sick and between sessions, describing what she already has running:
