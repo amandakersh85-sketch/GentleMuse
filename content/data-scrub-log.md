@@ -3308,3 +3308,122 @@ the first day Facebook and YouTube cleared 1 in 7 days.
 **Still 188 manual from 09/12, now 17 days stale.** Day 21 of 30, 9 days left.
 A 1,104 view reel is exactly the event that moves this number, and there is no
 way to see whether it did.
+
+---
+
+# Day 22 scrub — 2026-09-30 (02:37 UTC / 09-29 21:37 CT)
+
+Full corpus, Blotato, since 09/08. Instagram 88 posts, Facebook 58. Account
+attribution and watch time now joined from `list_posts` per the Day 21 method.
+
+## The bimodal reach observation is no longer tentative
+
+Every Instagram post 09/28 and 09/29, both accounts, by reach:
+
+| Account | Post | Views | Reach | Watch |
+|---|---|---|---|---|
+| @cesasgoldenyears | she sat down, that was her mistake | **1,104** | **898** | 7.31s |
+| @cesasgoldenyears | she thinks she's holding me | **977** | **713** | **9.08s** |
+| @cesasgoldenyears | she's got my whole face again | 138 | 117 | 3.45s |
+| @thegentlemuse2026 | Consistency or persistence | 15 | 10 | 3.48s |
+| @thegentlemuse2026 | The season sells you fear | 2 | 2 | **9.69s** |
+| @thegentlemuse2026 | Your towels aren't old | 1 | 1 | n/a |
+| @thegentlemuse2026 | Full reel story | 1 | 0 | n/a |
+
+**The main account reached 1, 2, 10 and 0 people over 2 days.** The sister
+account on the same platform, 6 days old, reached 713 and 898.
+
+The watch times rule out content quality as the cause. The seasonal teaser held
+**9.69s**, the highest watch time on the account this week, and it reached 2
+people. People who saw it stayed. Almost nobody saw it.
+
+I flagged this last night as an observation on 13 posts with an empty band
+between 25 and 86 reach. 2 more days of data have not softened it, they have
+made it worse: the main account's ceiling has now dropped from 151 to 10.
+
+**This is the campaign's actual problem.** The 1,000 follower goal is counted on
+@thegentlemuse2026. That account is currently delivering 1 to 15 views a post.
+Cesa's account, which earns no campaign followers, is doing 977 and 1,104.
+
+## Cesa did it twice
+
+977 views with a **9.08s average watch** on 09/28 17:30, hours after the 1,104.
+2 posts over 900 in a single day on a 6 day old account.
+
+09/29 fell back to 138, so the level is not established. But the ceiling is real
+and it has been hit twice.
+
+## RESOLVED: Club Target posts now carry real SKU links
+
+The 09/29 Cozy With Target post, on Instagram 16:15 and TikTok 21:01, carries 3
+specific product links in the caption:
+
+- Clorox Harvest Apple & Spice Scentiva, `sku/1011138454`
+- Tasteful Selections Salt & Herb Potatoes, `sku/1012096181`
+- Smash Kitchen Organic Extra Virgin Olive Oil, `sku/94980989`
+
+That is the product link hard rule followed exactly: named products, their own
+SKU links, `#TargetPartner` on line 1, the full disclosure sentence in the body.
+
+The 3 flagged on Day 17, Kuromi, Tree Hut and NYX, are still uncorrected in
+their published captions. The pattern going forward is right.
+
+## Pairs 7 and 8, both to Facebook
+
+| Content | Date | Instagram | Facebook | Winner |
+|---|---|---|---|---|
+| Consistency or persistence | 09/28 | 15 | 234 | FB, 16x |
+| The season sells you fear | 09/28 | 2 | 219 | FB, 110x |
+
+Running tally: **Facebook 7, Instagram 1.** Given the reach collapse above,
+these pairs are now measuring the main account's distribution problem rather
+than a platform preference, which is a different claim than the one I was
+making on Day 18. Logging them anyway, because if the main account recovers the
+pairs should tighten again the way pair 6 did at 1.4x.
+
+## Night 1 of 33 shipped everywhere
+
+Published 09/29 23:00 to Instagram and TikTok, 23:30 to Facebook and YouTube.
+The teaser the night before read 2 on Instagram and 219 on Facebook.
+
+No metrics on Night 1 yet. Given the teaser's 2, the Instagram arm of this run
+is going into an account that currently cannot distribute.
+
+## The restriction stayed quiet 2 days
+
+No Instagram publish failures on 09/28 or 09/29. Lifetime 3 failures in 10
+posts. 2 clean days, still not called fixed.
+
+## Volume, 09/26 to 09/29
+
+| Channel | 26 | 27 | 28 | 29 |
+|---|---|---|---|---|
+| IG @thegentlemuse2026 | 3 | 2 | 4 | **5** |
+| IG @cesasgoldenyears | 1 | 0 +2 failed | 2 | 2 |
+| TikTok @thegentlemuse2026 | 2 | 1 | 3 | 3 |
+| TikTok @cesasgoldenyears | 1 | 1 | 1 | 1 |
+| Facebook | 1 | 1 | 2 | 2 |
+| YouTube | 1 | 1 | 2 | 2 |
+
+Volume is fine now. Volume is not the constraint.
+
+## Tracking items
+
+1. **Trivia on Instagram:** Night 1 of 33 published, no metrics yet. The teaser
+   read 2 views on 9.69s watch, which is a distribution failure rather than a
+   format failure.
+2. **10,000 view Cesa breakout:** no. 1,104 and 977 on 09/28 are the campaign's
+   2 best posts since 09/12.
+3. **Volume:** at or above target on every channel.
+4. **Watermarks and AI badges:** no frame checks tonight.
+5. **Product posts missing a SKU:** none new. The Cozy With Target post fixed
+   the pattern with 3 correct SKU links.
+
+## Follower count
+
+**Still 188 manual from 09/12, now 18 days stale.** Day 22 of 30, 8 days left.
+
+Worth saying plainly with 8 days to go: the goal is 1,000 followers on an
+account that reached 10 people yesterday. Nothing in the content pipeline fixes
+that. Whatever is throttling @thegentlemuse2026 is the only thing that matters
+now, and diagnosing it needs the Instagram app, not this log.
