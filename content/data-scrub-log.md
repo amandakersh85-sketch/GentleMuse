@@ -3427,3 +3427,110 @@ Worth saying plainly with 8 days to go: the goal is 1,000 followers on an
 account that reached 10 people yesterday. Nothing in the content pipeline fixes
 that. Whatever is throttling @thegentlemuse2026 is the only thing that matters
 now, and diagnosing it needs the Instagram app, not this log.
+
+---
+
+# Day 23 scrub — 2026-10-01 (02:37 UTC / 09-30 21:37 CT)
+
+Full corpus, Blotato, since 09/08. Instagram 95 posts, Facebook 60.
+
+## Night 1 of 33: 1 view on Instagram, 179 on Facebook
+
+| Metric | Instagram | Facebook |
+|---|---|---|
+| Views | **1** | **179** |
+| Reach | **2** | n/a |
+| Average watch | **21.17s** | n/a |
+
+**21.17 seconds is the highest average watch time in the entire campaign
+corpus.** The 1 person who saw it watched the whole thing and then some. It
+reached 2 people.
+
+This is the cleanest evidence yet that the main account's problem is
+distribution and not content. The seasonal format has been blamed for 3 weeks
+on this log, and the opener was blamed on Day 15. Neither explains a 21 second
+watch on a reel that 2 people were shown.
+
+The Club Target cozy reel the same day did the same thing: **12.75s watch, 10
+reach, 15 views.** 2 of the 3 best watch times this week are on posts almost
+nobody was served.
+
+## FLAG: a Cesa post published to the wrong account
+
+09/30 05:07, post id 7543461. "i know this sidewalk by heart," written in
+Cesa's first person voice, carrying "mom says comment CESA and she'll send you
+her guide," published to **@thegentlemuse2026**, not @cesasgoldenyears.
+
+The same clip already published correctly to Cesa's account on 09/29 17:31,
+where it did 187 views. So this is a duplicate, on the wrong account, at 05:07
+UTC, which is outside every normal slot in the schedule.
+
+The likely cause: this is the clip that failed on Cesa's Instagram on 09/27
+00:00 with the restriction error. A retry appears to have fired late and routed
+to the wrong account.
+
+2 consequences worth naming. Cesa's voice is now on Amanda's brand account,
+which reads as a mistake to anyone who sees it. And the CESA keyword CTA is now
+live on an account whose comment automation is not set up for it.
+
+## Cesa settled back after the spike
+
+| Post | Date | Views | Reach | Watch |
+|---|---|---|---|---|
+| she sat down, that was her mistake | 09/28 | 1,104 | 898 | 7.31s |
+| she thinks she's holding me | 09/28 | 977 | 713 | 9.08s |
+| she's got my whole face again | 09/29 | 138 | 117 | 3.45s |
+| i know this sidewalk by heart | 09/29 | 187 | 149 | 4.84s |
+| i have concerns about the water | 09/30 | 187 | 164 | 5.09s |
+
+09/28 was a spike, not a new level. The account's working range is about 140 to
+190, with 2 posts that broke 900 on 1 day. Still far better than the main
+account, and still nowhere near 10,000.
+
+## Pairs 9 and 10
+
+| Content | Date | Instagram | Facebook | Winner |
+|---|---|---|---|---|
+| Night 1 of 33 | 09/29 | 1 | 179 | FB, 179x |
+| My mom told me my content is boring | 09/29 | 63 | 215 | FB, 3.4x |
+
+Running tally: **Facebook 9, Instagram 1.**
+
+The 3.4x on the "boring" reel is worth noting separately. It is Amanda talking
+to camera, it read 63 on Instagram against a main account that posted 1, 3, 5
+and 15 on everything else that day. Her face is still the only thing getting
+any distribution on that account.
+
+## Volume, 09/27 to 09/30
+
+| Channel | 27 | 28 | 29 | 30 |
+|---|---|---|---|---|
+| IG @thegentlemuse2026 | 2 | 4 | 5 | 4 +1 misrouted |
+| IG @cesasgoldenyears | 0 +2 failed | 2 | 2 | 2 |
+| TikTok @thegentlemuse2026 | 1 | 3 | 3 | 3 |
+| TikTok @cesasgoldenyears | 1 | 1 | 1 | 1 |
+| Facebook | 1 | 2 | 2 | 2 |
+| YouTube | 1 | 2 | 2 | 2 |
+
+No publish failures on 09/30. 3 clean days now, lifetime 3 failures in 14 posts.
+
+## Tracking items
+
+1. **Trivia on Instagram:** Night 1 read **1 view** against the 37 baseline.
+   Night 1 on Facebook read 179, inside the lower half of the 230 to 577 band.
+   32 nights to go.
+2. **10,000 view Cesa breakout:** no. 1,104 on 09/28 remains the ceiling.
+3. **Volume:** at target everywhere.
+4. **Watermarks and AI badges:** no frame checks tonight.
+5. **Product posts missing a SKU:** none new. The cozy reel carried 3 correct
+   SKU links and still only reached 10 people.
+
+## Follower count
+
+**Still 188 manual from 09/12, now 19 days stale.** Day 23 of 30, 7 days left.
+
+The campaign has 7 days to add 812 followers on an account that showed last
+night's post to 2 people. That is not a content problem and no amount of
+posting fixes it. The remaining scrubs can keep measuring, but the decision
+that matters is whether to keep spending Amanda's time on @thegentlemuse2026 at
+all while it is in this state.
