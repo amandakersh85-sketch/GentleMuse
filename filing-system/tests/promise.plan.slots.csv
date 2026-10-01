@@ -1,0 +1,14 @@
+id,postTimeUTC,countdown,platform,accountId,surface,fact,factGuess,roster
+c1,2026-03-01T23:00,,instagram,100,feed,p01,,instagram|facebook
+c2,2026-03-01T23:30,,facebook,200,feed,p01,,instagram|facebook
+x1,2026-03-01T22:30,,instagram,100,feed,,,instagram|facebook
+x2,2026-03-01T23:30,,instagram,100,story,,,instagram|facebook
+x3,2026-03-01T20:00,,instagram,100,feed,,,instagram|facebook
+x4,2026-03-02T23:30,,facebook,200,feed,,,instagram|facebook
+c3,2026-03-02T23:00,,instagram,100,feed,p02,,instagram|facebook
+c4,2026-03-03T23:00,,instagram,100,feed,p03,,instagram|facebook
+c5,2026-03-03T23:30,,facebook,200,feed,p03,,instagram|facebook
+c6,2026-03-04T23:00,,instagram,100,feed,p04,,instagram|facebook
+c7,2026-03-05T23:00,,instagram,100,feed,p05,,instagram|facebook
+c8,2026-03-05T23:30,,facebook,200,feed,p05,,instagram|facebook
+c9,2026-03-06T23:00,,instagram,100,feed,p06,,instagram|facebook

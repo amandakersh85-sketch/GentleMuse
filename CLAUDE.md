@@ -136,6 +136,23 @@ copy of it. `LoadHorizonDays` on the campaign row is how far ahead its loader
 has actually booked, because a night nobody has loaded yet is not a dark
 night.
 
+A campaign that posts at a fixed hour owns that hour, and the plan is where
+that is written down. `C15_SLOT_CONTESTED` reports a post that is not part of
+the campaign inside 60 minutes of a slot the plan reserves, on an account that
+night books. `C16_SLOT_MODEL_CONTESTED` reports a `slot-model.csv` row sitting
+on the same slot, because that is the file another scheduler reads to decide
+where a post goes, and on 10/01 it still gave 23:00 UTC to ROTATION on tiktok
+41488 and PERSONAL on instagram 45886. The hour was taken twice before either
+rule existed, on 09/28 and again on 09/30, and both times it showed up only as
+C05 spacing noise.
+
+A post has a surface, and the board records it. A story and a feed reel 105
+minutes apart on 1 account are the intended pattern here, the reel and a story
+pointing at it, not 2 posts burying each other. C05 is checked per account and
+per surface for that reason. The queue carried `target.mediaType` the whole
+time and the snapshot was throwing it away, which is why 21 of 26 spacing
+findings on 10/01 and 15 of 18 the night before were not real.
+
 ## The day's shape, set 09/24/2026
 
 Amanda, sick and between sessions, describing what she already has running:

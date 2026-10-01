@@ -1,0 +1,6 @@
+id,postTimeUTC,countdown,platform,accountId,surface,fact,factGuess,roster
+s1,2026-03-01T18:30,,instagram,100,feed,,,instagram|facebook
+s2,2026-03-01T20:15,,instagram,100,story,,,instagram|facebook
+s3,2026-03-03T18:30,,instagram,100,feed,,,instagram|facebook
+s4,2026-03-03T20:15,,instagram,100,feed,,,instagram|facebook
+c1,2026-03-01T23:00,,instagram,100,feed,p01,,instagram|facebook

@@ -21,6 +21,7 @@ sys.path.insert(0, os.path.join(HERE, "..", "scripts"))
 import gm_cadence_check as C
 
 LIVE_CAMPAIGNS, LIVE_STAGING, LIVE_PLANS = C.CAMPAIGNS, C.STAGING, C.PLANS
+LIVE_SLOT_MODEL = C.SLOT_MODEL
 
 # Point the real loaders at fixtures. The live campaign ends, and a test that
 # ends with it is not a test.
@@ -30,10 +31,9 @@ C.STAGING = os.path.join(HERE, "promise.library.csv")
 fails = []
 
 
-def rules_on(board):
+def rules_on(board, codes=("C13_PROMISE_DARK", "C14_PROMISE_FLOOD")):
     rows = C.load(os.path.join(HERE, board))
-    return [f for f in C.check(rows)
-            if f["rule"] in ("C13_PROMISE_DARK", "C14_PROMISE_FLOOD")]
+    return [f for f in C.check(rows) if f["rule"] in codes]
 
 
 def nights_in(finding):
@@ -152,6 +152,40 @@ for f in gap + alt:
     for beyond in ("2026-03-07", "2026-03-08", "2026-03-09", "2026-03-10"):
         want(beyond in nights_in(f), False, "%s is not loaded yet, so it is not dark" % beyond)
 
+# A campaign that posts at a fixed hour owns that hour. Nothing said so
+# anywhere a scheduler could read until 10/01, so it was taken twice: a batch
+# landed in the 23:00 hour on 09/28, got retimed overnight with the cause never
+# written down, and on 09/30 a second batch booked 22:15, 22:30, 22:45 and
+# 23:45 around the same slot. Both times it surfaced as C05 spacing noise,
+# which is a different and much smaller claim than the campaign's hour being
+# built over, and which C05 cannot make at all when the intruder sits on
+# another account the campaign books.
+C.SLOT_MODEL = os.path.join(HERE, "promise.slotmodel.csv")
+slots = C.reserved_slots("plan-nightly")
+want(sorted(slots["2026-03-01"]), [(23 * 60, {("instagram", "100")}),
+                                   (23 * 60 + 30, {("facebook", "200")})],
+     "the reserved slots come off the plan, with their accounts")
+want([m for m, _ in slots["2026-03-02"]], [23 * 60],
+     "a night that books no facebook reserves no 23:30")
+
+contested = rules_on("promise.plan.slots.csv", ("C15_SLOT_CONTESTED",))
+want([f["ids"][0] for f in contested], ["x1"], "only the feed post in the slot is contested")
+want("22:30" in contested[0]["detail"] and "instagram 100" in contested[0]["detail"], True,
+     "and it is named with its time and account")
+
+model = rules_on("promise.plan.slots.csv", ("C16_SLOT_MODEL_CONTESTED",))
+want([f["detail"].split()[2] for f in model], ["9z"],
+     "the slot grid row sitting on the campaign's slot is reported, and only it")
+
+# The surface column, which the queue carried all along and the board threw
+# away. A story 105 minutes after a feed reel is this board's intended pattern:
+# the reel, then a story pointing at it. Reading that as a collision made 21 of
+# the 26 C05 findings on 10/01 and 15 of 18 the night before.
+close = rules_on("promise.surface.csv", ("C05_TOO_CLOSE",))
+want(len(close), 1, "a story near a feed post is not a collision, 2 feed posts are")
+want("2026-03-03", close[0]["day"], "and it is the feed against feed day")
+
+C.SLOT_MODEL = LIVE_SLOT_MODEL
 C.CAMPAIGNS = os.path.join(HERE, "promise.campaign.csv")
 C.PLANS = os.path.join(HERE, "promise.plans.csv")
 
@@ -173,6 +207,10 @@ else:
     if planned and not owed:
         fails.append("the live plan lists no accounts per night, so C13 cannot tell a night "
                      "an account owes from 1 it does not")
+    C.SLOT_MODEL = LIVE_SLOT_MODEL
+    if planned and not C.reserved_slots(live["Campaign"]):
+        fails.append("the live plan reserves no slot times, so nothing stops another "
+                     "scheduler booking the hour the campaign posts in")
     if not (live.get("LoadHorizonDays") or "").strip():
         fails.append("the live campaign has no LoadHorizonDays, so every night its loader "
                      "has not reached yet reads as a dark night")

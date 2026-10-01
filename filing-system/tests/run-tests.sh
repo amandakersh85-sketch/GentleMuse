@@ -865,12 +865,12 @@ else echo "FAIL  a fact buried under a long CTA is still found"
 
 # 2 plates of 1 fact are 1 fact. The plate is the reel; the fact is what
 # the person scrolling sees twice.
-if [ "$(awk -F, '$6=="nbc"' "$OUT" | wc -l)" = "2" ] && grep -q "^q2,.*,nbc," "$OUT"; then
+if [ "$(awk -F, '$7=="nbc"' "$OUT" | wc -l)" = "2" ] && grep -q "^q2,.*,nbc," "$OUT"; then
   echo "PASS  2 plates of 1 fact collapse to 1 fact"; pass=$((pass+1))
 else echo "FAIL  2 plates of 1 fact collapse to 1 fact"; fail=$((fail+1)); fi
 
 # A guess that looks like an answer is worse than a blank.
-if grep -q "^q4,[^,]*,,youtube,36129,," "$OUT"; then
+if grep -q "^q4,[^,]*,,youtube,36129,[a-z]*,," "$OUT"; then
   echo "PASS  a row the register does not cover gets no fact, not a guess"; pass=$((pass+1))
 else echo "FAIL  a row the register does not cover gets no fact, not a guess"
      grep "^q4," "$OUT" | sed 's/^/      /'; fail=$((fail+1)); fi
