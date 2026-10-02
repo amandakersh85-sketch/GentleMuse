@@ -338,3 +338,33 @@ Worth watching whether the portal accepts that or reads it as a reused asset.
 
 2 TikTok rows, so the queue is not empty. Still an 11 day hole between tonight
 and 6 Oct.
+## Halloween decor bought 2 Oct, Cedar Rapids. SKUs captured, partly.
+
+For the **Set the Halloween Vibe** challenge (`club.target.com/t/0q0x`), which asks
+for a decorate-with-me at home, not a store walk.
+
+| Item | Shelf tag | Price |
+| --- | --- | --- |
+| Hyde & EEK 3pc Ceramic Pumpkins | `HYDE&EEKBTQ 3PCDECACCNTSET`, DPCI **240-43-3184** | 5.00 |
+| Hyde & EEK RIP tombstone cloche | `HYD&EEKBTQ DECCLCH`, DPCI **240-43-5023** | 5.00 |
+
+### The shelf tag gives a DPCI, not the SKU her storefront links use
+
+This is worth recording because the tags were photographed specifically to capture
+"the SKU" and they do not carry it.
+
+Her storefront product links look like
+`https://club.target.com/s/amanda.20/_/sku/94895169`, an 8 digit number. That is
+the ceramic ghosts, linked in the 18 Sep post. The shelf tag instead prints a
+**DPCI**, the 3-2-4 aisle code (`240-43-3184`). They are different identifiers and
+one cannot be derived from the other.
+
+**Lookup attempted and failed.** `www.target.com` returns 200 but is a JavaScript
+app that serves no product data to a non-browser client, the same shape as
+`club.target.com`. Searching either DPCI returned zero tcins and zero product
+paths. `redsky.target.com` returns 435.
+
+**The route that works** is the one she already used for the ghosts: search the
+item inside her own Club Target storefront, which produces the
+`/_/sku/NNNNNNNN` link directly. The shelf tag photo is still useful as a record
+of exactly which item was bought, it just is not a shortcut to the link.
