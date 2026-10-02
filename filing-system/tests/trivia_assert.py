@@ -2,6 +2,7 @@
 """Assertions for the Run 8 source list that are clearer here than in shell."""
 import os
 import sys
+from datetime import date
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, "..", "scripts"))
@@ -32,6 +33,24 @@ def live_list_matches_her_answer():
             and "paul@shopifreaks.com" not in a)      # tier 2, parked
 
 
+def verified_rows_are_dated():
+    """Verified means somebody read the source on a day, and the row says which.
+
+    The bank shipped with every row unverified on 09/09 and a test that said
+    so. Verifying rows is the job, so the rule that lasts is the record: a row
+    marked verified carries a real VerifiedOn that is not in the future.
+    """
+    today = date.today()
+    ok = True
+    for fid, fact in B.load_bank().items():
+        if (fact.get("Verified") or "").strip().lower() in ("yes", "true", "1"):
+            checked = B.parse_date((fact.get("VerifiedOn") or "").strip())
+            if checked is None or checked > today:
+                print("  %s is marked verified without a real VerifiedOn" % fid)
+                ok = False
+    return ok
+
+
 def pinterest_is_repeat_exempt():
     """The exemption is a fact about the channel, recorded next to its cadence."""
     sys.path.insert(0, os.path.join(HERE, "..", "scripts"))
@@ -44,5 +63,6 @@ if __name__ == "__main__":
     fn = {"approved-passes": approved_source_still_passes,
           "parked-held": parked_source_is_held,
           "live-list": live_list_matches_her_answer,
+          "verified-dated": verified_rows_are_dated,
           "pinterest-exempt": pinterest_is_repeat_exempt}[sys.argv[1]]
     sys.exit(0 if fn() else 1)
