@@ -1155,5 +1155,77 @@ if python3 "$HERE/promise_assert.py"; then
 else echo "FAIL  a dark night is found under a day that looks full"; fail=$((fail+1)); fi
 
 echo
+echo "== the daily trivia job (Run 8, added 09/28) =="
+# The design this lane was handed on 09/28 had a model write about a free topic,
+# "World History - Forgotten Inventions". The daily job takes 1 fact from the
+# bank instead, writes nothing the bank does not hold, and makes nothing without
+# Amanda merging it. daily-trivia/README.md and SOP_0909 section 8.
+PICK="$HERE/../scripts/gm_trivia_pick.py"
+PBANK="$HERE/trivia-pick.bank.csv"
+NOAPPROVED="$TMP/no-approved"
+
+pick() { # name expected_exit args... ; greps come after a --
+  local name="$1" want="$2"; shift 2
+  local args=() greps=()
+  while [ $# -gt 0 ] && [ "$1" != "--" ]; do args+=("$1"); shift; done
+  [ "${1:-}" = "--" ] && shift
+  greps=("$@")
+  local out
+  out="$(python3 "$PICK" --bank "$PBANK" --sources "$HERE/trivia.sources.csv" \
+         --approved "$NOAPPROVED" --date 2026-09-30 "${args[@]}" 2>&1)"
+  local got=$?
+  local ok=1
+  [ "$got" = "$want" ] || { ok=0; echo "  exit $got, wanted $want"; }
+  for pat in "${greps[@]}"; do
+    grep -qi -e "$pat" <<<"$out" || { ok=0; echo "  missing: $pat"; }
+  done
+  if [ $ok = 1 ]; then echo "PASS  $name"; pass=$((pass+1))
+  else echo "FAIL  $name"; echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
+}
+
+pick "the next fact comes with 4 captions that passed the gates" 0 --next -- \
+     '"factId": "TRV-001"' '"platform": "instagram"' '"platform": "facebook"' \
+     '"platform": "tiktok"' '"platform": "youtube"' "Comment TUESDAY"
+pick "a fact nobody verified is refused"            1 --fact TRV-005 -- "REFUSED" "not Verified"
+pick "a fact not in the bank is refused"            1 --fact TRV-999 -- "not in the bank"
+pick "motion-text does not go to HeyGen"            1 --fact TRV-004 -- "reel factory"
+pick "a fact routed to another keyword is refused"  1 --fact TRV-006 -- \
+     "instagram asks for TUESDAY and this fact routes to NOPE"
+# TUESDAY switched off on the main Instagram: somebody would comment and wait.
+python3 - "$HERE/../data/keyword-registry.csv" "$TMP/registry-dead.csv" <<'PY'
+import csv, sys
+rows = list(csv.DictReader(open(sys.argv[1], newline="", encoding="utf-8")))
+for r in rows:
+    if r["Keyword"] == "TUESDAY" and r["AccountId"] == "45886":
+        r["Active"] = "no"
+w = csv.DictWriter(open(sys.argv[2], "w", newline="", encoding="utf-8"), fieldnames=list(rows[0]))
+w.writeheader(); w.writerows(rows)
+PY
+pick "a keyword nothing answers is refused"         1 --next --registry "$TMP/registry-dead.csv" -- \
+     "TUESDAY is not live on instagram 45886" "nothing would answer"
+pick "declined facts are passed over, and named"    0 --next --skip TRV-001 -- \
+     "passed over TRV-001" '"factId": "TRV-002"'
+pick "an empty bank holds, it does not reach"       2 --next --skip TRV-001,TRV-002,TRV-006 -- \
+     "Nothing to send" "Do not reach for the nearest fact"
+
+if python3 - "$HERE" <<'PY'
+import sys, os
+sys.path.insert(0, os.path.join(sys.argv[1], "..", "scripts"))
+import gm_trivia_pick as P
+# The 4 channels that carry everything, at the main accounts HANDOFF_0909 names.
+# If channel-rules.csv reorders its account ids, this says so.
+sys.exit(0 if P.load_lane_channels() == {"instagram": "45886", "facebook": "30840",
+                                         "tiktok": "41488", "youtube": "36129"} else 1)
+PY
+then echo "PASS  the lane is the board's 4 channels at their main accounts"; pass=$((pass+1))
+else echo "FAIL  the lane is the board's 4 channels at their main accounts"; fail=$((fail+1)); fi
+
+# The whole day with a fake HeyGen and a fake Blotato: render, host, package,
+# schedule. Nothing spends, nothing posts.
+if out="$(python3 "$HERE/../../daily-trivia/tests/test_daily_trivia.py" 2>&1)"; then
+  echo "PASS  the daily job, end to end against stand-ins ($(grep -o 'Ran [0-9]* tests' <<<"$out"))"; pass=$((pass+1))
+else echo "FAIL  the daily job, end to end against stand-ins"; echo "$out" | tail -30 | sed 's/^/      /'; fail=$((fail+1)); fi
+
+echo
 echo "$pass passed, $fail failed"
 [ "$fail" = 0 ]
