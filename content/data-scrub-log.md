@@ -3534,3 +3534,110 @@ night's post to 2 people. That is not a content problem and no amount of
 posting fixes it. The remaining scrubs can keep measuring, but the decision
 that matters is whether to keep spending Amanda's time on @thegentlemuse2026 at
 all while it is in this state.
+
+---
+
+# Day 24 scrub — 2026-10-02 (02:36 UTC / 10-01 21:36 CT)
+
+Full corpus, Blotato, since 09/08. Instagram 100 posts, Facebook 62.
+
+## CORRECTION: the main account is not throttled, and the misroute proved it
+
+Last night I wrote that @thegentlemuse2026 "showed last night's post to 2
+people," called it a distribution collapse, and said no amount of posting fixes
+it. **Night 2 lands tonight and that framing was wrong.**
+
+| Post | Date | Views | Reach | Watch |
+|---|---|---|---|---|
+| Night 1 of 33 | 09/29 23:01 | 1 | **2** | 21.17s |
+| **Night 2 of 33** | **09/30 23:00** | **138** | **112** | 9.09s |
+
+Same format, same slot, same account, consecutive nights. Reach went from 2 to
+112. A permanently throttled account does not do that.
+
+Main account reach across the last 2 days: **2, 5, 10, 55, 57, 112, 114.** That
+is a wide, continuous spread, not the empty band I described on Day 21 or the
+collapse I described on Day 23. Both of those readings came from small samples
+caught at a low point.
+
+**This is the 3rd time in 10 days I have called a pattern early.** The trivia
+format ranking, the Amanda lift, and now the throttling. Changing how I report
+for the remaining scrubs: no pattern claims off fewer than 7 days, and ranges
+rather than verdicts.
+
+## The accidental A/B test: it is the format, not the account
+
+The misrouted Cesa post from last night turns out to be the most useful data
+point in the campaign. Cesa's clip published to the **main** account on 09/30
+05:07 and here is how it did against everything else on that account:
+
+| Post on @thegentlemuse2026 | Date | Views | Reach |
+|---|---|---|---|
+| **Cesa, i know this sidewalk (misrouted)** | 09/30 | **135** | **114** |
+| Night 2 of 33 | 09/30 | 138 | 112 |
+| I asked AI to write me a dear me letter | 09/30 | 67 | 57 |
+| I found the number 1 problem | 09/30 | 8 | 5 |
+
+And the same Cesa clip on Cesa's own account the day before: **187 views, 149
+reach.** On Cesa's account 10/01: 152 views, 139 reach.
+
+So Cesa content does roughly 135 to 190 **on either account**. The account is
+not the variable. The format is.
+
+This is 1 post, so it is a well controlled n of 1 rather than a finding. But it
+is the cleanest natural experiment the campaign has produced, and it points the
+opposite way from the "2 accounts, 2 worlds" framing I used on Day 22.
+
+## Cesa dropped to 1 post a day
+
+No 17:30 pair on 10/01, only the 00:00 one. Cesa's Instagram numbers since the
+09/28 spike: 138, 187, 187, 184, 152. A steady 150 to 190 band.
+
+Halving the cadence on the only format reliably clearing 150 is worth a look,
+especially with 6 days left.
+
+## Pairs 11 and 12
+
+| Content | Date | Instagram | Facebook | Winner |
+|---|---|---|---|---|
+| Night 2 of 33 | 09/30 | 138 | 211 | FB, 1.5x |
+| I asked AI to write a dear me letter | 09/30 | 67 | 220 | FB, 3.3x |
+
+Running tally: Facebook 11, Instagram 1. But the margins have collapsed from
+179x and 110x down to 1.5x and 3.3x in 2 days, which is consistent with the
+Night 1 reading being the outlier rather than the rule.
+
+## Volume, 09/28 to 10/01
+
+| Channel | 28 | 29 | 30 | 01 |
+|---|---|---|---|---|
+| IG @thegentlemuse2026 | 4 | 5 | 4 +1 misrouted | 5 |
+| IG @cesasgoldenyears | 2 | 2 | 2 | **1** |
+| TikTok @thegentlemuse2026 | 3 | 3 | 3 | 4 |
+| TikTok @cesasgoldenyears | 1 | 1 | 1 | 1 |
+| Facebook | 2 | 2 | 2 | 3 |
+| YouTube | 2 | 2 | 2 | 3 |
+
+No publish failures on 09/30 or 10/01. 4 clean days, lifetime 3 failures in 17.
+
+## Tracking items
+
+1. **Trivia on Instagram:** Night 1 read 1 view, Night 2 read **138** with 112
+   reach. Against the 37 watermarked baseline, Night 2 is the first seasonal
+   post on Instagram to clear it in the whole campaign. Facebook Nights 1 and 2
+   read 179 and 211, inside the lower half of the band.
+2. **10,000 view Cesa breakout:** no. 1,104 on 09/28 is still the ceiling.
+3. **Volume:** at target everywhere except Cesa's Instagram, now at 1 a day.
+4. **Watermarks and AI badges:** no frame checks tonight.
+5. **Product posts missing a SKU:** none. The 10/01 Target Beauty Studio TikTok
+   carries `sku/94785532` for the Dossier perfume. 3 correct posts in a row.
+
+## Follower count
+
+**Still 188 manual from 09/12, now 20 days stale.** Day 24 of 30, 6 days left.
+
+With the throttling reading retracted, the honest position is simpler than last
+night's: Instagram reach on both accounts runs roughly 100 to 190 on the
+formats that work and near zero on the ones that do not, and the campaign has 6
+days to find out whether that converts to followers. Without a current count
+there is still no way to know whether any of the last 3 weeks moved it.
