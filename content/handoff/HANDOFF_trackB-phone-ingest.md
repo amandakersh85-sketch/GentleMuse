@@ -1,3 +1,9 @@
+> **Correction 2 Oct 2026.** Where this file says "use the Remotion pipeline
+> already in the repo," that is wrong. There is no Remotion code in the
+> GentleMuse git repo. The pipeline lives on Amanda's laptop and the cloud
+> session has never seen it. For the laptop pipeline's goals and contract see
+> `HANDOFF_remotion-pipeline.md`.
+
 # TRACK B HANDOFF: ingest the phone and cut the 12 Sep footage
 
 Paste everything below the horizontal rule into a Claude Code session on Amanda's
