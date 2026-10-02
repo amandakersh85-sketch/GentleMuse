@@ -15,39 +15,74 @@ of compact rows: {id, accountId, platform, scheduledAt, text, media}.
 Rules and their reasons live in README.md next to this file.
 """
 import argparse, datetime as dt, json, os, re, subprocess, sys, urllib.error, urllib.parse, urllib.request
-from collections import Counter
+from collections import Counter, defaultdict
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'filing-system', 'scripts'))
+import gm_keyword_check as K  # noqa: E402  the same keyword gate every other loader answers to
 
 API = 'https://backend.blotato.com/v2'
 MEDIA_BASE = 'https://database.blotato.io/storage/v1/object/public/public_media/5472a21c-0213-4305-8693-b19295e4d67e/'
 QUEUE_CAP = 200
 MIN_FREE = 10
+# Kept free for the loaders that post on a promise: the nightly seasonal run and
+# the daily trivia. They need about 4 a day, and the queue frees more than that
+# every day. 40 held here from 09/23 to 09/28 stopped every run cold.
+KEEP_FREE = 10
+# The queue holds 200, about 10 days at full volume, so it fills the near days
+# first and never reaches further than this. Amanda, 09/28: "we don't put it all
+# in the queue, obviously".
+HORIZON_DAYS = 7
+DAY_CAP = 3                          # per account per Central day, everything counted
+GAP = dt.timedelta(minutes=120)      # between posts on 1 account, as gm_cadence_check C05
 DST_END = dt.date(2026, 11, 1)
+DST_END_UTC = dt.datetime(2026, 11, 1, 7, 0)   # 2:00 AM Central daylight time
 ACCOUNTS = {'facebook': '30840', 'instagram': '45886', 'youtube': '36129',
-            'tiktok': '41488', 'twitter': '21430', 'linkedin': '20723'}
+            'tiktok': '41488', 'linkedin': '20723'}
+# Rows for these are skipped and counted, never loaded.
+DROPPED = {'twitter': ('X', 'X is 0 a day since 09/08')}
 FB_PAGE = '1086399221215093'
-SLOTS = {  # UTC, chosen to hold Central time constant across the 1 Nov change
-    'before': {'instagram': ['15:00', '23:00'], 'tiktok': ['15:00'], 'facebook': ['17:10', '22:00'],
-               'youtube': ['17:20'], 'twitter': ['13:30'], 'linkedin': ['13:30']},
-    'after':  {'instagram': ['16:00', '23:00'], 'tiktok': ['16:00'], 'facebook': ['18:10', '23:00'],
-               'youtube': ['18:20'], 'twitter': ['14:30'], 'linkedin': ['14:30']},
-}
-# The Halloween evening series runs on top of the business caps, not inside them.
-# Its posts still occupy their timestamp, so nothing else can land on it.
-EVENING = {'start': dt.date(2026, 9, 28), 'end': dt.date(2026, 10, 31),
-           'times': {'instagram': '23:00', 'tiktok': '23:00', 'facebook': '23:30', 'youtube': '23:30'}}
-# Slots held back for the Halloween series until it is fully scheduled.
-DEFAULT_RESERVE = {'until': dt.date(2026, 10, 31), 'slots': 40}
-X_LIMIT = 280
+# Central time, so the clock time holds when the clocks go back on 1 Nov. The
+# day's times (09/28): 10 AM trivia, noon Amanda, 2 PM newsletter or evergreen,
+# 4 PM Club Target, 6 PM seasonal. The refill owns 2 PM only. Noon Central was
+# retired on 24 Aug after a pileup (wave 1 header, validate-wave.py), and the
+# other times belong to the lanes named. LinkedIn is 8:30 AM.
+SLOTS = {'instagram': ['14:00'], 'tiktok': ['14:00'], 'facebook': ['14:00'], 'youtube': ['14:00'],
+         'linkedin': ['08:30']}
+CAPS = {'linkedin': 1}
+# The 6 PM seasonal post: Halloween 33 Nights to 31 Oct, then The Real One to
+# 1 Jan. It is held 2 hours clear even before its own loader has put it in.
+EVENING = {'start': dt.date(2026, 9, 28), 'end': dt.date(2027, 1, 1),
+           'times': {'instagram': '18:00', 'tiktok': '18:00', 'facebook': '18:30', 'youtube': '18:30'}}
+# A caption that names a day of the week only goes out on that day. "Just
+# Another Tuesday" is the newsletter's name, and TUESDAY in capitals is its
+# keyword, so neither counts.
+WEEKDAYS = ('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday')
 
 
-def slots(plat, day):
-    return SLOTS['before' if day < DST_END else 'after'][plat]
+def to_central(ts):
+    """A naive UTC datetime as Central wall-clock time."""
+    return ts - dt.timedelta(hours=6 if ts >= DST_END_UTC else 5)
 
 
-def cap(plat, day):
-    if plat == 'instagram':
-        return 1 if day.weekday() >= 5 else 2
-    return 2 if plat == 'facebook' else 1
+def utc_of(day, hhmm):
+    """A Central day and clock time as naive UTC."""
+    return dt.datetime.combine(day, dt.time.fromisoformat(hhmm)) + dt.timedelta(hours=6 if day >= DST_END else 5)
+
+
+def cap(plat):
+    return CAPS.get(plat, DAY_CAP)
+
+
+def weekdays_named(text):
+    t = re.sub(r'(?i)just another tuesday', '', text or '')
+    return {i for i, w in enumerate(WEEKDAYS) if re.search(r'\b' + w + r'\b', t)}
+
+
+def evening_clear(plat, day, ts):
+    hhmm = EVENING['times'].get(plat)
+    if not hhmm or not EVENING['start'] <= day <= EVENING['end']:
+        return True
+    return abs(ts - utc_of(day, hhmm)) >= GAP
 
 
 def row_text(t):
@@ -63,12 +98,9 @@ def media_name(url):
     return (url or '').rsplit('/', 1)[-1]
 
 
-def exempt(post):
-    """True for a Halloween evening post on a main account: it does not count toward caps."""
-    ts = post['ts']
-    return (EVENING['start'] <= ts.date() <= EVENING['end']
-            and EVENING['times'].get(post['platform']) == ts.strftime('%H:%M')
-            and post['accountId'] == ACCOUNTS.get(post['platform']))
+def has_media(name):
+    """A text-only row is written '-'. 2 text-only rows are not copies of each other."""
+    return bool(name) and name != '-'
 
 
 # ---------- inputs ----------
@@ -157,88 +189,97 @@ def fetch_recent(key, status, days_back):
 
 # ---------- the plan ----------
 
-def plan(lib, queue, now, published=(), reserve=None):
+def plan(lib, queue, now, published=(), reserve=None, registry=None, cta=None):
     """Return (loads, report dict). Pure: no network, no writes."""
-    rep = dict(now=now.isoformat(), queued=len(queue), moved=[], dupes=[], skipped=[], hold_soon=[], stop=None)
+    rep = dict(now=now.isoformat(), queued=len(queue), dupes=[], skipped=[], refused=[], waiting=[],
+               dropped=Counter(), hold_soon=[], stop=None)
     bad = validate(lib)
     if bad:
         rep['stop'] = 'Library check failed, loaded nothing: ' + ' | '.join(bad)
         return [], rep
-    if reserve is None:
-        reserve = DEFAULT_RESERVE['slots'] if now.date() <= DEFAULT_RESERVE['until'] else 0
+    reserve = KEEP_FREE if reserve is None else reserve
     rep['reserve'] = reserve
     room = QUEUE_CAP - len(queue) - reserve
     rep['free'] = QUEUE_CAP - len(queue)
     if room < MIN_FREE:
-        rep['stop'] = f'Only {max(room, 0)} slots free after holding {reserve} for Halloween, so nothing loaded.'
+        rep['stop'] = (f'Only {max(room, 0)} slots free after keeping {reserve} for the nightly run '
+                       'and the daily trivia, so nothing loaded.')
         return [], rep
+    registry = K.load_registry() if registry is None else registry
+    cta = K.load_platform_cta() if cta is None else cta
 
     posts = []
     for q in queue:
         ts = dt.datetime.fromisoformat(q['scheduledAt'].replace('Z', '+00:00')).replace(tzinfo=None)
         posts.append(dict(q, ts=ts))
     taken = {(p['platform'], p['accountId'], p['ts']) for p in posts}
-    per_day = Counter((p['platform'], p['accountId'], p['ts'].date()) for p in posts if not exempt(p))
+    on_day = defaultdict(list)  # (platform, account, Central day) -> UTC times, everything counted
+    for p in posts:
+        on_day[(p['platform'], p['accountId'], to_central(p['ts']).date())].append(p['ts'])
     seen = set()
     for p in list(posts) + [dict(x) for x in published]:
-        if p.get('media'):
+        if has_media(p.get('media')):
             seen.add((p['platform'], 'm', p['media']))
         if p.get('text'):
             seen.add((p['platform'], 't', norm(p['text'])))
 
     done = read_logs(lib)
     w1, w2 = read_library(lib, 'wave1'), read_library(lib, 'wave2')
-    wave1_open = [r for r in w1 if r['id'] not in done and not r['id'].startswith('HOLD-')]
-    rows = sorted(wave1_open if wave1_open else [r for r in w2 if r['id'] not in done], key=lambda r: r['id'])
-    rep['wave'] = 'wave1' if wave1_open else 'wave2'
+    # Wave 1 first, then wave 2. Row dates are advisory: a row goes to the
+    # nearest day with room, so a row that can never load (X, a dead keyword)
+    # no longer holds wave 2 back.
+    rows = sorted((r for r in w1 + w2 if r['id'] not in done and not r['id'].startswith('HOLD-')),
+                  key=lambda r: (r['wave'], r['id']))
     for r in w1 + w2:
         if r['id'].startswith('HOLD-') and now <= r['ts'] <= now + dt.timedelta(days=14):
             rep['hold_soon'].append((r['id'], r['ts'].isoformat()))
-    rep['left'] = sum(1 for r in w1 + w2 if r['id'] not in done and not r['id'].startswith('HOLD-'))
+    rep['left'] = sum(1 for r in rows if r['platform'] not in DROPPED)
 
     earliest = now + dt.timedelta(hours=1)
+    first = to_central(now).date()
+    days = [first + dt.timedelta(days=i) for i in range(HORIZON_DAYS + 1)]
     loads = []
     for r in rows:
         if sum(1 for x in loads if not x.get('present')) >= room:
             break
-        if r['id'].startswith('HOLD-'):
+        plat = r['platform']
+        if plat in DROPPED:
+            rep['dropped'][plat] += 1
             continue
-        plat, acct = r['platform'], ACCOUNTS.get(r['platform'])
+        acct = ACCOUNTS.get(plat)
         if not acct:
             rep['skipped'].append((r['id'], f'unknown platform {plat}'))
             continue
-        if plat == 'twitter' and len(r['text']) > X_LIMIT:
-            rep['skipped'].append((r['id'], f'X post is {len(r["text"])} characters, over {X_LIMIT}'))
-            continue
-        if (plat, 'm', r['media']) in seen or (plat, 't', norm(r['text'])) in seen:
+        if (has_media(r['media']) and (plat, 'm', r['media']) in seen) or (plat, 't', norm(r['text'])) in seen:
             rep['dupes'].append(r['id'])
             loads.append(dict(row=r, present=True))
             continue
+        found = K.check_post(dict(id=r['id'], platform=plat, accountId=acct, text=r['text']), registry, cta)
+        if found:
+            rep['refused'].append((r['id'], '; '.join(f['detail'] for f in found)))
+            continue
+        named = weekdays_named(r['text'])
         placed = None
-        day = max(r['ts'].date(), now.date())
-        for _ in range(90):
-            options = slots(plat, day)
-            own = r['ts'].strftime('%H:%M')
-            if own in options:
-                options = [own] + [s for s in options if s != own]
-            if per_day[(plat, acct, day)] < cap(plat, day):
-                for s in options:
-                    ts = dt.datetime.combine(day, dt.time.fromisoformat(s))
-                    if ts > earliest and (plat, acct, ts) not in taken:
-                        placed = ts
-                        break
+        for day in days:
+            here = on_day[(plat, acct, day)]
+            if (named and day.weekday() not in named) or len(here) >= cap(plat):
+                continue
+            for s in SLOTS[plat]:
+                ts = utc_of(day, s)
+                if (ts > earliest and (plat, acct, ts) not in taken
+                        and all(abs(ts - t) >= GAP for t in here) and evening_clear(plat, day, ts)):
+                    placed = ts
+                    break
             if placed:
                 break
-            day += dt.timedelta(days=1)
         if not placed:
-            rep['skipped'].append((r['id'], 'no open slot in the next 90 days'))
+            rep['waiting'].append(r['id'])
             continue
         taken.add((plat, acct, placed))
-        per_day[(plat, acct, placed.date())] += 1
-        seen.add((plat, 'm', r['media']))
+        on_day[(plat, acct, to_central(placed).date())].append(placed)
+        if has_media(r['media']):
+            seen.add((plat, 'm', r['media']))
         seen.add((plat, 't', norm(r['text'])))
-        if placed != r['ts']:
-            rep['moved'].append((r['id'], r['ts'].isoformat(), placed.isoformat()))
         loads.append(dict(row=r, at=placed, args=create_args(r, placed)))
     return loads, rep
 
@@ -274,11 +315,10 @@ def rest_body(a):
 
 # ---------- outputs ----------
 
-def central(iso):
-    t = dt.datetime.fromisoformat(iso)
-    off = 6 if t.date() >= DST_END else 5
-    c = t - dt.timedelta(hours=off)
-    return c.strftime('%a %b %-d, %-I:%M %p') + ' Central'
+def central(t):
+    if isinstance(t, str):
+        t = dt.datetime.fromisoformat(t.replace('Z', ''))
+    return to_central(t).strftime('%a %b %-d, %-I:%M %p') + ' Central'
 
 
 def append_log(lib, entries, today):
@@ -295,17 +335,24 @@ def write_report(path, rep, loaded, failed_new, executed):
         L += [rep['stop'], '']
     else:
         verb = 'Loaded' if executed else 'Would load (propose only, nothing sent)'
-        L += [f'- Queue before: {rep["queued"]} of {QUEUE_CAP}, {rep["free"]} free, {rep.get("reserve", 0)} held for Halloween',
-              f'- {verb}: {len(loaded)} from {rep.get("wave")}', f'- Rows left to load across both waves: {rep.get("left")}']
-        if loaded:
-            last = max(loaded, key=lambda x: x['at'])
-            L.append(f'- Last row reached: {loaded[-1]["row"]["id"]}, queue now runs to {central(last["at"].isoformat())}')
+        L += [f'- Queue before: {rep["queued"]} of {QUEUE_CAP}, {rep["free"]} free, '
+              f'{rep.get("reserve", 0)} kept free for the nightly run and the daily trivia',
+              f'- {verb}: {len(loaded)}, into the next {HORIZON_DAYS} days, up to {DAY_CAP} posts '
+              'per account per day',
+              f'- Rows left to load across both waves: {rep.get("left")}']
         if rep.get('left', 99) <= 30:
             L.append('- Fewer than 30 rows left. Wave 3 needs building.')
-    for rid, a, b in rep['moved']:
-        L.append(f'- Moved {rid} from {central(a)} to {central(b)}')
+    for x in sorted(loaded, key=lambda x: x['at']):
+        L.append(f'- {x["row"]["id"]} {x["row"]["platform"]}, {central(x["at"])}')
     if rep['dupes']:
         L.append(f'- Already in the queue or already posted, so skipped and marked done: {len(rep["dupes"])} ({", ".join(rep["dupes"])})')
+    for rid, why in rep.get('refused', []):
+        L.append(f'- Refused {rid}. It asks for a keyword nothing answers there: {why}')
+    for plat, n in sorted(rep.get('dropped', {}).items()):
+        name, why = DROPPED[plat]
+        L.append(f'- Skipped {n} {name} rows. {why}.')
+    if rep.get('waiting'):
+        L.append(f'- {len(rep["waiting"])} rows wait for room in the next {HORIZON_DAYS} days. The next run tries again.')
     for rid, why in rep['skipped']:
         L.append(f'- Did not load {rid}: {why}')
     for rid, when in rep['hold_soon']:

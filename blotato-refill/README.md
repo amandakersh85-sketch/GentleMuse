@@ -13,7 +13,7 @@ correction and the evening Halloween series.
 The libraries and load logs stay on branch `claude/club-target-game-plan-9xs2du`:
 
     content/wave1-staging-library.txt   rows to load
-    content/wave2-staging-library.txt   starts only when wave 1 is fully logged
+    content/wave2-staging-library.txt   loads after wave 1
     content/wave1-loaded.log            1 line per row: ID loaded|present DATE
     content/wave2-loaded.log
     scripts/validate-wave.py            the library check
@@ -23,52 +23,73 @@ The libraries and load logs stay on branch `claude/club-target-game-plan-9xs2du`
 
 1. **Library check first.** `validate-wave.py` must pass on both waves. Any
    failure loads nothing. A failing library is a bug to fix.
-2. **Room.** The queue holds 200. Through 31 Oct, 40 slots stay free for the
-   Halloween countdown. Under 10 slots of room means load nothing.
-3. **Never load `HOLD-` rows.** Amanda reads those first and releases one by
-   removing the prefix. Any due within 14 days is named in the report.
+2. **Room.** The queue holds 200. 10 slots always stay free for the loaders that
+   post on a promise: the nightly seasonal run and the daily trivia. Under 10
+   slots of room means load nothing. From 09/23 to 09/28 this held 40 for
+   Halloween and every run loaded 0, while the days ahead thinned out.
+3. **Never load `HOLD-` rows.** Amanda reads those first. Any due within 14 days
+   is named in the report. A released HOLD row is scheduled by hand at its own
+   date and time, never through this script: the library check refuses holiday
+   wording without `HOLD-`, and HOLD-GW2001 to HOLD-GW2008 share their numbers
+   with the ordinary rows GW2001 to GW2008.
 4. **Duplicates.** A row is already done if the same platform already has the
    same media file or the same first 120 characters of text, in the queue or
    published in the last 30 days. It is skipped and marked `present` in the log.
-   Never decided on platform plus time. (31 Aug and 3 Sep duplicates.)
-5. **Slots, UTC, holding Central time constant:**
-
-       before 1 Nov  instagram 15:00 23:00 · tiktok 15:00 · facebook 17:10 22:00
-                     youtube 17:20 · x and linkedin 13:30
-       from 1 Nov    instagram 16:00 23:00 · tiktok 16:00 · facebook 18:10 23:00
-                     youtube 18:20 · x and linkedin 14:30
-
-6. **Daily caps per account:** instagram 2 on weekdays and 1 at weekends,
-   facebook 2, everything else 1. Counted across the whole day after loading.
-7. **Halloween evening series sits outside the caps.** From 28 Sep to 31 Oct,
-   main-account posts at 23:00 on Instagram and TikTok and 23:30 on Facebook and
-   YouTube do not count toward the caps, but they still hold their timestamp.
-   Business runs in the morning, Halloween in the evening.
-8. **Moving.** A row whose day is at cap or whose timestamp is taken moves to the
-   next day with room, at that platform's own slot. No invented times. Rows
-   whose date has passed start from today.
-9. **X is capped at 280 characters.** Longer rows are not loaded and are named.
-10. **Text goes out exactly as written.** A standalone ` / ` is a line break.
+   Never decided on platform plus time. (31 Aug and 3 Sep duplicates.) 2
+   text-only rows, media `-`, are not copies of each other.
+5. **Nearest day first, 7 days at most.** A row goes to the nearest day, from
+   today, with room. Nothing loads more than 7 days out: the queue holds about
+   10 days at full volume, and Amanda, 09/28: "we don't put it all in the queue,
+   obviously". Row dates are advisory. A row with no room waits for the next
+   run.
+6. **Slots, in Central time,** so the clock time holds across the 1 Nov change:
+   2:00 PM on Instagram, TikTok, Facebook and YouTube, 8:30 AM on LinkedIn. 2 PM
+   is the day's evergreen slot. 10 AM is trivia, noon is Amanda, 4 PM is Club
+   Target and 6 PM is the seasonal post. Noon Central was retired on 24 Aug
+   after a pileup.
+7. **3 a day per account.** Everything on the account that Central day counts,
+   the 6 PM seasonal post included, because the board's 3 to 5 counts everything.
+   LinkedIn is 1.
+8. **2 hours apart.** A post stays 2 hours clear of every other post on its
+   account, the same spacing as `gm_cadence_check.py` C05. The 6 PM seasonal post
+   (6:30 PM on Facebook and YouTube) is held clear from 28 Sep to 1 Jan even
+   before its own loader has put it in.
+9. **A named day is that day.** A row that names a day of the week goes out on
+   that day only. "Just Another Tuesday" is the newsletter, and TUESDAY in
+   capitals is its keyword, so neither counts.
+10. **Keyword check.** Every row goes through `gm_keyword_check.py` against
+    `keyword-registry.csv` before it loads. A row asking for a keyword its
+    account cannot answer is refused and named in every report until the row is
+    fixed. On 09/28, 7 wave rows asked for CESA on the main accounts, retired
+    there on 09/18, and 3 LinkedIn rows asked for CONSIDER, which LinkedIn has no
+    automation to answer.
+11. **X is 0 a day** since 09/08. Its rows are skipped and counted, never
+    loaded, and they no longer hold wave 2 back.
+12. **Wave 1 goes before wave 2.** A row that cannot load never blocks the rows
+    behind it.
+13. **Text goes out exactly as written.** A standalone ` / ` is a line break.
     Hashtags, `#TargetPartner` and `#ad` stay.
-11. **Pricing (Amanda, 13 Sep).** No price on TikTok Shop items linked on TikTok.
+14. **Pricing (Amanda, 13 Sep).** No price on TikTok Shop items linked on TikTok.
     Nothing else is restricted. Club Target captions may carry prices.
-12. **The log is the record.** Every loaded or present row is appended and pushed
+15. **The log is the record.** Every loaded or present row is appended and pushed
     to the library branch in the same run. A failed push is reported first,
     because the next run would load those rows twice.
 
 ## Accounts
 
 facebook 30840 (page 1086399221215093) · instagram 45886 · tiktok 41488 ·
-youtube 36129 · x 21430 · linkedin 20723. Cesa's own accounts (instagram 65540,
-tiktok 55761) are never loaded from these libraries.
+youtube 36129 · linkedin 20723. X 21430 is not loaded. Cesa's own accounts
+(instagram 65540, tiktok 55761) are never loaded from these libraries.
 
 ## How it runs
 
-The routine `Blotato refill (Sonnet, every 2 days)` runs every 2 days at 6:00 AM
-Central in a fresh session with only the Blotato connector. It lists the queue,
-runs `refill.py plan`, creates exactly the posts in the plan, runs
-`refill.py log`, and pushes the log. The session makes no placement decisions.
+The GitHub job `Blotato refill` (`.github/workflows/blotato-refill.yml`) runs
+every 2 days at 6:30 AM Central daylight time. It checks out the library branch,
+runs the tests, runs `refill.py apply --execute`, and pushes the load log and the
+report to `content/refill-reports/` on the library branch. It shares the
+`blotato-queue` group with the other loaders, so they never race for the 200.
+The Sonnet routine that did this before is off.
 
-`refill.py apply --execute` does the same through Blotato's REST API with
-`BLOTATO_API_KEY` set, with no Claude session at all. It is ready for a
-scheduled GitHub workflow once Amanda approves adding one.
+To see what a run would do without sending anything:
+
+    python3 blotato-refill/refill.py plan --lib <library checkout> --queue-file queue.json --report r.md

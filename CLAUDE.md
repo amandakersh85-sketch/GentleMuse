@@ -132,8 +132,8 @@ the day, and a day missing one of them is the finding.
 
 | Lane | Per day | Who owns it |
 |---|---|---|
-| seasonal fact | 1, every evening | the Halloween nightly run |
-| Amanda herself | 1, face to camera or UGC | her own footage |
+| seasonal fact | 1, every evening | Halloween 33 Nights, then The Real One to 01/01 |
+| Amanda herself | 1, face to camera or UGC | her own footage, her HeyGen twin on a day with no clip |
 | Club Target | as the partnership lands | sponsored, holds its times |
 | newsletter signup | 1 every 2 days, minimum | the carousel rotation |
 
@@ -162,6 +162,55 @@ battling each other. Get one sensible, cohesive schedule out." That is what
 this file is for. A ruling she gives one session is written here, in the data,
 on the same day. A session that learns something and keeps it in its own
 transcript has not recorded it.
+
+## The season, set 09/28/2026
+
+Amanda, 09/28: "We don't stop at Halloween. We're also doing Thanksgiving and
+Christmas. So we don't put it all in the queue, obviously, but we make sure that
+the waves are being acknowledged."
+
+The 6 PM seasonal post runs to 01/01 in 4 waves.
+
+| Wave | Nights | What runs |
+|---|---|---|
+| Halloween | 33, 09/29 to 10/31 | Halloween 33 Nights, `halloween-33/` |
+| Thanksgiving | 26, 11/01 to 11/26 | The Real One |
+| Christmas | 29, 11/27 to 12/25 | The Real One |
+| New Year | 7, 12/26 to 01/01 | The Real One |
+
+The Real One runs every night on all 4 main accounts: Instagram and TikTok at
+6:00 PM Central, Facebook and YouTube at 6:30 PM. Amanda chose all 4 nightly on
+09/28. Facebook and YouTube are the thinnest accounts. The captions are drafted
+on pull request #13 and are approved a month at a time: November by 10/18,
+December and New Year by 11/14. A wave goes into `campaign-targets.csv` the day
+it is announced, before anything is scheduled against it.
+
+Nothing loads more than 7 days ahead except date-locked posts: sponsored posts,
+the sale days and Thanksgiving morning. The queue holds 200, which is about 10
+days at full volume. The refill fills the nearest days first and keeps 10 slots
+free for the nightly run and the daily trivia. `blotato-refill/README.md` has
+the rules.
+
+The day, in Central time. The clock times hold when the clocks go back on 11/01,
+so every loader works in Central time and converts.
+
+| Time | Lane |
+|---|---|
+| 8:30 AM | LinkedIn |
+| 10:00 AM | daily trivia |
+| 12:00 PM | Amanda on camera |
+| 2:00 PM | newsletter carousel every other day, otherwise an evergreen top-up from the waves |
+| 4:00 PM | Club Target, when there is one |
+| 6:00 PM | the seasonal post, 6:30 PM on Facebook and YouTube |
+
+Posts on 1 account stay 2 hours apart. Noon was retired for the wave library on
+08/24 after a pileup. It belongs to this 1 lane now, and the 2 hour gap keeps
+everything else off it.
+
+Amanda on camera, 09/28: a Claude session on her laptop sorts her clips from the
+camera roll and the D: drive, names each by what she says, and puts them in 1
+Google Drive folder. The week reaches her as 1 pull request. Her HeyGen twin
+covers a day with no clip.
 
 Variety is the point of the volume. A day should not be 5 of the same lane.
 The lanes are: holiday fact, Cesa, Club Target, food review, lead magnet
