@@ -1,0 +1,153 @@
+TRIVIA POST ARCHIVE — Instagram, pulled from the queue 24 Aug 2026
+
+Removed from the live Blotato queue on 24 Aug 2026 to clear the week for Cesa and real-life b-roll.
+Amanda asked that these be recoverable so they can go back in later once Instagram is converting.
+
+HOW TO PUT ONE BACK: blotato_create_post with platform instagram, accountId 45886,
+the text and mediaUrl below, and a new scheduledTime. Media is on Blotato's CDN and the URLs persist.
+
+========================================================================
+
+--- 1. was scheduled Wed 26 Aug 2026, 09:00 Central  (blotato id 3660242)
+
+TEXT:
+☁️ A typical fluffy cloud can weigh over 1 million pounds. And it floats anyway.
+
+Heavy things can still rise. My AI cast said it — I felt it.
+
+Free AI guide → link in bio.
+
+#trivia #didyouknow #clouds #aicontent
+
+MEDIA: https://database.blotato.io/storage/v1/object/public/public_media/5472a21c-0213-4305-8693-b19295e4d67e/2c23dbde-e683-452d-9e6a-ced2b594890b.mp4
+
+------------------------------------------------------------------------
+
+--- 2. was scheduled Wed 26 Aug 2026, 19:00 Central  (blotato id 3473134)
+
+TEXT:
+Random fact for your day. Some nerve signals travel faster than a Formula 1 car, which explains a lot about how quickly I can pull my hand off a hot pan. What is the most useless fact you know? 👇
+
+#gentlemuse #randomfacts #didyouknow #curiosity #letschat
+
+MEDIA: https://database.blotato.io/storage/v1/object/public/public_media/5472a21c-0213-4305-8693-b19295e4d67e/238148fd-dca1-4edd-b8d3-684377e68e61.mp4
+
+------------------------------------------------------------------------
+
+--- 3. was scheduled Thu 27 Aug 2026, 09:00 Central  (blotato id 3660261)
+
+TEXT:
+🃏 That deck in your hand may be one of a kind. A properly shuffled 52-card deck has more possible orders than there are atoms on Earth — your shuffle has almost certainly never existed before in history.
+
+You are holding something unrepeatable. My AI cast delivers the trivia; I deliver the tools.
+
+Free AI guide → link in bio.
+
+#trivia #didyouknow #cards #aicontent
+
+MEDIA: https://database.blotato.io/storage/v1/object/public/public_media/5472a21c-0213-4305-8693-b19295e4d67e/ac814f41-877e-44ae-8171-bf52b54c7671.mp4
+
+------------------------------------------------------------------------
+
+--- 4. was scheduled Thu 27 Aug 2026, 12:00 Central  (blotato id 3473138)
+
+TEXT:
+Your gut contains hundreds of millions of neurons. So when people say trust your gut, there is genuinely more going on down there than we give it credit for. Do you actually trust yours? 👇
+
+#gentlemuse #randomfacts #didyouknow #intuition #letschat
+
+MEDIA: https://database.blotato.io/storage/v1/object/public/public_media/5472a21c-0213-4305-8693-b19295e4d67e/973e881f-dbae-4d3b-a4ce-8d215d3d2966.mp4
+
+------------------------------------------------------------------------
+
+--- 5. was scheduled Thu 27 Aug 2026, 19:00 Central  (blotato id 3473150)
+
+TEXT:
+Your brain can physically reorganize its own connections. Which means the version of you who handles things better is not a fantasy. She is just further along the same path. What are you rewiring right now? 👇
+
+#gentlemuse #randomfacts #neuroplasticity #mindset #letschat
+
+MEDIA: https://database.blotato.io/storage/v1/object/public/public_media/5472a21c-0213-4305-8693-b19295e4d67e/bb4b92d6-a8e2-461e-9357-651f12387af9.mp4
+
+------------------------------------------------------------------------
+
+--- 6. was scheduled Fri 28 Aug 2026, 09:00 Central  (blotato id 3660265)
+
+TEXT:
+🐙 One heart apparently wasn't enough — an octopus has three. Two pump blood to the gills, one keeps the body going.
+
+Some of us just come built with extra capacity. My AI cast delivers the trivia; I deliver the tools.
+
+Free AI guide → link in bio.
+
+#trivia #didyouknow #octopus #aicontent
+
+MEDIA: https://database.blotato.io/storage/v1/object/public/public_media/5472a21c-0213-4305-8693-b19295e4d67e/70cd4180-694e-4555-8d5d-f32bb58f77c7.mp4
+
+------------------------------------------------------------------------
+
+--- 7. was scheduled Fri 28 Aug 2026, 12:00 Central  (blotato id 3473156)
+
+TEXT:
+Your body moves before your brain finishes the sentence. It really does say I will explain later, move. When has yours reacted before you did? 👇
+
+#gentlemuse #randomfacts #didyouknow #curiosity #letschat
+
+MEDIA: https://database.blotato.io/storage/v1/object/public/public_media/5472a21c-0213-4305-8693-b19295e4d67e/8e323f07-1804-43c2-ae6c-21575030102b.mp4
+
+------------------------------------------------------------------------
+
+--- 8. was scheduled Fri 28 Aug 2026, 19:00 Central  (blotato id 3473162)
+
+TEXT:
+In a room of 23 people, the odds that 2 of them share a birthday are far better than you would ever guess. Small rooms get strange fast. Has this ever happened to you? 👇
+
+#gentlemuse #randomfacts #didyouknow #curiosity #letschat
+
+MEDIA: https://database.blotato.io/storage/v1/object/public/public_media/5472a21c-0213-4305-8693-b19295e4d67e/03cf2bd0-237e-4dc9-9242-e53d334ef0a3.mp4
+
+------------------------------------------------------------------------
+
+--- 9. was scheduled Sat 29 Aug 2026, 12:00 Central  (blotato id 3473168)
+
+TEXT:
+Math really said work smarter, and honestly it has a point. Symmetry quietly doing the heavy lifting so nobody has to count twice. Were you a math person, or absolutely not? 👇
+
+#gentlemuse #randomfacts #didyouknow #curiosity #letschat
+
+MEDIA: https://database.blotato.io/storage/v1/object/public/public_media/5472a21c-0213-4305-8693-b19295e4d67e/53be24ff-3114-45d9-b7cd-d090702a519f.mp4
+
+------------------------------------------------------------------------
+
+--- 10. was scheduled Sat 29 Aug 2026, 19:00 Central  (blotato id 3473173)
+
+TEXT:
+Shuffle a deck properly and you are almost certainly holding an order that has never existed before in history. Something about that gets me every single time. What is your favorite card game? 👇
+
+#gentlemuse #randomfacts #didyouknow #curiosity #letschat
+
+MEDIA: https://database.blotato.io/storage/v1/object/public/public_media/5472a21c-0213-4305-8693-b19295e4d67e/b5b8917c-9e28-4655-b226-5577edcf570c.mp4
+
+------------------------------------------------------------------------
+
+--- 11. was scheduled Sun 30 Aug 2026, 12:00 Central  (blotato id 3473179)
+
+TEXT:
+Bananas have been lying to us this whole time and I am still processing it. Botanically speaking, almost nothing in the produce aisle is what you think it is. What food fact broke your brain? 👇
+
+#gentlemuse #randomfacts #didyouknow #foodfacts #letschat
+
+MEDIA: https://database.blotato.io/storage/v1/object/public/public_media/5472a21c-0213-4305-8693-b19295e4d67e/4e2085ae-8b83-4f89-a568-9653db64c5c9.mp4
+
+------------------------------------------------------------------------
+
+--- 12. was scheduled Sun 30 Aug 2026, 19:00 Central  (blotato id 3473196)
+
+TEXT:
+Turns out one heart was not enough for the octopus. Nature looked at the design, thought about it, and added a few more. Which animal fact still gets you? 👇
+
+#gentlemuse #randomfacts #didyouknow #ocean #letschat
+
+MEDIA: https://database.blotato.io/storage/v1/object/public/public_media/5472a21c-0213-4305-8693-b19295e4d67e/42c1eb0a-71ae-453a-8e15-0b7fff951a5f.mp4
+
+------------------------------------------------------------------------

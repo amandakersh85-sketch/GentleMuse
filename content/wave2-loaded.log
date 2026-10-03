@@ -1,0 +1,13 @@
+# Wave 2 load ledger. One line per loaded row: <ROW ID> loaded <date>.
+# Appended by whoever loads. Do not edit the library file to mark loads.
+#
+# Created empty 2026-09-02. Nothing from Wave 2 has been loaded yet.
+#
+# Wave 2 contains 8 HOLD- rows (HOLD-GW2001 to HOLD-GW2008, 31 Oct to 1 Dec).
+# HOLD rows never auto-load. Amanda releases one by dropping the prefix herself.
+#
+# Before loading any Wave 2 row, check it against the LIVE queue on
+# platform + exact post text, not text alone. The libraries recombine captions
+# Amanda already published, so the same wording on a different platform is
+# intentional cross-posting. Only a same-platform match is a duplicate.
+# See content/handoff/HANDOFF_0902_queue-supplier-contract.md
