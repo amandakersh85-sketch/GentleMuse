@@ -113,6 +113,24 @@ class Loader(unittest.TestCase):
         nights = {p['night'] for p in SCHED['posts'] if p['night']}
         self.assertEqual(nights, set(range(1, 34)))
 
+    def test_facebook_and_youtube_carry_every_night_the_trailer_promised(self):
+        for plat in ('facebook', 'youtube'):
+            nights = {p['night'] for p in SCHED['posts'] if p['platform'] == plat and p['night']}
+            self.assertEqual(nights, set(range(1, 34)), plat)
+        self.assertTrue(all(p.get('mediaUrl') for p in SCHED['posts']))
+
+    def test_the_plan_the_weeks_are_built_from_books_the_same_nights(self):
+        # build_week.py rebuilds the weeks from approval/plan.json, so a plan
+        # that still said odd nights would drop the even ones on the next rebuild
+        root = os.path.join(HERE, '..')
+        plan = json.load(open(os.path.join(root, 'approval', 'plan.json')))
+        weeks = [n for w in range(1, 6)
+                 for n in json.load(open(os.path.join(root, 'weeks', f'week{w}-posts.json')))]
+        self.assertEqual([n['night'] for n in plan], list(range(1, 34)))
+        self.assertTrue(all(n['fb_yt'] for n in plan))
+        self.assertEqual({n['night']: bool(n['fb_yt']) for n in plan},
+                         {n['night']: n['fb_yt'] for n in weeks})
+
 
 class Requests(unittest.TestCase):
     def test_delete_sends_no_json_content_type(self):

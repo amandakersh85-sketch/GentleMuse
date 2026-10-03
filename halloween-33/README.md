@@ -16,9 +16,13 @@ Approved plan: https://claude.ai/artifact/FwBepNEF5t6sovQi3z16t9
   7 AM Central, so the countdown fits the 200-post queue as room opens. It removes the
   old repeat on a date only when that night's new post goes in. Every removed post is in
   `backup/queue-2026-09-23-full.json`.
-- Times: Instagram and TikTok 6:00 PM Central nightly, Facebook and YouTube 6:30 PM on
-  odd nights. Samhain moves to 6:00 PM Oct 31. "Samhain is 5 nights out" moves to
+- Times: Instagram and TikTok 6:00 PM Central nightly, Facebook and YouTube 6:30 PM
+  nightly. Samhain moves to 6:00 PM Oct 31. "Samhain is 5 nights out" moves to
   7:30 PM Oct 26.
+- Facebook and YouTube ran odd nights only until 09/28. The trailer on both says
+  "every night from tomorrow to Halloween. 33 nights", so Amanda added the 16 even
+  nights that day: the same videos and the captions already written for them. 134
+  posts in all. `approval/plan.json` books them too, so rebuilding the weeks keeps them.
 - To stop it: set the repository variable `HALLOWEEN_33_OFF` to `true`.
 
 Tests: `python3 halloween-33/tests/test_load.py`
