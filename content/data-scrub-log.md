@@ -3641,3 +3641,112 @@ night's: Instagram reach on both accounts runs roughly 100 to 190 on the
 formats that work and near zero on the ones that do not, and the campaign has 6
 days to find out whether that converts to followers. Without a current count
 there is still no way to know whether any of the last 3 weeks moved it.
+
+---
+
+# Day 25 scrub — 2026-10-03 (02:36 UTC / 10-02 21:36 CT)
+
+Full corpus, Blotato, since 09/08. Instagram 100 posts, Facebook 65.
+
+## The seasonal run on Instagram, 3 nights in
+
+| Night | Date | Instagram | Reach | Watch | Facebook |
+|---|---|---|---|---|---|
+| 1 | 09/29 | **1** | 2 | 21.17s | 179 |
+| 2 | 09/30 | **138** | 112 | 9.09s | 211 |
+| 3 | 10/01 | **4** | 5 | 2.52s | 122 |
+
+Instagram: 1, 138, 4. Facebook: 179, 211, 122.
+
+Same creator, same format, same nightly slot, same 3 days. **Facebook holds a
+122 to 211 band. Instagram swings 1 to 138.**
+
+Per the discipline set last night I am not calling this a pattern on 3 nights.
+What I will say is that the volatility itself is the thing worth watching, not
+the level. An account that delivers 138 one night and 4 the next is not a
+content problem in either direction, and Night 2 is the reason I retracted the
+throttling claim yesterday.
+
+Night 4 published 10/02 23:01, no metrics yet.
+
+## Cesa's best Instagram post since the spike
+
+**i have been placed in a blanket**, 10/02 00:00: **253 views, 231 reach,
+6.24s watch, 12 likes, 1 share.** Her TikTok of the same clip did 249 with 32
+likes.
+
+Cesa's Instagram run, excluding the 09/28 spike day: 138, 187, 187, 184, 152,
+**253**. A 138 to 253 band that has been rising for 3 days.
+
+She is still on 1 post a day. The 17:30 pair has not returned since 09/30.
+
+## The main account had a quiet day
+
+@thegentlemuse2026, 10/01 and 10/02:
+
+| Post | Date | Views | Reach | Watch |
+|---|---|---|---|---|
+| Pressing record every single day | 10/01 | 48 | 43 | 6.58s |
+| The drip pans on my stove | 10/01 | 9 | 9 | 4.64s |
+| Comment CONSIDER story | 10/01 | 6 | 5 | n/a |
+| Full reel story | 10/01 | 5 | 0 | n/a |
+| Night 3 of 33 | 10/01 | 4 | 5 | 2.52s |
+
+Range 4 to 48. For context the same account ran 112 and 114 reach 2 days
+earlier. The spread across 4 days is roughly 2 to 114, which is the range I
+reported last night and it has not narrowed.
+
+## Pairs 13, 14 and 15
+
+| Content | Date | Instagram | Facebook | Winner |
+|---|---|---|---|---|
+| Night 3 of 33 | 10/01 | 4 | 122 | FB, 30x |
+| Pressing record every single day | 10/01 | 48 | 283 | FB, 5.9x |
+| Nobody shows you what a reset day looks like | 10/01 | 9 | 120 | FB, 13x |
+
+Running tally: **Facebook 14, Instagram 1.**
+
+15 pairs is now enough to say something careful: across every identical file
+posted to both platforms this campaign, Facebook has won 14 times, by margins
+from 1.4x to 239x. The 1 Instagram win was the 09/25 bottleneck reel at 5x.
+That is a 2 week sample on matched content, which clears the 7 day bar I set
+last night.
+
+**Facebook is the stronger platform for this account's content.** Not a
+distribution anomaly, not a format effect. 15 matched pairs.
+
+## Volume dropped on 10/02
+
+| Channel | 29 | 30 | 01 | 02 |
+|---|---|---|---|---|
+| IG @thegentlemuse2026 | 5 | 4 +1 misrouted | 5 | **2** |
+| IG @cesasgoldenyears | 2 | 2 | 1 | 1 |
+| TikTok @thegentlemuse2026 | 3 | 3 | 4 | **2** |
+| TikTok @cesasgoldenyears | 1 | 1 | 1 | 1 |
+| Facebook | 2 | 2 | 3 | 2 |
+| YouTube | 2 | 2 | 3 | 2 |
+
+The main Instagram account ran 2 posts on 10/02, its lowest since 09/24. Cesa
+has been at 1 for 3 days.
+
+No publish failures on 10/01 or 10/02. 5 clean days, lifetime 3 failures in 21.
+
+## Tracking items
+
+1. **Trivia on Instagram:** Nights 1 to 3 read 1, 138, 4 against the 37
+   baseline. Facebook read 179, 211, 122, inside the lower half of the 230 to
+   577 band. Night 4 pending.
+2. **10,000 view Cesa breakout:** no. 1,104 on 09/28 still the ceiling, 253 on
+   10/02 the best since.
+3. **Volume:** down on both main accounts, Cesa at half cadence.
+4. **Watermarks and AI badges:** no frame checks tonight.
+5. **Product posts missing a SKU:** no Club Target posts 10/02.
+
+## Follower count
+
+**Still 188 manual from 09/12, now 21 days stale.** Day 25 of 30, 5 days left.
+
+With 5 days to go the only finding solid enough to act on is the platform one:
+15 matched pairs, Facebook ahead in 14. If the goal were reach rather than
+Instagram followers, the allocation would be obvious. The goal is Instagram
+followers, which is the tension the wrap will have to state plainly.
