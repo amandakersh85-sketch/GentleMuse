@@ -197,6 +197,62 @@ else:
     fails.append("thanksgiving-nightly is not in campaign-plans.csv, so no gate "
                  "reads its facts")
 
+# ------------------------------------- the 2 waves that run in standard time
+# Central is UTC-6 from 11/01, so 6:00 PM Central is 00:00 UTC the NEXT day.
+# The Thanksgiving plan was drafted with 23:00Z copied off the Halloween plan,
+# where it is right because September and October are daylight time. In
+# standard time that is 5:00 PM: an hour early on all 26 nights. The invariant
+# is cheap to state and it was not obvious enough to get right by reading.
+for campaign, count in (("thanksgiving-nightly", 26), ("christmas-nightly", 29)):
+    for p in F.load_plans():
+        if (p.get("Campaign") or "") != campaign:
+            continue
+        items = json.load(open(p["_path"], encoding="utf-8"))
+        if len(items) != count:
+            fails.append("%s holds %d nights, not %d" % (campaign, len(items), count))
+        for it in items:
+            ev = it.get("evening")
+            if not ev:
+                fails.append("%s night %s has no evening, so nothing says which "
+                             "Central day the audience sees it"
+                             % (campaign, it.get("night")))
+                continue
+            want_utc = (datetime.date.fromisoformat(ev)
+                        + datetime.timedelta(days=1)).isoformat()
+            if it["date"] != want_utc:
+                fails.append("%s night %s: evening %s should land on UTC %s, "
+                             "not %s" % (campaign, it.get("night"), ev,
+                                         want_utc, it["date"]))
+            for field, when in (("ig_tt", "00:00Z"), ("fb_yt", "00:30Z")):
+                if it.get(field) != when:
+                    fails.append("%s night %s %s is %r. 6:00 PM Central in "
+                                 "standard time is 00:00Z the next day, so "
+                                 "23:00Z would be an hour early"
+                                 % (campaign, it.get("night"), field,
+                                    it.get(field)))
+        break
+    else:
+        fails.append("%s is not in campaign-plans.csv" % campaign)
+
+# A different carol every night, which is what Amanda asked for and what the old
+# 1-file-per-family schema could not express. 3 families over 29 nights is the
+# Halloween failure again: 1 track under the whole run.
+for p in F.load_plans():
+    if (p.get("Campaign") or "") != "christmas-nightly":
+        continue
+    items = json.load(open(p["_path"], encoding="utf-8"))
+    beds = [i.get("bed") or "" for i in items]
+    if len(set(beds)) != len(items):
+        fails.append("the Christmas wave has %d nights and %d distinct beds, so "
+                     "some nights share a song" % (len(items), len(set(beds))))
+    if not all(beds):
+        fails.append("a Christmas night names no bed, so bed.mjs refuses it")
+    if len({i.get("treatment") for i in items}) != 3:
+        fails.append("Amanda asked for a rotation of 3 kinds of Christmas sound "
+                     "and the plan uses %d"
+                     % len({i.get("treatment") for i in items}))
+    break
+
 if fails:
     for f in fails:
         print("  " + f)
