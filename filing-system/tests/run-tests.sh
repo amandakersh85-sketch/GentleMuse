@@ -1161,6 +1161,16 @@ if python3 "$HERE/audio_assert.py"; then
 else echo "FAIL  a silent reel is refused before it ships"; fail=$((fail+1)); fi
 
 echo
+echo "== a campaign night whose fact nobody checked (added 10/04) =="
+# 4 of the 26 Thanksgiving facts were wrong when they were finally read against
+# sources, and all 26 said confidence: high. Confidence is a session's opinion
+# of its own memory. verified, checked and a sources cell that points at
+# something are the record of a check, and this is what reads them.
+if python3 "$HERE/fact_assert.py"; then
+  echo "PASS  an unchecked fact is refused before it renders"; pass=$((pass+1))
+else echo "FAIL  an unchecked fact is refused before it renders"; fail=$((fail+1)); fi
+
+echo
 echo "== a reel rendered without its music (added 10/04) =="
 if command -v node >/dev/null 2>&1 && [ -n "${FFMPEG:-}" ]; then
   if FFMPEG="$FFMPEG" node "$HERE/../../reel-factory/bed.test.mjs"; then

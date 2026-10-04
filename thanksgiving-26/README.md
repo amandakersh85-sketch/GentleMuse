@@ -36,7 +36,7 @@ sitting there. The `bed` column is the family and `bed_desc` says what it is:
 | bed | what it is | used on |
 |---|---|---|
 | `traditional-solo` | a single guitar, no ensemble | Dia de los Muertos |
-| `period-bare` | 1 plucked string, sparse | anything pre 1700 |
+| `period-bare` | 1 plucked string, sparse | anything pre 1700, and the 1663 Bible on night 23 |
 | `period-piano` | sparse piano, 1860s parlour | the Lincoln nights |
 | `period-scratch` | scratchy period recording | 1880s and 1920s |
 | `period-brass` | period brass band | 1876 football, the 1924 parade |
@@ -50,22 +50,67 @@ or a tune can be out of copyright while every recording of it is still owned,
 and that distinction is the whole reason this column exists rather than a note
 saying "find something Christmassy".
 
+## The facts were checked on 10/04, and 4 of them were wrong
+
+Amanda, 10/04: "rewrite 13, 22 and 23 and don't forget to fact check the other
+ones." All 26 were read against sources that day. Every row now carries
+`verified`, `checked` and a `sources` line that points at something, and
+`gm_fact_check.py` refuses a night that does not.
+
+4 rows were wrong, and all 4 said `confidence: high`:
+
+| night | said | is |
+|---|---|---|
+| 8 | Sarah Hale campaigned 17 years | 36, from 1827. 17 is the letter campaign alone, from 1846 |
+| 20 | the name Pilgrims dates to the 1840s | Daniel Webster said it at the 1820 bicentennial |
+| 24 | writing down 3 things beats thinking them | the study used 5 items and never compared writing against thinking |
+| 26 | a fact | a closing thought, now marked `editorial` |
+
+Confidence is a session's opinion of its own memory, which is the thing that
+was already wrong. The 2 rules that came out of this: a fact is not checked
+until something says what it was checked against, and a row that is not a
+factual claim says so in its own confidence column rather than borrowing the
+word high.
+
+3 nights were rewritten because they read flat, which is what Amanda asked for:
+
+- **13** was "wild turkeys fly, and fast". Now they sleep in trees, and the
+  bird we eat was bred too heavy to get up there.
+- **22** was "trees drop their leaves to avoid dying of thirst". Now leaves do
+  not fall, they get pushed, and the tree builds the breaking point in spring.
+- **23** was the turkey's snood changing colour. Replaced. It is now Wôpanâak,
+  the language spoken at that 1621 harvest, which had no speakers after about
+  1833 and is being taught in Wampanoag households again.
+
+2 rows pass by declaration rather than by being confirmed, and the gate lists
+both on every run so they cannot quietly multiply:
+
+- **14**, the wishbone, is `partly`. The Etruscan link and alectryomancy are
+  well attested for the 8th to 3rd century BCE. The detail about drying the bone
+  and stroking it for wishes comes from popular retellings and not from primary
+  scholarship, so the caption says roughly 2500 years old and stops.
+- **26** is `n/a`. It is a closing thought and not a claim.
+
 ## Before this ships
 
-1. **The sources are listed, not checked.** Every row carries `verified: no` and
-   a `sources` line naming what to go and read. 16 are marked high confidence
-   and 10 medium. The medium ones are where the popular version of the story and
-   the documented one may not match: the cranberry bounce board, the parade
-   balloon release, the wishbone, the 1876 football fixture, the turkey pardon,
-   the Pilgrim naming, the snood, and the gratitude trials. Those get read
-   before they get rendered.
-2. **26 images to generate**, 1 per night, from the `plate_desc` lines.
-3. **26 beds to source**, by family, not 26 separate hunts.
-4. **The bed step still does not exist in any script.** It is prose in
-   `beds/README.md` and nothing runs it. The Halloween nights were muxed by
-   hand. If that is still true on 11/01 this wave ships silent too.
-5. **Live=no, and somebody has to flip it.** `gm_cadence_check.load_target`
+1. **26 images to generate**, 1 per night, from the `plate_desc` lines. Blotato
+   `create_visual` at 50 credits each. 2,644 credits in the account on 10/04,
+   which covers Thanksgiving and leaves Christmas about 1,000 short.
+2. **9 bed files to source**, by family rather than 26 separate hunts. Only
+   `eerie-calm` has a file. `reel-factory/bed.mjs` **refuses** a render whose
+   family has no file, so every Thanksgiving night fails to build until these
+   exist. That is the intended behaviour and it is also the blocker.
+3. **Wôpanâak carries diacritics**, and nothing in the render path has been run
+   against a non-ASCII caption. Check night 23 renders before it queues. Do not
+   fix it by stripping the accents off the name of a language this fact is about
+   being reclaimed.
+4. **Live=no, and somebody has to flip it.** `gm_cadence_check.load_target`
    returns the first row with `Live=yes`, so exactly 1 wave can be live at a
    time. Halloween stops on 10/31 and this starts on 11/01, so they never
    overlap, but the handover is a manual edit on 1 day and nothing reminds
    anyone to make it.
+5. **The Halloween plan has no verification record at all.** No `verified`
+   column, no `checked` column, 20 nights already published and 28 still to
+   come. `gm_fact_check.py` reports it on every run. 3 of the 28 were spot
+   checked on 10/04 and all 3 held, so this is a missing record rather than a
+   known error, but it is still 28 nights nobody can show their work for.

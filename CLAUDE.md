@@ -292,6 +292,25 @@ what makes it true: FoundIn and Source are 2 columns and the gate refuses a
 row where they are the same. Facts that move get re-checked every 90 days.
 `SOP_0909_trivia-pipeline.txt` is the whole procedure.
 
+A fact nobody checked reads exactly like a fact somebody checked. On 10/04 all
+26 Thanksgiving nights were finally read against sources and 4 were wrong: 17
+years for Sarah Hale's 36, the 1840s for an 1820 coinage, a 5 item study
+described as a 3 item one with a comparison it never made, and a closing
+thought sitting in the confidence column as high. All 26 rows said `verified:
+no` and all 26 would have rendered, because nothing read that column.
+Confidence is a session's opinion of its own memory, which is the thing that
+was already wrong, so it can never be the check. A plan row now carries
+`verified`, `checked` and a `sources` line that points at something, and
+`gm_fact_check.py` refuses a night still to come that has none:
+`F01_FACT_UNVERIFIED`, `F02_FACT_NO_SOURCE`, and `F03_FACT_STALE` at the same
+90 days as the trivia bank, read from the same constant. `partly` and `n/a`
+pass and are listed on every run, because an exception nobody sees is an
+exception that spreads. The gate cannot tell a true fact from a false one and
+does not claim to; it refuses the condition all 4 shipped under. It is scoped
+to nights on or after today for the reason C13 had to be. `halloween-33` has no
+`verified` column at all, 20 nights published and 28 still to come, and the
+gate says so every run.
+
 ## Voice
 
 Anything written for Amanda's audience follows the Gentle Muse voice: calm,
