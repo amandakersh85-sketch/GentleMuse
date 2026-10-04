@@ -3750,3 +3750,109 @@ With 5 days to go the only finding solid enough to act on is the platform one:
 15 matched pairs, Facebook ahead in 14. If the goal were reach rather than
 Instagram followers, the allocation would be obvious. The goal is Instagram
 followers, which is the tension the wrap will have to state plainly.
+
+---
+
+# Day 26 scrub — 2026-10-04 (02:36 UTC / 10-03 21:36 CT)
+
+Full corpus, Blotato, since 09/08. Instagram 100 posts, Facebook 66.
+
+## 2 breakouts tonight, neither on Instagram
+
+**Facebook, Night 4 of 33: 1,158 views.** Best Facebook post of the campaign
+and the highest number on any platform since Cesa's 1,104 on 09/28.
+
+**Cesa's TikTok, "she lifts me up for a kiss": 969 views, 50 likes.** Her
+previous TikTok best was 374. This is a 2.6x jump.
+
+The same Cesa clip on Instagram did 216 views, 177 reach. The same seasonal
+fact on Instagram did 7.
+
+## The seasonal run, 4 nights
+
+| Night | Instagram | Facebook | Ratio |
+|---|---|---|---|
+| 1 | 1 | 179 | 179x |
+| 2 | 138 | 211 | 1.5x |
+| 3 | 4 | 122 | 30x |
+| 4 | **7** | **1,158** | **165x** |
+
+Instagram: 1, 138, 4, 7. Facebook: 179, 211, 122, 1,158.
+
+4 nights is still under the 7 day bar, but the shape is now hard to miss. The
+Instagram arm has cleared 10 views once in 4 nights. The Facebook arm has not
+dropped below 122 and just produced the campaign's best post.
+
+## Pair 16 and the standing tally
+
+| Content | Date | Instagram | Facebook | Winner |
+|---|---|---|---|---|
+| Night 4 of 33 | 10/02 | 7 | 1,158 | FB, 165x |
+
+Running tally: **Facebook 15, Instagram 1.**
+
+## Cesa's platform split flipped
+
+| Clip | Date | Cesa Instagram | Cesa TikTok |
+|---|---|---|---|
+| she sat down | 09/28 | 1,104 | 374 |
+| i have been placed in a blanket | 10/02 | 253 | 249 |
+| **she lifts me up for a kiss** | **10/03** | **216** | **969** |
+
+Instagram led 3x on 09/28, they were level on 10/02, and TikTok led 4.5x on
+10/03. Her Instagram band has been steady at 138 to 253 for a week while TikTok
+went 374, 249, 969.
+
+Her account is 9 days old on both platforms, so neither has a settled baseline.
+Noting the flip, not calling it.
+
+## Where the campaign's reach actually is, with 4 days left
+
+Best numbers of the last 7 days, any platform:
+
+| Post | Platform | Views |
+|---|---|---|
+| Night 4 of 33 | **Facebook** | **1,158** |
+| she sat down, that was her mistake | Instagram, Cesa | 1,104 |
+| she lifts me up for a kiss | **TikTok**, Cesa | **969** |
+| she thinks she's holding me | Instagram, Cesa | 977 |
+| i have been placed in a blanket | Instagram, Cesa | 253 |
+
+Every 4 digit result in the last week came from Facebook or from Cesa's
+accounts. **@thegentlemuse2026, the account the 1,000 follower goal is counted
+on, has not cleared 150 views since 09/21.**
+
+## Volume, 09/30 to 10/03
+
+| Channel | 30 | 01 | 02 | 03 |
+|---|---|---|---|---|
+| IG @thegentlemuse2026 | 4 +1 misrouted | 5 | 2 | 3 |
+| IG @cesasgoldenyears | 2 | 1 | 1 | 1 |
+| TikTok @thegentlemuse2026 | 3 | 4 | 2 | 3 |
+| TikTok @cesasgoldenyears | 1 | 1 | 1 | 1 |
+| Facebook | 2 | 3 | 2 | 3 |
+| YouTube | 2 | 3 | 2 | 3 |
+
+No publish failures on 10/03. 6 clean days, lifetime 3 failures in 25.
+
+## Tracking items
+
+1. **Trivia on Instagram:** Nights 1 to 4 read 1, 138, 4, 7 against the 37
+   baseline. Facebook read 179, 211, 122, **1,158**, which clears the top of
+   the 230 to 577 band for the first time in the campaign.
+2. **10,000 view Cesa breakout:** no. Cesa's ceiling is 1,104 on Instagram and
+   969 on TikTok.
+3. **Volume:** steady. Cesa still at 1 post a day, 4th day.
+4. **Watermarks and AI badges:** no frame checks tonight.
+5. **Product posts missing a SKU:** none. The 10/03 Target Pet Day TikTok
+   carries `sku/53040052` for the Freshpet. 4 correct posts in a row, and it
+   uses Cesa, which is the first crossover between the 2 content lines.
+
+## Follower count
+
+**Still 188 manual from 09/12, now 22 days stale.** Day 26 of 30, 4 days left.
+
+The campaign ends 10/08 and the wrap will have to report a follower number. If
+Amanda does not read it off the app before then, the final entry will say the
+campaign ended without ever measuring its own goal, which would be a worse
+outcome than missing the target.
