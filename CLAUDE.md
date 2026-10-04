@@ -146,6 +146,25 @@ where a post goes, and on 10/01 it still gave 23:00 UTC to ROTATION on tiktok
 rule existed, on 09/28 and again on 09/30, and both times it showed up only as
 C05 spacing noise.
 
+A video that carries no sound is refused before it ships. Amanda, 10/04:
+"it's going out with no sound again." 6 posts from 3 assets were queued with
+no audio track at all, all from the 4459xxx batch, and every gate passed them
+because a silent reel is not starved, not early, not a repeat and not a
+collision. `gm_audio_check.py` reads the file rather than a column, because
+the queue payload says nothing about audio and never will:
+`A01_NO_AUDIO_TRACK` refuses a video post with no sound track and
+`A02_AUDIO_UNREADABLE` reports a container it could not read instead of
+passing it. It costs 2 range requests, not a download.
+
+The bed is `reel-factory/beds/eerie-calm-bed.wav` and it is the sound of the
+season. Every reel takes a different slice of it, which `beds/README.md` has
+said all along and which was not happening: all 20 published nights open on
+the identical 18 seconds. Music carries these, not voiceover. Amanda, 10/04:
+"the voiceovers don't hit that hard. The music wins, honestly. It does
+better, and it's free." Levels are matched to the run at mean -17.4 dB and a
+peak under -1.5, and a bed with no voiceover over it does not sit at the
+`volume=0.32` the ducking chain uses.
+
 A post has a surface, and the board records it. A story and a feed reel 105
 minutes apart on 1 account are the intended pattern here, the reel and a story
 pointing at it, not 2 posts burying each other. C05 is checked per account and

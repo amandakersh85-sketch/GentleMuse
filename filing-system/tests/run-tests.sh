@@ -1155,5 +1155,11 @@ if python3 "$HERE/promise_assert.py"; then
 else echo "FAIL  a dark night is found under a day that looks full"; fail=$((fail+1)); fi
 
 echo
+echo "== a video post that carries no sound (added 10/04) =="
+if python3 "$HERE/audio_assert.py"; then
+  echo "PASS  a silent reel is refused before it ships"; pass=$((pass+1))
+else echo "FAIL  a silent reel is refused before it ships"; fail=$((fail+1)); fi
+
+echo
 echo "$pass passed, $fail failed"
 [ "$fail" = 0 ]
