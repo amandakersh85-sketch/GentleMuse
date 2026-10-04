@@ -123,6 +123,16 @@ for empty in F.EMPTY_SOURCE:
     if empty:
         want("sources: %s" % empty, [row(1, sources=empty)], "F02_FACT_NO_SOURCE")
 
+# The 2 shapes a sources cell comes in. The Thanksgiving plan writes prose and
+# the Halloween plan writes a list of {name, url}. str([]) is "[]", which is not
+# in EMPTY_SOURCE, so the first version of this gate passed an empty list.
+want("sources as a list of citations",
+     [row(1, sources=[{"name": "Etymonline, haunt",
+                       "url": "https://www.etymonline.com/word/haunt"}])])
+want("sources as an empty list", [row(1, sources=[])], "F02_FACT_NO_SOURCE")
+want("sources as a list of empty citations",
+     [row(1, sources=[{"name": "", "url": ""}])], "F02_FACT_NO_SOURCE")
+
 # Facts move. CLAUDE.md sets 90 days for the trivia bank and this reads the
 # same constant, so moving it moves both.
 want("never checked", [row(1, checked="")], "F03_FACT_STALE")

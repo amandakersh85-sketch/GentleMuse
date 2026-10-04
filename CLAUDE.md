@@ -307,9 +307,13 @@ was already wrong, so it can never be the check. A plan row now carries
 pass and are listed on every run, because an exception nobody sees is an
 exception that spreads. The gate cannot tell a true fact from a false one and
 does not claim to; it refuses the condition all 4 shipped under. It is scoped
-to nights on or after today for the reason C13 had to be. `halloween-33` has no
-`verified` column at all, 20 nights published and 28 still to come, and the
-gate says so every run.
+to nights on or after today for the reason C13 had to be, and a reused night is
+checked like any other, because the hook is the line the caption opens with.
+It found `halloween-33` on its first run with no `verified` column at all, and
+that pass ran the same day: 5 of those 25 facts needed correcting, and night
+33, the finale, rests on Samhain as the Celtic new year, which Rhys and Frazer
+proposed in the late 1800s and which is disputed. The dark half of the year is
+what is attested and what the row now says.
 
 ## Voice
 

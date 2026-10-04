@@ -32,6 +32,12 @@ the missing field and the gate that refuses without it.
                        check the check
   F03_FACT_STALE       checked longer ago than DECAY_DAYS, or never
 
+A reused night is checked like any other. Its body text lives in an already
+rendered reel, but campaign-plans.csv says the hook is the line the caption
+opens with, so the hook is a published claim and gets read against a source
+like everything else. "Reused" is not an exemption, or it becomes the way an
+unchecked fact ships.
+
 A row that fails F01 is not also reported under F02 or F03. Doing the check
 is what produces a source and a date, so 1 fix closes all 3 and 3 findings
 would be noise.
@@ -79,6 +85,26 @@ def state(row):
     return ""
 
 
+def source_text(row):
+    """The sources cell flattened, whatever shape it is in.
+
+    The Thanksgiving plan writes prose and the Halloween plan writes a list of
+    {name, url}. str() on an empty list gives "[]", which is not in
+    EMPTY_SOURCE, so the first version of this gate passed a row whose sources
+    list was empty. Both shapes normalise here instead.
+    """
+    src = row.get("sources")
+    if isinstance(src, (list, tuple)):
+        parts = []
+        for s in src:
+            if isinstance(s, dict):
+                parts += [str(v) for v in s.values()]
+            else:
+                parts.append(str(s))
+        src = " ".join(parts)
+    return str(src or "").strip()
+
+
 def rows_from(plan, items, today):
     """Plan rows split into the nights still to come and the ones gone by."""
     field = (plan.get("DateField") or "date").strip()
@@ -112,7 +138,7 @@ def check_plan(plan, today):
         else:
             if st != "yes":
                 declared.append((name, it, st))
-            src = str(it.get("sources") or "").strip()
+            src = source_text(it)
             if src.lower() in EMPTY_SOURCE:
                 unsourced.append(it)
             when = str(it.get("checked") or "").strip()

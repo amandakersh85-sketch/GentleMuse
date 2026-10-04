@@ -109,8 +109,7 @@ both on every run so they cannot quietly multiply:
    time. Halloween stops on 10/31 and this starts on 11/01, so they never
    overlap, but the handover is a manual edit on 1 day and nothing reminds
    anyone to make it.
-5. **The Halloween plan has no verification record at all.** No `verified`
-   column, no `checked` column, 20 nights already published and 28 still to
-   come. `gm_fact_check.py` reports it on every run. 3 of the 28 were spot
-   checked on 10/04 and all 3 held, so this is a missing record rather than a
-   known error, but it is still 28 nights nobody can show their work for.
+5. **The Halloween plan was checked on 10/04 too.** It had no `verified` or
+   `checked` column at all when the gate first ran. All 28 nights still to come
+   have been read against sources now: 5 needed correcting and night 33, the
+   finale, rests on a disputed claim. `halloween-33/README.md` has the detail.
