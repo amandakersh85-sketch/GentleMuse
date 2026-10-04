@@ -1,9 +1,10 @@
 import { chromium } from '/opt/node22/lib/node_modules/playwright/index.mjs';
-import { readFileSync, mkdirSync, rmSync } from 'fs';
+import { readFileSync, mkdirSync, rmSync, existsSync, renameSync } from 'fs';
 import { execFileSync } from 'child_process';
 import { createServer } from 'http';
 import { extname, join } from 'path';
 import { createReadStream, statSync } from 'fs';
+import { loadBeds, layBed } from './bed.mjs';
 
 /* Chromium refuses to load file:// media from a file:// page, so the <video>
    never fires loadedmetadata and every frame renders with an empty plate.
@@ -49,6 +50,7 @@ const FFMPEG = process.env.FFMPEG;
 const reels = JSON.parse(readFileSync(`${DIR}/${process.env.REELS || 'reels.json'}`, 'utf8'))
   .filter(r => !ONLY || r.id === ONLY);
 
+const BEDS = loadBeds(DIR);
 const server = await serve(DIR);
 const ORIGIN = `http://127.0.0.1:${server.address().port}`;
 const browser = await chromium.launch();
@@ -108,11 +110,30 @@ for (const reel of reels){
   }
   await page.close();
   const out = `${DIR}/GM-${reel.slug}.mp4`;
+  const mute = `${DIR}/GM-${reel.slug}.silent.mp4`;
   execFileSync(FFMPEG, ['-y','-loglevel','error','-framerate',String(FPS),
     '-i', `${frames}/f%04d.jpg`, '-c:v','libx264','-preset','medium','-crf','20',
-    '-pix_fmt','yuv420p','-movflags','+faststart', out]);
+    '-pix_fmt','yuv420p','-movflags','+faststart', mute]);
   rmSync(frames, { recursive: true, force: true });
-  console.log(`${reel.id}  ${N} frames  ${((Date.now()-t0)/1000).toFixed(0)}s  -> GM-${reel.slug}.mp4`);
+
+  // The bed, or no file at all. A reel that cannot find its music is refused
+  // here rather than written out silent and discovered on a published post.
+  let bed;
+  try {
+    bed = layBed({ FFMPEG, dir: DIR, videoOnly: mute, reel,
+                   beds: BEDS, outPath: out, family: process.env.BED });
+    rmSync(mute, { force: true });
+  } catch (e){
+    rmSync(mute, { force: true });
+    rmSync(out, { force: true });
+    await browser.close(); server.close();
+    console.error(`\n${reel.id} REFUSED: ${e.message}`);
+    process.exit(3);
+  }
+  console.log(`${reel.id}  ${N} frames  ${((Date.now()-t0)/1000).toFixed(0)}s  ` +
+              `-> GM-${reel.slug}.mp4  bed ${bed.family} @${bed.off}s ` +
+              `${bed.gain >= 0 ? '+' : ''}${bed.gain.toFixed(1)}dB ` +
+              `mean ${bed.mean.toFixed(1)} peak ${bed.max.toFixed(1)}`);
 }
 await browser.close();
 server.close();

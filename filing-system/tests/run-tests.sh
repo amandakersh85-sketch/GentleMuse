@@ -1161,5 +1161,15 @@ if python3 "$HERE/audio_assert.py"; then
 else echo "FAIL  a silent reel is refused before it ships"; fail=$((fail+1)); fi
 
 echo
+echo "== a reel rendered without its music (added 10/04) =="
+if command -v node >/dev/null 2>&1 && [ -n "${FFMPEG:-}" ]; then
+  if FFMPEG="$FFMPEG" node "$HERE/../../reel-factory/bed.test.mjs"; then
+    echo "PASS  the renderer refuses a reel it cannot put a bed under"; pass=$((pass+1))
+  else echo "FAIL  the renderer refuses a reel it cannot put a bed under"; fail=$((fail+1)); fi
+else
+  echo "SKIP  the bed step needs node and FFMPEG set; everything else ran"
+fi
+
+echo
 echo "$pass passed, $fail failed"
 [ "$fail" = 0 ]

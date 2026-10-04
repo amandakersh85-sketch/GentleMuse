@@ -156,6 +156,16 @@ the queue payload says nothing about audio and never will:
 `A02_AUDIO_UNREADABLE` reports a container it could not read instead of
 passing it. It costs 2 range requests, not a download.
 
+The bed goes on in `reel-factory/bed.mjs`, which `build.mjs` calls on every
+render, and a reel it cannot put a bed under is **refused** rather than written
+out silent. Until 10/04 the recipe was prose in `beds/README.md` and nothing
+ran it, so the muxing was done by hand: 1 offset for the whole Halloween run,
+and 6 posts queued with no audio track at all. `beds/beds.csv` maps a sound
+family to its file, the payload names the family, and the refusal says which
+bed to go and get. After muxing it measures the result and deletes it if there
+is nothing audible, because a real AAC track carrying silence passes every
+other check.
+
 The bed is `reel-factory/beds/eerie-calm-bed.wav` and it is the sound of the
 season. Every reel takes a different slice of it, which `beds/README.md` has
 said all along and which was not happening: all 20 published nights open on
