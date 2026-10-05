@@ -3856,3 +3856,100 @@ The campaign ends 10/08 and the wrap will have to report a follower number. If
 Amanda does not read it off the app before then, the final entry will say the
 campaign ended without ever measuring its own goal, which would be a worse
 outcome than missing the target.
+
+---
+
+# Day 27 scrub — 2026-10-05 (02:36 UTC / 10-04 21:36 CT)
+
+Full corpus, Blotato, since 09/08. Instagram 100 posts, Facebook 68.
+
+## Cesa is now the campaign's only growing line
+
+| Clip | Date | Cesa Instagram | Cesa TikTok |
+|---|---|---|---|
+| i have been placed in a blanket | 10/02 | 253 | 249 |
+| she lifts me up for a kiss | 10/03 | 216 | **969** |
+| **the leaves came back** | **10/04** | **327** | **935** |
+
+Instagram: 253, 216, **327** with 278 reach, 6.10s watch and 13 likes. Her best
+steady state result, and the band has risen every day this week outside the
+09/28 spike.
+
+TikTok: 2 consecutive posts near 950, with 82 likes on the latest. Her TikTok
+best before 10/03 was 374.
+
+She is on 1 post a day and has been for 6 days. **Both of her channels are
+producing the campaign's best numbers on half the cadence they ran at launch.**
+
+## The seasonal run, 5 nights
+
+| Night | Instagram | Facebook |
+|---|---|---|
+| 1 | 1 | 179 |
+| 2 | 138 | 211 |
+| 3 | 4 | 122 |
+| 4 | 7 | **1,158** |
+| 5 | **8** | 198 |
+
+Instagram median across 5 nights: **7**. Facebook median: **198**.
+
+Instagram has cleared 10 views once in 5 nights. At 5 nights this is still
+short of the 7 day bar I set, but it is 2 nights from clearing it and the
+direction has not wavered since Night 2.
+
+## Pairs 17 and 18
+
+| Content | Date | Instagram | Facebook | Winner |
+|---|---|---|---|---|
+| Night 5 of 33 | 10/03 | 8 | 198 | FB, 25x |
+| You're not lazy, you're overwhelmed | 10/03 | 22 | 303 | FB, 14x |
+
+Running tally: **Facebook 17, Instagram 1.**
+
+## Volume collapsed on 10/04
+
+| Channel | 01 | 02 | 03 | 04 |
+|---|---|---|---|---|
+| IG @thegentlemuse2026 | 5 | 2 | 3 | **1** |
+| IG @cesasgoldenyears | 1 | 1 | 1 | 1 |
+| TikTok @thegentlemuse2026 | 4 | 2 | 3 | **1** |
+| TikTok @cesasgoldenyears | 1 | 1 | 1 | 1 |
+| Facebook | 3 | 2 | 3 | **1** |
+| YouTube | 3 | 2 | 3 | **1** |
+
+10/04 ran exactly 1 post per channel, the seasonal night plus Cesa's pair.
+Nothing else published. It was a Sunday, and the queue may simply have been
+built that way, but with 3 days left it is worth knowing whether that was a
+choice or a gap.
+
+No publish failures on 10/04. 7 clean days, lifetime 3 failures in 27.
+
+## Tracking items
+
+1. **Trivia on Instagram:** Nights 1 to 5 read 1, 138, 4, 7, 8 against the 37
+   baseline. Median 7. Facebook read 179, 211, 122, 1,158, 198.
+2. **10,000 view Cesa breakout:** no. Ceiling stands at 1,104 Instagram on
+   09/28 and 969 TikTok on 10/03.
+3. **Volume:** 1 post per channel on 10/04, the lowest day of the campaign.
+4. **Watermarks and AI badges:** no frame checks tonight.
+5. **Product posts missing a SKU:** no Club Target posts 10/04.
+
+## Follower count
+
+**Still 188 manual from 09/12, now 23 days stale.** Day 27 of 30, 3 days left.
+
+## Note for the wrap
+
+The campaign ends 10/08 and the final entry fires 10/09. On current evidence it
+will have to report:
+
+- A goal of 1,000 Instagram followers on @thegentlemuse2026, against a start of
+  190 and a last reading of 188 on 09/12.
+- 18 matched content pairs, Facebook ahead in 17.
+- The campaign's 3 best posts all on channels that do not feed that goal:
+  Facebook at 1,158, Cesa's Instagram at 1,104, Cesa's TikTok at 969.
+- A seasonal run that is working on Facebook and not on Instagram.
+
+The useful question the wrap should answer is not whether 1,000 was hit. It is
+whether the goal was pointed at the right account, and the honest answer the
+data supports is no. That is a better outcome than a number.
