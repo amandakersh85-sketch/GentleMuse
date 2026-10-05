@@ -80,6 +80,9 @@ Two failures this lane has that the holiday lane does not:
 
   7  APPROVE    Amanda. Every time. See section 5.
 
+The daily job runs steps 5 and 6 on its own and stops at step 7: it opens
+a pull request, and Amanda's merge is the approval. Section 8.
+
 ────────────────────────────────────────────────────────────────────────
 4. THE GATE, RULE BY RULE
 ────────────────────────────────────────────────────────────────────────
@@ -165,3 +168,56 @@ failure this whole run exists to prevent.
 
 First production job: open the 3 URLs, read them, and set Verified=yes and
 VerifiedOn only for the ones that hold up.
+
+────────────────────────────────────────────────────────────────────────
+8. THE DAILY JOB (added 09/28/2026)
+────────────────────────────────────────────────────────────────────────
+
+The lane runs itself every morning as 2 free GitHub jobs. The whole
+procedure, rule by rule, is daily-trivia/README.md. In short:
+
+  1  7:30 AM Central, daily-trivia/make.py picks the next verified fact
+     (scripts/gm_trivia_pick.py), writes its 4 captions from the Fact and
+     the Backbone and each platform's ask in data/trivia-cta.csv, runs
+     every caption through this SOP's gate (T00 to T06) and the keyword
+     gate, has HeyGen make the video in her voice as 1 of her 2 podcast
+     looks, and opens a pull request with the video and the captions.
+  2  Amanda merges it, or closes it to skip the fact.
+  3  The merge runs daily-trivia/schedule.py, which puts the 4 posts into
+     the next open daytime slots, each with a time, 2 hours clear of her
+     other posts, leaving 10 queue slots free for the Halloween countdown.
+
+Why it looks like this
+
+A design for this lane arrived on 09/28 as an n8n workflow: a webhook,
+OpenAI for the script, HeyGen for the video, Blotato to publish. It broke
+4 rules this SOP already states.
+
+  It took a topic.     "World History - Forgotten Inventions". Outside the
+                       lane, and a topic handed to a model asks the model
+                       to supply the facts. Section 2 is why that cannot
+                       happen. The daily job takes 1 verified row and writes
+                       only what the row says.
+  It had no key.       Run on n8n 2.40.7, the node as given started the
+                       workflow for anyone who called it.
+  It answered first.   The caller heard "Workflow was started" before
+                       anything had looked at the call.
+  It ended at Blotato. Section 5. The daily job stops at a pull request.
+
+An n8n version that fixed all 4 was built and tested the same day (commit
+e09d237 holds it). It was set aside because n8n Cloud has no free plan and
+Amanda chose free, on GitHub, the way the Blotato refill and the Halloween
+loader already run.
+
+What it needs, once
+
+  HEYGEN_API_KEY as a repository secret. Until it is there the morning job
+  says "Not set up yet" and makes nothing. The key spends HeyGen API
+  credits.
+  Actions allowed to open pull requests, in the repository's Actions
+  settings.
+  Verified rows. Each fact is made once, so the hunt in section 3 sets the
+  pace. With nothing left the morning job fails and says so, rather than
+  going quiet.
+
+The links for both settings are in daily-trivia/README.md.

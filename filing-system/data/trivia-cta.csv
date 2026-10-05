@@ -1,0 +1,5 @@
+Platform,AccountId,Keyword,Line,Link,Hashtags,Why
+instagram,45886,TUESDAY,Comment TUESDAY and I'll send you the weekly note.,,#gentlemuse,"The SEASONAL line in cta-lines.csv with the keyword swapped. Automation 2771 answers TUESDAY here, and links in an Instagram caption are not clickable, so the keyword carries it."
+facebook,30840,TUESDAY,Comment TUESDAY and I'll send you the weekly note.,https://just-another-tuesday-gm.subscribepage.io,,"Automation 2772 answers TUESDAY and Facebook links are clickable, so it carries both, the same shape as the SEASONAL line."
+tiktok,41488,,Follow for the real one. The note is in my bio.,,#LearnOnTikTok,"No automation, and a caption URL is not tappable. The TikTok line in cta-lines.csv without every season, which this lane is not."
+youtube,36129,,"Just Another Tuesday, 1 email a week:",https://just-another-tuesday-gm.subscribepage.io,#gentlemuse #shorts,"No automation on YouTube. The line Just Another Tuesday posts have carried there since 09/10. The link sits on the next line because the line ends with a colon."
