@@ -5,7 +5,8 @@ Storefront `club.target.com/a/amanda.20`.
 
 ## The one number that changed everything
 
-Amanda confirmed on 30 Aug that **Instagram does not credit below 500 followers.**
+~~Amanda confirmed on 30 Aug that **Instagram does not credit below 500 followers.**~~
+**OVERTURNED 2026-10-05: an Instagram STORY submission WAS CREDITED, with Instagram at 208 followers.** Submit Instagram challenges, Stories first. See `content/canon/instagram-eligibility.md`. That puts ~30 of the ~40 board items, including all 13 IG Story challenges, back in play.
 Portal total is **574**.
 
 | Placement | Nominal | Actual, today |
