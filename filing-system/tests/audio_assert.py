@@ -95,6 +95,24 @@ unreadable = A.check(A.rows_from([post("p4", "missing.mp4")]), local=TMP)
 want([f["rule"] for f in unreadable], ["A02_AUDIO_UNREADABLE"],
      "an unreachable file is reported, not called clean")
 
+# A post whose media went missing on the way in is not a still and is not
+# clean. It is a hole in the input, and the only thing that makes it visible is
+# counting what did NOT reach the gate. On the 10/05 nightly 26 posts lost
+# their mediaUrls while the queue was assembled from 2 Blotato endpoints, the
+# gate read 135 mp4 posts and said clean, and the run's 1 silent post was in
+# the 26 it never saw.
+stripped = {"id": "p5", "scheduledAt": "2026-10-13T15:00:00.000Z",
+            "draft": {"target": {"targetType": "tiktok"},
+                      "content": {"platform": "tiktok"},
+                      "accountId": "41488"}}
+want(A.rows_from([stripped]), [], "a post with no mediaUrls yields no row")
+queue = [post("p6", "sound.mp4"), stripped, still]
+reached = len({r["id"] for r in A.rows_from(queue)})
+nomedia = sum(1 for i in queue
+              if not ((i.get("draft") or {}).get("content") or {}).get("mediaUrls"))
+want((reached, len(queue), nomedia), (1, 3, 1),
+     "the gate can say how many queue rows it never saw")
+
 for n in ("sound.mp4", "silent.mp4"):
     os.remove(os.path.join(TMP, n))
 os.rmdir(TMP)

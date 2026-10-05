@@ -195,12 +195,25 @@ def main():
     ap.add_argument("--cache")
     ap.add_argument("--local", help="read files from here instead of the network")
     a = ap.parse_args()
-    rows = load_queue(a.queue)
+    items = json.load(open(a.queue))
+    items = items["items"] if isinstance(items, dict) else items
+    rows = rows_from(items)
     if not rows:
         print("no mp4 posts to check")
         return 2
     findings = check(rows, cache=a.cache, local=a.local)
-    print("%d mp4 posts, %d distinct files" % (len(rows), len({r["url"] for r in rows})))
+    # The denominator, because the numerator alone cannot be wrong out loud.
+    # On the 10/05 nightly the queue was assembled by hand from 2 Blotato
+    # endpoints and 26 posts lost their mediaUrls on the way. The gate read
+    # 135 mp4 posts and said clean, and the 1 silent post in the run was in
+    # the 26 it never saw. 135 is not visibly wrong. 135 of 175 with 40
+    # carrying no media is.
+    carried = len({r["id"] for r in rows})
+    nomedia = sum(1 for i in items
+                  if not ((i.get("draft") or {}).get("content") or {}).get("mediaUrls"))
+    print("%d mp4 posts, %d distinct files. %d of %d queue rows carry an mp4, "
+          "%d carry no media at all" % (
+              len(rows), len({r["url"] for r in rows}), carried, len(items), nomedia))
     for f in findings:
         print("%-22s %s" % (f["rule"], f["detail"]))
     if not findings:
