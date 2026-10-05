@@ -315,6 +315,27 @@ that pass ran the same day: 5 of those 25 facts needed correcting, and night
 proposed in the late 1800s and which is disputed. The dark half of the year is
 what is attested and what the row now says.
 
+A correction that does not reach the queue is a 2nd version of the truth. On
+10/04 the fact check corrected night 10 of the Halloween run from candy corn
+"was invented in the 1880s by George Renninger" to "is credited to", because
+the attribution is oral history and the sources say so. The loader had written
+the old sentence into the queue on 10/03, and 4 posts were going out on 10/08
+still stating it as record. Every rule here reads the board's shape and not its
+words: C01 counts posts, C05 counts minutes, C13 counts nights, C15 counts
+slots, A01 opens the file. `gm_caption_check.py` reads the words.
+`C17_CAPTION_STALE` reports a queued post whose opening block is no longer its
+plan row's hook, fact and backbone. The join is the hook, which
+`campaign-plans.csv` already declares, and the comparison stops at the
+countdown line because everything after it is a per-platform call to action.
+
+A wave that has rendered is not a wave you can redraft. All 30 Halloween reels
+are built and uploaded, and 26 of them close the video on the caption's
+backbone line word for word. Rewriting a closing line there does not change a
+caption, it desyncs the caption from the words on screen. Thanksgiving and
+Christmas were unrendered drafts when they were redrafted on 10/05, which is
+why that cost nothing. Check `weeks/media.json` and `beats.json` before
+offering to rewrite anything on a wave that is already shipping.
+
 ## Voice
 
 Anything written for Amanda's audience follows the Gentle Muse voice: calm,

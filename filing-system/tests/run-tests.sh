@@ -1171,6 +1171,16 @@ if python3 "$HERE/fact_assert.py"; then
 else echo "FAIL  an unchecked fact is refused before it renders"; fail=$((fail+1)); fi
 
 echo
+echo "== a queued caption that no longer matches its plan (added 10/05) =="
+# The 10/04 fact check corrected night 10 of the Halloween run. The loader had
+# written the old sentence into the queue the day before, and 4 posts were going
+# out on 10/08 still stating an oral-history attribution as record. Every rule
+# here reads the board's shape; not 1 of them read its words.
+if python3 "$HERE/caption_assert.py"; then
+  echo "PASS  a correction that never reached the queue is found"; pass=$((pass+1))
+else echo "FAIL  a correction that never reached the queue is found"; fail=$((fail+1)); fi
+
+echo
 echo "== the caption sheet regenerates from the plan (added 10/05) =="
 # plan.json is what the gates read and the sheet is what Amanda reads. The sheet
 # was inline python twice, once per wave, which is how a 3rd copy gets written
