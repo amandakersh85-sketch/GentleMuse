@@ -9,8 +9,8 @@
     "fb_yt": "00:30Z",
     "lane": "christmas",
     "hook": "A reindeer's eyes change colour for the winter.",
-    "fact": "The mirrored layer behind the retina is gold in summer and deep blue by midwinter. Blue reflects less light back out and scatters more of it inside the eye, so more gets absorbed. It is the difference between a mirror and a room with the lamps on.",
-    "backbone": "The animal rebuilds its own eye for the dark.",
+    "fact": "The tapetum lucidum, the mirrored layer behind the retina, is gold in summer and deep blue by midwinter. Gold throws light back out of the eye. Blue scatters it inside, where the retina gets another go at it. Months of a pupil held wide is what squeezes the tissue into changing colour.",
+    "backbone": "By December it is not the same eye it was using in July.",
     "era": "2013",
     "sources": [
       {
@@ -38,8 +38,8 @@
     "fb_yt": "00:30Z",
     "lane": "christmas",
     "hook": "Every reindeer with antlers at Christmas is female.",
-    "fact": "Reindeer are the only deer whose females grow antlers. The males drop theirs between late November and mid December. The females keep theirs all winter, because they are pregnant and antlers are how you hold a patch of cleared snow with food under it.",
-    "backbone": "The 8 on the roof are pregnant and they are armed.",
+    "fact": "Reindeer are the only deer whose females grow antlers at all. The bulls drop theirs between late November and mid December. The cows keep theirs until spring, because they are pregnant through the winter and an antler is how you hold a patch of cleared snow with food under it.",
+    "backbone": "Anything on that roof still wearing antlers in December is a pregnant cow guarding her dinner.",
     "era": "none",
     "sources": [
       {
@@ -71,8 +71,8 @@
     "fb_yt": "00:30Z",
     "lane": "christmas",
     "hook": "Caroling was dancing before it was singing.",
-    "fact": "Carol comes from the Old French carole, a ring dance with singers. In English around 1300 it meant the dance, and to carol meant to dance in a ring. The sense of singing for joy arrives late in the 1300s. A Christmas hymn is only what it means from about 1500.",
-    "backbone": "For 200 years the word meant your feet, not your voice.",
+    "fact": "Carol comes from the Old French carole, a ring dance with singers in it. In English around 1300 it meant the dance itself, and to carol meant to move in a ring. Singing for joy arrives late in the 1300s. The Christmas hymn sense only turns up around 1500.",
+    "backbone": "For 200 years, caroling was something you did with your feet.",
     "era": "1300 to 1500",
     "sources": [
       {
@@ -100,8 +100,8 @@
     "fb_yt": "00:30Z",
     "lane": "christmas",
     "hook": "The X in Xmas is not crossing anything out.",
-    "fact": "It is chi, the first letter of Christos in Greek, used as shorthand for Christ by scribes for centuries. The oldest known use of the abbreviation is in an 11th century stretch of the Anglo-Saxon Chronicle, writing Xpes maesse. The modern spelling turns up in the 1500s.",
-    "backbone": "The shortcut people object to is about 1,000 years old.",
+    "fact": "X is chi, the first letter of Christos in Greek, and scribes used it as shorthand for Christ for centuries. The oldest known use sits in an 11th century stretch of the Anglo-Saxon Chronicle, written Xpes maesse. The spelling people argue about turns up in the 1500s.",
+    "backbone": "It has been written this way for about 1,000 years longer than anyone has been offended by it.",
     "era": "1000s to now",
     "sources": [
       {
@@ -133,8 +133,8 @@
     "fb_yt": "00:30Z",
     "lane": "christmas",
     "hook": "The first advent calendar was 24 biscuits sewn to cardboard.",
-    "fact": "Gerhard Lang's mother sewed 24 small biscuits onto card so he could eat 1 a day through December. In 1908, in Munich, he printed the idea: 24 doors, a picture behind each. Before that, German Lutherans counted the days in chalk marks on a wall.",
-    "backbone": "A mother's workaround became an industry.",
+    "fact": "Gerhard Lang's mother sewed 24 biscuits onto a piece of card so he could eat 1 a day through December. In 1908, in Munich, he printed the idea: 24 doors with a picture behind each. Before that, German Lutherans counted down in chalk marks on a door frame.",
+    "backbone": "Every one of them is a copy of a mother rationing biscuits.",
     "era": "1908",
     "sources": [
       {
@@ -166,8 +166,8 @@
     "fb_yt": "00:30Z",
     "lane": "christmas",
     "hook": "Rudolph was written to hand out at a department store.",
-    "fact": "Robert L. May was a 35 year old copywriter at Montgomery Ward in Chicago when his boss asked him for a Christmas story the store could give away. Montgomery Ward handed out 2.4 million copies in 1939. The catalogue department rejected Rollo for sounding too cheerful and Reginald for sounding too British.",
-    "backbone": "The most famous reindeer in the world is advertising.",
+    "fact": "Robert L. May was a 35 year old copywriter at Montgomery Ward in Chicago when his boss asked for a Christmas story the store could hand out at the counter. They gave away 2.4 million copies in 1939. The catalogue department had already turned down Rollo for sounding too cheerful and Reginald for sounding too British.",
+    "backbone": "He is a free gift with purchase, and he nearly went out as Rollo.",
     "era": "1939",
     "sources": [
       {
@@ -199,8 +199,8 @@
     "fb_yt": "00:30Z",
     "lane": "christmas",
     "hook": "Coca-Cola did not put Santa in red.",
-    "fact": "Thomas Nast had been drawing him for Harper's Weekly since the 1860s and had settled him into red by Merry Old Santa Claus in 1881. A red suited Santa drinking a Coke ran in 1930, a year before the Sundblom paintings everyone credits. What Coke supplied was volume.",
-    "backbone": "Repeat something often enough and people hand you the credit.",
+    "fact": "Thomas Nast drew Santa for Harper's Weekly from the 1860s and had him settled in red by Merry Old Santa Claus in 1881. A red suited Santa with a bottle of Coke ran in 1930, a year before Haddon Sundblom painted the ones everybody credits.",
+    "backbone": "Coca-Cola did not choose the colour. It bought enough space to make you think it did.",
     "era": "1881 to 1931",
     "sources": [
       {
@@ -232,8 +232,8 @@
     "fb_yt": "00:30Z",
     "lane": "christmas",
     "hook": "The first Christmas card got told off for the wine.",
-    "fact": "Henry Cole commissioned it and John Calcott Horsley drew it: 1,000 printed in London in 1843, a shilling hand coloured. The picture is a family toasting an absent friend, and the Temperance League objected because 1 of the glasses is in front of a child. It was not reprinted.",
-    "backbone": "The very first one was already too much for somebody.",
+    "fact": "Henry Cole commissioned it, John Callcott Horsley drew it, and 1,000 went on sale in London in 1843 at a shilling hand coloured. In the foreground a small girl is taking a sip from an adult's glass. The Temperance Society made enough noise about that 1 detail that no new Christmas card was printed for 3 years.",
+    "backbone": "The whole idea took 3 years to recover from the wine in its own picture.",
     "era": "1843",
     "sources": [
       {
@@ -241,8 +241,8 @@
         "url": "https://www.britannica.com/topic/Christmas-card"
       },
       {
-        "name": "Hyperallergic, the first commercial Christmas card and the temperance objection",
-        "url": "https://hyperallergic.com/606442/did-you-know-the-first-commercial-christmas-card-featured-underage-drinking/"
+        "name": "Smithsonian Magazine, the first commercially printed Christmas card: a young girl sipping from an adult's glass, and the 3 year gap before another was printed",
+        "url": "https://www.smithsonianmag.com/smart-news/first-commercially-printed-christmas-card-sale-holiday-season-180976459/"
       }
     ],
     "confidence": "high",
@@ -265,8 +265,8 @@
     "fb_yt": "00:30Z",
     "lane": "christmas",
     "hook": "The candy cane's Christian symbolism was invented in 1996.",
-    "fact": "The J for Jesus, the white for purity, the red for blood: all of it comes from a children's book called The Candymaker's Gift, published in 1996. Christmas cards before 1900 show the canes plain white. The stripes only turn up at the start of the 20th century.",
-    "backbone": "A tradition can be younger than the people repeating it.",
+    "fact": "The J for Jesus, the white for purity, the red for the blood: all of it comes from The Candymaker's Gift, a children's book published in 1996. Christmas cards printed before 1900 show the canes plain white. The stripes arrive after 1900, from a candy maker in Albany, Georgia.",
+    "backbone": "The ancient Christian symbol is younger than the people explaining it to you.",
     "era": "1996",
     "sources": [
       {
@@ -298,8 +298,8 @@
     "fb_yt": "00:30Z",
     "lane": "christmas",
     "hook": "Stockings are hanging there because of 3 bags of gold.",
-    "fact": "The story told of Nicholas, bishop of Myra in the 300s, is that a father could not raise dowries for his 3 daughters, which meant they could be sold. On 3 nights Nicholas threw gold through the window rather than hand it over and shame the man. It landed in the stockings drying by the fire.",
-    "backbone": "The gift was shaped to spare the man receiving it.",
+    "fact": "The story told of Nicholas, bishop of Myra in the 300s, is that a father could not raise dowries for his 3 daughters, which meant they could be sold. On 3 nights Nicholas put gold through the window instead of into the man's hand, and it landed in the stockings drying by the fire.",
+    "backbone": "He went in through a window so the father would never have to say thank you.",
     "era": "300s",
     "sources": [
       {
@@ -331,8 +331,8 @@
     "fb_yt": "00:30Z",
     "lane": "christmas",
     "hook": "The earliest sunset is not the shortest day.",
-    "fact": "Around this latitude the sun sets earliest about 12/07, a fortnight before the solstice, and the latest sunrise is in early January. The solstice is the shortest day, but the evenings have already started getting lighter by then. Earth's orbit is not a circle and the clock does not match the sun.",
-    "backbone": "The light comes back before the year turns.",
+    "fact": "At this latitude the sun sets earliest around 12/07, a fortnight before the solstice, and the latest sunrise is still weeks off in early January. Earth's orbit is not a circle, so the sun does not keep clock time, and the shortest day and the darkest evening are not the same day.",
+    "backbone": "The evenings start getting longer while the days are still getting shorter.",
     "era": "none",
     "sources": [
       {
@@ -364,8 +364,8 @@
     "fb_yt": "00:30Z",
     "lane": "christmas",
     "hook": "The poinsettia had a name for centuries before it got this one.",
-    "fact": "Cuetlaxochitl, in Nahuatl. The Aztecs grew it for red and purple dye and for medicine from the sap. It is named in English after Joel Poinsett, who saw it in southern Mexico in 1825 and sent cuttings to Charleston. The red parts are not petals. They are leaves.",
-    "backbone": "Naming something after the man who noticed it is a choice.",
+    "fact": "Cuetlaxochitl, in Nahuatl. The Aztecs grew it for red and purple dye and for medicine from the milky sap. Joel Roberts Poinsett, the first United States minister to Mexico, saw it in the south in 1825 and sent cuttings home to Charleston. The red parts are not petals. They are leaves.",
+    "backbone": "It had a name for centuries before it got one from a man who was passing through.",
     "era": "1825",
     "sources": [
       {
@@ -397,8 +397,8 @@
     "fb_yt": "00:30Z",
     "lane": "christmas",
     "hook": "Mistletoe means dung on a twig.",
-    "fact": "Old English misteltan: mistel for dung, tan for twig. It is named for how it arrives, in bird droppings on a branch. The plant then taps the tree for water and minerals for the rest of its life. We hang it in a doorway and kiss underneath it.",
-    "backbone": "The most romantic thing in the house is a parasite named after droppings.",
+    "fact": "Old English misteltan: mistel for dung, tan for twig. It is named for how it arrives, in bird droppings left on a branch. From there it taps the tree for water and minerals and never stops. We tie it over a doorway and kiss underneath it.",
+    "backbone": "Dung on a twig, hung at head height, and nobody has ever renamed it.",
     "era": "none",
     "sources": [
       {
@@ -430,8 +430,8 @@
     "fb_yt": "00:30Z",
     "lane": "christmas",
     "hook": "Silent Night was a poem for 2 years before it was a song.",
-    "fact": "Joseph Mohr wrote the words in 1816. On Christmas Eve 1818 he handed them to Franz Gruber and asked for a melody for 2 voices and a guitar, that evening. They sang it as a duet, Mohr on tenor and guitar. It left the village with an organ repairman who found the sheet music and passed it to touring singing families.",
-    "backbone": "It travelled because a repairman picked up a piece of paper.",
+    "fact": "Joseph Mohr wrote the words in 1816. On Christmas Eve 1818 he handed them to Franz Gruber and asked for a melody for 2 voices and a guitar, for that evening. In 1819 an organ maker called Karl Mauracher came to repair the church organ, heard it, and carried it home to the Ziller Valley. The Strasser children, who sang at markets between selling gloves, took it to Leipzig in 1831.",
+    "backbone": "It got out of that village in a repairman's head and travelled on with a family selling gloves.",
     "era": "1816 to 1818",
     "sources": [
       {
@@ -439,7 +439,11 @@
         "url": "https://www.historytoday.com/archive/months-past/first-performance-silent-night"
       },
       {
-        "name": "The mouse-ate-the-organ-bellows version is a myth and whether the organ was broken at all is disputed, so neither is in the fact",
+        "name": "stillenacht.at, Spreading of the Song: Karl Mauracher in 1819, the Rainer singers, and the Strasser children at Leipzig in 1831",
+        "url": "https://www.stillenacht.at/en/history/spreading-of-the-song"
+      },
+      {
+        "name": "The mouse-ate-the-bellows version is a myth and whether the organ was broken at all is disputed, so neither is in the fact",
         "url": "https://www.peninsuladailynews.com/life/issues-of-faith-the-story-of-a-silent-night"
       }
     ],
@@ -463,8 +467,8 @@
     "fb_yt": "00:30Z",
     "lane": "christmas",
     "hook": "There is no Christmas anywhere in Jingle Bells.",
-    "fact": "James Lord Pierpont published it in 1857 as The One Horse Open Sleigh. Read the words: snow, a sleigh, a girl, a crash, a bet about a faster horse. Not 1 mention of Christmas, a tree, a gift or a saint. It is a song about going fast in winter.",
-    "backbone": "It got adopted, not written, for the day.",
+    "fact": "James Lord Pierpont published it in 1857 as The One Horse Open Sleigh. Read the words: snow, a sleigh, a girl sitting beside him, an upset in a drift, and a bet that his horse is the faster one. No tree, no gift, no saint, no Christmas.",
+    "backbone": "It is a young man showing off in the snow, and we sing it at the nativity.",
     "era": "1857",
     "sources": [
       {
@@ -492,8 +496,8 @@
     "fb_yt": "00:30Z",
     "lane": "christmas",
     "hook": "Iceland has a Christmas cat that eats you for not getting new clothes.",
-    "fact": "Jolakotturinn prowls at Yule looking for anyone who did not get something new to wear. It belongs to Gryla, a troll in a mountain cave who comes down for badly behaved children, and to her 13 sons, who arrive 1 a night from 12/12.",
-    "backbone": "The monster's rule is that somebody has to have given you clothes.",
+    "fact": "Jolakotturinn prowls at Yule looking for anyone who did not get new clothes. It belongs to Gryla, a troll who comes down from a mountain cave to boil badly behaved children, and to her 13 sons, who arrive 1 a night from 12/12.",
+    "backbone": "The monster is not checking whether you were good. It is checking whether somebody bought you a jumper.",
     "era": "none",
     "sources": [
       {
@@ -525,8 +529,8 @@
     "fb_yt": "00:30Z",
     "lane": "christmas",
     "hook": "Tinsel was real silver, then it was lead.",
-    "fact": "It started in the 1600s as thin strands of actual silver, which tarnished. Tin and lead were cheaper and shinier, so lead is what hung on trees for most of the 20th century. In 1971 the FDA got manufacturers to stop importing it from 01/01/1972. It never formally banned it. There was not enough evidence.",
-    "backbone": "The shine got cheaper every time, and 1 of those times it was poisonous.",
+    "fact": "It began in the 1600s as thin strands of real silver, which tarnished black. Tin and lead were cheaper and stayed bright, so lead is what hung on trees for most of the 20th century. In 1971 the FDA talked importers into stopping from 01/01/1972. It never banned the stuff. It did not have the evidence.",
+    "backbone": "3 centuries of making the shine cheaper, and for most of 1 of them it was lead at a child's eye level.",
     "era": "1600s to 1972",
     "sources": [
       {
@@ -558,8 +562,8 @@
     "fb_yt": "00:30Z",
     "lane": "christmas",
     "hook": "The network thought A Charlie Brown Christmas was a disaster.",
-    "fact": "Too slow, too serious, a jazz score instead of songs, children instead of actors, no laugh track because Schulz refused one, and a boy reading the nativity out of Luke on prime time television. CBS ran it in 1965 because it was already scheduled.",
-    "backbone": "Everything they wanted taken out is why it is still on.",
+    "fact": "Too slow. Too serious. A jazz piano trio instead of carols. No laugh track, because Schulz refused one. The voices were real children rather than trained adults, and some were too young to read, so Bill Melendez fed Christopher Shea his lines 1 at a time. And a small boy reciting Luke on prime time. CBS ran it in 1965 only because it was already in the schedule.",
+    "backbone": "15 million households watched, half the televisions in the country, and every objection on that list is why.",
     "era": "1965",
     "sources": [
       {
@@ -567,8 +571,8 @@
         "url": "https://www.history.com/articles/charlie-brown-christmas-unexpected-classic"
       },
       {
-        "name": "Smithsonian Magazine, The Charlie Brown Christmas special was the flop that wasn't",
-        "url": "https://www.smithsonianmag.com/history/charlie-brown-christmas-special-history-television-classic-cbs-180957490/"
+        "name": "Smithsonian Magazine, CBS executives thought it would fail: real children instead of professional voice actors, and Melendez feeding Christopher Shea his lines",
+        "url": "https://www.smithsonianmag.com/smart-news/cbs-executives-thought-charlie-brown-christmas-would-fail-180953728/"
       }
     ],
     "confidence": "high",
@@ -591,8 +595,8 @@
     "fb_yt": "00:30Z",
     "lane": "christmas",
     "hook": "It's a Wonderful Life became a classic because of a clerical error.",
-    "fact": "The film did not do well in 1946. In 1974 the renewal paperwork was not filed and the copyright lapsed, so stations could run it for nothing, and they ran it constantly every December. That is when people learned it. In 1993 the rights holder used the underlying short story and the music to pull it back behind a licence.",
-    "backbone": "A flop became a tradition during the 19 years nobody owned it.",
+    "fact": "It did not do well in 1946. In 1974 the renewal paperwork was never filed, the copyright lapsed, and stations could run it for nothing, so they ran it constantly every December. That is where the audience came from. In 1993 the rights holder used the short story underneath it and the music to pull it back behind a licence.",
+    "backbone": "It became a Christmas tradition during the 19 years nobody owned it.",
     "era": "1946 to 1993",
     "sources": [
       {
@@ -620,8 +624,8 @@
     "fb_yt": "00:30Z",
     "lane": "christmas",
     "hook": "West Point rioted over eggnog in 1826.",
-    "fact": "The superintendent banned alcohol, so cadets smuggled whiskey in for the Christmas Eve party. It turned into an all night riot: firearms, swords, broken furniture, officers barricaded. Nearly a third of the academy was involved. 19 were court martialled and thrown out. Jefferson Davis was at the party.",
-    "backbone": "Tell people they cannot have Christmas and find out.",
+    "fact": "Superintendent Sylvanus Thayer banned alcohol at West Point, so cadets smuggled whiskey in for the Christmas Eve party. It became an all night riot: firearms, swords, smashed furniture, officers barricaded in their rooms. Nearly a third of the academy was in it. 19 were court martialled and thrown out. Jefferson Davis was at the party.",
+    "backbone": "Tell a barracks full of teenagers they cannot have Christmas and find out.",
     "era": "1826",
     "sources": [
       {
@@ -653,8 +657,8 @@
     "fb_yt": "00:30Z",
     "lane": "christmas",
     "hook": "For a week in December, Rome put the household upside down.",
-    "fact": "Saturnalia ran 12/17 to 12/23. Class rules were suspended: enslaved people could not be punished, could answer back, and could wear their household's clothes, and some accounts have the masters serving the food. The week was presided over by somebody chosen from the lowliest person in the house.",
-    "backbone": "The oldest version of this season is a week of being allowed to answer back.",
+    "fact": "Saturnalia ran 12/17 to 12/23. The rules came off: enslaved people could not be punished, could answer back, could wear the household's own clothes, and in some accounts were served at the table by the people who owned them. The week had a presiding figure, the Saturnalicius princeps, picked from the lowest person in the house.",
+    "backbone": "The oldest version of this season put the least important person in the house in charge of it.",
     "era": "1st century BC",
     "sources": [
       {
@@ -686,8 +690,8 @@
     "fb_yt": "00:30Z",
     "lane": "christmas",
     "hook": "No gospel gives a date, and the first record of this one is AD 336.",
-    "fact": "The earliest known celebration of a nativity on 12/25 is dated to 336, in Rome. The oldest surviving document putting the 2 together is the Chronograph of 354, which has 12/25 down as the day Christ was born in Bethlehem. Why that date was chosen is still argued over.",
-    "backbone": "The day was decided about 300 years after the fact.",
+    "fact": "No gospel gives a date. The earliest known celebration of a nativity on 12/25 is recorded in Rome in 336. The oldest surviving document putting the 2 together is the Chronograph of 354, which has 12/25 down as the day Christ was born in Bethlehem. Why that day was picked is still argued over.",
+    "backbone": "The date is a decision somebody made 300 years late, and nobody wrote down why.",
     "era": "AD 336 to 354",
     "sources": [
       {
@@ -719,8 +723,8 @@
     "fb_yt": "00:30Z",
     "lane": "christmas",
     "hook": "Christmas was illegal in Massachusetts for 22 years.",
-    "fact": "The General Court made it an offence in 1659: 5 shillings for anyone found keeping the day, whether by not working, by feasting, or any other way. The objection was the drinking, the card playing and the rest of it. The law stood until 1681, when London leaned on the colony and it went.",
-    "backbone": "The holiday had to be argued back into existence.",
+    "fact": "The General Court of Massachusetts made it an offence in 1659: 5 shillings for anyone found keeping the day, by not working, by feasting, or any other way. The objection was the drinking and the card playing and the noise. It stood until 1681, when London leaned on the colony and the law came off.",
+    "backbone": "For 22 years, in 1 part of this country, today cost you 5 shillings.",
     "era": "1659 to 1681",
     "sources": [
       {
@@ -752,8 +756,8 @@
     "fb_yt": "00:30Z",
     "lane": "christmas",
     "hook": "Christmas has only been a federal holiday since 1870.",
-    "fact": "Burton Cook of Illinois put the bill in after the Civil War, covering Christmas, New Year's Day and the 4th of July in the District of Columbia. Grant signed it on 06/28/1870. Federal workers did not get paid for those days until 1938.",
-    "backbone": "It was made official to hold a split country together.",
+    "fact": "Burton Cook of Illinois put HR 2241 in after the Civil War, covering Christmas, New Year's Day and the 4th of July in the District of Columbia. Grant signed it on 06/28/1870. Federal workers did not get paid for those days until 1938.",
+    "backbone": "A country that had just split itself was given 1 day it could agree on.",
     "era": "1870",
     "sources": [
       {
@@ -785,8 +789,8 @@
     "fb_yt": "00:30Z",
     "lane": "christmas",
     "hook": "Today is the shortest day and it is not the darkest evening.",
-    "fact": "The solstice has the least daylight of the year. It does not have the earliest sunset, which was a fortnight ago, or the latest sunrise, which is still 2 weeks off. From here the days get longer by seconds, then minutes, and nothing about it is sudden.",
-    "backbone": "The turn is real and you will not feel it for weeks.",
+    "fact": "The solstice has the least daylight of the year. It does not have the earliest sunset, which was a fortnight ago, or the latest sunrise, which is 2 weeks off. From tonight the days lengthen by seconds, then by minutes, and you will not feel any of it until February.",
+    "backbone": "The year turns tonight and sends no notice.",
     "era": "none",
     "sources": [
       {
@@ -814,8 +818,8 @@
     "fb_yt": "00:30Z",
     "lane": "christmas",
     "hook": "The Christmas tree spread as a magazine illustration.",
-    "fact": "An engraving of Victoria, Albert and the children round a decorated tree ran in the Illustrated London News in 1848 and the tree became British. Godey's Lady's Book reprinted it in America in 1850 with Victoria's tiara and Albert's moustache taken out, so the family would read as American.",
-    "backbone": "A custom crossed an ocean by having the crown edited off it.",
+    "fact": "An engraving of Victoria, Albert and the children round a decorated tree ran in the Illustrated London News in 1848, and the tree became British. Godey's Lady's Book reprinted it in America in 1850 with Victoria's tiara and Albert's moustache painted out, so the family would read as American.",
+    "backbone": "The custom crossed an ocean as soon as somebody took the crown off it.",
     "era": "1848 to 1850",
     "sources": [
       {
@@ -847,8 +851,8 @@
     "fb_yt": "00:30Z",
     "lane": "christmas",
     "hook": "The best selling single ever recorded is a Christmas song.",
-    "fact": "White Christmas. Irving Berlin wrote it, Bing Crosby sang it on the radio on Christmas Day 1941 and recorded it in 1942, and Guinness puts it at no fewer than 50 million copies. Second place is Candle in the Wind 1997, at 33 million.",
-    "backbone": "Nothing else ever sold like a song about missing home.",
+    "fact": "Irving Berlin wrote it. Bing Crosby sang it on the radio on Christmas Day 1941, 18 days after Pearl Harbor, and recorded it in 1942. Guinness puts it at no fewer than 50 million copies. 2nd place is Candle in the Wind 1997, at 33 million.",
+    "backbone": "The best selling record ever made is a man in a warm country missing somewhere cold.",
     "era": "1942",
     "sources": [
       {
@@ -880,8 +884,8 @@
     "fb_yt": "00:30Z",
     "lane": "christmas",
     "hook": "The Christmas truce started with singing.",
-    "fact": "Christmas Eve 1914. British troops heard Silent Night coming across ground 80 to 100 yards wide and answered with O Come All Ye Faithful. The Germans sang it back in Latin. Then men climbed out and swapped food and tobacco. It was not everywhere: in some sectors the shooting never stopped, and in others the only truce was time to collect the dead.",
-    "backbone": "The first thing anybody did was listen.",
+    "fact": "Christmas Eve 1914. British troops heard Silent Night come across 80 to 100 yards of open ground and answered with O Come All Ye Faithful. The Germans sang it back to them in Latin. Then men climbed out and traded tobacco and tinned food. It was not everywhere: in some sectors the shooting never paused, and in others the only truce was long enough to carry the dead in.",
+    "backbone": "They found out they knew the same songs before they found out anything else about each other.",
     "era": "1914",
     "sources": [
       {
@@ -909,8 +913,8 @@
     "fb_yt": "00:30Z",
     "lane": "christmas",
     "hook": "The book that shaped this day lost its author money.",
-    "fact": "Dickens wrote A Christmas Carol in 6 weeks in the autumn of 1843. He would not sell the rights, so he paid for the printing himself and insisted on hand coloured plates. 6,000 copies were gone by Christmas Eve and he made almost nothing. In January it was pirated. He sued, the pirates went bankrupt, and he was left with the costs.",
-    "backbone": "He got the thing he wanted and not the thing he was owed.",
+    "fact": "Dickens wrote A Christmas Carol in 6 weeks in the autumn of 1843. He would not sell the rights, so he paid the printer himself and insisted on hand coloured plates. 6,000 copies were gone by Christmas Eve and he made almost nothing. In January it was pirated. He sued, the pirates went bankrupt, and he was left holding the legal bill.",
+    "backbone": "He invented how we keep this day and never saw a penny worth having from it.",
     "era": "1843",
     "sources": [
       {

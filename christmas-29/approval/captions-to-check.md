@@ -1,12 +1,16 @@
 # Christmas 29, the captions to check
 
-Every fact here was read against the sources below on 10/04 before it was
-written. That is the opposite order from the Thanksgiving draft, where 4 of 26
-were wrong. Check them anyway: the gate records that a check happened, it
-cannot tell a true fact from a false one.
+Redrafted 10/05 on Amanda's notes: tighten it, name the detail rather than
+gesturing at it, and make the closing line the ribbon on the gift. The facts
+themselves are unchanged. She approved those.
+
+Every fact was read against the sources below on 10/04 before it was written,
+and 3 rows gained a source on 10/05 for a detail the redraft added. Check them
+anyway: the gate records that a check happened, it cannot tell a true fact from
+a false one.
 
 The `hook` is the line the caption opens with. The `fact` is the body. The
-`backbone` is the closing turn. Approve, change or cut per night.
+`backbone` is the closing line. Approve, change or cut per night.
 
 ---
 
@@ -14,9 +18,9 @@ The `hook` is the line the caption opens with. The `fact` is the body. The
 
 **A reindeer's eyes change colour for the winter.**
 
-The mirrored layer behind the retina is gold in summer and deep blue by midwinter. Blue reflects less light back out and scatters more of it inside the eye, so more gets absorbed. It is the difference between a mirror and a room with the lamps on.
+The tapetum lucidum, the mirrored layer behind the retina, is gold in summer and deep blue by midwinter. Gold throws light back out of the eye. Blue scatters it inside, where the retina gets another go at it. Months of a pupil held wide is what squeezes the tissue into changing colour.
 
-*The animal rebuilds its own eye for the dark.*
+*By December it is not the same eye it was using in July.*
 
 Sound: In the Bleak Midwinter. 1 instrument on a public domain carol, sparse and close
 
@@ -28,9 +32,9 @@ Sound: In the Bleak Midwinter. 1 instrument on a public domain carol, sparse and
 
 **Every reindeer with antlers at Christmas is female.**
 
-Reindeer are the only deer whose females grow antlers. The males drop theirs between late November and mid December. The females keep theirs all winter, because they are pregnant and antlers are how you hold a patch of cleared snow with food under it.
+Reindeer are the only deer whose females grow antlers at all. The bulls drop theirs between late November and mid December. The cows keep theirs until spring, because they are pregnant through the winter and an antler is how you hold a patch of cleared snow with food under it.
 
-*The 8 on the roof are pregnant and they are armed.*
+*Anything on that roof still wearing antlers in December is a pregnant cow guarding her dinner.*
 
 Sound: Up on the Housetop. a fuller newly played arrangement, warm
 
@@ -43,9 +47,9 @@ Sound: Up on the Housetop. a fuller newly played arrangement, warm
 
 **Caroling was dancing before it was singing.**
 
-Carol comes from the Old French carole, a ring dance with singers. In English around 1300 it meant the dance, and to carol meant to dance in a ring. The sense of singing for joy arrives late in the 1300s. A Christmas hymn is only what it means from about 1500.
+Carol comes from the Old French carole, a ring dance with singers in it. In English around 1300 it meant the dance itself, and to carol meant to move in a ring. Singing for joy arrives late in the 1300s. The Christmas hymn sense only turns up around 1500.
 
-*For 200 years the word meant your feet, not your voice.*
+*For 200 years, caroling was something you did with your feet.*
 
 Sound: Ding Dong Merrily on High. a fuller newly played arrangement, warm
 
@@ -57,9 +61,9 @@ Sound: Ding Dong Merrily on High. a fuller newly played arrangement, warm
 
 **The X in Xmas is not crossing anything out.**
 
-It is chi, the first letter of Christos in Greek, used as shorthand for Christ by scribes for centuries. The oldest known use of the abbreviation is in an 11th century stretch of the Anglo-Saxon Chronicle, writing Xpes maesse. The modern spelling turns up in the 1500s.
+X is chi, the first letter of Christos in Greek, and scribes used it as shorthand for Christ for centuries. The oldest known use sits in an 11th century stretch of the Anglo-Saxon Chronicle, written Xpes maesse. The spelling people argue about turns up in the 1500s.
 
-*The shortcut people object to is about 1,000 years old.*
+*It has been written this way for about 1,000 years longer than anyone has been offended by it.*
 
 Sound: O Come O Come Emmanuel. 1 instrument on a public domain carol, sparse and close
 
@@ -72,9 +76,9 @@ Sound: O Come O Come Emmanuel. 1 instrument on a public domain carol, sparse and
 
 **The first advent calendar was 24 biscuits sewn to cardboard.**
 
-Gerhard Lang's mother sewed 24 small biscuits onto card so he could eat 1 a day through December. In 1908, in Munich, he printed the idea: 24 doors, a picture behind each. Before that, German Lutherans counted the days in chalk marks on a wall.
+Gerhard Lang's mother sewed 24 biscuits onto a piece of card so he could eat 1 a day through December. In 1908, in Munich, he printed the idea: 24 doors with a picture behind each. Before that, German Lutherans counted down in chalk marks on a door frame.
 
-*A mother's workaround became an industry.*
+*Every one of them is a copy of a mother rationing biscuits.*
 
 Sound: O Tannenbaum. a dated scratchy orchestral recording. Amanda, 10/04: "the orchestral, scratchy sounding dated, because that would complement it"
 
@@ -87,9 +91,9 @@ Sound: O Tannenbaum. a dated scratchy orchestral recording. Amanda, 10/04: "the 
 
 **Rudolph was written to hand out at a department store.**
 
-Robert L. May was a 35 year old copywriter at Montgomery Ward in Chicago when his boss asked him for a Christmas story the store could give away. Montgomery Ward handed out 2.4 million copies in 1939. The catalogue department rejected Rollo for sounding too cheerful and Reginald for sounding too British.
+Robert L. May was a 35 year old copywriter at Montgomery Ward in Chicago when his boss asked for a Christmas story the store could hand out at the counter. They gave away 2.4 million copies in 1939. The catalogue department had already turned down Rollo for sounding too cheerful and Reginald for sounding too British.
 
-*The most famous reindeer in the world is advertising.*
+*He is a free gift with purchase, and he nearly went out as Rollo.*
 
 Sound: Jolly Old Saint Nicholas. a dated scratchy orchestral recording. Amanda, 10/04: "the orchestral, scratchy sounding dated, because that would complement it"
 
@@ -102,9 +106,9 @@ Sound: Jolly Old Saint Nicholas. a dated scratchy orchestral recording. Amanda, 
 
 **Coca-Cola did not put Santa in red.**
 
-Thomas Nast had been drawing him for Harper's Weekly since the 1860s and had settled him into red by Merry Old Santa Claus in 1881. A red suited Santa drinking a Coke ran in 1930, a year before the Sundblom paintings everyone credits. What Coke supplied was volume.
+Thomas Nast drew Santa for Harper's Weekly from the 1860s and had him settled in red by Merry Old Santa Claus in 1881. A red suited Santa with a bottle of Coke ran in 1930, a year before Haddon Sundblom painted the ones everybody credits.
 
-*Repeat something often enough and people hand you the credit.*
+*Coca-Cola did not choose the colour. It bought enough space to make you think it did.*
 
 Sound: Deck the Halls. a dated scratchy orchestral recording. Amanda, 10/04: "the orchestral, scratchy sounding dated, because that would complement it"
 
@@ -117,14 +121,14 @@ Sound: Deck the Halls. a dated scratchy orchestral recording. Amanda, 10/04: "th
 
 **The first Christmas card got told off for the wine.**
 
-Henry Cole commissioned it and John Calcott Horsley drew it: 1,000 printed in London in 1843, a shilling hand coloured. The picture is a family toasting an absent friend, and the Temperance League objected because 1 of the glasses is in front of a child. It was not reprinted.
+Henry Cole commissioned it, John Callcott Horsley drew it, and 1,000 went on sale in London in 1843 at a shilling hand coloured. In the foreground a small girl is taking a sip from an adult's glass. The Temperance Society made enough noise about that 1 detail that no new Christmas card was printed for 3 years.
 
-*The very first one was already too much for somebody.*
+*The whole idea took 3 years to recover from the wine in its own picture.*
 
 Sound: Here We Come A-wassailing. a dated scratchy orchestral recording. Amanda, 10/04: "the orchestral, scratchy sounding dated, because that would complement it"
 
 - [Britannica, Christmas card: Cole, Horsley, 1843, 1,000 printed](https://www.britannica.com/topic/Christmas-card)
-- [Hyperallergic, the first commercial Christmas card and the temperance objection](https://hyperallergic.com/606442/did-you-know-the-first-commercial-christmas-card-featured-underage-drinking/)
+- [Smithsonian Magazine, the first commercially printed Christmas card: a young girl sipping from an adult's glass, and the 3 year gap before another was printed](https://www.smithsonianmag.com/smart-news/first-commercially-printed-christmas-card-sale-holiday-season-180976459/)
 
 ---
 
@@ -132,9 +136,9 @@ Sound: Here We Come A-wassailing. a dated scratchy orchestral recording. Amanda,
 
 **The candy cane's Christian symbolism was invented in 1996.**
 
-The J for Jesus, the white for purity, the red for blood: all of it comes from a children's book called The Candymaker's Gift, published in 1996. Christmas cards before 1900 show the canes plain white. The stripes only turn up at the start of the 20th century.
+The J for Jesus, the white for purity, the red for the blood: all of it comes from The Candymaker's Gift, a children's book published in 1996. Christmas cards printed before 1900 show the canes plain white. The stripes arrive after 1900, from a candy maker in Albany, Georgia.
 
-*A tradition can be younger than the people repeating it.*
+*The ancient Christian symbol is younger than the people explaining it to you.*
 
 Sound: The Holly and the Ivy. a fuller newly played arrangement, warm
 
@@ -147,9 +151,9 @@ Sound: The Holly and the Ivy. a fuller newly played arrangement, warm
 
 **Stockings are hanging there because of 3 bags of gold.**
 
-The story told of Nicholas, bishop of Myra in the 300s, is that a father could not raise dowries for his 3 daughters, which meant they could be sold. On 3 nights Nicholas threw gold through the window rather than hand it over and shame the man. It landed in the stockings drying by the fire.
+The story told of Nicholas, bishop of Myra in the 300s, is that a father could not raise dowries for his 3 daughters, which meant they could be sold. On 3 nights Nicholas put gold through the window instead of into the man's hand, and it landed in the stockings drying by the fire.
 
-*The gift was shaped to spare the man receiving it.*
+*He went in through a window so the father would never have to say thank you.*
 
 Sound: Good King Wenceslas. 1 instrument on a public domain carol, sparse and close
 
@@ -162,9 +166,9 @@ Sound: Good King Wenceslas. 1 instrument on a public domain carol, sparse and cl
 
 **The earliest sunset is not the shortest day.**
 
-Around this latitude the sun sets earliest about 12/07, a fortnight before the solstice, and the latest sunrise is in early January. The solstice is the shortest day, but the evenings have already started getting lighter by then. Earth's orbit is not a circle and the clock does not match the sun.
+At this latitude the sun sets earliest around 12/07, a fortnight before the solstice, and the latest sunrise is still weeks off in early January. Earth's orbit is not a circle, so the sun does not keep clock time, and the shortest day and the darkest evening are not the same day.
 
-*The light comes back before the year turns.*
+*The evenings start getting longer while the days are still getting shorter.*
 
 Sound: It Came Upon the Midnight Clear. 1 instrument on a public domain carol, sparse and close
 
@@ -177,9 +181,9 @@ Sound: It Came Upon the Midnight Clear. 1 instrument on a public domain carol, s
 
 **The poinsettia had a name for centuries before it got this one.**
 
-Cuetlaxochitl, in Nahuatl. The Aztecs grew it for red and purple dye and for medicine from the sap. It is named in English after Joel Poinsett, who saw it in southern Mexico in 1825 and sent cuttings to Charleston. The red parts are not petals. They are leaves.
+Cuetlaxochitl, in Nahuatl. The Aztecs grew it for red and purple dye and for medicine from the milky sap. Joel Roberts Poinsett, the first United States minister to Mexico, saw it in the south in 1825 and sent cuttings home to Charleston. The red parts are not petals. They are leaves.
 
-*Naming something after the man who noticed it is a choice.*
+*It had a name for centuries before it got one from a man who was passing through.*
 
 Sound: Lo How a Rose E'er Blooming. 1 instrument on a public domain carol, sparse and close
 
@@ -192,9 +196,9 @@ Sound: Lo How a Rose E'er Blooming. 1 instrument on a public domain carol, spars
 
 **Mistletoe means dung on a twig.**
 
-Old English misteltan: mistel for dung, tan for twig. It is named for how it arrives, in bird droppings on a branch. The plant then taps the tree for water and minerals for the rest of its life. We hang it in a doorway and kiss underneath it.
+Old English misteltan: mistel for dung, tan for twig. It is named for how it arrives, in bird droppings left on a branch. From there it taps the tree for water and minerals and never stops. We tie it over a doorway and kiss underneath it.
 
-*The most romantic thing in the house is a parasite named after droppings.*
+*Dung on a twig, hung at head height, and nobody has ever renamed it.*
 
 Sound: Sussex Carol. a fuller newly played arrangement, warm
 
@@ -207,14 +211,15 @@ Sound: Sussex Carol. a fuller newly played arrangement, warm
 
 **Silent Night was a poem for 2 years before it was a song.**
 
-Joseph Mohr wrote the words in 1816. On Christmas Eve 1818 he handed them to Franz Gruber and asked for a melody for 2 voices and a guitar, that evening. They sang it as a duet, Mohr on tenor and guitar. It left the village with an organ repairman who found the sheet music and passed it to touring singing families.
+Joseph Mohr wrote the words in 1816. On Christmas Eve 1818 he handed them to Franz Gruber and asked for a melody for 2 voices and a guitar, for that evening. In 1819 an organ maker called Karl Mauracher came to repair the church organ, heard it, and carried it home to the Ziller Valley. The Strasser children, who sang at markets between selling gloves, took it to Leipzig in 1831.
 
-*It travelled because a repairman picked up a piece of paper.*
+*It got out of that village in a repairman's head and travelled on with a family selling gloves.*
 
 Sound: Silent Night. 1 instrument on a public domain carol, sparse and close
 
 - [History Today, The first performance of Silent Night](https://www.historytoday.com/archive/months-past/first-performance-silent-night)
-- [The mouse-ate-the-organ-bellows version is a myth and whether the organ was broken at all is disputed, so neither is in the fact](https://www.peninsuladailynews.com/life/issues-of-faith-the-story-of-a-silent-night)
+- [stillenacht.at, Spreading of the Song: Karl Mauracher in 1819, the Rainer singers, and the Strasser children at Leipzig in 1831](https://www.stillenacht.at/en/history/spreading-of-the-song)
+- [The mouse-ate-the-bellows version is a myth and whether the organ was broken at all is disputed, so neither is in the fact](https://www.peninsuladailynews.com/life/issues-of-faith-the-story-of-a-silent-night)
 
 ---
 
@@ -222,9 +227,9 @@ Sound: Silent Night. 1 instrument on a public domain carol, sparse and close
 
 **There is no Christmas anywhere in Jingle Bells.**
 
-James Lord Pierpont published it in 1857 as The One Horse Open Sleigh. Read the words: snow, a sleigh, a girl, a crash, a bet about a faster horse. Not 1 mention of Christmas, a tree, a gift or a saint. It is a song about going fast in winter.
+James Lord Pierpont published it in 1857 as The One Horse Open Sleigh. Read the words: snow, a sleigh, a girl sitting beside him, an upset in a drift, and a bet that his horse is the faster one. No tree, no gift, no saint, no Christmas.
 
-*It got adopted, not written, for the day.*
+*It is a young man showing off in the snow, and we sing it at the nativity.*
 
 Sound: Jingle Bells. a dated scratchy orchestral recording. Amanda, 10/04: "the orchestral, scratchy sounding dated, because that would complement it"
 
@@ -236,9 +241,9 @@ Sound: Jingle Bells. a dated scratchy orchestral recording. Amanda, 10/04: "the 
 
 **Iceland has a Christmas cat that eats you for not getting new clothes.**
 
-Jolakotturinn prowls at Yule looking for anyone who did not get something new to wear. It belongs to Gryla, a troll in a mountain cave who comes down for badly behaved children, and to her 13 sons, who arrive 1 a night from 12/12.
+Jolakotturinn prowls at Yule looking for anyone who did not get new clothes. It belongs to Gryla, a troll who comes down from a mountain cave to boil badly behaved children, and to her 13 sons, who arrive 1 a night from 12/12.
 
-*The monster's rule is that somebody has to have given you clothes.*
+*The monster is not checking whether you were good. It is checking whether somebody bought you a jumper.*
 
 Sound: Coventry Carol. 1 instrument on a public domain carol, sparse and close
 
@@ -251,9 +256,9 @@ Sound: Coventry Carol. 1 instrument on a public domain carol, sparse and close
 
 **Tinsel was real silver, then it was lead.**
 
-It started in the 1600s as thin strands of actual silver, which tarnished. Tin and lead were cheaper and shinier, so lead is what hung on trees for most of the 20th century. In 1971 the FDA got manufacturers to stop importing it from 01/01/1972. It never formally banned it. There was not enough evidence.
+It began in the 1600s as thin strands of real silver, which tarnished black. Tin and lead were cheaper and stayed bright, so lead is what hung on trees for most of the 20th century. In 1971 the FDA talked importers into stopping from 01/01/1972. It never banned the stuff. It did not have the evidence.
 
-*The shine got cheaper every time, and 1 of those times it was poisonous.*
+*3 centuries of making the shine cheaper, and for most of 1 of them it was lead at a child's eye level.*
 
 Sound: Angels We Have Heard on High. a dated scratchy orchestral recording. Amanda, 10/04: "the orchestral, scratchy sounding dated, because that would complement it"
 
@@ -266,14 +271,14 @@ Sound: Angels We Have Heard on High. a dated scratchy orchestral recording. Aman
 
 **The network thought A Charlie Brown Christmas was a disaster.**
 
-Too slow, too serious, a jazz score instead of songs, children instead of actors, no laugh track because Schulz refused one, and a boy reading the nativity out of Luke on prime time television. CBS ran it in 1965 because it was already scheduled.
+Too slow. Too serious. A jazz piano trio instead of carols. No laugh track, because Schulz refused one. The voices were real children rather than trained adults, and some were too young to read, so Bill Melendez fed Christopher Shea his lines 1 at a time. And a small boy reciting Luke on prime time. CBS ran it in 1965 only because it was already in the schedule.
 
-*Everything they wanted taken out is why it is still on.*
+*15 million households watched, half the televisions in the country, and every objection on that list is why.*
 
 Sound: Hark the Herald Angels Sing. a fuller newly played arrangement, warm
 
 - [History, A Charlie Brown Christmas, the unexpected classic](https://www.history.com/articles/charlie-brown-christmas-unexpected-classic)
-- [Smithsonian Magazine, The Charlie Brown Christmas special was the flop that wasn't](https://www.smithsonianmag.com/history/charlie-brown-christmas-special-history-television-classic-cbs-180957490/)
+- [Smithsonian Magazine, CBS executives thought it would fail: real children instead of professional voice actors, and Melendez feeding Christopher Shea his lines](https://www.smithsonianmag.com/smart-news/cbs-executives-thought-charlie-brown-christmas-would-fail-180953728/)
 
 ---
 
@@ -281,9 +286,9 @@ Sound: Hark the Herald Angels Sing. a fuller newly played arrangement, warm
 
 **It's a Wonderful Life became a classic because of a clerical error.**
 
-The film did not do well in 1946. In 1974 the renewal paperwork was not filed and the copyright lapsed, so stations could run it for nothing, and they ran it constantly every December. That is when people learned it. In 1993 the rights holder used the underlying short story and the music to pull it back behind a licence.
+It did not do well in 1946. In 1974 the renewal paperwork was never filed, the copyright lapsed, and stations could run it for nothing, so they ran it constantly every December. That is where the audience came from. In 1993 the rights holder used the short story underneath it and the music to pull it back behind a licence.
 
-*A flop became a tradition during the 19 years nobody owned it.*
+*It became a Christmas tradition during the 19 years nobody owned it.*
 
 Sound: Joy to the World. a fuller newly played arrangement, warm
 
@@ -295,9 +300,9 @@ Sound: Joy to the World. a fuller newly played arrangement, warm
 
 **West Point rioted over eggnog in 1826.**
 
-The superintendent banned alcohol, so cadets smuggled whiskey in for the Christmas Eve party. It turned into an all night riot: firearms, swords, broken furniture, officers barricaded. Nearly a third of the academy was involved. 19 were court martialled and thrown out. Jefferson Davis was at the party.
+Superintendent Sylvanus Thayer banned alcohol at West Point, so cadets smuggled whiskey in for the Christmas Eve party. It became an all night riot: firearms, swords, smashed furniture, officers barricaded in their rooms. Nearly a third of the academy was in it. 19 were court martialled and thrown out. Jefferson Davis was at the party.
 
-*Tell people they cannot have Christmas and find out.*
+*Tell a barracks full of teenagers they cannot have Christmas and find out.*
 
 Sound: I Saw Three Ships. a fuller newly played arrangement, warm
 
@@ -310,9 +315,9 @@ Sound: I Saw Three Ships. a fuller newly played arrangement, warm
 
 **For a week in December, Rome put the household upside down.**
 
-Saturnalia ran 12/17 to 12/23. Class rules were suspended: enslaved people could not be punished, could answer back, and could wear their household's clothes, and some accounts have the masters serving the food. The week was presided over by somebody chosen from the lowliest person in the house.
+Saturnalia ran 12/17 to 12/23. The rules came off: enslaved people could not be punished, could answer back, could wear the household's own clothes, and in some accounts were served at the table by the people who owned them. The week had a presiding figure, the Saturnalicius princeps, picked from the lowest person in the house.
 
-*The oldest version of this season is a week of being allowed to answer back.*
+*The oldest version of this season put the least important person in the house in charge of it.*
 
 Sound: The Wexford Carol. 1 instrument on a public domain carol, sparse and close
 
@@ -325,9 +330,9 @@ Sound: The Wexford Carol. 1 instrument on a public domain carol, sparse and clos
 
 **No gospel gives a date, and the first record of this one is AD 336.**
 
-The earliest known celebration of a nativity on 12/25 is dated to 336, in Rome. The oldest surviving document putting the 2 together is the Chronograph of 354, which has 12/25 down as the day Christ was born in Bethlehem. Why that date was chosen is still argued over.
+No gospel gives a date. The earliest known celebration of a nativity on 12/25 is recorded in Rome in 336. The oldest surviving document putting the 2 together is the Chronograph of 354, which has 12/25 down as the day Christ was born in Bethlehem. Why that day was picked is still argued over.
 
-*The day was decided about 300 years after the fact.*
+*The date is a decision somebody made 300 years late, and nobody wrote down why.*
 
 Sound: Of the Father's Heart Begotten. 1 instrument on a public domain carol, sparse and close
 
@@ -340,9 +345,9 @@ Sound: Of the Father's Heart Begotten. 1 instrument on a public domain carol, sp
 
 **Christmas was illegal in Massachusetts for 22 years.**
 
-The General Court made it an offence in 1659: 5 shillings for anyone found keeping the day, whether by not working, by feasting, or any other way. The objection was the drinking, the card playing and the rest of it. The law stood until 1681, when London leaned on the colony and it went.
+The General Court of Massachusetts made it an offence in 1659: 5 shillings for anyone found keeping the day, by not working, by feasting, or any other way. The objection was the drinking and the card playing and the noise. It stood until 1681, when London leaned on the colony and the law came off.
 
-*The holiday had to be argued back into existence.*
+*For 22 years, in 1 part of this country, today cost you 5 shillings.*
 
 Sound: God Rest Ye Merry Gentlemen. 1 instrument on a public domain carol, sparse and close
 
@@ -355,9 +360,9 @@ Sound: God Rest Ye Merry Gentlemen. 1 instrument on a public domain carol, spars
 
 **Christmas has only been a federal holiday since 1870.**
 
-Burton Cook of Illinois put the bill in after the Civil War, covering Christmas, New Year's Day and the 4th of July in the District of Columbia. Grant signed it on 06/28/1870. Federal workers did not get paid for those days until 1938.
+Burton Cook of Illinois put HR 2241 in after the Civil War, covering Christmas, New Year's Day and the 4th of July in the District of Columbia. Grant signed it on 06/28/1870. Federal workers did not get paid for those days until 1938.
 
-*It was made official to hold a split country together.*
+*A country that had just split itself was given 1 day it could agree on.*
 
 Sound: O Little Town of Bethlehem. a dated scratchy orchestral recording. Amanda, 10/04: "the orchestral, scratchy sounding dated, because that would complement it"
 
@@ -370,9 +375,9 @@ Sound: O Little Town of Bethlehem. a dated scratchy orchestral recording. Amanda
 
 **Today is the shortest day and it is not the darkest evening.**
 
-The solstice has the least daylight of the year. It does not have the earliest sunset, which was a fortnight ago, or the latest sunrise, which is still 2 weeks off. From here the days get longer by seconds, then minutes, and nothing about it is sudden.
+The solstice has the least daylight of the year. It does not have the earliest sunset, which was a fortnight ago, or the latest sunrise, which is 2 weeks off. From tonight the days lengthen by seconds, then by minutes, and you will not feel any of it until February.
 
-*The turn is real and you will not feel it for weeks.*
+*The year turns tonight and sends no notice.*
 
 Sound: Greensleeves. 1 instrument on a public domain carol, sparse and close
 
@@ -384,9 +389,9 @@ Sound: Greensleeves. 1 instrument on a public domain carol, sparse and close
 
 **The Christmas tree spread as a magazine illustration.**
 
-An engraving of Victoria, Albert and the children round a decorated tree ran in the Illustrated London News in 1848 and the tree became British. Godey's Lady's Book reprinted it in America in 1850 with Victoria's tiara and Albert's moustache taken out, so the family would read as American.
+An engraving of Victoria, Albert and the children round a decorated tree ran in the Illustrated London News in 1848, and the tree became British. Godey's Lady's Book reprinted it in America in 1850 with Victoria's tiara and Albert's moustache painted out, so the family would read as American.
 
-*A custom crossed an ocean by having the crown edited off it.*
+*The custom crossed an ocean as soon as somebody took the crown off it.*
 
 Sound: The First Noel. a dated scratchy orchestral recording. Amanda, 10/04: "the orchestral, scratchy sounding dated, because that would complement it"
 
@@ -399,9 +404,9 @@ Sound: The First Noel. a dated scratchy orchestral recording. Amanda, 10/04: "th
 
 **The best selling single ever recorded is a Christmas song.**
 
-White Christmas. Irving Berlin wrote it, Bing Crosby sang it on the radio on Christmas Day 1941 and recorded it in 1942, and Guinness puts it at no fewer than 50 million copies. Second place is Candle in the Wind 1997, at 33 million.
+Irving Berlin wrote it. Bing Crosby sang it on the radio on Christmas Day 1941, 18 days after Pearl Harbor, and recorded it in 1942. Guinness puts it at no fewer than 50 million copies. 2nd place is Candle in the Wind 1997, at 33 million.
 
-*Nothing else ever sold like a song about missing home.*
+*The best selling record ever made is a man in a warm country missing somewhere cold.*
 
 Sound: Away in a Manger. a dated scratchy orchestral recording. Amanda, 10/04: "the orchestral, scratchy sounding dated, because that would complement it"
 
@@ -414,9 +419,9 @@ Sound: Away in a Manger. a dated scratchy orchestral recording. Amanda, 10/04: "
 
 **The Christmas truce started with singing.**
 
-Christmas Eve 1914. British troops heard Silent Night coming across ground 80 to 100 yards wide and answered with O Come All Ye Faithful. The Germans sang it back in Latin. Then men climbed out and swapped food and tobacco. It was not everywhere: in some sectors the shooting never stopped, and in others the only truce was time to collect the dead.
+Christmas Eve 1914. British troops heard Silent Night come across 80 to 100 yards of open ground and answered with O Come All Ye Faithful. The Germans sang it back to them in Latin. Then men climbed out and traded tobacco and tinned food. It was not everywhere: in some sectors the shooting never paused, and in others the only truce was long enough to carry the dead in.
 
-*The first thing anybody did was listen.*
+*They found out they knew the same songs before they found out anything else about each other.*
 
 Sound: O Come All Ye Faithful. 1 instrument on a public domain carol, sparse and close
 
@@ -428,9 +433,9 @@ Sound: O Come All Ye Faithful. 1 instrument on a public domain carol, sparse and
 
 **The book that shaped this day lost its author money.**
 
-Dickens wrote A Christmas Carol in 6 weeks in the autumn of 1843. He would not sell the rights, so he paid for the printing himself and insisted on hand coloured plates. 6,000 copies were gone by Christmas Eve and he made almost nothing. In January it was pirated. He sued, the pirates went bankrupt, and he was left with the costs.
+Dickens wrote A Christmas Carol in 6 weeks in the autumn of 1843. He would not sell the rights, so he paid the printer himself and insisted on hand coloured plates. 6,000 copies were gone by Christmas Eve and he made almost nothing. In January it was pirated. He sued, the pirates went bankrupt, and he was left holding the legal bill.
 
-*He got the thing he wanted and not the thing he was owed.*
+*He invented how we keep this day and never saw a penny worth having from it.*
 
 Sound: O Holy Night. a fuller newly played arrangement, warm
 
