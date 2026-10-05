@@ -31,3 +31,40 @@ not open identically.
 
 Then mux with `-c:v copy -c:a aac -b:a 160k -shortest`. Never re-encode the
 video to add audio.
+
+## It is code now, not this file
+
+Until 10/04 the recipe below lived here and nowhere else. Nothing ran it. The
+muxing was done by hand, which means it was done once with 1 offset for the
+whole Halloween run and then not at all: 6 posts were queued with no audio
+track and all 20 published nights carry the identical 18 seconds. Amanda, 10/04:
+"it's going out with no sound again."
+
+`bed.mjs` does it now and `build.mjs` calls it on every render. A payload names
+a family, `beds.csv` maps the family to a file, and the reel is **refused** if
+either is missing. There are 5 ways to end up without music and all 5 stop the
+render:
+
+- the payload names no bed
+- the family is not in `beds.csv`
+- the family has no file yet, and the refusal says what to go and get
+- the file is not in `beds/`
+- the bed is shorter than the reel
+
+And after the mux it measures the result. If the output has no audible audio it
+deletes it and refuses, because a real AAC track carrying silence is exactly
+what shipped before and it passes every other check.
+
+The slice is taken from the reel's own slug, so each reel gets a different one
+and the same slug always gets the same one. That is what this file asked for all
+along.
+
+The level is measured, not assumed. `volume=0.32` below is the figure for a bed
+sitting under a voiceover. These have no voiceover, and using it put the first
+batch 8 dB under the rest of the run. `bed.mjs` measures the slice and gains it
+to a mean of -17.4 dB with a ceiling of -1.5, which is where the 20 shipped
+nights sit.
+
+`bed.test.mjs` checks all of it against the real bed file. It needs ffmpeg and
+node, no chromium, so it runs without the render path. The suite skips it when
+`FFMPEG` is unset and says so rather than passing quietly.

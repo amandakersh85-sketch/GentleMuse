@@ -71,8 +71,10 @@ def sources(s):
 nights, start = [], datetime.date(2026, 9, 29)
 for i, (slug, plate) in enumerate(ORDER):
     n, d = i + 1, start + datetime.timedelta(days=i)
+    # Facebook and YouTube every night, set 09/28: the trailer on both promised
+    # 33 nights. They ran odd nights only until then.
     row = dict(night=n, date=d.isoformat(), slug=slug, left=33 - n,
-               ig_tt='23:00Z', fb_yt='23:30Z' if n % 2 == 1 else None)
+               ig_tt='23:00Z', fb_yt='23:30Z')
     if slug.startswith('REUSE'):
         row.update(REUSED[slug], reused=True)
     else:

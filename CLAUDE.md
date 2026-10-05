@@ -122,6 +122,66 @@ PerNight is a floor and a ceiling, and it is the number the announcement
 stated, not a preference. When a campaign is announced, write the promise
 into the CSV before anything is scheduled against it.
 
+A campaign a job places needs 1 more file. The 33 nights are loaded by
+`.github/workflows/halloween-33.yml`, which reads its own plan and writes
+straight to the queue, so none of its slugs reach `staging-library.csv` and
+C13 could see 11 of 153 board rows and called a run that had missed nothing
+dark on 27 nights, every run, for 5 nights.
+`filing-system/data/campaign-plans.csv` says where a campaign's plan lives,
+and the gate reads the slug, the caption's opening line and which accounts
+each night books out of the plan itself. Facebook and YouTube run alternate
+nights and the plan already says so, so it is not restated anywhere. Add the
+row when a campaign starts shipping from a plan, and change the plan, never a
+copy of it. `LoadHorizonDays` on the campaign row is how far ahead its loader
+has actually booked, because a night nobody has loaded yet is not a dark
+night.
+
+A campaign that posts at a fixed hour owns that hour, and the plan is where
+that is written down. `C15_SLOT_CONTESTED` reports a post that is not part of
+the campaign inside 60 minutes of a slot the plan reserves, on an account that
+night books. `C16_SLOT_MODEL_CONTESTED` reports a `slot-model.csv` row sitting
+on the same slot, because that is the file another scheduler reads to decide
+where a post goes, and on 10/01 it still gave 23:00 UTC to ROTATION on tiktok
+41488 and PERSONAL on instagram 45886. The hour was taken twice before either
+rule existed, on 09/28 and again on 09/30, and both times it showed up only as
+C05 spacing noise.
+
+A video that carries no sound is refused before it ships. Amanda, 10/04:
+"it's going out with no sound again." 6 posts from 3 assets were queued with
+no audio track at all, all from the 4459xxx batch, and every gate passed them
+because a silent reel is not starved, not early, not a repeat and not a
+collision. `gm_audio_check.py` reads the file rather than a column, because
+the queue payload says nothing about audio and never will:
+`A01_NO_AUDIO_TRACK` refuses a video post with no sound track and
+`A02_AUDIO_UNREADABLE` reports a container it could not read instead of
+passing it. It costs 2 range requests, not a download.
+
+The bed goes on in `reel-factory/bed.mjs`, which `build.mjs` calls on every
+render, and a reel it cannot put a bed under is **refused** rather than written
+out silent. Until 10/04 the recipe was prose in `beds/README.md` and nothing
+ran it, so the muxing was done by hand: 1 offset for the whole Halloween run,
+and 6 posts queued with no audio track at all. `beds/beds.csv` maps a sound
+family to its file, the payload names the family, and the refusal says which
+bed to go and get. After muxing it measures the result and deletes it if there
+is nothing audible, because a real AAC track carrying silence passes every
+other check.
+
+The bed is `reel-factory/beds/eerie-calm-bed.wav` and it is the sound of the
+season. Every reel takes a different slice of it, which `beds/README.md` has
+said all along and which was not happening: all 20 published nights open on
+the identical 18 seconds. Music carries these, not voiceover. Amanda, 10/04:
+"the voiceovers don't hit that hard. The music wins, honestly. It does
+better, and it's free." Levels are matched to the run at mean -17.4 dB and a
+peak under -1.5, and a bed with no voiceover over it does not sit at the
+`volume=0.32` the ducking chain uses.
+
+A post has a surface, and the board records it. A story and a feed reel 105
+minutes apart on 1 account are the intended pattern here, the reel and a story
+pointing at it, not 2 posts burying each other. C05 is checked per account and
+per surface for that reason. The queue carried `target.mediaType` the whole
+time and the snapshot was throwing it away, which is why 21 of 26 spacing
+findings on 10/01 and 15 of 18 the night before were not real.
+
 ## The day's shape, set 09/24/2026
 
 Amanda, sick and between sessions, describing what she already has running:
@@ -132,8 +192,8 @@ the day, and a day missing one of them is the finding.
 
 | Lane | Per day | Who owns it |
 |---|---|---|
-| seasonal fact | 1, every evening | the Halloween nightly run |
-| Amanda herself | 1, face to camera or UGC | her own footage |
+| seasonal fact | 1, every evening | Halloween 33 Nights, then The Real One to 01/01 |
+| Amanda herself | 1, face to camera or UGC | her own footage, her HeyGen twin on a day with no clip |
 | Club Target | as the partnership lands | sponsored, holds its times |
 | newsletter signup | 1 every 2 days, minimum | the carousel rotation |
 
@@ -163,6 +223,55 @@ this file is for. A ruling she gives one session is written here, in the data,
 on the same day. A session that learns something and keeps it in its own
 transcript has not recorded it.
 
+## The season, set 09/28/2026
+
+Amanda, 09/28: "We don't stop at Halloween. We're also doing Thanksgiving and
+Christmas. So we don't put it all in the queue, obviously, but we make sure that
+the waves are being acknowledged."
+
+The 6 PM seasonal post runs to 01/01 in 4 waves.
+
+| Wave | Nights | What runs |
+|---|---|---|
+| Halloween | 33, 09/29 to 10/31 | Halloween 33 Nights, `halloween-33/` |
+| Thanksgiving | 26, 11/01 to 11/26 | The Real One |
+| Christmas | 29, 11/27 to 12/25 | The Real One |
+| New Year | 7, 12/26 to 01/01 | The Real One |
+
+The Real One runs every night on all 4 main accounts: Instagram and TikTok at
+6:00 PM Central, Facebook and YouTube at 6:30 PM. Amanda chose all 4 nightly on
+09/28. Facebook and YouTube are the thinnest accounts. The captions are drafted
+on pull request #13 and are approved a month at a time: November by 10/18,
+December and New Year by 11/14. A wave goes into `campaign-targets.csv` the day
+it is announced, before anything is scheduled against it.
+
+Nothing loads more than 7 days ahead except date-locked posts: sponsored posts,
+the sale days and Thanksgiving morning. The queue holds 200, which is about 10
+days at full volume. The refill fills the nearest days first and keeps 10 slots
+free for the nightly run and the daily trivia. `blotato-refill/README.md` has
+the rules.
+
+The day, in Central time. The clock times hold when the clocks go back on 11/01,
+so every loader works in Central time and converts.
+
+| Time | Lane |
+|---|---|
+| 8:30 AM | LinkedIn |
+| 10:00 AM | daily trivia |
+| 12:00 PM | Amanda on camera |
+| 2:00 PM | newsletter carousel every other day, otherwise an evergreen top-up from the waves |
+| 4:00 PM | Club Target, when there is one |
+| 6:00 PM | the seasonal post, 6:30 PM on Facebook and YouTube |
+
+Posts on 1 account stay 2 hours apart. Noon was retired for the wave library on
+08/24 after a pileup. It belongs to this 1 lane now, and the 2 hour gap keeps
+everything else off it.
+
+Amanda on camera, 09/28: a Claude session on her laptop sorts her clips from the
+camera roll and the D: drive, names each by what she says, and puts them in 1
+Google Drive folder. The week reaches her as 1 pull request. Her HeyGen twin
+covers a day with no clip.
+
 Variety is the point of the volume. A day should not be 5 of the same lane.
 The lanes are: holiday fact, Cesa, Club Target, food review, lead magnet
 carousel, Amanda on camera, trivia.
@@ -182,6 +291,50 @@ bank refuses anything else. A newsletter is where a fact was found, never
 what makes it true: FoundIn and Source are 2 columns and the gate refuses a
 row where they are the same. Facts that move get re-checked every 90 days.
 `SOP_0909_trivia-pipeline.txt` is the whole procedure.
+
+A fact nobody checked reads exactly like a fact somebody checked. On 10/04 all
+26 Thanksgiving nights were finally read against sources and 4 were wrong: 17
+years for Sarah Hale's 36, the 1840s for an 1820 coinage, a 5 item study
+described as a 3 item one with a comparison it never made, and a closing
+thought sitting in the confidence column as high. All 26 rows said `verified:
+no` and all 26 would have rendered, because nothing read that column.
+Confidence is a session's opinion of its own memory, which is the thing that
+was already wrong, so it can never be the check. A plan row now carries
+`verified`, `checked` and a `sources` line that points at something, and
+`gm_fact_check.py` refuses a night still to come that has none:
+`F01_FACT_UNVERIFIED`, `F02_FACT_NO_SOURCE`, and `F03_FACT_STALE` at the same
+90 days as the trivia bank, read from the same constant. `partly` and `n/a`
+pass and are listed on every run, because an exception nobody sees is an
+exception that spreads. The gate cannot tell a true fact from a false one and
+does not claim to; it refuses the condition all 4 shipped under. It is scoped
+to nights on or after today for the reason C13 had to be, and a reused night is
+checked like any other, because the hook is the line the caption opens with.
+It found `halloween-33` on its first run with no `verified` column at all, and
+that pass ran the same day: 5 of those 25 facts needed correcting, and night
+33, the finale, rests on Samhain as the Celtic new year, which Rhys and Frazer
+proposed in the late 1800s and which is disputed. The dark half of the year is
+what is attested and what the row now says.
+
+A correction that does not reach the queue is a 2nd version of the truth. On
+10/04 the fact check corrected night 10 of the Halloween run from candy corn
+"was invented in the 1880s by George Renninger" to "is credited to", because
+the attribution is oral history and the sources say so. The loader had written
+the old sentence into the queue on 10/03, and 4 posts were going out on 10/08
+still stating it as record. Every rule here reads the board's shape and not its
+words: C01 counts posts, C05 counts minutes, C13 counts nights, C15 counts
+slots, A01 opens the file. `gm_caption_check.py` reads the words.
+`C17_CAPTION_STALE` reports a queued post whose opening block is no longer its
+plan row's hook, fact and backbone. The join is the hook, which
+`campaign-plans.csv` already declares, and the comparison stops at the
+countdown line because everything after it is a per-platform call to action.
+
+A wave that has rendered is not a wave you can redraft. All 30 Halloween reels
+are built and uploaded, and 26 of them close the video on the caption's
+backbone line word for word. Rewriting a closing line there does not change a
+caption, it desyncs the caption from the words on screen. Thanksgiving and
+Christmas were unrendered drafts when they were redrafted on 10/05, which is
+why that cost nothing. Check `weeks/media.json` and `beats.json` before
+offering to rewrite anything on a wave that is already shipping.
 
 ## Voice
 

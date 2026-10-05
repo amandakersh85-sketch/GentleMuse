@@ -70,7 +70,8 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 # The plate table lives with the snapshot that writes the slugs, so that a
 # second copy of it here cannot drift away from the one in use.
-from gm_board_snapshot import FAMILY  # noqa: E402
+from gm_board_snapshot import (FAMILY, load_plans, plan_nights,  # noqa: E402
+                               plan_slots)
 
 ANCHOR_DEFAULT = "15:00"
 
@@ -149,6 +150,14 @@ def load_channel_rules(path=CHANNEL_RULES):
         pass
     return rules
 MIN_GAP_MIN = 120          # 2 hours between posts on 1 account
+
+# How close to a campaign's own slot counts as standing in it. 60, because the
+# harm is competing with the campaign's post in the same viewing window on the
+# same account, and the 33 Nights run books 23:00 and 23:30, so anything wider
+# than 60 would read half the campaign's own board as contested. Narrower than
+# 60 misses exactly what happened: a batch parked at 22:30 and 23:45 around the
+# 23:00 slot on 10/06.
+SLOT_GUARD_MIN = 60
 DEAD_FROM, DEAD_TO = "02:00", "13:00"   # 21:00 to 08:00 Central, the hours nobody is there
 DEAD_START, DEAD_END = 2 * 60, 13 * 60
 
@@ -183,6 +192,9 @@ def load(path):
                 # collision. A file without them is checked as a single lane,
                 # which is right for 1 account and wrong for a board.
                 "platform": (r.get("platform") or "").strip().lower(),
+                # Defaults to feed, so a board written before this column
+                # existed is read exactly as it was read before.
+                "surface": (r.get("surface") or "feed").strip().lower() or "feed",
                 "account": (r.get("accountId") or r.get("account") or "").strip(),
                 # What the post is about, not what file it plays. 2 renders
                 # of 1 fact on 2 plates are still 1 fact to the person
@@ -245,6 +257,12 @@ def load_target(path=None):
 STAGING = os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
     "data", "staging-library.csv")
+PLANS = os.path.join(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+    "data", "campaign-plans.csv")
+SLOT_MODEL = os.path.join(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+    "data", "slot-model.csv")
 
 
 def load_campaign_slugs(campaign, path=None):
@@ -273,6 +291,80 @@ def load_campaign_slugs(campaign, path=None):
             if slug:
                 slugs.add(FAMILY.get(slug, slug))
     return slugs
+
+
+def load_campaign_plan(campaign, path=None):
+    """(slugs, {date: accounts it owes}) for a campaign that ships from a plan.
+
+    load_campaign_slugs above joins the board to the staging library, which
+    only knows the posts a person staged. The 33 Nights loader places its own,
+    off its own plan, and those slugs are in no library. C13 could see 11 of
+    the campaign's posts on the 09/30 board and called the other 27 nights
+    dark, on all 4 accounts, while the loader had in fact missed nothing.
+
+    The dates matter as much as the slugs. Facebook and YouTube run on
+    alternate nights, so half their nights are empty because the plan says so,
+    not because anybody forgot. Reading which nights owe which accounts off
+    the plan is what tells those 2 apart.
+    """
+    slugs, owes = set(), {}
+    for row in load_plans(path or PLANS):
+        if (row.get("Campaign") or "").strip() != campaign:
+            continue
+        for day, slug, _hook, accounts in plan_nights(row):
+            if slug:
+                slugs.add(slug)
+            if accounts:
+                owes.setdefault(day, set()).update(accounts)
+    return slugs, owes
+
+
+def reserved_slots(campaign, path=None):
+    """{date: [(minute-of-day, {(platform, account), ...}), ...]} for a campaign.
+
+    A campaign that posts at a fixed hour owns that hour, and until tonight
+    nothing said so anywhere a scheduler could read. On 09/28 another batch
+    landed in the 23:00 hour and the week's spacing climbed 6, 8, 9, 17. It was
+    retimed overnight and the cause was never written down, so on 09/30 a
+    second batch booked 22:15, 22:30, 22:45 and 23:45 around the same 23:00
+    slot. Twice is the point at which the fix is not a note.
+
+    The times come off the plan, like everything else about a plan-shipped
+    campaign, so a campaign that moves its hour moves this with it.
+    """
+    out = {}
+    for row in load_plans(path or PLANS):
+        if (row.get("Campaign") or "").strip() != campaign:
+            continue
+        for day, minute, accounts in plan_slots(row):
+            out.setdefault(day, []).append((minute, accounts))
+    return out
+
+
+def load_slot_model(path=None):
+    """The published slot grid, as [(SlotID, minute-of-day, accounts, slot)].
+
+    This is the file another scheduler reads to decide where a post goes, so a
+    row in it that sits on a live campaign's slot is the collision before it
+    happens rather than after.
+    """
+    path = path or SLOT_MODEL
+    if not os.path.exists(path):
+        return []
+    out = []
+    with open(path, newline="", encoding="utf-8") as fh:
+        for r in csv.DictReader(fh):
+            m = re.match(r"^(\d{1,2}):(\d{2})", (r.get("UTC") or "").strip())
+            if not m:
+                continue
+            minute = int(m.group(1)) * 60 + int(m.group(2))
+            platforms = [p.strip().lower() for p in (r.get("Platforms") or "").split("|") if p.strip()]
+            accounts = [a.strip() for a in (r.get("AccountIds") or "").split("|") if a.strip()]
+            pairs = set()
+            for i, acct in enumerate(accounts):
+                pairs.add((platforms[i] if i < len(platforms) else (platforms[0] if platforms else ""), acct))
+            out.append((r.get("SlotID") or "", minute, pairs, r.get("Slot") or ""))
+    return out
 
 
 def campaign_accounts(cell):
@@ -437,10 +529,16 @@ def check(rows, anchor=ANCHOR_DEFAULT, target=None):
 
     # 2 posts on 1 account inside 2 hours bury each other. Measured:
     # 2 reels 2 seconds apart took 1818 views and 162. The rule is about
-    # 1 account's own feed, so it is checked per account, never across them.
+    # 1 account's own feed, so it is checked per account, never across them,
+    # and per surface, because a story does not sit in the feed and cannot
+    # bury what does. A story reposting the reel 105 minutes later is the
+    # intended pattern on this board, and reading it as a collision produced
+    # 21 of the 26 findings on 10/01 and 15 of 18 the night before. That is
+    # the whole of C05 defect class 3, and the column it needed is the 1 the
+    # snapshot was discarding.
     by_account = defaultdict(list)
     for r in rows:
-        by_account[(r["day"], r["account"] or r["platform"])].append(r)
+        by_account[(r["day"], r["account"] or r["platform"], r["surface"])].append(r)
     for key in sorted(by_account):
         day = key[0]
         posts = sorted(by_account[key], key=lambda r: r["time"])
@@ -561,6 +659,8 @@ def check(rows, anchor=ANCHOR_DEFAULT, target=None):
     # check it.
     if campaign and campaign.get("StartDate") and campaign.get("Accounts"):
         slugs = load_campaign_slugs(campaign["Campaign"])
+        plan_slugs, owes = load_campaign_plan(campaign["Campaign"])
+        slugs |= plan_slugs
         try:
             per_night = int(campaign.get("PerNight") or 1)
         except ValueError:
@@ -601,6 +701,24 @@ def check(rows, anchor=ANCHOR_DEFAULT, target=None):
                 run.append(cur.isoformat())
                 cur += timedelta(days=1)
 
+            # A night nobody has loaded yet is not a dark night. The 33 Nights
+            # loader books 7 days out and runs again tomorrow, so the far end
+            # of the run is empty by design on every single run, and reporting
+            # it reads as 27 broken nights on a campaign that has not missed
+            # one. LoadHorizonDays is how far ahead the job that fills this
+            # campaign has actually booked. Past that edge C13 has nothing to
+            # say yet. C14 still judges the whole run, because a night already
+            # overfilled is overfilled now.
+            booked, edge = run, ""
+            try:
+                ahead = int(campaign.get("LoadHorizonDays") or 0)
+            except ValueError:
+                ahead = 0
+            if ahead > 0:
+                edge = (date.fromisoformat(days[0])
+                        + timedelta(days=ahead)).isoformat()
+                booked = [d for d in run if d <= edge]
+
             for platform, account in campaign_accounts(campaign["Accounts"]):
                 mine = defaultdict(list)
                 for r in rows:
@@ -612,15 +730,24 @@ def check(rows, anchor=ANCHOR_DEFAULT, target=None):
                 said = (", where the promise was published"
                         if (platform, account) in promised else "")
 
-                dark = [d for d in run if not mine.get(d)]
+                # A night the plan never booked on this account is not a
+                # night it owes. Facebook and YouTube carry the run on
+                # alternate nights, so 16 of their 33 are empty on purpose,
+                # and charging them for those buries the 1 night that is
+                # really missing under 30 that are not.
+                dark = [d for d in booked
+                        if not mine.get(d)
+                        and (not owes or (platform, account) in owes.get(d, ()))]
                 if dark:
+                    reach = ("nights loaded so far, through %s" % edge
+                             if booked is not run else "nights left in it")
                     findings.append({
                         "rule": "C13_PROMISE_DARK",
                         "day": dark[0],
                         "detail": "%s runs on %s and is dark on %d of the %d "
-                                  "nights left in it%s: %s"
+                                  "%s%s: %s"
                                   % (campaign["Campaign"], where, len(dark),
-                                     len(run), said, " ".join(dark)),
+                                     len(booked), reach, said, " ".join(dark)),
                         "ids": [],
                     })
 
@@ -639,6 +766,91 @@ def check(rows, anchor=ANCHOR_DEFAULT, target=None):
                                          else "nights"),
                             "ids": [p["id"] for p in got],
                         })
+
+    # C15 and C16: something standing in a campaign's hour.
+    #
+    # C05 catches 2 posts too close on 1 account, which is how both of these
+    # first showed up: as spacing noise, 2 real findings buried in 26 where 21
+    # were a story against a feed post. "The campaign's hour is being built
+    # over" is a different and worse thing than "2 posts are near each other",
+    # and C05 cannot see it at all when the intruder is on another account the
+    # campaign books that night.
+    if campaign and campaign.get("Live") == "yes":
+        # Scoped exactly like C13, and for the same reason. A board that
+        # carries none of this campaign is a different board, and the 10/01
+        # fixture proved it: a 1 day export with its own 23:00 Instagram slot
+        # read as 3 posts squatting in a campaign it has never heard of.
+        reserved = (reserved_slots(campaign["Campaign"])
+                    if carries and overlaps else {})
+        if reserved:
+            seen = set()
+            for r in rows:
+                for minute, accounts in reserved.get(r["day"], ()):
+                    if (r["platform"], r["account"]) not in accounts:
+                        continue
+                    if r["fact"] in slugs:
+                        continue          # the campaign's own post
+                    if r["surface"] != "feed":
+                        continue          # a story is not standing in the feed
+                    hh, _, mm = r["time"].partition(":")
+                    try:
+                        at = int(hh) * 60 + int(mm)
+                    except ValueError:
+                        continue
+                    gap = abs(at - minute)
+                    if gap > SLOT_GUARD_MIN:
+                        continue
+                    key = (r["id"], minute)
+                    if key in seen:
+                        continue
+                    seen.add(key)
+                    findings.append({
+                        "rule": "C15_SLOT_CONTESTED",
+                        "day": r["day"],
+                        "detail": "%s at %s is %d min from the %02d:%02d slot "
+                                  "%s reserves on %s %s, and is not part of it"
+                                  % (r["id"], r["time"], gap, minute // 60,
+                                     minute % 60, campaign["Campaign"],
+                                     r["platform"], r["account"]),
+                        "ids": [r["id"]],
+                    })
+
+            # The grid another scheduler reads, checked against the same
+            # reservation, and only for a board that is actually carrying this
+            # campaign. C16 reads 2 data files and no board at all, so without
+            # this it reported the same 3 rows against every fixture in the
+            # suite and failed 6 tests that were testing something else. A rule
+            # that fires on boards it has nothing to say about is the shape of
+            # alarm somebody switches off, which is the lesson C13 already
+            # taught on 09/30. slot-model.csv still hands 23:00 UTC to ROTATION on
+            # tiktok 41488 and PERSONAL on instagram 45886, which is the exact
+            # slot the run has posted in every night since 09/29. A stale file
+            # is not a mistake somebody made once. It is the mistake the next
+            # session will make, by reading it correctly.
+            windows = {}
+            for day, slots in reserved.items():
+                for minute, accounts in slots:
+                    for pair in accounts:
+                        windows.setdefault(pair, set()).add(minute)
+            for slot_id, minute, pairs, slot in load_slot_model():
+                for pair in pairs:
+                    for owned in windows.get(pair, ()):
+                        gap = abs(minute - owned)
+                        if gap > SLOT_GUARD_MIN:
+                            continue
+                        findings.append({
+                            "rule": "C16_SLOT_MODEL_CONTESTED",
+                            "day": campaign["StartDate"],
+                            "detail": "slot-model.csv row %s (%s) puts %s %s at "
+                                      "%02d:%02d UTC, %d min from the %02d:%02d "
+                                      "slot %s reserves on that account"
+                                      % (slot_id, slot, pair[0], pair[1],
+                                         minute // 60, minute % 60, gap,
+                                         owned // 60, owned % 60,
+                                         campaign["Campaign"]),
+                            "ids": [],
+                        })
+                        break
 
     return findings
 

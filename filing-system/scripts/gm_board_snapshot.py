@@ -38,6 +38,7 @@ from collections import defaultdict
 HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(os.path.dirname(HERE), "data")
 REGISTER = os.path.join(DATA, "staging-library.csv")
+PLANS = os.path.join(DATA, "campaign-plans.csv")
 
 # Below this, the opening lines do not agree well enough to call it the same
 # fact. Measured on the 09/08 board: real matches sat at 0.69 and up, the
@@ -131,14 +132,143 @@ def load_roster(path=None):
     return "|".join(sorted(out))
 
 
-def load_register(path=REGISTER):
-    """Slug -> the openings of every caption written for it."""
+def load_plans(path=None):
+    """Every campaign that ships from a plan file, as rows.
+
+    A campaign a job places is not in the staging library. The job reads its
+    own plan and writes straight to the queue, so the register below matched
+    the 09/30 board against the library alone and labelled 11 rows of 153.
+    Every night the Halloween loader had placed came back with no fact at all,
+    and C13 read a campaign that had not missed a night as 27 dark ones.
+    """
+    path = path or PLANS
+    if not os.path.exists(path):
+        return []
+    root = os.path.dirname(os.path.dirname(HERE))
+    out = []
+    with open(path, newline="", encoding="utf-8") as fh:
+        for r in csv.DictReader(fh):
+            rel = (r.get("Plan") or "").strip()
+            if not rel:
+                continue
+            r["_path"] = rel if os.path.isabs(rel) else os.path.join(root, rel)
+            out.append(r)
+    return out
+
+
+def slot_accounts(cell):
+    """"ig_tt=instagram:45886|tiktok:41488;fb_yt=..." as [(field, pairs), ...]."""
+    out = []
+    for part in (cell or "").split(";"):
+        field, _, accounts = part.strip().partition("=")
+        if not field.strip() or not accounts.strip():
+            continue
+        pairs = set()
+        for a in accounts.split("|"):
+            platform, _, account = a.strip().partition(":")
+            if platform.strip() and account.strip():
+                pairs.add((platform.strip().lower(), account.strip()))
+        out.append((field.strip(), pairs))
+    return out
+
+
+def plan_nights(row):
+    """One plan as [(date, slug, hook, {(platform, account), ...}), ...].
+
+    Which accounts a night owes is read off the plan's own slot fields, not a
+    second list kept in step by hand. 33 Nights runs Instagram and TikTok
+    every night and Facebook and YouTube on alternate ones, and it says so by
+    leaving fb_yt empty on the 16 nights it skips. A column restating that is
+    a column that drifts. Reading the plan cannot.
+    """
+    try:
+        with open(row["_path"], encoding="utf-8") as fh:
+            plan = json.load(fh)
+    except (OSError, ValueError):
+        return []
+    if isinstance(plan, dict):
+        plan = plan.get("nights") or plan.get("rows") or []
+    slots = slot_accounts(row.get("SlotFields"))
+    df = (row.get("DateField") or "date").strip()
+    sf = (row.get("SlugField") or "slug").strip()
+    hf = (row.get("HookField") or "hook").strip()
+    out = []
+    for n in plan:
+        if not isinstance(n, dict) or not n.get(df):
+            continue
+        owes = set()
+        for field, pairs in slots:
+            if str(n.get(field) or "").strip():
+                owes |= pairs
+        slug = str(n.get(sf) or "").strip().lower()
+        out.append((str(n[df])[:10], FAMILY.get(slug, slug),
+                    n.get(hf) or "", owes))
+    return out
+
+
+def plan_slots(row):
+    """One plan as [(date, minute-of-day, {(platform, account), ...}), ...].
+
+    The same read as plan_nights, answering the other question a plan can be
+    asked: not what each night says, but what time it occupies and on whose
+    account. A campaign that posts at a fixed hour owns that hour, and this is
+    the only place that is written down.
+    """
+    try:
+        with open(row["_path"], encoding="utf-8") as fh:
+            plan = json.load(fh)
+    except (OSError, ValueError):
+        return []
+    if isinstance(plan, dict):
+        plan = plan.get("nights") or plan.get("rows") or []
+    slots = slot_accounts(row.get("SlotFields"))
+    df = (row.get("DateField") or "date").strip()
+    out = []
+    for n in plan:
+        if not isinstance(n, dict) or not n.get(df):
+            continue
+        for field, accounts in slots:
+            at = str(n.get(field) or "").strip()
+            m = re.match(r"^(\d{1,2}):(\d{2})", at)
+            if not m:
+                continue
+            out.append((str(n[df])[:10],
+                        int(m.group(1)) * 60 + int(m.group(2)), accounts))
+    return out
+
+
+def plan_register(path=None):
+    """Slug -> the opening of the caption each plan night was written with.
+
+    The hook is the line the caption opens with, which is the 1 part of a
+    campaign post that says what it is about, and the part the matcher
+    already reads. Nothing new had to be written down for this join. It only
+    had to be looked at.
+    """
+    reg = defaultdict(list)
+    for row in load_plans(path):
+        for _day, slug, hook, _owes in plan_nights(row):
+            if slug and hook:
+                reg[slug].append(opening(hook))
+    return reg
+
+
+def load_register(path=REGISTER, plans=PLANS):
+    """Slug -> the openings of every caption written for it.
+
+    Two sources, because captions are written in 2 places. The library holds
+    the ones a person staged. A plan holds the ones a job will place, and
+    those never reach the library at all.
+    """
     reg = defaultdict(list)
     with open(path, newline="") as fh:
         for r in csv.DictReader(fh):
             if not (r.get("MediaUrl") or "").strip().endswith(".mp4"):
                 continue
             reg[r["Slug"].strip()].append(opening(r["Text"].replace("\\n", "\n")))
+    if plans:
+        for slug, openings in plan_register(plans).items():
+            reg[slug].extend(openings)
     return reg
 
 
@@ -154,6 +284,13 @@ def load_queue(path):
             "when": it["scheduledAt"][:16],
             "platform": content.get("platform") or draft["target"].get("targetType"),
             "account": str(draft.get("accountId")),
+            # Where the post lands, not what it plays. A story and a feed reel
+            # 30 minutes apart are not 2 posts competing, they are 1 post and
+            # a pointer to it, and C05 counted them as a collision 21 times on
+            # the 10/01 board out of 26 findings. The queue has carried this
+            # the whole time, in target.mediaType, and the board threw it away.
+            "surface": ("story" if draft["target"].get("mediaType") == "story"
+                        else "feed"),
             "text": content.get("text") or "",
         })
     return rows
@@ -177,7 +314,7 @@ def resolve(rows, register):
             first = " ".join(r["text"].strip().split("\n")[0].split()[:7]).lower()
             guess = re.sub(r"[^a-z0-9]+", "-", first).strip("-") or ("row-" + r["id"])
         out.append([r["id"], r["when"], countdown_in(r["text"]), r["platform"],
-                    r["account"], fact, guess])
+                    r["account"], r.get("surface", "feed"), fact, guess])
     out.sort(key=lambda x: x[1])
     return out, unresolved
 
@@ -199,7 +336,7 @@ def main(argv):
     with open(tmp, "w", newline="") as fh:
         w = csv.writer(fh)
         w.writerow(["id", "postTimeUTC", "countdown", "platform", "accountId",
-                    "fact", "factGuess", "roster"])
+                    "surface", "fact", "factGuess", "roster"])
         roster = load_roster()
         w.writerows([row + [roster] for row in out])
     os.replace(tmp, args[1])
