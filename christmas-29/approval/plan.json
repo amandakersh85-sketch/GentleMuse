@@ -1,0 +1,935 @@
+[
+  {
+    "night": 1,
+    "date": "2026-11-28",
+    "evening": "2026-11-27",
+    "slug": "reindeer-eyes-turn-blue",
+    "left": 28,
+    "ig_tt": "00:00Z",
+    "fb_yt": "00:30Z",
+    "lane": "christmas",
+    "hook": "A reindeer's eyes change colour for the winter.",
+    "fact": "The tapetum lucidum, the mirrored layer behind the retina, is gold in summer and deep blue by midwinter. Gold throws light back out of the eye. Blue scatters it inside, where the retina gets another go at it. Months of a pupil held wide is what squeezes the tissue into changing colour.",
+    "backbone": "By December it is not the same eye it was using in July.",
+    "era": "2013",
+    "sources": [
+      {
+        "name": "UCL, Reindeers' eyes change colour with Arctic seasons (Glen Jeffery, 2013)",
+        "url": "https://www.ucl.ac.uk/news/2013/oct/reindeers-eyes-change-colour-arctic-seasons"
+      }
+    ],
+    "confidence": "high",
+    "verified": "yes",
+    "checked": "2026-10-04",
+    "reused": "",
+    "plate": "",
+    "plate_desc": "snow at dusk, 1 set of tracks",
+    "bed": "carol-in-the-bleak-midwinter-solo",
+    "bed_desc": "In the Bleak Midwinter. 1 instrument on a public domain carol, sparse and close",
+    "treatment": "carol-solo"
+  },
+  {
+    "night": 2,
+    "date": "2026-11-29",
+    "evening": "2026-11-28",
+    "slug": "the-sleigh-team-is-female",
+    "left": 27,
+    "ig_tt": "00:00Z",
+    "fb_yt": "00:30Z",
+    "lane": "christmas",
+    "hook": "Every reindeer with antlers at Christmas is female.",
+    "fact": "Reindeer are the only deer whose females grow antlers at all. The bulls drop theirs between late November and mid December. The cows keep theirs until spring, because they are pregnant through the winter and an antler is how you hold a patch of cleared snow with food under it.",
+    "backbone": "Anything on that roof still wearing antlers in December is a pregnant cow guarding her dinner.",
+    "era": "none",
+    "sources": [
+      {
+        "name": "PBS NewsHour, 7 things you did not know about reindeer",
+        "url": "https://www.pbs.org/newshour/science/7-things-didnt-know-reindeer"
+      },
+      {
+        "name": "Discover Wildlife, Why do female reindeer grow antlers",
+        "url": "https://www.discoverwildlife.com/wildlife/mammals/why-do-female-reindeer-grow-antlers"
+      }
+    ],
+    "confidence": "high",
+    "verified": "yes",
+    "checked": "2026-10-04",
+    "reused": "",
+    "plate": "",
+    "plate_desc": "bare antler on snow",
+    "bed": "carol-up-on-the-housetop-full",
+    "bed_desc": "Up on the Housetop. a fuller newly played arrangement, warm",
+    "treatment": "carol-full"
+  },
+  {
+    "night": 3,
+    "date": "2026-11-30",
+    "evening": "2026-11-29",
+    "slug": "a-carol-was-a-dance",
+    "left": 26,
+    "ig_tt": "00:00Z",
+    "fb_yt": "00:30Z",
+    "lane": "christmas",
+    "hook": "Caroling was dancing before it was singing.",
+    "fact": "Carol comes from the Old French carole, a ring dance with singers in it. In English around 1300 it meant the dance itself, and to carol meant to move in a ring. Singing for joy arrives late in the 1300s. The Christmas hymn sense only turns up around 1500.",
+    "backbone": "For 200 years, caroling was something you did with your feet.",
+    "era": "1300 to 1500",
+    "sources": [
+      {
+        "name": "Etymonline, carol",
+        "url": "https://www.etymonline.com/word/carol"
+      }
+    ],
+    "confidence": "high",
+    "verified": "yes",
+    "checked": "2026-10-04",
+    "reused": "",
+    "plate": "",
+    "plate_desc": "worn floorboards, 1 window",
+    "bed": "carol-ding-dong-merrily-on-high-full",
+    "bed_desc": "Ding Dong Merrily on High. a fuller newly played arrangement, warm",
+    "treatment": "carol-full"
+  },
+  {
+    "night": 4,
+    "date": "2026-12-01",
+    "evening": "2026-11-30",
+    "slug": "the-x-is-a-chi",
+    "left": 25,
+    "ig_tt": "00:00Z",
+    "fb_yt": "00:30Z",
+    "lane": "christmas",
+    "hook": "The X in Xmas is not crossing anything out.",
+    "fact": "X is chi, the first letter of Christos in Greek, and scribes used it as shorthand for Christ for centuries. The oldest known use sits in an 11th century stretch of the Anglo-Saxon Chronicle, written Xpes maesse. The spelling people argue about turns up in the 1500s.",
+    "backbone": "It has been written this way for about 1,000 years longer than anyone has been offended by it.",
+    "era": "1000s to now",
+    "sources": [
+      {
+        "name": "Greek City Times, the story behind Xmas: X is the Greek chi, attested in the Anglo-Saxon Chronicle",
+        "url": "https://greekcitytimes.com/2025/12/25/xmas-origin"
+      },
+      {
+        "name": "EWTN, the thousand year old Christian abbreviation",
+        "url": "https://www.ewtnnews.com/world/us/don-t-be-afraid-to-write-merry-xmas-inside-the-thousand-year-old-christian-tradition"
+      }
+    ],
+    "confidence": "high",
+    "verified": "yes",
+    "checked": "2026-10-04",
+    "reused": "",
+    "plate": "",
+    "plate_desc": "ink on vellum, raking light",
+    "bed": "carol-o-come-o-come-emmanuel-solo",
+    "bed_desc": "O Come O Come Emmanuel. 1 instrument on a public domain carol, sparse and close",
+    "treatment": "carol-solo"
+  },
+  {
+    "night": 5,
+    "date": "2026-12-02",
+    "evening": "2026-12-01",
+    "slug": "the-first-advent-calendar",
+    "left": 24,
+    "ig_tt": "00:00Z",
+    "fb_yt": "00:30Z",
+    "lane": "christmas",
+    "hook": "The first advent calendar was 24 biscuits sewn to cardboard.",
+    "fact": "Gerhard Lang's mother sewed 24 biscuits onto a piece of card so he could eat 1 a day through December. In 1908, in Munich, he printed the idea: 24 doors with a picture behind each. Before that, German Lutherans counted down in chalk marks on a door frame.",
+    "backbone": "Every one of them is a copy of a mother rationing biscuits.",
+    "era": "1908",
+    "sources": [
+      {
+        "name": "Nautilus Puzzles, The History of Advent Calendars: Gerhard Lang, Munich, 1908, Im Lande des Christkinds",
+        "url": "https://nautiluspuzzles.com/blogs/news/the-history-of-advent-calendars-nautilus-puzzles"
+      },
+      {
+        "name": "Aleteia, Where did advent calendars originate",
+        "url": "https://aleteia.org/2017/12/07/where-did-advent-calendars-originate"
+      }
+    ],
+    "confidence": "high",
+    "verified": "yes",
+    "checked": "2026-10-04",
+    "reused": "",
+    "plate": "",
+    "plate_desc": "card with 1 small door open",
+    "bed": "carol-o-tannenbaum-scratch",
+    "bed_desc": "O Tannenbaum. a dated scratchy orchestral recording. Amanda, 10/04: \"the orchestral, scratchy sounding dated, because that would complement it\"",
+    "treatment": "carol-scratch"
+  },
+  {
+    "night": 6,
+    "date": "2026-12-03",
+    "evening": "2026-12-02",
+    "slug": "rudolph-was-a-giveaway",
+    "left": 23,
+    "ig_tt": "00:00Z",
+    "fb_yt": "00:30Z",
+    "lane": "christmas",
+    "hook": "Rudolph was written to hand out at a department store.",
+    "fact": "Robert L. May was a 35 year old copywriter at Montgomery Ward in Chicago when his boss asked for a Christmas story the store could hand out at the counter. They gave away 2.4 million copies in 1939. The catalogue department had already turned down Rollo for sounding too cheerful and Reginald for sounding too British.",
+    "backbone": "He is a free gift with purchase, and he nearly went out as Rollo.",
+    "era": "1939",
+    "sources": [
+      {
+        "name": "Wikipedia, Rudolph the Red-Nosed Reindeer: May, Montgomery Ward, 2.4 million copies, the rejected names",
+        "url": "https://en.wikipedia.org/wiki/Rudolph_the_Red-Nosed_Reindeer"
+      },
+      {
+        "name": "Mental Floss, 12 shiny facts about Rudolph",
+        "url": "https://mentalfloss.com/article/72048/12-very-shiny-facts-about-rudolph-red-nosed-reindeer"
+      }
+    ],
+    "confidence": "high",
+    "verified": "yes",
+    "checked": "2026-10-04",
+    "reused": "",
+    "plate": "",
+    "plate_desc": "booklet on a counter, 1 lamp",
+    "bed": "carol-jolly-old-saint-nicholas-scratch",
+    "bed_desc": "Jolly Old Saint Nicholas. a dated scratchy orchestral recording. Amanda, 10/04: \"the orchestral, scratchy sounding dated, because that would complement it\"",
+    "treatment": "carol-scratch"
+  },
+  {
+    "night": 7,
+    "date": "2026-12-04",
+    "evening": "2026-12-03",
+    "slug": "santa-was-red-before-coke",
+    "left": 22,
+    "ig_tt": "00:00Z",
+    "fb_yt": "00:30Z",
+    "lane": "christmas",
+    "hook": "Coca-Cola did not put Santa in red.",
+    "fact": "Thomas Nast drew Santa for Harper's Weekly from the 1860s and had him settled in red by Merry Old Santa Claus in 1881. A red suited Santa with a bottle of Coke ran in 1930, a year before Haddon Sundblom painted the ones everybody credits.",
+    "backbone": "Coca-Cola did not choose the colour. It bought enough space to make you think it did.",
+    "era": "1881 to 1931",
+    "sources": [
+      {
+        "name": "Coca-Cola, Did Coca-Cola invent Santa Claus (their own answer is no)",
+        "url": "https://www.coca-cola.ca/faqs/coca-cola-faqs-history/did-coca-cola-invent-santa-claus"
+      },
+      {
+        "name": "Fake History Hunter, Coca-Cola did not create Santa",
+        "url": "https://fakehistoryhunter.substack.com/p/coca-cola-did-not-create-santa"
+      }
+    ],
+    "confidence": "high",
+    "verified": "yes",
+    "checked": "2026-10-04",
+    "reused": "",
+    "plate": "",
+    "plate_desc": "magazine page under glass",
+    "bed": "carol-deck-the-halls-scratch",
+    "bed_desc": "Deck the Halls. a dated scratchy orchestral recording. Amanda, 10/04: \"the orchestral, scratchy sounding dated, because that would complement it\"",
+    "treatment": "carol-scratch"
+  },
+  {
+    "night": 8,
+    "date": "2026-12-05",
+    "evening": "2026-12-04",
+    "slug": "the-first-card-was-a-scandal",
+    "left": 21,
+    "ig_tt": "00:00Z",
+    "fb_yt": "00:30Z",
+    "lane": "christmas",
+    "hook": "The first Christmas card got told off for the wine.",
+    "fact": "Henry Cole commissioned it, John Callcott Horsley drew it, and 1,000 went on sale in London in 1843 at a shilling hand coloured. In the foreground a small girl is taking a sip from an adult's glass. The Temperance Society made enough noise about that 1 detail that no new Christmas card was printed for 3 years.",
+    "backbone": "The whole idea took 3 years to recover from the wine in its own picture.",
+    "era": "1843",
+    "sources": [
+      {
+        "name": "Britannica, Christmas card: Cole, Horsley, 1843, 1,000 printed",
+        "url": "https://www.britannica.com/topic/Christmas-card"
+      },
+      {
+        "name": "Smithsonian Magazine, the first commercially printed Christmas card: a young girl sipping from an adult's glass, and the 3 year gap before another was printed",
+        "url": "https://www.smithsonianmag.com/smart-news/first-commercially-printed-christmas-card-sale-holiday-season-180976459/"
+      }
+    ],
+    "confidence": "high",
+    "verified": "yes",
+    "checked": "2026-10-04",
+    "reused": "",
+    "plate": "",
+    "plate_desc": "card propped on a mantel",
+    "bed": "carol-here-we-come-a-wassailing-scratch",
+    "bed_desc": "Here We Come A-wassailing. a dated scratchy orchestral recording. Amanda, 10/04: \"the orchestral, scratchy sounding dated, because that would complement it\"",
+    "treatment": "carol-scratch"
+  },
+  {
+    "night": 9,
+    "date": "2026-12-06",
+    "evening": "2026-12-05",
+    "slug": "the-candy-cane-legend-is-1996",
+    "left": 20,
+    "ig_tt": "00:00Z",
+    "fb_yt": "00:30Z",
+    "lane": "christmas",
+    "hook": "The candy cane's Christian symbolism was invented in 1996.",
+    "fact": "The J for Jesus, the white for purity, the red for the blood: all of it comes from The Candymaker's Gift, a children's book published in 1996. Christmas cards printed before 1900 show the canes plain white. The stripes arrive after 1900, from a candy maker in Albany, Georgia.",
+    "backbone": "The ancient Christian symbol is younger than the people explaining it to you.",
+    "era": "1996",
+    "sources": [
+      {
+        "name": "That's Nonsense, Is the Christmas candy cane a religious symbol: the legend traces to a 1996 children's book",
+        "url": "https://www.thatsnonsense.com/is-the-christmas-candy-cane-a-religious-symbol-fact-check/"
+      },
+      {
+        "name": "San Angelo Live, Traditions and Trivia: Candy Canes. Pre-1900 cards show white canes; stripes appear after 1900",
+        "url": "https://sanangelolive.com/news/national/2013-12-20/traditions-and-trivia-candy-canes"
+      }
+    ],
+    "confidence": "high",
+    "verified": "yes",
+    "checked": "2026-10-04",
+    "reused": "",
+    "plate": "",
+    "plate_desc": "plain white stick candy in a jar",
+    "bed": "carol-the-holly-and-the-ivy-full",
+    "bed_desc": "The Holly and the Ivy. a fuller newly played arrangement, warm",
+    "treatment": "carol-full"
+  },
+  {
+    "night": 10,
+    "date": "2026-12-07",
+    "evening": "2026-12-06",
+    "slug": "nicholas-and-the-dowries",
+    "left": 19,
+    "ig_tt": "00:00Z",
+    "fb_yt": "00:30Z",
+    "lane": "christmas",
+    "hook": "Stockings are hanging there because of 3 bags of gold.",
+    "fact": "The story told of Nicholas, bishop of Myra in the 300s, is that a father could not raise dowries for his 3 daughters, which meant they could be sold. On 3 nights Nicholas put gold through the window instead of into the man's hand, and it landed in the stockings drying by the fire.",
+    "backbone": "He went in through a window so the father would never have to say thank you.",
+    "era": "300s",
+    "sources": [
+      {
+        "name": "St Nicholas Center, Saint Nicholas: a brief introduction",
+        "url": "https://www.stnicholascenter.org/pages/introduction/"
+      },
+      {
+        "name": "Catholic Company, What is the origin of Christmas stockings. Told as the legend behind the custom, not as record",
+        "url": "https://www.catholiccompany.com/blogs/get-fed/what-is-the-origin-of-christmas-stockings"
+      }
+    ],
+    "confidence": "high",
+    "verified": "yes",
+    "checked": "2026-10-04",
+    "reused": "",
+    "plate": "",
+    "plate_desc": "stocking on a nail, firelight",
+    "bed": "carol-good-king-wenceslas-solo",
+    "bed_desc": "Good King Wenceslas. 1 instrument on a public domain carol, sparse and close",
+    "treatment": "carol-solo"
+  },
+  {
+    "night": 11,
+    "date": "2026-12-08",
+    "evening": "2026-12-07",
+    "slug": "the-evenings-turn-first",
+    "left": 18,
+    "ig_tt": "00:00Z",
+    "fb_yt": "00:30Z",
+    "lane": "christmas",
+    "hook": "The earliest sunset is not the shortest day.",
+    "fact": "At this latitude the sun sets earliest around 12/07, a fortnight before the solstice, and the latest sunrise is still weeks off in early January. Earth's orbit is not a circle, so the sun does not keep clock time, and the shortest day and the darkest evening are not the same day.",
+    "backbone": "The evenings start getting longer while the days are still getting shorter.",
+    "era": "none",
+    "sources": [
+      {
+        "name": "Fox Weather, Why earliest sunsets are not on the winter solstice",
+        "url": "https://foxweather.com/learn/earliest-sunsets-not-on-winter-solstice"
+      },
+      {
+        "name": "Vatican Observatory, The analemma and the darkest evening",
+        "url": "https://www.vaticanobservatory.org/sacred-space-astronomy/the-analemma-and-the-darkest-evening/"
+      }
+    ],
+    "confidence": "high",
+    "verified": "yes",
+    "checked": "2026-10-04",
+    "reused": "",
+    "plate": "",
+    "plate_desc": "street at 4 in the afternoon",
+    "bed": "carol-it-came-upon-the-midnight-clear-solo",
+    "bed_desc": "It Came Upon the Midnight Clear. 1 instrument on a public domain carol, sparse and close",
+    "treatment": "carol-solo"
+  },
+  {
+    "night": 12,
+    "date": "2026-12-09",
+    "evening": "2026-12-08",
+    "slug": "cuetlaxochitl",
+    "left": 17,
+    "ig_tt": "00:00Z",
+    "fb_yt": "00:30Z",
+    "lane": "christmas",
+    "hook": "The poinsettia had a name for centuries before it got this one.",
+    "fact": "Cuetlaxochitl, in Nahuatl. The Aztecs grew it for red and purple dye and for medicine from the milky sap. Joel Roberts Poinsett, the first United States minister to Mexico, saw it in the south in 1825 and sent cuttings home to Charleston. The red parts are not petals. They are leaves.",
+    "backbone": "It had a name for centuries before it got one from a man who was passing through.",
+    "era": "1825",
+    "sources": [
+      {
+        "name": "Swansons Nursery, Cuetlaxochitl: A Cultural History of the Poinsettia",
+        "url": "https://www.swansonsnursery.com/blog/history-of-poinsettias"
+      },
+      {
+        "name": "Michigan State University Extension, The history of the poinsettia",
+        "url": "https://www.canr.msu.edu/uploads/resources/pdfs/the_history_of_the_poinsettia.pdf"
+      }
+    ],
+    "confidence": "high",
+    "verified": "yes",
+    "checked": "2026-10-04",
+    "reused": "",
+    "plate": "",
+    "plate_desc": "1 red bract against a wall",
+    "bed": "carol-lo-how-a-rose-eer-blooming-solo",
+    "bed_desc": "Lo How a Rose E'er Blooming. 1 instrument on a public domain carol, sparse and close",
+    "treatment": "carol-solo"
+  },
+  {
+    "night": 13,
+    "date": "2026-12-10",
+    "evening": "2026-12-09",
+    "slug": "mistletoe-means-dung-twig",
+    "left": 16,
+    "ig_tt": "00:00Z",
+    "fb_yt": "00:30Z",
+    "lane": "christmas",
+    "hook": "Mistletoe means dung on a twig.",
+    "fact": "Old English misteltan: mistel for dung, tan for twig. It is named for how it arrives, in bird droppings left on a branch. From there it taps the tree for water and minerals and never stops. We tie it over a doorway and kiss underneath it.",
+    "backbone": "Dung on a twig, hung at head height, and nobody has ever renamed it.",
+    "era": "none",
+    "sources": [
+      {
+        "name": "Etymonline, mistletoe",
+        "url": "https://www.etymonline.com/word/mistletoe"
+      },
+      {
+        "name": "McGill Office for Science and Society, mistletoe: the name and the hemiparasite",
+        "url": "https://www.mcgill.ca/oss/node/2447"
+      }
+    ],
+    "confidence": "high",
+    "verified": "yes",
+    "checked": "2026-10-04",
+    "reused": "",
+    "plate": "",
+    "plate_desc": "sprig tied above a doorframe",
+    "bed": "carol-sussex-carol-full",
+    "bed_desc": "Sussex Carol. a fuller newly played arrangement, warm",
+    "treatment": "carol-full"
+  },
+  {
+    "night": 14,
+    "date": "2026-12-11",
+    "evening": "2026-12-10",
+    "slug": "silent-night-waited-2-years",
+    "left": 15,
+    "ig_tt": "00:00Z",
+    "fb_yt": "00:30Z",
+    "lane": "christmas",
+    "hook": "Silent Night was a poem for 2 years before it was a song.",
+    "fact": "Joseph Mohr wrote the words in 1816. On Christmas Eve 1818 he handed them to Franz Gruber and asked for a melody for 2 voices and a guitar, for that evening. In 1819 an organ maker called Karl Mauracher came to repair the church organ, heard it, and carried it home to the Ziller Valley. The Strasser children, who sang at markets between selling gloves, took it to Leipzig in 1831.",
+    "backbone": "It got out of that village in a repairman's head and travelled on with a family selling gloves.",
+    "era": "1816 to 1818",
+    "sources": [
+      {
+        "name": "History Today, The first performance of Silent Night",
+        "url": "https://www.historytoday.com/archive/months-past/first-performance-silent-night"
+      },
+      {
+        "name": "stillenacht.at, Spreading of the Song: Karl Mauracher in 1819, the Rainer singers, and the Strasser children at Leipzig in 1831",
+        "url": "https://www.stillenacht.at/en/history/spreading-of-the-song"
+      },
+      {
+        "name": "The mouse-ate-the-bellows version is a myth and whether the organ was broken at all is disputed, so neither is in the fact",
+        "url": "https://www.peninsuladailynews.com/life/issues-of-faith-the-story-of-a-silent-night"
+      }
+    ],
+    "confidence": "high",
+    "verified": "yes",
+    "checked": "2026-10-04",
+    "reused": "",
+    "plate": "",
+    "plate_desc": "guitar against a church pew",
+    "bed": "carol-silent-night-solo",
+    "bed_desc": "Silent Night. 1 instrument on a public domain carol, sparse and close",
+    "treatment": "carol-solo"
+  },
+  {
+    "night": 15,
+    "date": "2026-12-12",
+    "evening": "2026-12-11",
+    "slug": "jingle-bells-says-nothing-about-christmas",
+    "left": 14,
+    "ig_tt": "00:00Z",
+    "fb_yt": "00:30Z",
+    "lane": "christmas",
+    "hook": "There is no Christmas anywhere in Jingle Bells.",
+    "fact": "James Lord Pierpont published it in 1857 as The One Horse Open Sleigh. Read the words: snow, a sleigh, a girl sitting beside him, an upset in a drift, and a bet that his horse is the faster one. No tree, no gift, no saint, no Christmas.",
+    "backbone": "It is a young man showing off in the snow, and we sing it at the nativity.",
+    "era": "1857",
+    "sources": [
+      {
+        "name": "Mental Floss, Jingle Bells was originally written for Thanksgiving. The Thanksgiving performance is the standard account and Medford and Savannah dispute where and when it was written, so the fact rests on the lyrics, which mention no Christmas",
+        "url": "https://www.mentalfloss.com/holidays/christmas/jingle-bells-was-written-as-a-thanksgiving-song"
+      }
+    ],
+    "confidence": "high",
+    "verified": "yes",
+    "checked": "2026-10-04",
+    "reused": "",
+    "plate": "",
+    "plate_desc": "sleigh bells on a hook",
+    "bed": "carol-jingle-bells-scratch",
+    "bed_desc": "Jingle Bells. a dated scratchy orchestral recording. Amanda, 10/04: \"the orchestral, scratchy sounding dated, because that would complement it\"",
+    "treatment": "carol-scratch"
+  },
+  {
+    "night": 16,
+    "date": "2026-12-13",
+    "evening": "2026-12-12",
+    "slug": "the-yule-cat-wants-you-clothed",
+    "left": 13,
+    "ig_tt": "00:00Z",
+    "fb_yt": "00:30Z",
+    "lane": "christmas",
+    "hook": "Iceland has a Christmas cat that eats you for not getting new clothes.",
+    "fact": "Jolakotturinn prowls at Yule looking for anyone who did not get new clothes. It belongs to Gryla, a troll who comes down from a mountain cave to boil badly behaved children, and to her 13 sons, who arrive 1 a night from 12/12.",
+    "backbone": "The monster is not checking whether you were good. It is checking whether somebody bought you a jumper.",
+    "era": "none",
+    "sources": [
+      {
+        "name": "Atlas Obscura, Jolakotturinn, the Icelandic Yule Cat",
+        "url": "https://www.atlasobscura.com/articles/yule-cat-jolakotturinn-iceland"
+      },
+      {
+        "name": "Guide to Iceland, Gryla and Leppaludi, the parents of the Yule Lads",
+        "url": "https://guidetoiceland.is/contact-an-iceland-local/regina/gryla-and-leppaludi-the-parents-of-the-icelandic-yule-lads"
+      }
+    ],
+    "confidence": "high",
+    "verified": "yes",
+    "checked": "2026-10-04",
+    "reused": "",
+    "plate": "",
+    "plate_desc": "knitted sleeve, snow on a sill",
+    "bed": "carol-coventry-carol-solo",
+    "bed_desc": "Coventry Carol. 1 instrument on a public domain carol, sparse and close",
+    "treatment": "carol-solo"
+  },
+  {
+    "night": 17,
+    "date": "2026-12-14",
+    "evening": "2026-12-13",
+    "slug": "tinsel-was-silver-then-lead",
+    "left": 12,
+    "ig_tt": "00:00Z",
+    "fb_yt": "00:30Z",
+    "lane": "christmas",
+    "hook": "Tinsel was real silver, then it was lead.",
+    "fact": "It began in the 1600s as thin strands of real silver, which tarnished black. Tin and lead were cheaper and stayed bright, so lead is what hung on trees for most of the 20th century. In 1971 the FDA talked importers into stopping from 01/01/1972. It never banned the stuff. It did not have the evidence.",
+    "backbone": "3 centuries of making the shine cheaper, and for most of 1 of them it was lead at a child's eye level.",
+    "era": "1600s to 1972",
+    "sources": [
+      {
+        "name": "Wikipedia, Tinsel: silver origins, tin and lead, the 1971 FDA action and the voluntary stop from 01/01/1972",
+        "url": "https://en.wikipedia.org/wiki/Tinsel"
+      },
+      {
+        "name": "Mental Floss, The tumultuous history of tinsel",
+        "url": "https://mentalfloss.com/article/609741/christmas-tree-tinsel-history"
+      }
+    ],
+    "confidence": "high",
+    "verified": "yes",
+    "checked": "2026-10-04",
+    "reused": "",
+    "plate": "",
+    "plate_desc": "single strand catching light",
+    "bed": "carol-angels-we-have-heard-on-high-scratch",
+    "bed_desc": "Angels We Have Heard on High. a dated scratchy orchestral recording. Amanda, 10/04: \"the orchestral, scratchy sounding dated, because that would complement it\"",
+    "treatment": "carol-scratch"
+  },
+  {
+    "night": 18,
+    "date": "2026-12-15",
+    "evening": "2026-12-14",
+    "slug": "charlie-brown-almost-did-not-air",
+    "left": 11,
+    "ig_tt": "00:00Z",
+    "fb_yt": "00:30Z",
+    "lane": "christmas",
+    "hook": "The network thought A Charlie Brown Christmas was a disaster.",
+    "fact": "Too slow. Too serious. A jazz piano trio instead of carols. No laugh track, because Schulz refused one. The voices were real children rather than trained adults, and some were too young to read, so Bill Melendez fed Christopher Shea his lines 1 at a time. And a small boy reciting Luke on prime time. CBS ran it in 1965 only because it was already in the schedule.",
+    "backbone": "15 million households watched, half the televisions in the country, and every objection on that list is why.",
+    "era": "1965",
+    "sources": [
+      {
+        "name": "History, A Charlie Brown Christmas, the unexpected classic",
+        "url": "https://www.history.com/articles/charlie-brown-christmas-unexpected-classic"
+      },
+      {
+        "name": "Smithsonian Magazine, CBS executives thought it would fail: real children instead of professional voice actors, and Melendez feeding Christopher Shea his lines",
+        "url": "https://www.smithsonianmag.com/smart-news/cbs-executives-thought-charlie-brown-christmas-would-fail-180953728/"
+      }
+    ],
+    "confidence": "high",
+    "verified": "yes",
+    "checked": "2026-10-04",
+    "reused": "",
+    "plate": "",
+    "plate_desc": "small tree, 1 ornament",
+    "bed": "carol-hark-the-herald-angels-sing-full",
+    "bed_desc": "Hark the Herald Angels Sing. a fuller newly played arrangement, warm",
+    "treatment": "carol-full"
+  },
+  {
+    "night": 19,
+    "date": "2026-12-16",
+    "evening": "2026-12-15",
+    "slug": "it-became-a-classic-by-being-free",
+    "left": 10,
+    "ig_tt": "00:00Z",
+    "fb_yt": "00:30Z",
+    "lane": "christmas",
+    "hook": "It's a Wonderful Life became a classic because of a clerical error.",
+    "fact": "It did not do well in 1946. In 1974 the renewal paperwork was never filed, the copyright lapsed, and stations could run it for nothing, so they ran it constantly every December. That is where the audience came from. In 1993 the rights holder used the short story underneath it and the music to pull it back behind a licence.",
+    "backbone": "It became a Christmas tradition during the 19 years nobody owned it.",
+    "era": "1946 to 1993",
+    "sources": [
+      {
+        "name": "Plagiarism Today, It's a Wonderful (Copyright) Life: the 1974 lapse, the television years, and the 1993 reassertion via Stewart v. Abend",
+        "url": "https://www.plagiarismtoday.com/2013/12/05/wonderful-copyright-life/"
+      }
+    ],
+    "confidence": "high",
+    "verified": "yes",
+    "checked": "2026-10-04",
+    "reused": "",
+    "plate": "",
+    "plate_desc": "television glow in a dark room",
+    "bed": "carol-joy-to-the-world-full",
+    "bed_desc": "Joy to the World. a fuller newly played arrangement, warm",
+    "treatment": "carol-full"
+  },
+  {
+    "night": 20,
+    "date": "2026-12-17",
+    "evening": "2026-12-16",
+    "slug": "the-eggnog-riot",
+    "left": 9,
+    "ig_tt": "00:00Z",
+    "fb_yt": "00:30Z",
+    "lane": "christmas",
+    "hook": "West Point rioted over eggnog in 1826.",
+    "fact": "Superintendent Sylvanus Thayer banned alcohol at West Point, so cadets smuggled whiskey in for the Christmas Eve party. It became an all night riot: firearms, swords, smashed furniture, officers barricaded in their rooms. Nearly a third of the academy was in it. 19 were court martialled and thrown out. Jefferson Davis was at the party.",
+    "backbone": "Tell a barracks full of teenagers they cannot have Christmas and find out.",
+    "era": "1826",
+    "sources": [
+      {
+        "name": "Wikipedia, Eggnog riot: 24 to 25 December 1826, Sylvanus Thayer's ban, 19 cadets expelled, Jefferson Davis present",
+        "url": "https://en.wikipedia.org/wiki/Eggnog_riot"
+      },
+      {
+        "name": "Emerging Civil War, The Eggnog Riot at West Point",
+        "url": "https://emergingcivilwar.com/2021/12/24/the-eggnog-riot-at-west-point/"
+      }
+    ],
+    "confidence": "high",
+    "verified": "yes",
+    "checked": "2026-10-04",
+    "reused": "",
+    "plate": "",
+    "plate_desc": "tin cup on a barracks floor",
+    "bed": "carol-i-saw-three-ships-full",
+    "bed_desc": "I Saw Three Ships. a fuller newly played arrangement, warm",
+    "treatment": "carol-full"
+  },
+  {
+    "night": 21,
+    "date": "2026-12-18",
+    "evening": "2026-12-17",
+    "slug": "saturnalia-turned-the-house-over",
+    "left": 8,
+    "ig_tt": "00:00Z",
+    "fb_yt": "00:30Z",
+    "lane": "christmas",
+    "hook": "For a week in December, Rome put the household upside down.",
+    "fact": "Saturnalia ran 12/17 to 12/23. The rules came off: enslaved people could not be punished, could answer back, could wear the household's own clothes, and in some accounts were served at the table by the people who owned them. The week had a presiding figure, the Saturnalicius princeps, picked from the lowest person in the house.",
+    "backbone": "The oldest version of this season put the least important person in the house in charge of it.",
+    "era": "1st century BC",
+    "sources": [
+      {
+        "name": "Wikipedia, Saturnalia: 17 to 23 December, the role reversals, the Saturnalicius princeps",
+        "url": "https://en.wikipedia.org/wiki/Saturnalia"
+      },
+      {
+        "name": "World History Encyclopedia, Saturnalia",
+        "url": "https://www.worldhistory.org/Saturnalia/"
+      }
+    ],
+    "confidence": "high",
+    "verified": "yes",
+    "checked": "2026-10-04",
+    "reused": "",
+    "plate": "",
+    "plate_desc": "overturned cup, long table",
+    "bed": "carol-the-wexford-carol-solo",
+    "bed_desc": "The Wexford Carol. 1 instrument on a public domain carol, sparse and close",
+    "treatment": "carol-solo"
+  },
+  {
+    "night": 22,
+    "date": "2026-12-19",
+    "evening": "2026-12-18",
+    "slug": "nobody-wrote-the-date-down",
+    "left": 7,
+    "ig_tt": "00:00Z",
+    "fb_yt": "00:30Z",
+    "lane": "christmas",
+    "hook": "No gospel gives a date, and the first record of this one is AD 336.",
+    "fact": "No gospel gives a date. The earliest known celebration of a nativity on 12/25 is recorded in Rome in 336. The oldest surviving document putting the 2 together is the Chronograph of 354, which has 12/25 down as the day Christ was born in Bethlehem. Why that day was picked is still argued over.",
+    "backbone": "The date is a decision somebody made 300 years late, and nobody wrote down why.",
+    "era": "AD 336 to 354",
+    "sources": [
+      {
+        "name": "Bad Ancient, Was the date for Christmas decided at the Council of Nicaea: the 336 celebration and the Chronograph of 354",
+        "url": "https://www.badancient.com/claims/date-christmas-nicaea/"
+      },
+      {
+        "name": "The Annunciation calculation and the Saturnalia theory are both proposals and neither is settled, so the fact claims the record and not the reason",
+        "url": "https://www.almanac.com/fact/scholars-cant-agree-on-exactly-when-christ"
+      }
+    ],
+    "confidence": "high",
+    "verified": "yes",
+    "checked": "2026-10-04",
+    "reused": "",
+    "plate": "",
+    "plate_desc": "stone wall, low winter sun",
+    "bed": "carol-of-the-fathers-heart-begotten-solo",
+    "bed_desc": "Of the Father's Heart Begotten. 1 instrument on a public domain carol, sparse and close",
+    "treatment": "carol-solo"
+  },
+  {
+    "night": 23,
+    "date": "2026-12-20",
+    "evening": "2026-12-19",
+    "slug": "christmas-was-illegal-here",
+    "left": 6,
+    "ig_tt": "00:00Z",
+    "fb_yt": "00:30Z",
+    "lane": "christmas",
+    "hook": "Christmas was illegal in Massachusetts for 22 years.",
+    "fact": "The General Court of Massachusetts made it an offence in 1659: 5 shillings for anyone found keeping the day, by not working, by feasting, or any other way. The objection was the drinking and the card playing and the noise. It stood until 1681, when London leaned on the colony and the law came off.",
+    "backbone": "For 22 years, in 1 part of this country, today cost you 5 shillings.",
+    "era": "1659 to 1681",
+    "sources": [
+      {
+        "name": "Mass Moments, December 25, 1659: the Penalty for Keeping Christmas",
+        "url": "https://www.massmoments.org/moment.cfm?mid=369"
+      },
+      {
+        "name": "History, When Massachusetts banned Christmas",
+        "url": "https://www.history.com/articles/when-massachusetts-banned-christmas"
+      }
+    ],
+    "confidence": "high",
+    "verified": "yes",
+    "checked": "2026-10-04",
+    "reused": "",
+    "plate": "",
+    "plate_desc": "shuttered window, grey light",
+    "bed": "carol-god-rest-ye-merry-gentlemen-solo",
+    "bed_desc": "God Rest Ye Merry Gentlemen. 1 instrument on a public domain carol, sparse and close",
+    "treatment": "carol-solo"
+  },
+  {
+    "night": 24,
+    "date": "2026-12-21",
+    "evening": "2026-12-20",
+    "slug": "a-holiday-only-since-1870",
+    "left": 5,
+    "ig_tt": "00:00Z",
+    "fb_yt": "00:30Z",
+    "lane": "christmas",
+    "hook": "Christmas has only been a federal holiday since 1870.",
+    "fact": "Burton Cook of Illinois put HR 2241 in after the Civil War, covering Christmas, New Year's Day and the 4th of July in the District of Columbia. Grant signed it on 06/28/1870. Federal workers did not get paid for those days until 1938.",
+    "backbone": "A country that had just split itself was given 1 day it could agree on.",
+    "era": "1870",
+    "sources": [
+      {
+        "name": "Freedom Forum, Why is Christmas a federal holiday: HR 2241, signed 06/28/1870",
+        "url": "https://www.freedomforum.org/why-is-christmas-a-federal-holiday/"
+      },
+      {
+        "name": "Time, How Christmas became a national holiday",
+        "url": "https://time.com/4608452/christmas-america-national-holiday/"
+      }
+    ],
+    "confidence": "high",
+    "verified": "yes",
+    "checked": "2026-10-04",
+    "reused": "",
+    "plate": "",
+    "plate_desc": "brass desk bell, 1 window",
+    "bed": "carol-o-little-town-of-bethlehem-scratch",
+    "bed_desc": "O Little Town of Bethlehem. a dated scratchy orchestral recording. Amanda, 10/04: \"the orchestral, scratchy sounding dated, because that would complement it\"",
+    "treatment": "carol-scratch"
+  },
+  {
+    "night": 25,
+    "date": "2026-12-22",
+    "evening": "2026-12-21",
+    "slug": "the-shortest-day",
+    "left": 4,
+    "ig_tt": "00:00Z",
+    "fb_yt": "00:30Z",
+    "lane": "christmas",
+    "hook": "Today is the shortest day and it is not the darkest evening.",
+    "fact": "The solstice has the least daylight of the year. It does not have the earliest sunset, which was a fortnight ago, or the latest sunrise, which is 2 weeks off. From tonight the days lengthen by seconds, then by minutes, and you will not feel any of it until February.",
+    "backbone": "The year turns tonight and sends no notice.",
+    "era": "none",
+    "sources": [
+      {
+        "name": "Time and Date, December solstice: the shortest day, and why the earliest sunset and latest sunrise fall either side of it",
+        "url": "https://www.timeanddate.com/news/astronomy/december-solstice-2024"
+      }
+    ],
+    "confidence": "high",
+    "verified": "yes",
+    "checked": "2026-10-04",
+    "reused": "",
+    "plate": "",
+    "plate_desc": "long shadow across snow",
+    "bed": "carol-greensleeves-solo",
+    "bed_desc": "Greensleeves. 1 instrument on a public domain carol, sparse and close",
+    "treatment": "carol-solo"
+  },
+  {
+    "night": 26,
+    "date": "2026-12-23",
+    "evening": "2026-12-22",
+    "slug": "the-tree-arrived-as-a-picture",
+    "left": 3,
+    "ig_tt": "00:00Z",
+    "fb_yt": "00:30Z",
+    "lane": "christmas",
+    "hook": "The Christmas tree spread as a magazine illustration.",
+    "fact": "An engraving of Victoria, Albert and the children round a decorated tree ran in the Illustrated London News in 1848, and the tree became British. Godey's Lady's Book reprinted it in America in 1850 with Victoria's tiara and Albert's moustache painted out, so the family would read as American.",
+    "backbone": "The custom crossed an ocean as soon as somebody took the crown off it.",
+    "era": "1848 to 1850",
+    "sources": [
+      {
+        "name": "Victoria and Albert Museum, The magic of the tree: the 1848 Illustrated London News engraving",
+        "url": "https://www.vam.ac.uk/blog/design-and-society/the-magic-of-the-tree"
+      },
+      {
+        "name": "History News Network, the Godey's Lady's Book 1850 reprint with the tiara and moustache removed",
+        "url": "https://www.historynewsnetwork.org/article/the-christmas-tree-predates-christmas-itself"
+      }
+    ],
+    "confidence": "high",
+    "verified": "yes",
+    "checked": "2026-10-04",
+    "reused": "",
+    "plate": "",
+    "plate_desc": "candle clipped to a branch",
+    "bed": "carol-the-first-noel-scratch",
+    "bed_desc": "The First Noel. a dated scratchy orchestral recording. Amanda, 10/04: \"the orchestral, scratchy sounding dated, because that would complement it\"",
+    "treatment": "carol-scratch"
+  },
+  {
+    "night": 27,
+    "date": "2026-12-24",
+    "evening": "2026-12-23",
+    "slug": "the-best-selling-record-ever-made",
+    "left": 2,
+    "ig_tt": "00:00Z",
+    "fb_yt": "00:30Z",
+    "lane": "christmas",
+    "hook": "The best selling single ever recorded is a Christmas song.",
+    "fact": "Irving Berlin wrote it. Bing Crosby sang it on the radio on Christmas Day 1941, 18 days after Pearl Harbor, and recorded it in 1942. Guinness puts it at no fewer than 50 million copies. 2nd place is Candle in the Wind 1997, at 33 million.",
+    "backbone": "The best selling record ever made is a man in a warm country missing somewhere cold.",
+    "era": "1942",
+    "sources": [
+      {
+        "name": "A Journal of Musical Things, The story of White Christmas, the biggest selling single of all time",
+        "url": "https://www.ajournalofmusicalthings.com/story-white-christmas-biggest-selling-single-time/"
+      },
+      {
+        "name": "White Christmas is itself under copyright and is NOT the bed on this night. The bed is a public domain carol like every other night",
+        "url": "https://faroutmagazine.co.uk/best-selling-song-in-us-history/"
+      }
+    ],
+    "confidence": "high",
+    "verified": "yes",
+    "checked": "2026-10-04",
+    "reused": "",
+    "plate": "",
+    "plate_desc": "record on a turntable, no sleeve",
+    "bed": "carol-away-in-a-manger-scratch",
+    "bed_desc": "Away in a Manger. a dated scratchy orchestral recording. Amanda, 10/04: \"the orchestral, scratchy sounding dated, because that would complement it\"",
+    "treatment": "carol-scratch"
+  },
+  {
+    "night": 28,
+    "date": "2026-12-25",
+    "evening": "2026-12-24",
+    "slug": "they-sang-first",
+    "left": 1,
+    "ig_tt": "00:00Z",
+    "fb_yt": "00:30Z",
+    "lane": "christmas",
+    "hook": "The Christmas truce started with singing.",
+    "fact": "Christmas Eve 1914. British troops heard Silent Night come across 80 to 100 yards of open ground and answered with O Come All Ye Faithful. The Germans sang it back to them in Latin. Then men climbed out and traded tobacco and tinned food. It was not everywhere: in some sectors the shooting never paused, and in others the only truce was long enough to carry the dead in.",
+    "backbone": "They found out they knew the same songs before they found out anything else about each other.",
+    "era": "1914",
+    "sources": [
+      {
+        "name": "World History Encyclopedia, The Christmas Truce: the carols, the 80 to 100 yards, and that the truce was not universal",
+        "url": "https://www.worldhistory.org/The_Christmas_Truce/"
+      }
+    ],
+    "confidence": "high",
+    "verified": "yes",
+    "checked": "2026-10-04",
+    "reused": "",
+    "plate": "",
+    "plate_desc": "frozen ground, 1 candle in a jar",
+    "bed": "carol-o-come-all-ye-faithful-solo",
+    "bed_desc": "O Come All Ye Faithful. 1 instrument on a public domain carol, sparse and close",
+    "treatment": "carol-solo"
+  },
+  {
+    "night": 29,
+    "date": "2026-12-26",
+    "evening": "2026-12-25",
+    "slug": "dickens-made-almost-nothing",
+    "left": 0,
+    "ig_tt": "00:00Z",
+    "fb_yt": "00:30Z",
+    "lane": "christmas",
+    "hook": "The book that shaped this day lost its author money.",
+    "fact": "Dickens wrote A Christmas Carol in 6 weeks in the autumn of 1843. He would not sell the rights, so he paid the printer himself and insisted on hand coloured plates. 6,000 copies were gone by Christmas Eve and he made almost nothing. In January it was pirated. He sued, the pirates went bankrupt, and he was left holding the legal bill.",
+    "backbone": "He invented how we keep this day and never saw a penny worth having from it.",
+    "era": "1843",
+    "sources": [
+      {
+        "name": "Encyclopedia.com, A Christmas Carol: written in 6 weeks, self funded, published 17 December 1843, 6,000 copies sold by Christmas Eve, and the January 1844 piracy",
+        "url": "https://www.encyclopedia.com/arts/educational-magazines/christmas-carol"
+      }
+    ],
+    "confidence": "high",
+    "verified": "yes",
+    "checked": "2026-10-04",
+    "reused": "",
+    "plate": "",
+    "plate_desc": "cloth book, open, lamp low",
+    "bed": "carol-o-holy-night-full",
+    "bed_desc": "O Holy Night. a fuller newly played arrangement, warm",
+    "treatment": "carol-full"
+  }
+]

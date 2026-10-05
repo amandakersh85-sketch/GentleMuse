@@ -1,0 +1,2 @@
+Campaign,Plan,DateField,SlugField,HookField,SlotFields,Why
+plan-nightly,filing-system/tests/promise.plan.json,date,slug,hook,ig=instagram:100;fb=facebook:200,A fixture plan so the alternating account and the load horizon can be checked without the live campaign.

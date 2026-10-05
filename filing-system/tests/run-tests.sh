@@ -865,12 +865,12 @@ else echo "FAIL  a fact buried under a long CTA is still found"
 
 # 2 plates of 1 fact are 1 fact. The plate is the reel; the fact is what
 # the person scrolling sees twice.
-if [ "$(awk -F, '$6=="nbc"' "$OUT" | wc -l)" = "2" ] && grep -q "^q2,.*,nbc," "$OUT"; then
+if [ "$(awk -F, '$7=="nbc"' "$OUT" | wc -l)" = "2" ] && grep -q "^q2,.*,nbc," "$OUT"; then
   echo "PASS  2 plates of 1 fact collapse to 1 fact"; pass=$((pass+1))
 else echo "FAIL  2 plates of 1 fact collapse to 1 fact"; fail=$((fail+1)); fi
 
 # A guess that looks like an answer is worse than a blank.
-if grep -q "^q4,[^,]*,,youtube,36129,," "$OUT"; then
+if grep -q "^q4,[^,]*,,youtube,36129,[a-z]*,," "$OUT"; then
   echo "PASS  a row the register does not cover gets no fact, not a guess"; pass=$((pass+1))
 else echo "FAIL  a row the register does not cover gets no fact, not a guess"
      grep "^q4," "$OUT" | sed 's/^/      /'; fail=$((fail+1)); fi
@@ -1153,6 +1153,76 @@ echo "== a night the campaign promised and the board never filled (Run 9, added 
 if python3 "$HERE/promise_assert.py"; then
   echo "PASS  a dark night is found under a day that looks full"; pass=$((pass+1))
 else echo "FAIL  a dark night is found under a day that looks full"; fail=$((fail+1)); fi
+
+echo
+echo "== a video post that carries no sound (added 10/04) =="
+if python3 "$HERE/audio_assert.py"; then
+  echo "PASS  a silent reel is refused before it ships"; pass=$((pass+1))
+else echo "FAIL  a silent reel is refused before it ships"; fail=$((fail+1)); fi
+
+echo
+echo "== a campaign night whose fact nobody checked (added 10/04) =="
+# 4 of the 26 Thanksgiving facts were wrong when they were finally read against
+# sources, and all 26 said confidence: high. Confidence is a session's opinion
+# of its own memory. verified, checked and a sources cell that points at
+# something are the record of a check, and this is what reads them.
+if python3 "$HERE/fact_assert.py"; then
+  echo "PASS  an unchecked fact is refused before it renders"; pass=$((pass+1))
+else echo "FAIL  an unchecked fact is refused before it renders"; fail=$((fail+1)); fi
+
+echo
+echo "== a queued caption that no longer matches its plan (added 10/05) =="
+# The 10/04 fact check corrected night 10 of the Halloween run. The loader had
+# written the old sentence into the queue the day before, and 4 posts were going
+# out on 10/08 still stating an oral-history attribution as record. Every rule
+# here reads the board's shape; not 1 of them read its words.
+if python3 "$HERE/caption_assert.py"; then
+  echo "PASS  a correction that never reached the queue is found"; pass=$((pass+1))
+else echo "FAIL  a correction that never reached the queue is found"; fail=$((fail+1)); fi
+
+echo
+echo "== the caption sheet regenerates from the plan (added 10/05) =="
+# plan.json is what the gates read and the sheet is what Amanda reads. The sheet
+# was inline python twice, once per wave, which is how a 3rd copy gets written
+# with 1 field spelled differently. Generating it proves the 2 cannot drift.
+sheets=0
+for c in thanksgiving-nightly christmas-nightly; do
+  tmp="$(mktemp)"
+  if python3 "$HERE/../scripts/gm_caption_sheet.py" "$c" --out "$tmp" >/dev/null &&
+     python3 - "$c" "$tmp" <<'PYEOF'
+import json, os, sys
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                "filing-system", "scripts"))
+sys.path.insert(0, "filing-system/scripts")
+from gm_board_snapshot import load_plans
+campaign, out = sys.argv[1], sys.argv[2]
+row = [r for r in load_plans() if r["Campaign"] == campaign][0]
+nights = json.load(open(row["_path"], encoding="utf-8"))
+text = open(out, encoding="utf-8").read()
+for n in nights:
+    for field in ("hook", "fact", "backbone"):
+        v = (n.get(field) or "").strip()
+        assert not v or v in text, "night %s %s missing from the sheet" % (
+            n["night"], field)
+assert len({n["backbone"] for n in nights}) == len(nights),     "%s has a repeated closing line" % campaign
+sys.exit(0)
+PYEOF
+  then sheets=$((sheets+1)); fi
+  rm -f "$tmp"
+done
+if [ "$sheets" = 2 ]; then
+  echo "PASS  both caption sheets regenerate and carry every line"; pass=$((pass+1))
+else echo "FAIL  both caption sheets regenerate and carry every line"; fail=$((fail+1)); fi
+
+echo
+echo "== a reel rendered without its music (added 10/04) =="
+if command -v node >/dev/null 2>&1 && [ -n "${FFMPEG:-}" ]; then
+  if FFMPEG="$FFMPEG" node "$HERE/../../reel-factory/bed.test.mjs"; then
+    echo "PASS  the renderer refuses a reel it cannot put a bed under"; pass=$((pass+1))
+  else echo "FAIL  the renderer refuses a reel it cannot put a bed under"; fail=$((fail+1)); fi
+else
+  echo "SKIP  the bed step needs node and FFMPEG set; everything else ran"
+fi
 
 echo
 echo "$pass passed, $fail failed"

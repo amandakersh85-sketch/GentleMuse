@@ -1,0 +1,3 @@
+SlotID,Slot,LocalTime,UTC,Timezone,AccountIds,Platforms,Source,MagnetRule,PerDay,Why
+9z,ROTATION,18:00,23:00,America/Chicago,100,instagram,x,x,1,A row sitting on the campaign's own 23:00 slot.
+9y,MIDDAY,07:00,12:00,America/Chicago,100,instagram,x,x,1,A row nowhere near it.
