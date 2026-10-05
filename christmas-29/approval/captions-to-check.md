@@ -4,8 +4,7 @@ Redrafted 10/05 on Amanda's notes: tighten it, name the detail rather than
 gesturing at it, and make the closing line the ribbon on the gift. The facts
 themselves are unchanged. She approved those.
 
-Every fact was read against the sources below on 10/04 before it was written,
-and 3 rows gained a source on 10/05 for a detail the redraft added. Check them
+Every fact was read against the sources below before it was written. Check them
 anyway: the gate records that a check happened, it cannot tell a true fact from
 a false one.
 

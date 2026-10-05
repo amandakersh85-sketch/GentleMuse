@@ -1171,6 +1171,40 @@ if python3 "$HERE/fact_assert.py"; then
 else echo "FAIL  an unchecked fact is refused before it renders"; fail=$((fail+1)); fi
 
 echo
+echo "== the caption sheet regenerates from the plan (added 10/05) =="
+# plan.json is what the gates read and the sheet is what Amanda reads. The sheet
+# was inline python twice, once per wave, which is how a 3rd copy gets written
+# with 1 field spelled differently. Generating it proves the 2 cannot drift.
+sheets=0
+for c in thanksgiving-nightly christmas-nightly; do
+  tmp="$(mktemp)"
+  if python3 "$HERE/../scripts/gm_caption_sheet.py" "$c" --out "$tmp" >/dev/null &&
+     python3 - "$c" "$tmp" <<'PYEOF'
+import json, os, sys
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                "filing-system", "scripts"))
+sys.path.insert(0, "filing-system/scripts")
+from gm_board_snapshot import load_plans
+campaign, out = sys.argv[1], sys.argv[2]
+row = [r for r in load_plans() if r["Campaign"] == campaign][0]
+nights = json.load(open(row["_path"], encoding="utf-8"))
+text = open(out, encoding="utf-8").read()
+for n in nights:
+    for field in ("hook", "fact", "backbone"):
+        v = (n.get(field) or "").strip()
+        assert not v or v in text, "night %s %s missing from the sheet" % (
+            n["night"], field)
+assert len({n["backbone"] for n in nights}) == len(nights),     "%s has a repeated closing line" % campaign
+sys.exit(0)
+PYEOF
+  then sheets=$((sheets+1)); fi
+  rm -f "$tmp"
+done
+if [ "$sheets" = 2 ]; then
+  echo "PASS  both caption sheets regenerate and carry every line"; pass=$((pass+1))
+else echo "FAIL  both caption sheets regenerate and carry every line"; fail=$((fail+1)); fi
+
+echo
 echo "== a reel rendered without its music (added 10/04) =="
 if command -v node >/dev/null 2>&1 && [ -n "${FFMPEG:-}" ]; then
   if FFMPEG="$FFMPEG" node "$HERE/../../reel-factory/bed.test.mjs"; then
