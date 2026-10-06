@@ -3953,3 +3953,90 @@ will have to report:
 The useful question the wrap should answer is not whether 1,000 was hit. It is
 whether the goal was pointed at the right account, and the honest answer the
 data supports is no. That is a better outcome than a number.
+
+---
+
+# Day 28 scrub — 2026-10-06 (02:36 UTC / 10-05 21:36 CT)
+
+Full corpus, Blotato, since 09/08. Instagram 100 posts, Facebook 69.
+
+## The seasonal run, 6 nights. 1 night from a clean read.
+
+| Night | Instagram | Facebook |
+|---|---|---|
+| 1 | 1 | 179 |
+| 2 | 138 | 211 |
+| 3 | 4 | 122 |
+| 4 | 7 | 1,158 |
+| 5 | 8 | 198 |
+| 6 | **8** | **236** |
+
+Instagram median: **7.5**. Facebook median: **205**.
+
+Instagram has cleared 10 views once in 6 nights. Night 7 published 10/05 23:00
+and its number lands tomorrow, which will give the run a full 7 night sample and
+clear the evidence bar I set on Day 24.
+
+I will state the conclusion then rather than now. The direction has not changed
+since Night 2 and I do not expect 1 night to move it, but the whole point of the
+bar is not to pre-empt it.
+
+## Cesa's TikTok spike was 2 posts, not a new level
+
+| Clip | Date | Cesa Instagram | Cesa TikTok |
+|---|---|---|---|
+| i have been placed in a blanket | 10/02 | 253 | 249 |
+| she lifts me up for a kiss | 10/03 | 216 | 969 |
+| the leaves came back | 10/04 | **327** | 935 |
+| ornery is a strong word | 10/05 | 199 | **389** |
+
+TikTok went 969, 935, then back to 389. Instagram went 327 then 199.
+
+So the 2 near-950 TikToks on 10/03 and 10/04 were a pair of strong posts, not a
+step change, the same shape as the 09/28 Instagram spike. Her working bands
+across 2 weeks: **Instagram roughly 140 to 330, TikTok roughly 250 to 400**,
+with 3 posts above 900 across both platforms in that whole stretch.
+
+## Volume recovered on 10/05
+
+| Channel | 02 | 03 | 04 | 05 |
+|---|---|---|---|---|
+| IG @thegentlemuse2026 | 2 | 3 | 1 | **5** |
+| IG @cesasgoldenyears | 1 | 1 | 1 | 1 |
+| TikTok @thegentlemuse2026 | 2 | 3 | 1 | **3** |
+| TikTok @cesasgoldenyears | 1 | 1 | 1 | 1 |
+| Facebook | 2 | 3 | 1 | **3** |
+| YouTube | 2 | 3 | 1 | **3** |
+
+10/04 reads as a planned light Sunday rather than a gap. Everything came back
+the next day.
+
+No publish failures on 10/05. 8 clean days, lifetime 3 failures in 29.
+
+## Pair 19
+
+| Content | Date | Instagram | Facebook | Winner |
+|---|---|---|---|---|
+| Night 6 of 33 | 10/04 | 8 | 236 | FB, 30x |
+
+Running tally: **Facebook 18, Instagram 1.**
+
+## Tracking items
+
+1. **Trivia on Instagram:** Nights 1 to 6 read 1, 138, 4, 7, 8, 8 against the
+   37 baseline. Median 7.5. Facebook median 205, inside the lower half of the
+   230 to 577 band with 1 post at 1,158.
+2. **10,000 view Cesa breakout:** no, and with 2 days left it is not going to
+   happen. Ceiling stands at 1,104.
+3. **Volume:** recovered to target on every channel.
+4. **Watermarks and AI badges:** no frame checks tonight.
+5. **Product posts missing a SKU:** no Club Target posts 10/05.
+
+## Follower count
+
+**Still 188 manual from 09/12, now 24 days stale.** Day 28 of 30, 2 days left.
+
+This is the last scrub before the final 2. If the number is not read before
+10/08 the wrap reports a campaign that never measured its own goal. Nothing
+else in the log needs Amanda's hands. This does, and it takes 10 seconds in the
+app.
