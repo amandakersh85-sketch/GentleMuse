@@ -12,6 +12,10 @@ This is the check that reads that map and refuses.
   python3 gm_cta_check.py --queue queue.json --paid-window 120
 
 Each queue row needs: id, platform, accountId, text. Optional: at, magnet.
+A blotato_list_schedules dump is read as it comes, because the live queue is
+the nested shape and this gate only ever took the flat one. That is why it had
+never been run against the board: every nightly run would have had to hand
+write a converter first, so no run did.
 Exit 0 PASS, 1 FAIL, 2 HOLD.
 """
 import argparse, csv, json, os, re, sys
@@ -26,6 +30,7 @@ BIO = re.compile(r"\bin (?:my|the) bio\b|\blink in bio\b", re.I)
 
 # queue-zones.csv defines the PAID zone as anything carrying one of these.
 PAID = re.compile(r"#ad\b|#TargetPartner\b", re.I)
+
 
 
 def load_magnets(path):
@@ -142,6 +147,10 @@ def check(rows, magnets, platforms):
                     "promises %s pages, %s delivers %s"
                     % ("/".join(sorted(claims)), kw, "/".join(sorted(want))))
 
+        # A price on a paid caption is K05 in gm_keyword_check.py, which is
+        # where the rule already lived. 1 rule, 1 gate: a second copy here
+        # would be a second version of the truth to keep in step.
+
         # H01 nothing to capture with. An action ask on an action platform counts,
         # a follow is a real return even when no link is in the caption.
         acted = bool(plat["_actions"]) and bool(ACTION.search(text))
@@ -150,6 +159,22 @@ def check(rows, magnets, platforms):
                 "no keyword, no link and no action ask, so the post cannot return anything")
 
     return findings
+
+
+def rows_from(items):
+    """A blotato_list_schedules item list in the flat shape the gate reads."""
+    out = []
+    for it in items:
+        d = it.get("draft") or {}
+        c = d.get("content") or {}
+        out.append({
+            "id": str(it.get("id")),
+            "at": it.get("scheduledAt") or "",
+            "platform": c.get("platform") or (d.get("target") or {}).get("targetType"),
+            "accountId": str(d.get("accountId")),
+            "text": c.get("text") or "",
+        })
+    return out
 
 
 def when(row):
@@ -221,6 +246,8 @@ def main():
     rows = json.load(open(a.queue, encoding="utf-8"))
     if isinstance(rows, dict):
         rows = rows.get("items") or rows.get("posts") or []
+    if rows and "draft" in rows[0]:
+        rows = rows_from(rows)
     findings = check(rows, load_magnets(a.magnets), load_platforms(a.platforms))
     findings += paid_stacking(rows, a.paid_window)
 

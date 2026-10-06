@@ -328,6 +328,39 @@ plan row's hook, fact and backbone. The join is the hook, which
 `campaign-plans.csv` already declares, and the comparison stops at the
 countdown line because everything after it is a per-platform call to action.
 
+A correction to a caption is not an instruction to place the post again. The
+loader identified a night by the first 120 characters of its caption, and the
+hook is 58 of them, so the key reached 61 characters into the fact. Correcting
+night 10's candy corn attribution on 10/05 moved the key, and run 16 did not
+recognise the night it had placed on 10/03: 10/08 now carries night 10 twice on
+all 4 accounts, once with the corrected sentence and once with the one the
+sources do not support. The docstring said idempotent the whole time.
+`load.py` keys on the countdown line now, with the platform and the account,
+because that is the part of a caption a correction never touches, and it is
+the same join `gm_board_snapshot` and C17 already use. A loader that writes
+straight to the queue needs an identity that is not the words.
+
+A price on affiliate content is refused, and the gate that says so has to be
+able to reach the post. `K05_PRICE_ON_AFFILIATE` existed, had a passing test,
+and could not see any of the 4 priced posts on the 10/06 board for 3 separate
+reasons: it sat inside the branch only a caption naming a live product keyword
+reaches, and all 4 were storefront-link posts with no keyword; its pattern was
+a currency sign only, and 3 of the 4 typed 2.69 with no sign under the
+digits-not-words rule; and 3 carried `#TargetPartner` with no commission line,
+which the disclosure pattern did not match either. What makes a post affiliate
+is the PAID zone in `queue-zones.csv`, `#ad` or `#TargetPartner`, and K05 reads
+every post that carries one. 1 decimal place is not a price, because a food
+review scores 7.5 out of 10. The rule was written in 5 handoffs and
+`blotato-refill/README.md`, all prose, with an open TikTok Shop violation from
+08/04/2026 behind it, and prose is what failed.
+
+A gate that cannot read the live queue is a gate that passes. `gm_cta_check`
+and `gm_keyword_check` took only the flat fixture shape, so running either
+against the board meant hand writing a converter first and no nightly run ever
+did. Both read a `blotato_list_schedules` dump as it comes now. The first run
+of `gm_cta_check` on the board returned 128 findings on 187 posts, which is a
+backlog and not 1 night's damage.
+
 A wave that has rendered is not a wave you can redraft. All 30 Halloween reels
 are built and uploaded, and 26 of them close the video on the caption's
 backbone line word for word. Rewriting a closing line there does not change a

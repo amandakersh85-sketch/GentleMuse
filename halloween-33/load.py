@@ -3,8 +3,9 @@
 
   BLOTATO_API_KEY=... python3 load.py [--execute] [--days 7] [--report R.md]
 
-Idempotent: a post already in the queue (same platform, same opening text) is
-never created twice, so it is safe to run every day. For each night it loads,
+Idempotent: a night already in the queue is never placed twice. A night is
+identified by its countdown line, its platform and its account, not by its
+caption, because a caption gets corrected and a night number does not. For each night it loads,
 the old Halloween repeats queued that same day are removed first; every one of
 them is backed up in backup/queue-2026-09-23-full.json. Propose-only without
 --execute.
@@ -33,6 +34,25 @@ def api(method, path, key, body=None, query=None):
 
 def norm(t):
     return re.sub(r'\s+', ' ', t or '').strip()[:120].lower()
+
+
+# What identifies a night. Until 10/06 it was norm(text) alone, the first 120
+# characters of the caption, and the hook is 58 of them so the key reached 61
+# characters into the fact. The fact check corrected night 10's candy corn
+# attribution on 10/05, the 4 queued posts were updated to match, and run 16
+# no longer recognised the night it had placed on 10/03: it created night 10
+# again on all 4 accounts, so 10/08 now carries each one twice, once with the
+# corrected sentence and once with the one the sources do not support.
+# The countdown line is the part of a caption that a correction never touches,
+# which is why gm_board_snapshot and C17 already join on the same idea.
+COUNTDOWN = re.compile(r'night\s+(\d+)\s+of\s+(\d+)', re.I)
+
+
+def ident(platform, account, text):
+    """A queue row's identity: the night if it carries one, else its text."""
+    m = COUNTDOWN.search(text or '')
+    key = 'night %s of %s' % m.groups() if m else norm(text)
+    return (platform, str(account), key)
 
 
 def queue(key):
@@ -74,7 +94,8 @@ def main():
     until = now + dt.timedelta(days=a.days)
     q = queue(key)
     live = {x['id']: x for x in q}
-    have = {(x['draft']['content'].get('platform'), norm(x['draft']['content'].get('text'))) for x in q}
+    have = {ident(x['draft']['content'].get('platform'), x['draft'].get('accountId'),
+                  x['draft']['content'].get('text')) for x in q}
     count = len(q)
     L, created, removed, retimed, problems = [], [], [], [], []
     c, r_, t_ = ('Created', 'Removed', 'Retimed') if a.execute else ('Would create', 'Would remove', 'Would retime')
@@ -83,7 +104,7 @@ def main():
         at = dt.datetime.fromisoformat(p['scheduledTime'].replace('Z', '+00:00'))
         if not (now + dt.timedelta(minutes=30) < at <= until):
             continue
-        if (p['platform'], norm(p['text'])) in have:
+        if ident(p['platform'], p['accountId'], p['text']) in have:
             continue
         if not p.get('mediaUrl'):
             problems.append(f"{p['key']}: no video yet, not loaded")
@@ -109,7 +130,7 @@ def main():
                 problems.append(f"{p['key']}: {e}")
                 continue
         count += 1
-        have.add((p['platform'], norm(p['text'])))
+        have.add(ident(p['platform'], p['accountId'], p['text']))
         created.append(p['key'])
 
     for r in sched.get('retimes', []):

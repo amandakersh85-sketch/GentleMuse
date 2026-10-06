@@ -1,0 +1,6 @@
+{"items":[
+ {"id":"5010208","scheduledAt":"2026-10-06T15:00:00.000Z",
+  "draft":{"accountId":"41488","target":{"targetType":"tiktok"},
+   "content":{"platform":"tiktok","mediaUrls":["https://example.invalid/a.mp4"],
+    "text":"#TargetPartner #ad the new Wrangler drop just landed at Target\n\nThe jeans wall at $29.99.\n\nI may earn commission when you shop my link. Storefront's in my bio."}}}
+]}

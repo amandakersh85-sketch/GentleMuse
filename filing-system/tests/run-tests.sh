@@ -1063,6 +1063,32 @@ if python3 "$KG" --posts "$HERE/keyword.price.json" --registry "$KR" 2>&1 | grep
   echo "PASS  a price on affiliate content is refused"; pass=$((pass+1))
 else echo "FAIL  a price on affiliate content is refused"; fail=$((fail+1)); fi
 
+# 10/06: 4 #TargetPartner posts were queued carrying a price, one of them
+# firing that morning. K05 existed and had a passing test, and could not reach
+# any of them. It sat inside the branch only a caption naming a live product
+# keyword gets to, and all 4 were storefront-link posts with no keyword. 3 of
+# the 4 typed the price bare, which the old "\$\s?\d" pattern did not match
+# either, and 3 carried #TargetPartner with no commission line, which the
+# disclosure pattern did not match. 3 separate reasons one rule never fired.
+k05() { # name queue_file expected_count
+  local name="$1" q="$2" want="$3"
+  local got; got="$(python3 "$KG" --posts "$q" --registry "$KR" 2>&1 | grep -c K05_PRICE_ON_AFFILIATE)"
+  if [ "$got" = "$want" ]; then echo "PASS  $name"; pass=$((pass+1))
+  else echo "FAIL  $name"; echo "      K05 fired $got times, wanted $want"; fail=$((fail+1)); fi
+}
+
+k05 "a storefront affiliate post is price checked" "$HERE/keyword.price-storefront.json" 4
+k05 "a score, and a price inside a link, are not prices" "$HERE/keyword.price-clean.json"  0
+k05 "a price outside the paid zone is not K05"     "$HERE/keyword.price-organic.json"     0
+k05 "the live queue shape is read as it comes"     "$HERE/keyword.nested.json"            1
+
+# the finding has to quote the price it found, or nobody can tell which number
+# to go and take out of the caption.
+out="$(python3 "$KG" --posts "$HERE/keyword.price-storefront.json" --registry "$KR" 2>&1)"
+if grep -q '29\.99' <<<"$out" && grep -q '2\.69' <<<"$out"; then
+  echo "PASS  the finding names the price it found"; pass=$((pass+1))
+else echo "FAIL  the finding names the price it found"; echo "$out" | sed 's/^/      /'; fail=$((fail+1)); fi
+
 # The question that started this. The registry has to answer it off the repo,
 # with no network, or the next session reads the stale file and says no.
 if python3 "$KG" --keyword BROW --platform instagram --account 45886 \

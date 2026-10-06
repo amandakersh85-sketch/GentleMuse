@@ -84,6 +84,39 @@ class Loader(unittest.TestCase):
         self.assertEqual([c for c in fake.calls if c[0] in ('POST', 'DELETE')], [])
         self.assertEqual(len(fake.q), n)
 
+    def test_a_run_after_a_caption_correction_places_nothing_again(self):
+        """10/06. The fact check corrected night 10's candy corn attribution on
+        10/05 and the 4 queued posts were updated to match. The key was the
+        first 120 characters of the caption, the hook is 58 of them, and the
+        two texts diverge at character 70, so run 16 did not recognise the
+        night it had placed on 10/03 and created it a second time on all 4
+        accounts. A night is identified by its number, not by its words."""
+        fake = FakeBlotato()
+        run(fake, '2026-09-24T12:00:00+00:00')
+        n = len(fake.q)
+        edited = 0
+        for x in fake.q:
+            t = x['draft']['content'].get('text') or ''
+            if 'Night ' in t:
+                head, sep, tail = t.partition('\n\n')
+                x['draft']['content']['text'] = head + sep + 'A corrected sentence that is credited to somebody rather than stated as record.' + t[t.index('\n\n', len(head) + 2):]
+                edited += 1
+        self.assertGreater(edited, 0, 'nothing to correct, so the test proves nothing')
+        fake.calls.clear()
+        run(fake, '2026-09-24T13:00:00+00:00')
+        self.assertEqual([c for c in fake.calls if c[0] == 'POST'], [],
+                         'a corrected caption made the loader place the night again')
+        self.assertEqual(len(fake.q), n)
+
+    def test_two_accounts_on_one_platform_are_not_each_other(self):
+        """The old key had no account in it, so the same text on 2 accounts of
+        1 platform read as 1 post. Every night is 1 account per platform, so it
+        never bit, but the key says what it means now."""
+        self.assertNotEqual(load.ident('instagram', '45886', 'Night 4 of 33.'),
+                            load.ident('instagram', '65540', 'Night 4 of 33.'))
+        self.assertEqual(load.ident('instagram', '45886', 'A hook.\n\nOne fact.\n\nNight 4 of 33.'),
+                         load.ident('instagram', '45886', 'A hook.\n\nAnother fact entirely.\n\nNight 4 of 33.'))
+
     def test_propose_only_writes_nothing(self):
         fake = FakeBlotato()
         run(fake, '2026-09-24T12:00:00+00:00', execute=False)

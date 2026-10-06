@@ -37,7 +37,8 @@ Rules
   K04_NO_DISCLOSURE       a caption whose keyword delivers an affiliate
                           product, with no partner or commission line in the
                           caption itself. The DM carrying it is not enough.
-  K05_PRICE_ON_AFFILIATE  a price stated on affiliate content. Open TikTok
+  K05_PRICE_ON_AFFILIATE  a price stated on any affiliate post, keyword or
+                          not. Open TikTok
                           Shop violation from 08/04/2026.
 
 Exit codes
@@ -78,7 +79,19 @@ DISCLOSURE = re.compile(
     r"target partner|earn (?:rewards or )?commission|may earn|#ad\b|paid partnership",
     re.I,
 )
-PRICE = re.compile(r"\$\s?\d")
+# What makes a post affiliate, taken from the PAID zone in queue-zones.csv:
+# anything carrying #ad or #TargetPartner. DISCLOSURE alone is not it. It
+# wants a space in "target partner" and the hashtag has none, so 3 of the 4
+# priced posts on the 10/06 board read as organic to it: they carry
+# "#TargetPartner #ClubTarget" and no commission line at all.
+PAID = re.compile(r"#ad\b|#TargetPartner\b", re.I)
+# A price. Two shapes: a currency sign and a number, or a bare 2 decimal
+# number, which is how a shelf price gets typed under the digits-not-words
+# rule. 1 decimal place is deliberately not a price: a food review scores 7.5
+# out of 10 and that is not a shelf tag. Until 10/06 this was "\$\s?\d" and 3 of
+# the 4 priced posts on the board that night wrote 2.69 with no sign.
+PRICE = re.compile(r"[$\u00a3\u20ac]\s?\d[\d,]*(?:\.\d{2})?|(?<![\d.])\d{1,4}\.\d{2}(?![\d.])")
+URL = re.compile(r"https?://[^\s<>\")]+")
 
 # Capitalised words that show up mid-caption and are never a keyword ask.
 NOT_KEYWORDS = {
@@ -148,6 +161,23 @@ def check_post(post, registry, cta_rows):
     account = str(post.get("accountId") or post.get("account") or "").strip()
     text = post.get("text") or post.get("caption") or ""
 
+    # K05 runs before the keyword ask, not inside it. It used to sit in the
+    # branch that only a caption naming a live product keyword ever reached,
+    # so an affiliate post whose CTA is a storefront link was never price
+    # checked at all. On 10/06 all 4 priced posts on the board were that kind:
+    # #TargetPartner, link in bio, no keyword. The rule says affiliate
+    # content, and this is every affiliate post the gate is handed.
+    if PAID.search(text) or DISCLOSURE.search(text):
+        prices = [m.group(0).strip() for m in PRICE.finditer(URL.sub(" ", text))]
+        if prices:
+            findings.append({
+                "rule": "K05_PRICE_ON_AFFILIATE", "level": "FAIL", "id": pid,
+                "detail": "states a price (%s) on affiliate content. A shelf "
+                          "price moves and the caption does not. Open TikTok "
+                          "Shop violation from 08/04/2026."
+                          % ", ".join(dict.fromkeys(prices)),
+            })
+
     wanted = asks(text)
     if not wanted:
         return findings
@@ -197,12 +227,6 @@ def check_post(post, registry, cta_rows):
                               "carries no partner line. The DM is not enough, "
                               "the disclosure sits on the post." % keyword,
                 })
-            if PRICE.search(text):
-                findings.append({
-                    "rule": "K05_PRICE_ON_AFFILIATE", "level": "FAIL", "id": pid,
-                    "detail": "a price is stated on affiliate content. Open "
-                              "TikTok Shop violation from 08/04/2026.",
-                })
 
     return findings
 
@@ -227,6 +251,17 @@ def load_posts(path):
         blob = json.load(fh)
     if isinstance(blob, dict):
         blob = blob.get("posts") or blob.get("items") or blob.get("schedules") or []
+    if blob and isinstance(blob[0], dict) and "draft" in blob[0]:
+        # A blotato_list_schedules dump, read as it comes. Without this the
+        # gate took only the flat fixture shape, so running it on the live
+        # board meant hand writing a converter first and no nightly run did.
+        blob = [{"id": str(it.get("id")),
+                 "at": it.get("scheduledAt") or "",
+                 "platform": (it.get("draft") or {}).get("content", {}).get("platform")
+                             or ((it.get("draft") or {}).get("target") or {}).get("targetType"),
+                 "accountId": str((it.get("draft") or {}).get("accountId")),
+                 "text": ((it.get("draft") or {}).get("content") or {}).get("text") or ""}
+                for it in blob]
     return blob
 
 
