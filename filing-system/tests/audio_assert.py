@@ -38,8 +38,18 @@ def trak(kind):
     return box("trak", box("mdia", hdlr(kind) + box("minf", box("stbl", b""))))
 
 
-def mp4(kinds, faststart=True, mdat=b"\0" * 2048):
-    moov = box("moov", b"".join(trak(k) for k in kinds))
+def mvhd(scale, length, version=0):
+    if version == 1:
+        # version 1: 8 byte times, then a 4 byte scale and an 8 byte duration
+        body = b"\x01\0\0\0" + b"\0" * 16 + struct.pack(">I", scale) + struct.pack(">Q", length)
+    else:
+        body = b"\0" * 4 + b"\0" * 8 + struct.pack(">I", scale) + struct.pack(">I", length)
+    return box("mvhd", body + b"\0" * 80)
+
+
+def mp4(kinds, faststart=True, mdat=b"\0" * 2048, scale=None, length=None, version=0):
+    head = mvhd(scale, length, version) if scale is not None else b""
+    moov = box("moov", head + b"".join(trak(k) for k in kinds))
     ftyp = box("ftyp", b"isom")
     return ftyp + moov + box("mdat", mdat) if faststart else ftyp + box("mdat", mdat) + moov
 
@@ -62,11 +72,31 @@ want(A.handlers(big), ["vide", "soun"], "a 64 bit mdat does not stop the walk")
 # A truncated container is not called clean. No substitution: say so and stop.
 want(A.has_moov(box("ftyp", b"isom")[:6]), False, "a truncated file reports no moov")
 
+# Duration comes out of the same bytes the handlers do. On 10/07 it was the
+# only way to tell a mis-tagged food review from one that was genuinely
+# rendered short, and the answer changed the finding.
+want(A.seconds(mp4(["vide", "soun"], scale=600, length=18600)), 31.0,
+     "a 31 second movie measures 31 seconds")
+want(A.seconds(mp4(["vide", "soun"], scale=1000, length=122600)), 122.6,
+     "and a 123 second one measures 123")
+back = mp4(["vide"], faststart=False, scale=600, length=6960)
+at = back.find(b"moov")
+want(A.seconds(back[at - 4:]), 11.6,
+     "duration reads out of the mid atom tail slice probe hands it")
+want(A.handlers(back[at - 4:]), ["vide"],
+     "and the handlers come out of that same slice")
+want(A.seconds(mp4(["vide", "soun"], scale=90000, length=2790000, version=1)), 31.0,
+     "a version 1 mvhd carries 64 bit times")
+want(A.seconds(mp4(["vide", "soun"])), None,
+     "a file with no mvhd reports no duration rather than 0")
+want(A.seconds(mp4(["vide", "soun"], scale=0, length=100)), None,
+     "a 0 timescale is not divided by")
+
 # The 2 rules, over a queue in the shape blotato_list_schedules returns.
 TMP = os.path.join(HERE, "_audio_fixtures")
 os.makedirs(TMP, exist_ok=True)
 open(os.path.join(TMP, "sound.mp4"), "wb").write(mp4(["vide", "soun"]))
-open(os.path.join(TMP, "silent.mp4"), "wb").write(mp4(["vide"]))
+open(os.path.join(TMP, "silent.mp4"), "wb").write(mp4(["vide"], scale=600, length=6960))
 
 
 def post(pid, name, when="2026-10-13T15:00"):
@@ -82,6 +112,8 @@ found = A.check(rows, local=TMP)
 want([f["rule"] for f in found], ["A01_NO_AUDIO_TRACK"], "only the silent post is refused")
 want("p2" in found[0]["detail"], True, "and it is named")
 want("instagram 45886" in found[0]["detail"], True, "with the account it lands on")
+want("11.6s long" in found[0]["detail"], True,
+     "and with how long it runs, so the next session does not have to go and measure it")
 
 # A still is not a video and is not this rule's business.
 still = {"id": "p3", "scheduledAt": "2026-10-13T15:00:00.000Z",

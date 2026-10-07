@@ -156,6 +156,19 @@ the queue payload says nothing about audio and never will:
 `A02_AUDIO_UNREADABLE` reports a container it could not read instead of
 passing it. It costs 2 range requests, not a download.
 
+Measure before naming the fix. A food review goes to YouTube as long form, and
+2 queued reviews carried `#shorts` against that rule, reported 3 nights running
+with the fix named as a missing lane column. Reading the files says otherwise:
+Scooter's runs 122.6 seconds and Amigo's runs 31.2, both inside the Shorts
+limit, so both genuinely are Shorts and both tags are accurate. A 31 second
+review does not become long form by deleting a hashtag, because the long form
+cut does not exist. The open item is a render nobody made, not a tag and not a
+column, and a gate comparing the tag to the file would have passed both and
+said nothing. `gm_audio_check.seconds()` reads the length out of mvhd in the
+same 2 range requests the handler walk already fetches, so the number is on the
+gate rather than in a probe somebody writes again each night. Repeating a fix
+that was never checked is how an item stays open for a week.
+
 The bed goes on in `reel-factory/bed.mjs`, which `build.mjs` calls on every
 render, and a reel it cannot put a bed under is **refused** rather than written
 out silent. Until 10/04 the recipe was prose in `beds/README.md` and nothing

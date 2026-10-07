@@ -78,6 +78,33 @@ def handlers(buf):
     return found
 
 
+def seconds(buf):
+    """How long the movie runs, from mvhd, or None when it is not readable.
+
+    The same 2 range requests already carry it, so it costs nothing extra. It
+    is here because on 10/07 the only way to tell a mis-tagged food review
+    from one that was genuinely rendered short was to measure it, and the
+    answer changed the finding: both YouTube food reviews are 31 and 123
+    seconds, both inside the Shorts limit, so the tag was right and the long
+    form cut is what does not exist. A gate comparing the tag to the file
+    would have passed them and said nothing.
+    """
+    for typ, st, en, _d in boxes(buf, 0, len(buf)):
+        if typ != "mvhd" or st + 20 > en:
+            continue
+        if buf[st] == 1:                      # version 1 is 64 bit
+            if st + 32 > en:
+                continue
+            scale = struct.unpack(">I", buf[st + 20:st + 24])[0]
+            length = struct.unpack(">Q", buf[st + 24:st + 32])[0]
+        else:
+            scale = struct.unpack(">I", buf[st + 12:st + 16])[0]
+            length = struct.unpack(">I", buf[st + 16:st + 20])[0]
+        if scale:
+            return length / scale
+    return None
+
+
 def has_moov(buf):
     return any(t == "moov" for t, _s, _e, d in boxes(buf, 0, len(buf)) if d == 0)
 
@@ -92,30 +119,33 @@ def fetch(url, start=None, length=None):
 
 
 def probe(url, cache=None, local=None):
-    """(handlers, note). handlers is None when the container was unreadable."""
+    """(handlers, seconds, note). handlers is None when the container was
+    unreadable; seconds is None when mvhd was not in the bytes that were read."""
     name = url.rsplit("/", 1)[-1]
     if local:
         p = os.path.join(local, name)
         if os.path.exists(p):
             buf = open(p, "rb").read()
-            return (handlers(buf), "local") if has_moov(buf) else (None, "no moov in local file")
-        return None, "not in --local dir"
+            if has_moov(buf):
+                return handlers(buf), seconds(buf), "local"
+            return None, None, "no moov in local file"
+        return None, None, "not in --local dir"
     if cache:
         os.makedirs(cache, exist_ok=True)
         p = os.path.join(cache, name + ".json")
         if os.path.exists(p):
             try:
                 c = json.load(open(p))
-                return c["handlers"], "cached"
+                return c["handlers"], c.get("seconds"), "cached"
             except Exception:
                 pass
     try:
         head, _cr, _st = fetch(url, 0, HEAD_BYTES)
     except (urllib.error.URLError, OSError) as e:
-        return None, "head fetch failed: %s" % e
-    res, note = None, None
+        return None, None, "head fetch failed: %s" % e
+    res, secs, note = None, None, None
     if has_moov(head):
-        res, note = handlers(head), "moov in head"
+        res, secs, note = handlers(head), seconds(head), "moov in head"
     else:
         # moov sits at the end on a file that was not written faststart, and
         # these come both ways, so a suffix range is the second and last ask
@@ -125,20 +155,22 @@ def probe(url, cache=None, local=None):
             with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
                 tail = r.read()
         except (urllib.error.URLError, OSError) as e:
-            return None, "tail fetch failed: %s" % e
+            return None, None, "tail fetch failed: %s" % e
         # the tail starts mid atom, so scan forward for a moov header
         at = tail.find(b"moov")
         if at >= 4:
-            res, note = handlers(tail[at - 4:]), "moov in tail"
+            res, secs = handlers(tail[at - 4:]), seconds(tail[at - 4:])
+            note = "moov in tail"
         else:
-            return None, "moov not found in first %dKB or last %dKB" % (
+            return None, None, "moov not found in first %dKB or last %dKB" % (
                 HEAD_BYTES // 1024, TAIL_BYTES // 1024)
     if cache and res is not None:
         try:
-            json.dump({"handlers": res}, open(os.path.join(cache, name + ".json"), "w"))
+            json.dump({"handlers": res, "seconds": secs},
+                      open(os.path.join(cache, name + ".json"), "w"))
         except Exception:
             pass
-    return res, note
+    return res, secs, note
 
 
 def load_queue(path):
@@ -171,7 +203,7 @@ def check(rows, cache=None, local=None):
     for r in rows:
         if r["url"] not in seen:
             seen[r["url"]] = probe(r["url"], cache=cache, local=local)
-        hs, note = seen[r["url"]]
+        hs, secs, note = seen[r["url"]]
         if hs is None:
             findings.append({
                 "rule": "A02_AUDIO_UNREADABLE", "id": r["id"], "when": r["when"],
@@ -181,9 +213,10 @@ def check(rows, cache=None, local=None):
         elif "soun" not in hs:
             findings.append({
                 "rule": "A01_NO_AUDIO_TRACK", "id": r["id"], "when": r["when"],
-                "detail": "%s at %s on %s %s has no audio track (tracks: %s)" % (
+                "detail": "%s at %s on %s %s has no audio track (tracks: %s%s)" % (
                     r["id"], r["when"], r["platform"], r["account"],
-                    ", ".join(hs) or "none"),
+                    ", ".join(hs) or "none",
+                    "" if secs is None else ", %.1fs long" % secs),
             })
     findings.sort(key=lambda f: (f["when"], f["id"]))
     return findings
