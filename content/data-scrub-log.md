@@ -4040,3 +4040,119 @@ This is the last scrub before the final 2. If the number is not read before
 10/08 the wrap reports a campaign that never measured its own goal. Nothing
 else in the log needs Amanda's hands. This does, and it takes 10 seconds in the
 app.
+
+---
+
+# Day 29 scrub — 2026-10-07 (02:36 UTC / 10-06 21:36 CT)
+
+Full corpus, Blotato, since 09/08. Facebook 72 posts. Instagram is capped, see
+the methodology flag below.
+
+## The seasonal run: 7 nights, sample complete, conclusion stated
+
+| Night | Instagram | Facebook |
+|---|---|---|
+| 1 | 1 | 179 |
+| 2 | 138 | 211 |
+| 3 | 4 | 122 |
+| 4 | 7 | 1,158 |
+| 5 | 8 | 198 |
+| 6 | 8 | 236 |
+| 7 | **2** | **295** |
+
+**Instagram median 7. Facebook median 211.**
+
+6 of 7 nights read 8 views or fewer on Instagram. All 7 nights cleared 122 on
+Facebook. This is 7 consecutive days of the same content published to both
+platforms in the same slot, which clears the evidence bar set on Day 24.
+
+**Conclusion: the seasonal run works on Facebook and does not work on
+Instagram.** Not the opener, not the export, not a throttle. 7 nights, 1 file
+each, 1 platform carries it and 1 does not.
+
+The Day 15 diagnosis blamed the opener. The Day 23 diagnosis blamed
+distribution. Both were built on 1 to 3 posts. This is the first version of the
+claim that has the sample to support it, and the practical read is simple: the
+remaining 26 nights belong on Facebook, TikTok and YouTube. Instagram is costing
+a slot a night for a median of 7 views.
+
+## METHODOLOGY FLAG: the Instagram corpus has outgrown the tool
+
+`blotato_list_top_posts` has returned exactly **100 Instagram posts** for 5
+nights running. That is the parameter ceiling, not the corpus size. The call
+sorts by views and truncates the bottom, so **the lowest performing Instagram
+posts are now silently dropping out of every pull.**
+
+Caught it tonight because Night 7 did not appear in the top_posts list at all. I
+pulled it from `list_posts` instead: 2 views, 2 reach.
+
+This matters for the wrap. Any Instagram average computed off top_posts from
+here is biased upward, because the posts falling off the bottom are the worst
+ones. The fix going forward is to take rankings from top_posts and completeness
+from `list_posts`, which carries analytics now and is not view sorted. Every
+Instagram number in tonight's entry came from `list_posts`.
+
+The Facebook corpus is at 72 and still under the cap.
+
+## Cesa's best retention of the campaign
+
+**there is a new smell in this yard**, 10/06 00:00: 139 views, 114 reach,
+**15.02s average watch.**
+
+Her previous watch times ran 3.5 to 9 seconds. 15 seconds is the 2nd highest
+average watch in the whole corpus after the 21.17s on Night 1, and unlike that
+one it came with 114 reach rather than 2.
+
+Views were her lowest in a week. Retention was her highest ever. Worth knowing
+which of those the next clip inherits.
+
+## Volume, 10/03 to 10/06
+
+| Channel | 03 | 04 | 05 | 06 |
+|---|---|---|---|---|
+| IG @thegentlemuse2026 | 3 | 1 | 5 | **8** |
+| IG @cesasgoldenyears | 1 | 1 | 1 | 1 |
+| TikTok @thegentlemuse2026 | 3 | 1 | 3 | **4** |
+| TikTok @cesasgoldenyears | 1 | 1 | 1 | 1 |
+| Facebook | 3 | 1 | 3 | 3 |
+| YouTube | 3 | 1 | 3 | 3 |
+
+10/06 was the heaviest Instagram day of the campaign at 8 posts, 4 reels and 4
+stories. No publish failures. 9 clean days, lifetime 3 failures in 30.
+
+## Club Target: 1 correct, 3 worth a check
+
+**Correct:** the 10/06 Wrangler TikTok names the Cowboy Cut jeans and carries
+`sku/1009088353`. 5 consecutive TikToks with the right per product link.
+
+**Worth a check, not called as violations:** 3 Instagram posts on 10/06 carry
+storefront only.
+
+- The toy aisle reel names the LEGO wall, the Barbie endcap and the plush shelf.
+- The home clearance story names pumpkins and serveware.
+- The October toy aisle story.
+
+All 3 are aisle and sale-event videos rather than single product videos, and the
+rule allows the storefront "when the video is about the whole storefront."
+These sit between the 2 cases. The Kuromi post flagged on Day 17 named a
+specific item at a specific price, which these do not. Amanda's call on whether
+an aisle tour needs a SKU, and the same-day Wrangler post shows the rule is
+being applied correctly where a specific product exists.
+
+## Tracking items
+
+1. **Trivia on Instagram:** 7 nights complete, median 7 against the 37
+   baseline. Facebook median 211, inside the 230 to 577 band at the low end
+   with 1 post at 1,158. Conclusion stated above.
+2. **10,000 view Cesa breakout:** no. Ceiling 1,104, campaign ends tomorrow.
+3. **Volume:** heaviest Instagram day of the campaign on 10/06.
+4. **Watermarks and AI badges:** no frame checks tonight.
+5. **Product posts missing a SKU:** 1 correct, 3 aisle posts flagged for
+   Amanda's judgment.
+
+## Follower count
+
+**Still 188 manual from 09/12, now 25 days stale.** Day 29 of 30.
+
+Tomorrow is the final campaign day. The wrap fires 10/09. This is the last
+scrub that can ask for the number in time for it to mean anything.
