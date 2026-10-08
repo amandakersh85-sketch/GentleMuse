@@ -156,6 +156,42 @@ the queue payload says nothing about audio and never will:
 `A02_AUDIO_UNREADABLE` reports a container it could not read instead of
 passing it. It costs 2 range requests, not a download.
 
+A rule going quiet reads exactly like a problem being fixed. C13 and C14 shared
+1 window, and that window skips the queue's first day, because a day whose
+early slots have already published reads as thin and charging it as dark would
+cry wolf on every run. For a flood it is backwards: a day that has already
+published can only be fuller than the queue shows. C14 named the duplicated
+night 10 on all 4 accounts on 10/06 and 10/07 and said nothing on 10/08, the
+day those 8 posts fire, and the board looked better for it: 5 findings down to
+1. C14 reads the whole run now and C13 keeps the trimmed one, built from 1
+construction so the difference is in 1 place. A fall in a count is not progress
+until you know which days left the queue.
+
+A window is a guess, and the audio probe's was wrong 3 times on 10/08.
+5246409, 5246417 and 5288026 were all faststart with moov at byte 32, exactly
+where the probe looks, and all 3 were reported unreadable because their moov
+runs 78 to 84 KB against a 64 KB head read: a box whose declared size runs
+past the buffer is not yielded, so the walk saw no moov. The probe reads the
+moov's own declared size now and fetches that exact range, 1 more request of
+about 80 KB, and refuses a declared size over `MOOV_MAX` rather than
+downloading on the file's word. The tail path had the same assumption and a
+worse consequence: it trusted `find(b"moov")`, and those 4 bytes occur in
+payload too, so a bogus size off a false hit gives 0 tracks and A01 calls a
+file that has sound silent. Each hit is validated with `has_moov` now and the
+scan continues past a false one. Before checking any of it, confirm the gate
+itself did not change: 2 of the 3 had their media swapped since the night
+before, and the same code read the old files clean.
+
+The 33 Nights removal step was never broken. "Removed 0" was reported for 5
+runs running as a defect and as the cause of C14, and both halves were wrong.
+Only 11 of 134 scheduled posts carry a `replaces` list, on nights 1 to 8, 10,
+15 and 19, and runs 12 to 17 placed nights 11 to 14, which claim nothing. Run
+18 placed night 15, which claims 4459033 and 4459035, and removed both. Read
+the schedule's own `replaces` lists before reading anything into a run report:
+a leftover is claimed by a night, claimed by a night not yet reached, or
+claimed by nothing. 4231163 is the third kind, and nothing will ever remove
+it.
+
 Measure before naming the fix. A food review goes to YouTube as long form, and
 2 queued reviews carried `#shorts` against that rule, reported 3 nights running
 with the fix named as a missing lane column. Reading the files says otherwise:

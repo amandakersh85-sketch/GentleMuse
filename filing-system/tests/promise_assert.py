@@ -89,6 +89,19 @@ if flood:
 # published and left the queue, so judging it reports a dark night every time
 # the gate runs. promise.today.csv opens on 03/02, mid campaign, with nothing
 # from the campaign on 03/02 or on 03/03.
+# 10/08. The skip of that partial first day was shared by both rules, and a
+# flood is the opposite case: a day whose early slots have published can only
+# be fuller than the queue shows, never thinner. promise.flood-today.csv opens
+# on 03/02, after the 03/01 start, and carries 2 of a 1 a night campaign on
+# that opening day. C14 reported the duplicated night 10 on 10/06 and 10/07
+# and went silent on 10/08, the day its 8 posts actually fire.
+ft = rules_on("promise.flood-today.csv")
+want([f["rule"] for f in ft], ["C14_PROMISE_FLOOD"],
+     "a flood on the queue's own first day still fires")
+if ft:
+    want(ft[0]["day"], "2026-03-02", "and it is the opening day that is named")
+    want(sorted(ft[0]["ids"]), ["1", "2"], "with both posts in the pile")
+
 today = rules_on("promise.today.csv")
 want([f["rule"] for f in today], ["C13_PROMISE_DARK"], "only the real dark night")
 if today:

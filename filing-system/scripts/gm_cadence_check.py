@@ -691,15 +691,29 @@ def check(rows, anchor=ANCHOR_DEFAULT, target=None):
             # tonight. A rule that cries wolf on the day it is run is a rule
             # somebody switches off, and it is not a night the queue can still
             # fill either way.
+            last = date.fromisoformat(campaign["TargetDate"])
+
+            def nights(start):
+                out, cur = [], date.fromisoformat(start)
+                while cur <= last:
+                    out.append(cur.isoformat())
+                    cur += timedelta(days=1)
+                return out
+
+            # 2 windows, because the 2 rules want different ones. The skip of
+            # the queue's partial first day is right for C13 and wrong for
+            # C14: a day whose early slots have published reads as thin, so
+            # charging it as dark cries wolf on every run, but a flood only
+            # gets worse when posts leave the queue by going out. Sharing 1
+            # window cost the night it mattered. On 10/06 and 10/07 C14
+            # reported the duplicated night 10 on all 4 accounts; on 10/08,
+            # the day those 8 posts actually fire, 10/08 was the queue's first
+            # day and C14 said nothing at all.
+            run = nights(max(campaign["StartDate"], days[0]))
             first = days[0]
             if campaign["StartDate"] < first:
                 first = (date.fromisoformat(first) + timedelta(days=1)).isoformat()
-            cur = date.fromisoformat(max(campaign["StartDate"], first))
-            last = date.fromisoformat(campaign["TargetDate"])
-            run = []
-            while cur <= last:
-                run.append(cur.isoformat())
-                cur += timedelta(days=1)
+            dark_run = nights(max(campaign["StartDate"], first))
 
             # A night nobody has loaded yet is not a dark night. The 33 Nights
             # loader books 7 days out and runs again tomorrow, so the far end
@@ -709,7 +723,7 @@ def check(rows, anchor=ANCHOR_DEFAULT, target=None):
             # campaign has actually booked. Past that edge C13 has nothing to
             # say yet. C14 still judges the whole run, because a night already
             # overfilled is overfilled now.
-            booked, edge = run, ""
+            booked, edge = dark_run, ""
             try:
                 ahead = int(campaign.get("LoadHorizonDays") or 0)
             except ValueError:
@@ -717,7 +731,7 @@ def check(rows, anchor=ANCHOR_DEFAULT, target=None):
             if ahead > 0:
                 edge = (date.fromisoformat(days[0])
                         + timedelta(days=ahead)).isoformat()
-                booked = [d for d in run if d <= edge]
+                booked = [d for d in dark_run if d <= edge]
 
             for platform, account in campaign_accounts(campaign["Accounts"]):
                 mine = defaultdict(list)
@@ -740,7 +754,7 @@ def check(rows, anchor=ANCHOR_DEFAULT, target=None):
                         and (not owes or (platform, account) in owes.get(d, ()))]
                 if dark:
                     reach = ("nights loaded so far, through %s" % edge
-                             if booked is not run else "nights left in it")
+                             if booked is not dark_run else "nights left in it")
                     findings.append({
                         "rule": "C13_PROMISE_DARK",
                         "day": dark[0],

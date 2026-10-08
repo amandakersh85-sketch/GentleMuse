@@ -29,6 +29,16 @@ when moov is not in there, the last 512 KB. These files come both ways: the
 silent halloweentown asset is faststart with moov at byte 32, the campaign
 nights carry moov at 99.6 percent.
 
+A window is a guess, and on 10/08 the guess was wrong 3 times. 5246409,
+5246417 and 5288026 were all faststart with moov at byte 32, and all 3 were
+reported unreadable, because their moov is 78 to 84 KB and the head read is
+64. A box whose declared size runs past the buffer is not yielded, so the walk
+found no moov at the front, the tail had none either, and A02 fired on 3 files
+that were perfectly ordinary. The probe reads the moov's own declared size now
+and fetches exactly that range, which is 1 more request of 80 KB rather than a
+wider guess. A moov over MOOV_MAX is still reported rather than fetched,
+because a declared size is the file talking about itself.
+
   python3 gm_audio_check.py --queue queue.json [--cache DIR] [--local DIR]
 
 Exit 0 clean, 1 a post has no sound, 2 nothing to check.
@@ -37,6 +47,9 @@ import argparse, json, os, struct, sys, urllib.error, urllib.request
 
 HEAD_BYTES = 64 * 1024
 TAIL_BYTES = 512 * 1024
+# The most moov this will fetch once it knows the real size. Past this it is
+# reported, not downloaded: the size comes from the file, so it is a claim.
+MOOV_MAX = 8 * 1024 * 1024
 TIMEOUT = 30
 
 
@@ -63,6 +76,31 @@ def boxes(buf, start, end, depth=0):
         if typ in ("moov", "trak", "mdia", "minf", "stbl"):
             yield from boxes(buf, i + hdr, i + size, depth + 1)
         i += size
+
+
+def top_boxes(buf):
+    """Top level (type, offset, size) read from headers alone.
+
+    boxes() will not yield a box whose body is not all there, which is right
+    for the walk and wrong for finding out how much more to ask for. This
+    reads only the 8 or 16 byte headers, so a moov truncated by the window
+    still reports where it starts and how long it says it is.
+    """
+    i, out = 0, []
+    while i + 8 <= len(buf):
+        size = struct.unpack(">I", buf[i:i + 4])[0]
+        typ = buf[i + 4:i + 8].decode("latin-1", "replace")
+        hdr = 8
+        if size == 1:
+            if i + 16 > len(buf):
+                break
+            size = struct.unpack(">Q", buf[i + 8:i + 16])[0]
+            hdr = 16
+        if size < hdr:
+            break
+        out.append((typ, i, size))
+        i += size
+    return out
 
 
 def handlers(buf):
@@ -146,6 +184,19 @@ def probe(url, cache=None, local=None):
     res, secs, note = None, None, None
     if has_moov(head):
         res, secs, note = handlers(head), seconds(head), "moov in head"
+    elif [b for b in top_boxes(head) if b[0] == "moov"]:
+        # faststart, but the moov is longer than the head read. Its header says
+        # how long, so ask for exactly that.
+        _t, at, size = [b for b in top_boxes(head) if b[0] == "moov"][0]
+        if size > MOOV_MAX:
+            return None, None, "moov claims %d bytes, over the %d KB this will fetch" % (
+                size, MOOV_MAX // 1024)
+        try:
+            buf, _cr, _st = fetch(url, at, size)
+        except (urllib.error.URLError, OSError) as e:
+            return None, None, "moov fetch failed: %s" % e
+        res, secs = handlers(buf), seconds(buf)
+        note = "moov %d KB at byte %d, fetched whole" % (size // 1024, at)
     else:
         # moov sits at the end on a file that was not written faststart, and
         # these come both ways, so a suffix range is the second and last ask
@@ -156,12 +207,22 @@ def probe(url, cache=None, local=None):
                 tail = r.read()
         except (urllib.error.URLError, OSError) as e:
             return None, None, "tail fetch failed: %s" % e
-        # the tail starts mid atom, so scan forward for a moov header
-        at = tail.find(b"moov")
-        if at >= 4:
-            res, secs = handlers(tail[at - 4:]), seconds(tail[at - 4:])
-            note = "moov in tail"
-        else:
+        # The tail starts mid atom, so the moov header is found by scanning for
+        # it. find() matches 4 bytes, and those 4 bytes also occur in payload,
+        # so the first hit is not necessarily a header: read a bogus size off
+        # one and handlers() sees 0 tracks, which makes A01 call a file with
+        # sound silent. has_moov is the test of whether a hit really is one,
+        # because it only yields a box whose body is all there, and a genuine
+        # trailing moov ends at the end of the file. Keep scanning until a hit
+        # passes it.
+        res, pos = None, tail.find(b"moov")
+        while pos >= 4:
+            cand = tail[pos - 4:]
+            if has_moov(cand):
+                res, secs, note = handlers(cand), seconds(cand), "moov in tail"
+                break
+            pos = tail.find(b"moov", pos + 1)
+        if res is None:
             return None, None, "moov not found in first %dKB or last %dKB" % (
                 HEAD_BYTES // 1024, TAIL_BYTES // 1024)
     if cache and res is not None:

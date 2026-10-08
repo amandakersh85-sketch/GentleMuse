@@ -145,6 +145,127 @@ nomedia = sum(1 for i in queue
 want((reached, len(queue), nomedia), (1, 3, 1),
      "the gate can say how many queue rows it never saw")
 
+# probe over a fake range server. The window is a guess, and on 10/08 it was
+# wrong 3 times: 5246409, 5246417 and 5288026 were faststart with moov at byte
+# 32, their moov ran 78 to 84 KB against a 64 KB head read, and all 3 were
+# reported unreadable. The tail path had the same bug in a worse form, where a
+# truncated moov reads as 0 tracks and A01 calls a file with sound silent.
+# Nothing offline reached probe before this, which is why neither showed up.
+import re as _re
+import urllib.request as _ur
+
+
+class Served:
+    """One blob over HTTP range semantics, counting what was asked for."""
+
+    def __init__(self, blob):
+        self.blob, self.asks = blob, []
+
+    def open(self, req, timeout=0):
+        rng = req.get_header("Range") or ""
+        m = _re.match(r"bytes=(\d*)-(\d*)$", rng)
+        n = len(self.blob)
+        if m and m.group(1) == "":                      # suffix, bytes=-N
+            start, end = max(0, n - int(m.group(2))), n - 1
+        elif m:
+            start = int(m.group(1))
+            end = int(m.group(2)) if m.group(2) else n - 1
+        else:
+            start, end = 0, n - 1
+        end = min(end, n - 1)
+        self.asks.append((start, end - start + 1))
+        body, served = self.blob[start:end + 1], self
+        class R:
+            headers = {"Content-Range": "bytes %d-%d/%d" % (start, end, n)}
+            status = 206
+            def __enter__(s): return s
+            def __exit__(s, *x): pass
+            def read(s, *a): return body
+            def getheader(s, k, d=None): return s.headers.get(k, d)
+        R.headers = type("H", (dict,), {"get": dict.get})(R.headers)
+        return R()
+
+
+def probe_served(blob):
+    srv = Served(blob)
+    with mock_urlopen(srv):
+        return A.probe("https://x/served.mp4"), srv
+
+
+class mock_urlopen:
+    def __init__(self, srv): self.srv = srv
+    def __enter__(self):
+        self.real = _ur.urlopen
+        _ur.urlopen = self.srv.open
+        return self
+    def __exit__(self, *x):
+        _ur.urlopen = self.real
+
+
+def padded_trak(kind, pad):
+    """A trak carrying pad bytes of filler, so moov can be made any size."""
+    return box("trak", box("mdia", hdlr(kind) + box("minf", box("stbl", box("free", b"\0" * pad)))))
+
+
+def big_mp4(kinds, pad, faststart=True, mdat=b"\0" * 4096, scale=600, length=18600):
+    moov = box("moov", mvhd(scale, length) + b"".join(padded_trak(k, pad) for k in kinds))
+    ftyp = box("ftyp", b"isom")
+    return (ftyp + moov + box("mdat", mdat)) if faststart else (ftyp + box("mdat", mdat) + moov)
+
+
+# a moov header whose body is not all there still reports where and how long
+cut = big_mp4(["vide", "soun"], 40000)[:A.HEAD_BYTES]
+found = [b for b in A.top_boxes(cut) if b[0] == "moov"]
+want(len(found), 1, "top_boxes finds a moov header the window truncated")
+want(A.has_moov(cut), False, "while the walk itself will not yield it")
+
+# faststart, moov bigger than the head read: read exactly, do not guess wider
+blob = big_mp4(["vide", "soun"], 40000)
+want(len(blob) > A.HEAD_BYTES, True, "the fixture moov really does overrun the head read")
+(hs, secs, note), srv = probe_served(blob)
+want(hs, ["vide", "soun"], "a faststart moov over the head read is read, not refused")
+want(secs, 31.0, "and its duration comes with it")
+want("fetched whole" in (note or ""), True, "and the note says the moov was fetched by its own size")
+want(len(srv.asks), 2, "which costs 1 request more than the head read, not a download")
+_t, _at, _size = [b for b in A.top_boxes(blob[:A.HEAD_BYTES]) if b[0] == "moov"][0]
+want(srv.asks[1], (_at, _size), "and that request is exactly the moov range, not the file")
+
+# the tail path: find() matches 4 bytes that also occur in payload, so the
+# first hit need not be a header. A bogus size read off one gives 0 tracks and
+# A01 then calls a file with sound silent, which is the worst outcome the gate
+# has. The scan keeps going until a hit is a real moov.
+decoy = b"\x7f\xff\xff\xffmoov" + b"\0" * 512          # a size nothing can satisfy
+blob = big_mp4(["vide", "soun"], 0, faststart=False,
+               mdat=b"\0" * 4096 + decoy + b"\0" * (A.TAIL_BYTES // 2))
+want(blob.count(b"moov"), 2, "the fixture really does carry a decoy before the real moov")
+(hs, secs, note), srv = probe_served(blob)
+want(hs, ["vide", "soun"], "a decoy moov in payload does not stop the real one being found")
+want(secs, 31.0, "and the duration still comes off the real moov")
+
+# the same shape with no audio is still refused, so the scan did not go soft
+blob = big_mp4(["vide"], 0, faststart=False,
+               mdat=b"\0" * 4096 + decoy + b"\0" * (A.TAIL_BYTES // 2))
+srv = Served(blob)
+with mock_urlopen(srv):
+    found = A.check(A.rows_from([post("p-decoy", "served.mp4")]))
+want([f["rule"] for f in found], ["A01_NO_AUDIO_TRACK"],
+     "and a silent file behind a decoy is still refused")
+
+# a tail with nothing moov shaped in it is reported, not guessed at
+blob = box("ftyp", b"isom") + box("mdat", b"\0" * (A.HEAD_BYTES + A.TAIL_BYTES))
+(hs, secs, note), srv = probe_served(blob)
+want(hs, None, "a file with no moov anywhere is reported unreadable")
+want("not found" in (note or ""), True, "and the note says where it looked")
+
+# a declared size past MOOV_MAX is reported, never fetched
+blob = big_mp4(["vide", "soun"], 40000)
+at = blob.find(b"moov") - 4
+huge = blob[:at] + struct.pack(">I", A.MOOV_MAX + 1) + blob[at + 4:]
+(hs, secs, note), srv = probe_served(huge)
+want(hs, None, "a moov claiming more than MOOV_MAX is not fetched")
+want("over the" in (note or ""), True, "and the note says why")
+want(len(srv.asks), 1, "and nothing beyond the head read was asked for")
+
 for n in ("sound.mp4", "silent.mp4"):
     os.remove(os.path.join(TMP, n))
 os.rmdir(TMP)
