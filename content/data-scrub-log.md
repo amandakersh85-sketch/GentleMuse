@@ -4156,3 +4156,123 @@ being applied correctly where a specific product exists.
 
 Tomorrow is the final campaign day. The wrap fires 10/09. This is the last
 scrub that can ask for the number in time for it to mean anything.
+
+---
+
+# Day 30 scrub — 2026-10-08 (02:36 UTC / 10-07 21:36 CT)
+
+**Final campaign day.** Full corpus, Blotato. All Instagram figures pulled from
+`list_posts` per the Day 29 methodology fix.
+
+## The seasonal run, 8 nights
+
+| Night | Instagram | Facebook |
+|---|---|---|
+| 1 | 1 | 179 |
+| 2 | 138 | 211 |
+| 3 | 4 | 122 |
+| 4 | 7 | 1,158 |
+| 5 | 8 | 198 |
+| 6 | 8 | 236 |
+| 7 | 2 | 295 |
+| 8 | **10** | **204** |
+
+**Instagram median 7.5. Facebook median 207.5.**
+
+Night 8 changed nothing. 7 of 8 Instagram nights at 10 views or fewer. All 8
+Facebook nights between 122 and 1,158. The conclusion stated last night holds
+on a longer sample.
+
+## The main account can reach 140, it just does not do it with seasonal
+
+Everything @thegentlemuse2026 published on 10/06, 1 account, 1 day:
+
+| Post | Views | Reach | Watch |
+|---|---|---|---|
+| Target toy aisle reel | **146** | 136 | 3.85s |
+| Makeup, learning in public | **138** | 127 | 6.86s |
+| Night 8 of 33 | 10 | 9 | 7.13s |
+| Home clearance story | 8 | 5 | n/a |
+| If you build it, they will come | 7 | 5 | 7.20s |
+| Comment TUESDAY story | 4 | 0 | n/a |
+
+**4 to 146 on 1 account in 1 day.** Watch time does not sort them: the 2 top
+posts held 3.85s and 6.86s, the 2 bottom posts held 7.13s and 7.20s. The posts
+people stayed longest on reached the fewest people.
+
+I will not try to explain that spread on the last night of the campaign. I
+called a pattern on it 3 times across Days 21, 22 and 23 and retracted it on
+Day 24. The honest statement for the wrap is that **Instagram reach on this
+account ranges 1 to 146 and nothing in the data so far predicts which a given
+post gets.**
+
+## Pairs 20, 21 and 22
+
+| Content | Date | Instagram | Facebook | Winner |
+|---|---|---|---|---|
+| Night 8 of 33 | 10/06 | 10 | 204 | FB, 20x |
+| Makeup, learning in public | 10/06 | 138 | 259 | FB, 1.9x |
+| If you build it, they will come | 10/06 | 7 | 203 | FB, 29x |
+
+**Final tally: Facebook 21, Instagram 1.**
+
+22 matched pairs over the campaign, identical files to both platforms, Facebook
+ahead in 21. Margins from 1.4x to 239x. That is the single most durable finding
+in the log.
+
+## Volume, final 4 days
+
+| Channel | 04 | 05 | 06 | 07 |
+|---|---|---|---|---|
+| IG @thegentlemuse2026 | 1 | 5 | 8 | 5 |
+| IG @cesasgoldenyears | 1 | 1 | 1 | 1 |
+| TikTok @thegentlemuse2026 | 1 | 3 | 4 | 3 |
+| TikTok @cesasgoldenyears | 1 | 1 | 1 | 1 |
+| Facebook | 1 | 3 | 3 | 3 |
+| YouTube | 1 | 3 | 3 | 3 |
+
+The campaign finished at or above target on every channel except Cesa's, which
+has run 1 a day since 09/30.
+
+No publish failures on 10/06 or 10/07. **Campaign total: 3 failures, all on
+@cesasgoldenyears Instagram between 09/25 and 09/27, out of roughly 31 days of
+posting.**
+
+## Club Target, final state
+
+The 10/07 Instagram reel names copper mugs, green glassware, black stoneware
+bowls and terracotta pieces, and carries storefront only. Same shape as the 3
+flagged on Day 29: an aisle video that names categories rather than a single
+SKU-able item.
+
+Running state: **TikTok has carried a correct per product SKU on 5 consecutive
+product posts.** Instagram aisle and sale-event posts route to the storefront.
+Whether that is compliant is Amanda's call, and it is worth settling before the
+next Club Target cycle rather than leaving it open a 3rd week.
+
+## Tracking items, final
+
+1. **Trivia on Instagram:** 8 nights, median 7.5, against the 37 watermarked
+   baseline it never cleared. Facebook median 207.5, inside the 230 to 577 band
+   at the low end, with 1 post at 1,158.
+2. **10,000 view Cesa breakout: did not happen.** Campaign ceiling 1,104 on
+   09/28.
+3. **Volume:** finished at target.
+4. **Watermarks and AI badges:** none found all campaign after the 09/08 fix.
+5. **Product posts missing a SKU:** TikTok clean, Instagram aisle posts open.
+
+## Follower count
+
+**188 manual from 09/12. 26 days stale on the last day of a 30 day campaign.**
+
+The campaign started at 190 on 09/08 and targeted 1,000 by today. The only
+reading taken during it was 188 on day 4.
+
+## The wrap fires tomorrow
+
+Tomorrow's entry closes the log and this trigger gets disabled. It will report
+what the data supports: 22 matched pairs with Facebook ahead in 21, a seasonal
+run that works on Facebook and not Instagram, Cesa's 9 day old account
+outproducing the 3 week old campaign account, and a follower goal that was
+never measured. If Amanda reads the number off the app before then, the wrap
+can close on a real result instead of a gap.
