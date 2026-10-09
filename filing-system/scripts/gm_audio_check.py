@@ -22,6 +22,8 @@ because the queue payload says nothing about audio and never will.
   A01_NO_AUDIO_TRACK    the mp4 has no audio track
   A02_AUDIO_UNREADABLE  the container could not be read, so it is not being
                         called clean. No substitution: say so and stop.
+  M01_TOO_LONG          the video is longer than the surface it is going to
+                        will accept, so the platform will refuse it at publish
 
 Nothing is decoded and nothing is downloaded whole. The audio question is
 answered by the moov atom, so the probe asks for the first 64 KB, and only
@@ -43,13 +45,21 @@ because a declared size is the file talking about itself.
 
 Exit 0 clean, 1 a post has no sound, 2 nothing to check.
 """
-import argparse, json, os, struct, sys, urllib.error, urllib.request
+import argparse, csv, json, os, struct, sys, urllib.error, urllib.request
 
 HEAD_BYTES = 64 * 1024
 TAIL_BYTES = 512 * 1024
 # The most moov this will fetch once it knows the real size. Past this it is
 # reported, not downloaded: the size comes from the file, so it is a claim.
 MOOV_MAX = 8 * 1024 * 1024
+# How long a video may be on each surface. The rule lives in the CSV, not here.
+# On 10/08 a 71.4 second cut went into a story slot on instagram 45886 and
+# Instagram refused it: "Invalid video duration: 71.398938. Max duration for
+# stories is 61.0". Nothing on the board could have said so, because the length
+# was not read and the limit was not written down. The length is read now, so
+# the limit is the only part that was missing.
+SURFACE_LIMITS = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), "..", "data", "surface-limits.csv")
 TIMEOUT = 30
 
 
@@ -239,6 +249,22 @@ def load_queue(path):
     return rows_from(d["items"] if isinstance(d, dict) else d)
 
 
+def load_limits(path=SURFACE_LIMITS):
+    """(platform, surface) -> max seconds, from the CSV."""
+    out = {}
+    if not os.path.exists(path):
+        return out
+    with open(path, newline="", encoding="utf-8") as fh:
+        for r in csv.DictReader(fh):
+            plat = (r.get("Platform") or "").strip().lower()
+            surf = (r.get("Surface") or "").strip().lower()
+            try:
+                out[(plat, surf)] = float(r.get("MaxSeconds") or 0)
+            except ValueError:
+                continue
+    return out
+
+
 def rows_from(items):
     """The mp4 posts in a queue dump. A still has no audio question to answer."""
     rows = []
@@ -253,14 +279,16 @@ def rows_from(items):
                 "when": (it.get("scheduledAt") or "")[:16],
                 "platform": content.get("platform") or (draft.get("target") or {}).get("targetType"),
                 "account": str(draft.get("accountId")),
+                "surface": ((draft.get("target") or {}).get("mediaType") or "").lower(),
                 "url": u,
             })
     return rows
 
 
-def check(rows, cache=None, local=None):
+def check(rows, cache=None, local=None, limits=None):
     findings = []
     seen = {}
+    limits = load_limits() if limits is None else limits
     for r in rows:
         if r["url"] not in seen:
             seen[r["url"]] = probe(r["url"], cache=cache, local=local)
@@ -271,7 +299,19 @@ def check(rows, cache=None, local=None):
                 "detail": "%s on %s %s: could not read the container (%s)" % (
                     r["id"], r["platform"], r["account"], note),
             })
-        elif "soun" not in hs:
+        else:
+            cap = limits.get((r.get("platform") or "", r.get("surface") or ""))
+            if cap and secs and secs > cap:
+                findings.append({
+                    "rule": "M01_TOO_LONG", "id": r["id"], "when": r["when"],
+                    "detail": "%s at %s on %s %s runs %.1fs, and the %s %s "
+                              "surface takes %.0fs. The platform refuses this at "
+                              "publish, so the post does not go out late, it "
+                              "does not go out."
+                              % (r["id"], r["when"], r["platform"], r["account"],
+                                 secs, r["platform"], r["surface"], cap),
+                })
+        if hs is not None and "soun" not in hs:
             findings.append({
                 "rule": "A01_NO_AUDIO_TRACK", "id": r["id"], "when": r["when"],
                 "detail": "%s at %s on %s %s has no audio track (tracks: %s%s)" % (

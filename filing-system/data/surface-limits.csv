@@ -1,0 +1,4 @@
+Platform,Surface,MaxSeconds,Why
+instagram,story,61,"Instagram refuses a story over 61 seconds at publish time. On 10/08 a 71.4 second cut was queued as a story on 45886 and came back: Invalid video duration: 71.398938. Max duration for stories is 61.0. The post is simply gone, and nothing in the queue said it could not be delivered."
+instagram,reel,900,"Reels take up to 15 minutes. Nothing near it has been queued, and the row is here so the file holds the whole platform rather than only the limit that bit."
+facebook,story,61,"Same limit as Instagram stories. No post has hit it yet, and a limit written only where it failed is a limit the next surface rediscovers."

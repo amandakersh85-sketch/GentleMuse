@@ -156,6 +156,35 @@ the queue payload says nothing about audio and never will:
 `A02_AUDIO_UNREADABLE` reports a container it could not read instead of
 passing it. It costs 2 range requests, not a download.
 
+A post the platform will refuse does not go out late, it does not go out. On
+10/08 a 71.4 second cut went into a story slot on instagram 45886 and Instagram
+sent it back: "Invalid video duration: 71.398938. Max duration for stories is
+61.0". Nothing on the board could have said so, because the length was not read
+and the limit was not written down. The length is read now, so the limit was
+the only missing piece: `filing-system/data/surface-limits.csv` holds it per
+platform and surface, the board row carries the surface off `target.mediaType`,
+and `M01_TOO_LONG` reports a video longer than the surface it is going to.
+Exactly at the limit passes, because 61.0 is what Instagram's own message calls
+the maximum. Change the CSV, not the gate, and add a row for a surface before
+it is the one that bit.
+
+A count falling is not a count resolved. On 10/09 C17 went to 0, C08 to 0, C05
+from 25 to 19 and C15 from 15 to 12, and none of it was fixed: 10/08 published
+out and took the findings with it. The 4 C17 posts cleared by going live with
+the attribution the sources do not support. Before reading a fall as progress,
+check which days left the front of the queue and what published off them.
+
+A lane can go dark on 1 account while the account stays busy. On 10/09 every
+Halloween night in the queue, 11 through 16, carried Facebook, TikTok and
+YouTube and no Instagram, and instagram 45886 still held 2 to 5 posts a day, so
+nothing about its volume looked wrong. C13 is the rule that sees it, because it
+counts the nights a campaign owes on each account it promised on, and it fired
+the first night it was true. Diffing 1 board against the night before is what
+names the posts: exactly 5 future-dated rows had left the queue and all 5 were
+those nightly Instagram slots. The loader only deletes ids a night's `replaces`
+list names, so it cannot remove a nightly post, which means a removal from
+outside it or a creation that reports success and does not land.
+
 A rule going quiet reads exactly like a problem being fixed. C13 and C14 shared
 1 window, and that window skips the queue's first day, because a day whose
 early slots have already published reads as thin and charging it as dark would

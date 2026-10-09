@@ -266,6 +266,70 @@ want(hs, None, "a moov claiming more than MOOV_MAX is not fetched")
 want("over the" in (note or ""), True, "and the note says why")
 want(len(srv.asks), 1, "and nothing beyond the head read was asked for")
 
+# M01. On 10/08 a 71.4 second cut went into a story slot on instagram 45886
+# and Instagram refused it at publish: "Invalid video duration: 71.398938. Max
+# duration for stories is 61.0". The post did not go out late, it did not go
+# out, and no gate could have said so: the length was not read and the limit
+# was not written down. The length is read now, so the limit was the only
+# missing part, and it lives in surface-limits.csv rather than in this file.
+LIMITS = {("instagram", "story"): 61.0, ("instagram", "reel"): 900.0}
+
+
+def surfaced(pid, name, surface, when="2026-10-13T15:00"):
+    return {"id": pid, "scheduledAt": when + ":00.000Z",
+            "draft": {"target": {"targetType": "instagram", "mediaType": surface},
+                      "content": {"platform": "instagram",
+                                  "mediaUrls": ["https://x/" + name]},
+                      "accountId": "45886"}}
+
+
+want(A.rows_from([surfaced("s1", "sound.mp4", "story")])[0]["surface"], "story",
+     "a row carries the surface it is going to")
+want(A.rows_from([surfaced("s2", "sound.mp4", "reel")])[0]["surface"], "reel",
+     "and a reel reads as a reel")
+
+long_story = big_mp4(["vide", "soun"], 0, scale=1000, length=71399)
+open(os.path.join(TMP, "long.mp4"), "wb").write(long_story)
+found = A.check(A.rows_from([surfaced("s3", "long.mp4", "story")]), local=TMP, limits=LIMITS)
+want([f["rule"] for f in found], ["M01_TOO_LONG"],
+     "a 71.4 second story is refused before the platform refuses it")
+if found:
+    want("71.4s" in found[0]["detail"] and "61s" in found[0]["detail"], True,
+         "and the finding gives both the length and the limit")
+
+found = A.check(A.rows_from([surfaced("s4", "long.mp4", "reel")]), local=TMP, limits=LIMITS)
+want(found, [], "the same cut as a reel is fine, because the limit is per surface")
+
+found = A.check(A.rows_from([surfaced("s5", "sound.mp4", "story")]), local=TMP, limits=LIMITS)
+want(found, [], "a short story passes")
+
+# exactly at the limit is legal. Instagram's message is "Max duration for
+# stories is 61.0", so 61.0 is allowed and only over it is refused.
+at_limit = big_mp4(["vide", "soun"], 0, scale=1000, length=61000)
+open(os.path.join(TMP, "at61.mp4"), "wb").write(at_limit)
+want(A.seconds(at_limit), 61.0, "the fixture really is exactly 61 seconds")
+found = A.check(A.rows_from([surfaced("s7", "at61.mp4", "story")]), local=TMP, limits=LIMITS)
+want(found, [], "a story of exactly the limit passes")
+os.remove(os.path.join(TMP, "at61.mp4"))
+
+# and with no limits passed, check() reads surface-limits.csv for itself. Every
+# other case here hands it a dict, so nothing would notice if it stopped.
+found = A.check(A.rows_from([surfaced("s8", "long.mp4", "story")]), local=TMP)
+want([f["rule"] for f in found], ["M01_TOO_LONG"],
+     "check() reads the CSV when it is not handed limits")
+
+# a surface with no row in the CSV is not guessed at
+found = A.check(A.rows_from([surfaced("s6", "long.mp4", "carousel")]), local=TMP, limits=LIMITS)
+want(found, [], "a surface the file says nothing about is not judged")
+
+# and the real CSV has to carry the limit that actually bit, or the gate is
+# shipped with an empty rulebook
+live = A.load_limits()
+want(live.get(("instagram", "story")), 61.0,
+     "surface-limits.csv carries the Instagram story limit")
+
+os.remove(os.path.join(TMP, "long.mp4"))
+
 for n in ("sound.mp4", "silent.mp4"):
     os.remove(os.path.join(TMP, n))
 os.rmdir(TMP)
