@@ -1,0 +1,4 @@
+# Daily run logs are local machine output, not repo history.
+# The committed record of what loaded is content/wave1-loaded.log,
+# and the human-readable record is routines/reports/.
+*.log

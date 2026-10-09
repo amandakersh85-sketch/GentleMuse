@@ -1,0 +1,34 @@
+# Blotato refill, 2026-10-09
+
+- Queue before: 150 of 200, 50 free, 10 kept free for the nightly run and the daily trivia
+- Loaded: 5, into the next 7 days, up to 3 posts per account per day
+- Rows left to load across both waves: 111
+- GW2020 tiktok, Fri Oct 9, 2:00 PM Central
+- GW2017 youtube, Thu Oct 15, 2:00 PM Central
+- GW2026 tiktok, Thu Oct 15, 2:00 PM Central
+- GW2029 youtube, Fri Oct 16, 2:00 PM Central
+- GW2032 tiktok, Fri Oct 16, 2:00 PM Central
+- Already in the queue or already posted, so skipped and marked done: 3 (GW2053, GW2121, GW2178)
+- Refused GW0105. It asks for a keyword nothing answers there: 30840 has no active automation for CESA. It is live on instagram 65540.
+- Refused GW0120. It asks for a keyword nothing answers there: linkedin asks for CONSIDER and has no automation. The CTA on linkedin is the link, never the keyword.
+- Refused GW0132. It asks for a keyword nothing answers there: linkedin asks for CONSIDER and has no automation. The CTA on linkedin is the link, never the keyword.
+- Refused GW0144. It asks for a keyword nothing answers there: 30840 has no active automation for CESA. It is live on instagram 65540.
+- Refused GW0156. It asks for a keyword nothing answers there: linkedin asks for CONSIDER and has no automation. The CTA on linkedin is the link, never the keyword.
+- Refused GW0163. It asks for a keyword nothing answers there: 45886 has no active automation for CESA. It is live on instagram 65540.
+- Refused GW0180. It asks for a keyword nothing answers there: 30840 has no active automation for CESA. It is live on instagram 65540.
+- Refused GW2001. It asks for a keyword nothing answers there: 45886 has no active automation for CESA. It is live on instagram 65540.
+- Refused GW2011. It asks for a keyword nothing answers there: 30840 has no active automation for CESA. It is live on instagram 65540.
+- Refused GW2044. It asks for a keyword nothing answers there: 30840 has no active automation for CESA. It is live on instagram 65540.
+- Refused GW2047. It asks for a keyword nothing answers there: 30840 has no active automation for CESA. It is live on instagram 65540.
+- Refused GW2059. It asks for a keyword nothing answers there: linkedin asks for PLAY and has no automation. The CTA on linkedin is the link, never the keyword.
+- Refused GW2071. It asks for a keyword nothing answers there: linkedin asks for PLAY and has no automation. The CTA on linkedin is the link, never the keyword.
+- Refused GW2072. It asks for a keyword nothing answers there: 45886 has no active automation for CESA. It is live on instagram 65540.
+- Refused GW2083. It asks for a keyword nothing answers there: 30840 has no active automation for CESA. It is live on instagram 65540.
+- Refused GW2106. It asks for a keyword nothing answers there: linkedin asks for PLAY and has no automation. The CTA on linkedin is the link, never the keyword.
+- Refused GW2147. It asks for a keyword nothing answers there: 30840 has no active automation for CESA. It is live on instagram 65540.
+- Refused GW2150. It asks for a keyword nothing answers there: 30840 has no active automation for CESA. It is live on instagram 65540.
+- Refused GW2160. It asks for a keyword nothing answers there: linkedin asks for CONSIDER and has no automation. The CTA on linkedin is the link, never the keyword.
+- Refused GW2181. It asks for a keyword nothing answers there: 30840 has no active automation for CESA. It is live on instagram 65540.
+- Skipped 38 X rows. X is 0 a day since 09/08.
+- 83 rows wait for room in the next 7 days. The next run tries again.
+- FAILED instagram Thu Oct 8, 3:15 PM Central: Error posting to Instagram: Video Transcoding Error: Video Transcoding Error: Invalid video duration: 71.398938. Max duration for stories is 61.0
