@@ -4276,3 +4276,137 @@ run that works on Facebook and not Instagram, Cesa's 9 day old account
 outproducing the 3 week old campaign account, and a follower goal that was
 never measured. If Amanda reads the number off the app before then, the wrap
 can close on a real result instead of a gap.
+
+---
+
+# FINAL WRAP — 1K campaign, 2026-09-08 to 2026-10-08
+
+Written 10/09. Campaign closed yesterday. This entry closes the log and the
+nightly scrub trigger is disabled after it.
+
+## The goal, and what happened to it
+
+| | |
+|---|---|
+| Account | @thegentlemuse2026 |
+| Start | **190 followers**, 09/08 |
+| Target | **1,000 by 10/08** |
+| Last measured | **188 on 09/12**, day 4 |
+| Final | **not measured** |
+
+The campaign ran 30 days and its headline number was read once, on day 4. I
+asked for it in 25 consecutive entries. It is the one thing in this log that
+needed a person and never got one, and it is the reason the campaign cannot be
+scored.
+
+What can be said: nothing in the reach data suggests 1,000 was approached. The
+account's best post in the final 3 weeks was 146 views.
+
+## What the campaign actually proved
+
+**1. Facebook outperforms Instagram for this content. 25 matched pairs, Facebook ahead in 24.**
+
+Identical files, same day, both platforms. Margins 1.4x to 239x. The 1
+Instagram win was the 09/25 bottleneck reel at 5x. This is the most durable
+finding in the log and the only one that survived every sample-size test.
+
+**2. The seasonal run works on Facebook and not on Instagram.**
+
+9 nights, same file each night, same slot.
+
+| | Instagram | Facebook |
+|---|---|---|
+| Median | **7** | **211** |
+| Range | 1 to 138 | 122 to 1,158 |
+
+8 of 9 Instagram nights at 10 views or fewer. 24 nights remain in the run.
+
+**3. Cesa's own account outperformed the campaign account, from a standing start.**
+
+@cesasgoldenyears opened 09/25. In 14 days it produced:
+
+| Post | Date | Views | Reach |
+|---|---|---|---|
+| she sat down, that was her mistake | 09/28 | **1,104** | 898 |
+| she thinks she's holding me | 09/28 | 977 | 713 |
+| **i walk this block at my own speed** | **10/08** | **732** | **593** |
+| the leaves came back | 10/04 | 327 | 278 |
+
+Her working band settled at 140 to 330 with 3 posts above 700. Over the same
+stretch the campaign account's best was 146. A 2 week old account beat a 3 week
+campaign on the campaign's own platform.
+
+**4. The campaign's 3 best posts were all on channels that do not feed the goal.**
+
+Facebook 1,158. Cesa's Instagram 1,104. Cesa's TikTok 969.
+
+## The honest verdict
+
+The goal was pointed at the wrong account. 1,000 followers on
+@thegentlemuse2026 was never the achievable target; the reach was on Facebook
+and on Cesa's channels the whole time, and the data said so from Day 18
+onward.
+
+That is a more useful result than a follower number would have been, and it is
+the thing to carry into whatever comes next.
+
+## Operations, final state
+
+- **Publish failures: 4 in 31 days.** 3 on @cesasgoldenyears Instagram
+  09/25 to 09/27 (`The Instagram account is restricted`), and 1 on 10/08: a
+  71.4s video sent to a story slot capped at 61s.
+- **Watermarks and AI badges: none** found after the 09/08 clean-export fix.
+  That rule held for the whole campaign.
+- **Club Target SKU links:** TikTok carried a correct per product SKU on 5
+  consecutive product posts. Instagram aisle and sale-event posts route to the
+  storefront. **Still unresolved after 3 weeks and worth settling before the
+  next Club Target cycle.**
+- **Volume:** finished at or above the 3 to 4 target on every channel except
+  Cesa's, at 1 a day since 09/30.
+
+## FLAG: Night 10 double-posted to Instagram
+
+10/08 23:01:07 and 10/08 23:01:25, 2 separate reels, both Night 10 candy corn,
+different caption bodies and different media files. Both live:
+`/reel/DeQEICTCRkD/` and `/reel/DeQEJ6wAIQJ/`. 1 should come down.
+
+## Methodology notes for whoever runs the next campaign
+
+1. **`blotato_list_top_posts` caps at 100 and sorts by views.** Once a corpus
+   passes 100 posts it silently drops the worst performers, which biases every
+   average upward. Caught 10/07. Take rankings from top_posts, take
+   completeness from `list_posts`.
+2. **`list_posts` gained `account` and `watchTimeMsAvg` around 09/28.** Before
+   that there was no way to tell the 2 Instagram accounts apart, so every
+   Instagram figure in this log before Day 21 is a blend of both.
+3. **Watch time does not predict reach on Instagram.** The 2 highest watch
+   times in the corpus, 21.17s and 15.02s, reached 2 and 114 people. Do not
+   use retention as a proxy for distribution.
+
+## Where I got it wrong
+
+Worth recording, because the pattern is consistent and the next run should
+guard against it.
+
+- **09/24, account attribution.** Reported that Blotato could not distinguish
+  the 2 Instagram accounts and that the Cesa gap was unexplainable. The API
+  gained the field 4 days later and the gap turned out to be a real pause plus
+  a restriction.
+- **Day 16, Amanda's lift.** Called 4 consecutive posts of 94 to 165 "the most
+  durable change in the corpus." The next day read 6.
+- **Days 21 to 23, throttling.** Called the main account throttled off a
+  reach of 2. Night 2 read 112 reach from the same slot the next night.
+
+3 pattern calls on 1 to 4 posts, all retracted. The 7 day evidence bar set on
+Day 24 held for the rest of the campaign and should be the default from the
+start next time.
+
+## What I would do next, on this data
+
+1. Move the remaining 24 seasonal nights off Instagram. It is costing a slot a
+   night for a median of 7 views while the same file does 211 on Facebook.
+2. Put Cesa back to 2 posts a day. She is the only line that produced 4 digit
+   reach and she has been at half cadence since 09/30.
+3. Settle the Club Target aisle-post question.
+4. **Read the follower count.** Both accounts. Whatever the next goal is, it
+   needs a measurement, and this campaign did not have one.
