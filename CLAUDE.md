@@ -156,6 +156,29 @@ the queue payload says nothing about audio and never will:
 `A02_AUDIO_UNREADABLE` reports a container it could not read instead of
 passing it. It costs 2 range requests, not a download.
 
+A loader that keys on the night heals a gap by itself. 5 nightly Instagram
+posts were cleared from the queue by something outside the loader on 10/09, and
+run 20 recreated all 6 missing nights the next afternoon, 5 hours before night
+11's slot: it reported "Created 10: n11-instagram, n12-instagram, n13-instagram,
+n14-instagram, n15-instagram, n16-instagram" plus night 17 on all 4, and night
+11 published at 23:01. That only works because the identity is the night and
+the window reaches 7 days out, so a missing night reads as missing rather than
+as already placed. The caption key would have recreated them too, and it would
+also have duplicated every night whose caption had been corrected, which is the
+trade the 10/06 fix settled.
+
+A finding resolving is not the same as a finding being fixed, and the 2 are
+worth separating in the record. On 10/10 C13 cleared because the posts came
+back, C14 cleared because the orphan published and spent itself, and C17 and
+C08 had cleared on 10/08 by going live with the wrong attribution. Only the
+first is a repair. The other 2 are the board moving on, and 1 of them left
+something live that is still wrong.
+
+Nothing has to be built on a quiet night. The gates that exist caught both of
+10/09's live findings while they were true and went silent when they stopped
+being true, which is what they are for. Inventing a column to have shipped
+something is how a file fills up with rules nobody reads.
+
 A post the platform will refuse does not go out late, it does not go out. On
 10/08 a 71.4 second cut went into a story slot on instagram 45886 and Instagram
 sent it back: "Invalid video duration: 71.398938. Max duration for stories is
